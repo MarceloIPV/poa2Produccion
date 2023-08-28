@@ -156,9 +156,20 @@
 					require_once self::$vista.self::$contenidoVistas."ADMINISTRACION_MODIFICACIONES/".$_GET["ruta"].self::$nomenclatura;
 				}else if($_GET["ruta"]=="bloqueador" || $_GET["ruta"]=="bloqueador2" || $_GET["ruta"]=="bloqueadorFinancieros"){
 					require_once self::$vista.self::$contenidoVistas."BLOQUEADOR/".$_GET["ruta"].self::$nomenclatura;
-				}if($_GET["ruta"]=="seguimientoJuanito"){
+				}else if($_GET["ruta"]=="reporteAnexosOD" || $_GET["ruta"]=="jurisdicciones" || $_GET["ruta"]=="seguimientoRE" || $_GET["ruta"]=="seguimientoRE" || $_GET["ruta"]=="seguimiento" || $_GET["ruta"]=="seguimientoRecomendadosPresupuestario" || $_GET["ruta"]=="seguimientoRe" ){
 
+					if(isset($_SESSION["selectorAniosA"])){
+						if(intval($_SESSION["selectorAniosA"])>=2023){
+							require_once self::$vista.self::$contenidoVistas."POA_SEGUIMIENTO/".$_GET["ruta"].self::$nomenclatura;
+						}else{
+							require_once self::$vista.self::$contenidoVistas.$_GET["ruta"].self::$nomenclatura;
+						}
 
+						
+					}else{
+						require_once self::$vista.self::$contenidoVistas.$_GET["ruta"].self::$nomenclatura;
+					}
+					
 				}else{
 					require_once self::$vista.self::$contenidoVistas.$_GET["ruta"].self::$nomenclatura;
 				}
