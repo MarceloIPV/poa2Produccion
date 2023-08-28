@@ -40,7 +40,7 @@ var funcion__guardado__matricez_Seguimiento2023 = function (parametro1, parametr
 			if (parametro8 == "administrativos__seguimientos") {
 
 				paqueteDeDatos.append('archivo1', $(parametro4)[0].files[0]);
-				paqueteDeDatos.append('archivo2', $(parametro5)[0].files[0]);
+				
 
 			}
 
@@ -53,7 +53,8 @@ var funcion__guardado__matricez_Seguimiento2023 = function (parametro1, parametr
 				processData: false,
 				cache: false,
 				success: function (response) {
-						//alert("HOLA SUCCESS");
+						console.log("HOLA SUCCESS");
+						console.log(response);
 					let elementos = JSON.parse(response);
 
 					let mensaje = elementos['mensaje'];
@@ -304,51 +305,130 @@ var funcion__guardado__matricez_Seguimiento2023 = function (parametro1, parametr
 =            Funciones de guardados            =
 ==============================================*/
 
-var funcion__guardado__general2023 = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7) {
-	// $(parametro1).click(function(e) {
-		var metaProgramada = (parametro3[0]);
-		var validador = false;
-		if(metaProgramada == 0 ){	
-			validador = true;
+// var funcion__guardado__indicadores__general2023 = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7) {
+// 	// $(parametro1).click(function(e) {
+// 		var metaProgramada = (parametro3[0]);
+// 		var validador = false;
+// 		if(metaProgramada == 0 ){	
+// 			validador = true;
 			
-		}else{
-			var sumadorErrores = 0;
-			$(parametro2).each(function (index) {
-				if ($(this).val() == "") {
-					sumadorErrores++;
-				}
-			});
-			if (sumadorErrores == 0) {
-				validador = true;
-			} else {
-				validador = false;
-			}			
+// 		}else{
+// 			var sumadorErrores = 0;
+// 			$(parametro2).each(function (index) {
+// 				if ($(this).val() == "") {
+// 					sumadorErrores++;
+// 				}
+// 			});
+// 			if (sumadorErrores == 0) {
+// 				validador = true;
+// 			} else {
+// 				validador = false;
+// 			}			
 			
-		};
+// 		};
 
-	validacionRegistroMostrarErrores2023(parametro3[0]);
-		if (validador == false) {
-			alertify.set("notifier", "position", "top-center");
-			alertify.notify("Añadir documento de sustento", "error", 5, function () { });
-			$(parametro1).show();
+// 	validacionRegistroMostrarErrores2023(parametro3[0]);
+// 		if (validador == false) {
+// 			alertify.set("notifier", "position", "top-center");
+// 			alertify.notify("Añadir documento de sustento", "error", 5, function () { });
+// 			$(parametro1).show();
 
-		} else {
+// 		} else {
 
+// 		var confirm = alertify.confirm('¿Está seguro de guardar la información ingresada?', '¿Está seguro de guardar la información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
+
+// 		confirm.set({ transition: 'slide' });
+
+// 		confirm.set('onok', function () {
+
+// 			var paqueteDeDatos = new FormData();
+
+// 			paqueteDeDatos.append("tipo", parametro5);
+
+// 			paqueteDeDatos.append("prametros", JSON.stringify(parametro3));
+
+// 			if (parametro4 != false) {
+// 				paqueteDeDatos.append('archivo', $(parametro4)[0].files[0]);
+// 			}
+
+// 			$.ajax({
+
+// 				type: "POST",
+// 				url: "modelosBd/POA_SEGUIMIENTO/inserta.md.php",
+// 				contentType: false,
+// 				data: paqueteDeDatos,
+// 				processData: false,
+// 				cache: false,
+// 				success: function (response) {
+// 					console.log("response")
+// 					console.log(response)
+
+// 					alertify.set("notifier", "position", "top-center");
+// 					alertify.notify("Registro realizado correctamente", "success", 5, function () { });
+
+					
+					
+// 					var elementos = JSON.parse(response);
+// 					var mensaje = elementos['mensaje'];
+// 					console.log("mensaje")
+// 					console.log(mensaje)
+
+// 					if (mensaje == 1) {
+// 						alertify.set("notifier", "position", "top-center");
+// 						alertify.notify("Registro realizado correctamente", "success", 5, function () { });
+
+// 						$(parametro6).remove();
+// 						$(parametro7).hide();
+
+// 					}
+
+// 				},
+// 				error: function () {
+
+// 				}
+
+// 			});
+
+// 		});
+
+
+// 		confirm.set('oncancel', function () { //callbak al pulsar botón negativo
+// 			alertify.set("notifier", "position", "top-center");
+// 			alertify.notify("Acción cancelada", "error", 1, function () {
+
+// 				$(parametro1).show();
+
+// 			});
+// 		});
+
+// 	}
+
+// 	// });
+
+// }
+
+
+var funcion__guardado__indicadores__general2023 = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6) {
+
+	$Valorcomparar = parametro3[0];
+	$ValorExedido = parametro3[1];
+
+if($ValorExedido > $Valorcomparar){
+	alertify.set("notifier","position", "top-center");
+	alertify.notify("Valor supera la cantidad de META PROGRAMADA", "error", 5, function(){});
+}else{
 		var confirm = alertify.confirm('¿Está seguro de guardar la información ingresada?', '¿Está seguro de guardar la información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
-
+		
 		confirm.set({ transition: 'slide' });
 
 		confirm.set('onok', function () {
 
 			var paqueteDeDatos = new FormData();
 
-			paqueteDeDatos.append("tipo", parametro5);
+			paqueteDeDatos.append("tipo", parametro4);
 
 			paqueteDeDatos.append("prametros", JSON.stringify(parametro3));
-
-			if (parametro4 != false) {
-				paqueteDeDatos.append('archivo', $(parametro4)[0].files[0]);
-			}
+	
 
 			$.ajax({
 
@@ -359,14 +439,9 @@ var funcion__guardado__general2023 = function (parametro1, parametro2, parametro
 				processData: false,
 				cache: false,
 				success: function (response) {
-					console.log("response")
-					console.log(response)
+				
 
-					alertify.set("notifier", "position", "top-center");
-					alertify.notify("Registro realizado correctamente", "success", 5, function () { });
-
-					
-					
+							
 					var elementos = JSON.parse(response);
 					var mensaje = elementos['mensaje'];
 					console.log("mensaje")
@@ -376,8 +451,8 @@ var funcion__guardado__general2023 = function (parametro1, parametro2, parametro
 						alertify.set("notifier", "position", "top-center");
 						alertify.notify("Registro realizado correctamente", "success", 5, function () { });
 
-						$(parametro6).remove();
-						$(parametro7).hide();
+						//$(parametro6).remove();
+						//$(parametro7).hide();
 
 					}
 
@@ -387,9 +462,10 @@ var funcion__guardado__general2023 = function (parametro1, parametro2, parametro
 				}
 
 			});
-
+			$(parametro1).hide();
+			$(parametro1).remove();
 		});
-
+	}
 
 		confirm.set('oncancel', function () { //callbak al pulsar botón negativo
 			alertify.set("notifier", "position", "top-center");
@@ -400,11 +476,9 @@ var funcion__guardado__general2023 = function (parametro1, parametro2, parametro
 			});
 		});
 
-	}
-
-	// });
 
 }
+
 
 
 /*=====  End of Funciones de guardados  ======*/
@@ -458,7 +532,7 @@ var funcion__agregar__filas_seguimiento_2023 = function (parametro1, parametro2,
 
 						alertify.set("notifier", "position", "top-center");
 						alertify.notify("Registro realizado correctamente", "success", 10, function () { });
-
+						
 						$("." + parametro5 + parametro6).hide();
 
 
@@ -534,50 +608,7 @@ var insertar__contrataciones__publicas_seguimiento_defecto=function(idItem,idAct
 }
 
 
-var insertar__registro_contrataciones__publicas_seguimiento=function(idItem,registro,justificacion,trimestre){
-
-            var paqueteDeDatos = new FormData();
-    
-            paqueteDeDatos.append('tipo','registro__contratacion__seguimiento');		
-    
-      
-            paqueteDeDatos.append("idItem",idItem);
-			paqueteDeDatos.append("registro",registro)
-			paqueteDeDatos.append("justificacion",justificacion)
-			paqueteDeDatos.append("trimestre",trimestre)
-   
-
-            axios({
-                method: "post",
-                url: "modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-                data: paqueteDeDatos,
-                headers: { "Content-Type": "multipart/form-data" },
-            }).then((response) => {
-
-                mensaje =response.data.mensaje;
-
-                console.log(response.data)
-    
-                if (mensaje==1) {
-    
-                    alertify.set("notifier","position", "top-center");
-                    alertify.notify("Registro realizado correctamente", "success", 3, function(){});
-    
-                }
-    
-            }).catch((error) => {
-            
-            });
-
-
-}
-
-var insertar__registro_contrataciones__publicas_seguimiento2=function(boton,registro,justificacion){
-
-	$(boton).click(function (e) {
-
-	var idItem = $(this).attr("idItem")
-	var trimestre = $(this).attr("trimestre")
+var insertar__registro_contrataciones__publicas_seguimiento=function(idItem,registro,justificacion,trimestre,actividad){
 
 	var paqueteDeDatos = new FormData();
 
@@ -586,8 +617,10 @@ var insertar__registro_contrataciones__publicas_seguimiento2=function(boton,regi
 
 	paqueteDeDatos.append("idItem",idItem);
 	paqueteDeDatos.append("registro",registro)
-	paqueteDeDatos.append("justificacion",$(justificacion).val())
+	paqueteDeDatos.append("justificacion",justificacion)
 	paqueteDeDatos.append("trimestre",trimestre)
+	paqueteDeDatos.append("actividad",actividad)
+
 
 	axios({
 		method: "post",
@@ -595,7 +628,7 @@ var insertar__registro_contrataciones__publicas_seguimiento2=function(boton,regi
 		data: paqueteDeDatos,
 		headers: { "Content-Type": "multipart/form-data" },
 	}).then((response) => {
-		
+
 		mensaje =response.data.mensaje;
 
 		console.log(response.data)
@@ -611,6 +644,60 @@ var insertar__registro_contrataciones__publicas_seguimiento2=function(boton,regi
 	
 	});
 
+
+}
+
+var insertar__registro_contrataciones__publicas_seguimiento2=function(boton,registro,justificacion){
+
+	$(boton).click(function (e) {
+		if($(justificacion).val()==""){
+
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Necesita establecer un justificativo", "warning", 4, function(){});
+
+		}else{
+
+		
+
+			var idItem = $(this).attr("idItem")
+			var trimestre = $(this).attr("trimestre")
+			var actividad = $(this).attr("actividad")
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','registro__contratacion__seguimiento');		
+
+
+			paqueteDeDatos.append("idItem",idItem);
+			paqueteDeDatos.append("registro",registro)
+			paqueteDeDatos.append("justificacion",$(justificacion).val())
+			paqueteDeDatos.append("trimestre",trimestre)
+			paqueteDeDatos.append("actividad",actividad)
+
+			axios({
+				method: "post",
+				url: "modelosBd/POA_SEGUIMIENTO/inserta.md.php",
+				data: paqueteDeDatos,
+				headers: { "Content-Type": "multipart/form-data" },
+			}).then((response) => {
+				
+				mensaje =response.data.mensaje;
+
+				console.log(response.data)
+
+				if (mensaje==1) {
+
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Registro realizado correctamente", "success", 3, function(){});
+
+				}
+
+			}).catch((error) => {
+			
+			});
+
+			$('#contrataciones__NoitemsSeguimiento').modal('hide');
+		}	
 	});
 
 }
@@ -650,7 +737,38 @@ var guardar_zonales_juridicciones=function(parametro1,parametro2,parametro3){
 		let letrero=$(this).attr('botonClass');
 
 		if(letrero=="bloquear"){
-			var confirm= alertify.prompt('¿Está seguro de cerrar los organismos seleccionados? Ingresar motivo en caso de requerirlo','',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+			// var confirm= alertify.prompt('¿Está seguro222 de cerrar los organismos seleccionados? Ingresar motivo en caso de requerirlo','',null,null).set('labels', {ok:'ConfirmarDavidPACA', cancel:'Cancelar'});   
+			
+			// Crear un elemento select y opciones
+				var selectElement = document.createElement('select');
+
+				// Crear opciones
+				var option1 = document.createElement('option');
+				option1.value = 'da';
+				option1.text = 'Opción 1';
+				var option2 = document.createElement('option');
+				option2.value = 'de';
+				option2.text = 'Opción 2';
+				var option3 = document.createElement('option');
+				option3.value = 'di';
+				option3.text = 'Opción 3';
+
+				// Agregar las opciones al elemento select
+				selectElement.appendChild(option1);
+				selectElement.appendChild(option2);
+				selectElement.appendChild(option3);
+
+				// Mostrar el cuadro de diálogo personalizado
+				var confirm = alertify.confirm('¿Está seguro de cerrar los organismos seleccionados?', function(e) {
+				if (e) {
+					// Obtener el valor seleccionado del select
+					var selectedOption = selectElement.value;
+					console.log('Opción seleccionada:', selectedOption);
+				} else {
+					console.log('Acción cancelada');
+				}
+				}).set('labels', {ok:'Confirmar', cancel:'Cancelar'}).setting('closable', false).setContent(selectElement);
+
 		}else{
 			var confirm= alertify.prompt('¿Está seguro de abrir los organismos seleccionados? Ingresar motivo obligatorio','',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
 		}
@@ -730,3 +848,419 @@ var guardar_zonales_juridicciones=function(parametro1,parametro2,parametro3){
 
 
 }
+
+
+var enviarCorreo2=function(parametro1){
+
+	$(parametro1).click(function(){
+
+	
+
+	});
+
+
+}
+
+function enviarCorreo() {
+	// Obtener los datos del formulario
+	var nombre = document.getElementById('nombre').value;
+	var correo = document.getElementById('correo').value;
+	var mensaje = document.getElementById('mensaje').value;
+  
+	// Crear objeto FormData para enviar los datos al servidor
+	var formData = new FormData();
+	formData.append('nombre', nombre);
+	formData.append('correo', correo);
+	formData.append('mensaje', mensaje);
+  
+	// Realizar una llamada AJAX para enviar los datos al servidor
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'pruebaEnvioCorreo.view.php', true);
+	xhr.onload = function() {
+	  if (xhr.status === 200) {
+		// La solicitud se completó correctamente
+		var response = JSON.parse(xhr.responseText);
+		if (response.success) {
+		  // El correo se envió exitosamente
+		  alert('El correo se envió correctamente.');
+		} else {
+		  // Ocurrió un error al enviar el correo
+		  alert('Error al enviar el correo. Inténtelo de nuevo.');
+		}
+	  } else {
+		// Ocurrió un error en la solicitud AJAX
+		alert('Error en la solicitud AJAX. Inténtelo de nuevo.');
+	  }
+	};
+	xhr.send(formData);
+  }
+
+
+  /*====================================================
+=            Funciones guardados mátrices            =
+====================================================*/
+
+var funcion__guardado__matricez__sueldos__salarios = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7, parametro8, parametro9, parametro10, parametro11, parametro12, parametro13, parametro14, parametro15) {
+
+	// $(parametro1).click(function(e) {
+		//console.log("PARAMETRO #3");
+		//console.log(parametro3);
+
+	var validador = validacionRegistro(parametro2);
+	validacionRegistroMostrarErrores(parametro2);
+
+	if (validador == false) {
+
+		alertify.set("notifier", "position", "top-center");
+		alertify.notify("Campos obligatorios", "error", 5, function () { });
+
+		$(parametro1).show();
+
+	} else {
+
+		//var confirm = alertify.confirm('¿Está seguro de guardar los información ingresada?', '¿Está seguro de guardar los información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
+
+		//confirm.set({ transition: 'slide' });
+
+	//	confirm.set('onok', function () {
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append("tipo", parametro8);
+
+			paqueteDeDatos.append("parametros", JSON.stringify(parametro3));
+
+
+			if (parametro8 == "honorarios__seguimientos") {
+
+				paqueteDeDatos.append('archivo1', $(parametro4)[0].files[0]);
+				paqueteDeDatos.append('archivo2', $(parametro5)[0].files[0]);
+				paqueteDeDatos.append('archivo3', $(parametro6)[0].files[0]);
+				paqueteDeDatos.append('archivo4', $(parametro7)[0].files[0]);
+
+			}
+
+
+			if (parametro8 == "administrativos__seguimientos") {
+
+				paqueteDeDatos.append('archivo1', $(parametro4)[0].files[0]);
+				paqueteDeDatos.append('archivo2', $(parametro5)[0].files[0]);
+
+			}
+
+			$.ajax({
+
+				type: "POST",
+				url: "modelosBd/inserta/insertaAcciones.md.php",
+				contentType: false,
+				data: paqueteDeDatos,
+				processData: false,
+				cache: false,
+				success: function (response) {
+						
+					let elementos = JSON.parse(response);
+
+					let mensaje = elementos['mensaje'];
+
+					$(parametro13).remove();
+
+					$(parametro14).remove();
+
+
+					if (parametro3[12] == "Marzo" || parametro3[12] == "Junio" || parametro3[12] == "Septiembre" || parametro3[12] == "Diciembre" || parametro3[4] == "Marzo" || parametro3[4] == "Junio" || parametro3[4] == "Septiembre" || parametro3[4] == "Diciembre" || parametro15 == true) {
+
+						$("#contadorIndicador").val(0);
+						$("#contadorIndicador2").val(0);
+
+						//$(".modal__ItemsGrup").modal('hide');//ocultamos el modal
+						//$('.modal-backdrop').remove();//eliminamos el backdrop del modal
+
+					}
+
+					if (mensaje == 1) {
+
+						alertify.set("notifier", "position", "top-center");
+						alertify.notify("Registro realizado correctamente", "success", 10, function () { });
+
+
+					}
+
+				},
+				error: function () {
+
+				}
+
+			});
+			
+		//});
+
+
+		// confirm.set('oncancel', function () { //callbak al pulsar botón negativo
+		// 	alertify.set("notifier", "position", "top-center");
+		// 	alertify.notify("Acción cancelada", "error", 1, function () {
+
+		// 		$(parametro1).show();
+
+		// 	});
+		// });
+
+	}
+
+	// });
+
+}
+
+var funcion__guardado__matricez__sueldos__salarios_totales = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7, parametro8, parametro9, parametro10, parametro11, parametro12, parametro13, parametro14, parametro15) {
+
+	// $(parametro1).click(function(e) {
+		alert("¿Desea guardar la información?")
+console.log("PARA2 n");
+console.log(parametro2);
+console.log("PARA3 n");
+console.log(parametro3);
+
+			 $(parametro1).show();
+
+
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append("tipo", parametro7);
+
+			paqueteDeDatos.append("parametro2", JSON.stringify(parametro2));
+
+
+			$.ajax({
+
+				type: "POST",
+				url: "modelosBd/inserta/insertaAcciones.md.php",
+				contentType: false,
+				data: paqueteDeDatos,
+				processData: false,
+				cache: false,
+				success: function (response) {
+						//alert("HOLA SUCCESS");
+					let elementos = JSON.parse(response);
+
+					let mensaje = elementos['mensaje'];
+
+					$(parametro13).remove();
+
+					$(parametro14).remove();
+
+
+
+					if (mensaje == 1) {
+
+						// alertify.set("notifier", "position", "top-center");
+						// alertify.notify("Registro realizado correctamente escoger la siguiente pestaña", "success", 10, function () { });
+
+
+					}
+
+				},
+				error: function () {
+
+				}
+
+			});
+
+	
+
+}
+
+/*=====  End of Funciones guardados mátrices  ======*/
+
+
+var funcion__guardado__matricez = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7, parametro8, parametro9, parametro10, parametro11, parametro12, parametro13, parametro14, parametro15) {
+
+	// $(parametro1).click(function(e) {
+		alert("GUARDADO ADENTRO")
+	var validador = validacionRegistro(parametro2);
+	validacionRegistroMostrarErrores(parametro2);
+
+	if (validador == false) {
+
+		alertify.set("notifier", "position", "top-center");
+		alertify.notify("Campos obligatorios", "error", 5, function () { });
+
+		$(parametro1).show();
+
+	} else {
+
+		var confirm = alertify.confirm('¿Está seguro de guardar los información ingresada?', '¿Está seguro de guardar los información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
+
+		confirm.set({ transition: 'slide' });
+
+		confirm.set('onok', function () {
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append("tipo", parametro8);
+
+			paqueteDeDatos.append("parametros", JSON.stringify(parametro3));
+
+
+			if (parametro8 == "honorarios__seguimientos") {
+
+				paqueteDeDatos.append('archivo1', $(parametro4)[0].files[0]);
+				paqueteDeDatos.append('archivo2', $(parametro5)[0].files[0]);
+				paqueteDeDatos.append('archivo3', $(parametro6)[0].files[0]);
+				paqueteDeDatos.append('archivo4', $(parametro7)[0].files[0]);
+
+			}
+
+
+			if (parametro8 == "administrativos__seguimientos") {
+
+				paqueteDeDatos.append('archivo1', $(parametro4)[0].files[0]);
+				paqueteDeDatos.append('archivo2', $(parametro5)[0].files[0]);
+
+			}
+
+			$.ajax({
+
+				type: "POST",
+				url: "modelosBd/inserta/insertaAcciones.md.php",
+				contentType: false,
+				data: paqueteDeDatos,
+				processData: false,
+				cache: false,
+				success: function (response) {
+						//alert("HOLA SUCCESS");
+					let elementos = JSON.parse(response);
+
+					let mensaje = elementos['mensaje'];
+
+					$(parametro13).remove();
+
+					$(parametro14).remove();
+
+
+					if (parametro3[12] == "Marzo" || parametro3[12] == "Junio" || parametro3[12] == "Septiembre" || parametro3[12] == "Diciembre" || parametro3[4] == "Marzo" || parametro3[4] == "Junio" || parametro3[4] == "Septiembre" || parametro3[4] == "Diciembre" || parametro15 == true) {
+
+						$("#contadorIndicador").val(0);
+						$("#contadorIndicador2").val(0);
+
+						//$(".modal__ItemsGrup").modal('hide');//ocultamos el modal
+						//$('.modal-backdrop').remove();//eliminamos el backdrop del modal
+
+					}
+
+					if (mensaje == 1) {
+
+						alertify.set("notifier", "position", "top-center");
+						alertify.notify("Registro realizado correctamente escoger la siguiente pestaña", "success", 10, function () { });
+
+
+					}
+
+				},
+				error: function () {
+
+				}
+
+			});
+
+		});
+
+
+		// confirm.set('oncancel', function () { //callbak al pulsar botón negativo
+		// 	alertify.set("notifier", "position", "top-center");
+		// 	alertify.notify("Acción cancelada", "error", 1, function () {
+
+		// 		$(parametro1).show();
+
+		// 	});
+		// });
+
+	}
+
+	// });
+
+}
+
+/*=====  End of Funciones guardados mátrices  ======*/
+
+/*=====   Funciones guardados Facturas  ======*/
+
+var funcion__guardar__Factura__2023 = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7) {
+
+
+	var validador = validacionRegistro($(parametro3));
+	validacionRegistroMostrarErrores($(parametro3));
+
+	if (validador == false) {
+
+		alertify.set("notifier", "position", "top-center");
+		alertify.notify("Campos obligatorios", "error", 5, function () { });
+
+		$(parametro1).show();
+
+	} else {
+
+		var confirm = alertify.confirm('¿Está seguro de guardar los información ingresada?', '¿Está seguro de guardar los información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
+
+		confirm.set({ transition: 'slide' });
+
+		confirm.set('onok', function () {
+
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append("tipo", parametro4);
+
+			paqueteDeDatos.append("parametros", JSON.stringify(parametro2));
+
+			if (parametro7 != false) {
+
+				paqueteDeDatos.append('archivo1', $(parametro7)[0].files[0]);
+
+			}
+
+			$.ajax({
+
+				type: "POST",
+				url: "modelosBd/POA_SEGUIMIENTO/inserta.md.php",
+				contentType: false,
+				data: paqueteDeDatos,
+				processData: false,
+				cache: false,
+				success: function (response) {
+
+					var elementos = JSON.parse(response);
+
+					var mensaje = elementos['mensaje'];
+
+
+					if (mensaje == 1) {
+
+						alertify.set("notifier", "position", "top-center");
+						alertify.notify("Registro realizado correctamente", "success", 10, function () { });
+
+					}
+
+				},
+				error: function () {
+
+				}
+
+			});
+
+		});
+
+
+		confirm.set('oncancel', function () { //callbak al pulsar botón negativo
+			alertify.set("notifier", "position", "top-center");
+			alertify.notify("Acción cancelada", "error", 1, function () {
+
+				$(parametro1).show();
+
+			});
+		});
+
+	}
+
+}
+
+/*=====  End of Funciones guardados Facturas  ======*/

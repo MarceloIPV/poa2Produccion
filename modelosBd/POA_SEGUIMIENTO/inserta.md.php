@@ -54,7 +54,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$inserta=$objeto->getInsertaNormal('poa_seguimiento_recreativo_tecnico', array("`idCompetenciaSeguimiento`, ","`idAdministrativo`, ","`trimestre`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observacionesTecnicas`, ","`porcentaje`, ","`beneficiariosHombres`, ","`beneficiariosMujeres`, ","`totalT`, ","`fechaInicioP`, ","`fechaInicioEjecutado`, ","`fechaFinP`, ","`fechaFinEjecutado`, ","`tipoEvento`, ","`eventoTareaE`, ","`nivel`, ","`total`, ","`nombreOrganismo`, ","`ruc`, ","`tipoOrganizacion`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$arrayInformacion[8]', ","'$arrayInformacion[9]', ","'$arrayInformacion[10]', ","'$arrayInformacion[11]', ","'$arrayInformacion[12]', ","'$arrayInformacion[13]', ","'$arrayInformacion[14]', ","'$arrayInformacion[15]', ","'$arrayInformacion[16]', ","'$arrayInformacion[17]', ","'$arrayInformacion[18]', ","'$aniosPeriodos__ingesos'"));
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_recreativo_tecnico', array("`idCompetenciaSeguimiento`, ","`idAdministrativo`, ","`trimestre`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observacionesTecnicas`, ","`porcentaje`, ","`beneficiariosHombres`, ","`beneficiariosMujeres`, ","`totalT`, ","`fechaInicioP`, ","`fechaInicioEjecutado`, ","`fechaFinP`, ","`fechaFinEjecutado`, ","`tipoEvento`, ","`eventoTareaE`, ","`nivel`, ","`total`, ","`nombreOrganismo`, ","`ruc`, ","`tipoOrganizacion`, ","`perioIngreso`,","`beneficiariosHombres18`,","`beneficiariosMujeres18`,","`totalT18`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$arrayInformacion[8]', ","'$arrayInformacion[9]', ","'$arrayInformacion[10]', ","'$arrayInformacion[11]', ","'$arrayInformacion[12]', ","'$arrayInformacion[13]', ","'$arrayInformacion[14]', ","'$arrayInformacion[15]', ","'$arrayInformacion[16]', ","'$arrayInformacion[17]', ","'$arrayInformacion[18]', ","'$aniosPeriodos__ingesos',","'$arrayInformacion[20]',","'$arrayInformacion[21]',","'$arrayInformacion[22]'"));
 
 
 			$mensaje=1;
@@ -65,45 +65,9 @@
 		break;	
 
 
-		case  "capacitacion__guardar__otros":
+		
 
-			$arrayInformacion = json_decode($parametros);
-
-			$direccion1="../../documentos/seguimiento/otrosCapacitacion/";
-
-			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
-
-			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
-
-
-			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_capacitacion', array("`idOtrosCapacitacion`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
-			
-			$mensaje=1;
-
-			$jason['mensaje']=$mensaje;
-
-
-		break;
-
-		case  "competencias__guardar__otros":
-
-			$arrayInformacion = json_decode($parametros);
-
-			$direccion1="../../documentos/seguimiento/otrosCompetencia/";
-
-			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
-
-			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
-
-
-			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_competencia', array("`idOtrosCompetencia`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
-			
-			$mensaje=1;
-
-			$jason['mensaje']=$mensaje;
-
-
-		break;
+		
 
 		
 
@@ -133,35 +97,36 @@
 
 
 //*************************************************** DECLARACION DE RECURSOS PUBLICOS **************************************//
-		case  "guardar_declaracion_recusos2023":
-			$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
-			$direccion1="../../documentos/seguimiento/declaracion_recursos_publicos/";
-			$documento=$objeto->getEnviarPdf($_FILES["declaracion_rp"]['type'],$_FILES["declaracion_rp"]['size'],$_FILES["declaracion_rp"]['tmp_name'],$_FILES["declaracion_rp"]['name'],$direccion1,$nombre__archivo);
+		// case  "guardar_declaracion_recusos2023":
+		// 	$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
+		// 	$direccion1="../../documentos/seguimiento/declaracion_recursos_publicos/";
+		// 	$documento=$objeto->getEnviarPdf($_FILES["declaracion_rp"]['type'],$_FILES["declaracion_rp"]['size'],$_FILES["declaracion_rp"]['tmp_name'],$_FILES["declaracion_rp"]['name'],$direccion1,$nombre__archivo);
 
 
-			$conexionRecuperada= new conexion();
-			$conexionEstablecida=$conexionRecuperada->cConexion();			
-			if($btnEnviar == 1){
-				$query="INSERT INTO `poa_seguimiento_declaracion`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`, `hora`) VALUES ('$nombre__archivo','$idOrganismo','$fecha_actual','$trimestre','$aniosPeriodos__ingesos','$hora_actual')";
-				//$query="INSERT INTO `poa_seguimiento_declaracion_recursos_publicos`(`documento`, `fecha`, `hora`, `trimestre`, `IdOrganismo`, `perioIngreso`) VALUES ('$nombre__archivo','$fecha_actual','$hora_actual','$trimestre','$idOrganismo','$aniosPeriodos__ingesos')";
+		// 	$conexionRecuperada= new conexion();
+		// 	$conexionEstablecida=$conexionRecuperada->cConexion();			
+		// 	if($btnEnviar == 1){
+		// 		$query="INSERT INTO `poa_seguimiento_declaracion`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`, `hora`) VALUES ('$nombre__archivo','$idOrganismo','$fecha_actual','$trimestre','$aniosPeriodos__ingesos','$hora_actual')";
+		// 		//$query="INSERT INTO `poa_seguimiento_declaracion_recursos_publicos`(`documento`, `fecha`, `hora`, `trimestre`, `IdOrganismo`, `perioIngreso`) VALUES ('$nombre__archivo','$fecha_actual','$hora_actual','$trimestre','$idOrganismo','$aniosPeriodos__ingesos')";
 			
 
-			$resultado= $conexionEstablecida->exec($query);
+		// 	$resultado= $conexionEstablecida->exec($query);
 
-		}
-			$mensaje=1;
-			$jason['mensaje']=$mensaje;	
-		break;
+		// }
+		// 	$mensaje=1;
+		// 	$jason['mensaje']=$mensaje;	
+		// break;
 
 //******************************* Guardado de Indicadores (Meta Programado Meta ejecutado Doc Sustento) ********************************//
 		case  "seguimiento__indicadores2023":
+
 
 			$arrayInformacion = json_decode($prametros);
 
 			$nombre__archivo=$fecha_actual."__".$arrayInformacion[2]."__".$arrayInformacion[3].".pdf";
 			$direccion="../../documentos/seguimiento/indicadoresDocumento/";
 
-			$documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion,$nombre__archivo);
+			// $documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion,$nombre__archivo);
 
 			$inserta=$objeto->getInsertaNormal('poa_indicadores_seguimiento', array("`idModificaIndicadores`, ","`totalProgramado`, ","`totalEjecutado`, ","`documento`, ","`idOrganismo`, ","`idActividad`, ","`trimestre`, ","`fecha`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$nombre__archivo', ","'$arrayInformacion[2]', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$fecha_actual', ","'$aniosPeriodos__ingesos'"));
 
@@ -185,7 +150,47 @@
 
 		break;
 
-		//*************************************************** competencias_presupuestario__guardar **************************************//
+		case  "competencias__guardar__otros":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/otrosCompetencia/";
+
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_competencia', array("`idOtrosCompetencia`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+			
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+		case  "competencias__guardar__facturas":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/facturasCompetencias/";
+
+			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_facturas_competencia', array("`idFacturaCompetencia`, ","`documento`, ","`numeroFactura`, ","`fechaFactura`, ","`ruc`, ","`autorizacion`, ","`monto`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+		//*************************************************** capacitacion_presupuestario__guardar **************************************//
 		case  "capacitacion__guardar":
 
 			$arrayInformacion = json_decode($parametros);
@@ -201,6 +206,66 @@
 		
 		break;
 
+		case  "capacitacion__guardar__otros":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/otrosCapacitacion/";
+
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_capacitacion', array("`idOtrosCapacitacion`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+			
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+		case  "capacitacion__guardar__facturas":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/facturasCapacitacion/";
+
+			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_facturas_capacitacion', array("`idFacturaCapacitacion`, ","`documento`, ","`numeroFactura`, ","`fechaFactura`, ","`ruc`, ","`autorizacion`, ","`monto`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+		case  "otros__capacitacion__tecnicos":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/otrosCpacitacion_tecnico/";
+
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_capacitacion_tecnico', array("`idOtrosCapacitacionTecnico`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+			
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
 		//*************************************************** mantenimeinto_presupuestario__guardar **************************************//
 
 		case  "mantenimiento__guardar__otros":
@@ -209,13 +274,33 @@
 
 			$direccion1="../../documentos/seguimiento/otrosMantenimiento/";
 
-			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
 			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
 
 
 			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_mantenimiento', array("`idOtrosMantenimiento`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
 			
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+		case  "mantenimiento__guardar__facturas":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/facturasMantenimiento/";
+
+			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_facturas_mantenimiento', array("`idFacturaMantenimiento`, ","`documento`, ","`numeroFactura`, ","`fechaFactura`, ","`ruc`, ","`autorizacion`, ","`monto`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
 			$mensaje=1;
 
 			$jason['mensaje']=$mensaje;
@@ -237,6 +322,7 @@
 
 		break;
 
+
 		//*************************************************** recreativo_presupuesto__guardar__otros **************************************//
 
 
@@ -246,7 +332,7 @@
 
 			$direccion1="../../documentos/seguimiento/otrosRecreativo/";
 
-			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
 			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
 
@@ -274,6 +360,26 @@
 
 		break;
 
+		case  "recreativo__guardar__facturas":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/facturasRecreativo/";
+
+			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_facturas_recreativo', array("`idFacturaRecreativo`, ","`documento`, ","`numeroFactura`, ","`fechaFactura`, ","`ruc`, ","`autorizacion`, ","`monto`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
 		//***************************************************implementacion_deportiva_presupuesto__guardar__otros **************************************//
 
 
@@ -283,7 +389,7 @@
 
 			$direccion1="../../documentos/seguimiento/otrosInstalaciones/";
 
-			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
 			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
 
@@ -311,6 +417,26 @@
 
 		break;
 
+		case  "implementacion__guardar__facturas":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/facturasImplementacion/";
+
+			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_facturas_instalaciones', array("`idFacturaInstalaciones`, ","`documento`, ","`numeroFactura`, ","`fechaFactura`, ","`ruc`, ","`autorizacion`, ","`monto`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
 
 		//***************************************************administrativo_presupuesto__guardar__otros **************************************//
 
@@ -320,7 +446,7 @@
 
 			$direccion1="../../documentos/seguimiento/otrosHabilitantes__administrativo/";
 
-			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
 			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
 
@@ -353,22 +479,30 @@
 
 			}
 
-			if (isset($archivo2)) {
-				
-				$nombre__archivo2="no";
-
-			}else{
-
-				$nombre__archivo2=$fecha_actual."__".$arrayInformacion[3]."__".$hora_actual2.".pdf";
-
-				$documento=$objeto->getEnviarPdf($_FILES["archivo2"]['type'],$_FILES["archivo2"]['size'],$_FILES["archivo2"]['tmp_name'],$_FILES["archivo2"]['name'],$direccion2,$nombre__archivo2);
-
-			}
 
 
-
-			$inserta=$objeto->getInsertaNormal('poa_seguimiento_administrativo', array("`idAdministrativoSegui`, ","`mensualProgramado`, ","`mensualEjecutado`, ","`factura`, ","`otrosHabilitantes`, ","`mes`, ","`trimestre`, ","`idAdministrativo`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$nombre__archivo1', ","'$nombre__archivo2', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[7]', ","'$arrayInformacion[2]', ","'$fecha_actual', ","'$hora_actual', ","'$aniosPeriodos__ingesos'"));
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_administrativo', array("`idAdministrativoSegui`, ","`mensualProgramado`, ","`mensualEjecutado`, ","`factura`, ","`otrosHabilitantes`, ","`mes`, ","`trimestre`, ","`idAdministrativo`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$nombre__archivo1', ","'0', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[7]', ","'$arrayInformacion[2]', ","'$fecha_actual', ","'$hora_actual', ","'$aniosPeriodos__ingesos'"));
 			
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+		case  "facturas__administrativas":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/facturas__administrativo/";
+
+			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_facturas_administrativo', array("`idFacturaAdministrativos`, ","`documento`, ","`numeroFactura`, ","`fechaFactura`, ","`ruc`, ","`autorizacion`, ","`monto`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
 			$mensaje=1;
 
 			$jason['mensaje']=$mensaje;
@@ -384,14 +518,14 @@
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 		
-			$query="INSERT INTO `poa_catalogo_contraloria_seguimiento` ( `catalogo__elect`, `catalogo__subasta`, `catalogo__infima`, `catalogo__menorCuantia`, `catalogo__cotizacion`, `catalogo__licitacion`, `catalogo__menorCuantiaObras`, `catalogo__cotizacionObras`, `catalogo__licitacionObras`, `catalogo__precioObras`, `catalogo__contratacionDirecta`, `catalogo__contratacionListaCorta`, `catalogo__contratacionConcursoPu`, `catalogo__elect__texto`, `catalogo__elect__cantidad`, `catalogo__elect__monto`, `catalogo__subasta__texto`, `catalogo__subasta__cantidad`, `catalogo__subasta__monto`, `catalogo__infima__texto`, `catalogo__infima__cantidad`, `catalogo__infima__monto`, `catalogo__menorCuantia__texto`, `catalogo__menorCuantia__cantidad`, `catalogo__menorCuantia__monto`, `catalogo__cotizacion__texto`, `catalogo__cotizacion__cantidad`, `catalogo__cotizacion__monto`, `catalogo__licitacion__texto`, `catalogo__licitacion__cantidad`, `catalogo__licitacion__monto`, `catalogo__menorCuantiaObras__texto`, `catalogo__menorCuantiaObras__cantidad`, `catalogo__menorCuantiaObras__monto`, `catalogo__cotizacionObras__texto`, `catalogo__cotizacionObras__cantidad`, `catalogo__cotizacionObras__monto`, `catalogo__licitacionObras__texto`, `catalogo__licitacionObras__cantidad`, `catalogo__licitacionObras__monto`, `catalogo__precioObras__texto`, `catalogo__precioObras__cantidad`, `catalogo__precioObras__monto`, `catalogo__contratacionDirecta__texto`, `catalogo__contratacionDirecta__cantidad`, `catalogo__contratacionDirecta__monto`, `catalogo__contratacionListaCorta__texto`, `catalogo__contratacionListaCorta__cantidad`, `catalogo__contratacionListaCorta__monto`, `catalogo__contratacionConcursoPu__texto`, `catalogo__contratacionConcursoPu__cantidad`, `catalogo__contratacionConcursoPu__monto`, `idOrganismo`, `idItemCatalogo`, `perioIngreso`, `noAplica__3`, `idActividad`, `trimestre`) VALUES ('no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, ' ',0,0, '$idOrganismoSession', '$idItem', '$aniosPeriodos__ingesos', 'no', '$idActividad','$trimestre' );";
+			$query="INSERT INTO `poa_catalogo_contraloria_seguimiento` (`catalogo__elect`, `catalogo__subasta`, `catalogo__infima`, `catalogo__menorCuantia`, `catalogo__cotizacion`, `catalogo__licitacion`, `catalogo__menorCuantiaObras`, `catalogo__cotizacionObras`, `catalogo__licitacionObras`, `catalogo__precioObras`, `catalogo__contratacionDirecta`, `catalogo__contratacionListaCorta`, `catalogo__contratacionConcursoPu`, `catalogo__elect__objeto`, `catalogo__elect__texto`, `catalogo__elect__cantidad`, `catalogo__elect__monto`, `catalogo__elect__proveedor`, `catalogo__elect__rucProveedor`, `catalogo__subasta__objeto`, `catalogo__subasta__texto`, `catalogo__subasta__cantidad`, `catalogo__subasta__monto`, `catalogo__subasta__proveedor`, `catalogo__subasta__rucProveedor`, `catalogo__infima__objeto`, `catalogo__infima__texto`, `catalogo__infima__cantidad`, `catalogo__infima__monto`, `catalogo__infima__proveedor`, `catalogo__infima__rucProveedor`, `catalogo__menorCuantia__objeto`, `catalogo__menorCuantia__texto`, `catalogo__menorCuantia__cantidad`, `catalogo__menorCuantia__monto`, `catalogo__menorCuantia__proveedor`, `catalogo__menorCuantia__rucProveedor`, `catalogo__cotizacion__objeto`, `catalogo__cotizacion__texto`, `catalogo__cotizacion__cantidad`, `catalogo__cotizacion__monto`, `catalogo__cotizacion__proveedor`, `catalogo__cotizacion__rucProveedor`, `catalogo__licitacion__objeto`, `catalogo__licitacion__texto`, `catalogo__licitacion__cantidad`, `catalogo__licitacion__monto`, `catalogo__licitacion__proveedor`, `catalogo__licitacion__rucProveedor`, `catalogo__menorCuantiaObras__objeto`, `catalogo__menorCuantiaObras__texto`, `catalogo__menorCuantiaObras__cantidad`, `catalogo__menorCuantiaObras__monto`, `catalogo__menorCuantiaObras__proveedor`, `catalogo__menorCuantiaObras__rucProveedor`, `catalogo__cotizacionObras__objeto`, `catalogo__cotizacionObras__texto`, `catalogo__cotizacionObras__cantidad`, `catalogo__cotizacionObras__monto`, `catalogo__cotizacionObras__proveedor`, `catalogo__cotizacionObras__rucProveedor`, `catalogo__licitacionObras__objeto`, `catalogo__licitacionObras__texto`, `catalogo__licitacionObras__cantidad`, `catalogo__licitacionObras__monto`, `catalogo__licitacionObras__proveedor`, `catalogo__licitacionObras__rucProveedor`, `catalogo__precioObras__objeto`, `catalogo__precioObras__texto`, `catalogo__precioObras__cantidad`, `catalogo__precioObras__monto`, `catalogo__precioObras__proveedor`, `catalogo__precioObras__rucProveedor`, `catalogo__contratacionDirecta__objeto`, `catalogo__contratacionDirecta__texto`, `catalogo__contratacionDirecta__cantidad`, `catalogo__contratacionDirecta__monto`, `catalogo__contratacionDirecta__proveedor`, `catalogo__contratacionDirecta__rucProveedor`, `catalogo__contratacionListaCorta__objeto`, `catalogo__contratacionListaCorta__texto`, `catalogo__contratacionListaCorta__cantidad`, `catalogo__contratacionListaCorta__monto`, `catalogo__contratacionListaCorta__proveedor`, `catalogo__contratacionListaCorta__rucProveedor`, `catalogo__contratacionConcursoPu__objeto`, `catalogo__contratacionConcursoPu__texto`, `catalogo__contratacionConcursoPu__cantidad`, `catalogo__contratacionConcursoPu__monto`, `catalogo__contratacionConcursoPu__proveedor`, `catalogo__contratacionConcursoPu__rucProveedor`, `idOrganismo`, `idItemCatalogo`, `perioIngreso`, `noAplica__3`, `idActividad`, `trimestre`) VALUES ('no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', ' ',' ',0,0,' ',0, ' ',' ',0,0,' ',0, ' ',' ',0,0,' ',0,' ', ' ',0,0,' ',0, ' ',' ',0,0,' ',0,' ', ' ',0,0,' ',0,' ', ' ',0,0,' ',0,' ', ' ',0,0, ' ',0,' ',' ',0,0,' ',0, ' ',' ',0,0,' ',0, ' ',' ',0,0,' ',0, ' ',' ',0,0,' ',0,' ', ' ',0,0,' ',0, '$idOrganismoSession', '$idItem', '$aniosPeriodos__ingesos', 'no', '$idActividad','$trimestre' );";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
 
    		break;
-
+		
 		//***************************************************registro__contratacion__seguimiento **************************************//
 
 
@@ -400,13 +534,246 @@
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 		
-			$query="INSERT INTO `poa_registro_contratacion` ( `registra_Contratacion`, `justificacion`, `idOrganismo`, `idItemCatalogo`, `perioIngreso`, `idActividad`,`trimestre`) SELECT '$registro','$justificacion','$idOrganismoSession', '$idItem', '$aniosPeriodos__ingesos', NULL,'$trimestre' WHERE NOT EXISTS (SELECT * FROM `poa_registro_contratacion`  WHERE idOrganismo = '$idOrganismoSession' AND idItemCatalogo='$idItem' AND perioIngreso='$aniosPeriodos__ingesos' and trimestre='$trimestre' ) ;";
+			$query="INSERT INTO `poa_registro_contratacion` ( `registra_Contratacion`, `justificacion`, `idOrganismo`, `idItemCatalogo`, `perioIngreso`, `idActividad`,`trimestre`) SELECT '$registro','$justificacion','$idOrganismoSession', '$idItem', '$aniosPeriodos__ingesos', '$actividad','$trimestre' WHERE NOT EXISTS (SELECT * FROM `poa_registro_contratacion`  WHERE idOrganismo = '$idOrganismoSession' AND idItemCatalogo='$idItem' AND perioIngreso='$aniosPeriodos__ingesos' and trimestre='$trimestre' ) ;";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
 
    		break;
+
+		//***************************************************ACTUALIZAR JURISDICCION **************************************//
+
+
+		case  "actualizar_zona_jurisdiccion":
+		
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();	
+		
+			$query="UPDATE `poa_organismo_zonal` SET `nombreZonal`='PLANTA CENTRAL06'WHERE `idOrganismo` = '$idOrganismoSession';";
+			$resultado= $conexionEstablecida->exec($query);
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;
+
+   		break;
+
+		//*************************************************** guardar__capacitacion__formativos **************************************//
+
+		case  "guardar__capacitacion__formativos":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_competencia_formativo', array("`idCompetenciaFormativo`, ","`evento`, ","`predicionResultados`, ","`oro`, ","`plata`, ","`bronce`, ","`total`, ","`cuarOc`, ","`analisis`, ","`trimestre`, ","`idAdministrativo`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observacionesTecnicas`, ","`porcentaje`, ","`beneficiariosHombres`, ","`beneficiariosMujeres`, ","`totalT`, ","`nombreOrganismo`, ","`ruc`, ","`tipoOrganizacion`, ","`fecha1`, ","`fecha2`, ","`fecha3`, ","`fecha4`, ","`perioIngreso`,","`beneficiariosHombres18`,","`beneficiariosMujeres18`,","`totalT18`"),array("'$arrayInformacion[8]', ","'$arrayInformacion[9]', ","'$arrayInformacion[10]', ","'$arrayInformacion[11]', ","'$arrayInformacion[12]', ","'$arrayInformacion[13]', ","'$arrayInformacion[14]', ","'$arrayInformacion[15]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[3]', ","'$arrayInformacion[16]', ","'$arrayInformacion[6]', ","'$arrayInformacion[5]', ","'$arrayInformacion[7]', ","'$arrayInformacion[17]', ","'$arrayInformacion[18]', ","'$arrayInformacion[19]', ","'$arrayInformacion[20]', ","'$arrayInformacion[21]', ","'$arrayInformacion[22]', ","'$arrayInformacion[23]', ","'$aniosPeriodos__ingesos', ","'$arrayInformacion[24]', ","'$arrayInformacion[25]', ","'$arrayInformacion[26]'"));
+
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;	
+		
+		case  "filaIndicadora__administra":
+
+			$arrayInformacion = json_decode($parametros);
+
+			if (empty($arrayInformacion[3])) {
+				$arrayInformacion[3]='1990/09/18';
+			}
+
+
+			if (empty($arrayInformacion[4])) {
+				$arrayInformacion[4]='1990/09/18';
+			}
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_mantenimiento_tecnico', array("`idMantenimientoTec`, ","`planificadoInicial`, ","`ejecutadoInicial`, ","`planificadoFinal`, ","`ejectuadoFinal`, ","`trimestre`, ","`idAdministrativo`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observacionesTecnicas`, ","`porcentaje`, ","`perioIngreso`"),array("'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[6]', ","'$arrayInformacion[0]', ","'$arrayInformacion[5]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[7]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+		//***************************************************guardar__capacitacion__alto **************************************//
+
+		case  "guardar__capacitacion__alto":
+
+					// $inserta=$objeto->getInsertaNormal('poa_seguimiento_competencia_alto', array("`idCompetenciaAlto`, ","`idAdministrativo`, ","`trimestre`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observacionesTecnicas`, ","`porcentaje`, ","`beneficiariosHombres`, ","`beneficiariosMujeres`, ","`totalT`, ","`fechaInicioP`, ","`fechaInicioEjecutado`, ","`fechaFinP`, ","`fechaFinEjecutado`, ","`tipoEvento`, ","`eventoTareaE`, ","`nivel`, ","`total`, ","`nombreOrganismo`, ","`ruc`, ","`tipoOrganizacion`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$arrayInformacion[8]', ","'$arrayInformacion[9]', ","'$arrayInformacion[10]', ","'$arrayInformacion[11]', ","'$arrayInformacion[12]', ","'$arrayInformacion[13]', ","'$arrayInformacion[14]', ","'$arrayInformacion[15]', ","'$arrayInformacion[16]', ","'$arrayInformacion[17]', ","'$arrayInformacion[18]'"));
+		
+		
+					$arrayInformacion = json_decode($parametros);
+		
+					$inserta=$objeto->getInsertaNormal('poa_seguimiento_competencia_alto2', array("`idCompetenciaAltos`, ","`evento`, ","`predicionResultados`, ","`oro`, ","`plata`, ","`bronce`, ","`total`, ","`cuarOc`, ","`analisis`, ","`trimestre`, ","`idAdministrativo`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observacionesTecnicas`, ","`porcentaje`, ","`beneficiariosHombres`, ","`beneficiariosMujeres`, ","`totalT`, ","`nombreOrganismo`, ","`ruc`, ","`tipoOrganizacion`, ","`fecha1`, ","`fecha2`, ","`fecha3`, ","`fecha4`, ","`perioIngreso`"),array("'$arrayInformacion[8]', ","'$arrayInformacion[9]', ","'$arrayInformacion[10]', ","'$arrayInformacion[11]', ","'$arrayInformacion[12]', ","'$arrayInformacion[13]', ","'$arrayInformacion[14]', ","'$arrayInformacion[15]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[3]', ","'$arrayInformacion[16]', ","'$arrayInformacion[6]', ","'$arrayInformacion[5]', ","'$arrayInformacion[7]', ","'$arrayInformacion[17]', ","'$arrayInformacion[18]', ","'$arrayInformacion[19]', ","'$arrayInformacion[20]', ","'$arrayInformacion[21]', ","'$arrayInformacion[22]', ","'$arrayInformacion[23]', ","'$aniosPeriodos__ingesos'"));
+		
+		
+					$mensaje=1;
+		
+					$jason['mensaje']=$mensaje;
+		
+		break;
+		
+		//***************************************************guardar__Honorarios **************************************//
+		
+		case  "honorarios__guardar":
+		
+					$arrayInformacion = json_decode($parametros);
+		
+					$inserta=$objeto->getInsertaNormal('poa_seguimiento_honorarios', array("`idHonorariosSeguimientos`, ","`mensualProgramado`, ","`mensualEjecutado`, ","`mes`, ","`trimestre`, ","`idHonorarios`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observaciones`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[7]', ","'$arrayInformacion[2]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+		
+		
+					$mensaje=1;
+					$jason['mensaje']=$mensaje;
+		
+		
+		break;
+
+		case  "honorarios__guardar__otros":
+		
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/otrosHonorarios/";
+
+			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_honorarios', array("`idOtrosHonorarios`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+			
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+
+		case  "honorarios__guardar__facturas":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/facturasHonorarios/";
+
+			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_facturas_honorarios', array("`idFacturaHonorarios`, ","`documento`, ","`numeroFactura`, ","`fechaFactura`, ","`ruc`, ","`autorizacion`, ","`monto`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[5]', ","'$arrayInformacion[6]', ","'$arrayInformacion[7]', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[8]', ","'$aniosPeriodos__ingesos'"));
+
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+		
+		//***************************************************guardar__capacitacion__tecnicos **************************************//
+		
+		case  "guardar__capacitacion__tecnicos":
+		
+					$arrayInformacion = json_decode($parametros);
+		
+					if (empty($arrayInformacion[3])) {
+						$arrayInformacion[3]='1990/09/18';
+					}
+		
+		
+					if (empty($arrayInformacion[4])) {
+						$arrayInformacion[4]='1990/09/18';
+					}
+		
+					$inserta=$objeto->getInsertaNormal('poa_seguimiento_capacitacion_tecnico', array("`idCapacitacionTec`, ","`planificadoInicial`, ","`ejecutadoInicial`, ","`planificadoFinal`, ","`ejectuadoFinal`, ","`trimestre`, ","`idAdministrativo`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`observacionesTecnicas`, ","`porcentaje`, ","`beneficiariosHombres`, ","`beneficiariosMujeres`, ","`totalT`, ","`nombreOrganismo`, ","`ruc`, ","`tipoOrganizacion`, ","`perioIngreso`"),array("'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$arrayInformacion[6]', ","'$arrayInformacion[0]', ","'$arrayInformacion[5]', ","'$fecha_actual', ","'$hora_actual', ","'$arrayInformacion[7]', ","'$arrayInformacion[8]', ","'$arrayInformacion[9]', ","'$arrayInformacion[10]', ","'$arrayInformacion[11]', ","'$arrayInformacion[12]', ","'$arrayInformacion[13]', ","'$arrayInformacion[14]', ","'$aniosPeriodos__ingesos'"));
+		
+					$mensaje=1;
+		
+					$jason['mensaje']=$mensaje;
+		
+		
+		break;
+		
+		case  "otros__capacitacion__alto":
+		
+					$arrayInformacion = json_decode($parametros);
+		
+					$direccion1="../../documentos/seguimiento/otrosCompentencia_alto/";
+		
+					$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+		
+					$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+		
+		
+					$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_competencia_alto', array("`idOtrosCompetenciasAltos`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+					
+					$mensaje=1;
+		
+					$jason['mensaje']=$mensaje;
+		
+		
+		break;
+		
+		case  "otros__mantenimientos__tecnicos":
+		
+					$arrayInformacion = json_decode($parametros);
+		
+					$direccion1="../../documentos/seguimiento/otrosMantenimiento__tecnicos/";
+		
+					$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+		
+					$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+		
+		
+					$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_mantenimiento_tecnico', array("`idOtrosMantenimientoTecnico`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+					
+					$mensaje=1;
+		
+					$jason['mensaje']=$mensaje;
+		
+		
+		break;
+		
+		
+		
+		case  "otros__recreativo__tecnicos":
+		
+					$arrayInformacion = json_decode($parametros);
+		
+					$direccion1="../../documentos/seguimiento/otros__recreativos__tecnicos/";
+		
+					$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+		
+					$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+		
+		
+					$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_recreativo_tecnicos', array("`idOtrosRT`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+					
+					$mensaje=1;
+		
+					$jason['mensaje']=$mensaje;
+		
+		
+		break;
+
+		case  "otros__capacitacion__formativos":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$direccion1="../../documentos/seguimiento/otrosCompentencia_formativo/";
+
+			$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+
+			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_otros_competencia_formativos', array("`idOtrosCompetenciasTecnicas`, ","`documento`, ","`fecha`, ","`mes`, ","`trimestre`, ","`idActividadAc`, ","`idOrganismo`, ","`perioIngreso`"),array("'$nombre__archivo1', ","'$fecha_actual', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$arrayInformacion[0]', ","'$arrayInformacion[3]', ","'$aniosPeriodos__ingesos'"));
+			
+			$mensaje=1;
+
+			$jason['mensaje']=$mensaje;
+
+
+		break;
 
 
   }
@@ -416,3 +783,5 @@
     
 
 	echo json_encode($jason);
+
+	

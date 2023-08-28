@@ -38,6 +38,7 @@
 
 <div class="content-wrapper d d-flex flex-column align-items-center">
 
+	
 	<?=$componentes->getComponentes(1,"REPORTERÍA DE SEGUIMIENTO PARA EL AÑO $aniosPeriodos__ingesos");?>
 
 	<section class="content__configuraciones row d d-flex justify-content-center">
@@ -54,18 +55,7 @@
 
 		<?=$componentes->getLinksConfiguracion__parametros(["indicadores__se"],["Indicadores"],'indicadores__in');?>
 
-		<?php if (!empty($actividadesSeleccionadas[0][idOrganismo])): ?>
-
-			<?=$componentes->getLinksConfiguracion__parametros(["sueldos__se"],["004 - Operación deportiva - Sueldos y salarios"],'sueldos__in');?>
-
-		<?php endif ?>
-
-		<?php if (!empty($actividadesSeleccionadas__honorarios[0][idOrganismo])): ?>
-
-			<?=$componentes->getLinksConfiguracion__parametros(["honorarios__se"],["004 - Operación deportiva - Honorarios"],'honorarios__in');?>
-
-		<?php endif ?>
-
+		
 		<?php if (!empty($actividadesSeleccionadas__actividadesAdmi[0][idActividadAd])): ?>
 
 			<?=$componentes->getLinksConfiguracion__parametros(["administrativo__se"],["001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria"],'administrativo__in');?>
@@ -85,6 +75,18 @@
 			<?=$componentes->getLinksConfiguracion__parametros(["capacitacion__se"],["003 - Capacitación deportiva o de recreación - Ejecución presupuestaria"],'capacitacion__in');?>
 
 			<?=$componentes->getLinksConfiguracion__parametros(["capacitacionTec__se"],["003 - Capacitación deportiva o de recreación - Información técnica"],'capacitacionTec__in');?>
+
+		<?php endif ?>
+
+		<?php if (!empty($actividadesSeleccionadas[0][idOrganismo])): ?>
+
+			<?=$componentes->getLinksConfiguracion__parametros(["sueldos__se"],["004 - Operación deportiva - Sueldos y salarios"],'sueldos__in');?>
+
+		<?php endif ?>
+
+		<?php if (!empty($actividadesSeleccionadas__honorarios[0][idOrganismo])): ?>
+
+			<?=$componentes->getLinksConfiguracion__parametros(["honorarios__se"],["004 - Operación deportiva - Honorarios"],'honorarios__in');?>
 
 		<?php endif ?>
 
@@ -126,24 +128,24 @@
 =            Modales            =
 ==============================-->
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("documentacionGenerada__finales__se","Reporte trimestral","seguimiento__documentacionGenerada__2",["Fecha","Documento"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("documentacionGenerada__finales__se","Reporte trimestral","seguimiento__documentacionGenerada__2",["Fecha de envío", "Trimestre", "Documento"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("documentacionGenerada__se","Declaración del correcto uso de los recursos públicos","seguimiento__documentacionGenerada",["Año","Trimestre","Declaración del uso de los recursos"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("documentacionGenerada__se","Declaración del correcto uso de los recursos públicos","seguimiento__documentacionGenerada",["Fecha de envío","Trimestre","Declaración del uso de los recursos"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("autogestion__se","Autogestión","seguimiento__autogestiones",["Detalle autogestión","Monto autogestión","Detalle de reinversión en el reporte educación física y/o recreación","Trimestre","Año"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos("modal_documentacionGenerada__cp","Declaración de responsabilidad de procedimientos de contratación pública","dt_seguimiento__documentacionGenerada_cp",["Fecha de envío", "Trimestre", "Declaración de contratación pública"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("modal_documentacionGenerada__cp","Declaración de responsabilidad de procedimientos de contratación pública","dt_seguimiento__documentacionGenerada_cp",["Fecha de envío", "Trimestre", "Declaración de contratación pública"]);?>
 
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("indicadores__se","Indicadores","seguimiento__indicadores",["Actividad","Total programado","Total ejecutado","Trimestre","Año"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("sueldos__se","004 - Operación deportiva - Sueldos y salarios","seguimiento__sueldos__salarios",["Áctividad","Cédula","Nombre","Cargo","Tipo cargo","Sueldo planificado","Sueldo ejecutado","Aporte Iess planificado","Aporte Iess ejectuado","Décimo tercero planificado","Décimo tercero ejecutado","Décimo cuarto planificado","Décimo cuarto ejecutado","Fondos de reserva planificado","Fondos de reserva ejecutado","Mes","Trimestre","Año"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("sueldos__se","004 - Operación deportiva - Sueldos y salarios","seguimiento__sueldos__salarios",["Áctividad","Cédula","Nombre","Cargo","Tipo cargo","Sueldo planificado","Sueldo ejecutado","Aporte Iess planificado","Aporte Iess ejectuado","Décimo tercero planificado","Décimo tercero ejecutado","Décimo cuarto planificado","Décimo cuarto ejecutado","Fondos de reserva planificado","Fondos de reserva ejecutado","Deshaucio Programado","Deshaucio Ejecutado","Despido Intempestivo Programado","Despido Intempestivo Ejecutado","Renuncia Voluntaria Programado","Renuncia Voluntaria Ejecutado","Vacaciones Programado","Vacaciones Ejecutado","Mes","Trimestre","Año"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("honorarios__se","004 - Operación deportiva - Honorarios","seguimiento__honorarios",["Áctividad","Cédula","Nombres","Cargo","Tipo cargo","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("administrativo__se","001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria","seguimiento__administrativas",["Código","Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("administrativo__se","001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria","seguimiento__administrativas",["Código","Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Registra Contratación","Justificación","Año"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("mantenimiento__se","002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria","seguimiento__mantenimientos",["Código","Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año","Registra Contratación","Justificacion"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("mantenimiento__se","002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria","seguimiento__mantenimientos",["Código","Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Registra Contratación","Justificacion","Año"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("mantenimientoTec__se","002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica","seguimiento__mantenimientosTec",["Código","Ítem","Planificado inicial","Ejecutado inicial","Planificado final","Ejecutado final","Observaciones","Porcentaje","Trimestre","Año"]);?>
 

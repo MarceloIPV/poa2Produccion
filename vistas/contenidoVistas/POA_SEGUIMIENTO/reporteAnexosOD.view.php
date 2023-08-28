@@ -20,7 +20,7 @@
 					<tr>
 
 						<th><center>RUC</center></th>
-						<th><center>ORGANISMO DEPORTIVO</center></th>
+						<th><center>ORGANIZACIÓN DEPORTIVA</center></th>
 						<th><center>I TRIMESTRE</center></th>
 						<th><center>REPORTES EMITIDOS</center></th>
 						<th><center>II TRIMESTRE</center></th>
@@ -53,10 +53,6 @@
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("indicadores__se__2","Indicadores","seguimiento__indicadores__2",["Actividad","Total programado","Total ejecutado","Trimestre","Año","Documento"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("sueldos__se__2","004 - Operación deportiva - Sueldos y salarios","seguimiento__sueldos__salarios__2",['Actividad',"Cédula","Nombre","Sueldo planificado","Sueldo ejecutado","Aporte Iess planificado","Aporte Iess ejectuado","Décimo tercero planificado","Décimo tercero ejecutado","Décimo cuarto planificado","Décimo cuarto ejecutado","Fondos de reserva planificado","Fondos de reserva ejecutado","Mes","Trimestre","Año"]);?>
-
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("honorarios__se__2","004 - Operación deportiva - Honorarios","seguimiento__honorarios__2",["Actividad","Cédula","Nombres","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
-
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("administrativo__se__2","001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria","seguimiento__administrativas__2",["Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("mantenimiento__se__2","002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria","seguimiento__mantenimientos__2",["Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
@@ -66,6 +62,10 @@
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("capacitacion__se__2","003 - Capacitación deportiva o de recreación - Ejecución presupuestaria","seguimiento__capacitacion__2",["Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("capacitacionTec__se__2","003 - Capacitación deportiva o de recreación - Información técnica","seguimiento__capacitacionTecni__2",["Ítem","Planificación inicial","Ejecución inicial","Planificación final","Ejecución final","Observaciones Técnicas","Porcentaje","Beneficiarios Hombres","Beneficiarios mujeres","Total","Tipo organización","Ruc","Nombre organismo","Trimestre","Año"]);?>
+
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("sueldos__se__2","004 - Operación deportiva - Sueldos y salarios","seguimiento__sueldos__salarios__2",['Actividad',"Cédula","Nombre","Sueldo planificado","Sueldo ejecutado","Aporte Iess planificado","Aporte Iess ejectuado","Décimo tercero planificado","Décimo tercero ejecutado","Décimo cuarto planificado","Décimo cuarto ejecutado","Fondos de reserva planificado","Fondos de reserva ejecutado","Mes","Trimestre","Año"]);?>
+
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("honorarios__se__2","004 - Operación deportiva - Honorarios","seguimiento__honorarios__2",["Actividad","Cédula","Nombres","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("competencia__se__2","005 - Eventos de preparación y competencia - Ejecución presupuestaria","seguimiento__competencia__2",["Ítem","Mensual programado","Mensual ejecutado","Mes","Trimestre","Año"]);?>
 
