@@ -28,7 +28,9 @@
 
 		case "seguimiento__documentacionGenerada":
 
-			$query="SELECT a.perioIngreso AS anio,REPLACE(a.tipoTrimestre,'Trimestre',''),(SELECT a1.documento FROM poa_seguimiento_declaracion AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a1.trimestre=a.tipoTrimestre ORDER BY a1.idDeclaracion DESC LIMIT 1) AS documento,(SELECT a1.documento FROM poa_seguimiento_docuento_final AS a1 WHERE a1.idOrganismo=a.idOrganismo ORDER BY a1.idDocumento_seguimiento DESC LIMIT 1) AS documento2  FROM poa_trimestrales AS a WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.tipoTrimestre ORDER BY a.idEnviadorTrimestres DESC;";
+			// $query="SELECT a.fecha AS fecha,REPLACE(a.tipoTrimestre,'Trimestre','') AS trimestre,(SELECT a1.documento FROM poa_seguimiento_declaracion AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a1.trimestre=a.tipoTrimestre ORDER BY a1.idDeclaracion DESC LIMIT 1) AS documento,(SELECT a1.documento FROM poa_seguimiento_docuento_final AS a1 WHERE a1.idOrganismo=a.idOrganismo ORDER BY a1.idDocumento_seguimiento DESC LIMIT 1) AS documento2  FROM poa_trimestrales AS a WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.tipoTrimestre ORDER BY a.idEnviadorTrimestres DESC;";
+
+			$query="SELECT (SELECT d1.fecha FROM poa_seguimiento_declaracion AS d1 WHERE d1.idOrganismo=a.idOrganismo ORDER BY d1.idDeclaracion DESC LIMIT 1) AS fecha, REPLACE(a.tipoTrimestre,'Trimestre','') AS trimestre,(SELECT a1.documento FROM poa_seguimiento_declaracion AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a1.trimestre=a.tipoTrimestre ORDER BY a1.idDeclaracion DESC LIMIT 1) AS documento,(SELECT a1.documento FROM poa_seguimiento_docuento_final AS a1 WHERE a1.idOrganismo=a.idOrganismo ORDER BY a1.idDocumento_seguimiento DESC LIMIT 1) AS documento2  FROM poa_trimestrales AS a WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.tipoTrimestre ORDER BY a.idEnviadorTrimestres ASC;";
 
 			$dataTablets=$objeto->getDatatablets2($query);
 
@@ -36,17 +38,24 @@
 
 
 		break;		
+	
 
-		case "seguimiento__documentacionGenerada__2":
+//************************************* reporte final seguimiento ****************************//
+case "seguimiento__documentacionGenerada__2":
 
-			$query="SELECT fecha,documento FROM poa_seguimiento_docuento_final WHERE idOrganismo='$idOrganismoSession' AND perioIngreso='$aniosPeriodos__ingesos';";
+	// $query="SELECT a.trimestre, a.fecha, a.documento FROM poa_seguimiento_docuento_final AS a WHERE idOrganismo='$idOrganismoSession' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY trimestre ORDER BY trimestre ASC ;";
 
-			$dataTablets=$objeto->getDatatablets2($query);
+	$query="SELECT (SELECT d1.fecha FROM poa_seguimiento_docuento_final AS d1 WHERE d1.idOrganismo=a.idOrganismo ORDER BY d1.idDocumento_seguimiento DESC LIMIT 1) AS fecha, REPLACE(a.tipoTrimestre,'Trimestre','') AS trimestre, (SELECT a1.documento FROM poa_seguimiento_docuento_final AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a1.trimestre=a.tipoTrimestre ORDER BY a1.idDocumento_seguimiento DESC LIMIT 1) AS documentoSIF, (SELECT a1.documento FROM poa_seguimiento_docuento_final AS a1 WHERE a1.idOrganismo=a.idOrganismo ORDER BY a1.idDocumento_seguimiento DESC LIMIT 1) AS documento2SIF  FROM poa_trimestrales AS a INNER JOIN poa_seguimiento_docuento_final AS b ON a.idOrganismo = b.idOrganismo WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.tipoTrimestre ORDER BY a.idEnviadorTrimestres ASC;";
+	
 
-			echo json_encode($dataTablets);
+	$dataTablets=$objeto->getDatatablets2($query);
+
+	echo json_encode($dataTablets);
 
 
-		break;		
+break;	
+
+
 
 		case "seguimiento__autogestiones":
 
@@ -99,7 +108,7 @@
 
 		case "seguimiento__sueldos__salarios":
 
-			$query="SELECT (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_sueldossalarios2022 AS a1 INNER JOIN poa_actividades AS b1 ON a1.idActividad=b1.idActividades WHERE a1.idSueldos=a.idSueldosSalarios) AS actividad,b.cedula,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombres, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombres,b.cargo,b.tipoCargo ,a.sueldoSalarioPlanificado,a.sueldoSalarioEjecutado,a.aporteIessPlanificado,a.aporteIessEjecutado,a.decimoTerceroPlanificado,a.decimoTerceroEjecutado,a.decimoCuartoPlanificado,a.decimoCuartoEjecutado,a.fondosReservasPlanificado,a.fondosReservasEjecutado,a.mes,REPLACE(a.periodo,'Trimestre',' ') AS periodo,a.perioIngreso AS anio FROM poa_seguimiento_sueldos_salarios AS a INNER JOIN poa_sueldossalarios2022 AS b ON a.idSueldosSalarios=b.idSueldos WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' ORDER BY YEAR(a.fecha) DESC;";
+			$query="SELECT (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_sueldossalarios2022 AS a1 INNER JOIN poa_actividades AS b1 ON a1.idActividad=b1.idActividades WHERE a1.idSueldos=a.idSueldosSalarios) AS actividad,b.cedula,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombres, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombres,b.cargo,b.tipoCargo ,a.sueldoSalarioPlanificado,a.sueldoSalarioEjecutado,a.aporteIessPlanificado,a.aporteIessEjecutado,a.decimoTerceroPlanificado,a.decimoTerceroEjecutado,a.decimoCuartoPlanificado,a.decimoCuartoEjecutado,a.fondosReservasPlanificado,a.fondosReservasEjecutado,a.compensacionDeshaucioProgramado,a.compensacionDeshaucioEjecutado,a.despidoIntepestivoProgramado,a.despidoIntepestivoEjecutado,a.reunciaVoluntariaProgramado,a.renunciaVoluntariaEjecutado,a.vacacionesProgramado,a.vacionesEjecutado ,a.mes,REPLACE(a.periodo,'Trimestre',' ') AS periodo,a.perioIngreso AS anio FROM poa_seguimiento_sueldos_salarios AS a INNER JOIN poa_sueldossalarios2022 AS b ON a.idSueldosSalarios=b.idSueldos WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' ORDER BY YEAR(a.fecha) DESC;";
 
 			$dataTablets=$objeto->getDatatablets($query);
 
@@ -323,7 +332,7 @@
 
 			}
 
-		$query="SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(d.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombres,a.evento,a.oro,a.plata,a.bronce,a.total,a.cuarOc,a.analisis,a.observacionesTecnicas,a.porcentaje,a.beneficiariosHombres,a.beneficiariosMujeres,a.totalT,a.tipoOrganizacion,a.ruc,a.nombreOrganismo,a.fecha1,a.fecha2,a.fecha3,a.fecha4,REPLACE(a.trimestre,'Trimestre',' ') AS trimestre,a.perioIngreso AS anio FROM poa_seguimiento_competencia_formativo AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a.idOrganismo='$idOrganismoSession' AND a.trimestre='$trimestre' AND a.perioIngreso='$aniosPeriodos__ingesos' ORDER BY YEAR(a.fecha) DESC;";
+		$query="SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(d.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombres,b.nombreEvento AS evento,a.oro,a.plata,a.bronce,a.total,a.cuarOc,a.analisis,a.observacionesTecnicas,a.porcentaje,a.beneficiariosHombres,a.beneficiariosMujeres,a.totalT,a.tipoOrganizacion,a.ruc,a.nombreOrganismo,a.fecha1,a.fecha2,a.fecha3,a.fecha4,REPLACE(a.trimestre,'Trimestre',' ') AS trimestre,a.perioIngreso AS anio FROM poa_seguimiento_competencia_formativo AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a.idOrganismo='$idOrganismoSession' AND a.trimestre='$trimestre' AND a.perioIngreso='$aniosPeriodos__ingesos' ORDER BY YEAR(a.fecha) DESC;";
 
 		$dataTablets=$objeto->getDatatablets($query);
 
@@ -645,17 +654,48 @@
 
 	break;
 
-	case "mostrar_datos_jurisdiccion":
+	case "mostrar_datos_jurisdiccion2":
 
 			
-		$query="SELECT a.ruc, a.nombreOrganismo, b.nombreProvincia, c.nombreCanton, idOrganismo  FROM poa_organismo AS a INNER JOIN in_md_provincias AS b ON a.idProvincia = b.idProvincia INNER JOIN in_md_canton AS c ON a.idCanton = c.idCanton ORDER BY nombreProvincia ASC;
- 		";
+		$query="SELECT b.ruc, b.nombreOrganismo, c.nombreProvincia, d.nombreCanton, a.nombreZonal, a.idZonalEquipo FROM poa_organismo_zonal AS a INNER JOIN poa_organismo AS b ON a.idOrganismo = b.idOrganismo INNER JOIN in_md_provincias AS c ON b.idProvincia = c.idProvincia INNER JOIN in_md_canton AS d ON b.idCanton = d.idCanton";
 
 		$dataTablets=$objeto->getDatatablets($query);
 
 		echo json_encode($dataTablets);
 
 	break;
+
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MOSTRAR JURISDICCION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+	case "mostrar_datos_jurisdiccion":
+		$query="SELECT b.ruc, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreOrganismo, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreOrganismo, c.nombreProvincia, d.nombreCanton, a.nombreZonal, a.idZonalEquipo FROM poa_organismo_zonal AS a INNER JOIN poa_organismo AS b ON a.idOrganismo = b.idOrganismo INNER JOIN in_md_provincias AS c ON b.idProvincia = c.idProvincia INNER JOIN in_md_canton AS d ON b.idCanton = d.idCanton";
+
+		$dataTablets=$objeto->getDatatablets2($query);
+		echo json_encode($dataTablets);
+	break;
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CONSULTA SI EXISTEDATOS JURISDICCION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+	case "consulta_existe_datos_jurisdiccion":
+		$query="SELECT * FROM poa_organismo_zonal AS a WHERE IdOrganismo = '$idOrganismoSession'";
+
+		$dataTablets=$objeto->getDatatablets2($query);
+		echo json_encode($dataTablets);
+	break;
+
+	//************************************* decalaracion de contratacion publica ****************************//
+	case "dt_seguimiento__documentacionGenerada_cp":
+
+
+		// $query="SELECT a.fecha AS fechaCP, REPLACE(a.tipoTrimestre,'Trimestre','') AS trimestreCP, (SELECT a1.documento FROM poa_seguimiento_declaracion_contratacion_publica AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a1.trimestre=a.tipoTrimestre ORDER BY a1.id_declaracion_contratacion_publica DESC LIMIT 1) AS documentoCP,(SELECT a1.documento FROM poa_seguimiento_docuento_final AS a1 WHERE a1.idOrganismo=a.idOrganismo ORDER BY a1.idDocumento_seguimiento DESC LIMIT 1) AS documento2CP FROM poa_trimestrales AS a WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.tipoTrimestre ORDER BY a.idEnviadorTrimestres DESC;";
+
+		$query="SELECT (SELECT d1.fecha FROM poa_seguimiento_declaracion_contratacion_publica AS d1 WHERE d1.idOrganismo=a.idOrganismo ORDER BY d1.id_declaracion_contratacion_publica DESC LIMIT 1) AS fechaCP, REPLACE(a.tipoTrimestre,'Trimestre','') AS trimestreCP, (SELECT a1.documento FROM poa_seguimiento_declaracion_contratacion_publica AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a1.trimestre=a.tipoTrimestre ORDER BY a1.id_declaracion_contratacion_publica DESC LIMIT 1) AS documentoCP,(SELECT a1.documento FROM poa_seguimiento_docuento_final AS a1 WHERE a1.idOrganismo=a.idOrganismo ORDER BY a1.idDocumento_seguimiento DESC LIMIT 1) AS documento2CP FROM poa_trimestrales AS a WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.tipoTrimestre ORDER BY a.idEnviadorTrimestres ASC;";
+
+
+		$dataTablets=$objeto->getDatatablets2($query);
+
+		echo json_encode($dataTablets);
+	break;
+
 
     }
 

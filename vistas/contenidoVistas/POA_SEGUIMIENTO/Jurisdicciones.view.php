@@ -1,17 +1,17 @@
-<?php $objetoInformacion= new usuarioAcciones();?>
+<?php $objetoInformacion = new usuarioAcciones(); ?>
 
-<?php $componentes= new componentes();?>
+<?php $componentes = new componentes(); ?>
 
-<?php $componentesTablas= new componentesTablas();?>
+<?php $componentesTablas = new componentesTablas(); ?>
 
 
-<div class="content-wrapper">
+<!-- <div class="content-wrapper">
 
 	<section class="content row d d-flex justify-content-center">
 
 		<div class="contenedor__tabla__total">
 
-		<table id="seguimiento__bloqueosTablaTrimestres__2__paid" class="col col-12 cell-border">
+		<table id="mostrado_jurisdicion_zonales" class="col col-12 cell-border">
 
 			<thead>
 
@@ -30,8 +30,8 @@
 
 					<th rowspan="1" colspan="1" style="height: 200px;">
 
-						<center>
-						<!-- <nav id="colorNav" style="position: relative; top: -5em!important;">
+						<center> -->
+<!-- <nav id="colorNav" style="position: relative; top: -5em!important;">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="col-md-6">
@@ -54,7 +54,7 @@
 							</div>
 						</nav> -->
 
-							<!-- <nav id="colorNav" style="position: relative; top: -5em!important;">
+<!-- <nav id="colorNav" style="position: relative; top: -5em!important;">
 							    <ul>
 							        <li class="green">
 							            <a href="#" class="fa fa-windows" style="text-align: center!important; display: flex; justify-content: center!important; padding: .5em;"><div style="position: relative;left: -7px; font-weight:  bold; color: white; width: 100%;">+</div></a>
@@ -67,7 +67,7 @@
 							    </ul>
 							</nav>							 -->
 
-							<nav id="colorNav" style="position: relative; top: -10em!important;">
+<!-- <nav id="colorNav" style="position: relative; top: -10em!important;">
 							    <ul>
 							        <li class="green">
 							            <a href="#" class="fa fa-windows" style="text-align: center!important; display: flex; justify-content: center!important; padding-left: 2.5em; padding-right: 2.5em; padding-top: .5em; padding-bottom: .5em;"><div style="position: relative;left: -7px; font-size:15px; font-weight:  bold; color: white; width: 100%;">Seleccionar Jurisdicción</div></a>
@@ -79,8 +79,8 @@
 							                <li><button class="btn btn-success obligatorios_seleccionar_zonal" botonClass='bloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL3</button></li>
 							                <li><button class="btn btn-success obligatorios_seleccionar_zonal" botonClass='bloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL4</button></li>
 							                <li><button class="btn btn-success obligatorios_seleccionar_zonal" botonClass='bloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL6</button></li>
-							                <li><button class="btn btn-success obligatorios_seleccionar_zonal" botonClass='bloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL7</button></li>
-							                <!-- <li><button class="btn btn-success seleccionarTodos__enviar__2__periodos__cierres" botonClass='bloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL8</button></li> -->
+							                <li><button class="btn btn-success obligatorios_seleccionar_zonal" botonClass='desbloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL7</button></li>
+							                 <li><button class="btn btn-success seleccionarTodos__enviar__2__periodos__cierres" botonClass='bloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL8</button></li> 
 							                <li><button class="btn btn-info obligatorios_seleccionar_zonal" botonClass='desbloquear' style="font-size:8px; width: 100%; padding-top:.2em;padding-bottom: .5em;">ZONAL8</button></li>
 							                
 							            </ul>
@@ -103,41 +103,73 @@
 
 	</section>
 
-</div>
+</div> -->
 
 
 
 
-<!-- <div class="content-wrapper">
-    <section class="content row d d-flex justify-content-center">
-	<div class='modal-body row'>
-	<section class='row'>
+<div class="content-wrapper">
 
-		<table id="dt_datos_jurisdiccion">
+	<section class="content row d d-flex justify-content-center">
+
+		<div class="row">
+			<!-- 
+		<table id="mostrado_jurisdicion_zonales" class="col col-12 cell-border">
+
 			<thead>
+
 				<tr>
-					<th>RUC</th>
-					<th>ORGANISMO DEPORTIVO</th>
-					<th>PROVINCIA</th>
-					<th>CANTÓN</th>
-					<th>SELECCIONAR JURISDICCIÓN</th>
-					<th>Guardar</th>
+
+					<th><center>RUC</center></th>
+					<th><center>ORGANISMO DEPORTIVO</center></th>
+					<th><center>PROVINCIA</center></th>
+					<th><center>CANTÓN</center></th>
+					<th><center>SELECCIONAR JURISDICCIÓN</center></th>
+
+				</tr>		
+				
+
+			</thead>
+
+		</table>
+
+		</div> -->
+
+
+
+			
+
+
+
+			<table id="mostrar_datos_jurisdiccion">
+
+			<thead>
+				<tr align="center">
+					<th ><center>RUC</center></th>
+					<th ><center>NOMBRE ORGANISMOS</center></th>
+					<th ><center>PROVINCIA</center></th>
+					<th ><center>CANTÓN</center></th>
+					<th ><center>jURISDICCIÓN</center></th>		
 				</tr>
 			</thead>
-			<tbody class='datos_juridiccion'>
-			</tbody>
+			<tbody></tbody>
+
 		</table>
+
+
+
+
 	</section>
-</div>
-
-
-    </section>
 
 </div>
 
-<script>   
-    //   $.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatables2.js", function() {
-    
-	// 	datatableSeguimientoRegistro($("#dt_datos_jurisdiccion"), "mostrar_datos_jurisdiccion");
-    //  });
- </script> -->
+
+<script>
+	$.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatables2.js", function() {
+
+
+		datatablesSeguimientoZonales($("#mostrar_datos_jurisdiccion"), "mostrar_datos_jurisdiccion");
+
+
+	});
+</script>
