@@ -194,11 +194,13 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 		<?php if ($aniosPeriodos__ingesos==2022): ?>
 			
 	
-		<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("seguimiento","seguimientoRe","seguimientoControlC","reportesSeguimientos"));?>">
+		<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("seguimiento","seguimientoRe","seguimientoControlC","reportesSeguimientos","reporteAnexosOD"));?>">
 
 			<a href="#" class="nav-link">
+				<i class="fa fa-search"></i>
+				&nbsp;
 				<p>
-					SEGUIMIENTO
+					SEGUIMIENTO Y EVALUACIÓN
 					<i class="fas fa-angle-left right"></i>
 					<span class="badge badge-info right"></span>
 				</p>
@@ -210,13 +212,14 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 					
 					<li class="nav-item">
 
-						<a href="seguimiento" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'seguimiento');?>">
-
-							<p>Registro seguimiento</p>
+						<a href="seguimiento" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimiento'); ?>">
+							<i class="fa fa-clipboard-list"></i>
+							&nbsp;
+							<p>Registro de Información</p>
 
 						</a>
 
-					</li> 
+					</li>
 
 				<?php endif ?>
 
@@ -248,13 +251,29 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 				<li class="nav-item">
 
-					<a href="seguimientoRe" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'seguimientoRe');?>">
-
+					<a href="seguimientoRe" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoRe'); ?>">
+						<i class="fa fa-file-alt"></i>
+						&nbsp
 						<p>Reportería</p>
 
 					</a>
 
-				</li> 
+				</li>
+
+				<?php if (intval($_SESSION["selectorAniosA"])>=2022): ?>
+
+					<li class="nav-item">
+
+
+						<a href="reporteAnexosOD" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteAnexosOD'); ?>">
+							<i class="fal fa-file-chart-pie"></i>
+							&nbsp
+							<p>Reporte y anexos</p>
+						</a>
+
+					</li>
+
+				<?php endif ?>
 
 			</ul>
 

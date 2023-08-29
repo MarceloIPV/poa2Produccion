@@ -1422,7 +1422,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 							var indicadorInformacion=elementos['indicadorInformacion'];
 							
-							var table = datatabletsConfiguration($("#dt_segui_administrativo_AP"),"001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria");
+							var table = datatabletsConfiguration($("#dt_segui_administrativo_AP2023"),"001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria");
 							
 							visualizar__actividades__administrativas_PRESUPUESTARIO(indicadorInformacion,table,parametro5,parametro1,parametro4)
 

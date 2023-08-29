@@ -56,42 +56,48 @@ $(document).ready(function () {
    $.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/selector.js",function(){
 
 
-    indicadores__seguimientos2023($(".body__indicadores__tablas"),$("#organismoIdPrin").val(),$("#idIndicadores"),"mostrar__indicadores__seguimiento__2023");
-    sueldos__salarios__seguimientos2023($(".body__sueldos__salarios__tablas"),$("#organismoIdPrin").val(),$("#idSueldosS"),$(".contenedor__pestanas"),$("#trimestreEvaluador").val());	
+    indicadores__seguimientos2023($(".body__indicadores__tablas"),$("#organismoIdPrin").val(),$("#idIndicadores2023"),"mostrar__indicadores__seguimiento__2023");
+    sueldos__salarios__seguimientos2023($(".body__sueldos__salarios__tablas"),$("#organismoIdPrin").val(),$("#idSueldosS2023"),$(".contenedor__pestanas"),$("#trimestreEvaluador").val());	
     
-    mantenimiento__capacitacion_PRESUPUESTARIO($(".body__capacitacion__tablas"),$("#organismoIdPrin").val(),$("#idCapacitacionS"),$(".contenedor__pestanas__capacitacion__tecnicos"),$("#trimestreEvaluador").val());			
-    actividades__deportivas__competencia_PRESUPUESTARIO($(".body__competencia__tablas"),$("#organismoIdPrin").val(),$("#idCompetenciaS"),$(".contenedor__pestanas__competencia"),$("#trimestreEvaluador").val());				
-    mantenimiento__seguimientos_PRESUPUESTARIO($(".body__mantenimiento__tablas"),$("#organismoIdPrin").val(),$("#idMantenimientoS"),$(".contenedor__pestanas__mantenimientos"),$("#trimestreEvaluador").val());			
-	recreativo__checkeds_PRESUPUESTARIO($(".body__recreativo__tablas"),$("#organismoIdPrin").val(),$("#idRecreativaS"),$(".contenedor__pestanas__recreativo"),$("#trimestreEvaluador").val());			
-    administrativas__seguimientos_PRESUPUESTARIO($(".body__adminsitrativas__tablas"),$("#organismoIdPrin").val(),$("#idAdministrativoS"),$(".contenedor__pestanas__administrativas"),$("#trimestreEvaluador").val());			
+    mantenimiento__capacitacion_PRESUPUESTARIO($(".body__capacitacion__tablas"),$("#organismoIdPrin").val(),$("#idCapacitacionS2023"),$(".contenedor__pestanas__capacitacion__tecnicos"),$("#trimestreEvaluador").val());			
+    actividades__deportivas__competencia_PRESUPUESTARIO($(".body__competencia__tablas"),$("#organismoIdPrin").val(),$("#idCompetenciaS2023"),$(".contenedor__pestanas__competencia"),$("#trimestreEvaluador").val());				
+    mantenimiento__seguimientos_PRESUPUESTARIO($(".body__mantenimiento__tablas"),$("#organismoIdPrin").val(),$("#idMantenimientoS2023"),$(".contenedor__pestanas__mantenimientos"),$("#trimestreEvaluador").val());			
+	recreativo__checkeds_PRESUPUESTARIO($(".body__recreativo__tablas"),$("#organismoIdPrin").val(),$("#idRecreativaS2023"),$(".contenedor__pestanas__recreativo"),$("#trimestreEvaluador").val());			
+    administrativas__seguimientos_PRESUPUESTARIO($(".body__adminsitrativas__tablas"),$("#organismoIdPrin").val(),$("#idAdministrativoS2023"),$(".contenedor__pestanas__administrativas"),$("#trimestreEvaluador").val());			
     
-    implementacion__checkeds_TECNICO($(".body__implementacion__tablas"),$("#organismoIdPrin").val(),$("#idImplementacionS"),$(".contenedor__pestanas__implementacion"),$("#trimestreEvaluador").val());			
-    honorarios__seguimientos_TECNICO($(".body__honorarios__tablas"),$("#organismoIdPrin").val(),$("#idHonorariosS"),$(".contenedor__pestanas__honorarios"),$("#trimestreEvaluador").val());			
-    mantenimiento__seguimientos__tecnicos($(".body__mantenimiento__tecnicos__tablas"),$("#organismoIdPrin").val(),$("#idMantenimientoTecnicoS"),$(".contenedor__pestanas__mantenimientos__tecnicos"),$("#trimestreEvaluador").val());		
-    capacitacion__alto_TECNICO($(".body__competencia__alto__tablas"),$("#organismoIdPrin").val(),$("#idCompetencia__altoRenS"),$(".contenedor__pestanas__competencia__alto"),$("#trimestreEvaluador").val());		
-	mantenimiento__capacitacion__tecnico($(".body__capacitacion__tecnica__tablas"),$("#organismoIdPrin").val(),$("#idCapacitacionTecnicoS"),$(".contenedor__pestanas__capacitacion__tecnicos__tecnicos"),$("#trimestreEvaluador").val());			
-    capacitacion__formativo_TECNICO($(".body__competencia__formativa__tablas"),$("#organismoIdPrin").val(),$("#idCompetencia__FormativaS"),$(".contenedor__pestanas__competencia__formativas"),$("#trimestreEvaluador").val());		
-	recreativo__tecnicos($(".body__recreativo__tecnico__tablas"),$("#organismoIdPrin").val(),$("#idRecreativaTecnicoS"),$(".contenedor__pestanas__tecnico__recreativo"),$("#trimestreEvaluador").val());		
+    implementacion__checkeds_TECNICO($(".body__implementacion__tablas"),$("#organismoIdPrin").val(),$("#idImplementacionS2023"),$(".contenedor__pestanas__implementacion"),$("#trimestreEvaluador").val());			
+    honorarios__seguimientos_TECNICO($(".body__honorarios__tablas"),$("#organismoIdPrin").val(),$("#idHonorariosS2023"),$(".contenedor__pestanas__honorarios"),$("#trimestreEvaluador").val());			
+    mantenimiento__seguimientos__tecnicos($(".body__mantenimiento__tecnicos__tablas"),$("#organismoIdPrin").val(),$("#idMantenimientoTecnicoS2023"),$(".contenedor__pestanas__mantenimientos__tecnicos"),$("#trimestreEvaluador").val());		
+    capacitacion__alto_TECNICO($(".body__competencia__alto__tablas"),$("#organismoIdPrin").val(),$("#idCompetencia__altoRenS2023"),$(".contenedor__pestanas__competencia__alto"),$("#trimestreEvaluador").val());		
+	mantenimiento__capacitacion__tecnico($(".body__capacitacion__tecnica__tablas"),$("#organismoIdPrin").val(),$("#idCapacitacionTecnicoS2023"),$(".contenedor__pestanas__capacitacion__tecnicos__tecnicos"),$("#trimestreEvaluador").val());			
+    capacitacion__formativo_TECNICO($(".body__competencia__formativa__tablas"),$("#organismoIdPrin").val(),$("#idCompetencia__FormativaS2023"),$(".contenedor__pestanas__competencia__formativas"),$("#trimestreEvaluador").val());		
+	recreativo__tecnicos($(".body__recreativo__tecnico__tablas"),$("#organismoIdPrin").val(),$("#idRecreativaTecnicoS2023"),$(".contenedor__pestanas__tecnico__recreativo"),$("#trimestreEvaluador").val());		
 
     guardar_zonales_juridicciones($(".obligatorios_seleccionar_zonal"),"paid","checkeds__seleccionables");
    
-    visores_actividades_seguimiento2023($("#idAdministrativoME"),$(".cuerpo__administrativo__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'administrativo__seguimientos__tablas');
+    visores_actividades_seguimiento2023($("#idAdministrativoME2023"),$(".cuerpo__administrativo__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'administrativo__seguimientos__tablas');
     
-    visores_actividades_seguimiento2023($("#idCapacitacionME"),$(".cuerpo__capacitacion__vs"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'capacitacion__seguimiento__tablas__ms');
-    visores_actividades_seguimiento2023($("#idCompetenciaME"),$(".cuerpo__competencia__administrativos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'competencia__seguimientos__tablas');
-    visores_actividades_seguimiento2023($("#idImplementacionME"),$(".cuerpo__competencia__implementaciones"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'competencia__implementacion__tablas');
-    visores_actividades_seguimiento2023($("#idRecreativaME"),$(".cuerpo__recreativo__segumientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreativos__seguimiento__tablas');
+    visores_actividades_seguimiento2023($("#idCapacitacionME2023"),$(".cuerpo__capacitacion__vs"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'capacitacion__seguimiento__tablas__ms');
+    visores_actividades_seguimiento2023($("#idCompetenciaME2023"),$(".cuerpo__competencia__administrativos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'competencia__seguimientos__tablas');
+    visores_actividades_seguimiento2023($("#idImplementacionME2023"),$(".cuerpo__competencia__implementaciones"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'competencia__implementacion__tablas');
+    visores_actividades_seguimiento2023($("#idRecreativaME2023"),$(".cuerpo__recreativo__segumientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreativos__seguimiento__tablas');
     
-    visores_actividades_seguimiento2023($("#idMantenimientoME"),$(".cuerpo__mantenimiento__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'mantenimiento__seguimientos__tablas');
-    visores_actividades_seguimiento2023($("#idhonorariosME"),$(".cuerpo__honorarios__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'honorarios__seguimientos__tablas');
-    visores_actividades_seguimiento2023($("#idSueldosME"),$(".cuerpo__sueldos__slaraios__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'sueldos__seguimientos__tablas');
-    visores_actividades_seguimiento2023($("#idCompetencia__formativaME"),$(".cuerpo__formativos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreativos__formativo__seguimiento');
+    visores_actividades_seguimiento2023($("#idMantenimientoME2023"),$(".cuerpo__mantenimiento__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'mantenimiento__seguimientos__tablas');
+    visores_actividades_seguimiento2023($("#idhonorariosME2023"),$(".cuerpo__honorarios__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'honorarios__seguimientos__tablas');
+    visores_actividades_seguimiento2023($("#idSueldosME2023"),$(".cuerpo__sueldos__slaraios__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'sueldos__seguimientos__tablas');
+    visores_actividades_seguimiento2023($("#idCompetencia__formativaME2023"),$(".cuerpo__formativos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreativos__formativo__seguimiento');
 
     });
 
 
 
     $.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/metodos2.js",function(){
+
+        indicadores__funcionales_estado_cuenta($(".body__indicadores__tablas1"),$("#organismoIdPrin").val(),$("#idIndicadores_estadoCuenta2023"),"indicadores__funcionales__seguimientos");
+	
+	
+        visualizarOpcionesCambiar($("#tipo__cambiosSeguimientos"),$(".contenidos__formularios__enviados2023"));
+
 
         funcion_click_boton_datatable_Implementacion_Presupuestario(".cuerpo__competencia__implementaciones","a.btnFacturas","divDocumentos","#idTituloModalDocumentos","Facturas Implementacion","facturasImplementacion","tbodyFacturaImplementacion",["Código Ítem","Nombre Ítem","Documento","Número de factura","Fecha factura","Ruc","Autorización","Monto","Mes","Trimestre","Acciones"],"competencia__implementacion__tablas","documentos/seguimiento/facturasMantenimiento/")
         funcion_click_boton_datatable_Implementacion_Presupuestario(".cuerpo__competencia__implementaciones","a.btnDocumentos","divDocumentos","#idTituloModalDocumentos","Documentos Implementacion","DocumentosImplementacion","tbodyDocumentosImplementacion",["Código Ítem","Nombre Ítem","Documento","Mes","Trimestre","Acciones"],"competencia__implementacion__tablas","documentos/seguimiento/otrosMantenimiento/")
