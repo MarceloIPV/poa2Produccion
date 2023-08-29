@@ -462,40 +462,12 @@ $componentesPaid= new componentesPaid();?>
 					<input type="hidden" id="tipoPdf" name="tipoPdf" value="declaracionTerminos" />
 
 					<div class="row">
-						<div class="col-md-4">
-							<div class="col-md-12">
-							<a class="col col-4 enlaces__definidos__letras text-right" href="modelosBd/pdf/pdf.modelo.php" target="_blank">Declaración del correcto uso de los recursos públicos</a>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="col-md-12">
-							<input type='file' accept='application/pdf' class='ancho__total__input obligatorios_decalracion_recursos_publicos' id='decalracion_recursos_publicos'/>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="col-md-12">
-							<a class='btn btn-primary text-center' id='guardar_estado_cuenta3'><i class='fa fa-floppy-o' aria-hidden='true'></i></a>
-							</div>
-						</div>
+						
 					</div>
 			
 					<br><br>
 					<div class="row">
-						<div class="col-md-4">
-							<div class="col-md-12">
-							<a class="col col-3 enlaces__definidos__letras text-right" href="documentos/documentosMinisterio/acuerdos__seguimiento.pdf" target="_blank">Declaración de contratación pública</a>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="col-md-12">
-							<input type='file' accept='application/pdf' class='ancho__total__input obligatorios_estado_cuenta2' id='estado_cuenta' accept='application/pdf'/>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="col-md-12">
-							<a class='btn btn-primary text-center' id='guardar_estado_cuenta2'><i class='fa fa-floppy-o' aria-hidden='true'></i></a>
-							</div>
-						</div>
+						
 					</div> -->
 
 
@@ -647,33 +619,6 @@ $componentesPaid= new componentesPaid();?>
 
 <?= $componentesTablas->getModalVacioXl("modalFacturasDocumentos", "formContratacionPublica", "idTituloModalDocumentos", "divDocumentos", "cerrarBtnContratacionPublica", "inputIdItem"); ?>
 
-<!--=========================
-=         DATATABLES       =
-==========================-->
-<script>   
-    // $.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatables2.js", function() {
 
-    //     
-
-    // });
-
-    // $.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatables2.js", function() {
-
-    //     datatableSeguimientoRegistro($("#dt_segui_indicadores"), "indicadores__funcionales__seguimientos");
-	// 	datatableSeguimientoRegistro($("#dt_sueldos_salarios_EP"), "sueldos__salarios__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_honorarios"), "honorarios__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_administrativo_AP"), "administrativos__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_mantenimiento_EP"), "mantenimiento__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_mantenimiento_escenarios_IT"), "mantenimiento__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_capacitacion_deportiva_recreacion1"), "deportivas__tecnico__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_capacitacion_deportiva_recreacion"), "deportivas__tecnico__tecnico__seguis__capacitacion");
-	// 	datatableSeguimientoRegistro($("#dt_segui_eventos_prepa_competencia"), "deportivas__tecnico__tecnico__seguis__capacitacion");
-	// 	datatableSeguimientoRegistro($("#dt_segui_deporte_formativo"), "deportivas__tecnico__tecnico__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_alto_rendimiento"), "deportivas__tecnico__tecnico__seguis__altos");
-	// 	datatableSeguimientoRegistro($("#dt_segui_acti_recreaticas1"), "deportivas__recreacion__seguis");
-	// 	datatableSeguimientoRegistro($("#dt_segui_acti_recreaticas2"), "deportivas__tecnico__recreativas");
-	// 	datatableSeguimientoRegistro($("#dt_segui_implementacion_deportiva"), "deportivas__implementacion__seguis");
-    //  });
- </script>
    
 <!--====  End of Modales  ====-->
