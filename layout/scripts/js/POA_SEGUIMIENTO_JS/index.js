@@ -99,7 +99,7 @@ $(document).ready(function () {
         visualizarOpcionesCambiar($("#tipo__cambiosSeguimientos"),$(".contenidos__formularios__enviados2023"));
 
 
-        funcion_click_boton_datatable_Implementacion_Presupuestario(".cuerpo__competencia__implementaciones","a.btnFacturas","divDocumentos","#idTituloModalDocumentos","Facturas Implementacion","facturasImplementacion","tbodyFacturaImplementacion",["Código Ítem","Nombre Ítem","Documento","Número de factura","Fecha factura","Ruc","Autorización","Monto","Mes","Trimestre","Acciones"],"competencia__implementacion__tablas",$("#filesFrontend").val()+$("#filesFrontend").val()+"seguimiento/facturasMantenimiento/")
+        funcion_click_boton_datatable_Implementacion_Presupuestario(".cuerpo__competencia__implementaciones","a.btnFacturas","divDocumentos","#idTituloModalDocumentos","Facturas Implementacion","facturasImplementacion","tbodyFacturaImplementacion",["Código Ítem","Nombre Ítem","Documento","Número de factura","Fecha factura","Ruc","Autorización","Monto","Mes","Trimestre","Acciones"],"competencia__implementacion__tablas",$("#filesFrontend").val()+"seguimiento/facturasMantenimiento/")
         funcion_click_boton_datatable_Implementacion_Presupuestario(".cuerpo__competencia__implementaciones","a.btnDocumentos","divDocumentos","#idTituloModalDocumentos","Documentos Implementacion","DocumentosImplementacion","tbodyDocumentosImplementacion",["Código Ítem","Nombre Ítem","Documento","Mes","Trimestre","Acciones"],"competencia__implementacion__tablas",$("#filesFrontend").val()+"seguimiento/otrosMantenimiento/")
 
 
