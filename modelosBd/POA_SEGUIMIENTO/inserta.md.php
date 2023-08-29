@@ -3,6 +3,7 @@
 	extract($_POST);
 
 	require_once "../../config/config2.php";
+	
 
 	/*============================================
 	=            Parametros Iniciales            =
@@ -77,7 +78,7 @@
 //*************************************************** ESTADO DE CUENTA **************************************//
 		case  "guardar_estado_de_cuenta2023":
 			$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
-			$direccion1="../../documentos/seguimiento/estadosCuenta/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/estadosCuenta/";
 			$documento=$objeto->getEnviarPdf($_FILES["estado_cuenta"]['type'],$_FILES["estado_cuenta"]['size'],$_FILES["estado_cuenta"]['tmp_name'],$_FILES["estado_cuenta"]['name'],$direccion1,$nombre__archivo);
 			
 			// $inserta=$objeto->getInsertaNormal('poa_seguimiento_estado_cuenta', array("`id_estado_cuenta`, ","`idOrganismo`, ","`documento`, ","`fecha`, ","`hora`,","`trimestre`, ","`perioIngreso`"),array("'$idOrganismo', ","'$nombre__archivo', ","'$fecha_actual', ","'$hora_actual', ","'$trimestre', ","'$aniosPeriodos__ingesos'"));
@@ -124,7 +125,7 @@
 			$arrayInformacion = json_decode($prametros);
 
 			$nombre__archivo=$fecha_actual."__".$arrayInformacion[2]."__".$arrayInformacion[3].".pdf";
-			$direccion="../../documentos/seguimiento/indicadoresDocumento/";
+			$direccion=VARIABLE__BACKEND."seguimiento/indicadoresDocumento/";
 
 			// $documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion,$nombre__archivo);
 
@@ -154,7 +155,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosCompetencia/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosCompetencia/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -174,7 +175,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasCompetencias/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasCompetencias/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -210,7 +211,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosCapacitacion/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosCapacitacion/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -230,7 +231,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasCapacitacion/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasCapacitacion/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -250,7 +251,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosCpacitacion_tecnico/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosCpacitacion_tecnico/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -272,7 +273,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosMantenimiento/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosMantenimiento/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -292,7 +293,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasMantenimiento/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasMantenimiento/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -330,7 +331,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosRecreativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosRecreativo/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -364,7 +365,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasRecreativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasRecreativo/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -387,7 +388,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosInstalaciones/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosInstalaciones/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -421,7 +422,9 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasImplementacion/";
+			echo VARIABLE__BACKEND;
+
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasImplementacion/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -444,7 +447,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosHabilitantes__administrativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosHabilitantes__administrativo/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -464,8 +467,8 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturas__administrativo/";
-			$direccion2="../../documentos/seguimiento/otrosHabilitantes__administrativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturas__administrativo/";
+			$direccion2=VARIABLE__BACKEND."seguimiento/otrosHabilitantes__administrativo/";
 
 			if (isset($archivo1)) {
 
@@ -494,7 +497,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturas__administrativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturas__administrativo/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -632,7 +635,7 @@
 		
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosHonorarios/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosHonorarios/";
 
 			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -653,7 +656,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasHonorarios/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasHonorarios/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -697,7 +700,7 @@
 		
 					$arrayInformacion = json_decode($parametros);
 		
-					$direccion1="../../documentos/seguimiento/otrosCompentencia_alto/";
+					$direccion1=VARIABLE__BACKEND."seguimiento/otrosCompentencia_alto/";
 		
 					$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 		
@@ -717,7 +720,7 @@
 		
 					$arrayInformacion = json_decode($parametros);
 		
-					$direccion1="../../documentos/seguimiento/otrosMantenimiento__tecnicos/";
+					$direccion1=VARIABLE__BACKEND."seguimiento/otrosMantenimiento__tecnicos/";
 		
 					$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 		
@@ -739,7 +742,7 @@
 		
 					$arrayInformacion = json_decode($parametros);
 		
-					$direccion1="../../documentos/seguimiento/otros__recreativos__tecnicos/";
+					$direccion1=VARIABLE__BACKEND."seguimiento/otros__recreativos__tecnicos/";
 		
 					$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 		
@@ -759,7 +762,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosCompentencia_formativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosCompentencia_formativo/";
 
 			$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 

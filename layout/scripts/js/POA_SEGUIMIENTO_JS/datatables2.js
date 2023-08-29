@@ -630,7 +630,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
           agregarDatatablets($("#recreativoTec__in__2"),"seguimiento__recreativoTec__2","006 - Actividades recreativas - Información técnica","",variableTrimestral); 
   
-          agregarDatatablets($("#indicadores__in__2"),"seguimiento__indicadores__2","Indicadores",objetos([5],["enlace"],['documento'],["documentos/seguimiento/indicadoresDocumento/"],["documento"]),variableTrimestral); 
+          agregarDatatablets($("#indicadores__in__2"),"seguimiento__indicadores__2","Indicadores",objetos([5],["enlace"],['documento'],[$("#filesFrontend").val()+"seguimiento/indicadoresDocumento/"],["documento"]),variableTrimestral); 
    
       
               var agregarDatatablets__competencia__altos__formativos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
@@ -670,7 +670,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                               for(z of indicadorInformacion3){
       
-                                  $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="documentos/seguimiento/otrosCompentencia_formativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
+                                  $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
       
                               }                           
       
@@ -731,7 +731,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                               for(z of indicadorInformacion3){
       
-                                  $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="documentos/seguimiento/otrosCompentencia_alto/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
+                                  $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_alto/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
       
                               }                           
       
@@ -793,7 +793,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="documentos/seguimiento/planilla/'+z.planilla+'" target="_blank">'+z.planilla+'</a></td><td><a href="documentos/seguimiento/rol/'+z.rol+'" target="_blank">'+z.rol+'</a></td><td><a href="documentos/seguimiento/comprobante/'+z.comprobante+'" target="_blank">'+z.comprobante+'</a></td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="'+$("#filesFrontend").val()+'seguimiento/planilla/'+z.planilla+'" target="_blank">'+z.planilla+'</a></td><td><a href="'+$("#filesFrontend").val()+'seguimiento/rol/'+z.rol+'" target="_blank">'+z.rol+'</a></td><td><a href="'+$("#filesFrontend").val()+'seguimiento/comprobante/'+z.comprobante+'" target="_blank">'+z.comprobante+'</a></td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -858,7 +858,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion2){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="documentos/seguimiento/facturasHonorarios/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasHonorarios/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -870,7 +870,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(w of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="documentos/seguimiento/otrosHonorarios/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosHonorarios/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
       
                   }							
       
@@ -933,7 +933,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion2){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombreItem+'</td><td><a href="documentos/seguimiento/facturas__administrativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturas__administrativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -945,7 +945,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(w of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombreItem+'</td><td><a href="documentos/seguimiento/otrosHabilitantes__administrativo/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosHabilitantes__administrativo/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
       
                   }							
       
@@ -1006,7 +1006,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion2){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="documentos/seguimiento/facturasMantenimiento/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasMantenimiento/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -1018,7 +1018,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(w of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="documentos/seguimiento/otrosMantenimiento/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
       
                   }							
       
@@ -1082,7 +1082,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion2){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="documentos/seguimiento/facturasCapacitacion/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasCapacitacion/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -1094,7 +1094,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(w of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="documentos/seguimiento/otrosCapacitacion/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCapacitacion/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
       
                   }							
       
@@ -1157,7 +1157,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion2){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombreItem+'</td><td><a href="documentos/seguimiento/facturasCompetencias/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasCompetencias/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -1169,7 +1169,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(w of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombreItem+'</td><td><a href="documentos/seguimiento/otrosCompetencia/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompetencia/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
       
                   }							
       
@@ -1231,7 +1231,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion2){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="documentos/seguimiento/facturasRecreativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasRecreativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -1243,7 +1243,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(w of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="documentos/seguimiento/otrosRecreativo/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosRecreativo/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
       
                   }							
       
@@ -1306,7 +1306,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(z of indicadorInformacion2){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="documentos/seguimiento/facturasImplementacion/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasImplementacion/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
       
                   }							
       
@@ -1318,7 +1318,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
                   for(w of indicadorInformacion3){
       
-                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="documentos/seguimiento/otrosInstalaciones/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                    $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosInstalaciones/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
       
                   }							
       

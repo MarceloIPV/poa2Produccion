@@ -17097,6 +17097,230 @@ internacional, organizaciones no gubernamentales, entre otros.
 		break;	
 
 
+		case  "documento__contratcion__publica__od": 
+
+			$horizontal=true;
+
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/final__seguimiento/";
+			$parametro2="InformeContratacionPublicaSeguimiento__".$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;	
+			$parametro3=$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;
+			
+			/*=====  End of Generar pdf  ======*/
+
+			$auxiliar=" ";
+
+			if ($trimestreEvaluadorDos=="primerTrimestre") {
+				$indentificador="I";
+			}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+				$indentificador="II";
+			}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+				$indentificador="III";
+			}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+				$indentificador="IV";
+			}
+
+			
+		
+			$documentoCuerpo=" <div style='text-align:center!important;'><h1>RESUMEN DE CONTRATACIÓN PÚBLICA POR ITEMS</h1>
+			<h1>".$indentificador." TRIMESTRE ".$aniosPeriodos__ingesos."</h1></div>
+
+			<div style='text-align:justify!important;'>
+					<h2>FECHA:                   ".$fecha_actual." </h2>
+					<h2>ORGANIZACIÓN DEPORTIVA:  ".strtoupper($informacionCompleto[0][nombreOrganismo])." </h2>  
+					<h2>NÚMERO DE RUC:           ".$informacionCompleto[0][ruc]." </h2>
+			</div>
+
+
+
+			
+			
+
+			<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:1em!important;' border='1'>
+
+						<thead>
+
+							<tr>
+
+								<th>
+									<center>CÓDIGO ACTIVIDAD</center>
+								</th>
+
+								<th>
+									<center>ÍTEM</center>
+								</th>
+
+								<th>
+									<center>DESCRIPCIÓN DEL ÍTEM</center>
+								</th>
+
+								<th>
+									<center>TIPO DE CONTRATACIÓN</center>
+								</th>
+
+								<th>
+									<center>OBJETO DE LA CONTRATACIÓN</center>
+								</th>
+
+								<th>
+									<center>MONTO DE LA CONTRATACIÓN </center>
+								</th>
+
+								<th>
+									<center>PROVEEDOR </center>
+								</th>
+
+								<th>
+									<center>RUC</center>
+								</th>
+
+								<th>
+									<center>LINK DE LA PUBLICACIÓN EN EL PORTAL DE COMPRAS PÚBLICAS</center>
+								</th>
+
+							
+
+							</tr>
+
+						</thead>
+
+						<tbody>";
+
+						$indicadores__ContratacionPublicaInformeOD=$objeto->getObtenerInformacionGeneral("Select a.idActividad, b.itemPreesupuestario, b.nombreItem, a.*  from poa_catalogo_contraloria_seguimiento as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo  WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and a.trimestre='$trimestreEvaluadorDos' ORDER BY a.idActividad;");
+
+						$contador=0;
+
+						foreach ($indicadores__ContratacionPublicaInformeOD as $clave => $valor) {
+
+							if($valor[catalogo__elect] == "si" ){
+								$contador++;
+
+								
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td>   <td><center>Catalogo Electrónico</center></td> <td><center>".$valor[catalogo__elect__objeto]."</center></td><td><center>".$valor[catalogo__elect__monto]."</center></td> <td><center>".$valor[catalogo__elect__proveedor]."</center></td> <td><center>".$valor[catalogo__elect__rucProveedor]."</center></td> <td><center>".$valor[catalogo__elect__texto]."</center></td> </tr>";
+						
+							}
+
+							if($valor[catalogo__subasta] == "si" ){
+
+								$contador++;
+
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Subasta Inversa Electrónica</center></td><td><center>".$valor[catalogo__subasta__objeto]."</center></td> <td><center>".$valor[catalogo__subasta__monto]."</center></td> <td><center>".$valor[catalogo__subasta__proveedor]."</center></td> <td><center>".$valor[catalogo__subasta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__subasta__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__infima] == "si" ){
+
+								$contador++;
+
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Ínfima Cuantía</center></td><td><center>".$valor[catalogo__infima__objeto]."</center></td>  <td><center>".$valor[catalogo__infima__monto]."</center></td> <td><center>".$valor[catalogo__infima__proveedor]."</center></td> <td><center>".$valor[catalogo__infima__rucProveedor]."</center></td> <td><center>".$valor[catalogo__infima__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__menorCuantia] == "si" ){
+
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Menor Cuantía Bienes</center></td> <td><center>".$valor[catalogo__menorCuantia__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantia__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantia__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__cotizacion] == "si" ){
+
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Cotización Bienes</center></td> <td><center>".$valor[catalogo__cotizacion__objeto]."</center></td><td><center>".$valor[catalogo__cotizacion__monto]."</center></td> <td><center>".$valor[catalogo__cotizacion__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__licitacion] == "si" ){
+
+								$contador++;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Licitación Bienes</center></td> <td><center>".$valor[catalogo__licitacion__objeto]."</center></td> <td><center>".$valor[catalogo__licitacion__monto]."</center></td> <td><center>".$valor[catalogo__licitacion__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__menorCuantiaObras] == "si" ){
+
+								$contador++;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Menor Cuantía Obras</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantiaObras__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__cotizacionObras] == "si" ){
+
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Cotización Obras</center></td> <td><center>".$valor[catalogo__cotizacionObras__objeto]."</center></td><td><center>".$valor[catalogo__cotizacionObras__monto]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__licitacionObras] == "si" ){
+
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Licitación Obras</center></td> <td><center>".$valor[catalogo__licitacionObras__objeto]."</center></td><td><center>".$valor[catalogo__licitacionObras__monto]."</center></td> <td><center>".$valor[catalogo__licitacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__texto]."</center></td></tr>";
+						
+							}
+
+
+							if($valor[catalogo__precioObras] == "si" ){
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Precio Fijo Obras</center></td> <td><center>".$valor[catalogo__precioObras__objeto]."</center></td><td><center>".$valor[catalogo__precioObras__monto]."</center></td> <td><center>".$valor[catalogo__precioObras__proveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__contratacionDirecta] == "si" ){
+
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Contratación Directa</center></td><td><center>".$valor[catalogo__contratacionDirecta__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__texto]."</center></td></tr>";
+						
+							}
+
+							if($valor[catalogo__contratacionListaCorta] == "si" ){
+
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Lista Corta</center></td><td><center>".$valor[catalogo__contratacionListaCorta__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__texto]."</center></td> </tr>";
+						
+							}
+
+							if($valor[catalogo__contratacionConcursoPu] == "si" ){
+
+								$contador++;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Concurso Público</center></td><td><center>".$valor[catalogo__contratacionConcursoPu__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__monto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__texto]."</center></td></tr>";
+						
+							}
+
+
+							$documentoCuerpo.="
+							</tbody>
+								";
+
+						}
+
+						$documentoCuerpo.="
+					</table>";
+
+			
+		
+
+				
+
+		break;
+
+
 	}
 
 
