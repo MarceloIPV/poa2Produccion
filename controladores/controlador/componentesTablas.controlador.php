@@ -6963,6 +6963,82 @@
 
 		}
 
+		public function getModalConfiguracion__reporteria__organismos__seguimientos3($parametro1,$parametro2,$parametro3,$parametro4,$parametro5){
+
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog' style='min-width:100%!important;'>
+
+					<form class='modal-content formularioConfiguracion'>
+
+					<div class='modal-header row'>
+						
+					    <div class='col col-11 text-center'>
+						
+
+					    	<h5 class='modal-title $parametro2'>$parametro2</h5>
+
+					    </div>
+
+					    <div class='col col-1'>
+
+					    	<button type='button' id='$parametro5' class='btn-close cerrar__modalRegistros' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+					    </div>
+
+					</div>
+
+					<div class='modal-body row'>
+
+						<div style='width:100%;'>
+
+						<div class='col col-12 contenedor__sueldos__salarios'></div>
+
+						<table id='$parametro3'>
+
+							<thead>
+
+								<tr>
+
+						";
+
+
+				foreach ($parametro4 as $clave => $valor) {
+
+							$modal.="<th><center>$valor</center></th>";
+					
+				}
+
+
+
+					$modal.="
+
+								</tr>
+
+							</thead>
+
+						</table>
+
+						</div>
+
+
+					</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
 
 
 	}

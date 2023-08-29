@@ -2057,7 +2057,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for(d of indicadorInformacion2){
 
-									$(".cuerpo__sueldos__edis__com").append('<tr class="fila__corresponsal fila__'+d.idComprobante__general+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/planilla/'+d.planilla+'" target="_blank">'+d.planilla+'</a></td><td><a href="'+$("#filesFrontend").val()+'seguimiento/rol/'+d.rol+'" target="_blank">'+d.rol+'</a></td><td><a href="'+$("#filesFrontend").val()+'seguimiento/comprobante/'+d.comprobante+'" target="_blank">'+d.comprobante+'</a></td><td><center>'+d.mes+'</center></td><td><center>'+d.trimestre+'</center></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__s'+d.idComprobante__general+'" name="eliminarInfor'+d.idComprobante__general+'" idPrincipal="'+d.idComprobante__general+'" idContador="'+d.idComprobante__general+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".cuerpo__sueldos__edis__com").append('<tr class="fila__corresponsal fila__'+d.idComprobante__general+'"><td><a href="documentos/seguimiento/planilla/'+d.planilla+'" target="_blank">'+d.planilla+'</a></td><td><a href="documentos/seguimiento/rol/'+d.rol+'" target="_blank">'+d.rol+'</a></td><td><a href="documentos/seguimiento/comprobante/'+d.comprobante+'" target="_blank">'+d.comprobante+'</a></td><td><center>'+d.mes+'</center></td><td><center>'+d.trimestre+'</center></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__s'+d.idComprobante__general+'" name="eliminarInfor'+d.idComprobante__general+'" idPrincipal="'+d.idComprobante__general+'" idContador="'+d.idComprobante__general+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 									$("#eliminarInfor__s"+d.idComprobante__general).click(function(e) {
 
@@ -2094,7 +2094,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								$(".cuerpo__indicadores__seguimientos__2").append('<tr><td>'+z.idActividades+'</td><td>'+z.nombreActividades+'</td><td>'+z.nombreIndicador+'</td><td>'+z.totalProgramado+'</td><td>'+z.totalEjecutado+'</td></tr>');
 
-								$(".documento__seguimiento"+z.idActividades).append('<a href="'+$("#filesFrontend").val()+'seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
+								$(".documento__seguimiento"+z.idActividades).append('<a href="documentos/seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
 
 								funcion__cambio__de__numero($("#totalEjecutado"+z.idActividades));
 
@@ -2139,7 +2139,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								$(".cuerpo__indicadores__seguimientos__2").append('<tr><td>'+z.idActividades+'</td><td>'+z.nombreActividades+'</td><td>'+z.nombreIndicador+'</td><td>'+z.totalProgramado+'</td><td>'+z.totalEjecutado+'</td></tr>');
 
-								$(".documento__seguimiento"+z.idActividades).append('<a href="'+$("#filesFrontend").val()+'seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
+								$(".documento__seguimiento"+z.idActividades).append('<a href="documentos/seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
 
 								funcion__cambio__de__numero($("#totalEjecutado"+z.idActividades));
 
@@ -2175,7 +2175,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion2) {
 
-									$(".cuerpo__indicadores__seguimientos__2__estado__cuenta").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".cuerpo__indicadores__seguimientos__2__estado__cuenta").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="../../../../documentos/seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.id_estado_cuenta).click(function(e) {
@@ -2281,7 +2281,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 							//********  ESTADO CUENTA  ******* */
 								for (l of indicadorInformacion4) {
 
-									$(".carga_datos_estado_cuenta_EP").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".carga_datos_estado_cuenta_EP").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="../../../../documentos/seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.id_estado_cuenta).click(function(e) {
@@ -2473,7 +2473,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td><a href="documentos/seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasTecnicas).click(function(e) {
@@ -2527,7 +2527,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".alto__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasAltos+'"><td><a href='+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_alto/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" idPrincipal="'+l.idOtrosCompetenciasAltos+'" idContador="'+l.idOtrosCompetenciasAltos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".alto__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasAltos+'"><td><a href="documentos/seguimiento/otrosCompentencia_alto/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" idPrincipal="'+l.idOtrosCompetenciasAltos+'" idContador="'+l.idOtrosCompetenciasAltos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasAltos).click(function(e) {
@@ -2582,7 +2582,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td><a href="documentos/seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosMantenimientoTecnico).click(function(e) {
@@ -2638,7 +2638,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__capacitacion__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacionTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.idOtrosCapacitacionTecnico+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCpacitacion_tecnico/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" name="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" idPrincipal="'+l.idOtrosCapacitacionTecnico+'" idContador="'+l.idOtrosCapacitacionTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__capacitacion__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacionTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.idOtrosCapacitacionTecnico+'</td><td><a href="documentos/seguimiento/otrosCpacitacion_tecnico/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" name="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" idPrincipal="'+l.idOtrosCapacitacionTecnico+'" idContador="'+l.idOtrosCapacitacionTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCapacitacionTecnico).click(function(e) {
@@ -2692,7 +2692,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".recreativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRT+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otros__recreativos__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRT+'" name="eliminarInfor__otros'+l.idOtrosRT+'" idPrincipal="'+l.idOtrosRT+'" idContador="'+l.idOtrosRT+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".recreativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRT+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otros__recreativos__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRT+'" name="eliminarInfor__otros'+l.idOtrosRT+'" idPrincipal="'+l.idOtrosRT+'" idContador="'+l.idOtrosRT+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosRT).click(function(e) {

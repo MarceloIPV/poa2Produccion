@@ -967,8 +967,7 @@ var sumarNumeross = function (parametro1, parametro2) {
 	$(parametro1).on("input", function () {
 
 //alert("ESTOY EN LA SUMA");		
-	  console.log("cesar");
-  
+	    
 	  var sum = 0;
 	  $(parametro1).each(function () {
 		sum += parseFloat($(this).val());

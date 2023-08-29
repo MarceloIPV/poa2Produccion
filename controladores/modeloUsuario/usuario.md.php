@@ -1718,4 +1718,21 @@ class usuarioAcciones{
 
 	}
 
+	public function getEnviarEXCELCSV($tipo,$tamanio,$archivotmp,$archivotmpNombre,$parametro2,$parametro3){
+
+		
+
+		if(rename($archivotmp,$parametro2.$parametro3)){
+
+			return "si";
+
+		}else{
+
+			return "noxlsxcsv";
+
+		}
+
+	
+	}
+
 }
