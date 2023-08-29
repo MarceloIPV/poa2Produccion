@@ -229,25 +229,28 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 					<li class="nav-item">
 
-						<a href="seguimientoControlC" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'seguimientoControlC');?>">
-
-							<p>Control de cambios</p>
+						<a href="seguimientoControlC" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoControlC'); ?>">
+							<i class="fa fa-sync"></i>
+							&nbsp;
+							<p>Control de Cambios</p>
 
 						</a>
 
-					</li> 
+					</li>
 
 				<?php endif ?>
 
 				<li class="nav-item">
 
-					<a href="reportesSeguimientos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'reportesSeguimientos');?>">
 
-						<p>Reporte seguimiento</p>
+					<a href="reportesSeguimientos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reportesSeguimientos'); ?>">
+						<i class="fa fa-chart-line"></i>
+						&nbsp;
+						<p>Reporte de seguimiento</p>
 
 					</a>
 
-				</li> 
+				</li>
 
 				<li class="nav-item">
 
