@@ -14,7 +14,8 @@
 
 
 	require_once CONTROLADORMENU.MODELOUSUARIOMENU.'informacionUsuario.md.php';
-
+	
+	require_once 'files.php';
 
 	/*=====  End of Generales  ======*/
 	

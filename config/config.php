@@ -27,7 +27,7 @@
 
 	require_once CONTROLADOR.CONTROLADORPLANTILLA.'plantilla.general.controlador.php';
 
-
+	require_once 'files.php';
 
 	/*=====  End of Generales  ======*/
 	
