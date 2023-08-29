@@ -19,6 +19,9 @@
 
 	require_once CONTROLADOR.MODELOUSUARIO.'usuario.md.php';
 
+	require_once 'files.php';
+
+	
 
 	/*=====  End of Generales  ======*/
 	
