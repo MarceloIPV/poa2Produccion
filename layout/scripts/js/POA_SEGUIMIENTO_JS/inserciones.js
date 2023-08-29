@@ -960,7 +960,7 @@ var funcion__guardado__matricez__sueldos__salarios = function (parametro1, param
 						
 					let elementos = JSON.parse(response);
 
-					let mensaje = elementos['mensaje'];
+					let mensaje = elementos['mensaje'];	
 
 					$(parametro13).remove();
 

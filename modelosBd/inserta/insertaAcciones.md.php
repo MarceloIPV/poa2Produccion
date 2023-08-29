@@ -7054,6 +7054,23 @@
 
 		break;
 
+		case  "sueldos__salarios__seguimientos_totales":
+
+			$arrayInformacion = json_decode($parametro2);
+
+			
+			$conexionRecuperada= new conexion();
+		 	$conexionEstablecida=$conexionRecuperada->cConexion();	
+
+		 	$query="INSERT INTO `poa_seguimiento_sueldos_salarios_total_observaciones`(`sueldoProgramado1`, `aporteProgramado1`, `decimoTercerProgramado1`, `decimoCuartoProgramado1`, `fondosReservaProgramado1`, `compensacionDeshaucioProgramado1`, `despidoIntepestivoProgramado1`, `reunciaVoluntariaProgramado1`, `compesacionDesaucioProgramado1`, `Observaciones_sueldos`, `Observaciones_aporteiess`, `Observaciones_decimoTercero`, `Observaciones_decimoCuarto`, `Observaciones_fondosReserva`, `Observaciones_compensacionDeshaucio`, `Observaciones_despidoInteespestivo`, `Observaciones_renunciaVol`, `Observaciones_compensacionVacaciones`, `idSueldos`, `perioIngreso`, `idOrganismo`) VALUES ('$arrayInformacion[0]','$arrayInformacion[1]','$arrayInformacion[2]','$arrayInformacion[3]','$arrayInformacion[4]','$arrayInformacion[5]','$arrayInformacion[6]','$arrayInformacion[7]','$arrayInformacion[8]','$arrayInformacion[9]','$arrayInformacion[10]','$arrayInformacion[11]','$arrayInformacion[12]','$arrayInformacion[13]','$arrayInformacion[14]','$arrayInformacion[15]','$arrayInformacion[16]','$arrayInformacion[17]','$arrayInformacion[18]','$aniosPeriodos__ingesos','$idOrganismoSession');";
+		 	$resultado= $conexionEstablecida->exec($query); 	
+
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;
+
+		break;
+
 
 	}
 

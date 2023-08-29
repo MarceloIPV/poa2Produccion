@@ -199,7 +199,7 @@ $componentesPaid= new componentesPaid();?>
 				<?= $componentes->getLinksConfiguracion__parametros(["autogestionSM2023"], ["Autogestión"], "idAutogestionS", ["autogestionME"], 'idAutogestionME'); ?>
 
 				<?php if (!empty($actividadesSeleccionadas__actividadesAdmi[0][idActividadAd])) : ?>
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM2023"], ["Indicadores"], "idIndicadores2023", ["indicadoresME"], 'idIndicadoresME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM2023"], ["Indicadores"], "idIndicadores2023", ["indicadoresME"], 'idIndicadoresME2023'); ?>
 				<?php else: ?>
 					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM_estadoCuenta2023"], ["Indicadores"], "idIndicadores_estadoCuenta2023", ["indicadoresMEindicadoresM_estadoCuenta"], 'idIndicadoresME_estado_cuenta'); ?>
 				<?php endif ?>
