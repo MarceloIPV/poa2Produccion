@@ -3770,6 +3770,51 @@
 
 		break;	
 
+		//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  COntratacion Recursos Publicos >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+		case  "consulta_datos_exite_pdf_contratacion_recursos_publicos":
+			
+			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento, fecha, perioIngreso, trimestre as listaTrimestres FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY idDeclaracion DESC;");
+
+			$jason['obtenerInformacion']=$obtenerInformacion;
+
+		break;	
+
+		case  "eliminar_declaracion_recusos":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();	
+				$query="DELETE FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre'";		
+
+			$resultado= $conexionEstablecida->exec($query);
+		
+			 $mensaje=1;
+			 $jason['mensaje']=$mensaje;	
+		break;
+
+		//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  COntratacion Publica >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+		case  "consulta_datos_exite_pdf_contratacion__publicaa":
+			//var_dump("INFO");
+			//var_dump($obtenerInformacion);
+			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento, fecha, perioIngreso, trimestre as listaTrimestres2 FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY id_declaracion_contratacion_publica DESC;
+			");
+
+			$jason['obtenerInformacion']=$obtenerInformacion;
+
+		break;	
+
+		case  "eliminar_declaracion_publica":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();	
+				$query="DELETE FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre'";		
+
+			$resultado= $conexionEstablecida->exec($query);
+		
+				$mensaje=1;
+				$jason['mensaje']=$mensaje;	
+		break;
+
+
 	}
 
 	echo json_encode($jason);

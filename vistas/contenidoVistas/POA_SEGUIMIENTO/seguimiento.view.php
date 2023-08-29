@@ -281,7 +281,7 @@ $componentesPaid= new componentesPaid();?>
 
 						<input type="hidden" name="idOrganismo" value="<?= $idOrganismo__v ?>" />
 
-						<input type="hidden" id="tipoPdf" name="tipoPdf" value="documento__seguimiento__final" />
+						<input type="hidden" id="tipoPdf" name="tipoPdf" value="documento__seguimiento__final2" />
 					
 
 						<?php if ((empty($tipoTrimestre[0][tipoTrimestre]) || ($bloqueosSeguimientoIV[0][estado] == "si") || !empty($controlCambiosI[0][idSeguimientoCambio])) && (empty($bloqueosSeguimientoI[0][estado]) || $bloqueosSeguimientoI[0][estado] == "no") || !empty($controlCambiosI[0][idSeguimientoCambio])) { ?>
