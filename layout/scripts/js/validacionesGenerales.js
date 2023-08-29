@@ -961,6 +961,46 @@ var funcion__sumador__real = function (parametro1, parametro2, parametro3) {
 
 /*=====  End of Sumar real  ======*/
 
+//************************************* SUMADOR DE NUEMROS ********************************************//
+
+var sumarNumeross = function (parametro1, parametro2) {
+	$(parametro1).on("input", function () {
+
+//alert("ESTOY EN LA SUMA");		
+	  console.log("cesar");
+  
+	  var sum = 0;
+	  $(parametro1).each(function () {
+		sum += parseFloat($(this).val());
+		
+	  });
+  
+	  $(parametro2).val(sum.toFixed(2));    
+	  
+	});
+  };
+
+
+//************************************* SUMADOR DE NUEMROS ********************************************//
+
+var sumarNumeros2 = function (parametro1, parametro2) {
+	
+
+//alert("ESTOY EN LA SUMA");		
+	  console.log("cesar");
+  
+	  var sum = 0;
+	  $(parametro1).each(function () {
+		sum += parseFloat($(this).val());
+		
+	  });
+  
+	  $(parametro2).val(sum.toFixed(2));    
+	  
+	
+  };
+//********************************************************************************************************//  
+
 
 /*=============================
 =            Sumar            =
@@ -1067,6 +1107,64 @@ var acordion__general = function (parametro1, parametro2, parametro3, parametro4
 }
 
 /*=====  End of Acordiones  ======*/
+
+/*===================================================
+=            Acordiones  SUELDOS SALARIOS           =
+=====================================================*/
+
+var acordion__general_sueldos_salarios = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7, parametro8) {
+
+	let rotulos = new Array();
+
+	$(parametro7).html(' ');
+
+	if (parametro2 == "primerTrimestre") {
+		rotulos = ['Enero', 'Febrero', 'Marzo'];
+	} else if (parametro2 == "segundoTrimestre") {
+		rotulos = ['Abril', 'Mayo', 'Junio'];
+	} else if (parametro2 == "tercerTrimestre") {
+		rotulos = ['Julio', 'Agosto', 'Septiembre'];
+	} else if (parametro2 == "cuartoTrimestre") {
+		rotulos = ['Octubre', 'Noviembre', 'Diciembre'];
+	}
+
+	if (parametro8 == 0) {
+
+		$(parametro1).append('<div class="col col-12 contenedor__navasrotulo contenedor__general__total"><ul class="nav nav-tabs nav-tabs-dropdown" id="myTab" role="tablist"><li class="nav-item bases__rotulo"><a aria-controls="rotulo" aria-selected="true" class="nav-link active show" data-toggle="tab" href="#rotulo" id="rotulo-tab" role="tab">Ejecución</a></li></ul><div class="tab-content py-4 bg-white" id="myTabContent"> <div aria-labelledby="rotulo-tab" class="container tab-pane fade active show" id="rotulo" role="tabpanel"></div></div>');
+
+		$("#rotulo").append(parametro4);
+
+
+	} else {
+
+		$(parametro1).append('<div class="col col-12 contenedor__navas' + rotulos[0] + ' contenedor__general__total"><ul class="nav nav-tabs nav-tabs-dropdown" id="myTab" role="tablist"><li class="nav-item bases__' + rotulos[0] + '"><a aria-controls="' + rotulos[0] + '" aria-selected="true" class="nav-link active show" data-toggle="tab" href="#' + rotulos[0] + '" id="' + rotulos[0] + '-tab" role="tab">Sueldo / Salario</a></li></ul><div class="tab-content py-4 bg-white" id="myTabContent"> <div aria-labelledby="' + rotulos[0] + '-tab" class="container tab-pane fade active show" id="' + rotulos[0] + '" role="tabpanel"></div><div aria-labelledby="' + rotulos[1] + '-tab" class="container tab-pane fade" id="' + rotulos[1] + '" role="tabpanel"></div><div aria-labelledby="' + rotulos[2] + '-tab" class="container tab-pane fade" id="' + rotulos[2] + '" role="tabpanel"></div></div>');
+
+		$("#" + rotulos[0]).append(parametro4);
+		$("#" + rotulos[1]).append(parametro5);
+		$("#" + rotulos[2]).append(parametro6);
+
+	}
+
+
+	/*==========================================
+	=            Acordion activados            =
+	==========================================*/
+	//open and close tab menu
+	$('.nav-tabs-dropdown')
+		.on("click", "li:not('.active') a", function (event) {
+			$(this).closest('ul').removeClass("open");
+		})
+		.on("click", "li.active a", function (event) {
+			$(this).closest('ul').toggleClass("open");
+		});
+
+
+	/*=====  End of Acordion activados  ======*/
+
+
+}
+
+/*=====  End of Acordiones SUELDOS SALARIOS  ======*/
 
 /*====================================================
 =            Funciones guardados mátrices            =
