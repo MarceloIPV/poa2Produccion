@@ -189,58 +189,7 @@ $componentesPaid= new componentesPaid();?>
 		<?php } ?>
 
 		<div class="contenedor__seguiiento__sin">
-
-			<!--  
-				BOTON GENEREAR PDF
-			-->
-
-			<!-- 
-				BOTONES GENERAR PDF 
-			 -->
-
-			 <!-- <section class="content row d d-flex justify-content-left align-items-center mt-4 scrollme">
-
-				<table class="tabla__finales__seguimiento">
-
-					<thead class="actividades__finales__seguis">
-
-						<tr>
-
-							<th>
-								ACTIVIDAD
-							</th>
-
-							<th>
-								ÍTEM
-							</th>
-
-							<th class="primer__trimestre__columna">
-								I TRIMESTRE
-							</th>
-
-							<th class="segundo__trimestre__columna">
-								II TRIMESTRE
-							</th>
-
-							<th class="tercero__trimestre__columna">
-								III TRIMESTRE
-							</th>
-
-							<th class="cuarto__trimestre__columna">
-								IV TRIMESTRE
-							</th>
-
-						</tr>
-
-					</thead>
-
-					<tbody class="informacion__fin__registradas"></tbody>
-
-				</table>
-
-			</section>  -->
-	
-
+			
 		</div>
 
 		<div class="contenedor__seguimiento__sin">
