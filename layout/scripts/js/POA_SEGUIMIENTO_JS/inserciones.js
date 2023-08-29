@@ -174,7 +174,7 @@ var funcion__guardado__matricez_Seguimiento2023 = function (parametro1, parametr
 					            alertify.notify("Registro realizado correctamente", "success", 5, function(){});
 
 					           // $(parametro3).val("");
-					            $(parametro1).show();	
+					            $(parametro1).hide();	
 								//location.reload();
 			            	}
 							

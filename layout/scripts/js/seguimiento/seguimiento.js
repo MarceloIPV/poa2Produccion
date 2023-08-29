@@ -3414,7 +3414,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 					            $(parametro5).val("");
 					            $("#mesPlanificaciones").val(0);
 
-					            $(parametro1).show();	
+					            $(parametro1).hide();	
 
 			            	}
 
@@ -8300,6 +8300,342 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 		
 	
 	/*=====  End of Checked declaracion  ======*/
+
+
+	/*================================================================================================
+	=            Guardar información  Declaracion del correcto uso de los recursos publicos          =
+	==================================================================================================*/
+	var guardar__declaracion_recursos_publicos=function(parametro1,parametro2,parametro3){
+
+		$(parametro1).click(function(e){
+
+			var validador= validacionRegistro(parametro2);
+			validacionRegistroMostrarErrores(parametro2);
+		
+			if (validador==false) {
+
+				alertify.set("notifier","position", "top-center");
+				alertify.notify("Campos obligatorios", "error", 5, function(){});
+
+				$(parametro1).show();			
+
+			}else{
+
+				var confirm= alertify.confirm('¿Está seguro de guardar los información ingresada?','¿Está seguro de guardar los información ingresada?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});  
+
+				confirm.set({transition:'slide'});  
+
+				confirm.set('onok', function(){ 
+				
+
+					var paqueteDeDatos = new FormData();
+
+					paqueteDeDatos.append("tipo","consulta_datos_exite_pdf_contratacion_recursos_publicos");
+					
+					
+
+					let idOrganismo=$("#organismoIdPrin").val();				
+					let trimestre=$("#trimestreEvaluador").val();
+					
+					paqueteDeDatos.append("declaracion_rp",$(parametro3)[0].files[0]);					
+					paqueteDeDatos.append("trimestre",trimestre);
+					paqueteDeDatos.append("idOrganismo",idOrganismo);
+
+
+					console.log("RECURSOS PUBLICOS");
+					console.log("trimestre");
+					console.log(trimestre);
+					console.log("idOrganismo");
+					console.log(idOrganismo);
+					
+						$.ajax({
+
+							type:"POST",
+							url:"modelosBd/inserta/seleccionaAcciones.md.php",
+							contentType: false,
+							data:paqueteDeDatos,
+							processData: false,
+							cache: false, 
+							success:function(response){
+								
+								var elementos=JSON.parse(response);		
+								console.log("RESPONSE RECURSOS ");
+								console.log(response);
+								if(response.length > 0){
+									paqueteDeDatos.append("tipo","eliminar_declaracion_recusos");
+									
+									$.ajax({
+										type:"POST",
+										url:"modelosBd/inserta/seleccionaAcciones.md.php",
+										contentType: false,
+										data:paqueteDeDatos,
+										processData: false,
+										cache: false, 
+										success:function(response){							
+											
+											paqueteDeDatos.append("tipo","guardar_declaracion_recusos");
+											$.ajax({
+												type:"POST",
+												url:"modelosBd/inserta/insertaAcciones.md.php",
+												contentType: false,
+												data:paqueteDeDatos,
+												processData: false,
+												cache: false, 
+												success:function(response){
+													
+													var elementos=JSON.parse(response);							
+													
+													var mensaje=elementos['mensaje'];
+																										
+													if(mensaje==1){
+						
+														alertify.set("notifier","position", "top-center");
+														alertify.notify("Registro realizado correctamente", "success", 5, function(){});
+														
+														$(parametro1).hide();
+														
+													}
+													
+												},
+												error:function(){
+												}
+												
+											});
+										},
+										error:function(){
+										}
+										
+									});		
+
+								
+								}else{
+									paqueteDeDatos.append("tipo","guardar_declaracion_recusos");
+									$.ajax({
+										type:"POST",
+										url:"modelosBd/inserta/insertaAcciones.md.php",
+										contentType: false,
+										data:paqueteDeDatos,
+										processData: false,
+										cache: false, 
+										success:function(response){
+											
+											var elementos=JSON.parse(response);							
+											
+											var mensaje=elementos['mensaje'];
+																									
+											if(mensaje==1){
+				
+												alertify.set("notifier","position", "top-center");
+												alertify.notify("Registro realizado correctamente", "success", 10, function(){});
+												$(parametro1).hide();
+											
+												
+											}
+
+											
+										},
+										error:function(){
+										}
+										
+									});
+								}				
+								
+
+								
+							},
+							error:function(){
+							}
+							
+						});	
+						$(parametro3).prop("disabled", true);
+						$(parametro1).hide();
+
+							
+
+
+					
+				});  
+
+					confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Acción cancelada", "error", 1, function(){
+						$(parametro1).show();
+						
+						
+						
+						
+
+					}); 
+				}); 
+
+
+			}
+
+		});
+
+	}
+
+
+	guardar__declaracion_recursos_publicos($("#guardar_declaracion_rp"),$(".obligatorios_declaracion_rp"),$("#declaracion_rp"));
+
+	/*=====  Guardar información  Declaracion del correcto uso de los recursos publicos   ======*/
+
+	/*================================================================================================
+	=            Guardar información  Declaración de contratación pública          =
+	==================================================================================================*/
 	
+	var guardar__declaracion_contratacion_publica=function(parametro1,parametro2,parametro3){
+
+		$(parametro1).click(function(e){
+
+			var validador= validacionRegistro(parametro2);
+			validacionRegistroMostrarErrores(parametro2);
+		
+			if (validador==false) {
+
+				alertify.set("notifier","position", "top-center");
+				alertify.notify("Campos obligatorios", "error", 5, function(){});
+
+				$(parametro1).show();			
+
+			}else{
+
+				var confirm= alertify.confirm('¿Está seguro de guardar los información ingresada?','¿Está seguro de guardar los información ingresada?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});  
+
+				confirm.set({transition:'slide'});  
+
+				confirm.set('onok', function(){ 
+				
+
+					var paqueteDeDatos = new FormData();
+
+					
+					paqueteDeDatos.append("tipo","consulta_datos_exite_pdf_contratacion__publicaa");
+
+					let idOrganismo=$("#organismoIdPrin").val();				
+					let trimestre=$("#trimestreEvaluador").val();
+					
+					paqueteDeDatos.append("declaracion_cp",$(parametro3)[0].files[0]);					
+					paqueteDeDatos.append("trimestre",trimestre);
+					paqueteDeDatos.append("idOrganismo",idOrganismo);
+
+					$.ajax({
+
+						type:"POST",
+						url:"modelosBd/inserta/seleccionaAcciones.md.php",
+						contentType: false,
+						data:paqueteDeDatos,
+						processData: false,
+						cache: false, 
+						success:function(response){
+						var elementos=JSON.parse(response);	
+						console.log("RESPONSE33333");
+						console.log(response);
+
+							if(response.length > 0){
+								paqueteDeDatos.append("tipo","eliminar_declaracion_publica");
+								
+								$.ajax({
+									type:"POST",
+									url:"modelosBd/inserta/seleccionaAcciones.md.php",
+									contentType: false,
+									data:paqueteDeDatos,
+									processData: false,
+									cache: false, 
+									success:function(response){							
+										
+											paqueteDeDatos.append("tipo","guardar_contratacion__publica");
+											$.ajax({
+												type:"POST",
+												url:"modelosBd/inserta/insertaAcciones.md.php",
+												contentType: false,
+												data:paqueteDeDatos,
+												processData: false,
+												cache: false, 
+												success:function(response){
+													
+													var elementos=JSON.parse(response);							
+													
+													var mensaje=elementos['mensaje'];
+													
+													if(mensaje==1){
+						
+														alertify.set("notifier","position", "top-center");
+														alertify.notify("Registro realizado correctamente", "success", 5, function(){});
+						
+														$(parametro1).hide();	
+													}
+													
+												},
+												error:function(){
+												}
+												
+											});
+										},
+										error:function(){
+										}
+										
+									});
+								}else{
+									
+										paqueteDeDatos.append("tipo","guardar_contratacion__publica");
+										$.ajax({
+
+											type:"POST",
+											url:"modelosBd/inserta/insertaAcciones.md.php",
+											contentType: false,
+											data:paqueteDeDatos,
+											processData: false,
+											cache: false, 
+											success:function(response){
+											
+												var elementos=JSON.parse(response);				
+												var mensaje=elementos['mensaje'];
+												
+												if(mensaje==1){
+
+													alertify.set("notifier","position", "top-center");
+													alertify.notify("Registro realizado correctamente", "success", 5, function(){});
+
+													$(parametro1).hide();	
+												}
+												
+											},
+											error:function(){
+											}
+											
+										});	
+
+								};
+														
+							},
+							error:function(){
+							}
+						
+					});		
+					$(parametro3).prop("disabled", true);
+					$(parametro1).hide();
+
+				});  
+
+					confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Acción cancelada", "error", 1, function(){
+
+						$(parametro1).show();
+
+					}); 
+				}); 
+
+
+			}
+
+		});
+
+	}
+
+	guardar__declaracion_contratacion_publica($("#guardar_declaracion_cp"),$(".obligatorios_declaracion_cp"),$("#declaracion_cp"));
+	
+	/*=====  End of Guardar información  ======*/	
 
 });

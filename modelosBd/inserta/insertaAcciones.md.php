@@ -7054,6 +7054,7 @@
 
 		break;
 
+		//*************************************************** GUARDADO SUELDOS SALARIOS TOTALES **************************************//
 		case  "sueldos__salarios__seguimientos_totales":
 
 			$arrayInformacion = json_decode($parametro2);
@@ -7069,6 +7070,42 @@
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
 
+		break;
+
+		//*************************************************** DECLARACION DE RECURSOS PUBLICOS **************************************//
+		case  "guardar_declaracion_recusos":
+			$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
+			$direccion1="../../documentos/seguimiento/declaracion_recursos_publicos/";
+			$documento=$objeto->getEnviarPdf($_FILES["declaracion_rp"]['type'],$_FILES["declaracion_rp"]['size'],$_FILES["declaracion_rp"]['tmp_name'],$_FILES["declaracion_rp"]['name'],$direccion1,$nombre__archivo);
+		
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();			
+		
+				$query="INSERT INTO `poa_seguimiento_declaracion`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`, `hora`) VALUES ('$nombre__archivo','$idOrganismo','$fecha_actual','$trimestre','$aniosPeriodos__ingesos','$hora_actual')";		
+			
+			$resultado= $conexionEstablecida->exec($query);
+		
+		
+			 $mensaje=1;
+			 $jason['mensaje']=$mensaje;	
+		break;
+
+		//*************************************************** DECLARACION DE CONTRATACION PUBLICA **************************************//
+		case  "guardar_contratacion__publica":
+			$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
+			$direccion1="../../documentos/seguimiento/declaracion_contratacion_publica/";
+			$documento=$objeto->getEnviarPdf($_FILES["declaracion_cp"]['type'],$_FILES["declaracion_cp"]['size'],$_FILES["declaracion_cp"]['tmp_name'],$_FILES["declaracion_cp"]['name'],$direccion1,$nombre__archivo);
+			
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();	
+				
+				$query="INSERT INTO `poa_seguimiento_declaracion_contratacion_publica`(`documento`, `fecha`, `hora`, `trimestre`, `IdOrganismo`, `perioIngreso`) VALUES ('$nombre__archivo','$fecha_actual','$hora_actual','$trimestre','$idOrganismo','$aniosPeriodos__ingesos')";
+			
+				$resultado= $conexionEstablecida->exec($query);
+
+			 $mensaje=1;
+			 $jason['mensaje']=$mensaje;	
 		break;
 
 

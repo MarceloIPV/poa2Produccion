@@ -309,6 +309,540 @@
 		}
 
 	}
+
+/************************  RESUMEN EJECUCION VALORES EJECUTADOS  ***********************************/
+$seguimiento__actividad_honorarios=$objeto->getObtenerInformacionGeneral("SELECT a1.nombreActividades FROM poa_actividades AS a1 WHERE a1.idActividades = 4 LIMIT 1;");	
+
+
+if($trimestreEvaluadorDos=="primerTrimestre") {
+
+	$seguimiento__en2=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.enero+a.febrero+a.marzo AS primerTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoPrimer,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajePrimer,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoPrimer FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+
+	$jsonOriginal=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.enero+a.febrero+a.marzo AS primerTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoPrimer,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajePrimer,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoPrimer FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+
+		 $i = 0;
+	 $jsonNuevo = [];
+
+	foreach ($jsonOriginal as $result) {
+		$jsonNuevo[$i]["idProgramacionFinanciera"] = $result["idProgramacionFinanciera"];
+		$jsonNuevo[$i]["nombreActividades"] = $result["nombreActividades"];
+
+		$originalString = $result["nombreItem"];
+		$posicionGuion = strpos($originalString, "-") + 1;
+		$valorDespuesDelGuion = substr($originalString, $posicionGuion);
+
+		$originalStringActividad = $result["nombreActividades"];
+		$posicionGuionActividad = strpos($originalStringActividad, "-") + 1;
+		$valorDespuesDelGuionActividad = substr($originalStringActividad, $posicionGuionActividad);
+		
+	
+		 $query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='primerTrimestre' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+
+		//$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad";
+		$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
+
+		$query4 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';";
+
+		$query5 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query6 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query7 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query8 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+
+		 $a=$objeto->getObtenerInformacionGeneral($query1);
+		$b=$objeto->getObtenerInformacionGeneral($query2);
+		$c=$objeto->getObtenerInformacionGeneral($query3);
+		$d=$objeto->getObtenerInformacionGeneral($query4);
+		$e=$objeto->getObtenerInformacionGeneral($query5);
+		$f=$objeto->getObtenerInformacionGeneral($query6);
+		$g=$objeto->getObtenerInformacionGeneral($query7);
+		$h=$objeto->getObtenerInformacionGeneral($query8);
+	
+		if($a[0]["menEjecutado"]>0){
+
+			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'");
+			$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+		}else{	
+			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+			}else {
+				if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+					$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+				}else{
+					if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
+						");
+						$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+					}else{
+						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+						}else{
+							if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+								$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+							}else{
+								if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+									//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+									$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+								}else{
+									if($d[0]["menEjecutado"]>0){
+										// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
+										// $jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+										
+										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
+										$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+									}else{
+										if($e[0]["menEjecutado"]>0){
+											$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+											$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+										}else{
+											if($f[0]["menEjecutado"]>0){
+												$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+												$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+											}else{
+												if($g[0]["menEjecutado"]>0){
+													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+													$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+												}else{
+													if($h[0]["menEjecutado"]>0){
+														$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
+														$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+													}else{
+														$jsonNuevo[$i]["ejecutadoPrimer"] = 0;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	
+		 $jsonNuevo[$i]["nombreItem"] = $result["nombreItem"];
+		 $jsonNuevo[$i]["primerTrimestre"] = $result["primerTrimestre"];
+		 $jsonNuevo[$i]["programadoPrimer"] = $result["programadoPrimer"];
+		$jsonNuevo[$i]["porcentajePrimer"] = $result["porcentajePrimer"];
+						
+		 $i=$i+1;				
+	 }
+	 $seguimiento__en2 = $jsonNuevo;
+
+}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+
+	$seguimiento__en2=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.abril+a.mayo+a.junio AS segundoTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoSegundo,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajeSegundo,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoSegundo FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+	
+	$jsonOriginal=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.abril+a.mayo+a.junio AS segundoTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoSegundo,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajeSegundo,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoSegundo FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+
+	 $i = 0;
+	 $jsonNuevo = [];
+
+	foreach ($jsonOriginal as $result) {
+		$jsonNuevo[$i]["idProgramacionFinanciera"] = $result["idProgramacionFinanciera"];
+		$jsonNuevo[$i]["nombreActividades"] = $result["nombreActividades"];
+
+		$originalString = $result["nombreItem"];
+		$posicionGuion = strpos($originalString, "-") + 1;
+		$valorDespuesDelGuion = substr($originalString, $posicionGuion);
+
+		$originalStringActividad = $result["nombreActividades"];
+		$posicionGuionActividad = strpos($originalStringActividad, "-") + 1;
+		$valorDespuesDelGuionActividad = substr($originalStringActividad, $posicionGuionActividad);
+
+	
+		$query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+
+		//$query3 = "SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad ";
+		$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
+
+		$query4 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';";
+
+		$query5 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query6 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query7 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query8 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$a=$objeto->getObtenerInformacionGeneral($query1);
+		$b=$objeto->getObtenerInformacionGeneral($query2);
+		$c=$objeto->getObtenerInformacionGeneral($query3);
+		$d=$objeto->getObtenerInformacionGeneral($query4);
+		$e=$objeto->getObtenerInformacionGeneral($query5);
+		$f=$objeto->getObtenerInformacionGeneral($query6);
+		$g=$objeto->getObtenerInformacionGeneral($query7);
+		$h=$objeto->getObtenerInformacionGeneral($query8);
+	
+	if($a[0]["menEjecutado"]>0){
+
+		$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'");
+		$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+	}else{	
+		if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
+			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+			$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+		}else {
+			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+			}else{
+				if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
+					");
+					$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+				}else{
+					if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+						$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+					}else{
+						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+						}else{
+							//if($c[0]["menEjecutado"]>0 && $c[0]["nombreItem"] == "Honorarios por Contratos Civiles de Servicios"){
+								if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+								$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+							}else{
+								if($d[0]["menEjecutado"]>0){
+									// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
+									// $jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+									
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
+									$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+								}else{
+									if($e[0]["menEjecutado"]>0){
+										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+										$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+									}else{
+										if($f[0]["menEjecutado"]>0){
+											$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+											$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+										}else{
+											if($g[0]["menEjecutado"]>0){
+												$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+												$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+											}else{
+												if($h[0]["menEjecutado"]>0){
+													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
+													$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+												}else{
+													$jsonNuevo[$i]["ejecutadoSegundo"] = 0;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}			
+
+
+		$jsonNuevo[$i]["nombreItem"] = $result["nombreItem"];
+		$jsonNuevo[$i]["segundoTrimestre"] = $result["segundoTrimestre"];
+		$jsonNuevo[$i]["programadoSegundo"] = $result["programadoSegundo"];
+		$jsonNuevo[$i]["porcentajeSegundo"] = $result["porcentajeSegundo"];
+						
+		$i=$i+1;				
+	}
+	$seguimiento__en2 = $jsonNuevo;
+
+}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+
+
+	 $seguimiento__en2=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.julio+a.agosto+a.septiembre AS tercerTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoTercer,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajeTercer,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoTercero FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+
+	$jsonOriginal=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.julio+a.agosto+a.septiembre AS tercerTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoTercer,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajeTercer,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoTercero FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+	
+	 $i = 0;
+	 $jsonNuevo = [];
+
+	foreach ($jsonOriginal as $result) {
+	
+		$jsonNuevo[$i]["idProgramacionFinanciera"] = $result["idProgramacionFinanciera"];
+		$jsonNuevo[$i]["nombreActividades"] = $result["nombreActividades"];
+
+		$originalString = $result["nombreItem"];
+		$posicionGuion = strpos($originalString, "-") + 1;
+		$valorDespuesDelGuion = substr($originalString, $posicionGuion);
+
+		$originalStringActividad = $result["nombreActividades"];
+		$posicionGuionActividad = strpos($originalStringActividad, "-") + 1;
+		$valorDespuesDelGuionActividad = substr($originalStringActividad, $posicionGuionActividad);
+	
+		$query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+
+		//$query3 = "SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.modifica = 'A' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad ";
+		//$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad";
+		$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
+
+		$query4 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';";
+
+		$query5 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query6 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query7 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query8 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$a=$objeto->getObtenerInformacionGeneral($query1);
+		$b=$objeto->getObtenerInformacionGeneral($query2);
+		$c=$objeto->getObtenerInformacionGeneral($query3);
+		$d=$objeto->getObtenerInformacionGeneral($query4);
+		$e=$objeto->getObtenerInformacionGeneral($query5);
+		$f=$objeto->getObtenerInformacionGeneral($query6);
+		$g=$objeto->getObtenerInformacionGeneral($query7);
+		$h=$objeto->getObtenerInformacionGeneral($query8);
+	
+	if($a[0]["menEjecutado"]>0){
+
+		$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'");
+		$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+	}else{	
+		if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
+			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+			$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+		}else {
+			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+			}else{
+				if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
+					");
+					$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+				}else{
+					if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+						$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+					}else{
+						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+						}else{
+							//if($c[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Honorarios por Contratos Civiles de Servicios"){
+								if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.modifica = 'A' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+								$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+							}else{
+								if($d[0]["menEjecutado"]>0){
+									// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
+									// $jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+									
+									// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera as ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev3 ON ev2.idItem=ev3.idItem INNER JOIN poa_actividades AS ev4 ON ev2.idActividad = ev4.idActividades WHERE ev1.idOrganismo = '$idOrganismo' AND ev1.trimestre = '$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev2.idActividad = '5' AND ev3.nombreItem LIKE '%$valorDespuesDelGuion%' GROUP BY ev3.nombreItem
+									// ");
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
+									$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+								}else{
+									if($e[0]["menEjecutado"]>0){
+										// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(com1.mensualEjecutado) AS menEjecutado  FROM poa_segimiento_recreativos AS com1 INNER JOIN poa_programacion_financiera as com3 ON com1.idOrganismo = com3.idOrganismo INNER JOIN poa_item AS com4 ON com3.idItem=com4.idItem INNER JOIN poa_actividades AS com5 ON com3.idActividad = com5.idActividades WHERE com1.idOrganismo = '$idOrganismo' AND com1.trimestre = '$trimestreEvaluadorDos' AND com1.perioIngreso = '$aniosPeriodos__ingesos' AND com3.idActividad = '6' AND com4.nombreItem LIKE '%$valorDespuesDelGuion%'");
+										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+										$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+									}else{
+										if($f[0]["menEjecutado"]>0){
+											// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(man1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_mantenimiento AS man1 INNER JOIN  poa_programacion_financiera as man2 ON man1.idOrganismo = man2.idOrganismo INNER JOIN poa_item AS man3 ON man2.idItem=man3.idItem INNER JOIN poa_actividades AS man4 ON man2.idActividad = man4.idActividades WHERE man1.idOrganismo = '1155' AND man1.trimestre = 'tercerTrimestre' AND man1.perioIngreso = '2022' AND man2.idActividad = '2' AND man3.nombreItem LIKE '%$valorDespuesDelGuion%'");
+											$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+											$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+										}else{
+											if($g[0]["menEjecutado"]>0){
+												// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(cap1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_capacitacion AS cap1 INNER JOIN poa_programacion_financiera as cap2 ON cap1.idOrganismo = cap2.idOrganismo INNER JOIN poa_item AS cap3 ON cap2.idItem=cap3.idItem INNER JOIN poa_actividades AS cap4 ON cap2.idActividad = cap4.idActividades WHERE cap1.idOrganismo = '$idOrganismo' AND cap1.trimestre = '$trimestreEvaluadorDos' AND cap1.perioIngreso = '$aniosPeriodos__ingesos' AND cap2.idActividad = '3' AND cap3.nombreItem LIKE '%$valorDespuesDelGuion%'");
+												$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';
+												");
+												$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+											}else{
+												if($h[0]["menEjecutado"]>0){
+													// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(imp1.mensualEjecutado) AS menEjecutado from poa_segimiento_implementacion AS imp1 INNER JOIN poa_programacion_financiera as imp2 ON imp1.idOrganismo = imp2.idOrganismo INNER JOIN poa_item AS imp3 ON imp2.idItem=imp3.idItem INNER JOIN poa_actividades AS imp4 ON imp2.idActividad = imp4.idActividades WHERE imp1.idOrganismo = '$idOrganismo' AND imp1.trimestre = '$trimestreEvaluadorDos' AND imp1.perioIngreso = '$aniosPeriodos__ingesos' AND imp2.idActividad = '7' AND imp3.nombreItem LIKE '%$valorDespuesDelGuion%'");
+													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
+													$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+												}else{
+													$jsonNuevo[$i]["ejecutadoTercero"] = 0;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}			
+	
+
+		$jsonNuevo[$i]["nombreItem"] = $result["nombreItem"];
+		$jsonNuevo[$i]["tercerTrimestre"] = $result["tercerTrimestre"];
+		$jsonNuevo[$i]["programadoTercer"] = $result["programadoTercer"];
+		$jsonNuevo[$i]["porcentajeTercer"] = $result["porcentajeTercer"];
+						
+		$i=$i+1;				
+	}
+	$seguimiento__en2 = $jsonNuevo;
+
+
+}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+
+	$seguimiento__en2=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.octubre+a.noviembre+a.diciembre AS cuartoTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='cuartoTrimestre' OR a1.trimestre='tercerTrimestre' OR a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoCuarto,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='cuartoTrimestre' OR a1.trimestre='tercerTrimestre' OR a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajeCuarto,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='cuartoTrimestre' OR a1.trimestre='tercerTrimestre' OR a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoCuarto FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+
+	$jsonOriginal=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,b.idActividades,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.octubre+a.noviembre+a.diciembre AS cuartoTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='cuartoTrimestre' OR a1.trimestre='tercerTrimestre' OR a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoCuarto,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='cuartoTrimestre' OR a1.trimestre='tercerTrimestre' OR a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajeCuarto,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='cuartoTrimestre' OR a1.trimestre='tercerTrimestre' OR a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoCuarto FROM poa_programacion_financiera AS a INNER JOIN poa_actividades AS b ON a.idActividad = b.idActividades WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad,a.idItem ORDER BY a.idActividad;");
+
+	 $i = 0;
+	 $jsonNuevo = [];
+
+	foreach ($jsonOriginal as $result) {
+		$jsonNuevo[$i]["idProgramacionFinanciera"] = $result["idProgramacionFinanciera"];
+		$jsonNuevo[$i]["nombreActividades"] = $result["nombreActividades"];
+
+		$originalString = $result["nombreItem"];
+		$posicionGuion = strpos($originalString, "-") + 1;
+		$valorDespuesDelGuion = substr($originalString, $posicionGuion);
+
+		$originalStringActividad = $result["nombreActividades"];
+		$posicionGuionActividad = strpos($originalStringActividad, "-") + 1;
+		$valorDespuesDelGuionActividad = substr($originalStringActividad, $posicionGuionActividad);
+		
+	
+
+	
+		$query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+
+		//$query3 = "SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad ";
+		$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
+
+		$query4 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';";
+
+		$query5 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query6 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';";
+
+		$query7 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		$query8 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'";
+
+		//$query9 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem, h5.idActividades, h5.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem INNER JOIN poa_actividades AS h5 ON h1.idActividad = h5.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad AND h1.idActividad = 1 AND h5.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
+		
+		//$query10 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado, d.nombreItem, e.nombreActividades FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades AS e ON e.idActividades = c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades = '5' AND d.nombreItem LIKE '%$valorDespuesDelGuionActividad%' AND e.nombreActividades LIKE '%$valorDespuesDelGuionActividad';";
+
+		$a=$objeto->getObtenerInformacionGeneral($query1);
+		$b=$objeto->getObtenerInformacionGeneral($query2);
+		$c=$objeto->getObtenerInformacionGeneral($query3);
+		$d=$objeto->getObtenerInformacionGeneral($query4);
+		$e=$objeto->getObtenerInformacionGeneral($query5);
+		$f=$objeto->getObtenerInformacionGeneral($query6);
+		$g=$objeto->getObtenerInformacionGeneral($query7);
+		$h=$objeto->getObtenerInformacionGeneral($query8);
+		//$j=$objeto->getObtenerInformacionGeneral($query9);
+		//$k=$objeto->getObtenerInformacionGeneral($query10);
+	
+	if($a[0]["menEjecutado"]>0){
+
+		$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'");
+		$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+	}else{	
+		if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
+			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+			$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+		}else {
+			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+			}else{
+				if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
+					");
+					$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+				}else{
+					if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+						$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+					}else{
+						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+						}else{
+							//if($c[0]["menEjecutado"]>0 && $c[0]["nombreItem"] == "Honorarios por Contratos Civiles de Servicios"){
+							if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+								$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+							}else{
+								if($d[0]["menEjecutado"]>0){
+									
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+									$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+								}else{
+									if($e[0]["menEjecutado"]>0){
+										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+										$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+									}else{
+										if($f[0]["menEjecutado"]>0){
+											$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+											$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+										}else{
+											if($g[0]["menEjecutado"]>0){
+												
+												$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
+												$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+											}else{
+												if($h[0]["menEjecutado"]>0){
+													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
+													$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+												}else{
+													$jsonNuevo[$i]["ejecutadoCuarto"] = 0;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}			
+	
+
+		$jsonNuevo[$i]["nombreItem"] = $result["nombreItem"];
+		$jsonNuevo[$i]["cuartoTrimestre"] = $result["cuartoTrimestre"];
+		$jsonNuevo[$i]["programadoCuarto"] = $result["programadoCuarto"];
+		$jsonNuevo[$i]["porcentajeCuarto"] = $result["porcentajeCuarto"];
+						
+		$i=$i+1;				
+	}
+	$seguimiento__en2 = $jsonNuevo;
+
+
+}	
+/***************************************************************************************************/
+	
 	
 
 
@@ -13375,6 +13909,411 @@ internacional, organizaciones no gubernamentales, entre otros.
 				</table>';
 
 			$inserta=$objeto->getInsertaNormal('poa_seguimiento_docuento_final', array("`idDocumento_seguimiento`, ","`documento`, ","`idOrganismo`, ","`fecha`, ","`perioIngreso`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ","'$aniosPeriodos__ingesos'"));	
+
+
+		break;
+
+		case  "documento__seguimiento__final2": 
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/final__seguimiento/";
+			$parametro2="InformeFinalSeguimiento__".$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;	
+			$parametro3=$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;
+			
+			/*=====  End of Generar pdf  ======*/
+
+			$auxiliar=" ";
+
+			if ($trimestreEvaluadorDos=="primerTrimestre") {
+				$indentificador="I";
+			}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+				$indentificador="II";
+			}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+				$indentificador="III";
+			}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+				$indentificador="IV";
+			}
+
+			
+		
+			$documentoCuerpo=' <div style="text-align:center!important;"><h1>RESUMEN DE EJECUCIÓN REPORTADA</h1>
+			<h1>'.$indentificador.' TRIMESTRE '.$aniosPeriodos__ingesos.'</h1></div>
+
+			<div style="text-align:justify!important;">
+					<h2>FECHA:                   '.$fecha_actual.' </h2>
+					<h2>ORGANIZACIÓN DEPORTIVA:  '.strtoupper($informacionCompleto[0][nombreOrganismo]).' </h2>  
+					<h2>NÚMERO DE RUC:           '.$informacionCompleto[0][ruc].' </h2>
+			</div>
+		
+
+				<table  border="1">
+						<thead>
+							<tr style = "background:#e8edff">
+								<th style="font-size:12px;"><center>Actividad</center></th>
+								<th style="font-size:12px;"><center>Ítem</center></th>
+								<th style="font-size:12px;"><center>Planificado</center></th>							
+								<th style="font-size:12px;"><center>Ejecutado</center></th>
+								<th style="font-size:12px;"><center>Porcentaje de avance trimestral % </center></th>
+							</tr>
+						</thead>
+					<tbody>
+				';				
+
+		
+				if($trimestreEvaluadorDos=="primerTrimestre") {
+					$sumaTotalPlanificado1=0;
+					$sumaTotalEjecutado1=0;
+
+					foreach ($seguimiento__en2 as $clave => $valor) {
+
+						$variableAr=$seguimiento__en2[$clave][nombreActividades];
+						$sumaColumplanificadoValor=$seguimiento__en2[$clave][primerTrimestre];
+						$sumaColumEjecutadoValor=$seguimiento__en2[$clave][ejecutadoPrimer];
+
+						$sumaPrimer =0;
+						$sumaPrimer = floatval($seguimiento__en2[$clave][sumaPrimerCapacitacion]) + floatval($seguimiento__en2[$clave][sumaPrimerCompetencia]) + floatval($seguimiento__en2[$clave][sumaPrimerImplementacion]) + floatval($seguimiento__en2[$clave][sumaPrimerMantenimiento]) + floatval($seguimiento__en2[$clave][sumaPrimerRecreacion]) + floatval($seguimiento__en2[$clave][sumaPrimerRecreativos]) + floatval($seguimiento__en2[$clave][sumaPrimerAdministrativo]);
+
+						if(floatval($sumaPrimer)>0){
+
+							$sumaPrimer=$sumaPrimer;
+
+						}else{
+
+							$sumaPrimer=0;
+
+						}
+
+						if (empty($seguimiento__en2[$clave][programadoPrimer])) {
+							$seguimiento__en2[$clave][programadoPrimer]="0.00";
+						}
+						
+						if (empty($seguimiento__en2[$clave][porcentajePrimer])) {
+							$seguimiento__en2[$clave][porcentajePrimer]="0.00";
+						}
+
+						if ($auxiliar==$variableAr) {
+
+							$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][primerTrimestre])*100;
+
+							if($totalPorcentajeAvance3_22>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_22>= 70 && $totalPorcentajeAvance3_22 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_22 < 70) {
+								$coloresPorcentaje3='red';
+							}
+
+							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][primerTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;
+
+						}else{
+
+							$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][primerTrimestre])*100;
+							if($totalPorcentajeAvance3_2>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_2>= 70 && $totalPorcentajeAvance3_2 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_2 < 70) {
+								$coloresPorcentaje3='red';
+							}
+
+							$sumaTotalPlanificado1BP = $seguimiento__en2[$i][primerTrimestre];
+							$sumaTotalEjecutado1BE = $seguimiento__en2[$i][ejecutadoPrimer];
+
+							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][primerTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;
+
+						}
+						$sumaTotalPlanificado1 += $sumaColumplanificadoValor;
+						$sumaTotalEjecutado1 += $sumaColumEjecutadoValor;	
+
+					}
+					
+					$totalPorcentajeAvance1 = ($sumaTotalEjecutado1/$sumaTotalPlanificado1)*100;
+						
+					if($totalPorcentajeAvance1>= 85){
+						$coloresPorcentaje3='green';
+					}else if ($totalPorcentajeAvance1>= 70 && $totalPorcentajeAvance1 < 85) {
+						$coloresPorcentaje3='orange';
+					}else if ($totalPorcentajeAvance1 < 70) {
+						$coloresPorcentaje3='red';
+					}
+
+					$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado1,2).'</sapn></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado1, 2).'</span></center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance1, 2).'</span></center></td></tr>';
+
+				}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+					$sumaTotalPlanificado=0;
+					$sumaTotalEjecutado=0;
+
+					foreach ($seguimiento__en2 as $clave => $valor) {
+
+						$variableAr=$seguimiento__en2[$clave][nombreActividades];
+						$sumaColumplanificadoValor=$seguimiento__en2[$clave][segundoTrimestre];
+						$sumaColumEjecutadoValor=$seguimiento__en2[$clave][ejecutadoSegundo];
+
+						$sumaSegundo =0;
+						$sumaSegundo = floatval($seguimiento__en2[$clave][sumaSegundoCapacitacion]) + floatval($seguimiento__en2[$clave][sumaSegundoCompetencia]) + floatval($seguimiento__en2[$clave][sumaSegundoImplementacion]) + floatval($seguimiento__en2[$clave][sumaSegundoMantenimiento]) + floatval($seguimiento__en2[$clave][sumaSegundoRecreacion]) + floatval($seguimiento__en2[$clave][sumaSegundoRecreativos]) + floatval($seguimiento__en2[$clave][sumaSegundoAdministrativo]);
+
+						if(floatval($sumaSegundo)>0){
+
+							$sumaSegundo=$sumaSegundo;
+
+						}else{
+
+							$sumaSegundo=0;
+
+						}
+						if (empty($seguimiento__en2[$clave][programadoSegundo])) {
+							$seguimiento__en2[$clave][programadoTercer]="0.00";
+						}
+						
+						if (empty($seguimiento__en2[$clave][porcentajeSegundo])) {
+							$seguimiento__en2[$clave][porcentajeSegundo]="0.00";
+						}
+
+
+						if ($auxiliar==$variableAr) {
+							$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoSegundo]/$seguimiento__en2[$clave][segundoTrimestre])*100;
+
+							if($totalPorcentajeAvance3_22>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_22>= 70 && $totalPorcentajeAvance3_22 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_22 < 70) {
+								$coloresPorcentaje3='red';
+							}
+
+							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][segundoTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoSegundo], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;
+
+						}else{
+
+							$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoSegundo]/$seguimiento__en2[$clave][segundoTrimestre])*100;
+
+							if($totalPorcentajeAvance3_2>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_2>= 70 && $totalPorcentajeAvance3_2 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_2 < 70) {
+								$coloresPorcentaje3='red';
+							}
+							$sumaTotalPlanificado2BP = $seguimiento__en2[$i][segundoTrimestre];
+							$sumaTotalEjecutado2BE = $seguimiento__en2[$i][ejecutadoSegundo];
+
+							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][segundoTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoSegundo], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;
+
+						}
+						$sumaTotalPlanificado += $sumaColumplanificadoValor;
+						$sumaTotalEjecutado += $sumaColumEjecutadoValor;
+
+					}
+				
+					
+						$totalPorcentajeAvance = ($sumaTotalEjecutado/$sumaTotalPlanificado)*100;
+
+						if($totalPorcentajeAvance>= 85){
+							$coloresPorcentaje3='green';
+						}else if ($totalPorcentajeAvance>= 70 && $totalPorcentajeAvance < 85) {
+							$coloresPorcentaje3='orange';
+						}else if ($totalPorcentajeAvance < 70) {
+							$coloresPorcentaje3='red';
+						}
+	
+						
+						$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado,2).'</span></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado, 2).'</span></center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance, 2).'</span></center></td></tr>';
+
+						
+				}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+					
+					$sumaTotalPlanificado=0;
+					$sumaTotalEjecutado=0;
+				
+					foreach ($seguimiento__en2 as $clave => $valor) {
+
+						$variableAr=$seguimiento__en2[$clave][nombreActividades];
+						$sumaColumplanificadoValor=$seguimiento__en2[$clave][tercerTrimestre];
+						$sumaColumEjecutadoValor=$seguimiento__en2[$clave][ejecutadoTercero];
+						
+						$sumaTercer =0;
+						$sumaTercer = floatval($seguimiento__en2[$clave][sumaTercerCapacitacion]) + floatval($seguimiento__en2[$clave][sumaTercerCompetencia]) + floatval($seguimiento__en2[$clave][sumaTercerImplementacion]) + floatval($seguimiento__en2[$clave][sumaTercerMantenimiento]) + floatval($seguimiento__en2[$clave][sumaTercerRecreacion]) + floatval($seguimiento__en2[$clave][sumaTercerRecreativos]) + floatval($seguimiento__en2[$clave][sumaTercerAdministrativo]);					
+						
+
+						if(floatval($sumaTercer)>0){
+							$sumaTercer=$sumaTercer;
+						}else{
+							$sumaTercer=0;
+						}
+
+						if (empty($seguimiento__en2[$clave][programadoTercer])) {
+							$seguimiento__en2[$clave][programadoTercer]="0.00";
+						}
+						
+						if (empty($seguimiento__en2[$clave][porcentajeTercer])) {
+							$seguimiento__en2[$clave][porcentajeTercer]="0.00";
+						}
+
+
+						if ($auxiliar==$variableAr) {
+
+							$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoTercero]/$seguimiento__en2[$clave][tercerTrimestre])*100;
+
+							if($totalPorcentajeAvance3_22>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_22>= 70 && $totalPorcentajeAvance3_22 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_22 < 70) {
+								$coloresPorcentaje3='red';
+							}
+							
+							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][tercerTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoTercero], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;				
+
+						}else{
+
+							$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoTercero]/$seguimiento__en2[$clave][tercerTrimestre])*100;
+							if($totalPorcentajeAvance3_2>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_2>= 70 && $totalPorcentajeAvance3_2 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_2 < 70) {
+								$coloresPorcentaje3='red';
+							}
+							$sumaTotalPlanificado3BP = $seguimiento__en2[$i][tercerTrimestre];
+							$sumaTotalEjecutado3BE = $seguimiento__en2[$i][ejecutadoTercero];
+
+							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][tercerTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoTercero], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;
+
+						}	
+						$sumaTotalPlanificado3 += $sumaColumplanificadoValor;
+						$sumaTotalEjecutado3 += $sumaColumEjecutadoValor;
+				
+					}
+			
+
+					$totalPorcentajeAvance3 = ($sumaTotalEjecutado3/$sumaTotalPlanificado3)*100;
+
+					if($totalPorcentajeAvance3>= 85){
+						$coloresPorcentaje3='green';
+					}else if ($totalPorcentajeAvance3>= 70 && $totalPorcentajeAvance3 < 85) {
+						$coloresPorcentaje3='orange';
+					}else if ($totalPorcentajeAvance3 < 70) {
+						$coloresPorcentaje3='red';
+					}
+						
+				
+					$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado3,2).'</sapn></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado3, 2).'</span></center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance3, 2).'</span></center></td></tr>';
+
+					
+				}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+						
+						$sumaTotalPlanificado=0;
+						$sumaTotalEjecutado=0;
+
+					foreach ($seguimiento__en2 as $clave => $valor) {
+
+						$variableAr=$seguimiento__en2[$clave][nombreActividades];
+						$sumaColumplanificadoValor=$seguimiento__en2[$clave][cuartoTrimestre];
+						$sumaColumEjecutadoValor=$seguimiento__en2[$clave][ejecutadoCuarto];
+
+						$sumaCuarto =0;
+						$sumaCuarto = floatval($seguimiento__en2[$clave][sumaCuartoCapacitacion]) + floatval($seguimiento__en2[$clave][sumaCuartoCompetencia]) + floatval($seguimiento__en2[$clave][sumaCuartoImplementacion]) + floatval($seguimiento__en2[$clave][sumaCuartoMantenimiento]) + floatval($seguimiento__en2[$clave][sumaCuartoRecreacion]) + floatval($seguimiento__en2[$clave][sumaCuartoRecreativos]) + floatval($seguimiento__en2[$clave][sumaCuartoAdministrativo]);
+
+						if(floatval($sumaCuarto)>0){
+
+							$sumaCuarto=$sumaCuarto;
+
+						}else{
+
+							$sumaCuarto=0;
+
+						}
+
+						if (empty($seguimiento__en2[$clave][programadoCuarto])) {
+							$seguimiento__en2[$clave][programadoCuarto]="0.00";
+						}
+						
+						if (empty($seguimiento__en2[$clave][porcentajeCuarto])) {
+							$seguimiento__en2[$clave][porcentajeCuarto]="0.00";
+						}
+
+						if ($auxiliar==$variableAr) {
+
+							$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoCuarto]/$seguimiento__en2[$clave][cuartoTrimestre])*100;
+
+							if($totalPorcentajeAvance3_22>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_22>= 70 && $totalPorcentajeAvance3_22 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_22 < 70) {
+								$coloresPorcentaje3='red';
+							}
+
+							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][cuartoTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoCuarto], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;
+							
+							
+						}else{
+
+							$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoCuarto]/$seguimiento__en2[$clave][cuartoTrimestre])*100;
+
+							if($totalPorcentajeAvance3_2>= 85){
+								$coloresPorcentaje3='green';
+							}else if ($totalPorcentajeAvance3_2>= 70 && $totalPorcentajeAvance3_2 < 85) {
+								$coloresPorcentaje3='orange';
+							}else if ($totalPorcentajeAvance3_2 < 70) {
+								$coloresPorcentaje3='red';
+							}
+
+							$sumaTotalPlanificado3BP = $seguimiento__en2[$i][cuartoTrimestre];
+							$sumaTotalEjecutado3BE = $seguimiento__en2[$i][ejecutadoCuarto];
+
+							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][cuartoTrimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoCuarto], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'</center></td></tr>';
+							$auxiliar=$variableAr;
+							
+						}
+						$sumaTotalPlanificado += $sumaColumplanificadoValor;
+						$sumaTotalEjecutado += $sumaColumEjecutadoValor;
+						
+					}
+
+						$totalPorcentajeAvance = ($sumaTotalEjecutado/$sumaTotalPlanificado)*100;
+						
+						if($totalPorcentajeAvance>= 85){
+							$coloresPorcentaje3='green';
+						}else if ($totalPorcentajeAvance>= 70 && $totalPorcentajeAvance < 85) {
+							$coloresPorcentaje3='orange';
+						}else if ($totalPorcentajeAvance < 70) {
+							$coloresPorcentaje3='red';
+						}
+
+					$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado,2).'</span></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado, 2).'</span></center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance, 2).'</span></center></td></tr>';
+				}
+			
+
+
+				$documentoCuerpo.='
+
+					</tbody>
+
+				</table>';
+			if($btnEnviar == 1){
+				$inserta=$objeto->getInsertaNormal('poa_seguimiento_docuento_final', array("`idDocumento_seguimiento`, ","`documento`, ","`idOrganismo`, ","`fecha`, ", "`perioIngreso`, ","`trimestre`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ", "'$aniosPeriodos__ingesos', ","'$trimestreEvaluadorDos'"));
+			}
+
+			// $conexionRecuperada= new conexion();
+			// $conexionEstablecida=$conexionRecuperada->cConexion();			
+			// if($btnEnviar == 2){
+			// 	$query="INSERT INTO `poa_seguimiento_docuento_final`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`) VALUES ('$parametro3.pdf','$idOrganismo','$fecha_actual','$trimestreEvaluadorDos','$aniosPeriodos__ingesos')";
+			// }
+			// $resultado= $conexionEstablecida->exec($query);
+			//  $mensaje=1;
+			//  $jason['mensaje']=$mensaje;
+
 
 
 		break;
