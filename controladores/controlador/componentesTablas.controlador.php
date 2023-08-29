@@ -373,6 +373,290 @@
 
 		}
 
+		public function get__modal__plantilla__inicios__se__2guimientos__se__2guimientos__d__recomendados__reporterias__recorridos__reportesAnexos__se__2s__2023($parametro1,$parametro2,$parametro3){
+
+			$componentes= new componentes();
+
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formularioConfiguracion' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<input type='hidden' name='idOrganismo' id='idOrganismo'/>
+
+						<input type='hidden' id='tipoPdf' name='tipoPdf' value='documento__seguimiento__final' />
+						
+						<input type='hidden' id='trimestreEvaluadorDos' name='trimestreEvaluadorDos'/>
+
+						<button class='btn btn-info'><i class='fa fa-cloud' aria-hidden='true'></i>&nbsp;&nbsp;GENERAR PDF</button>
+
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<div class='col col-12 texto__evidenciales titulo__enfasis text-center' style='text-transform:uppercase!important;'></div>
+
+							<div class='autogestion__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#autogestion__se__2__2023' id='autogestionPoas__in__2'>Autogestión</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='indicadores__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#indicadores__se__2__2023' id='indicadores__in__2'>Indicadores</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='administrativos__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#administrativo__se__2__2023' id='administrativo__in__2'>001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='mantenimiento__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#mantenimiento__se__2__2023' id='mantenimiento__in__2'>002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='mantenimientoTEC__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#mantenimientoTec__se__2__2023' id='mantenimientoTec__in__2'>002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='capacitacion__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#capacitacion__se__2__2023' id='capacitacion__in__2'>003 - Capacitación deportiva o de recreación - Ejecución presupuestaria</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='capacitacionTecnicos__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#capacitacionTec__se__2__2023' id='capacitacionTec__in__2'>003 - Capacitación deportiva o de recreación - Información técnica</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='sueldos__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#sueldos__se__2__2023' id='sueldos__in__2'>004 - Operación deportiva - Sueldos y salarios</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='honorarios__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#honorarios__se__2__2023' id='honorarios__in__2'>004 - Operación deportiva - Honorarios</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='competencias__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competencia__se__2__2023' id='competencia__in__2'>005 - Eventos de preparación y competencia - Ejecución presupuestaria</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='competenciasForma__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competenciaForma__se__2__2023' id='competenciaFormativa__in__2'>005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='competenciasAlto__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competenciaAlto__se__2__2023' id='competenciaAlto__in__2'>005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='recreativo__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#recreativo__se__2__2023' id='recreativo__in__2'>006 - Actividades recreativas - Ejecución presupuestaria</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='recreativoTecnicos__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#recreativoTec__se__2__2023' id='recreativoTec__in__2'>006 - Actividades recreativas - Información técnica</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class='implementacion__verificables'>
+
+								<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+									<div class='card-body row'>
+
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#implementacion__se__2__2023' id='implementacion__in__2'>007 - implementación deportiva  - Ejecución presupuestaria e Información Técnica</a>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
+
+
+
 		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados__reporterias__recorridos($parametro1,$parametro2,$parametro3){
 
 
@@ -5064,6 +5348,1554 @@
 		}
 
 		public function getModalConfiguracion__autoegestion($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='col col-8 text-center' style='font-weight:bold;'>
+
+									¿Posee autogestión?
+
+								</div>
+
+								<div class='col col-4 text-left'>
+
+									<select id='autogestionSelect' class='ancho__total__input'>
+
+										<option value='0'>--Seleccione--</option>
+										<option value='si'>Si</option>
+										<option value='no'>No</option>
+
+									</select>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__tabla__autogestion row' style='display:none!important;'>
+
+
+							</section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+
+		public function getModalVacioXl($parametro1, $parametro2, $parametro3, $parametro4, $parametro6)
+		{
+
+			$modal = "
+
+			<div  class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true' data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content' id='$parametro2'>
+
+						<div class='modal-header row'>
+
+							<div class='col' style='z-index: 1;'>
+
+							<h5 class='modal-title' id='$parametro3'>$parametro3</h5>
+
+							</div>
+
+							<div class='col col-1' style='z-index: 2;'>
+
+							<button type='button' id='$parametro6' class='btn-close modales_reload pointer_botones' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+							</div>
+
+						</div>
+						
+
+						<div id='$parametro4' class='modal-body row'>
+
+					
+						</div>
+
+						
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+		}
+
+		public function getModalConfiguracion__modificacion1($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar '>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='row'>							
+							<div class='col-md-3'>
+								<div class='col-md-12'>								
+									<label>Estado de cuenta</label>
+								</div>
+								<div class='col-md-12 mt-2'>
+									<input type='file' accept='application/pdf' class='ancho__total__input obligatorios_estado_cuenta_indicadores' id='estado_cuenta_indicadores' accept='application/pdf'/> 
+								</div>
+							</div>
+							<div class='col-md-1'>
+								<div class='col-md-12 text-center'>								
+									<label>Guardar</label>
+								</div>
+								<div class='col-md-12 text-center'>
+									<a class='btn btn-primary text-center' id='guardar_estado_cuenta_indicadores'><i class='fa fa-floppy-o' aria-hidden='true'></i></a>
+								</div>
+							</div>
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+								
+							
+							<table >
+							
+
+									<thead>
+
+										<tr>
+
+											<th>Código</th>
+											<th>Actividad</th>
+											<th>Indicadores</th>
+											<th>Meta Programada</th>
+											<th>Meta Alcanzada</th>
+											<th>Guardar</th>
+
+										</tr>
+
+									</thead>
+
+									<tbody class='body__indicadores__tablas1'>
+
+
+
+									</tbody>
+
+								</table>
+
+							</section>
+
+							<section class='row'>
+
+								<div class='col col-12 text-center textos__titulos oculto__trimestrales mt-2'>EJECUCIÓN TRIMESTRAL DE METAS POR INDICADOR</div>
+
+
+								<div class='oculto__trimestrales mt-2'>
+
+									<table>
+
+										<thead>
+
+											<tr>
+
+												<th colspan='1' style='vertical-align:middle;'>Código<br>actividad</th>
+												<th colspan='1' style='vertical-align:middle;'>Nombre de<br>actividad</th>		
+												<th colspan='1' style='vertical-align:middle;'>Indicador</th>
+
+												<th colspan='1' style='vertical-align:middle;'>Meta<br>programada</th>
+												<th colspan='1' style='vertical-align:middle;'>Meta<br>alcanzada</th>
+												<th colspan='1' style='vertical-align:middle;'>Documento de<br>sustento</th>
+												<th colspan='1' style='vertical-align:middle;'>Guardar</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='contenedor__trimestres1'></tbody>
+
+									</table>
+
+								<div>
+
+							</section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__competencia__tecnica__formativa2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												
+												<th>Deporte</th>
+												<th>Provincia</th>
+												<th>Sede ciudad<br>país</th>
+												<th>Género</th>
+												<th>Categoría</th>
+												<th>No. entrenadores<br>oficiales</th>
+												<th>No. atletas</th>
+												<th>Total<br>de atletas</th>
+												<th>Mújeres<br>beneficiarios</th>
+												<th>Hombres<br>beneficiarios</th>
+												<th>Fecha Inicio</th>
+												<th>Fecha Fin</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__competencia__formativa__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__competencia__formativas'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__reporteria__organismos__seguimientos2($parametro1,$parametro2,$parametro3,$parametro4){
+
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog' style='min-width:100%!important;'>
+
+					<form class='modal-content formularioConfiguracion'>
+
+					<div class='modal-header row'>
+						
+					    <div class='col col-11 text-center'>
+						
+
+					    	<h5 class='modal-title $parametro2'>$parametro2</h5>
+
+					    </div>
+
+					    <div class='col col-1'>
+
+					    	<button type='button' class='btn-close cerrar__modalRegistros' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+					    </div>
+
+					</div>
+
+					<div class='modal-body row'>
+
+						<div style='width:100%;'>
+
+						
+
+						<table id='$parametro3'>
+
+							<thead>
+
+								<tr>
+
+						";
+
+
+				foreach ($parametro4 as $clave => $valor) {
+
+							$modal.="<th><center>$valor</center></th>";
+					
+				}
+
+
+
+					$modal.="
+
+								</tr>
+
+							</thead>
+
+						</table>
+
+						<div class='col col-12 contenedor__sueldos__salarios'></div>
+
+						</div>
+
+
+					</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
+
+		public function getModalConfiguracion__administrativos2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar '>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+								<div class='text-center textos__titulos col col-12 mt-2'>
+							
+								</div>
+
+								<div class='row'>
+									<div class='col-md-3'>
+										<div class='col-md-12'>								
+											<label>Estado de cuenta</label>
+										</div>
+										<div class='col-md-12 mt-2'>
+											<input type='file' accept='application/pdf' class='ancho__total__input obligatorios_estado_cuenta' id='estado_cuenta' accept='application/pdf'/> 
+										</div>
+									</div>
+									<div class='col-md-1'>
+										<div class='col-md-12 text-center'>								
+											<label>Guardar</label>
+										</div>
+										<div class='col-md-12 text-center'>
+											<a class='btn btn-primary text-center' id='guardar_estado_cuenta'><i class='fa fa-floppy-o' aria-hidden='true'></i></a>
+										</div>
+									</div>
+								</div>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Código Ítem</th>
+												<th>Ítem</th>
+												<th>Justificación<br>de la adquisición<br>del bien o servicio</th>
+												<th>Cantidad<br>del bien o<br>servicio a adquirir</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__adminsitrativas__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__administrativas'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__modificacion2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar '>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<table id=$parametro4>
+
+									<thead>
+
+										<tr>
+
+											<th>Código</th>
+											<th>Actividad</th>
+											<th>Indicadores</th>
+											<th>Meta Programada</th>
+											<th>Meta Alcanzada</th>
+											<th>Guardar</th>
+
+										</tr>
+
+									</thead>
+
+									<tbody class='body__indicadores__tablas'>
+
+
+
+									</tbody>
+
+								</table>
+
+							</section>
+
+							<section class='row'>
+
+								<div class='col col-12 text-center textos__titulos oculto__trimestrales mt-2'>EJECUCIÓN TRIMESTRAL DE METAS POR INDICADOR</div>
+
+
+								<div class='oculto__trimestrales mt-2'>
+
+									<table>
+
+										<thead>
+
+											<tr>
+
+												<th colspan='1' style='vertical-align:middle;'>Código<br>actividad</th>
+												<th colspan='1' style='vertical-align:middle;'>Nombre de<br>actividad</th>		
+												<th colspan='1' style='vertical-align:middle;'>Indicador</th>
+
+												<th colspan='1' style='vertical-align:middle;'>Meta<br>programada</th>
+												<th colspan='1' style='vertical-align:middle;'>Meta<br>alcanzada</th>
+												<th colspan='1' style='vertical-align:middle;'>Documento de<br>sustento</th>
+												<th colspan='1' style='vertical-align:middle;'>Guardar</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='contenedor__trimestres'></tbody>
+
+									</table>
+
+								<div>
+
+							</section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__modificacion__sueldos__salarios2023($parametro1,$parametro2,$parametro3,$parametro4,$parametro5,$parametro6){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar '>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='text-center textos__titulos col col-12 mt-2'>
+									DOCUMENTOS ORGANISMO DEPORTIVO
+								</div>
+
+								<div class='row'>
+									<div class='col-md-4'>
+										<div class='col-md-12'>								
+											<label>Rol de Pago</label>
+										</div>
+										<div class='col-md-12 mt-2'>
+											<input type='file' accept='application/pdf' class='ancho__total__input obligatorios__suel__meses' id='rol__pago__iess' accept='application/pdf'/> 
+										</div>
+									</div>
+
+									<div class='col-md-4'>
+										<div class='col-md-12'>
+											<label>Planilla del IESS</label>
+										</div>
+										<div class='col-md-12 mt-2'>
+											<input type='file' accept='application/pdf' class='ancho__total__input obligatorios__suel__meses' id='planilla__iess' accept='application/pdf'/> 
+										</div>
+									</div>							
+								</div>
+
+								<div class='row'>
+									<div class='col-md-4'>
+										<div class='col-md-12'>
+											<label>Comprobante de Pago emitido por el IESS</label>
+										</div>
+										<div class='col-md-12 mt-2'>
+											<input type='file' accept='application/pdf' class='ancho__total__input obligatorios__suel__meses' id='comprobante__pago' accept='application/pdf'/> 
+										</div>
+									</div>
+
+									<div class='col-md-4'> 
+										<div class='col-md-12'>
+											<label>Seleccione el mes</label>
+										</div>
+										<div class='col-md-12 mt-2'>
+											<select id='mesPlanificaciones' name='mesPlanificaciones' class='ancho__total__input obligatorios__suel__meses'>
+												<option value='0'>--Seleeccione un mes</option>
+												<option value='Enero'>Enero</option>
+												<option value='Febrero'>Febrero</option>
+												<option value='Marzo'>Marzo</option>
+												<option value='Abril'>Abril</option>
+												<option value='Mayo'>Mayo</option>
+												<option value='Junio'>Junio</option>
+												<option value='Julio'>Julio</option>
+												<option value='Agosto'>Agosto</option>
+												<option value='Septiembre'>Septiembre</option>
+												<option value='Octubre'>Octubre</option>
+												<option value='Noviembre'>Noviembre</option>
+												<option value='Diciembre'>Diciembre</option>
+											</select>
+										</div>
+									</div>
+
+									<div class='col-md-4'>
+										<div class='col-md-4'>
+											<label>Guardar</label>
+										</div>
+									<div class='col-md-3 d d-flex text-center mt-2'>
+										<a class='btn btn-primary' id='guardarMes__sueld'><i class='fa fa-floppy-o' aria-hidden='true'></i></a>
+									</div>
+								</div>
+							</section>
+
+							<section class='row mt-4'>
+
+								<div class='table-wrapper' id='$parametro5'>
+								<input type='hidden' id='$parametro6' placeholder='Buscar...'>
+								<style>
+								/* Estilos para fijar los encabezados */
+								table {
+									width: 100%;
+									border-collapse: collapse;
+								}
+
+								th {
+									position: sticky;
+									top: 0;
+									
+								}
+								</style>
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>No.</th>
+												<th>Apellidos<br>y Nombres</th>
+												<th>No. Cédula<br>de ciudadanía<br> / pasaporte</th>
+												<th>Cargo</th>
+												<th>Tipo<br>de cargo</th>
+												<th>Tiempo<br>de trabajo<br>(en meses)</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__sueldos__salarios__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__modificacion__honorarios2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar '>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>No.</th>
+												<th>Actividad</th>
+												<th>Apellidos<br>y Nombres</th>
+												<th>No. Cédula<br>de ciudadanía<br> / pasaporte</th>
+												<th>Cargo</th>
+												<th>Honorario mensual<br>(incluido el iva)</th>
+												<th>Tipo<br>cargo</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__honorarios__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__honorarios'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__mantenimiento2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Código Ítem</th>
+												<th>Ítem</th>
+												<th>Nombre de la infraestructura<br>o escenario deportivo</th>
+												<th>Tipo de intervención</th>
+												<th>Detallar el tipo<br> de intervención que se<br>ha planificado realizar</th>
+												<th>Tipo<br>de Mantenimiento</th>
+												<th>Materiales o<br>Servicios a requerir<br>para el mantenimiento</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__mantenimiento__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__mantenimientos'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__mantenimiento__tecnico2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Nombre de la infraestructura<br>o escenario deportivo</th>
+												<th>Provincia</th>
+												<th>Dirección completa</th>
+												<th>Estado</th>
+												<th>Tipo de<br>recursos con<br>los que se<br>construyó</th>
+												<th>Tipo<br>de<br>intervención</th>
+												<th>Detallar el<br>tipo de intervención<br>que se ha planificado<br>realizar</th>
+												<th>Tipo<br>de Mantenimiento</th>
+												<th>Materiales<br>o Servicios<br>a requerir para<br>el mantenimiento</th>
+												<th>Fecha de<br>último mantenimiento realizado</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__mantenimiento__tecnicos__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__mantenimientos__tecnicos'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__capacitacion2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Código Ítem</th>
+												<th>Ítem</th>
+												<th>Tipo de<br>financiamiento</th>
+												<th>Nombre<br>del evento</th>
+												<th>Detalle lo que<br>el organismo<br>va a adquirir</th>
+												<th>Justificación<br>de la adquisición<br>del bien<br>o servicio</th>
+												<th>Cantidad del<br>bien o servicio<br>a adquirir</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__capacitacion__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__capacitacion__tecnicos'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__capacitacion__tecnico2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Nombre<br>del evento</th>
+												<th>Deporte</th>
+												<th>Provincia</th>
+												<th>Sede ciudad<br>país</th>
+												<th>Género</th>
+												<th>Categoría</th>
+												<th>No. entrenadores<br>oficiales</th>
+												<th>No. atletas</th>
+												<th>Total<br>de atletas</th>
+												<th>Mújeres<br>beneficiarios</th>
+												<th>Hombres<br>beneficiarios</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__capacitacion__tecnica__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__capacitacion__tecnicos__tecnicos'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__competencia2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Código Ítem</th>
+												<th>Ítem</th>
+												<th>Tipo de<br>financiamiento</th>
+												<th>Nombre<br>del evento</th>
+												<th>Detalle lo que<br>el organismo<br>va a adquirir</th>
+												<th>Justificación<br>de la adquisición<br>del bien<br>o servicio</th>
+												<th>Cantidad del<br>bien o servicio<br>a adquirir</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__competencia__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__competencia'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__competencia__tecnica__altoRendimiento2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Deporte</th>
+												<th>Tipo<br>de<br>financiamiento</th>
+												<th>Nombre<br>del evento</th>
+												<th>Sede ciudad<br>país</th>
+												<th>Alcance</th>
+												<th>Género</th>
+												<th>Categoría<br>del<br>plan de<br>alto rendimiento</th>
+												<th>No. entrenadores<br>oficiales</th>
+												<th>No. atletas</th>
+												<th>Total<br>de atletas</th>
+												<th>Mújeres<br>beneficiarios</th>
+												<th>Hombres<br>beneficiarios</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__competencia__alto__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__competencia__alto'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__recreativo2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Código Ítem</th>
+												<th>Ítem</th>
+												<th>Tipo de<br>financiamiento</th>
+												<th>Nombre<br>del evento</th>
+												<th>Detalle lo que<br>el organismo<br>va a adquirir</th>
+												<th>Justificación<br>de la adquisición<br>del bien<br>o servicio</th>
+												<th>Cantidad del<br>bien o servicio<br>a adquirir</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__recreativo__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__recreativo'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__recreativo__tecnico2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Deporte</th>
+												<th>Tipo<br>de<br>financiamiento</th>
+												<th>Nombre<br>del evento</th>
+												<th>Sede ciudad<br>país</th>
+												<th>Alcance</th>
+												<th>Género</th>
+												<th>Categoría<br>del<br>plan de<br>alto rendimiento</th>
+												<th>No. entrenadores<br>oficiales</th>
+												<th>No. atletas</th>
+												<th>Total<br>de atletas</th>
+												<th>Mújeres<br>beneficiarios</th>
+												<th>Hombres<br>beneficiarios</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__recreativo__tecnico__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__tecnico__recreativo'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__implementacion2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog modal-xl'>
+
+					<form class='modal-content formulario__intervencion__eliminar'>
+
+						<div class='modal-header row $parametro3'>
+
+						    <div class='col col-11 text-center'>
+
+						    	<h5 class='modal-title'>$parametro2</h5>
+
+						    </div>
+
+						    <div class='col col-1'>
+
+						    	<button type='button' class='btn-close cerrar__modalRegistros cerrar__seguimientos' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						    </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<section class='row'>
+
+								<div class='table-wrapper'>
+
+									<table id='$parametro4'>
+
+										<thead>
+
+											<tr>
+
+												<th>Código Ítem</th>
+												<th>Ítem</th>
+												<th>Tipo de<br>financiamiento</th>
+												<th>Nombre<br>del evento</th>
+												<th>Detalle lo que<br>el organismo<br>va a adquirir</th>
+												<th>Justificación<br>de la adquisición<br>del bien<br>o servicio</th>
+												<th>Cantidad del<br>bien o servicio<br>a adquirir</th>
+												<th>Escoger</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='body__implementacion__tablas'>
+
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</section>
+
+							<section class='contenedor__pestanas__implementacion'></section>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function getModalConfiguracion__autoegestion2023($parametro1,$parametro2,$parametro3){
 
 			$modal="
 
