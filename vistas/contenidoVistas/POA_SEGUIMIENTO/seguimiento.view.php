@@ -76,7 +76,7 @@ $componentesPaid= new componentesPaid();?>
 
 
 
-	<div class="contenidos__formularios__enviados">
+	<div class="contenidos__formularios__enviados2023">
 
 
 		<input type="hidden" id="contadorIndicador" name="contadorIndicador" value="0">
@@ -196,63 +196,63 @@ $componentesPaid= new componentesPaid();?>
 
 			<section class="content row d d-flex justify-content-left align-items-center mt-4">
 
-				<?= $componentes->getLinksConfiguracion__parametros(["autogestionSM"], ["Autogestión"], "idAutogestionS", ["autogestionME"], 'idAutogestionME'); ?>
+				<?= $componentes->getLinksConfiguracion__parametros(["autogestionSM2023"], ["Autogestión"], "idAutogestionS", ["autogestionME"], 'idAutogestionME'); ?>
 
 				<?php if (!empty($actividadesSeleccionadas__actividadesAdmi[0][idActividadAd])) : ?>
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM"], ["Indicadores"], "idIndicadores", ["indicadoresME"], 'idIndicadoresME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM2023"], ["Indicadores"], "idIndicadores2023", ["indicadoresME"], 'idIndicadoresME'); ?>
 				<?php else: ?>
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM_estadoCuenta"], ["Indicadores"], "idIndicadores_estadoCuenta", ["indicadoresMEindicadoresM_estadoCuenta"], 'idIndicadoresME_estado_cuenta'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM_estadoCuenta2023"], ["Indicadores"], "idIndicadores_estadoCuenta2023", ["indicadoresMEindicadoresM_estadoCuenta"], 'idIndicadoresME_estado_cuenta'); ?>
 				<?php endif ?>
 				
 
 				<?php if (!empty($actividadesSeleccionadas__actividadesAdmi[0][idActividadAd])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["administrativoSM"], ["001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria"], "idAdministrativoS", ["administrativoME"], 'idAdministrativoME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["administrativoSM2023"], ["001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria"], "idAdministrativoS2023", ["administrativoME"], 'idAdministrativoME2023'); ?>
 
 				<?php endif ?>
 
 
 				<?php if (!empty($actividadesSeleccionadas__mantenimientoAdmin[0][idMantenimiento])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["mantenimientoSM"], ["002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria"], "idMantenimientoS", ["mantenimientoME"], 'idMantenimientoME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["mantenimientoSM2023"], ["002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria"], "idMantenimientoS2023", ["mantenimientoME"], 'idMantenimientoME2023'); ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["mantenimientoTecnicoSM"], ["002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica"], "idMantenimientoTecnicoS", ["mantenimientoTecnicoME"], 'idMantenimientoTecnicoME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["mantenimientoTecnicoSM2023"], ["002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica"], "idMantenimientoTecnicoS2023", ["mantenimientoTecnicoME"], 'idMantenimientoTecnicoME'); ?>
 
 				<?php endif ?>
 
 				<?php if (!empty($capacitacion__3[0][idPda])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["capacitacionSM"], ["003 - Capacitación deportiva o de recreación - Ejecución presupuestaria"], "idCapacitacionS", ["cpacitacionME"], 'idCapacitacionME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["capacitacionSM2023"], ["003 - Capacitación deportiva o de recreación - Ejecución presupuestaria"], "idCapacitacionS2023", ["cpacitacionME"], 'idCapacitacionME2023'); ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["capacitacionTécnicoSM"], ["003 - Capacitación deportiva o de recreación - Información técnica"], "idCapacitacionTecnicoS", ["cpacitacionTecnicoME"], 'idCapacitacionTecnicoME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["capacitacionTécnicoSM2023"], ["003 - Capacitación deportiva o de recreación - Información técnica"], "idCapacitacionTecnicoS2023", ["cpacitacionTecnicoME"], 'idCapacitacionTecnicoME'); ?>
 
 				<?php endif ?>
 
 				<?php if (!empty($actividadesSeleccionadas[0][idOrganismo])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["sueldosSM"], ["004 - Operación deportiva - Sueldos y salarios"], "idSueldosS", ["sueldosME"], 'idSueldosME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["sueldosSM2023"], ["004 - Operación deportiva - Sueldos y salarios"], "idSueldosS2023", ["sueldosME"], 'idSueldosME2023'); ?>
 
 				<?php endif ?>
 
 
 				<?php if (!empty($actividadesSeleccionadas__honorarios[0][idOrganismo])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["honorariosSM"], ["004 - Operación deportiva - Honorarios"], "idHonorariosS", ["honorariosME"], 'idhonorariosME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["honorariosSM2023"], ["004 - Operación deportiva - Honorarios"], "idHonorariosS2023", ["honorariosME"], 'idhonorariosME2023'); ?>
 
 				<?php endif ?>
 
 				<?php if (!empty($competencia__5[0][idPda])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["competenciaSM"], ["005 - Eventos de preparación y competencia - Ejecución presupuestaria"], "idCompetenciaS", ["competenciaME"], 'idCompetenciaME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["competenciaSM2023"], ["005 - Eventos de preparación y competencia - Ejecución presupuestaria"], "idCompetenciaS2023", ["competenciaME"], 'idCompetenciaME2023'); ?>
 
 
 					<?php if (!empty($tipo__deOrganismos[0][nombreTipo])) : ?>
 
-						<?= $componentes->getLinksConfiguracion__parametros__ver(["competencia__formativaSM"], ["005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica"], "idCompetencia__FormativaS", ["competencia__formativaME"], 'idCompetencia__formativaME'); ?>
+						<?= $componentes->getLinksConfiguracion__parametros__ver(["competencia__formativaSM2023"], ["005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica"], "idCompetencia__FormativaS2023", ["competencia__formativaME"], 'idCompetencia__formativaME2023'); ?>
 
 					<?php else : ?>
 
-						<?= $componentes->getLinksConfiguracion__parametros__ver(["competencia__altoRenSM"], ["005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica"], "idCompetencia__altoRenS", ["competencia__altoRenME"], 'idCompetencia__altoRenME'); ?>
+						<?= $componentes->getLinksConfiguracion__parametros__ver(["competencia__altoRenSM2023"], ["005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica"], "idCompetencia__altoRenS2023", ["competencia__altoRenME"], 'idCompetencia__altoRenME'); ?>
 
 					<?php endif ?>
 
@@ -261,9 +261,9 @@ $componentesPaid= new componentesPaid();?>
 
 				<?php if (!empty($recreativas__6[0][idPda])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["RecreativaSM"], ["006 - Actividades recreativas - Ejecución presupuestaria"], "idRecreativaS", ["RecreativaME"], 'idRecreativaME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["RecreativaSM2023"], ["006 - Actividades recreativas - Ejecución presupuestaria"], "idRecreativaS2023", ["RecreativaME"], 'idRecreativaME2023'); ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["RecreativaTecnicoSM"], ["006 - Actividades recreativas - Información técnica"], "idRecreativaTecnicoS", ["RecreativaTecnicoME"], 'idRecreativaTecnicoME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["RecreativaTecnicoSM2023"], ["006 - Actividades recreativas - Información técnica"], "idRecreativaTecnicoS2023", ["RecreativaTecnicoME"], 'idRecreativaTecnicoME'); ?>
 
 				<?php endif ?>
 
@@ -271,7 +271,7 @@ $componentesPaid= new componentesPaid();?>
 
 				<?php if (!empty($recreativas__7[0][idPda])) : ?>
 
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["implementacionSM"], ["007 - Implementación deportiva  - Ejecución presupuestaria e Información Técnica"], "idImplementacionS", ["implementacionME"], 'idImplementacionME'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["implementacionSM2023"], ["007 - Implementación deportiva  - Ejecución presupuestaria e Información Técnica"], "idImplementacionS2023", ["implementacionME"], 'idImplementacionME2023'); ?>
 
 				<?php endif ?>
 
@@ -343,7 +343,7 @@ $componentesPaid= new componentesPaid();?>
 
 				<section class="row mt-4">
 
-<!--*************************************** Decalracion de recursos publicos ******************************** -->
+				<!--*************************************** Decalracion de recursos publicos ******************************** -->
 					<form class="col col-12 text-center mt-4" action="modelosBd/pdf/pdf.modelo.php" method="post">
 
 						<input type="hidden" name="idOrganismo" value="<?= $idOrganismo__v ?>" />
@@ -400,7 +400,7 @@ $componentesPaid= new componentesPaid();?>
 
 					</form>
 
-<!--*************************************** Decalracion de contratacion publica ******************************** documento__declaracion__contratacion_publica-->
+				<!--*************************************** Decalracion de contratacion publica ******************************** documento__declaracion__contratacion_publica-->
 					<form class="col col-12 text-center mt-4" action="modelosBd/pdf/pdf.modelo.php" method="post"> 
 
 						<input type="hidden" name="idOrganismo" value="<?= $idOrganismo__v ?>" />
@@ -522,37 +522,37 @@ $componentesPaid= new componentesPaid();?>
 =            Modales           =
 ==============================-->
 
-<?= $componentesTablas->getModalConfiguracion__modificacion("indicadoresM", "Indicadores", "lineaPoliticaContent", "segui_indicadores"); ?>
+<?= $componentesTablas->getModalConfiguracion__modificacion2023("indicadoresM2023", "Indicadores", "lineaPoliticaContent", "segui_indicadores"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__modificacion__sueldos__salarios("sueldosSM", "004 - Operación deportiva - Sueldos y salarios", "sueldos__salarios__content","dt_sueldos_salarios_EP","div_sueldos_salarios","buscador"); ?>
+<?= $componentesTablas->getModalConfiguracion__modificacion__sueldos__salarios2023("sueldosSM2023", "004 - Operación deportiva - Sueldos y salarios", "sueldos__salarios__content","dt_sueldos_salarios_EP","div_sueldos_salarios","buscador"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__modificacion__honorarios("honorariosSM", "004 - Operación deportiva - Honorarios", "honorarios__content", "dt_segui_honorarios"); ?>
+<?= $componentesTablas->getModalConfiguracion__modificacion__honorarios2023("honorariosSM2023", "004 - Operación deportiva - Honorarios", "honorarios__content", "dt_segui_honorarios"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__administrativos("administrativoSM", "001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria", "administrativo__content", "dt_segui_administrativo_AP"); ?>
+<?= $componentesTablas->getModalConfiguracion__administrativos2023("administrativoSM2023", "001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria", "administrativo__content", "dt_segui_administrativo_AP2023"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__mantenimiento("mantenimientoSM", "002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria", "mantenimiento__content", "dt_segui_mantenimiento_EP"); ?>
+<?= $componentesTablas->getModalConfiguracion__mantenimiento2023("mantenimientoSM2023", "002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria", "mantenimiento__content", "dt_segui_mantenimiento_EP"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__mantenimiento__tecnico("mantenimientoTecnicoSM", "002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica", "mantenimiento__tecnico__content","dt_segui_mantenimiento_escenarios_IT" ); ?>
+<?= $componentesTablas->getModalConfiguracion__mantenimiento__tecnico2023("mantenimientoTecnicoSM2023", "002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica", "mantenimiento__tecnico__content","dt_segui_mantenimiento_escenarios_IT" ); ?>
 
-<?= $componentesTablas->getModalConfiguracion__capacitacion("capacitacionSM", "003 - Capacitación deportiva o de recreación - Ejecución presupuestaria", "mantenimiento__capacitacion__content","dt_segui_capacitacion_deportiva_recreacion1"); ?>
+<?= $componentesTablas->getModalConfiguracion__capacitacion2023("capacitacionSM2023", "003 - Capacitación deportiva o de recreación - Ejecución presupuestaria", "mantenimiento__capacitacion__content","dt_segui_capacitacion_deportiva_recreacion1"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__capacitacion__tecnico("capacitacionTécnicoSM", "003 - Capacitación deportiva o de recreación - Información técnica", "mantenimiento__capacitacion__tecnica__content" ,"dt_segui_capacitacion_deportiva_recreacion"); ?>
+<?= $componentesTablas->getModalConfiguracion__capacitacion__tecnico2023("capacitacionTécnicoSM2023", "003 - Capacitación deportiva o de recreación - Información técnica", "mantenimiento__capacitacion__tecnica__content" ,"dt_segui_capacitacion_deportiva_recreacion"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__competencia("competenciaSM", "005 - Eventos de preparación y competencia - Ejecución presupuestaria", "mantenimiento__competencia__content","dt_segui_eventos_prepa_competencia"); ?>
+<?= $componentesTablas->getModalConfiguracion__competencia2023("competenciaSM2023", "005 - Eventos de preparación y competencia - Ejecución presupuestaria", "mantenimiento__competencia__content","dt_segui_eventos_prepa_competencia"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__competencia__tecnica__formativa2023("competencia__formativaSM", "005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica", "mantenimiento__competencia__formativa__content","dt_segui_deporte_formativo"); ?>
+<?= $componentesTablas->getModalConfiguracion__competencia__tecnica__formativa2023("competencia__formativaSM2023", "005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica", "mantenimiento__competencia__formativa__content","dt_segui_deporte_formativo"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__competencia__tecnica__altoRendimiento("competencia__altoRenSM", "005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica", "mantenimiento__competencia__alto__content","dt_segui_alto_rendimiento"); ?>
+<?= $componentesTablas->getModalConfiguracion__competencia__tecnica__altoRendimiento2023("competencia__altoRenSM2023", "005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica", "mantenimiento__competencia__alto__content","dt_segui_alto_rendimiento"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__recreativo("RecreativaSM", "006 - Actividades recreativas - Ejecución presupuestaria", "recreativo__content","dt_segui_acti_recreaticas1"); ?>
+<?= $componentesTablas->getModalConfiguracion__recreativo2023("RecreativaSM2023", "006 - Actividades recreativas - Ejecución presupuestaria", "recreativo__content","dt_segui_acti_recreaticas1"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__recreativo__tecnico("RecreativaTecnicoSM", "006 - Actividades recreativas - Información técnica", "recreativo__tecnico__content","dt_segui_acti_recreaticas2"); ?>
+<?= $componentesTablas->getModalConfiguracion__recreativo__tecnico2023("RecreativaTecnicoSM2023", "006 - Actividades recreativas - Información técnica", "recreativo__tecnico__content","dt_segui_acti_recreaticas2"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__implementacion("implementacionSM", "007 - implementación deportiva  - Ejecución presupuestaria e Información Técnica", "implementacion__content","dt_segui_implementacion_deportiva"); ?>
+<?= $componentesTablas->getModalConfiguracion__implementacion2023("implementacionSM2023", "007 - implementación deportiva  - Ejecución presupuestaria e Información Técnica", "implementacion__content","dt_segui_implementacion_deportiva"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__autoegestion("autogestionSM", "Autogestión", "autogestion__content"); ?>
+<?= $componentesTablas->getModalConfiguracion__autoegestion2023("autogestionSM2023", "Autogestión", "autogestion__content"); ?>
 
-<?= $componentesTablas->getModalConfiguracion__modificacion1("indicadoresM_estadoCuenta", "Indicadores", "lineaPoliticaContent", "dt_segui_indicadores"); ?>
+<?= $componentesTablas->getModalConfiguracion__modificacion1("indicadoresM_estadoCuenta2023", "Indicadores", "lineaPoliticaContent", "dt_segui_indicadores"); ?>
 
 <?= $componentesPaid->get__contraloria_items__paid("contrataciones__itemsSeguimiento", "formContratacionPublica", "Contratación Pública", "divContratacionPublicaSeguimiento", "cerrarBtnContratacionPublica", "inputIdItem"); ?>
 

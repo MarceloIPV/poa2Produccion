@@ -248,7 +248,7 @@
 
 		<script type="text/javascript" src="layout/scripts/js/DOCUMENTOS2022/datatablets.js?v=1.0.2"></script>
 
-		<!-- <script type="text/javascript" src="layout/scripts/js/POA_SEGUIMIENTO_JS/index.js?v=1.0.2"></script> -->
+		<script type="text/javascript" src="layout/scripts/js/POA_SEGUIMIENTO_JS/index.js?v=1.0.2"></script> 
 
 			
 		<!--====  End of Scripts personalizados  ====-->

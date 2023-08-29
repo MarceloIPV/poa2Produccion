@@ -27852,3 +27852,159 @@ var limitarFechaActualInputDate=function(input){
   $(input).attr('max', formattedToday);
   
 };
+
+	/*===============================================
+	=            Cambiar el seguimientos            =
+	===============================================*/
+
+	var visualizarOpcionesCambiar=function(parametro1,parametro2,parametro3,parametro4){
+
+				var paqueteDeDatos = new FormData();
+
+				paqueteDeDatos.append('tipo','seguimiento__guardables__seleccionables');	
+
+				let organismoIdPrin=$("#organismoIdPrin").val();
+				let trimestreEvaluador=$("#trimestreEvaluador").val();
+
+				paqueteDeDatos.append("organismoIdPrin",organismoIdPrin);
+				paqueteDeDatos.append("trimestreEvaluador",trimestreEvaluador);
+
+				$.ajax({
+
+					type:"POST",
+					url:"modelosBd/inserta/seleccionaAcciones.md.php",
+					contentType: false,
+					data:paqueteDeDatos,
+					processData: false,
+					cache: false, 
+					success:function(response){
+
+					$.getScript("layout/scripts/js/seguimiento/seguimientoGlobal.js",function(){
+
+					    let elementos=JSON.parse(response);
+					    let llamada=elementos['llamada'];
+
+					    $(parametro2).show();
+
+					    if (llamada=="si") {
+
+					    	$(".contenedor__seguimiento__con").show();
+					    	$(".contenedor__seguimiento__sin").show();
+
+					    	$("#finalizarSeguimiento").html('Volver a cargar información&nbsp;&nbsp;<i class="fa fa-reply-all" aria-hidden="true"></i>');
+
+					    	funcion__cargas__dinamicas($(".informacion__fin__registradas"),"selecciona__acciones__seguimiento__final__matriz",organismoIdPrin,trimestreEvaluador);
+
+					    }else{
+
+					    	$(".contenedor__seguimiento__con").show();
+					    	$(".contenedor__seguimiento__sin").show();
+					    	$(".contenedor__seguiiento__con").show();
+
+
+					    	$("#finalizarSeguimiento").html('Reporte de monto programado&nbsp;&nbsp;<i class="fa fa-share" aria-hidden="true"></i>');
+
+					    }
+
+					});
+
+					},
+					error:function(){
+
+					}
+							
+				});				
+
+	}
+
+
+	/*=====  End of Cambiar el seguimientos  ======*/
+
+/*====================================================
+	=            Indicadores - Estado de cuenta          =
+	======================================================*/
+	
+	var indicadores__funcionales_estado_cuenta=function(parametro1,parametro2,parametro3,tipo){
+
+		$(parametro3).click(function(e) {
+
+			$(parametro1).html(' ');
+			$(".oculto__trimestrales").hide();
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo',tipo);
+			paqueteDeDatos.append('idOrganismos',parametro2);
+
+			$.ajax({
+
+				type:"POST",
+				url:"modelosBd/inserta/seleccionaAcciones.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+					$.getScript("layout/scripts/js/seguimiento/seguimientoGlobal.js",function(){
+
+						var elementos=JSON.parse(response);
+
+						var indicadorInformacion=elementos['indicadorInformacion'];
+
+						for (z of indicadorInformacion) {
+
+							let trimestresV="";
+
+							if($("#trimestreEvaluador").val()=="primerTrimestre"){
+								trimestresV=z.primertrimestre;
+							}else if($("#trimestreEvaluador").val()=="segundoTrimestre"){
+								trimestresV=z.segundotrimestre;
+							}else if($("#trimestreEvaluador").val()=="tercerTrimestre"){
+								trimestresV=z.tercertrimestre;
+							}else if($("#trimestreEvaluador").val()=="cuartoTrimestre"){
+								trimestresV=z.cuartotrimestre;
+							}
+							
+								 $(parametro1).append('<tr id="filaIndicadora"class="filaIndicadora'+z.idActividades+'"><td style="font-weight:bold;"><center>'+z.idActividades+'</center></td><td>'+z.nombreActividades+'</td><td>'+z.indicador+'</td><td><input type="text" id="totalProgramado'+z.idActividades+'" name="totalProgramado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" style="border:none;" disabled="disabled" /></td><td class="celdas'+z.idActividades+'"><input type="text" id="totalEjecutado'+z.idActividades+'" name="totalEjecutado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" /><div class="rotulo'+z.idActividades+'" style="text-align:center; widht:100%;"></div></td><td><a id="guardar1'+z.idActividades+'" parametro7="'+parametro2+'" parametro8="'+$("#trimestreEvaluador").val()+'" name="guardar1'+z.idActividades+'" idContador="'+z.idActividades+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');								 
+								
+								 // console.log("IDActividad");
+								 // console.log(z.idActividades);
+
+								 funcion__cambio__de__numero($("#totalEjecutado"+z.idActividades));
+								 funcion__solo__numero($(".solo__numeros"));							 
+								 //funcion_porcentajes__colores($("#totalEjecutado"+z.idActividades),$("#totalProgramado"+z.idActividades).val(),$(".celdas"+z.idActividades),$(".rotulo"+z.idActividades),z.metaindicador);
+								
+								 $("#guardar1"+z.idActividades).click(function(e) {
+
+									let idContador=$(this).attr('idContador');
+									let parametro7=$(this).attr('parametro7');
+									let parametro8=$(this).attr('parametro8');
+
+									console.log(idContador,parametro7,parametro8)
+									
+									funcion__guardado__general_estado_cuenta_indicadores($("#guardar1"+idContador),$(".obligatorios"+idContador),[$("#totalProgramado"+idContador).val(),$("#totalEjecutado"+idContador).val(),parametro7,idContador,parametro8],$("#documentoSustento"+idContador),"seguimiento__indicadores",$(".filaIndicadora"+idContador),$(".oculto__trimestrales"));
+
+								}); 
+							// }
+ 					
+
+						}
+
+
+					});		
+
+				},
+				error:function(){
+
+				}
+					
+			});		
+
+		});			
+
+	}
+
+
+	/*=====  End of Indicadores - Estado de cuenta ======*/
+

@@ -361,7 +361,7 @@ class componentesPaid
 
 		<div  class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true' data-backdrop='static' data-keyboard='false' tabindex='-1'>
 
-			<div class='modal-dialog modal-lg'>
+			<div class='modal-dialog modal-xl'>
 
 				<form class='modal-content' id='$parametro2'>
 
@@ -376,6 +376,53 @@ class componentesPaid
 						<div class='col col-1' style='z-index: 2;'>
 
 						<button type='button' id='$parametro5' class='btn-close modales_reload pointer_botones' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						</div>
+
+					</div>
+
+					<input type='hidden' id='$parametro6' name='ïdentificador' value=''>
+					
+
+					<div id='$parametro4' class='modal-body row'>
+
+				
+					</div>
+
+					
+
+				</form>
+
+			</div>
+
+		</div>
+		";
+
+		return $modal;
+	}
+
+	public function get__contraloria_No_items__paid($parametro1, $parametro2, $parametro3, $parametro4, $parametro5, $parametro6)
+	{
+
+		$modal = "
+
+		<div  class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true' data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+			<div class='modal-dialog modal-xl'>
+
+				<form class='modal-content' id='$parametro2'>
+
+					<div class='modal-header row'>
+
+						<div class='col' style='z-index: 1;'>
+
+						  <h5 class='modal-title' id='modalTitulo'>$parametro3<br><span class='asignado__titulos'></span></h5>
+
+						</div>
+
+						<div class='col col-1' style='z-index: 2;'>
+
+						<button type='button' id='$parametro5' class='btn-close modales_reload pointer_botones' aria-label='Close'></button>
 
 						</div>
 
@@ -1962,22 +2009,30 @@ class componentesPaid
 
 
 
-		$modal .= "<div class='paid__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["matrizPaidModales__revisor"], ["Mátriz PAID"], "idPaidGenera__tablets") . "</div>";
+							$modal .= "<div class='paid__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["matrizPaidModales__revisor"], ["Mátriz PAID"], "idPaidGenera__tablets") . "</div>";
 
-		$modal .= "<div class='indicadores__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["indicadoresPaidModales"], ["Indicadores"], "idIndicadoresGenera__tablets") . "</div>";
+							$modal .= "<div class='indicadores__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["indicadoresPaidModales"], ["Indicadores"], "idIndicadoresGenera__tablets") . "</div>";
 
-		$modal .= "<div class='eventos__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["eventosPaidModales"], ["Eventos"], "idVinculacionGenera__tablets") . "</div>";
+							$modal .= "<div class='eventos__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["eventosPaidModales"], ["Eventos"], "idVinculacionGenera__tablets") . "</div>";
 
-		$modal .= "<div class='interdisciplinario__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["interdisiplinarioModal"], ["Interdisiplinario"], "idInterdisciplinarioGenera__tablets") . "</div>";
+							$modal .= "<div class='interdisciplinario__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["interdisiplinarioModal"], ["Interdisiplinario"], "idInterdisciplinarioGenera__tablets") . "</div>";
 
-		$modal .= "<div class='individuales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesIndividualesModal"], ["Necesidades Individuales"], "idIndividualesGenera__tablets") . "</div>";
+							$modal .= "<div class='individuales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesIndividualesModal"], ["Necesidades Individuales"], "idIndividualesGenera__tablets") . "</div>";
 
-		$modal .= "<div class='generales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesGeneralesModal"], ["Necesidades Generales"], "idVinculacionGenera__generales__tablets") . "</div>";
+							$modal .= "<div class='generales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesGeneralesModal"], ["Necesidades Generales"], "idVinculacionGenera__generales__tablets") . "</div>";
 
 
-		$modal .= "<div class='encuentro__activo__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoModal"], ["Encuentro Activo"], "idEncuentroActivoGenera__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Medallas__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMedallas"], ["Matriz Medallas"], "idEncuentroActivoMedallas__tablets") . "</div>";
 
-		$modal .= "
+							$modal .= "<div class='encuentro__activo__Hospedaje_Alimentacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoHospAli"], ["Matriz Hospedaje Alimentación"], "idEncuentroActivoHospAli__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Matrices_Auxiliares__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMatricesAux"], ["Matrices Auxiliares"], "idEncuentroActivoMatricesAux__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Personal_Tecnico__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPersonalTecnico"], ["Matriz personal Técnico"], "idEncuentroActivoPersonalTecnico__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Bono_Deportivo__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoBonoDeportivo"], ["Matriz Bono Deportivo"], "idEncuentroActivoBonoDeportivo__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Uniformes__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoUniformes"], ["Matriz Uniformes"], "idEncuentroActivoUniformes__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Seguros__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoSeguros"], ["Matriz Seguros"], "idEncuentroActivoSeguros__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Transporte__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoTransporte"], ["Matriz Transporte"], "idEncuentroActivoTransporte__tablets") . "</div>";
+							$modal .= "<div class='encuentro__activo__Pasajes_Aereos__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPasajesAereos"], ["Matriz Pasajes Aereos"], "idEncuentroActivoPasajesAereos__tablets") . "</div>";
+							$modal .= "
 
 						  </div>
 
@@ -1995,30 +2050,6 @@ class componentesPaid
 					  </div>
 
 					   <div class='modal-body row  contenedor__boton__generacion__pdf__alto contenedores__pdfs'>
-
-							   <table class='oculto__calificaciones__altos'>
-
-								   <thead>
-
-									   <tr>
-
-
-										   <td style='text-align:justify;'>
-
-											   Especifíque (Ejemplo: Mediante ACUERDO MINISTERIAL Nro. 0051 de fecha 20 de febrero de 2021, ACUERDA: Artículo 1.- Expídase el “Modelo de asignación presupuestaria de la Planificación Anual de Inversión Deportiva para las organizaciones pertenecientes al Alto Rendimiento correspondiente al ejercicio fiscal 2022”, constante en el “Anexo 1” del presente Acuerdo Ministerial.) 
-
-										   </td>
-
-										   <td colspan='1' style='width:68%;'>
-											   <textarea id='especificar__textos' name='especificar__textos' class='enlace__1__alto ancho__total__textareas'></textarea>
-										   </td>
-
-									   </tr>
-
-								   </thead>
-
-
-							   </table>
 
 
 							   <table class='oculto__calificaciones__altos'>
@@ -2068,7 +2099,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Se han creado nuevos puestos de trabajo de técnicos en relación al PAID OD anterior.
+										   Utiliza recursos para cubrir gastos en eventos de preparación y competencia autorizados en el proyecto 'Fortalecimiento del deporte de alto rendimiento del Ecuador'. 
 										   </td>
 
 										   <td>
@@ -2102,7 +2133,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Registra recursos destinados para sueldos y salarios de entrenadores, equipo técnico de apoyo (monitor, instructor), y está acorde al objeto del organismo deportivo.
+										   Planifica rubros para la contratación del Equipo Interdisciplinario bajo servicios profesionales, autorizados en la normativa legal vigente. 
 										   </td>
 
 										   <td>
@@ -2136,7 +2167,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Registra en las actividades deportivas correspondientes a la actividad concentrado, campamento, base de entrenamiento, evaluaciones y campeonato acorde a la prioridad de la disciplina deportiva.
+										   Utiliza recursos para cubrir gastos en necesidades, (Generales e individuales); autorizados en el proyecto 'Fortalecimiento del deporte de alto rendimiento del Ecuador'. 
 										   </td>
 
 										   <td>
@@ -2170,7 +2201,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Registra concentrado, campamento, base de entrenamiento, evaluaciones y campeonatos acorde a los lineamientos del proyecto 'Fortalecimiento del deporte de alto rendimiento del Ecuador' a nivel nacional. 
+										   La planificación anual de inversión deportiva del organismo deportivo se encuentra enmarcada en lo establecido en la normativa legal vigente. 
 										   </td>
 
 										   <td>
@@ -2204,7 +2235,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Registra concentrado, campamento, base de entrenamiento, evaluaciones y campeonatos acorde a los lineamientos del proyecto 'Fortalecimiento del deporte de alto rendimiento del Ecuador' a nivel internacional. 
+										  	 El organismo deportivo cumple con la no duplicidad de eventos.
 										   </td>
 
 										   <td>
@@ -2238,7 +2269,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Utiliza recursos para cubrir gastos en evento de preparación y competencias autorizados en el 'Fortalecimiento del deporte de alto rendimiento del Ecuador' como : pasajes, alimentación, hospedaje, hidratación, seguro, medicinas, atención médica, movilización interna y al exterior de la delegación, Bono deportivo, hidratación, visa,  y otros que permita la normativa vigente. 
+										   	El organismo deportivo cumple con la concordancia en la planificación de PAID.
 										   </td>
 
 										   <td>
@@ -2263,109 +2294,7 @@ class componentesPaid
 
 									   </tr>
 
-									   <tr>
-
-										   <td>
-											   <center>
-												   7
-											   </center>
-										   </td>
-
-										   <td style='text-align:justify!important;'>
-											   La planificación operativa anual del organismo deportivo se encuentra enmarcada en lo establecido en la normativa vigente.
-										   </td>
-
-										   <td>
-											   <center>
-												   <select id='deportiva__enmarcada__alto' name='deportiva__enmarcada__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__7__alto'>
-
-													   <option value='0'>--Seleccione--</option>
-													   <option value='Si'>Si</option>
-													   <option value='No'>No</option>
-													   <option value='N-A'>N-A</option>
-
-												   </select>
-											   </center>
-										   </td>
-
-
-										   <td>
-											   <center>
-												   <textarea id='deportiva__enmarcada__alto__text' name='deportiva__enmarcada__alto__text' class='enlace__7__alto ancho__total__textareas'></textarea>
-											   </center>
-										   </td>
-
-									   </tr>
-
-									   <tr>
-
-										   <td>
-											   <center>
-												   8
-											   </center>
-										   </td>
-
-										   <td style='text-align:justify!important;'>
-											   Utiliza recursos para cubrir gastos en necesidades generales e individuales, y registra el detalle de cantidades, artículos requeridos de cada implemento y equipo deportivo. 
-										   </td>
-
-										   <td>
-											   <center>
-												   <select id='cubrir__necesedidades__alto' name='cubrir__necesedidades__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__8__alto'>
-
-													   <option value='0'>--Seleccione--</option>
-													   <option value='Si'>Si</option>
-													   <option value='No'>No</option>
-													   <option value='N-A'>N-A</option>
-
-												   </select>
-											   </center>
-										   </td>
-
-
-										   <td>
-											   <center>
-												   <textarea id='cubrir__necesedidades__alto__text' name='cubrir__necesedidades__alto__text' class='enlace__8__alto ancho__total__textareas'></textarea>
-											   </center>
-										   </td>
-
-									   </tr>
-
-
-									   <tr>
-
-										   <td>
-											   <center>
-												   9
-											   </center>
-										   </td>
-
-										   <td style='text-align:justify!important;'>
-											   La Planificación Anual de Inversión Deportiva de la Organización Deportiva se encuentra enmarcada en lo establecido en la normativa legal vigente. 
-										   </td>
-
-										   <td>
-											   <center>
-												   <select id='planificacion__anual__alto' name='planificacion__anual__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__9__alto'>
-
-													   <option value='0'>--Seleccione--</option>
-													   <option value='Si'>Si</option>
-													   <option value='No'>No</option>
-													   <option value='N-A'>N-A</option>
-
-												   </select>
-											   </center>
-										   </td>
-
-
-										   <td>
-											   <center>
-												   <textarea id='planificacion__anual__alto__text' name='planificacion__anual__alto__text' class='enlace__9__alto ancho__total__textareas'></textarea>
-											   </center>
-										   </td>
-
-									   </tr>
-
+									
 
 								   </tbody>
 
@@ -2394,8 +2323,362 @@ class componentesPaid
 					   </div>
 
 					   <div class='modal-body  row contenedor__boton__generacion__pdf__desarrollo contenedores__pdfs'>
+								
+							<div class='oculto__calificaciones__desarrollos'>
 
-							   <table style='width:100%!important;' class='oculto__calificaciones__desarrollos'>
+								<div class='d-flex align-items-center justify-content-center bg-light' style='width:100%!important; height: 60px;'>
+                            	Selección de Obligaciones y Responsabilidades de las Partes
+                        		</div>
+
+								<div class='col-12 ' style='margin: 10px'>
+                                
+								<center>
+								<input type='button' id='obligacionesMD' class='btnObligaciones btn btn-primary py-md-3 px-md-5 me-3' value='Ministerio del Deporte'  data-bs-toggle='modal' data-bs-target='#modalObligacionesMinisterio'></input>
+                                <input type='button' id='obligacionesOD'class='btnObligaciones btn btn-primary py-md-3 px-md-5' value='Organización Deportiva' data-bs-toggle='modal' data-bs-target='#modalObligacionesOrganismo'></input>
+								</center>
+                                
+                           		</div>
+
+
+								<div class='modal fade' id='modalObligacionesMinisterio' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+									<div class='modal-dialog modal-lg'>
+									 <div class='modal-content'>
+									   <div class='modal-header'>
+
+										<div class='col col-11 text-center'>
+
+										<h5 class='modal-title '>Obligaciones Ministerio del Deporte</h5>
+
+
+										</div>
+
+										<div class='col col-1'>
+											
+											<span id='cerrarObligacionesM' class='button pointer__botones botones__ideales'   aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
+
+										</div>
+
+										 
+										 
+									   </div>
+
+									   <div class='modal-body'>
+									   		<div class='col col-4 calificar__eliminantes__paid__analistas' style='font-weight:bold!important;'>Seleccionar Obligaciones del Ministerio</div>
+
+											<table style='width:100%!important;' >
+
+												<tbody>
+
+													<tr>
+
+														<td>
+															<center>
+																1
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Transferir a la “NOMBRE DEL ORGANIZACIÓN DEPORTIVA”, la cantidad de USD (descripción del valor asignado en números y letras), para la ejecución del evento denominado “NOMBRE DEL EVENTO”, una vez que la “NOMBRE DEL ORGANIZACIÓN DEPORTIVA”, cumpla con el acuerdo 456, sus reformas y demás normativa legal vigente para este fin.
+														
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesMinisterio__checked1' name='obligacionesMinisterio__checked1' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesMinisterio__check1' name='obligacionesMinisterio__check1' value='' checked class='checkeds'>
+														</td>
+													</tr>
+													<tr>	
+														<td>
+															<center>
+																2
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Verificar el cumplimiento del proyecto presentado por la “NOMBRE DEL ORGANIZACIÓN DEPORTIVA”, conforme lo establecido en la normativa legal vigente.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesMinisterio__checked2' name='obligacionesMinisterio__checked2' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesMinisterio__check2' name='obligacionesMinisterio__check2' value='' checked class='checkeds'>
+														</td>
+
+													</tr>
+													<tr>	
+														<td>
+															<center>
+																3
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Conformar el congreso técnico de los juegos deportivos nacionales, mismo que se encargará del desarrollo operativo técnico de los juegos considerando las obligaciones establecidas en la “Carta Fundamental de los Juegos Deportivos Nacionales” o en su defecto, en el instrumento que estuviese vigente a la fecha de ejecución de las actividades.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesMinisterio__checked3' name='obligacionesMinisterio__checked3' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesMinisterio__check3' name='obligacionesMinisterio__check3' value='' checked class='checkeds'>
+														</td>
+													</tr>
+													<tr>
+														
+														<td>
+															<center>
+																4
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Realizar el seguimiento y control a la ejecución de los “NOMBRE DEL EVENTO”, a través de las direcciones competentes.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesMinisterio__checked4' name='obligacionesMinisterio__checked4' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesMinisterio__check4' name='obligacionesMinisterio__check4' value='' checked class='checkeds'>
+														</td>
+														</tr>
+														<tr>
+														
+														<td>
+															<center>
+																5
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Velar por el correcto uso del presupuesto asignado y aprobado para la ejecución de “NOMBRE DEL EVENTO”, acorde a la normativa vigente.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesMinisterio__checked5' name='obligacionesMinisterio__checked5' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesMinisterio__check5' name='obligacionesMinisterio__check5' value='' checked class='checkeds'>
+														</td>
+
+													</tr>
+													<tr>
+														<td>
+															<center>
+																6
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Realizar la evaluación del informe técnico, económico, disciplinario, medico presentado por el organismo deportivo en los plazos establecidos, a través de las áreas competentes.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														
+														<input type='hidden' id='obligacionesMinisterio__checked6' name='obligacionesMinisterio__checked6' value='' checked class='checkeds'>
+														
+														<input type='checkbox' id='obligacionesMinisterio__check6' name='obligacionesMinisterio__check6' value='' checked class='checkeds'>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<div class='col col-4 calificar__eliminantes__paid__analistas' style='font-weight:bold!important;'>Incluir Obligaciones Adicionales</div>
+											<center>
+													<input type='hidden' id='obligacionesMinisterioAdicionalcheck' value='' name='obligacionesMinisterioAdicionalcheck' class='checkeds'>
+													<textarea id='obligacionesMinisterioAdicional' name='obligacionesMinisterioAdicional' class=' ancho__total__textareas'></textarea>
+											</center>
+
+										
+									   </div>
+									 
+									 </div>
+									</div>
+								</div>
+
+								<div class='modal fade' id='modalObligacionesOrganismo' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+									<div class='modal-dialog modal-lg'>
+									<div class='modal-content'>
+										<div class='modal-header'>
+
+										<div class='col col-11 text-center'>
+
+										<h5 class='modal-title '>Obligaciones Organismo Deportivo</h5>
+
+
+
+										</div>
+
+										<div class='col col-1'>
+											
+											<span id='cerrarObligacionesOD' class='button pointer__botones botones__ideales'  aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
+
+										</div>
+
+										
+										
+										</div>
+
+										<div class='modal-body'>
+										<div class='col col-4 calificar__eliminantes__paid__analistas' style='font-weight:bold!important;'>Seleccionar Obligaciones Del Organismo Deportivo</div>
+
+											<table style='width:100%!important;' >
+
+												<tbody>
+
+													<tr>
+
+														<td>
+															<center>
+																1
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														La “NOMBRE DEL ORGANIZACIÓN DEPORTIVA”, será la responsable de la ejecución de los “NOMBRE DEL EVENTO”.
+														
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesOD__checked1' name='obligacionesOD__checked1' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesOD__check1' name='obligacionesOD__check1' value='' checked class='checkeds'>
+														</td>
+													</tr>
+													<tr>	
+														<td>
+															<center>
+																2
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														La “NOMBRE DEL ORGANIZACIÓN DEPORTIVA” deberá ejecutar únicamente los recursos aprobados en el este Informe Técnico.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesOD__checked2' name='obligacionesOD__checked2' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesOD__check2' name='obligacionesOD__check2' value='' checked class='checkeds'>
+														</td>
+
+													</tr>
+													<tr>	
+														<td>
+															<center>
+																3
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Informar al Ministerio del Deporte las novedades técnicas y administrativas de los ““NOMBRE DEL EVENTO”.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesOD__checked3' name='obligacionesOD__checked3' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesOD__check3' name='obligacionesOD__check3' value='' checked class='checkeds'>
+														</td>
+													</tr>
+													<tr>
+														
+														<td>
+															<center>
+																4
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Informar al Ministerio del Deporte las novedades técnicas y administrativas de los “NOMBRE DEL EVENTO”.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesOD__checked4' name='obligacionesOD__checked4' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesOD__check4' name='obligacionesOD__check4' value='' checked class='checkeds'>
+														</td>
+														</tr>
+														<tr>
+														
+														<td>
+															<center>
+																5
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														La “NOMBRE DEL ORGANIZACIÓN DEPORTIVA” una vez finalizada la ejecución de los “NOMBRE DEL EVENTO”, en un plazo máximo de 30 días deberá presentar al Ministerio del Deporte un informe Técnico, Económico y Disciplinario del evento con los justificativos de gasto correspondientes.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														<input type='hidden' id='obligacionesOD__checked5' name='obligacionesOD__checked5' value='' checked class='checkeds'>
+														<input type='checkbox' id='obligacionesOD__check5' name='obligacionesOD__check5' value='' checked class='checkeds'>
+														</td>
+
+													</tr>
+													<tr>
+														<td>
+															<center>
+																6
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														El organismo deportivo deberá dar cumplimiento obligatorio a las normas constitucionales y legales vigentes que regulen el correcto uso y administración de recursos públicos, esto sin perjuicio de las directrices adicionales que puedan ser emitidas por el Administrador o las direcciones involucradas en el proceso de transferencia de recursos, esto amparado en el artículo 14, literal p) de la Ley del Deporte y el artículo 9 del Reglamento General Ley del Deporte, Educación Física y Recreación.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														
+														<input type='hidden' id='obligacionesOD__checked6' name='obligacionesOD__checked6' value='' checked class='checkeds'>
+														
+														<input type='checkbox' id='obligacionesOD__check6' name='obligacionesOD__check6' value='' checked class='checkeds'>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<center>
+																7
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Informar al Ministerio del Deporte a través de una solicitud escrita, todo tipo de requerimiento que implique cambio técnico, presupuestario y/o administrativo distinto a lo establecido en el informe técnico.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														
+														<input type='hidden' id='obligacionesOD__checked7' name='obligacionesOD__checked7' value='' checked class='checkeds'>
+														
+														<input type='checkbox' id='obligacionesOD__check7' name='obligacionesOD__check7' value='' checked class='checkeds'>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<center>
+																8
+															</center>
+														</td>
+
+														<td style='text-align:justify!important;'>
+														Promover y publicitar los nombres y logos de los “NOMBRE DEL EVENTO” y del Ministerio del Deporte, en cada una de las actividades planificadas, una vez aprobados por la Dirección de Comunicación Social del Ministerio del Deporte.
+														</td>
+
+														<td style='text-align:justify!important;'>
+														
+														<input type='hidden' id='obligacionesOD__checked8' name='obligacionesOD__checked8' value='' checked class='checkeds'>
+														
+														<input type='checkbox' id='obligacionesOD__check8' name='obligacionesOD__check8' value='' checked class='checkeds'>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<div class='col col-4 calificar__eliminantes__paid__analistas' style='font-weight:bold!important;'>Incluir Obligaciones Adicionales</div>
+											<center>
+													<input type='hidden' id='obligacionesODAdicionalcheck' value='' name='obligacionesODAdicionalcheck' class='checkeds'>
+													<textarea id='obligacionesODAdicional' name='obligacionesODAdicional' class=' ancho__total__textareas'></textarea>
+											</center>
+
+										
+										</div>
+									
+									</div>
+									</div>
+								</div>
+
+
+								<div class='d-flex align-items-center justify-content-center bg-light' style='width:100%!important; height: 60px;'>
+                            	Calificar
+                        		</div>
+								
+								<table style='width:100%!important;' >
 
 								   <thead>
 
@@ -2423,7 +2706,7 @@ class componentesPaid
 
 										   <th>
 											   <center>
-												   Obsservaciones para la organización deportiva
+												   Observaciones para la organización deportiva
 											   </center>
 										   </th>
 
@@ -2442,7 +2725,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Registra en las actividades deportivas correspondientes a la actividad concentrado, campamento, base de entrenamiento, evaluaciones y campeonato acorde a la prioridad de la disciplina deportiva.
+										   Utiliza recursos para cubrir gastos autorizados en los componentes citados en el proyecto de inversión “Encuentro activo del deporte para el desarrollo 2022-2025”.
 										   </td>
 
 										   <td>
@@ -2476,7 +2759,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Registra sus actividades en base a los requerimientos para la ejecución de los eventos deportivos.
+										   Utiliza recursos para cubrir gastos en necesidades, (Generales e individuales); autorizados en el proyecto “Encuentro activo del deporte para el desarrollo 2022-2025”.
 										   </td>
 
 										   <td>
@@ -2510,7 +2793,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Establece sus actividades en base a lo necesario para generar procesos formativos. 
+										    	La planificación anual de inversión deportiva de la organización deportiva se encuentra enmarcada en lo establecido en la normativa legal vigente.		
 										   </td>
 
 										   <td>
@@ -2544,7 +2827,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   Utiliza recursos para cubrir gastos en evento de preparación y competencias autorizados en el 'ENCUENTRO ACTIVO DEL DEPORTE PARA EL DESARROLLO ' como: pasajes, alimentación, hospedaje, hidratación, seguro, medicinas, atención médica, movilización interna y al exterior de la delegación, Bono deportivo, hidratación, visa,  y otros que permita la normativa vigente.
+										   La organización deportiva cumple con la NO duplicidad de eventos.
 										   </td>
 
 										   <td>
@@ -2578,7 +2861,7 @@ class componentesPaid
 										   </td>
 
 										   <td style='text-align:justify!important;'>
-											   La planificación operativa anual del organismo deportivo se encuentra enmarcada en lo establecido en la normativa vigente.
+										   La organización deportiva cumple con la concordancia en la planificación de PAID.
 										   </td>
 
 										   <td>
@@ -2603,74 +2886,7 @@ class componentesPaid
 
 									   </tr>
 
-									   <tr>
-
-										   <td>
-											   <center>
-												   6
-											   </center>
-										   </td>
-
-										   <td style='text-align:justify!important;'>
-											   Utiliza recursos para cubrir gastos en necesidades generales e individuales, y registra el detalle de cantidades, artículos requeridos de cada implemento y equipo deportivo. 
-										   </td>
-
-										   <td>
-											   <center>
-												   <select id='recursos__desarrollo' name='recursos__desarrollo' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__6__desarrollo'>
-
-													   <option value='0'>--Seleccione--</option>
-													   <option value='Si'>Si</option>
-													   <option value='No'>No</option>
-													   <option value='N-A'>N-A</option>
-
-												   </select>
-											   </center>
-										   </td>
-
-
-										   <td>
-											   <center>
-												   <textarea id='recursos__desarrollo__text' name='recursos__desarrollo__text' class='enlace__6__desarrollo ancho__total__textareas'></textarea>
-											   </center>
-										   </td>
-
-									   </tr>
-
-									   <tr>
-
-										   <td>
-											   <center>
-												   7
-											   </center>
-										   </td>
-
-										   <td style='text-align:justify!important;'>
-											   La Planificación Anual de Inversión Deportiva de la Organización Deportiva se encuentra enmarcada en lo establecido en la normativa legal vigente.
-										   </td>
-
-										   <td>
-											   <center>
-												   <select id='anual__inversion__desarrollo' name='anual__inversion__desarrollo' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__7__desarrollo'>
-
-													   <option value='0'>--Seleccione--</option>
-													   <option value='Si'>Si</option>
-													   <option value='No'>No</option>
-													   <option value='N-A'>N-A</option>
-
-												   </select>
-											   </center>
-										   </td>
-
-
-										   <td>
-											   <center>
-												   <textarea id='anual__inversion__desarrollo__text' name='anual__inversion__desarrollo__text' class='enlace__7__desarrollo ancho__total__textareas'></textarea>
-											   </center>
-										   </td>
-
-									   </tr>
-
+									 
 
 								   </tbody>
 
@@ -2696,6 +2912,8 @@ class componentesPaid
 
 							   </table>
 
+
+							</div>
 					   </div>
 
 					  <div class='modal-body row contenedor__boton__negacion anulacion_ocultando'>
@@ -2722,6 +2940,10 @@ class componentesPaid
 
 						  <div class='col col-12'>
 							  <textarea id='concluciones__recomendaciones__recomiendas' name='concluciones__recomendaciones__recomiendas' class='ancho__total__textareas' placeholder='Ingrese conclusión'></textarea>
+						  </div>
+
+						  <div class='col col-12'>
+							  <textarea id='concluciones__recomendaciones__recomiendas1' name='concluciones__recomendaciones__recomiendas1' class='ancho__total__textareas' placeholder='Ingrese Recomendación'></textarea>
 						  </div>
 
 						  <div class='col col-8' style='font-weight:bold!important; oculto__archivos__recomendaciones'>
@@ -2755,6 +2977,7 @@ class componentesPaid
 
 		";
 
+		
 		return $modal;
 	}
 
@@ -2817,8 +3040,16 @@ class componentesPaid
 
 		$modal .= "<div class='generales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesGeneralesModal"], ["Necesidades Generales"], "idVinculacionGenera__generales__tablets") . "</div>";
 
-		$modal .= "<div class='encuentro__activo__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoModal"], ["Encuentro Activo"], "idEncuentroActivoGenera__tablets") . "</div>";
-
+		$modal .= "<div class='encuentro__activo__Medallas__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMedallas"], ["Matriz Medallas"], "idEncuentroActivoMedallas__tablets") . "</div>";
+		
+		$modal .= "<div class='encuentro__activo__Hospedaje_Alimentacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoHospAli"], ["Matriz Hospedaje Alimentación"], "idEncuentroActivoHospAli__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Matrices_Auxiliares__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMatricesAux"], ["Matrices Auxiliares"], "idEncuentroActivoMatricesAux__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Personal_Tecnico__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPersonalTecnico"], ["Matriz personal Técnico"], "idEncuentroActivoPersonalTecnico__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Bono_Deportivo__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoBonoDeportivo"], ["Matriz Bono Deportivo"], "idEncuentroActivoBonoDeportivo__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Uniformes__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoUniformes"], ["Matriz Uniformes"], "idEncuentroActivoUniformes__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Seguros__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoSeguros"], ["Matriz Seguros"], "idEncuentroActivoSeguros__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Transporte__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoTransporte"], ["Matriz Transporte"], "idEncuentroActivoTransporte__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Pasajes_Aereos__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPasajesAereos"], ["Matriz Pasajes Aereos"], "idEncuentroActivoPasajesAereos__tablets") . "</div>";
 		$modal .= "
 
 						  </div>
@@ -3610,8 +3841,16 @@ class componentesPaid
 
 		$modal .= "<div class='generales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesGeneralesModal"], ["Necesidades Generales"], "idVinculacionGenera__generales__tablets") . "</div>";
 
-		$modal .= "<div class='encuentro__activo__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoModal"], ["Encuentro Activo"], "idEncuentroActivoGenera__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Medallas__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMedallas"], ["Matriz Medallas"], "idEncuentroActivoMedallas__tablets") . "</div>";
 
+		$modal .= "<div class='encuentro__activo__Hospedaje_Alimentacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoHospAli"], ["Matriz Hospedaje Alimentación"], "idEncuentroActivoHospAli__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Matrices_Auxiliares__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMatricesAux"], ["Matrices Auxiliares"], "idEncuentroActivoMatricesAux__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Personal_Tecnico__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPersonalTecnico"], ["Matriz Personal Técnico"], "idEncuentroActivoPersonalTecnico__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Bono_Deportivo__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoBonoDeportivo"], ["Matriz Bono Deportivo"], "idEncuentroActivoBonoDeportivo__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Uniformes__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoUniformes"], ["Matriz Uniformes"], "idEncuentroActivoUniformes__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Seguros__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoSeguros"], ["Matriz Seguros"], "idEncuentroActivoSeguros__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Transporte__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoTransporte"], ["Matriz Transporte"], "idEncuentroActivoTransporte__tablets") . "</div>";
+		$modal .= "<div class='encuentro__activo__Pasajes_Aereos__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPasajesAereos"], ["Matriz Pasajes Aereos"], "idEncuentroActivoPasajesAereos__tablets") . "</div>";
 		$modal .= "
 
 						  </div>

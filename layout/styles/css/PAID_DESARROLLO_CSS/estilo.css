@@ -478,3 +478,167 @@
 .divUniformesAdaptadosTotal:hover::after {
   color: #f39c12;
 }
+
+.fa-angle-left{
+
+  color: white;
+}
+
+.btnObligaciones{
+  color: white!important;
+}
+
+.dt-button{
+  padding: 0!important;;
+  border: none!important;;
+}
+
+
+
+.buttonD {
+ 
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.1em 1em;
+  position: relative;
+  border: none!important;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+
+.modal {
+  overflow: auto !important;
+}
+
+
+
+
+.cardSubirArchivo {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  padding: 10px 30px;
+  margin: 20px;
+}
+
+.cardSubirArchivo h3{
+    font-size: 22px;
+    font-weight:500;
+}
+
+.drop_boxSubirArchivoTransferenciasEXCEL {
+    margin: 10px 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+}
+
+.drop_boxSubirArchivoTransferenciasCSV {
+  margin: 10px 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px dotted #a3a3a3;
+  border-radius: 5px;
+}
+
+.drop_boxSubirArchivoBancosEXCEL {
+  margin: 10px 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px dotted #a3a3a3;
+  border-radius: 5px;
+}
+
+.drop_boxSubirArchivoBancosCSV {
+margin: 10px 0;
+padding: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+border: 3px dotted #a3a3a3;
+border-radius: 5px;
+}
+
+.drop_boxSubirArchivoTransferenciasCSV h4{
+    font-size: 16px;
+    font-weight:400; 
+    color:#2e2e2e;
+
+}
+
+.drop_boxSubirArchivoTransferenciasCSV h4{
+  font-size: 16px;
+  font-weight:400; 
+  color:#2e2e2e;
+
+}
+
+.drop_boxSubirArchivoBancosCSV h4{
+  font-size: 16px;
+  font-weight:400; 
+  color:#2e2e2e;
+
+}
+
+.drop_boxSubirArchivoBancosCSV h4{
+font-size: 16px;
+font-weight:400; 
+color:#2e2e2e;
+
+}
+
+.drop_boxSubirArchivoTransferenciasEXCEL p{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color:#a3a3a3;
+}
+
+.drop_boxSubirArchivoTransferenciasCSV p{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color:#a3a3a3;
+}
+
+.drop_boxSubirArchivoBancosEXCEL p{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color:#a3a3a3;
+}
+
+.drop_boxSubirArchivoBancosCSV p{
+margin-top: 10px;
+margin-bottom: 20px;
+font-size: 12px;
+color:#a3a3a3;
+}
+
+.btn{
+    text-decoration: none;
+    background-color: #4796ff;
+    color: #1428dd;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+}
+
+.btn-color-file{
+  background-color: #202a5d!important;
+  color:#202a5d!important;
+}

@@ -159,7 +159,7 @@
 				}else if($_GET["ruta"]=="reporteAnexosOD" || $_GET["ruta"]=="jurisdicciones" || $_GET["ruta"]=="seguimientoRE" || $_GET["ruta"]=="seguimientoRE" || $_GET["ruta"]=="seguimiento" || $_GET["ruta"]=="seguimientoRecomendadosPresupuestario" || $_GET["ruta"]=="seguimientoRe" ){
 
 					if(isset($_SESSION["selectorAniosA"])){
-						if(intval($_SESSION["selectorAniosA"])>=2023){
+						if(intval($_SESSION["selectorAniosA"])>=2022){
 							require_once self::$vista.self::$contenidoVistas."POA_SEGUIMIENTO/".$_GET["ruta"].self::$nomenclatura;
 						}else{
 							require_once self::$vista.self::$contenidoVistas.$_GET["ruta"].self::$nomenclatura;
