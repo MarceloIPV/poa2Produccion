@@ -253,7 +253,7 @@
 
 			$direccion1=VARIABLE__BACKEND."seguimiento/otrosCpacitacion_tecnico/";
 
-			$nombre__archivo1=$arrayInformacion[5]."_00".$arrayInformacion[6]."_".$arrayInformacion[4]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
+			$nombre__archivo1=$arrayInformacion[4].$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
 			$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre__archivo1);
 

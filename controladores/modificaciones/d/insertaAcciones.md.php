@@ -1333,7 +1333,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosCpacitacion_tecnico/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosCpacitacion_tecnico/";
 
 			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
