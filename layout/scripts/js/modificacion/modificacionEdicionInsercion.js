@@ -229,6 +229,9 @@ var segmentosJsAjax=function(parametro1,parametro2,idActividad,parametro3,parame
 
 				            		$(".fila__actividad1"+idActividades).append('<br><div class="row d d-flex justify-content-center;"><a class="col-12" style="color:white; cursor:pointer; text-transform:uppercase;" attr="'+arrayMatriz+'" idOrganismo="'+$("#organismoIdPrin").val()+'" idActividad="'+idActividades+'" data-bs-toggle="modal" data-bs-target="#modalMatriz'+idActividades+'" id="enlaceMatriz__SueldosSalarios'+idActividades+'">SUELDOS Y SALARIOS</a></div>');
 
+				            		$("#eventos_intervencion__seleccion").before('<br><div class="row d d-flex justify-content-center" style="margin-bottom:1em;"><a class="col-12  btn btn-primary" style="color:white; cursor:pointer; text-transform:uppercase;" attr="'+arrayMatriz+'" idOrganismo="'+$("#organismoIdPrin").val()+'" idActividad="'+idActividades+'" data-bs-toggle="modal" data-bs-target="#modalMatriz'+idActividades+'" id="enlaceMatriz__SueldosSalarios'+idActividades+'">SUELDOS Y SALARIOS</a></div>');
+
+
 				            		/*================================================================
 				            		=            Añadir valores a modal y construir tabla            =
 				            		================================================================*/

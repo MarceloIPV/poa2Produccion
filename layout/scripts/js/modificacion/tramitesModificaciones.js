@@ -46,13 +46,13 @@ let tablaConstruccion=function(identificador,tabla){
 			
 			visualizar__actividades(informacionObtenida__honorarios,table);
 			visualizar__actividades(informacionObtenida__honorarios__items,table);
-			visualizar__actividades(informacionObtenida__sueldos__salarios,table);
-			visualizar__actividades(informacionObtenida__sueldos__items,table);
-			visualizar__actividades(informacionObtenida__desvinculaciones,table);
+			visualizar__actividades(informacionObtenida__sueldos__salarios,table,1);
+			visualizar__actividades(informacionObtenida__sueldos__items,table,2);
+			visualizar__actividades(informacionObtenida__desvinculaciones,table,2);
 			visualizar__actividades(informacionObtenida__honorarios__sueldos,table);
 			visualizar__actividades(informacionObtenida__sueldos__honorarios,table);
 			visualizar__actividades(informacionObtenida__honorarios__varios,table);
-			visualizar__actividades(informacionObtenida__sueldos__varios,table);
+			visualizar__actividades(informacionObtenida__sueldos__varios,table,0);
 			visualizar__actividades(informacionObtenida__desvinculacion__varios,table);
 
 		});	

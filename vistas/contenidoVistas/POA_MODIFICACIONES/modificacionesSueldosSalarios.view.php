@@ -1438,7 +1438,7 @@ $idOrganismoSession = $objetoInformacion->get__idOrganismo__sesiones();?>
           <select id='actividad__modificaciones__destino__modificaciones2__seleccion' class='ancho__total__input obligatorios'></select>
         </td>
 
-         <td class="ocultar__fila__eventos__dos" align="center">
+         <td class="ocultar__fila__eventos__dos soloactividades__ediciones" align="center">
 
             <select id='eventos_intervencion__seleccion'  class='ancho__total__input obligatorios'></select>
 
