@@ -3814,6 +3814,29 @@
 				$jason['mensaje']=$mensaje;	
 		break;
 
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  indicadores estado de cuenta >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+		case "indicadores__seguimientos__tablas_estado_cuenta":
+
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT b.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreIndicador,a.idModificaIndicadores,a.totalProgramado,a.totalEjecutado,a.documento,a.idOrganismo,a.trimestre,a.idActividad FROM poa_indicadores_seguimiento AS a INNER JOIN poa_actividades AS b ON a.idActividad=b.idActividades INNER JOIN poa_indicadores AS c ON c.idIndicadores=b.idLineaPolitica WHERE a.idOrganismo='$idOrganismos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.trimestre='$trimestres' GROUP BY a.idActividad ORDER BY b.idActividades ASC;");
+
+			$indicadorInformacion2=$objeto->getObtenerInformacionGeneral("SELECT a.id_estado_cuenta, a.fecha, a.trimestre, a.documento, a.id_estado_cuenta FROM poa_seguimiento_estado_cuenta AS a WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+			$jason['indicadorInformacion']=$indicadorInformacion;
+			$jason['indicadorInformacion2']=$indicadorInformacion2;
+
+		break;
+
+		case "biscador__indicadores__seguimientos__tablas_estado_cuenta":
+
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT b.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreIndicador,a.idModificaIndicadores,a.totalProgramado,a.totalEjecutado,a.documento,a.idOrganismo,a.trimestre,a.idActividad FROM poa_indicadores_seguimiento AS a INNER JOIN poa_actividades AS b ON a.idActividad=b.idActividades INNER JOIN poa_indicadores AS c ON c.idIndicadores=b.idLineaPolitica WHERE a.idOrganismo='$idOrganismos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.trimestre='$trimestres' AND b.nombreActividades LIKE '%$textoBuscar%' GROUP BY a.idActividad ORDER BY a.idModificaIndicadores DESC;");
+
+			$indicadorInformacion2=$objeto->getObtenerInformacionGeneral("SELECT a.id_estado_cuenta, a.fecha, a.trimestre, a.documento, a.id_estado_cuenta FROM poa_seguimiento_estado_cuenta AS a WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+			$jason['indicadorInformacion']=$indicadorInformacion;
+			$jason['indicadorInformacion2']=$indicadorInformacion2;
+
+		break;
+
 
 	}
 
