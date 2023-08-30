@@ -5899,7 +5899,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.facturas!='no' && z.facturas!=undefined && z.facturas!=null) {
 
-									$(".documento__factura"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/facturas/'+z.facturas+'" target="_blank" class="text-center">'+z.facturas+'</a>');
+									$(".documento__factura"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/facturas/'+z.facturas+'" target="_blank" class="text-center">'+z.facturas+'</a>');
 
 								}else{
 									$(".documento__factura"+z.idHonorariosSeguimientos).append('N/A');
@@ -5908,7 +5908,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 								
 								if (z.cheques!='no' && z.cheques!=undefined && z.cheques!=null) {
 									
-									$(".documento__cheque"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/cheques/'+z.cheques+'" target="_blank" class="text-center">'+z.cheques+'</a>');
+									$(".documento__cheque"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/cheques/'+z.cheques+'" target="_blank" class="text-center">'+z.cheques+'</a>');
 									
 								}else{
 									$(".documento__cheque"+z.idHonorariosSeguimientos).append('N/A');
@@ -5917,7 +5917,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.ruc!='no' && z.ruc!=undefined && z.ruc!=null) {
 									
-									$(".documento__ruc"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/ruc/'+z.ruc+'" target="_blank" class="text-center">'+z.ruc+'</a>');
+									$(".documento__ruc"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/ruc/'+z.ruc+'" target="_blank" class="text-center">'+z.ruc+'</a>');
 									
 								}else{
 									$(".documento__ruc"+z.idHonorariosSeguimientos).append('N/A');
@@ -5926,7 +5926,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.otrosHabilitantes!='no' && z.otrosHabilitantes!=undefined && z.otrosHabilitantes!=null) {
 									
-									$(".documento__otrosHa"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/otrosHabilitantes/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
+									$(".documento__otrosHa"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/otrosHabilitantes/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
 									
 								}else{
 									$(".documento__otrosHa"+z.idHonorariosSeguimientos).append('N/A');
@@ -6285,7 +6285,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__implementacion").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosInstalaciones/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosInstalaciones+'" name="eliminarInfor__otros'+l.idOtrosInstalaciones+'" idPrincipal="'+l.idOtrosInstalaciones+'" idContador="'+l.idOtrosInstalaciones+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__implementacion").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosInstalaciones/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosInstalaciones+'" name="eliminarInfor__otros'+l.idOtrosInstalaciones+'" idPrincipal="'+l.idOtrosInstalaciones+'" idContador="'+l.idOtrosInstalaciones+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$(".eliminar__ides").click(function(e) {
@@ -6310,7 +6310,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion2) {
 									
-									$(".factureros__implementacion").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturasImplementacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" name="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" idPrincipal="'+l.idFacturaInstalaciones+'" idContador="'+l.idFacturaInstalaciones+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".factureros__implementacion").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasImplementacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" name="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" idPrincipal="'+l.idFacturaInstalaciones+'" idContador="'+l.idFacturaInstalaciones+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 									$(".eliminarIdes__competencia").click(function(e) {
 
@@ -6440,7 +6440,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 							for (l of indicadorInformacion3) {
 
-								$(".otros__recreativos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRecreativo+'" name="eliminarInfor__otros'+l.idOtrosRecreativo+'" idPrincipal="'+l.idOtrosRecreativo+'" idContador="'+l.idOtrosRecreativo+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+								$(".otros__recreativos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRecreativo+'" name="eliminarInfor__otros'+l.idOtrosRecreativo+'" idPrincipal="'+l.idOtrosRecreativo+'" idContador="'+l.idOtrosRecreativo+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 								
 
 									$("#eliminarInfor__otros"+l.idOtrosRecreativo).click(function(e) {
@@ -6456,7 +6456,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 							for (l of indicadorInformacion2) {
 								
-								$(".factureros__recreativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturasRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" name="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" idPrincipal="'+l.idFacturaRecreativo+'" idContador="'+l.idFacturaRecreativo+'" class="eliminar__ides eliminarIdes__recreativo"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+								$(".factureros__recreativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" name="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" idPrincipal="'+l.idFacturaRecreativo+'" idContador="'+l.idFacturaRecreativo+'" class="eliminar__ides eliminarIdes__recreativo"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 								$(".eliminarIdes__recreativo").click(function(e) {
 
@@ -6507,7 +6507,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td><a href="documentos/seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasTecnicas).click(function(e) {
@@ -6902,7 +6902,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for(d of indicadorInformacion2){
 
-									$(".cuerpo__sueldos__edis__com").append('<tr class="fila__corresponsal fila__'+d.idComprobante__general+'"><td><a href="documentos/seguimiento/planilla/'+d.planilla+'" target="_blank">'+d.planilla+'</a></td><td><a href="documentos/seguimiento/rol/'+d.rol+'" target="_blank">'+d.rol+'</a></td><td><a href="documentos/seguimiento/comprobante/'+d.comprobante+'" target="_blank">'+d.comprobante+'</a></td><td><center>'+d.mes+'</center></td><td><center>'+d.trimestre+'</center></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__s'+d.idComprobante__general+'" name="eliminarInfor'+d.idComprobante__general+'" idPrincipal="'+d.idComprobante__general+'" idContador="'+d.idComprobante__general+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".cuerpo__sueldos__edis__com").append('<tr class="fila__corresponsal fila__'+d.idComprobante__general+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/planilla/'+d.planilla+'" target="_blank">'+d.planilla+'</a></td><td><a href="'+$("#filesFrontend").val()+'seguimiento/rol/'+d.rol+'" target="_blank">'+d.rol+'</a></td><td><a href="'+$("#filesFrontend").val()+'seguimiento/comprobante/'+d.comprobante+'" target="_blank">'+d.comprobante+'</a></td><td><center>'+d.mes+'</center></td><td><center>'+d.trimestre+'</center></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__s'+d.idComprobante__general+'" name="eliminarInfor'+d.idComprobante__general+'" idPrincipal="'+d.idComprobante__general+'" idContador="'+d.idComprobante__general+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 									$("#eliminarInfor__s"+d.idComprobante__general).click(function(e) {
 
@@ -6939,7 +6939,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								$(".cuerpo__indicadores__seguimientos__2").append('<tr><td>'+z.idActividades+'</td><td>'+z.nombreActividades+'</td><td>'+z.nombreIndicador+'</td><td>'+z.totalProgramado+'</td><td>'+z.totalEjecutado+'</td></tr>');
 
-								$(".documento__seguimiento"+z.idActividades).append('<a href="documentos/seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
+								$(".documento__seguimiento"+z.idActividades).append('<a href="'+$("#filesFrontend").val()+'seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
 
 								funcion__cambio__de__numero($("#totalEjecutado"+z.idActividades));
 
@@ -6984,7 +6984,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								$(".cuerpo__indicadores__seguimientos__2").append('<tr><td>'+z.idActividades+'</td><td>'+z.nombreActividades+'</td><td>'+z.nombreIndicador+'</td><td>'+z.totalProgramado+'</td><td>'+z.totalEjecutado+'</td></tr>');
 
-								$(".documento__seguimiento"+z.idActividades).append('<a href="documentos/seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
+								$(".documento__seguimiento"+z.idActividades).append('<a href="'+$("#filesFrontend").val()+'seguimiento/indicadoresDocumento/'+z.documento+'" target="_blank" class="text-center">'+z.documento+'</a>');
 
 								funcion__cambio__de__numero($("#totalEjecutado"+z.idActividades));
 
@@ -7020,7 +7020,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion2) {
 
-									$(".cuerpo__indicadores__seguimientos__2__estado__cuenta").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="../../../../documentos/seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".cuerpo__indicadores__seguimientos__2__estado__cuenta").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.id_estado_cuenta).click(function(e) {
@@ -7058,7 +7058,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__honorarios").append('<tr class="fila__corresponsal fila__otros__'+l.idOtrosHonorarios+'"><td>'+l.nombres+'</td><td><a href="documentos/seguimiento/otrosHonorarios/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosHonorarios+'" name="eliminarInfor__otros'+l.idOtrosHonorarios+'" idPrincipal="'+l.idOtrosHonorarios+'" idContador="'+l.idOtrosHonorarios+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__honorarios").append('<tr class="fila__corresponsal fila__otros__'+l.idOtrosHonorarios+'"><td>'+l.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosHonorarios/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosHonorarios+'" name="eliminarInfor__otros'+l.idOtrosHonorarios+'" idPrincipal="'+l.idOtrosHonorarios+'" idContador="'+l.idOtrosHonorarios+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosHonorarios).click(function(e) {
@@ -7082,7 +7082,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (c of indicadorInformacion2) {
 									
-									$(".factureros__honorarios").append('<tr class="fila__corresponsal fila__fac__'+c.idFacturaHonorarios+'"><td>'+c.nombres+'</td><td><a href="documentos/seguimiento/facturasHonorarios/'+c.documento+'" target="_blank">'+c.documento+'</a></td><td>'+c.numeroFactura+'</td><td>'+c.fechaFactura+'</td><td>'+c.ruc+'</td><td>'+c.autorizacion+'</td><td>'+c.monto+'</td><td>'+c.mes+'</td><td>'+c.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__hono'+c.idFacturaHonorarios+'" name="eliminarInfor__factureros__hono'+c.idFacturaHonorarios+'" idPrincipal="'+c.idFacturaHonorarios+'" idContador="'+c.idFacturaHonorarios+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".factureros__honorarios").append('<tr class="fila__corresponsal fila__fac__'+c.idFacturaHonorarios+'"><td>'+c.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasHonorarios/'+c.documento+'" target="_blank">'+c.documento+'</a></td><td>'+c.numeroFactura+'</td><td>'+c.fechaFactura+'</td><td>'+c.ruc+'</td><td>'+c.autorizacion+'</td><td>'+c.monto+'</td><td>'+c.mes+'</td><td>'+c.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__hono'+c.idFacturaHonorarios+'" name="eliminarInfor__factureros__hono'+c.idFacturaHonorarios+'" idPrincipal="'+c.idFacturaHonorarios+'" idContador="'+c.idFacturaHonorarios+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 
 										$("#eliminarInfor__factureros__hono"+c.idFacturaHonorarios).click(function(e) {
@@ -7112,7 +7112,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.facturas!='no' && z.facturas!=undefined && z.facturas!=null) {
 
-									$(".documento__factura"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/facturas/'+z.facturas+'" target="_blank" class="text-center">'+z.facturas+'</a>');
+									$(".documento__factura"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/facturas/'+z.facturas+'" target="_blank" class="text-center">'+z.facturas+'</a>');
 
 								}else{
 									$(".documento__factura"+z.idHonorariosSeguimientos).append('N/A');
@@ -7121,7 +7121,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 								
 								if (z.cheques!='no' && z.cheques!=undefined && z.cheques!=null) {
 									
-									$(".documento__cheque"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/cheques/'+z.cheques+'" target="_blank" class="text-center">'+z.cheques+'</a>');
+									$(".documento__cheque"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/cheques/'+z.cheques+'" target="_blank" class="text-center">'+z.cheques+'</a>');
 									
 								}else{
 									$(".documento__cheque"+z.idHonorariosSeguimientos).append('N/A');
@@ -7130,7 +7130,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.ruc!='no' && z.ruc!=undefined && z.ruc!=null) {
 									
-									$(".documento__ruc"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/ruc/'+z.ruc+'" target="_blank" class="text-center">'+z.ruc+'</a>');
+									$(".documento__ruc"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/ruc/'+z.ruc+'" target="_blank" class="text-center">'+z.ruc+'</a>');
 									
 								}else{
 									$(".documento__ruc"+z.idHonorariosSeguimientos).append('N/A');
@@ -7139,7 +7139,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.otrosHabilitantes!='no' && z.otrosHabilitantes!=undefined && z.otrosHabilitantes!=null) {
 									
-									$(".documento__otrosHa"+z.idHonorariosSeguimientos).append('<a href="documentos/seguimiento/otrosHabilitantes/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
+									$(".documento__otrosHa"+z.idHonorariosSeguimientos).append('<a href="'+$("#filesFrontend").val()+'seguimiento/otrosHabilitantes/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
 									
 								}else{
 									$(".documento__otrosHa"+z.idHonorariosSeguimientos).append('N/A');
@@ -7183,7 +7183,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__administrativos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosAdministrativos+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosHabilitantes__administrativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosAdministrativos+'" name="eliminarInfor__otros'+l.idOtrosAdministrativos+'" idPrincipal="'+l.idOtrosAdministrativos+'" idContador="'+l.idOtrosAdministrativos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__administrativos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosAdministrativos+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosHabilitantes__administrativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosAdministrativos+'" name="eliminarInfor__otros'+l.idOtrosAdministrativos+'" idPrincipal="'+l.idOtrosAdministrativos+'" idContador="'+l.idOtrosAdministrativos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosAdministrativos).click(function(e) {
@@ -7208,7 +7208,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion2) {
 									
-									$(".factureros__administrativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaAdministrativos+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturas__administrativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros'+l.idFacturaAdministrativos+'" name="eliminarInfor__factureros'+l.idFacturaAdministrativos+'" idPrincipal="'+l.idFacturaAdministrativos+'" idContador="'+l.idFacturaAdministrativos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".factureros__administrativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaAdministrativos+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturas__administrativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros'+l.idFacturaAdministrativos+'" name="eliminarInfor__factureros'+l.idFacturaAdministrativos+'" idPrincipal="'+l.idFacturaAdministrativos+'" idContador="'+l.idFacturaAdministrativos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 
 										$("#eliminarInfor__factureros"+l.idFacturaAdministrativos).click(function(e) {
@@ -7239,7 +7239,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.factura!='no' && z.factura!=undefined && z.factura!=null) {
 
-									$(".documento__factura"+z.idAdministrativoSegui).append('<a href="documentos/seguimiento/facturas__administrativo/'+z.factura+'" target="_blank" class="text-center">'+z.factura+'</a>');
+									$(".documento__factura"+z.idAdministrativoSegui).append('<a href="'+$("#filesFrontend").val()+'seguimiento/facturas__administrativo/'+z.factura+'" target="_blank" class="text-center">'+z.factura+'</a>');
 
 								}else{
 									$(".documento__factura"+z.idAdministrativoSegui).append('N/A');
@@ -7248,7 +7248,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 								
 								if (z.otrosHabilitantes!='no' && z.otrosHabilitantes!=undefined && z.otrosHabilitantes!=null) {
 									
-									$(".documento__Otros"+z.idAdministrativoSegui).append('<a href="documentos/seguimiento/otrosHabilitantes__administrativo/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
+									$(".documento__Otros"+z.idAdministrativoSegui).append('<a href="'+$("#filesFrontend").val()+'seguimiento/otrosHabilitantes__administrativo/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
 									
 								}else{
 									$(".documento__Otros"+z.idAdministrativoSegui).append('N/A');
@@ -7303,7 +7303,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 							//********  ESTADO CUENTA  ******* */
 								for (l of indicadorInformacion4) {
 
-									$(".carga_datos_estado_cuenta_EP").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="../../../../documentos/seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".carga_datos_estado_cuenta_EP").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.id_estado_cuenta+'"><td>'+l.fecha+'</td><td>'+l.trimestre+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/estadosCuenta//'+l.documento+'" target="_blank">'+l.documento+'</a></td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.id_estado_cuenta+'" name="eliminarInfor__otros'+l.id_estado_cuenta+'" idPrincipal="'+l.id_estado_cuenta+'" idContador="'+l.id_estado_cuenta+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.id_estado_cuenta).click(function(e) {
@@ -7341,7 +7341,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__competencia").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetencia+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosCompetencia/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetencia+'" name="eliminarInfor__otros'+l.idOtrosCompetencia+'" idPrincipal="'+l.idOtrosCompetencia+'" idContador="'+l.idOtrosCompetencia+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__competencia").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetencia+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompetencia/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetencia+'" name="eliminarInfor__otros'+l.idOtrosCompetencia+'" idPrincipal="'+l.idOtrosCompetencia+'" idContador="'+l.idOtrosCompetencia+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetencia).click(function(e) {
@@ -7365,7 +7365,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion2) {
 									
-									$(".factureros__administrativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaCompetencia+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturasCompetencias/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaCompetencia+'" name="eliminarInfor__factureros__competencias'+l.idFacturaCompetencia+'" idPrincipal="'+l.idFacturaCompetencia+'" idContador="'+l.idFacturaCompetencia+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".factureros__administrativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaCompetencia+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasCompetencias/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaCompetencia+'" name="eliminarInfor__factureros__competencias'+l.idFacturaCompetencia+'" idPrincipal="'+l.idFacturaCompetencia+'" idContador="'+l.idFacturaCompetencia+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 									$(".eliminarIdes__competencia").click(function(e) {
 
@@ -7419,7 +7419,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__mantenimiento").append('<tr class="fila__corresponsal fila__otros__'+l.idOtrosMantenimiento+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosMantenimiento/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros__mantenimiento'+l.idOtrosMantenimiento+'" name="eliminarInfor__otros__mantenimiento'+l.idOtrosMantenimiento+'" idPrincipal="'+l.idOtrosMantenimiento+'" idContador="'+l.idOtrosMantenimiento+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__mantenimiento").append('<tr class="fila__corresponsal fila__otros__'+l.idOtrosMantenimiento+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros__mantenimiento'+l.idOtrosMantenimiento+'" name="eliminarInfor__otros__mantenimiento'+l.idOtrosMantenimiento+'" idPrincipal="'+l.idOtrosMantenimiento+'" idContador="'+l.idOtrosMantenimiento+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros__mantenimiento"+l.idOtrosMantenimiento).click(function(e) {
@@ -7443,7 +7443,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion2) {
 									
-									$(".factureros__mantenimiento").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaMantenimiento+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturasMantenimiento/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros'+l.idFacturaMantenimiento+'" name="eliminarInfor__factureros'+l.idFacturaMantenimiento+'" idPrincipal="'+l.idFacturaMantenimiento+'" idContador="'+l.idFacturaMantenimiento+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".factureros__mantenimiento").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaMantenimiento+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasMantenimiento/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros'+l.idFacturaMantenimiento+'" name="eliminarInfor__factureros'+l.idFacturaMantenimiento+'" idPrincipal="'+l.idFacturaMantenimiento+'" idContador="'+l.idFacturaMantenimiento+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 
 										$("#eliminarInfor__factureros"+l.idFacturaMantenimiento).click(function(e) {
@@ -7472,7 +7472,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								if (z.factura!='no' && z.factura!=undefined && z.factura!=null) {
 
-									$(".documento__factura"+z.idMantenimiento).append('<a href="documentos/seguimiento/facturas__administrativo/'+z.factura+'" target="_blank" class="text-center">'+z.factura+'</a>');
+									$(".documento__factura"+z.idMantenimiento).append('<a href="'+$("#filesFrontend").val()+'seguimiento/facturas__administrativo/'+z.factura+'" target="_blank" class="text-center">'+z.factura+'</a>');
 
 								}else{
 									$(".documento__factura"+z.idMantenimiento).append('N/A');
@@ -7481,7 +7481,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 								
 								if (z.otrosHabilitantes!='no' && z.otrosHabilitantes!=undefined && z.otrosHabilitantes!=null) {
 									
-									$(".documento__Otros"+z.idMantenimiento).append('<a href="documentos/seguimiento/otrosHabilitantes__administrativo/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
+									$(".documento__Otros"+z.idMantenimiento).append('<a href="'+$("#filesFrontend").val()+'seguimiento/otrosHabilitantes__administrativo/'+z.otrosHabilitantes+'" target="_blank" class="text-center">'+z.otrosHabilitantes+'</a>');
 									
 								}else{
 									$(".documento__Otros"+z.idMantenimiento).append('N/A');
@@ -7538,7 +7538,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__implementacion").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosInstalaciones/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosInstalaciones+'" name="eliminarInfor__otros'+l.idOtrosInstalaciones+'" idPrincipal="'+l.idOtrosInstalaciones+'" idContador="'+l.idOtrosInstalaciones+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__implementacion").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosInstalaciones/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosInstalaciones+'" name="eliminarInfor__otros'+l.idOtrosInstalaciones+'" idPrincipal="'+l.idOtrosInstalaciones+'" idContador="'+l.idOtrosInstalaciones+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$(".eliminar__ides").click(function(e) {
@@ -7563,7 +7563,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion2) {
 									
-									$(".factureros__implementacion").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturasImplementacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" name="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" idPrincipal="'+l.idFacturaInstalaciones+'" idContador="'+l.idFacturaInstalaciones+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".factureros__implementacion").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasImplementacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" name="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" idPrincipal="'+l.idFacturaInstalaciones+'" idContador="'+l.idFacturaInstalaciones+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 									$(".eliminarIdes__competencia").click(function(e) {
 
@@ -7619,7 +7619,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__implementacion").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacion+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosCapacitacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacion+'" name="eliminarInfor__otros'+l.idOtrosCapacitacion+'" idPrincipal="'+l.idOtrosCapacitacion+'" idContador="'+l.idOtrosCapacitacion+'" class="eliminar__ides eliminas__ides__capac"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__implementacion").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacion+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCapacitacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacion+'" name="eliminarInfor__otros'+l.idOtrosCapacitacion+'" idPrincipal="'+l.idOtrosCapacitacion+'" idContador="'+l.idOtrosCapacitacion+'" class="eliminar__ides eliminas__ides__capac"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$(".eliminas__ides__capac").click(function(e) {
@@ -7643,7 +7643,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion2) {
 									
-									$(".factureros__implementacion").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaCapacitacion+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturasCapacitacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaCapacitacion+'" name="eliminarInfor__factureros__competencias'+l.idFacturaCapacitacion+'" idPrincipal="'+l.idFacturaCapacitacion+'" idContador="'+l.idFacturaCapacitacion+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+									$(".factureros__implementacion").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaCapacitacion+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasCapacitacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaCapacitacion+'" name="eliminarInfor__factureros__competencias'+l.idFacturaCapacitacion+'" idPrincipal="'+l.idFacturaCapacitacion+'" idContador="'+l.idFacturaCapacitacion+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 									$(".eliminarIdes__competencia").click(function(e) {
 
@@ -7693,7 +7693,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 							for (l of indicadorInformacion3) {
 
-								$(".otros__recreativos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otrosRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRecreativo+'" name="eliminarInfor__otros'+l.idOtrosRecreativo+'" idPrincipal="'+l.idOtrosRecreativo+'" idContador="'+l.idOtrosRecreativo+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+								$(".otros__recreativos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRecreativo+'" name="eliminarInfor__otros'+l.idOtrosRecreativo+'" idPrincipal="'+l.idOtrosRecreativo+'" idContador="'+l.idOtrosRecreativo+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 								
 
 									$("#eliminarInfor__otros"+l.idOtrosRecreativo).click(function(e) {
@@ -7709,7 +7709,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 							for (l of indicadorInformacion2) {
 								
-								$(".factureros__recreativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/facturasRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" name="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" idPrincipal="'+l.idFacturaRecreativo+'" idContador="'+l.idFacturaRecreativo+'" class="eliminar__ides eliminarIdes__recreativo"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+								$(".factureros__recreativos").append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" name="eliminarInfor__factureros__competencias'+l.idFacturaRecreativo+'" idPrincipal="'+l.idFacturaRecreativo+'" idContador="'+l.idFacturaRecreativo+'" class="eliminar__ides eliminarIdes__recreativo"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
 								$(".eliminarIdes__recreativo").click(function(e) {
 
@@ -7760,7 +7760,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td><a href="documentos/seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasTecnicas).click(function(e) {
@@ -7814,7 +7814,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".alto__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasAltos+'"><td><a href="documentos/seguimiento/otrosCompentencia_alto/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" idPrincipal="'+l.idOtrosCompetenciasAltos+'" idContador="'+l.idOtrosCompetenciasAltos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".alto__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasAltos+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_alto/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" idPrincipal="'+l.idOtrosCompetenciasAltos+'" idContador="'+l.idOtrosCompetenciasAltos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasAltos).click(function(e) {
@@ -7869,7 +7869,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td><a href="documentos/seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosMantenimientoTecnico).click(function(e) {
@@ -7925,7 +7925,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__capacitacion__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacionTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.idOtrosCapacitacionTecnico+'</td><td><a href="documentos/seguimiento/otrosCpacitacion_tecnico/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" name="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" idPrincipal="'+l.idOtrosCapacitacionTecnico+'" idContador="'+l.idOtrosCapacitacionTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__capacitacion__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacionTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.idOtrosCapacitacionTecnico+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCpacitacion_tecnico/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" name="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" idPrincipal="'+l.idOtrosCapacitacionTecnico+'" idContador="'+l.idOtrosCapacitacionTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCapacitacionTecnico).click(function(e) {
@@ -7979,7 +7979,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 								for (l of indicadorInformacion3) {
 
-									$(".recreativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRT+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="documentos/seguimiento/otros__recreativos__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRT+'" name="eliminarInfor__otros'+l.idOtrosRT+'" idPrincipal="'+l.idOtrosRT+'" idContador="'+l.idOtrosRT+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".recreativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRT+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otros__recreativos__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRT+'" name="eliminarInfor__otros'+l.idOtrosRT+'" idPrincipal="'+l.idOtrosRT+'" idContador="'+l.idOtrosRT+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosRT).click(function(e) {

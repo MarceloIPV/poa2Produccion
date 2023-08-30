@@ -422,8 +422,6 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			echo VARIABLE__BACKEND;
-
 			$direccion1=VARIABLE__BACKEND."seguimiento/facturasImplementacion/";
 
 			$nombre__archivo1=$arrayInformacion[9]."_00".$arrayInformacion[10]."_Factura_".$arrayInformacion[3]."_".$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
