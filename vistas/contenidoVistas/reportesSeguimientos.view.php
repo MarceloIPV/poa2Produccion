@@ -320,6 +320,7 @@
 	       		<div class="col col-4 row">
 
 	       			<div class="col col-12 vertical__elementos" >
+						
 
 		       			<a class="text-center" href="<?= $ruta.$reporteTecnicosIV[0][archivo]?>" target="_blank">
 
