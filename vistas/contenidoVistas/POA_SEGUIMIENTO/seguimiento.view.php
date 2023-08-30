@@ -201,7 +201,7 @@ $componentesPaid= new componentesPaid();?>
 				<?php if (!empty($actividadesSeleccionadas__actividadesAdmi[0][idActividadAd])) : ?>
 					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM2023"], ["Indicadores"], "idIndicadores2023", ["indicadoresME"], 'idIndicadoresME2023'); ?>
 				<?php else: ?>
-					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM_estadoCuenta2023"], ["Indicadores"], "idIndicadores_estadoCuenta2023", ["indicadoresMEindicadoresM_estadoCuenta"], 'idIndicadoresME_estado_cuenta'); ?>
+					<?= $componentes->getLinksConfiguracion__parametros__ver(["indicadoresM_estadoCuenta2023"], ["Indicadores"], "idIndicadores_estadoCuenta2023", ["indicadoresMEindicadoresM_estadoCuenta"], 'idIndicadoresME_estado_cuenta2023'); ?>
 				<?php endif ?>
 				
 
@@ -348,7 +348,7 @@ $componentesPaid= new componentesPaid();?>
 
 						<input type="hidden" name="idOrganismo" value="<?= $idOrganismo__v ?>" />
 
-						<input type="hidden" id="tipoPdf" name="tipoPdf" value="documento__declaracion__seguimientos" />
+						<input type="hidden" id="tipoPdf" name="tipoPdf" value="documento__declaracion__seguimientos2023" />
 						
 						
 
@@ -480,7 +480,7 @@ $componentesPaid= new componentesPaid();?>
 
 						<input type="hidden" id="idOrganismo" name="idOrganismo" value="<?= $idOrganismo__v ?>" />
 
-						<input type="hidden" id="tipoPdf" name="tipoPdf" value="documento__seguimiento__final" />
+						<input type="hidden" id="tipoPdf" name="tipoPdf" value="documento__seguimiento__final2" />
 						<input type="hidden" id="btnEnviar" name="btnEnviar" value="1"/>
 
 						<?php if ((empty($tipoTrimestre[0][tipoTrimestre]) || ($bloqueosSeguimientoIV[0][estado] == "si") || !empty($controlCambiosI[0][idSeguimientoCambio])) && (empty($bloqueosSeguimientoI[0][estado]) || $bloqueosSeguimientoI[0][estado] == "no") || !empty($controlCambiosI[0][idSeguimientoCambio])) { ?>
@@ -501,7 +501,7 @@ $componentesPaid= new componentesPaid();?>
 
 						<?php } ?>
 						<div class="col col-12 text-center mt-4" style="padding-bottom: 2%;">	
-							<button class="btn btn-primary" id="enviarFinal__ref"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Enviar</button>
+							<button class="btn btn-primary" id="enviarFinal__ref2023"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Enviar</button>
 						</div>
 				    </form> 
 					

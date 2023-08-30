@@ -17,7 +17,7 @@ datatablets($("#reporteriaDefinitiva__c"),"reporteriaDefinitiva__c",false,false,
 
 datatablets($("#asignaciones__realizadas__finan__trazabilidad"),"asignaciones__realizadas__finan__trazabilidad",false,false,false,false,false,false,false);
 
-datatablets($("#paid__poas__asignaciones"),"paid__poas__asignaciones",false,objetos([4],["enlace"],['documento'],["documentos/presupuestoPaidOrganismos/"],["documento"]),1,[false],false,false,false);
+datatablets($("#paid__poas__asignaciones"),"paid__poas__asignaciones",false,objetos([4],["enlace"],['documento'],[$("#filesFrontend").val()+"presupuestoPaidOrganismos/"],["documento"]),1,[false],false,false,false);
 
 datatablets($("#aprobacionUsuarios"),"aprobacionUsuarios",[$("#idUsuarioPrincipal").val()],objetos([4],["boton"],["<center><button class='aprobacionUsuariosBoton estilo__botonDatatablets btn btn-primary' data-toggle='modal' data-target='#modalAprobar'><i class='fas fa-eye'></i>&nbsp;&nbsp;Ver</button><center>"],[false],[false]),1,["funcionObtener"],["nomprePresidente","emailPresidente","celularPresidente","nombreProvincia","nombreCanton","nombreParroquia","nombreResponsablePoa","correoResponsablePoa","telefonoOficina"],[4,22,23,5,6,7,25,26,3],30);
 
@@ -170,7 +170,7 @@ datatablets($("#tablaActividades"),"tablaActividades",[$("#idUsuarioPrincipal").
 
 // $(parametro1).click(function (e){
 
-//  datatablets($(parametro2),parametro3,[parametro4],objetos([2],["enlace"],['documento'],["documentos/declaracionTerminos/"],["documento"]),false,[false],[false],false);
+//  datatablets($(parametro2),parametro3,[parametro4],objetos([2],["enlace"],['documento'],["'+$("#filesFrontend").val()+'declaracionTerminos/"],["documento"]),false,[false],[false],false);
 
 // });
 
@@ -183,7 +183,7 @@ var agregarDatatablets__enlaces__repor__funcionarios__2=function(parametro1,para
 
 $(parametro1).click(function (e){
 
-    datatablets($(parametro2),parametro3,[parametro4],objetos([1],["enlace"],['documento'],["documentos/final__seguimiento/"],["documento"]),false,[false],[false],false);
+    datatablets($(parametro2),parametro3,[parametro4],objetos([1],["enlace"],['documento'],[$("#filesFrontend").val()+"final__seguimiento/"],["documento"]),false,[false],[false],false);
 
 });
 
@@ -603,7 +603,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -615,15 +615,15 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -635,7 +635,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -1077,7 +1077,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -1089,15 +1089,15 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -1109,7 +1109,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -1544,7 +1544,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -1556,15 +1556,15 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -1576,7 +1576,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -1774,7 +1774,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -1786,15 +1786,15 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -1806,7 +1806,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -2006,7 +2006,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -2018,15 +2018,15 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -2038,7 +2038,7 @@ var objetos=function(parametro1,parametro2,parametro3,parametro4,parametro5,para
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -2910,7 +2910,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -2922,15 +2922,15 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -2942,7 +2942,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -3376,7 +3376,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -3388,15 +3388,15 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -3408,7 +3408,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -3839,7 +3839,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -3851,15 +3851,15 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -3871,7 +3871,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -4069,7 +4069,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -4081,15 +4081,15 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -4101,7 +4101,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -4301,7 +4301,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                         primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                         
                     }
 
@@ -4313,15 +4313,15 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                         if (row[parametro6]=="FORMATIVO") {
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else if(row[parametro6]=="RECREACION"){
 
-                            segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }else{
 
-                            segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                            segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                         }
                         
@@ -4333,7 +4333,7 @@ var objetos__realizados__dependientes=function(parametro1,parametro2,parametro3,
 
                     }else{
 
-                         tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                         tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                         
                     }
 
@@ -5973,9 +5973,9 @@ var funrion__reasignar__paid__recomiendas__repoteria__recomiendas=function(tbody
             }
 
 
-            $(".oficio__ante").append('<a href="documentos/paid/oficioAprobacion/'+x.oficio+'" target="_blank">Oficio</a>');
+            $(".oficio__ante").append('<a href="'+$("#filesFrontend").val()+'paid/oficioAprobacion/'+x.oficio+'" target="_blank">Oficio</a>');
 
-            $(".informe__ante").append('<a href="documentos/paid/informesTecnicos/'+x.informe+'" target="_blank">Informe</a>');
+            $(".informe__ante").append('<a href="'+$("#filesFrontend").val()+'paid/informesTecnicos/'+x.informe+'" target="_blank">Informe</a>');
 
 
 
@@ -6055,7 +6055,7 @@ var funrion__reasignar__paid__recomiendas=function(tbody,table){
 
     $("#idOrganismo__principalAsgnacion").val(data[9]);
 
-    $("#informeEnlacesDescargar").attr('href','documentos/paid/informesTecnicos/'+data[10]);
+    $("#informeEnlacesDescargar").attr('href',$("#filesFrontend").val()+'paid/informesTecnicos/'+data[10]);
 
         var checkboxFunciones__3=function(parametro1,parametro2){
 
@@ -6594,9 +6594,9 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 //          for (z of documentos__tecnicos) {
 
 //              if (data[3]=="FORMATIVO") {
-//                  $("#informe__recomendados").attr('href','documentos/seguimiento/informe__formativos/'+z.archivo);
+//                  $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+z.archivo);
 //              }else{
-//                  $("#informe__recomendados").attr('href','documentos/seguimiento/informe__recreativos/'+z.archivo);
+//                  $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+z.archivo);
 //              }
 
                 
@@ -6697,7 +6697,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
             for (z of documentos__tecnico__2__seguimientos) {
 
-                $("#informe__recomendados").attr('href','documentos/seguimiento/informesSeguimientos/'+z.documentos);
+                $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informesSeguimientos/'+z.documentos);
 
                 $(".observaciones__recomendaste").text(z.observaciones);
                 $("#nombreDocumento").val(z.documentos);
@@ -6713,11 +6713,11 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
                     $(".boton__pdfs__infraestructuras").show();
 
                     if (z.documentoInfras!=null && z.documentoInfras!="" && z.documentoInfras!=" " && z.documentoInfras!=undefined) {
-                        $("#documentos__tecnicos__i").attr('href','documentos/seguimiento/informesInfraestructuras/'+z.documentoInfras);
+                        $("#documentos__tecnicos__i").attr('href',$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
                     }
 
                     if (z.documentoInstalaciones!=null && z.documentoInstalaciones!="" && z.documentoInstalaciones!=" " && z.documentoInstalaciones!=undefined) {
-                        $("#documentos__tecnicos__i").attr('href','documentos/seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+                        $("#documentos__tecnicos__i").attr('href',$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
                     }
 
                     $("#documentos__tecnicos__i").text("COORDINACIÓN DE INSTALACIONES DEPORTIVAS");
@@ -6734,15 +6734,15 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
                     if (data[2]=="FORMATIVO") {
 
-                        $("#documentos__tecnicos__t").attr('href','documentos/seguimiento/informe__formativos/'+zC.archivo);
+                        $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+zC.archivo);
 
                     }else if (data[2]=="RECREACION") {
 
-                        $("#documentos__tecnicos__t").attr('href','documentos/seguimiento/informe__recreativos/'+zC.archivo);
+                        $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+zC.archivo);
 
                     }else{
 
-                        $("#documentos__tecnicos__t").attr('href','documentos/seguimiento/informes__altos/'+zC.archivo);
+                        $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informes__altos/'+zC.archivo);
 
                     }
 
@@ -6894,7 +6894,7 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados=function(tbody
 
             for (z of documentos__tecnicos) {
 
-                $("#informe__recomendados").attr('href','documentos/seguimiento/informes__altos/'+z.archivo);
+                $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informes__altos/'+z.archivo);
 
                 $(".observaciones__recomendaste").text(z.observacion);
                 $("#nombreDocumento").val(z.archivo);
@@ -13221,9 +13221,9 @@ var funrion__reasignar__paid__recomiendas__repoteria__recomiendas=function(tbody
             }
 
 
-            $(".oficio__ante").append('<a href="documentos/paid/oficioAprobacion/'+x.oficio+'" target="_blank">Oficio</a>');
+            $(".oficio__ante").append('<a href="'+$("#filesFrontend").val()+'paid/oficioAprobacion/'+x.oficio+'" target="_blank">Oficio</a>');
 
-            $(".informe__ante").append('<a href="documentos/paid/informesTecnicos/'+x.informe+'" target="_blank">Informe</a>');
+            $(".informe__ante").append('<a href="'+$("#filesFrontend").val()+'paid/informesTecnicos/'+x.informe+'" target="_blank">Informe</a>');
 
 
 
@@ -13303,7 +13303,7 @@ var funrion__reasignar__paid__recomiendas=function(tbody,table){
 
     $("#idOrganismo__principalAsgnacion").val(data[9]);
 
-    $("#informeEnlacesDescargar").attr('href','documentos/paid/informesTecnicos/'+data[10]);
+    $("#informeEnlacesDescargar").attr('href',$("#filesFrontend").val()+'paid/informesTecnicos/'+data[10]);
 
         var checkboxFunciones__3=function(parametro1,parametro2){
 
@@ -14059,7 +14059,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
 
                         for(z of indicadorInformacion3){
 
-                            $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="documentos/seguimiento/otrosCompentencia_formativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
+                            $(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
 
                         }                           
 
@@ -14612,7 +14612,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
 
                         for(z of indicadorInformacion2){
 
-                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="documentos/seguimiento/facturasRecreativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasRecreativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
 
                         }                           
 
@@ -14624,7 +14624,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
 
                         for(w of indicadorInformacion3){
 
-                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="documentos/seguimiento/otrosRecreativo/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosRecreativo/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
 
                         }                           
 
@@ -14686,7 +14686,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
 
                         for(z of indicadorInformacion2){
 
-                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="documentos/seguimiento/facturasImplementacion/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
+                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+z.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasImplementacion/'+z.documento+'" target="_blank">'+z.documento+'</a></td><td>'+z.numeroFactura+'</td><td>'+z.fechaFactura+'</td><td>'+z.ruc+'</td><td>'+z.autorizacion+'</td><td>'+z.monto+'</td><td>'+z.mes+'</td></tr>');
 
                         }                           
 
@@ -14698,7 +14698,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
 
                         for(w of indicadorInformacion3){
 
-                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="documentos/seguimiento/otrosInstalaciones/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
+                            $(".contenido__tablas__facturas__honorarios").append('<tr><td>'+w.nombres+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosInstalaciones/'+w.documento+'" target="_blank">'+w.documento+'</a></td><td>'+w.mes+'</td></tr>');
 
                         }                           
 
@@ -14830,9 +14830,9 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe=funct
             for (z of documentos__tecnicos) {
 
                 if (data[3]=="FORMATIVO") {
-                    $("#informe__recomendados").attr('href','documentos/seguimiento/informe__formativos/'+z.archivo);
+                    $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+z.archivo);
                 }else{
-                    $("#informe__recomendados").attr('href','documentos/seguimiento/informe__recreativos/'+z.archivo);
+                    $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+z.archivo);
                 }
 
                 
@@ -14920,7 +14920,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
                 $(".funcionario__recomendaste").text(z.nombreCompleto);
                 $(".fecha__recomendaste").text(z.fecha);
 
-                $("#documentos__tecnicos__t__infras").attr('href','documentos/seguimiento/informesInstalaciones/'+z.documentoInfras);
+                $("#documentos__tecnicos__t__infras").attr('href',$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInfras);
 
                 $("#nombre__archivo").val(z.documentoInfras);
 
@@ -15068,7 +15068,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
                 }else if($("#idUsuarioC").val()==estadoIR__estados){
 
-                    $("#documentos__tecnicos__t__infras").attr('href','documentos/seguimiento/informesInfraestructuras/'+z.documentoInfras);
+                    $("#documentos__tecnicos__t__infras").attr('href',$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
 
                      $("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
 
@@ -15091,7 +15091,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
                 }else if($("#idUsuarioC").val()==estadoINR__estados || $("#zonalC").val()>1){
 
 
-                     $("#documentos__tecnicos__t__infras__instalaciones").attr('href','documentos/seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+                     $("#documentos__tecnicos__t__infras__instalaciones").attr('href',$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
 
                       $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
 
@@ -15126,7 +15126,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
                      for (z of envio__tecnicos__seguimientos__infraestructuras) {
 
-                        $("#documentos__tecnicos__t__infras__instalaciones").attr('href','documentos/seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+                        $("#documentos__tecnicos__t__infras__instalaciones").attr('href',$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
 
                         $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
 
@@ -15145,7 +15145,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
                    for (z of envio__tecnicos__seguimientos__infraestructuras) {
 
 
-                        $("#documentos__tecnicos__t__infras").attr('href','documentos/seguimiento/informesInfraestructuras/'+z.documentoInfras);
+                        $("#documentos__tecnicos__t__infras").attr('href',$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
 
                         $("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
 
@@ -15262,7 +15262,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
 //          for (z of documentos__tecnico__2__seguimientos) {
 
-//              $("#informe__recomendados").attr('href','documentos/seguimiento/informesSeguimientos/'+z.documentos);
+//              $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informesSeguimientos/'+z.documentos);
 
 //              $(".observaciones__recomendaste").text(z.observaciones);
 //              $("#nombreDocumento").val(z.documentos);
@@ -15277,7 +15277,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
 //                  $(".boton__pdfs__infraestructuras").show();
 
-//                  $("#documentos__tecnicos__i").attr('href','documentos/seguimiento/informesInfraestructuras/'+z.documentoInfras);
+//                  $("#documentos__tecnicos__i").attr('href',$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
 
 //              }
 
@@ -15291,15 +15291,15 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
 //                  if (data[2]=="FORMATIVO") {
 
-//                      $("#documentos__tecnicos__t").attr('href','documentos/seguimiento/informe__formativos/'+zC.archivo);
+//                      $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+zC.archivo);
 
 //                  }else if (data[2]=="RECREACION") {
 
-//                      $("#documentos__tecnicos__t").attr('href','documentos/seguimiento/informe__recreativos/'+zC.archivo);
+//                      $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+zC.archivo);
 
 //                  }else{
 
-//                      $("#documentos__tecnicos__t").attr('href','documentos/seguimiento/informes__altos/'+zC.archivo);
+//                      $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informes__altos/'+zC.archivo);
 
 //                  }
 
@@ -15449,7 +15449,7 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados=function(tbody
 
             for (z of documentos__tecnicos) {
 
-                $("#informe__recomendados").attr('href','documentos/seguimiento/informes__altos/'+z.archivo);
+                $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informes__altos/'+z.archivo);
 
                 $(".observaciones__recomendaste").text(z.observacion);
                 $("#nombreDocumento").val(z.archivo);
@@ -20583,7 +20583,7 @@ var funcion__datatabletsReasignarTraRe=function(tbody,table,parametro3,parametro
 
                     if ($("#fisicamenteE").val()==5 || $("#fisicamenteE").val()==2) {
 
-                        $(".contenedor__bodyCMatriz").append('<br><br><div class="col col-12 text-center d d-flex justify-content-center nuevos__unicos__4" style="tex-transform:uppercase!important; margin-top:2em!important;"><a href="documentos/comprasPublicas/'+documentoCompras+'" target="_blank" style="text-transform:uppercase;">Descargue el catalogo  dando click aquí</a></div><br><br>');
+                        $(".contenedor__bodyCMatriz").append('<br><br><div class="col col-12 text-center d d-flex justify-content-center nuevos__unicos__4" style="tex-transform:uppercase!important; margin-top:2em!important;"><a href="'+$("#filesFrontend").val()+'comprasPublicas/'+documentoCompras+'" target="_blank" style="text-transform:uppercase;">Descargue el catalogo  dando click aquí</a></div><br><br>');
 
                     }
 

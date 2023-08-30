@@ -1253,6 +1253,15 @@
 
 		break;
 
+		case  "eliminar__otros__estado_cuenta_indicadores":
+
+			$elimina=$objeto->getElimina('poa_seguimiento_estado_cuenta','id_estado_cuenta',$parametros);
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;
+
+		break;
+
 
 		case  "eliminarHonorarios":
 

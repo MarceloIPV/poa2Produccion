@@ -392,7 +392,7 @@
 
 			<div class="oculto__justificacion__control__seguimiento col col-12 d d-flex justify-content-center mt-4">
 
-				<button class="oculto__justificacion__control__seguimiento btn btn-primary" id="enviarSolicitud__Control">Enviar solicitud</button>
+				<button class="oculto__justificacion__control__seguimiento btn btn-primary" id="enviarSolicitud__Control2023">Enviar solicitud</button>
 
 			</div>
 

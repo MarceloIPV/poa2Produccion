@@ -1689,6 +1689,88 @@ var funcion__editar__general = function (parametro1, parametro2, parametro3, par
 
 /*=====  End of Funciones de ediciones  ======*/
 
+
+/*==============================================
+=            Funciones de guardados - estado cuenta           =
+==============================================*/
+
+var funcion__guardado__general_estado_cuenta_indicadores = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7) {
+	// $(parametro1).click(function(e) {
+		$Valorcomparar = parametro3[0];
+		$ValorExedido = parametro3[1];
+ 
+		if($ValorExedido > $Valorcomparar){
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Valor supera la cantidad de META PROGRAMADA", "error", 5, function(){});	
+		
+		}else{
+		var confirm = alertify.confirm('¿Está seguro de guardar la información ingresada?', '¿Está seguro de guardar la información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
+	
+		confirm.set({ transition: 'slide' });
+
+		confirm.set('onok', function () {
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append("tipo", parametro5);
+
+			paqueteDeDatos.append("prametros", JSON.stringify(parametro3));
+
+			
+
+			$.ajax({
+
+				type: "POST",
+				url: "modelosBd/inserta/insertaAcciones.md.php",
+				contentType: false,
+				data: paqueteDeDatos,
+				processData: false,
+				cache: false,
+				success: function (response) {			
+					
+					var elementos = JSON.parse(response);
+					var mensaje = elementos['mensaje'];
+					console.log("mensaje")
+					console.log(mensaje)
+
+					if (mensaje == 1) {
+						alertify.set("notifier", "position", "top-center");
+						alertify.notify("Registro realizado correctamente", "success", 5, function () { });
+
+						// $(parametro6).remove();
+						// $(parametro7).hide();
+
+					}
+
+				},
+				error: function () {
+
+				}
+
+			});
+
+			$(parametro1).hide();
+			$(parametro1).remove();
+		});
+	}
+
+		confirm.set('oncancel', function () { //callbak al pulsar botón negativo
+			alertify.set("notifier", "position", "top-center");
+			alertify.notify("Acción cancelada", "error", 1, function () {
+
+				$(parametro1).show();
+
+			});
+		});
+
+	
+
+	// });
+
+}
+
+
+
 /*=============================================
 =            Funciones de eliminar            =
 =============================================*/

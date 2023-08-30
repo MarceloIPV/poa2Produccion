@@ -338,7 +338,7 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 	
 		 $query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='primerTrimestre' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
 
-		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;";
 
 		//$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad";
 		$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
@@ -369,36 +369,33 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 			$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 		}else{	
 			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
-				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 				$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 			}else {
 				if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
-					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 					$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 				}else{
 					if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
-						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso; 
 						");
 						$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 					}else{
 						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
-							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 							$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 						}else{
 							if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
-								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 								$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 							}else{
-								if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
-									//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
-									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+								if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Desahucio"){
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.compensacionDeshaucioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 									$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 								}else{
-									if($d[0]["menEjecutado"]>0){
-										// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
-										// $jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
-										
-										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
+									if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Vacaciones no Gozadas por Cesación de Funciones"){
+										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.vacionesEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;
+										");
 										$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 									}else{
 										if($e[0]["menEjecutado"]>0){
@@ -417,7 +414,21 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 														$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
 														$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 													}else{
-														$jsonNuevo[$i]["ejecutadoPrimer"] = 0;
+														if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+															//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+															$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+															$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+														}else{
+															if($d[0]["menEjecutado"]>0){
+																// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
+																// $jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+																
+																$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
+																$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+															}else{
+																$jsonNuevo[$i]["ejecutadoPrimer"] = 0;
+															}	
+														}	
 													}
 												}
 											}
@@ -464,7 +475,7 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 	
 		$query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
 
-		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;";
 
 		//$query3 = "SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad ";
 		$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
@@ -494,38 +505,33 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 		$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
 	}else{	
 		if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
-			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 			$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
 		}else {
 			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
-				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 				$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
 			}else{
 				if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
-					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
-					");
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 					$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
 				}else{
 					if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
-						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 						$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
 					}else{
 						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
-							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 							$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
-						}else{
-							//if($c[0]["menEjecutado"]>0 && $c[0]["nombreItem"] == "Honorarios por Contratos Civiles de Servicios"){
-								if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
-								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
-								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
-								$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+						}else{						
+							if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Desahucio"){
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.compensacionDeshaucioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
+								$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 							}else{
-								if($d[0]["menEjecutado"]>0){
-									// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
-									// $jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
-									
-									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
-									$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+								if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Vacaciones no Gozadas por Cesación de Funciones"){
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.vacionesEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;
+									");
+									$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 								}else{
 									if($e[0]["menEjecutado"]>0){
 										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
@@ -543,7 +549,18 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
 													$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
 												}else{
-													$jsonNuevo[$i]["ejecutadoSegundo"] = 0;
+													if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+														//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+														$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+														$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+													}else{
+														if($d[0]["menEjecutado"]>0){																		
+															$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
+															$jsonNuevo[$i]["ejecutadoSegundo"] = $Actividad001[0]["menEjecutado"];
+														}else{
+															$jsonNuevo[$i]["ejecutadoSegundo"] = 0;
+														}
+													}	
 												}
 											}
 										}
@@ -592,7 +609,7 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 	
 		$query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
 
-		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;";
 
 		//$query3 = "SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.modifica = 'A' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad ";
 		//$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad";
@@ -623,41 +640,33 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 		$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
 	}else{	
 		if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
-			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 			$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
 		}else {
 			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
-				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 				$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
 			}else{
 				if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
-					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
-					");
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 					$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
 				}else{
 					if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
-						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 						$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
 					}else{
 						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
-							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 							$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
-						}else{
-							//if($c[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Honorarios por Contratos Civiles de Servicios"){
-								if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
-								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.modifica = 'A' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
-								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
-								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
-								$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+						}else{							
+							if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Desahucio"){
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.compensacionDeshaucioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
+								$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 							}else{
-								if($d[0]["menEjecutado"]>0){
-									// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
-									// $jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
-									
-									// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera as ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev3 ON ev2.idItem=ev3.idItem INNER JOIN poa_actividades AS ev4 ON ev2.idActividad = ev4.idActividades WHERE ev1.idOrganismo = '$idOrganismo' AND ev1.trimestre = '$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev2.idActividad = '5' AND ev3.nombreItem LIKE '%$valorDespuesDelGuion%' GROUP BY ev3.nombreItem
-									// ");
-									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
-									$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+								if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Vacaciones no Gozadas por Cesación de Funciones"){
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.vacionesEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;
+									");
+									$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 								}else{
 									if($e[0]["menEjecutado"]>0){
 										// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(com1.mensualEjecutado) AS menEjecutado  FROM poa_segimiento_recreativos AS com1 INNER JOIN poa_programacion_financiera as com3 ON com1.idOrganismo = com3.idOrganismo INNER JOIN poa_item AS com4 ON com3.idItem=com4.idItem INNER JOIN poa_actividades AS com5 ON com3.idActividad = com5.idActividades WHERE com1.idOrganismo = '$idOrganismo' AND com1.trimestre = '$trimestreEvaluadorDos' AND com1.perioIngreso = '$aniosPeriodos__ingesos' AND com3.idActividad = '6' AND com4.nombreItem LIKE '%$valorDespuesDelGuion%'");
@@ -680,7 +689,19 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
 													$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
 												}else{
-													$jsonNuevo[$i]["ejecutadoTercero"] = 0;
+													if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+														//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.modifica = 'A' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+														//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+														$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+														$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+													}else{
+														if($d[0]["menEjecutado"]>0){									
+															$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '$valorDespuesDelGuion';");
+															$jsonNuevo[$i]["ejecutadoTercero"] = $Actividad001[0]["menEjecutado"];
+														}else{
+															$jsonNuevo[$i]["ejecutadoTercero"] = 0;
+														}
+													}
 												}
 											}
 										}
@@ -731,7 +752,7 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 	
 		$query1 = "SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND c.nombreItem LIKE '%$valorDespuesDelGuion%'";
 
-		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad ";
+		$query2 = "SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;";
 
 		//$query3 = "SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad ";
 		$query3 = "SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'";
@@ -767,36 +788,33 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 		$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
 	}else{	
 		if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
-			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 			$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
 		}else {
 			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
-				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 				$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
 			}else{
 				if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
-					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad 
-					");
+					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 					$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
 				}else{
 					if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
-						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 						$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
 					}else{
 						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
-							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad");
+							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 							$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
-						}else{
-							//if($c[0]["menEjecutado"]>0 && $c[0]["nombreItem"] == "Honorarios por Contratos Civiles de Servicios"){
-							if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
-								//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
-								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
-								$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+						}else{							
+							if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Desahucio"){
+								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.compensacionDeshaucioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
+								$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 							}else{
-								if($d[0]["menEjecutado"]>0){
-									
-									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
-									$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+								if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Vacaciones no Gozadas por Cesación de Funciones"){
+									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.vacionesEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.iditem = dss.idItem WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND dss.nombreItem LIKE '%$valorDespuesDelGuion%' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;
+									");
+									$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 								}else{
 									if($e[0]["menEjecutado"]>0){
 										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
@@ -815,7 +833,19 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%'");
 													$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
 												}else{
-													$jsonNuevo[$i]["ejecutadoCuarto"] = 0;
+													if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
+														//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(h2.mensualEjecutado) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.idOrganismo INNER JOIN poa_item AS h4 ON h3.iditem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+														$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h3.nombreActividades FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_actividades AS h3 ON h1.idActividad = h3.idActividades WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h1.idActividad = 4 AND h3.nombreActividades LIKE '%$valorDespuesDelGuionActividad%'");
+														$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+													}else{
+														if($d[0]["menEjecutado"]>0){
+									
+															$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem  WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND d.nombreItem LIKE '%$valorDespuesDelGuion%';");
+															$jsonNuevo[$i]["ejecutadoCuarto"] = $Actividad001[0]["menEjecutado"];
+														}else{
+															$jsonNuevo[$i]["ejecutadoCuarto"] = 0;
+														}
+													}
 												}
 											}
 										}
@@ -13679,6 +13709,2976 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 		break;
 
+		/************************************* CONTRATACION RECURSOS PUBLICOS 2023  ***************************************/
+		case  "documento__declaracion__seguimientos2023":
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/declaracionTerminos/";
+			$parametro2="DeclaracionRecursosPublicos__".$idOrganismo."__".$fecha_actual;	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+
+			$documentoCuerpo='<br><br><table><thead><tr><th><center>DECLARACIÓN DE RESPONSABILIDAD DEL CORRECTO USO DEL RECURSO PÚBLICO Y ENTREGA DE INFORMACIÓN PARA EL SEGUIMIENTO Y EVALUACIÓN</center></th></tr></thead></table>';
+
+			$declaracion__maximo=$objeto->getObtenerInformacionGeneral("SELECT MAX(idDeclaracion) AS maximo FROM poa_seguimiento_declaracion WHERE perioIngreso='$aniosPeriodos__ingesos';");
+			if ($trimestreEvaluadorDos=="primerTrimestre") {
+				$indentificador="I";
+			}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+				$indentificador="II";
+			}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+				$indentificador="III";
+			}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+				$indentificador="IV";
+			}
+
+			
+			if($trimestreEvaluadorDos=="primerTrimestre") {
+				$variableTrimestral="Primer Trimestre";
+			}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+				$variableTrimestral="Segundo Trimestre";
+			}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+				$variableTrimestral="Tercer Trimestre";
+			}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+				$variableTrimestral="Cuarto Trimestre";
+			}
+
+			$documentoCuerpo.='
+			                <br><br><br>
+							<table>
+								<thead>
+									<tr>
+										<th style="width:30%!important";>DECLARACIÓN NRO. Nro.</th>
+										<td>'.$declaracion__maximo[0][maximo].'</td>
+									</tr>
+									<tr>
+										<th style="width:30%!important;">Fecha:</th>
+										<td>'.$fecha_actual.'</td> 
+									</tr>
+									<tr>
+										<th style="width:30%!important;">Hora:</th>
+										<td>'.$hora_actual.'</td> 
+									</tr>
+								</thead>
+							</table>
+							<br>
+
+							<table style="width:100%!important; margin-top:2em;">
+								<thead>
+									<tr>
+										<th >
+											<center>
+											APLICATIVO DE SEGUIMIENTO Y EVALUACIÓN AL POA '.$aniosPeriodos__ingesos.' 
+											</center>
+										</th>
+									</tr>									
+								</thead>
+							</table>
+							<br>
+
+							<table style="width:100%!important; margin-top:2em;">
+								<thead>
+									<tr>
+										<th style="width:30%!important";>ORGANIZACIÓN DEPORTIVA:</th>
+										<td>'.strtoupper($informacionCompleto[0][nombreOrganismo]).'</td>
+									</tr>
+									<tr>
+										<th style="width:30%!important;">NÚMERO DE RUC:</th>
+										<td>'.$informacionCompleto[0][ruc].'</td> 
+									</tr>
+									<tr>
+										<th style="width:30%!important;">CORREO ELECTRÓNICO:</th>
+										<td>'.$informacionCompleto[0][correo].'</td> 
+									</tr>
+								</thead>
+							</table>
+							<br>
+
+							<table style="width:100%!important; margin-top:1em;">
+								<thead>
+									<tr>
+									<th style="width:30%!important;">PERÍODO REPORTADO:</th>
+									<td>'.$indentificador.' TRIMESTRE '.$aniosPeriodos__ingesos.'</td> 
+									</tr>									
+								</thead>
+							</table>
+							<br><br><br>
+			';
+		
+	
+			$documentoCuerpo.='<table><tr><td style="text-align:justify!important;"><span style="font-weight:bold!important;">'.$informacionCompleto[0][nombreOrganismo].'</span> en el marco del Ciclo de Planificación de las organizaciones deportivas, realiza la entrega de la información de seguimiento y evaluación del Período <span style="font-weight:bold!important;">'.$variableTrimestral.' '.$anio.' </span>; y, en cumplimiento a los principios de ética, probidad, buena fe, respeto al ordenamiento jurídico y a la autoridad legítima, entre otros, que rigen los deberes de las personas y la relación entre éstas y la administración pública; así como a lo establecido en el artículo 10 de la Ley Orgánica para la Optimización y Eficiencia de Trámites Administrativos respecto a la veracidad de la información: “Las entidades reguladas por esta Ley presumirán que las declaraciones, documentos y actuaciones de las personas efectuadas en virtud de trámites administrativos son verdaderas, bajo aviso a la o al administrado de que, en caso de verificarse lo contrario, el trámite y resultado final de la gestión podrán ser negados y archivados, o los documentos emitidos carecerán de validez alguna, sin perjuicio de las sanciones y otros efectos jurídicos establecidos en la ley. El listado de actuaciones anuladas por la entidad en virtud de lo establecido en este inciso estará disponible para las demás entidades del Estado (...)”, DECLARA que realizó el correcto uso del recurso púbico, cumplió con los lineamientos establecidos por esta cartera de Estado, y que la información y documentación proporcionada como respaldo del gasto conforme el presupuesto entregado por el MINISTERIO DEL DEPORTE, es veraz, auténtica, legítima, fidedigna y apegada a la normativa legal vigente, información que podrá ser verificada por los entes de control, sin perjuicio de la responsabilidad penal prevista en el artículo 328 del Código Orgánico Integral Penal y sobre la base de esta declaración.</td></tr></table><br>';
+
+			$documentoCuerpo.='<table><tr><td style="text-align:justify!important;">En ese sentido, reconoce y acepta que el MINISTERIO DEL DEPORTE realizará los reportes de seguimiento y evaluación semestral e informe de evaluación anual sobre la base de la información presentada y cuyo contenido son de exclusiva responsabilidad de la organización deportiva.</td></tr></table><br>
+			';
+			$documentoCuerpo.='<table><tr><td style="text-align:justify!important;">Razón por la cual la DECLARANTE libra y exonera de toda responsabilidad al MINISTERIO DEL DEPORTE y a sus funcionarios por los actos que ejecuten con sustento en la información y documentación proporcionadas por ella, y personalmente asume toda aquella responsabilidad y consecuencias derivadas de esta. Las obligaciones establecidas en este párrafo se mantendrán vigentes aún después de terminado el acto requerido por la Declarante y prescribirán con sujeción a las normas aplicables.</td></tr></table><br>
+			';
+
+			$documentoCuerpo.='
+			<table style="width:100%!important">
+				<tr>
+					<td style="text-align:justify!important;">
+						Atentamente,
+					</td>
+				</tr>
+			</table>
+			<br><br><br><br><br>';
+
+			$documentoCuerpo.='
+						
+			<table style="width:100%!important; margin-top:2em;">
+				<thead>
+					<tr>						
+						<td>Firma:_____________________________</td> 
+					</tr>
+					<tr>
+						<td>'.$declaracionRepresentante[0][nombreResponsablePoa].'</td>
+					</tr>
+					<tr>						
+						<td>'.strtoupper($informacionCompleto[0][nombreOrganismo]).'</td>
+					</tr>
+				</thead>
+			</table>
+			';
+
+
+			$inserta=$objeto->getInsertaNormal('poa_seguimiento_declaracion', array("`idDeclaracion`, ","`documento`, ","`idOrganismo`, ","`fecha`, ","`trimestre`, ","`perioIngreso`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ","'$trimestreEvaluador', ","'$aniosPeriodos__ingesos'"));	
+
+		break;
+
+
+		/******************************************************************************************************************/
+
+		/************************************* CONTRATACION PUBLICA 2023  ***************************************/
+				/*=======================================================
+			=            Generar pdf Contratacion Publica           =
+			=========================================================*/
+			case "contratacion_publica":
+				$parametro1="../../documentos/catalogoInforme/";
+				$parametro2="informeContratacionPublica__".$idOrganismo."__".$fecha_actual;	
+				$parametro3=$idOrganismo."__".$fecha_actual;
+				
+				/*=====  End of Generar pdf  ======*/	
+				// contadores
+				$obtenerInformacion__1=$objeto->getObtenerInformacionGeneral("SELECT COUNT(a.idCatalogo) AS contadorCatalogo FROM poa_catalogo_contraloria AS a INNER JOIN poa_programacion_financiera AS b ON a.idItemCatalogo=b.idItem WHERE a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo'  AND b.perioIngreso='$aniosPeriodos__ingesos' AND b.idOrganismo='$idOrganismo'AND catalogo__elect='si' GROUP BY a.idOrganismo;");
+	
+	
+				//***********************************  ACTIVIDAD 1  **************************************** */			
+				$catalogoElectCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__cantidad) AS sumaCataElectronicoCantidad FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoElectMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__monto) AS sumaCataElectronicoMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__cantidad) AS sumaCataSubastaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__monto) AS sumaCataSubastaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__cantidad) AS sumaCatainfimaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__monto) AS sumaCatainfimaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__cantidad) AS sumaCatamenorCuantiaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__monto) AS sumaCatamenorCuantiaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__cantidad) AS sumaCataCotizacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__monto) AS sumaCataCotizacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacion__cantidad) AS sumaCataLicitacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__Licitacion__monto) AS sumaCataLicitacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorcuantiaObrasCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__cantidad) AS sumaCataMenorCuantiaObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaObrasMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__monto) AS sumaCataMenorCuantiaObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__cantidad) AS sumaCataCotizacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__monto) AS sumaCotizacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__cantidad) AS sumaCataLicitacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__monto) AS sumaLicitacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__cantidad) AS sumaCataPrecioObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__monto) AS sumaPrecioObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__cantidad) AS sumaCataContratacionDirectaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__monto) AS sumaContratacionDirectaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__cantidad) AS sumaCataContratacionListaCortaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__monto) AS sumaContratacionListaCortaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuCantActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__cantidad) AS sumaCataContratacionConcursoPuCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuMontoActividad1=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__monto) AS sumaContratacionConcursoPuMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='1' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+	
+				//***********************************  ACTIVIDAD 2  **************************************** */			
+				$catalogoElectCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__cantidad) AS sumaCataElectronicoCantidad FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoElectMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__monto) AS sumaCataElectronicoMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__cantidad) AS sumaCataSubastaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__monto) AS sumaCataSubastaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__cantidad) AS sumaCatainfimaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__monto) AS sumaCatainfimaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__cantidad) AS sumaCatamenorCuantiaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__monto) AS sumaCatamenorCuantiaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__cantidad) AS sumaCataCotizacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__monto) AS sumaCataCotizacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacion__cantidad) AS sumaCataLicitacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__Licitacion__monto) AS sumaCataLicitacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorcuantiaObrasCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__cantidad) AS sumaCataMenorCuantiaObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaObrasMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__monto) AS sumaCataMenorCuantiaObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__cantidad) AS sumaCataCotizacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__monto) AS sumaCotizacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__cantidad) AS sumaCataLicitacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__monto) AS sumaLicitacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__cantidad) AS sumaCataPrecioObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__monto) AS sumaPrecioObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__cantidad) AS sumaCataContratacionDirectaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__monto) AS sumaContratacionDirectaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__cantidad) AS sumaCataContratacionListaCortaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__monto) AS sumaContratacionListaCortaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuCantActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__cantidad) AS sumaCataContratacionConcursoPuCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuMontoActividad2=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__monto) AS sumaContratacionConcursoPuMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='2' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+	
+				//***********************************  ACTIVIDAD 3  **************************************** */			
+				$catalogoElectCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__cantidad) AS sumaCataElectronicoCantidad FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoElectMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__monto) AS sumaCataElectronicoMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__cantidad) AS sumaCataSubastaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__monto) AS sumaCataSubastaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__cantidad) AS sumaCatainfimaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__monto) AS sumaCatainfimaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__cantidad) AS sumaCatamenorCuantiaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__monto) AS sumaCatamenorCuantiaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__cantidad) AS sumaCataCotizacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__monto) AS sumaCataCotizacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacion__cantidad) AS sumaCataLicitacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__Licitacion__monto) AS sumaCataLicitacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorcuantiaObrasCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__cantidad) AS sumaCataMenorCuantiaObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaObrasMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__monto) AS sumaCataMenorCuantiaObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__cantidad) AS sumaCataCotizacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__monto) AS sumaCotizacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__cantidad) AS sumaCataLicitacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__monto) AS sumaLicitacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__cantidad) AS sumaCataPrecioObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__monto) AS sumaPrecioObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__cantidad) AS sumaCataContratacionDirectaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__monto) AS sumaContratacionDirectaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__cantidad) AS sumaCataContratacionListaCortaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__monto) AS sumaContratacionListaCortaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuCantActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__cantidad) AS sumaCataContratacionConcursoPuCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuMontoActividad3=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__monto) AS sumaContratacionConcursoPuMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='3' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+	
+				//***********************************  ACTIVIDAD 4  **************************************** */			
+				$catalogoElectCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__cantidad) AS sumaCataElectronicoCantidad FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoElectMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__monto) AS sumaCataElectronicoMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__cantidad) AS sumaCataSubastaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__monto) AS sumaCataSubastaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__cantidad) AS sumaCatainfimaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__monto) AS sumaCatainfimaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__cantidad) AS sumaCatamenorCuantiaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__monto) AS sumaCatamenorCuantiaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__cantidad) AS sumaCataCotizacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__monto) AS sumaCataCotizacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacion__cantidad) AS sumaCataLicitacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__Licitacion__monto) AS sumaCataLicitacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorcuantiaObrasCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__cantidad) AS sumaCataMenorCuantiaObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaObrasMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__monto) AS sumaCataMenorCuantiaObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__cantidad) AS sumaCataCotizacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__monto) AS sumaCotizacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__cantidad) AS sumaCataLicitacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__monto) AS sumaLicitacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__cantidad) AS sumaCataPrecioObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__monto) AS sumaPrecioObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__cantidad) AS sumaCataContratacionDirectaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__monto) AS sumaContratacionDirectaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__cantidad) AS sumaCataContratacionListaCortaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__monto) AS sumaContratacionListaCortaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuCantActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__cantidad) AS sumaCataContratacionConcursoPuCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuMontoActividad4=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__monto) AS sumaContratacionConcursoPuMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='4' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				
+				
+				//***********************************  ACTIVIDAD 5  **************************************** */			
+				$catalogoElectCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__cantidad) AS sumaCataElectronicoCantidad FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoElectMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__monto) AS sumaCataElectronicoMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__cantidad) AS sumaCataSubastaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__monto) AS sumaCataSubastaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__cantidad) AS sumaCatainfimaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__monto) AS sumaCatainfimaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__cantidad) AS sumaCatamenorCuantiaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__monto) AS sumaCatamenorCuantiaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__cantidad) AS sumaCataCotizacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__monto) AS sumaCataCotizacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacion__cantidad) AS sumaCataLicitacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__Licitacion__monto) AS sumaCataLicitacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorcuantiaObrasCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__cantidad) AS sumaCataMenorCuantiaObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaObrasMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__monto) AS sumaCataMenorCuantiaObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__cantidad) AS sumaCataCotizacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__monto) AS sumaCotizacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__cantidad) AS sumaCataLicitacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__monto) AS sumaLicitacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__cantidad) AS sumaCataPrecioObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__monto) AS sumaPrecioObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__cantidad) AS sumaCataContratacionDirectaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__monto) AS sumaContratacionDirectaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__cantidad) AS sumaCataContratacionListaCortaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__monto) AS sumaContratacionListaCortaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuCantActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__cantidad) AS sumaCataContratacionConcursoPuCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuMontoActividad5=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__monto) AS sumaContratacionConcursoPuMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='5' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+		
+	
+				
+				//***********************************  ACTIVIDAD 6  **************************************** */			
+				$catalogoElectCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__cantidad) AS sumaCataElectronicoCantidad FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoElectMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__monto) AS sumaCataElectronicoMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__cantidad) AS sumaCataSubastaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__monto) AS sumaCataSubastaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__cantidad) AS sumaCatainfimaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__monto) AS sumaCatainfimaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__cantidad) AS sumaCatamenorCuantiaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__monto) AS sumaCatamenorCuantiaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__cantidad) AS sumaCataCotizacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__monto) AS sumaCataCotizacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacion__cantidad) AS sumaCataLicitacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__Licitacion__monto) AS sumaCataLicitacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorcuantiaObrasCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__cantidad) AS sumaCataMenorCuantiaObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaObrasMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__monto) AS sumaCataMenorCuantiaObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__cantidad) AS sumaCataCotizacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__monto) AS sumaCotizacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__cantidad) AS sumaCataLicitacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__monto) AS sumaLicitacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__cantidad) AS sumaCataPrecioObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__monto) AS sumaPrecioObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__cantidad) AS sumaCataContratacionDirectaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__monto) AS sumaContratacionDirectaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__cantidad) AS sumaCataContratacionListaCortaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__monto) AS sumaContratacionListaCortaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuCantActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__cantidad) AS sumaCataContratacionConcursoPuCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuMontoActividad6=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__monto) AS sumaContratacionConcursoPuMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='6' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+	
+	
+				
+				//***********************************  ACTIVIDAD 7  **************************************** */			
+				$catalogoElectCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__cantidad) AS sumaCataElectronicoCantidad FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoElectMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__elect__monto) AS sumaCataElectronicoMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__cantidad) AS sumaCataSubastaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoSubastaMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__subasta__monto) AS sumaCataSubastaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__cantidad) AS sumaCatainfimaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoInfimaMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__infima__monto) AS sumaCatainfimaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__cantidad) AS sumaCatamenorCuantiaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantia__monto) AS sumaCatamenorCuantiaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__cantidad) AS sumaCataCotizacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacion__monto) AS sumaCataCotizacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacion__cantidad) AS sumaCataLicitacionCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__Licitacion__monto) AS sumaCataLicitacionMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorcuantiaObrasCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__cantidad) AS sumaCataMenorCuantiaObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoMenorCuantiaObrasMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__menorCuantiaObras__monto) AS sumaCataMenorCuantiaObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__cantidad) AS sumaCataCotizacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoCotizacionObrasMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__cotizacionObras__monto) AS sumaCotizacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__cantidad) AS sumaCataLicitacionObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoLicitacionObrasMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__licitacionObras__monto) AS sumaLicitacionObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__cantidad) AS sumaCataPrecioObrasObrasCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoPrecioObrasMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__precioObras__monto) AS sumaPrecioObrasObrasMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__cantidad) AS sumaCataContratacionDirectaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionDirectaMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionDirecta__monto) AS sumaContratacionDirectaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__cantidad) AS sumaCataContratacionListaCortaCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionListaCortaMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionListaCorta__monto) AS sumaContratacionListaCortaMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuCantActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__cantidad) AS sumaCataContratacionConcursoPuCant FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				$catalogoContratacionConcursoPuMontoActividad7=$objeto->getObtenerInformacionGeneral("SELECT SUM(catalogo__contratacionConcursoPu__monto) AS sumaContratacionConcursoPuMonto FROM poa_catalogo_contraloria_seguimiento WHERE idOrganismo='$idOrganismo' AND idActividad='7' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestreEvaluadorDos' GROUP BY idActividad;");
+				// if (empty($obtenerInformacion__1[0][contadorCatalogo])) {
+				// 	$jason['obtenerInformacion__1']=0;
+				// } else {
+				// 	$jason['obtenerInformacion__1']=$obtenerInformacion__1[0][contadorCatalogo];
+				// }			
+				
+	
+				// // sumas
+				// $obtenerInformacion__sumas__1=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(b.totalTotales),2) AS sumadorTotales FROM poa_catalogo_contraloria AS a INNER JOIN poa_programacion_financiera AS b ON a.idItemCatalogo=b.idItem WHERE a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo'  AND b.idOrganismo='$idOrganismo'AND b.perioIngreso='$aniosPeriodos__ingesos' AND a.catalogo__elect='si' GROUP BY a.idOrganismo;");
+				
+				// if (empty($obtenerInformacion__sumas__1[0][sumadorTotales])) {
+				// 	$jason['obtenerInformacion__sumas__1']=0;
+				// } else {
+				// 	$jason['obtenerInformacion__sumas__1']=number_format($obtenerInformacion__sumas__1[0][sumadorTotales], 2, ',', '.');
+				// }
+				
+				
+				
+				$declaracion__maximo=$objeto->getObtenerInformacionGeneral("SELECT MAX(idDeclaracion) AS maximo FROM poa_seguimiento_declaracion WHERE perioIngreso='$aniosPeriodos__ingesos';");
+				$declaracion__maximo2=$objeto->getObtenerInformacionGeneral("SELECT a.idProgramacionFinanciera,(SELECT CONCAT_WS('-',a1.idActividades,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS nombreActividades, (SELECT CONCAT_WS('-',a1.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) FROM poa_item AS a1 WHERE a1.idItem=a.idItem LIMIT 1) AS nombreItem,a.julio+a.agosto+a.septiembre AS tercerTrimestre,(SELECT a1.programado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programadoTercer,(SELECT a1.porcentaje FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS porcentajeTercer,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND (a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' AND a1.perioIngreso='$aniosPeriodos__ingesos') AND a1.perioIngreso='$aniosPeriodos__ingesos' ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutadoTercero FROM poa_programacion_financiera_dos AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad ORDER BY a.idActividad;");
+					
+				
+				$declaracion__maximo3=$objeto->getObtenerInformacionGeneral("SELECT catalogo__elect__cantidad, a.catalogo__elect__monto, a.catalogo__subasta__cantidad, a.catalogo__subasta__monto, a.catalogo__infima__cantidad, a.catalogo__infima__monto, a.catalogo__menorCuantia__cantidad, a.catalogo__menorCuantiaObras__monto, a.catalogo__cotizacion__cantidad, a.catalogo__cotizacionObras__monto, a.catalogo__licitacion__cantidad, a.catalogo__licitacion__monto, a.catalogo__menorCuantiaObras__cantidad, a.catalogo__menorCuantiaObras__monto, a.catalogo__menorCuantiaObras__cantidad, a.catalogo__cotizacionObras__monto, a.catalogo__licitacionObras__cantidad, catalogo__licitacionObras__monto, catalogo__precioObras__cantidad, a.catalogo__precioObras__monto, a.catalogo__contratacionDirecta__cantidad, a.catalogo__contratacionDirecta__monto, a.catalogo__contratacionListaCorta__cantidad, a.catalogo__contratacionListaCorta__monto, a.catalogo__contratacionConcursoPu__cantidad, a.catalogo__contratacionConcursoPu__monto, a.idActividad FROM poa_catalogo_contraloria_seguimiento AS a WHERE a.IdOrganismo = $idOrganismo AND a.perioIngreso = $aniosPeriodos__ingesos AND a.trimestre = 'cuartoTrimestre' AND a.idActividad = 1
+				");
+	//  echo "HOLA DAV";
+	//  echo $declaracion__maximo3[0][catalogo__elect__cantidad];
+	
+	 if ($declaracion__maximo3[23][idActividad]=="1") {
+		$indentificador= $declaracion__maximo3[23][idActividad];
+	 }
+	
+				if ($trimestreEvaluadorDos=="primerTrimestre") {
+					$indentificador="I";
+				}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+					$indentificador="II";
+				}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+					$indentificador="III";
+				}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+					$indentificador="IV";
+				}
+	
+	
+	
+				$documentoCuerpo.="
+	
+								<table style='width:100%!important; margin-top:2em;'>
+	
+									<tr>
+	
+										<th>
+	
+											<center>
+	
+												DECLARACIÓN DE RESPONSABILIDAD DE PROCEDIMIENTOS DE CONTRATACIÓN PÚBLICA
+	
+											</center>
+	
+										</th>
+	
+									</tr>
+	
+								</table>
+	
+								<br><br>
+								<table>
+									<thead>
+										<tr>
+											<th style='width:30%!important';>DECLARACIÓN NRO. Nro.</th>
+											<td>".$declaracion__maximo[0][maximo]."</td>
+										</tr>
+										<tr>
+											<th style='width:30%!important;'>Fecha:</th>
+											<td>".$fecha_actual."</td> 
+										</tr>
+										<tr>
+											<th style='width:30%!important;'>Hora:</th>
+											<td>".$hora_actual."</td> 
+										</tr>
+									</thead>
+								</table>
+								<br>
+	
+	
+								<table style='width:100%!important; margin-top:2em;'>
+	
+									<tr>
+	
+										<th>
+											<center>
+	
+											APLICATIVO DE SEGUIMIENTO Y EVALUACIÓN AL POA".$aniosPeriodos__ingesos."
+	
+											</center>
+										
+										</th>
+	
+									</tr>
+	
+								</table>
+	
+								<table style='width:100%!important; margin-top:2em;'>
+	
+									<thead>
+										<tr>
+											<th style='width:30%!important';>ORGANIZACIÓN DEPORTIVA:</th>
+											<td>".strtoupper($informacionCompleto[0][nombreOrganismo])."</td>
+										</tr>
+										<tr>
+											<th style='width:30%!important;'>NÚMERO DE RUC:</th>
+											<td>".$informacionCompleto[0][ruc]."</td> 
+										</tr>
+										<tr>
+											<th style='width:30%!important;'>CORREO ELECTRÓNICO:</th>
+											<td>".$informacionCompleto[0][correo]."</td> 
+										</tr>
+									</thead>
+	
+								</table>
+								<br>
+							
+								<table style='width:100%!important; margin-top:2em;'>
+	
+									<thead>
+										<tr>
+											<th style='width:30%!important';>PERÍODO REPORTADO:</th>
+											<td>".$indentificador." TRIMESTRE ".$aniosPeriodos__ingesos."</td>
+										</tr>
+									</thead>
+	
+								</table>
+	
+					
+								<table style='width:100%!important; margin-top:2em;'>
+									<tr>
+										<td style='text-align:justify!important;'>
+											En mi calidad de representante legal de la <span style='font-weight:bold!important;'>".$informacionCompleto[0][nombreOrganismo]."</span> CERTIFICO que los procedimientos de contratación pública EJECUTADOS y detallados para la adquisición de bienes, contratación de servicios, consultorías y obras a financiados con recursos públicos se encuentran de conformidad a lo establecido en la Ley Orgánica del Sistema Nacional de Contratación Pública, su Reglamento General de aplicación, resoluciones expedidas por el SERCOP y demás normativa legal vigente. Además, CONFIRMO que esta Organización Deportiva cumple con lo establecido en las Normas de Control Interno, Reglamento General Sustitutivo para la Administración, Utilización, Manejo y Control de los Bienes e Inventarios del Sector Público, Reglamento Sustitutivo para el Control de los Vehículos del Sector Público y demás normas emitidas por la Contraloría General del Estado.
+										</td>
+									</tr>
+								</table>
+								<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+								
+								";
+	
+	////////////////////////////////////////////////////////
+			
+			if($trimestreEvaluadorDos=="primerTrimestre") {
+	
+				$i = 0;
+				foreach ($declaracion__maximo2 as $valor) {
+					 $variableAr=$declaracion__maximo2[$i][nombreActividades];
+					
+					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad1[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad1[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad1[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad1[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad1[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad1[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad1[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad1[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad1[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad1[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad1[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad1[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad1[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad1[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad1[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad1[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad1[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad1[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad1[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad1[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad1[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad1[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad1[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad1[0][sumaContratacionConcursoPuMonto],2);
+						
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	
+						
+					}else if($variableAr == "2-MANTENIMIENTO DE ESCENARIOS  E INFRAESTRUCTURA DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad2[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad2[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad2[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad2[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad2[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad2[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad2[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad2[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad2[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad2[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad2[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad2[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad2[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad2[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad2[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad2[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad2[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad2[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad2[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad2[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad2[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad2[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad2[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad2[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad2[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad2[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	 
+	
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad3[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad3[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad3[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad3[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad3[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad3[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad3[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad3[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad3[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad3[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad3[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad3[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad3[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad3[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad3[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad3[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad3[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad3[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad3[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad3[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad3[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad3[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad3[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad3[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "4-OPERACIÓN DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad4[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad4[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad4[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad4[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad4[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad4[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad4[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad4[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad4[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad4[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad4[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad4[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad4[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad4[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad4[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad4[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad4[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad4[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad4[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad4[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad4[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad4[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad4[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad4[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad4[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad4[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "5-EVENTOS DE PREPARACIÓN Y COMPETENCIA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad5[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad5[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad5[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad5[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad5[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad5[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad5[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad5[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad5[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad5[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad5[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad5[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad5[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad5[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad5[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad5[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad5[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad5[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad5[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad5[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad5[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad5[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad5[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad5[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad5[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad5[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	 
+	
+					}else if($variableAr == "6-ACTIVIDADES RECREATIVAS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad6[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad6[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad6[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad6[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad6[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad6[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad6[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad6[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad6[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad6[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad6[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad6[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad6[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad6[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad6[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad6[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad6[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad6[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad6[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad6[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad6[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad6[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad6[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad6[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad6[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad6[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
+			 
+						$cantidad_subasta = $catalogoSubastaCantActividad7[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad7[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad7[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad7[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad7[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad7[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad7[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad7[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad7[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad7[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad7[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad7[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad7[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad7[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad7[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad7[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad7[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad7[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad7[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad7[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad7[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad7[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad7[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad7[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+						
+	
+					}else{
+						$cantidad_cat_electronico = 0; 
+						$monto_cat_electronico = 0;
+								
+						$cantidad_subasta = 0; 
+						$monto_subasta = 0;
+	
+						$cantidad_infima = 0; 
+						$monto_infima = 0;
+	
+						$cantidad_menorCuantia = 0; 
+						$monto_menorCuantia = 0;
+	
+						$cantidad_cotizacion = 0; 
+						$monto_cotizacion = 0;
+	
+						$cantidad_licitacion = 0; 
+						$monto_licitacion = 0;
+	
+						$cantidad_menorCuantiaObras = 0; 
+						$monto_menorCuantiaObras = 0;
+	
+						$cantidad_cotizacionObras = 0; 
+						$monto_cotizacionObras = 0;
+	
+						$cantidad_licitacionObras = 0; 
+						$monto_licitacionObras = 0;
+	
+						$cantidad_precioObras = 0; 
+						$monto_precioObras = 0;
+	
+						$cantidad_contratacionDirecta = 0; 
+						$monto_contratacionDirecta = 0;
+	
+						$cantidad_contratacionListaCorta = 0; 
+						$monto_contratacionListaCorta = 0;
+	
+						$cantidad_contratacionConcursoPu = 0; 
+						$monto_contratacionConcursoPu = 0;
+					}
+	
+					$documentoCuerpo.="
+					<table class='table table-hover' border='1' style='margin-top:2em; width:100%;border-collapse: collapse!important;' cellpadding='5'>
+						<tr style = 'background:#e8edff'>
+							<th colspan='4'>
+								".$variableAr."
+							</th>
+						</tr>
+	
+						<tr style = 'background:#e8edff'>
+							<th>
+								Tipo de contratación
+							</th>
+							<th>
+								Tipo de contratación
+							</th>
+							<th>
+								Numero de contratación
+							</th>
+							<th>
+								Monto $
+							</th>
+						</tr>
+	
+						<tr>
+							<td rowspan='3'>
+								Bienes y servicios normalizados
+							</td>												
+																
+							<td>
+								Catálogo Electrónico
+							</td>
+							
+							<td>
+								".$cantidad_cat_electronico."  								
+							</td> 
+							<td>
+								".$monto_cat_electronico."
+							</td>									
+						</tr>
+	
+						<tr>
+							<td>
+								Subasta Inversa Electrónica
+							</td>
+							<td>
+								".$cantidad_subasta."
+							</td>
+							<td>
+								".$monto_subasta."
+							</td>
+						</tr>
+	
+						<tr>									
+							<td>
+								Ínfima Cuantía
+							</td>
+							<td>
+								".$cantidad_infima."
+							</td>
+							<td>
+								".$monto_infima."
+							</td>
+						</tr>
+	
+	
+						<tr>
+							<td rowspan='7'>
+								Bienes y servicios no normalizados
+							</td>								
+																	
+							<td>
+								Menor Cuantía
+							</td>
+							<td>
+								".$cantidad_menorCuantia."
+							</td>
+							<td>
+								".$monto_menorCuantia."
+							</td>		
+						</tr>
+	
+						<tr>
+							<td>
+								Cotización
+							</td>
+	
+							<td>
+								".$cantidad_cotizacion."
+							</td>
+	
+							<td>
+								".$monto_cotizacion."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Licitación
+							</td>
+	
+							<td>
+								".$cantidad_licitacion."
+							</td>
+	
+							<td>
+								".$monto_licitacion."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Menor Cuantía
+							</td>
+	
+							<td>
+								".$cantidad_menorCuantiaObras."
+							</td>
+							<td>
+								".$monto_menorCuantiaObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Cotización
+							</td>
+							<td>
+								".$cantidad_cotizacionObras."
+							</td>
+							<td>
+								".$monto_cotizacionObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Licitación
+							</td>
+	
+							<td>
+								".$cantidad_licitacionObras."
+							</td>
+	
+							<td>
+								".$monto_licitacionObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Precio Fijo
+							</td>
+	
+							<td>
+								".$cantidad_precioObras."
+							</td>
+	
+							<td>
+								".$monto_precioObras."
+							</td>
+						</tr>
+	
+	
+	
+						<tr>
+							<td rowspan='3'>
+								Bienes y servicios normalizados
+							</td>
+																
+							<td>
+								Contratación Directa
+							</td>
+							<td>
+								".$cantidad_contratacionDirecta."
+							</td>
+							<td>
+								".$monto_contratacionDirecta."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Lista Corta
+							</td>
+							<td>
+								".$cantidad_contratacionListaCorta."
+							</td>
+							<td>
+								".$monto_contratacionListaCorta."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Concurso Público
+							</td>
+							<td>
+								".$cantidad_contratacionConcursoPu."
+							</td>
+							<td>
+								".$monto_contratacionConcursoPu."
+							</td>
+						</tr>
+	
+						<tr style = 'background:#e8edff'>
+							<td colspan = '2'>
+								Total
+							</td>
+							<td>
+								".$sum1C."
+							</td>
+							<td>
+								".round($sum2C,2)."
+							</td>
+						</tr>
+					</table>";		
+					$i++;
+			
+					
+				}
+			
+			
+						
+			
+						
+	
+			}else if($trimestreEvaluadorDos=="segundoTrimestre"){
+			$i = 0;
+				foreach ($declaracion__maximo2 as $valor) {
+					 $variableAr=$declaracion__maximo2[$i][nombreActividades];
+					
+					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad1[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad1[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad1[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad1[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad1[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad1[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad1[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad1[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad1[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad1[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad1[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad1[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad1[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad1[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad1[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad1[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad1[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad1[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad1[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad1[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad1[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad1[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad1[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad1[0][sumaContratacionConcursoPuMonto],2);
+						
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	
+						
+					}else if($variableAr == "2-MANTENIMIENTO DE ESCENARIOS  E INFRAESTRUCTURA DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad2[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad2[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad2[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad2[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad2[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad2[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad2[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad2[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad2[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad2[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad2[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad2[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad2[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad2[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad2[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad2[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad2[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad2[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad2[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad2[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad2[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad2[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad2[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad2[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad2[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad2[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	 
+	
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad3[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad3[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad3[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad3[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad3[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad3[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad3[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad3[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad3[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad3[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad3[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad3[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad3[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad3[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad3[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad3[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad3[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad3[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad3[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad3[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad3[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad3[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad3[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad3[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "4-OPERACIÓN DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad4[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad4[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad4[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad4[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad4[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad4[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad4[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad4[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad4[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad4[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad4[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad4[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad4[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad4[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad4[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad4[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad4[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad4[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad4[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad4[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad4[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad4[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad4[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad4[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad4[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad4[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "5-EVENTOS DE PREPARACIÓN Y COMPETENCIA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad5[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad5[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad5[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad5[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad5[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad5[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad5[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad5[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad5[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad5[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad5[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad5[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad5[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad5[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad5[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad5[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad5[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad5[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad5[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad5[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad5[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad5[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad5[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad5[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad5[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad5[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	 
+	
+					}else if($variableAr == "6-ACTIVIDADES RECREATIVAS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad6[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad6[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad6[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad6[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad6[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad6[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad6[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad6[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad6[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad6[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad6[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad6[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad6[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad6[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad6[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad6[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad6[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad6[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad6[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad6[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad6[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad6[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad6[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad6[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad6[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad6[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
+			 
+						$cantidad_subasta = $catalogoSubastaCantActividad7[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad7[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad7[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad7[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad7[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad7[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad7[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad7[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad7[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad7[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad7[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad7[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad7[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad7[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad7[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad7[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad7[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad7[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad7[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad7[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad7[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad7[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad7[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad7[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+						
+	
+					}else{
+						$cantidad_cat_electronico = 0; 
+						$monto_cat_electronico = 0;
+								
+						$cantidad_subasta = 0; 
+						$monto_subasta = 0;
+	
+						$cantidad_infima = 0; 
+						$monto_infima = 0;
+	
+						$cantidad_menorCuantia = 0; 
+						$monto_menorCuantia = 0;
+	
+						$cantidad_cotizacion = 0; 
+						$monto_cotizacion = 0;
+	
+						$cantidad_licitacion = 0; 
+						$monto_licitacion = 0;
+	
+						$cantidad_menorCuantiaObras = 0; 
+						$monto_menorCuantiaObras = 0;
+	
+						$cantidad_cotizacionObras = 0; 
+						$monto_cotizacionObras = 0;
+	
+						$cantidad_licitacionObras = 0; 
+						$monto_licitacionObras = 0;
+	
+						$cantidad_precioObras = 0; 
+						$monto_precioObras = 0;
+	
+						$cantidad_contratacionDirecta = 0; 
+						$monto_contratacionDirecta = 0;
+	
+						$cantidad_contratacionListaCorta = 0; 
+						$monto_contratacionListaCorta = 0;
+	
+						$cantidad_contratacionConcursoPu = 0; 
+						$monto_contratacionConcursoPu = 0;
+					}
+	
+					$documentoCuerpo.="
+					<table class='table table-hover' border='1' style='margin-top:2em; width:100%;border-collapse: collapse!important;' cellpadding='5'>
+						<tr style = 'background:#e8edff'>
+							<th colspan='4'>
+								".$variableAr."
+							</th>
+						</tr>
+	
+						<tr style = 'background:#e8edff'>
+							<th>
+								Tipo de contratación
+							</th>
+							<th>
+								Tipo de contratación
+							</th>
+							<th>
+								Numero de contratación
+							</th>
+							<th>
+								Monto $
+							</th>
+						</tr>
+	
+						<tr>
+							<td rowspan='3'>
+								Bienes y servicios normalizados
+							</td>												
+																
+							<td>
+								Catálogo Electrónico
+							</td>
+							
+							<td>
+								".$cantidad_cat_electronico."  								
+							</td> 
+							<td>
+								".$monto_cat_electronico."
+							</td>									
+						</tr>
+	
+						<tr>
+							<td>
+								Subasta Inversa Electrónica
+							</td>
+							<td>
+								".$cantidad_subasta."
+							</td>
+							<td>
+								".$monto_subasta."
+							</td>
+						</tr>
+	
+						<tr>									
+							<td>
+								Ínfima Cuantía
+							</td>
+							<td>
+								".$cantidad_infima."
+							</td>
+							<td>
+								".$monto_infima."
+							</td>
+						</tr>
+	
+	
+						<tr>
+							<td rowspan='7'>
+								Bienes y servicios no normalizados
+							</td>								
+																	
+							<td>
+								Menor Cuantía
+							</td>
+							<td>
+								".$cantidad_menorCuantia."
+							</td>
+							<td>
+								".$monto_menorCuantia."
+							</td>		
+						</tr>
+	
+						<tr>
+							<td>
+								Cotización
+							</td>
+	
+							<td>
+								".$cantidad_cotizacion."
+							</td>
+	
+							<td>
+								".$monto_cotizacion."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Licitación
+							</td>
+	
+							<td>
+								".$cantidad_licitacion."
+							</td>
+	
+							<td>
+								".$monto_licitacion."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Menor Cuantía
+							</td>
+	
+							<td>
+								".$cantidad_menorCuantiaObras."
+							</td>
+							<td>
+								".$monto_menorCuantiaObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Cotización
+							</td>
+							<td>
+								".$cantidad_cotizacionObras."
+							</td>
+							<td>
+								".$monto_cotizacionObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Licitación
+							</td>
+	
+							<td>
+								".$cantidad_licitacionObras."
+							</td>
+	
+							<td>
+								".$monto_licitacionObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Precio Fijo
+							</td>
+	
+							<td>
+								".$cantidad_precioObras."
+							</td>
+	
+							<td>
+								".$monto_precioObras."
+							</td>
+						</tr>
+	
+	
+	
+						<tr>
+							<td rowspan='3'>
+								Bienes y servicios normalizados
+							</td>
+																
+							<td>
+								Contratación Directa
+							</td>
+							<td>
+								".$cantidad_contratacionDirecta."
+							</td>
+							<td>
+								".$monto_contratacionDirecta."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Lista Corta
+							</td>
+							<td>
+								".$cantidad_contratacionListaCorta."
+							</td>
+							<td>
+								".$monto_contratacionListaCorta."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Concurso Público
+							</td>
+							<td>
+								".$cantidad_contratacionConcursoPu."
+							</td>
+							<td>
+								".$monto_contratacionConcursoPu."
+							</td>
+						</tr>
+	
+						<tr style = 'background:#e8edff'>
+							<td colspan = '2'>
+								Total
+							</td>
+							<td>
+								".$sum1C."
+							</td>
+							<td>
+								".round($sum2C,2)."
+							</td>
+						</tr>
+					</table>";		
+					$i++;
+			
+					
+				}
+			
+			
+						
+			
+						
+			}else if($trimestreEvaluadorDos=="tercerTrimestre"){
+	
+				$i = 0;
+				foreach ($declaracion__maximo2 as $valor) {
+					 $variableAr=$declaracion__maximo2[$i][nombreActividades];
+					
+					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad1[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad1[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad1[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad1[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad1[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad1[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad1[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad1[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad1[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad1[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad1[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad1[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad1[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad1[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad1[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad1[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad1[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad1[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad1[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad1[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad1[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad1[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad1[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad1[0][sumaContratacionConcursoPuMonto],2);
+						
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	
+						
+					}else if($variableAr == "2-MANTENIMIENTO DE ESCENARIOS  E INFRAESTRUCTURA DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad2[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad2[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad2[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad2[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad2[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad2[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad2[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad2[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad2[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad2[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad2[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad2[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad2[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad2[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad2[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad2[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad2[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad2[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad2[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad2[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad2[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad2[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad2[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad2[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad2[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad2[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	 
+	
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad3[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad3[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad3[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad3[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad3[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad3[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad3[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad3[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad3[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad3[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad3[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad3[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad3[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad3[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad3[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad3[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad3[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad3[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad3[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad3[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad3[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad3[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad3[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad3[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "4-OPERACIÓN DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad4[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad4[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad4[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad4[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad4[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad4[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad4[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad4[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad4[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad4[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad4[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad4[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad4[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad4[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad4[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad4[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad4[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad4[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad4[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad4[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad4[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad4[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad4[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad4[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad4[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad4[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "5-EVENTOS DE PREPARACIÓN Y COMPETENCIA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad5[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad5[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad5[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad5[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad5[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad5[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad5[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad5[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad5[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad5[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad5[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad5[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad5[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad5[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad5[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad5[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad5[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad5[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad5[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad5[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad5[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad5[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad5[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad5[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad5[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad5[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	 
+	
+					}else if($variableAr == "6-ACTIVIDADES RECREATIVAS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad6[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad6[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad6[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad6[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad6[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad6[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad6[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad6[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad6[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad6[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad6[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad6[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad6[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad6[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad6[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad6[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad6[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad6[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad6[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad6[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad6[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad6[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad6[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad6[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad6[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad6[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
+			 
+						$cantidad_subasta = $catalogoSubastaCantActividad7[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad7[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad7[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad7[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad7[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad7[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad7[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad7[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad7[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad7[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad7[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad7[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad7[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad7[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad7[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad7[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad7[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad7[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad7[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad7[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad7[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad7[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad7[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad7[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+						
+	
+					}else{
+						$cantidad_cat_electronico = 0; 
+						$monto_cat_electronico = 0;
+								
+						$cantidad_subasta = 0; 
+						$monto_subasta = 0;
+	
+						$cantidad_infima = 0; 
+						$monto_infima = 0;
+	
+						$cantidad_menorCuantia = 0; 
+						$monto_menorCuantia = 0;
+	
+						$cantidad_cotizacion = 0; 
+						$monto_cotizacion = 0;
+	
+						$cantidad_licitacion = 0; 
+						$monto_licitacion = 0;
+	
+						$cantidad_menorCuantiaObras = 0; 
+						$monto_menorCuantiaObras = 0;
+	
+						$cantidad_cotizacionObras = 0; 
+						$monto_cotizacionObras = 0;
+	
+						$cantidad_licitacionObras = 0; 
+						$monto_licitacionObras = 0;
+	
+						$cantidad_precioObras = 0; 
+						$monto_precioObras = 0;
+	
+						$cantidad_contratacionDirecta = 0; 
+						$monto_contratacionDirecta = 0;
+	
+						$cantidad_contratacionListaCorta = 0; 
+						$monto_contratacionListaCorta = 0;
+	
+						$cantidad_contratacionConcursoPu = 0; 
+						$monto_contratacionConcursoPu = 0;
+					}
+					$documentoCuerpo.="
+					<table class='table table-hover' border='1' style='margin-top:2em; width:100%;border-collapse: collapse!important;' cellpadding='5'>
+						<tr style = 'background:#e8edff'>
+							<th colspan='4'>
+								".$variableAr."
+							</th>
+						</tr>
+	
+						<tr style = 'background:#e8edff'>
+							<th>
+								Tipo de contratación
+							</th>
+							<th>
+								Tipo de contratación
+							</th>
+							<th>
+								Numero de contratación
+							</th>
+							<th>
+								Monto $
+							</th>
+						</tr>
+	
+						<tr>
+							<td rowspan='3'>
+								Bienes y servicios normalizados
+							</td>												
+																
+							<td>
+								Catálogo Electrónico
+							</td>
+							
+							<td>
+								".$cantidad_cat_electronico."  								
+							</td> 
+							<td>
+								".$monto_cat_electronico."
+							</td>									
+						</tr>
+	
+						<tr>
+							<td>
+								Subasta Inversa Electrónica
+							</td>
+							<td>
+								".$cantidad_subasta."
+							</td>
+							<td>
+								".$monto_subasta."
+							</td>
+						</tr>
+	
+						<tr>									
+							<td>
+								Ínfima Cuantía
+							</td>
+							<td>
+								".$cantidad_infima."
+							</td>
+							<td>
+								".$monto_infima."
+							</td>
+						</tr>
+	
+	
+						<tr>
+							<td rowspan='7'>
+								Bienes y servicios no normalizados
+							</td>								
+																	
+							<td>
+								Menor Cuantía
+							</td>
+							<td>
+								".$cantidad_menorCuantia."
+							</td>
+							<td>
+								".$monto_menorCuantia."
+							</td>		
+						</tr>
+	
+						<tr>
+							<td>
+								Cotización
+							</td>
+	
+							<td>
+								".$cantidad_cotizacion."
+							</td>
+	
+							<td>
+								".$monto_cotizacion."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Licitación
+							</td>
+	
+							<td>
+								".$cantidad_licitacion."
+							</td>
+	
+							<td>
+								".$monto_licitacion."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Menor Cuantía
+							</td>
+	
+							<td>
+								".$cantidad_menorCuantiaObras."
+							</td>
+							<td>
+								".$monto_menorCuantiaObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Cotización
+							</td>
+							<td>
+								".$cantidad_cotizacionObras."
+							</td>
+							<td>
+								".$monto_cotizacionObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Licitación
+							</td>
+	
+							<td>
+								".$cantidad_licitacionObras."
+							</td>
+	
+							<td>
+								".$monto_licitacionObras."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Precio Fijo
+							</td>
+	
+							<td>
+								".$cantidad_precioObras."
+							</td>
+	
+							<td>
+								".$monto_precioObras."
+							</td>
+						</tr>
+	
+	
+	
+						<tr>
+							<td rowspan='3'>
+								Bienes y servicios normalizados
+							</td>
+																
+							<td>
+								Contratación Directa
+							</td>
+							<td>
+								".$cantidad_contratacionDirecta."
+							</td>
+							<td>
+								".$monto_contratacionDirecta."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Lista Corta
+							</td>
+							<td>
+								".$cantidad_contratacionListaCorta."
+							</td>
+							<td>
+								".$monto_contratacionListaCorta."
+							</td>
+						</tr>
+	
+						<tr>
+							<td>
+								Concurso Público
+							</td>
+							<td>
+								".$cantidad_contratacionConcursoPu."
+							</td>
+							<td>
+								".$monto_contratacionConcursoPu."
+							</td>
+						</tr>
+	
+						<tr style = 'background:#e8edff'>
+							<td colspan = '2'>
+								Total
+							</td>
+							<td>
+								".$sum1C."
+							</td>
+							<td>
+								".round($sum2C,2)."
+							</td>
+						</tr>
+					</table>";		
+					$i++;
+			
+					
+				}	
+			
+						
+				
+			}else if($trimestreEvaluadorDos=="cuartoTrimestre"){
+	
+				$i = 0;
+				
+				foreach ($declaracion__maximo2 as $valor) {		
+					 $variableAr=$declaracion__maximo2[$i][nombreActividades];				
+	
+	
+					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad1[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad1[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad1[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad1[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad1[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad1[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad1[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad1[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad1[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad1[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad1[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad1[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad1[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad1[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad1[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad1[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad1[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad1[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad1[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad1[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad1[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad1[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad1[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad1[0][sumaContratacionConcursoPuMonto],2);
+						
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	
+						
+					}else if($variableAr == "2-MANTENIMIENTO DE ESCENARIOS  E INFRAESTRUCTURA DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad2[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad2[0][sumaCataElectronicoMonto],2);
+	
+						$cantidad_subasta = $catalogoSubastaCantActividad2[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad2[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad2[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad2[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad2[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad2[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad2[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad2[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad2[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad2[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad2[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad2[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad2[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad2[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad2[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad2[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad2[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad2[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad2[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad2[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad2[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad2[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad2[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad2[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	
+	 
+	
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad3[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad3[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad3[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad3[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad3[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad3[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad3[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad3[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad3[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad3[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad3[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad3[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad3[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad3[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad3[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad3[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad3[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad3[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad3[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad3[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad3[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad3[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad3[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad3[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "4-OPERACIÓN DEPORTIVA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad4[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad4[0][sumaCataElectronicoMonto],2);
+						
+						$cantidad_subasta = $catalogoSubastaCantActividad4[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad4[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad4[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad4[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad4[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad4[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad4[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad4[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad4[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad4[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad4[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad4[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad4[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad4[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad4[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad4[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad4[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad4[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad4[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad4[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad4[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad4[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad4[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad4[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "5-EVENTOS DE PREPARACIÓN Y COMPETENCIA"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad5[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad5[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad5[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad5[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad5[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad5[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad5[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad5[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad5[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad5[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad5[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad5[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad5[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad5[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad5[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad5[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad5[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad5[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad5[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad5[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad5[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad5[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad5[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad5[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad5[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad5[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	 
+	
+					}else if($variableAr == "6-ACTIVIDADES RECREATIVAS"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad6[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad6[0][sumaCataElectronicoMonto],2);
+								
+						$cantidad_subasta = $catalogoSubastaCantActividad6[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad6[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad6[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad6[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad6[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad6[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad6[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad6[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad6[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad6[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad6[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad6[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad6[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad6[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad6[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad6[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad6[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad6[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad6[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad6[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad6[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad6[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad6[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad6[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+	 
+	
+					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
+						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
+			 
+						$cantidad_subasta = $catalogoSubastaCantActividad7[0][sumaCataSubastaCant]; 
+						$monto_subasta = round($catalogoSubastaMontoActividad7[0][sumaCataSubastaMonto],2);
+	
+						$cantidad_infima = $catalogoInfimaCantActividad7[0][sumaCatainfimaCant]; 
+						$monto_infima = round($catalogoInfimaMontoActividad7[0][sumaCatainfimaMonto],2);
+	
+						$cantidad_menorCuantia = $catalogoMenorCuantiaCantActividad7[0][sumaCatamenorCuantiaCant]; 
+						$monto_menorCuantia = round($catalogoMenorCuantiaMontoActividad7[0][sumaCatamenorCuantiaMonto],2);
+	
+						$cantidad_cotizacion = $catalogoCotizacionCantActividad7[0][sumaCataCotizacionCant]; 
+						$monto_cotizacion = round($catalogoCotizacionMontoActividad7[0][sumaCataCotizacionMonto],2);
+	
+						$cantidad_licitacion = $catalogoLicitacionCantActividad7[0][sumaCataLicitacionCant]; 
+						$monto_licitacion = round($catalogoLicitacionMontoActividad7[0][sumaCataLicitacionMonto],2);
+	
+						$cantidad_menorCuantiaObras = $catalogoMenorcuantiaObrasCantActividad7[0][sumaCataMenorCuantiaObrasCant]; 
+						$monto_menorCuantiaObras = round($catalogoMenorCuantiaObrasMontoActividad7[0][sumaCataMenorCuantiaObrasMonto],2);
+	
+						$cantidad_cotizacionObras = $catalogoCotizacionObrasCantActividad7[0][sumaCataCotizacionObrasObrasCant]; 
+						$monto_cotizacionObras = round($catalogoCotizacionObrasMontoActividad7[0][sumaCotizacionObrasObrasMonto],2);
+	
+						$cantidad_licitacionObras = $catalogoLicitacionObrasCantActividad7[0][sumaCataLicitacionObrasObrasCant]; 
+						$monto_licitacionObras = round($catalogoLicitacionObrasMontoActividad7[0][sumaLicitacionObrasObrasMonto],2);
+	
+						$cantidad_precioObras = $catalogoPrecioObrasCantActividad7[0][sumaCataPrecioObrasObrasCant]; 
+						$monto_precioObras = round($catalogoPrecioObrasMontoActividad7[0][sumaPrecioObrasObrasMonto],2);
+	
+						$cantidad_contratacionDirecta = $catalogoContratacionDirectaCantActividad7[0][sumaCataContratacionDirectaCant]; 
+						$monto_contratacionDirecta = round($catalogoContratacionDirectaMontoActividad7[0][sumaContratacionDirectaMonto],2);
+	
+						$cantidad_contratacionListaCorta = $catalogoContratacionListaCortaCantActividad7[0][sumaCataContratacionListaCortaCant]; 
+						$monto_contratacionListaCorta = round($catalogoContratacionListaCortaMontoActividad7[0][sumaContratacionListaCortaMonto],2);
+	
+						$cantidad_contratacionConcursoPu = $catalogoContratacionConcursoPuCantActividad7[0][sumaCataContratacionConcursoPuCant]; 
+						$monto_contratacionConcursoPu = round($catalogoContratacionConcursoPuMontoActividad7[0][sumaContratacionConcursoPuMonto],2);
+	
+						$sum1C=0;
+						$sum2C=0;
+						$sum1C=floatval($cantidad_cat_electronico) + floatval($cantidad_subasta) + floatval($cantidad_infima) + floatval($cantidad_menorCuantia) + floatval($cantidad_cotizacion) + floatval($cantidad_licitacion) + floatval($cantidad_menorCuantiaObras) + floatval($cantidad_cotizacionObras) + floatval($cantidad_licitacionObras) + floatval($cantidad_precioObras) + floatval($cantidad_contratacionDirecta) + floatval($cantidad_contratacionListaCorta) + floatval($cantidad_contratacionConcursoPu);
+	
+						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
+						
+	
+					}else{
+						$cantidad_cat_electronico = 0; 
+						$monto_cat_electronico = 0;
+								
+						$cantidad_subasta = 0; 
+						$monto_subasta = 0;
+	
+						$cantidad_infima = 0; 
+						$monto_infima = 0;
+	
+						$cantidad_menorCuantia = 0; 
+						$monto_menorCuantia = 0;
+	
+						$cantidad_cotizacion = 0; 
+						$monto_cotizacion = 0;
+	
+						$cantidad_licitacion = 0; 
+						$monto_licitacion = 0;
+	
+						$cantidad_menorCuantiaObras = 0; 
+						$monto_menorCuantiaObras = 0;
+	
+						$cantidad_cotizacionObras = 0; 
+						$monto_cotizacionObras = 0;
+	
+						$cantidad_licitacionObras = 0; 
+						$monto_licitacionObras = 0;
+	
+						$cantidad_precioObras = 0; 
+						$monto_precioObras = 0;
+	
+						$cantidad_contratacionDirecta = 0; 
+						$monto_contratacionDirecta = 0;
+	
+						$cantidad_contratacionListaCorta = 0; 
+						$monto_contratacionListaCorta = 0;
+	
+						$cantidad_contratacionConcursoPu = 0; 
+						$monto_contratacionConcursoPu = 0;
+					}
+	
+							$documentoCuerpo.="
+											<table class='table table-hover' border='1' style='margin-top:2em; width:100%;border-collapse: collapse!important;' cellpadding='5'>
+												<tr style = 'background:#e8edff'>
+													<th colspan='4'>
+														".$variableAr."
+													</th>
+												</tr>
+			
+												<tr style = 'background:#e8edff'>
+													<th>
+														Tipo de contratación
+													</th>
+													<th>
+														Tipo de contratación
+													</th>
+													<th>
+														Numero de contratación
+													</th>
+													<th>
+														Monto $
+													</th>
+												</tr>
+	
+												<tr>
+													<td rowspan='3'>
+														Bienes y servicios normalizados
+													</td>												
+																						
+													<td>
+														Catálogo Electrónico
+													</td>
+													
+													<td>
+														".$cantidad_cat_electronico."  								
+													</td> 
+													<td>
+														".$monto_cat_electronico."
+													</td>									
+												</tr>
+	
+												<tr>
+													<td>
+														Subasta Inversa Electrónica
+													</td>
+													<td>
+														".$cantidad_subasta."
+													</td>
+													<td>
+														".$monto_subasta."
+													</td>
+												</tr>
+	
+												<tr>									
+													<td>
+														Ínfima Cuantía
+													</td>
+													<td>
+														".$cantidad_infima."
+													</td>
+													<td>
+														".$monto_infima."
+													</td>
+												</tr>
+			
+	
+												<tr>
+													<td rowspan='7'>
+														Bienes y servicios no normalizados
+													</td>								
+																							
+													<td>
+														Menor Cuantía
+													</td>
+													<td>
+														".$cantidad_menorCuantia."
+													</td>
+													<td>
+														".$monto_menorCuantia."
+													</td>		
+												</tr>
+	
+												<tr>
+													<td>
+														Cotización
+													</td>
+			
+													<td>
+														".$cantidad_cotizacion."
+													</td>
+			
+													<td>
+														".$monto_cotizacion."
+													</td>
+												</tr>
+	
+												<tr>
+													<td>
+														Licitación
+													</td>
+			
+													<td>
+														".$cantidad_licitacion."
+													</td>
+			
+													<td>
+														".$monto_licitacion."
+													</td>
+												</tr>
+	
+												<tr>
+													<td>
+														Menor Cuantía
+													</td>
+			
+													<td>
+														".$cantidad_menorCuantiaObras."
+													</td>
+													<td>
+														".$monto_menorCuantiaObras."
+													</td>
+												</tr>
+	
+												<tr>
+													<td>
+														Cotización
+													</td>
+													<td>
+														".$cantidad_cotizacionObras."
+													</td>
+													<td>
+														".$monto_cotizacionObras."
+													</td>
+												</tr>
+	
+												<tr>
+													<td>
+														Licitación
+													</td>
+			
+													<td>
+														".$cantidad_licitacionObras."
+													</td>
+			
+													<td>
+														".$monto_licitacionObras."
+													</td>
+												</tr>
+	
+												<tr>
+													<td>
+														Precio Fijo
+													</td>
+			
+													<td>
+														".$cantidad_precioObras."
+													</td>
+			
+													<td>
+														".$monto_precioObras."
+													</td>
+												</tr>
+	
+	
+	
+												<tr>
+													<td rowspan='3'>
+														Bienes y servicios normalizados
+													</td>
+																						
+													<td>
+														Contratación Directa
+													</td>
+													<td>
+														".$cantidad_contratacionDirecta."
+													</td>
+													<td>
+														".$monto_contratacionDirecta."
+													</td>
+												</tr>
+	
+												<tr>
+													<td>
+														Lista Corta
+													</td>
+													<td>
+														".$cantidad_contratacionListaCorta."
+													</td>
+													<td>
+														".$monto_contratacionListaCorta."
+													</td>
+												</tr>
+	
+												<tr>
+													<td>
+														Concurso Público
+													</td>
+													<td>
+														".$cantidad_contratacionConcursoPu."
+													</td>
+													<td>
+														".$monto_contratacionConcursoPu."
+													</td>
+												</tr>
+	
+												<tr style = 'background:#e8edff'>
+													<td colspan = '2'>
+														Total
+													</td>
+													<td>
+														".$sum1C."
+													</td>
+													<td>
+														".round($sum2C,2)."
+													</td>
+												</tr>
+											</table>";		
+											$i++;
+			
+					
+				}
+						
+					
+			}
+		
+	
+									$documentoCuerpo.='
+									<br><br><br>
+									<table>
+										<tr>
+											<td style="text-align:justify!important;">
+											La correcta ejecución de los recursos públicos financiados por parte del Ministerio del Deporte, para la adquisición de bienes, contratación de servicios, consultoría y obra; es de estricta responsabilidad de esta organización deportiva conforme lo establecido en el artículo 1 literal b) de la Ley Orgánica del Sistema Nacional de Contratación Pública.
+											Lo antes mencionado en virtud de que recibimos recursos públicos.
+											
+											</td>
+										</tr>
+									</table>
+									<br>
+									<table>
+										<tr>
+											<td style="text-align:justify!important;">
+												A través de lo reportado esta organización deportiva no incurre en la recurrencia de ínfimas cuantías y los procedimientos de contratación pública planificados se encuentran acorde con una misma naturaleza del gasto y montos anuales a contratarse. 
+											</td>
+										</tr>
+									</table>
+									<br>
+									';
+									$documentoCuerpo.='
+									<table style="width:100%!important">
+										<tr>
+											<td style="text-align:justify!important;">
+												Atentamente,
+											</td>
+										</tr>
+									</table>
+									<br>';
+									$documentoCuerpo.='
+									<br><br><br>			
+									<table style="width:100%!important; margin-top:2em;">
+										<thead>
+											<tr>						
+												<td>Firma:_____________________________</td> 
+											</tr>
+											<tr>
+												<td>'.$declaracionRepresentante[0][nombreResponsablePoa].'</td>
+											</tr>
+											<tr>						
+												<td>'.strtoupper($informacionCompleto[0][nombreOrganismo]).'</td>
+											</tr>
+										</thead>
+									</table>
+									<br><br><br><br>
+									';
+	
+				
+	
+			break;
+
+
+		/******************************************************************************************************************/
 
 		case  "documento__seguimiento__final":
 
@@ -18275,24 +21275,30 @@ internacional, organizaciones no gubernamentales, entre otros.
 
    <body>
 
+   <?php if ($aniosPeriodos__ingesos == "2022") { ?>
+		<div id="" style="position: relative; left: 10%;">
+			<img src="../../images/headerPdf.png" />
+		</div>
 
-     <div id="" style="position: relative; left: 10%;">
+		<div id="footer">
+			<img src="../../images/footer.png"/>
+		</div> 
+   <?php }else{ ?>
+		<div id="" style="position: relative; left: 10%;">
+		<img style=" width:20%!important; margin-bottom:2em!important;" src="../../images/headerPdf2.png" />
+		</div>
 
-       <img src="../../images/headerPdf.png" />
+		<div id="footer">
+	   		<img style=" width:100%!important; margin-top:0em!important; margin-bottom:0em!important;" src="../../images/footer2.png"/>
+     	</div>
+   <?php } ?>
+		 	
 
-     </div>
+		<div id="content">
 
-     <div id="footer">
+			<?=$documentoCuerpo?>
 
-       <img src="../../images/footer.png"/>
-
-     </div>  	
-
-     <div id="content">
-
-		<?=$documentoCuerpo?>
-
-	</div>
+		</div>
 
 	</body>
 
