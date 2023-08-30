@@ -345,7 +345,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        primero = "<div><a href='documentos/seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
+                        primero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
 
                     }
 
@@ -357,15 +357,15 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                         if (row[parametro6] == "FORMATIVO") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else if (row[parametro6] == "RECREACION") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         }
 
@@ -377,7 +377,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        tercero = "<div><a href='documentos/seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                        tercero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
 
                     }
 
@@ -744,7 +744,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        primero = "<div><a href='documentos/seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
+                        primero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
 
                     }
 
@@ -756,15 +756,15 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                         if (row[parametro6] == "FORMATIVO") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else if (row[parametro6] == "RECREACION") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         }
 
@@ -776,7 +776,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        tercero = "<div><a href='documentos/seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                        tercero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
 
                     }
 
@@ -1161,7 +1161,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        primero = "<div><a href='documentos/seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
+                        primero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
 
                     }
 
@@ -1173,15 +1173,15 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                         if (row[parametro6] == "FORMATIVO") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else if (row[parametro6] == "RECREACION") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         }
 
@@ -1193,7 +1193,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        tercero = "<div><a href='documentos/seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                        tercero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
 
                     }
 
@@ -1365,7 +1365,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        primero = "<div><a href='documentos/seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
+                        primero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
 
                     }
 
@@ -1377,15 +1377,15 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                         if (row[parametro6] == "FORMATIVO") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else if (row[parametro6] == "RECREACION") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         }
 
@@ -1397,7 +1397,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        tercero = "<div><a href='documentos/seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                        tercero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
 
                     }
 
@@ -1584,7 +1584,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        primero = "<div><a href='documentos/seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
+                        primero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/" + arr[0] + "' target='_blank'>Presupuestario</a></div><hr>";
 
                     }
 
@@ -1596,15 +1596,15 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                         if (row[parametro6] == "FORMATIVO") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else if (row[parametro6] == "RECREACION") {
 
-                            segundo = "<div><a href='documentos/seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         } else {
 
-                            segundo = "<div><a href='documentos/seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
+                            segundo = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/" + arr[1] + "' target='_blank'>Técnico</a></div><hr>";
 
                         }
 
@@ -1616,7 +1616,7 @@ var objetos__doces = function (parametro1, parametro2, parametro3, parametro4, p
 
                     } else {
 
-                        tercero = "<div><a href='documentos/seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                        tercero = "<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/" + arr[2] + "' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
 
                     }
 

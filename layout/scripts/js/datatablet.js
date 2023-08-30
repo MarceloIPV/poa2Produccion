@@ -1403,9 +1403,9 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe=funct
 		    for (z of documentos__tecnicos) {
 
 		    	if (data[3]=="FORMATIVO") {
-		    		$("#informe__recomendados").attr('href','documentos/seguimiento/informe__formativos/'+z.archivo);
+		    		$("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+z.archivo);
 		    	}else{
-		    		$("#informe__recomendados").attr('href','documentos/seguimiento/informe__recreativos/'+z.archivo);
+		    		$("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+z.archivo);
 		    	}
 
 		    	
@@ -1523,7 +1523,7 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados=function(tbody
 
 		    for (z of documentos__tecnicos) {
 
-		    	$("#informe__recomendados").attr('href','documentos/seguimiento/informes__altos/'+z.archivo);
+		    	$("#informe__recomendados").attr('href','seguimiento/informes__altos/'+z.archivo);
 
 		    	$(".observaciones__recomendaste").text(z.observacion);
 		    	$("#nombreDocumento").val(z.archivo);
@@ -2837,7 +2837,7 @@ var funcion___termina__financiero=function(tbody,table,parametro3,parametro4,par
 
 	  	$("#idOrganismo").val(data[9]);
 
-	  	$(".documento__total__financiero").attr('href','documentos/quipux__transferencia/'+data[10]);
+	  	$(".documento__total__financiero").attr('href',$("#filesFrontend").val()+'quipux__transferencia/'+data[10]);
 
 	  	regresa__tramite__final($("#regresarTramite"));
 

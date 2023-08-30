@@ -157,7 +157,7 @@
 		 	}
 
 
-		 	$direccionDocumentos="../../documentos/modificacion/justificacionModificacion/";
+		 	$direccionDocumentos=VARIABLE__BACKEND."modificacion/justificacionModificacion/";
 		 	$nombreDocumentos=$fecha_actual."__".$idOrganismoSession.".pdf";
 
 			$documento=$objeto->getEnviarPdf($_FILES["documento__justificacion"]['type'],$_FILES["documento__justificacion"]['size'],$_FILES["documento__justificacion"]['tmp_name'],$_FILES["documento__justificacion"]['name'],$direccionDocumentos,$nombreDocumentos);
@@ -821,7 +821,7 @@
 
 			$nombre__archivo=$idOrganismo."__".$fecha_actual.".pdf";
 
-			$direccion1="../../documentos/remanentes/estadosRemanentes/";
+			$direccion1=VARIABLE__BACKEND."remanentes/estadosRemanentes/";
 
 			$documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion1,$nombre__archivo);
 
@@ -956,7 +956,7 @@
 	 		$nombre__archivo=$idOrganismo."__".$fecha_actual.".pdf";
 
 	 				
-			$direccion1="../../documentos/paid/oficioAprobacion/";
+			$direccion1=VARIABLE__BACKEND."paid/oficioAprobacion/";
 
 			$documento=$objeto->getEnviarPdf($_FILES["resolucion__aprobacion"]['type'],$_FILES["resolucion__aprobacion"]['size'],$_FILES["resolucion__aprobacion"]['tmp_name'],$_FILES["resolucion__aprobacion"]['name'],$direccion1,$nombre__archivo);
 
@@ -991,7 +991,7 @@
 
 	 		if (($idRolAd==2 || $idRolAd==3) && $fisicamenteE==18 && ($id_rolUsuarios==3 || $id_rolUsuarios==2)) {
 
-	 			$direccion1="../../documentos/paid/informesTecnicos/";
+	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
 		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
 				$resultado= $conexionEstablecida->exec($query);
@@ -1000,7 +1000,7 @@
 
 	 		}else if ($idRolAd==4 && $fisicamenteE==3 && $id_rolUsuarios==2) {
 
-	 			$direccion1="../../documentos/paid/informesTecnicos/";
+	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
 		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
 				$resultado= $conexionEstablecida->exec($query);
@@ -1009,7 +1009,7 @@
 
 	 		}else if ($idRolAd==4 && $fisicamenteE==3 && $id_rolUsuarios==7) {
 
-	 			$direccion1="../../documentos/paid/informesTecnicos/";
+	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
 		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='$selectorUsuarios__asignar__contrarios',idUsuarioRP=NULL WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
 				$resultado= $conexionEstablecida->exec($query);
@@ -1018,7 +1018,7 @@
 
 	 		}else if ($id_rolUsuarios==3) {
 
-	 			$direccion1="../../documentos/paid/informesTecnicos/";
+	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
 	 			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='$selectorUsuarios__asignar__contrarios',idUsuarioR=NULL WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
 				$resultado= $conexionEstablecida->exec($query);
@@ -1029,7 +1029,7 @@
 	 		}else if($id_rolUsuarios==7 || $id_rolUsuarios==2){
 
 
-		 		$direccion1="../../documentos/paid/informesTecnicos/";
+		 		$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["documentoFinal"]['type'],$_FILES["documentoFinal"]['size'],$_FILES["documentoFinal"]['tmp_name'],$_FILES["documentoFinal"]['name'],$direccion1,$nombreDocumentos__finales);
 
@@ -1040,7 +1040,7 @@
 
 	 		}else if($id_rolUsuarios==4 && $fisicamenteEstructura__usuarios==3){
 
-	 			$direccion1="../../documentos/paid/informesTecnicos/";
+	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
 	 			$documento=$objeto->getEnviarPdf($_FILES["documentoFinal"]['type'],$_FILES["documentoFinal"]['size'],$_FILES["documentoFinal"]['tmp_name'],$_FILES["documentoFinal"]['name'],$direccion1,$nombreDocumentos__finales);
 
@@ -1069,7 +1069,7 @@
 
 	 		$envioInicialIdenti=$objeto->getObtenerInformacionGeneral("SELECT identificador FROM poa_paid_envioinicial WHERE idOrganismo='$idOrganismo';");
 
-	 		$direccion1="../../documentos/paid/informesTecnicos/";
+	 		$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
 	 		$nombre__archivo=$idOrganismo."__".$fecha_actual.".pdf";
 
@@ -1587,7 +1587,7 @@
 
 	 		if ($idRol==4 || $idRol==2) {
 	 				
-				$direccion1="../../documentos/seguimiento/informes__altos/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informes__altos/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombreDocumento);
 
@@ -1634,7 +1634,7 @@
 
 				if ($informe__recomendado__validador=="si") {
 			
-					$direccion1="../../documentos/seguimiento/informesInfraestructuras/";
+					$direccion1=VARIABLE__BACKEND."seguimiento/informesInfraestructuras/";
 
 					$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1652,7 +1652,7 @@
 		 		if ($informe__recomendado__instalaciones__validador=="si") {
 
 				
-					$direccion1="../../documentos/seguimiento/informesInstalaciones/";
+					$direccion1=VARIABLE__BACKEND."seguimiento/informesInstalaciones/";
 
 					$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado__instalaciones"]['type'],$_FILES["informe__recomendado__instalaciones"]['size'],$_FILES["informe__recomendado__instalaciones"]['tmp_name'],$_FILES["informe__recomendado__instalaciones"]['name'],$direccion1,$nombre__archivo);
 
@@ -1683,7 +1683,7 @@
 
 			}else if ($fisicamenteEstructura__recogido==6) {
 			
-				$direccion1="../../documentos/seguimiento/informesInstalaciones/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informesInstalaciones/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1699,7 +1699,7 @@
 
 			} else {
 	 				
-				$direccion1="../../documentos/seguimiento/informesInfraestructuras/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informesInfraestructuras/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1728,7 +1728,7 @@
 	 		$conexionEstablecida=$conexionRecuperada->cConexion();	
 
 	 				
-			$direccion1="../../documentos/seguimiento/informesSeguimientos/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/informesSeguimientos/";
 
 			$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1769,7 +1769,7 @@
 
 			if ($evaluador__movimientos=="si") {
 
-				$direccion1="../../documentos/seguimiento/informesInstalaciones/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informesInstalaciones/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1795,7 +1795,7 @@
 
 			} else {
 
-				$direccion1="../../documentos/seguimiento/informesInfraestructurasDefinitivas/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informesInfraestructurasDefinitivas/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1885,7 +1885,7 @@
 				if ($informe__recomendado__validador=="si") {
 					
 
-					$direccion1="../../documentos/seguimiento/informesInfraestructuras/";
+					$direccion1=VARIABLE__BACKEND."seguimiento/informesInfraestructuras/";
 
 					$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1901,7 +1901,7 @@
 
 				if ($informe__recomendado__instalaciones__validador=="si") {
 
-					$direccion1="../../documentos/seguimiento/informesInstalaciones/";
+					$direccion1=VARIABLE__BACKEND."seguimiento/informesInstalaciones/";
 
 					$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado__instalaciones"]['type'],$_FILES["informe__recomendado__instalaciones"]['size'],$_FILES["informe__recomendado__instalaciones"]['tmp_name'],$_FILES["informe__recomendado__instalaciones"]['name'],$direccion1,$nombre__archivo);
 
@@ -1930,7 +1930,7 @@
 			}else if ($fisicamenteEstructura__recogido==6) {
 				
 	 				
-				$direccion1="../../documentos/seguimiento/informesInstalaciones/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informesInstalaciones/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1945,7 +1945,7 @@
 			} else {
 				
 	 				
-				$direccion1="../../documentos/seguimiento/informesInfraestructuras/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informesInfraestructuras/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
 
@@ -1973,7 +1973,7 @@
 
 	 		if ($idRol==4 || $idRol==2) {
 	 				
-				$direccion1="../../documentos/seguimiento/informes__altos/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informes__altos/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombreDocumento);
 
@@ -2072,7 +2072,7 @@
 
 			$super__var=$superior__inmediatos[0][PersonaACargo];
 
-			$direccion1="../../documentos/seguimiento/informesSeguimientos/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/informesSeguimientos/";
 
 			$documento=$objeto->getEnviarPdf($_FILES["archivoSubido__seguimientos"]['type'],$_FILES["archivoSubido__seguimientos"]['size'],$_FILES["archivoSubido__seguimientos"]['tmp_name'],$_FILES["archivoSubido__seguimientos"]['name'],$direccion1,$nombre__archivo);	
 			
@@ -2101,7 +2101,7 @@
 
 			if ($rotulo__recomendado=="alto__rendimientos") {
 
-				$direccion1="../../documentos/seguimiento/informes__altos/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informes__altos/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["archivoSubido__seguimientos"]['type'],$_FILES["archivoSubido__seguimientos"]['size'],$_FILES["archivoSubido__seguimientos"]['tmp_name'],$_FILES["archivoSubido__seguimientos"]['name'],$direccion1,$nombre__archivo);
 
@@ -2116,7 +2116,7 @@
 
 			}else if($rotulo__recomendado=="formativo"){
 
-				$direccion1="../../documentos/seguimiento/informe__formativos/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informe__formativos/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["archivoSubido__seguimientos"]['type'],$_FILES["archivoSubido__seguimientos"]['size'],$_FILES["archivoSubido__seguimientos"]['tmp_name'],$_FILES["archivoSubido__seguimientos"]['name'],$direccion1,$nombre__archivo);
 
@@ -2131,7 +2131,7 @@
 
 			}else{
 
-				$direccion1="../../documentos/seguimiento/informe__recreativos/";
+				$direccion1=VARIABLE__BACKEND."seguimiento/informe__recreativos/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["archivoSubido__seguimientos"]['type'],$_FILES["archivoSubido__seguimientos"]['size'],$_FILES["archivoSubido__seguimientos"]['tmp_name'],$_FILES["archivoSubido__seguimientos"]['name'],$direccion1,$nombre__archivo);
 
@@ -2844,7 +2844,7 @@
 			}else{
 
 				$nombre=$fecha_actual."__".$hora_actual2."__".$arrayInformacion[0]."pdf";
-				$direccion1="../../documentos/modificacion/justifiacionActPrincipal/";
+				$direccion1=VARIABLE__BACKEND."modificacion/justifiacionActPrincipal/";
 				$documento=$objeto->getEnviarPdf($_FILES["archivo1"]['type'],$_FILES["archivo1"]['size'],$_FILES["archivo1"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion1,$nombre);
 				
 			}
@@ -2913,7 +2913,7 @@
 
 			$documentoE2=$indicadorInformacion3[0][documento];
 
-			$correosEnviados=$objeto->getEnviarCorreo__atachmen($emailArray,$bodyMensaje,"../../documentos/final__seguimiento/$documentoE","../../documentos/declaracionTerminos/$documentoE2");
+			$correosEnviados=$objeto->getEnviarCorreo__atachmen($emailArray,$bodyMensaje,VARIABLE__BACKEND."final__seguimiento/$documentoE",VARIABLE__BACKEND."declaracionTerminos/$documentoE2");
 
 			$inserta=$objeto->getInsertaNormal('poa_trimestrales', array("`idEnviadorTrimestres`, ","`tipoTrimestre`, ","`fecha`, ","`idOrganismo`, ","`esigeft`, ","`perioIngreso`"),array("'$trimestreEvaluador', ","'$fecha_actual', ","'$organismoIdPrin', ","'$varEsi', ","'$aniosPeriodos__ingesos'"));	
 
@@ -3037,7 +3037,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosInstalaciones/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosInstalaciones/";
 
 			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -3058,7 +3058,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasImplementacion/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasImplementacion/";
 
 			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -3107,7 +3107,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosRecreativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosRecreativo/";
 
 			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -3129,7 +3129,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/facturasRecreativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/facturasRecreativo/";
 
 			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -3238,7 +3238,7 @@
 
 			$arrayInformacion = json_decode($parametros);
 
-			$direccion1="../../documentos/seguimiento/otrosCompentencia_formativo/";
+			$direccion1=VARIABLE__BACKEND."seguimiento/otrosCompentencia_formativo/";
 
 			$nombre__archivo1=$fecha_actual."__".$arrayInformacion[0]."__".$hora_actual2.".pdf";
 
@@ -3743,7 +3743,7 @@
 			if ($archivo2!="no") {
 
 				$nombre__archivo=$fecha_actual."__".$arrayInformacion[0].".pdf";
-				$direccion="../../documentos/seguimiento/facturas/";
+				$direccion=VARIABLE__BACKEND."seguimiento/facturas/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion,$nombre__archivo);
 
@@ -3756,7 +3756,7 @@
 			if ($archivo4!="no") {
 
 				$nombre__archivo=$fecha_actual."__".$arrayInformacion[0].".pdf";
-				$direccion="../../documentos/seguimiento/cheques/";
+				$direccion=VARIABLE__BACKEND."seguimiento/cheques/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["archivo3"]['type'],$_FILES["archivo3"]['size'],$_FILES["archivo3"]['tmp_name'],$_FILES["archivo3"]['name'],$direccion,$nombre__archivo);
 
@@ -3768,7 +3768,7 @@
 			if ($archivo6!="no") {
 
 				$nombre__archivo=$fecha_actual."__".$arrayInformacion[0].".pdf";
-				$direccion="../../documentos/seguimiento/ruc/";
+				$direccion=VARIABLE__BACKEND."seguimiento/ruc/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["archivo5"]['type'],$_FILES["archivo5"]['size'],$_FILES["archivo5"]['tmp_name'],$_FILES["archivo5"]['name'],$direccion,$nombre__archivo);
 
@@ -3780,7 +3780,7 @@
 			if ($archivo8!="no") {
 
 				$nombre__archivo=$fecha_actual."__".$arrayInformacion[0].".pdf";
-				$direccion="../../documentos/seguimiento/otrosHabilitantes/";
+				$direccion=VARIABLE__BACKEND."seguimiento/otrosHabilitantes/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["archivo7"]['type'],$_FILES["archivo7"]['size'],$_FILES["archivo7"]['tmp_name'],$_FILES["archivo7"]['name'],$direccion,$nombre__archivo);
 
@@ -5138,7 +5138,7 @@
 				
 				$documentoJustificacion=$arrayInformacion[0]."__".$fecha_actual.".pdf";
 
-				$direccion1="../../documentos/modificacion/justificacionIndicadores/";
+				$direccion1=VARIABLE__BACKEND."modificacion/justificacionIndicadores/";
 
 				$documento=$objeto->getEnviarPdf($_FILES["fileArchivoEvidencias"]['type'],$_FILES["fileArchivoEvidencias"]['size'],$_FILES["fileArchivoEvidencias"]['tmp_name'],$_FILES["fileArchivoEvidencias"]['name'],$direccion1,$documentoJustificacion);
 
