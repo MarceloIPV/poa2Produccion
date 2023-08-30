@@ -132,7 +132,7 @@ $diaEntero=intval($dia__actual);
 #div1 {
      overflow:scroll;
      width:100%;
-     height: 5000px;
+     height: 800px;
 }
 #div1 table {
     width:90%;
@@ -176,5 +176,7 @@ tablaConstruccion("modificaciones__enviadas",$("#tabla__principal__absoluta__mod
 ======================================-->
 
 <?=$componentesModificacion->matricez__origen__destino__inicial("modalOrigenDestinoMatricez");?>
+
+<?=$componentesModificacion->modal__bonificaciones__meses__sueldos("modal__bonificaciones__meses__sueldos");?>
 
 <!--====  End of Sección modales  ====-->

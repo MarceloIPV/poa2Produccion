@@ -160,7 +160,7 @@ var visualizar__actividades__admin__items__2=function(informacionObtenida,table,
 
 }
 
-var visualizar__actividades=function(informacionObtenida,table){
+var visualizar__actividades=function(informacionObtenida,table,identificadorSueldos){
 
 	let contador=0;
 
@@ -271,19 +271,158 @@ var visualizar__actividades=function(informacionObtenida,table){
 				i == 0 ? rotulo2 : "<div style='display:none;'>"+rotulo2+"</div>",
 				i == 0 ? x.itemPreesupuestarioOrigen : "<div style='display:none;'>"+x.itemPreesupuestarioOrigen+"</div>",
 				i == 0 ? x.idFinancierioOrigen : "<div style='display:none;'>"+x.idFinancierioOrigen+"</div>",
-				arrayMesOrigen[0],
-				arrayMesOrigen[1]=="__" ? "__" : parseFloat(arrayMesOrigen[1]).toFixed(2),
+				identificadorSueldos==1 || identificadorSueldos==2 ? i == 0 ? '<button  style="padding:.5em;background:#004d40;color:white;width:100%;" id="resumidosOrigen__boton'+x.idOrigenDestino+'" data-toggle="modal" data-target="#modal__bonificaciones__meses__sueldos" enero__salariosOrigen="'+x.enero__salariosOrigen+'" febrero__salariosOrigen="'+x.febrero__salariosOrigen+'" marzo__salariosOrigen="'+x.marzo__salariosOrigen+'" abril__salariosOrigen="'+x.abril__salariosOrigen+'" mayo__salariosOrigen="'+x.mayo__salariosOrigen+'" junio__salariosOrigen="'+x.junio__salariosOrigen+'" julio__salariosOrigen="'+x.julio__salariosOrigen+'" agosto__salariosOrigen="'+x.agosto__salariosOrigen+'" septiembre__salariosOrigen="'+x.septiembre__salariosOrigen+'" octubre__salariosOrigen="'+x.octubre__salariosOrigen+'" noviembre__salariosOrigen="'+x.noviembre__salariosOrigen+'" diciembre__salariosOrigen="'+x.diciembre__salariosOrigen+'" enero__aporteOrigen="'+x.enero__aporteOrigen+'" febrero__aporteOrigen="'+x.febrero__aporteOrigen+'" marzo__aporteOrigen="'+x.marzo__aporteOrigen+'" abril__aporteOrigen="'+x.abril__aporteOrigen+'" mayo__aporteOrigen="'+x.mayo__aporteOrigen+'" junio__aporteOrigen="'+x.junio__aporteOrigen+'" julio__aporteOrigen="'+x.julio__aporteOrigen+'" agosto__aporteOrigen="'+x.agosto__aporteOrigen+'" septiembre__aporteOrigen="'+x.septiembre__aporteOrigen+'" octubre__aporteOrigen="'+x.octubre__aporteOrigen+'" noviembre__aporteOrigen="'+x.noviembre__aporteOrigen+'" diciembre__aporteOrigen="'+x.diciembre__aporteOrigen+'" enero__decimoCuartoOrigen="'+x.enero__decimoCuartoOrigen+'" febrero__decimoCuartoOrigen="'+x.febrero__decimoCuartoOrigen+'" marzo__decimoCuartoOrigen="'+x.marzo__decimoCuartoOrigen+'" abril__decimoCuartoOrigen="'+x.abril__decimoCuartoOrigen+'" mayo__decimoCuartoOrigen="'+x.mayo__decimoCuartoOrigen+'" junio__decimoCuartoOrigen="'+x.junio__decimoCuartoOrigen+'" julio__decimoCuartoOrigen="'+x.julio__decimoCuartoOrigen+'" agosto__decimoCuartoOrigen="'+x.agosto__decimoCuartoOrigen+'" septiembre__decimoCuartoOrigen="'+x.septiembre__decimoCuartoOrigen+'" octubre__decimoCuartoOrigen="'+x.octubre__decimoCuartoOrigen+'" noviembre__decimoCuartoOrigen="'+x.noviembre__decimoCuartoOrigen+'" diciembre__decimoCuartoOrigen="'+x.diciembre__decimoCuartoOrigen+'" enero__decimoTercerOrigen="'+x.enero__decimoTercerOrigen+'" febrero__decimoTercerOrigen="'+x.febrero__decimoTercerOrigen+'" marzo__decimoTercerOrigen="'+x.marzo__decimoTercerOrigen+'" abril__decimoTercerOrigen="'+x.abril__decimoTercerOrigen+'" mayo__decimoTercerOrigen="'+x.mayo__decimoTercerOrigen+'" junio__decimoTercerOrigen="'+x.junio__decimoTercerOrigen+'" julio__decimoTercerOrigen="'+x.julio__decimoTercerOrigen+'" agosto__decimoTercerOrigen="'+x.agosto__decimoTercerOrigen+'" septiembre__decimoTercerOrigen="'+x.septiembre__decimoTercerOrigen+'" octubre__decimoTercerOrigen="'+x.octubre__decimoTercerOrigen+'" noviembre__decimoTercerOrigen="'+x.noviembre__decimoTercerOrigen+'" diciembre__decimoTercerOrigen="'+x.diciembre__decimoTercerOrigen+'" enero__fondosReservaOrigen="'+x.enero__fondosReservaOrigen+'" febrero__fondosReservaOrigen="'+x.febrero__fondosReservaOrigen+'" marzo__fondosReservaOrigen="'+x.marzo__fondosReservaOrigen+'" abril__fondosReservaOrigen="'+x.abril__fondosReservaOrigen+'" mayo__fondosReservaOrigen="'+x.mayo__fondosReservaOrigen+'" junio__fondosReservaOrigen="'+x.junio__fondosReservaOrigen+'" julio__fondosReservaOrigen="'+x.julio__fondosReservaOrigen+'" agosto__fondosReservaOrigen="'+x.agosto__fondosReservaOrigen+'" septiembre__fondosReservaOrigen="'+x.septiembre__fondosReservaOrigen+'" octubre__fondosReservaOrigen="'+x.octubre__fondosReservaOrigen+'" noviembre__fondosReservaOrigen="'+x.noviembre__fondosReservaOrigen+'" diciembre__fondosReservaOrigen="'+x.diciembre__fondosReservaOrigen+'">VER</button>' : " " : arrayMesOrigen[0],
+				identificadorSueldos==1 || identificadorSueldos==2 ? i == 0 ? '<button  style="padding:.5em;background:#004d40;color:white;width:100%;" id="resumidosOrigen__boton'+x.idOrigenDestino+'" data-toggle="modal" data-target="#modal__bonificaciones__meses__sueldos" enero__salariosOrigen="'+x.enero__salariosOrigen+'" febrero__salariosOrigen="'+x.febrero__salariosOrigen+'" marzo__salariosOrigen="'+x.marzo__salariosOrigen+'" abril__salariosOrigen="'+x.abril__salariosOrigen+'" mayo__salariosOrigen="'+x.mayo__salariosOrigen+'" junio__salariosOrigen="'+x.junio__salariosOrigen+'" julio__salariosOrigen="'+x.julio__salariosOrigen+'" agosto__salariosOrigen="'+x.agosto__salariosOrigen+'" septiembre__salariosOrigen="'+x.septiembre__salariosOrigen+'" octubre__salariosOrigen="'+x.octubre__salariosOrigen+'" noviembre__salariosOrigen="'+x.noviembre__salariosOrigen+'" diciembre__salariosOrigen="'+x.diciembre__salariosOrigen+'" enero__aporteOrigen="'+x.enero__aporteOrigen+'" febrero__aporteOrigen="'+x.febrero__aporteOrigen+'" marzo__aporteOrigen="'+x.marzo__aporteOrigen+'" abril__aporteOrigen="'+x.abril__aporteOrigen+'" mayo__aporteOrigen="'+x.mayo__aporteOrigen+'" junio__aporteOrigen="'+x.junio__aporteOrigen+'" julio__aporteOrigen="'+x.julio__aporteOrigen+'" agosto__aporteOrigen="'+x.agosto__aporteOrigen+'" septiembre__aporteOrigen="'+x.septiembre__aporteOrigen+'" octubre__aporteOrigen="'+x.octubre__aporteOrigen+'" noviembre__aporteOrigen="'+x.noviembre__aporteOrigen+'" diciembre__aporteOrigen="'+x.diciembre__aporteOrigen+'" enero__decimoCuartoOrigen="'+x.enero__decimoCuartoOrigen+'" febrero__decimoCuartoOrigen="'+x.febrero__decimoCuartoOrigen+'" marzo__decimoCuartoOrigen="'+x.marzo__decimoCuartoOrigen+'" abril__decimoCuartoOrigen="'+x.abril__decimoCuartoOrigen+'" mayo__decimoCuartoOrigen="'+x.mayo__decimoCuartoOrigen+'" junio__decimoCuartoOrigen="'+x.junio__decimoCuartoOrigen+'" julio__decimoCuartoOrigen="'+x.julio__decimoCuartoOrigen+'" agosto__decimoCuartoOrigen="'+x.agosto__decimoCuartoOrigen+'" septiembre__decimoCuartoOrigen="'+x.septiembre__decimoCuartoOrigen+'" octubre__decimoCuartoOrigen="'+x.octubre__decimoCuartoOrigen+'" noviembre__decimoCuartoOrigen="'+x.noviembre__decimoCuartoOrigen+'" diciembre__decimoCuartoOrigen="'+x.diciembre__decimoCuartoOrigen+'" enero__decimoTercerOrigen="'+x.enero__decimoTercerOrigen+'" febrero__decimoTercerOrigen="'+x.febrero__decimoTercerOrigen+'" marzo__decimoTercerOrigen="'+x.marzo__decimoTercerOrigen+'" abril__decimoTercerOrigen="'+x.abril__decimoTercerOrigen+'" mayo__decimoTercerOrigen="'+x.mayo__decimoTercerOrigen+'" junio__decimoTercerOrigen="'+x.junio__decimoTercerOrigen+'" julio__decimoTercerOrigen="'+x.julio__decimoTercerOrigen+'" agosto__decimoTercerOrigen="'+x.agosto__decimoTercerOrigen+'" septiembre__decimoTercerOrigen="'+x.septiembre__decimoTercerOrigen+'" octubre__decimoTercerOrigen="'+x.octubre__decimoTercerOrigen+'" noviembre__decimoTercerOrigen="'+x.noviembre__decimoTercerOrigen+'" diciembre__decimoTercerOrigen="'+x.diciembre__decimoTercerOrigen+'" enero__fondosReservaOrigen="'+x.enero__fondosReservaOrigen+'" febrero__fondosReservaOrigen="'+x.febrero__fondosReservaOrigen+'" marzo__fondosReservaOrigen="'+x.marzo__fondosReservaOrigen+'" abril__fondosReservaOrigen="'+x.abril__fondosReservaOrigen+'" mayo__fondosReservaOrigen="'+x.mayo__fondosReservaOrigen+'" junio__fondosReservaOrigen="'+x.junio__fondosReservaOrigen+'" julio__fondosReservaOrigen="'+x.julio__fondosReservaOrigen+'" agosto__fondosReservaOrigen="'+x.agosto__fondosReservaOrigen+'" septiembre__fondosReservaOrigen="'+x.septiembre__fondosReservaOrigen+'" octubre__fondosReservaOrigen="'+x.octubre__fondosReservaOrigen+'" noviembre__fondosReservaOrigen="'+x.noviembre__fondosReservaOrigen+'" diciembre__fondosReservaOrigen="'+x.diciembre__fondosReservaOrigen+'">VER</button>' : " " : arrayMesOrigen[1]=="__" ? "__" : parseFloat(arrayMesOrigen[1]).toFixed(2),
 				i == 0 ? "<div style='font-weight:bold;'>"+parseFloat(totalFuncion).toFixed(2)+"</div>" : "<div style='display:none;'></div>",
 				i == 0 ? x.actividadDestino : "<div style='display:none;'>"+x.actividadDestino+"</div>",
 				i == 0 ? rotulo3 : "<div style='display:none;'>"+rotulo3+"</div>",
 				i == 0 ? rotulo4 : "<div style='display:none;'>"+rotulo4+"</div>",
 				i == 0 ? x.itemPreesupuestarioDestino : "<div style='display:none;'>"+x.itemPreesupuestarioDestino+"</div>",
 				i == 0 ? x.idFinancierioDestino : "<div style='display:none;'>"+x.idFinancierioDestino+"</div>",
-				arrayMesDestino[0],
-				arrayMesDestino[1]=="__" ? "<div style='display:none;'>"+parseFloat(arrayMesDestino[1]).toFixed(2)+"</div>" : parseFloat(arrayMesDestino[1]).toFixed(2),
+				identificadorSueldos==0 || identificadorSueldos==1 ? i == 0 ? '<button  style="padding:.5em;background:#004d40;color:white;width:100%;" id="resumidosDestino__boton'+x.idOrigenDestino+'" data-toggle="modal" data-target="#modal__bonificaciones__meses__sueldos" enero__salarios="'+x.enero__salarios+'" febrero__salarios="'+x.febrero__salarios+'" marzo__salarios="'+x.marzo__salarios+'" abril__salarios="'+x.abril__salarios+'" mayo__salarios="'+x.mayo__salarios+'" junio__salarios="'+x.junio__salarios+'" julio__salarios="'+x.julio__salarios+'" agosto__salarios="'+x.agosto__salarios+'" septiembre__salarios="'+x.septiembre__salarios+'" octubre__salarios="'+x.octubre__salarios+'" noviembre__salarios="'+x.noviembre__salarios+'" diciembre__salarios="'+x.diciembre__salarios+'" enero__aporte="'+x.enero__aporte+'" febrero__aporte="'+x.febrero__aporte+'" marzo__aporte="'+x.marzo__aporte+'" abril__aporte="'+x.abril__aporte+'" mayo__aporte="'+x.mayo__aporte+'" junio__aporte="'+x.junio__aporte+'" julio__aporte="'+x.julio__aporte+'" agosto__aporte="'+x.agosto__aporte+'" septiembre__aporte="'+x.septiembre__aporte+'" octubre__aporte="'+x.octubre__aporte+'" noviembre__aporte="'+x.noviembre__aporte+'" diciembre__aporte="'+x.diciembre__aporte+'" enero__decimoCuarto="'+x.enero__decimoCuarto+'" febrero__decimoCuarto="'+x.febrero__decimoCuarto+'" marzo__decimoCuarto="'+x.marzo__decimoCuarto+'" abril__decimoCuarto="'+x.abril__decimoCuarto+'" mayo__decimoCuarto="'+x.mayo__decimoCuarto+'" junio__decimoCuarto="'+x.junio__decimoCuarto+'" julio__decimoCuarto="'+x.julio__decimoCuarto+'" agosto__decimoCuarto="'+x.agosto__decimoCuarto+'" septiembre__decimoCuarto="'+x.septiembre__decimoCuarto+'" octubre__decimoCuarto="'+x.octubre__decimoCuarto+'" noviembre__decimoCuarto="'+x.noviembre__decimoCuarto+'" diciembre__decimoCuarto="'+x.diciembre__decimoCuarto+'" enero__decimoTercer="'+x.enero__decimoTercer+'" febrero__decimoTercer="'+x.febrero__decimoTercer+'" marzo__decimoTercer="'+x.marzo__decimoTercer+'" abril__decimoTercer="'+x.abril__decimoTercer+'" mayo__decimoTercer="'+x.mayo__decimoTercer+'" junio__decimoTercer="'+x.junio__decimoTercer+'" julio__decimoTercer="'+x.julio__decimoTercer+'" agosto__decimoTercer="'+x.agosto__decimoTercer+'" septiembre__decimoTercer="'+x.septiembre__decimoTercer+'" octubre__decimoTercer="'+x.octubre__decimoTercer+'" noviembre__decimoTercer="'+x.noviembre__decimoTercer+'" diciembre__decimoTercer="'+x.diciembre__decimoTercer+'" enero__fondosReserva="'+x.enero__fondosReserva+'" febrero__fondosReserva="'+x.febrero__fondosReserva+'" marzo__fondosReserva="'+x.marzo__fondosReserva+'" abril__fondosReserva="'+x.abril__fondosReserva+'" mayo__fondosReserva="'+x.mayo__fondosReserva+'" junio__fondosReserva="'+x.junio__fondosReserva+'" julio__fondosReserva="'+x.julio__fondosReserva+'" agosto__fondosReserva="'+x.agosto__fondosReserva+'" septiembre__fondosReserva="'+x.septiembre__fondosReserva+'" octubre__fondosReserva="'+x.octubre__fondosReserva+'" noviembre__fondosReserva="'+x.noviembre__fondosReserva+'" diciembre__fondosReserva="'+x.diciembre__fondosReserva+'">VER</button>' : " " : arrayMesDestino[0],
+				identificadorSueldos==0 || identificadorSueldos==1 ? i == 0 ? '<button  style="padding:.5em;background:#004d40;color:white;width:100%;" id="resumidosDestino__boton'+x.idOrigenDestino+'" data-toggle="modal" data-target="#modal__bonificaciones__meses__sueldos" enero__salarios="'+x.enero__salarios+'" febrero__salarios="'+x.febrero__salarios+'" marzo__salarios="'+x.marzo__salarios+'" abril__salarios="'+x.abril__salarios+'" mayo__salarios="'+x.mayo__salarios+'" junio__salarios="'+x.junio__salarios+'" julio__salarios="'+x.julio__salarios+'" agosto__salarios="'+x.agosto__salarios+'" septiembre__salarios="'+x.septiembre__salarios+'" octubre__salarios="'+x.octubre__salarios+'" noviembre__salarios="'+x.noviembre__salarios+'" diciembre__salarios="'+x.diciembre__salarios+'" enero__aporte="'+x.enero__aporte+'" febrero__aporte="'+x.febrero__aporte+'" marzo__aporte="'+x.marzo__aporte+'" abril__aporte="'+x.abril__aporte+'" mayo__aporte="'+x.mayo__aporte+'" junio__aporte="'+x.junio__aporte+'" julio__aporte="'+x.julio__aporte+'" agosto__aporte="'+x.agosto__aporte+'" septiembre__aporte="'+x.septiembre__aporte+'" octubre__aporte="'+x.octubre__aporte+'" noviembre__aporte="'+x.noviembre__aporte+'" diciembre__aporte="'+x.diciembre__aporte+'" enero__decimoCuarto="'+x.enero__decimoCuarto+'" febrero__decimoCuarto="'+x.febrero__decimoCuarto+'" marzo__decimoCuarto="'+x.marzo__decimoCuarto+'" abril__decimoCuarto="'+x.abril__decimoCuarto+'" mayo__decimoCuarto="'+x.mayo__decimoCuarto+'" junio__decimoCuarto="'+x.junio__decimoCuarto+'" julio__decimoCuarto="'+x.julio__decimoCuarto+'" agosto__decimoCuarto="'+x.agosto__decimoCuarto+'" septiembre__decimoCuarto="'+x.septiembre__decimoCuarto+'" octubre__decimoCuarto="'+x.octubre__decimoCuarto+'" noviembre__decimoCuarto="'+x.noviembre__decimoCuarto+'" diciembre__decimoCuarto="'+x.diciembre__decimoCuarto+'" enero__decimoTercer="'+x.enero__decimoTercer+'" febrero__decimoTercer="'+x.febrero__decimoTercer+'" marzo__decimoTercer="'+x.marzo__decimoTercer+'" abril__decimoTercer="'+x.abril__decimoTercer+'" mayo__decimoTercer="'+x.mayo__decimoTercer+'" junio__decimoTercer="'+x.junio__decimoTercer+'" julio__decimoTercer="'+x.julio__decimoTercer+'" agosto__decimoTercer="'+x.agosto__decimoTercer+'" septiembre__decimoTercer="'+x.septiembre__decimoTercer+'" octubre__decimoTercer="'+x.octubre__decimoTercer+'" noviembre__decimoTercer="'+x.noviembre__decimoTercer+'" diciembre__decimoTercer="'+x.diciembre__decimoTercer+'" enero__fondosReserva="'+x.enero__fondosReserva+'" febrero__fondosReserva="'+x.febrero__fondosReserva+'" marzo__fondosReserva="'+x.marzo__fondosReserva+'" abril__fondosReserva="'+x.abril__fondosReserva+'" mayo__fondosReserva="'+x.mayo__fondosReserva+'" junio__fondosReserva="'+x.junio__fondosReserva+'" julio__fondosReserva="'+x.julio__fondosReserva+'" agosto__fondosReserva="'+x.agosto__fondosReserva+'" septiembre__fondosReserva="'+x.septiembre__fondosReserva+'" octubre__fondosReserva="'+x.octubre__fondosReserva+'" noviembre__fondosReserva="'+x.noviembre__fondosReserva+'" diciembre__fondosReserva="'+x.diciembre__fondosReserva+'">VER</button>' : " " : arrayMesDestino[1]=="__" ? "<div style='display:none;'>"+parseFloat(arrayMesDestino[1]).toFixed(2)+"</div>" : parseFloat(arrayMesDestino[1]).toFixed(2),
 				i == 0 ? "<div style='font-weight:bold;'>"+parseFloat(totalFuncionDestino).toFixed(2)+"</div>" : "<div style='display:none;'></div>",
 				i == 0 ? '<nav id="colorNav"><ul><li class="green"> <a href="#" class="fa fa-windows" style="text-align: center!important; display: flex; justify-content: center!important; padding: .5em;"><div style="position: relative;left: -7px; font-weight: bold; color: white; width: 100%;">+</div></a><ul class="vertice__seguimiento__top"><li id="li__eliminar'+x.idOrigenDestino+'"><button class="eliminacion__eliminar" style="padding:.5em;background:red;color:white; width:100%;" id="eliminar'+x.idOrigenDestino+'" name="eliminar'+x.idOrigenDestino+'" idContador="'+x.idOrigenDestino+'"><i class="fa fa-trash" aria-hidden="true"></i></button></li><li><button  style="padding:.5em;background:#004d40;color:white;width:100%;" id="matrizOrigen'+x.idOrigenDestino+'" name="matrizOrigen'+x.idOrigenDestino+'" idContador="'+x.idOrigenDestino+'" data-toggle="modal" data-target="#modalOrigenDestinoMatricez">Mátriz Orígen</button></li><li id="li_des__'+x.idOrigenDestino+'"><button style="padding:.5em;background:#424242;color:white;width:100%;" id="matrizDestino'+x.idOrigenDestino+'" name="matrizDestino'+x.idOrigenDestino+'" idContador="'+x.idOrigenDestino+'" data-toggle="modal" data-target="#modalOrigenDestinoMatricez">Mátriz Destino</button></li></ul></li></ul></nav>' : "<div></div>",
 			]).draw(false);
+
+
+			$("#resumidosOrigen__boton"+x.idOrigenDestino).click(function(e){
+
+				$("#eneroSueldos__b").text(parseFloat($(this).attr('enero__salariosOrigen')).toFixed(2));
+				$("#febreroSueldos__b").text(parseFloat($(this).attr('febrero__salariosOrigen')).toFixed(2));
+				$("#marzoSueldos__b").text(parseFloat($(this).attr('marzo__salariosOrigen')).toFixed(2));
+				$("#abrilSueldos__b").text(parseFloat($(this).attr('abril__salariosOrigen')).toFixed(2));
+				$("#mayoSueldos__b").text(parseFloat($(this).attr('mayo__salariosOrigen')).toFixed(2));
+				$("#junioSueldos__b").text(parseFloat($(this).attr('junio__salariosOrigen')).toFixed(2));
+				$("#julioSueldos__b").text(parseFloat($(this).attr('julio__salariosOrigen')).toFixed(2));
+				$("#agostoSueldos__b").text(parseFloat($(this).attr('agosto__salariosOrigen')).toFixed(2));
+				$("#septiembreSueldos__b").text(parseFloat($(this).attr('septiembre__salariosOrigen')).toFixed(2));
+				$("#octubreSueldos__b").text(parseFloat($(this).attr('octubre__salariosOrigen')).toFixed(2));
+				$("#noviembreSueldos__b").text(parseFloat($(this).attr('noviembre__salariosOrigen')).toFixed(2));
+				$("#diciembreSueldos__b").text(parseFloat($(this).attr('diciembre__salariosOrigen')).toFixed(2));
+
+				$("#eneroAporte__b").text(parseFloat($(this).attr('enero__aporteOrigen')).toFixed(2));
+				$("#febreroAporte__b").text(parseFloat($(this).attr('febrero__aporteOrigen')).toFixed(2));
+				$("#marzoAporte__b").text(parseFloat($(this).attr('marzo__aporteOrigen')).toFixed(2));
+				$("#abrilAporte__b").text(parseFloat($(this).attr('abril__aporteOrigen')).toFixed(2));
+				$("#mayoAporte__b").text(parseFloat($(this).attr('mayo__aporteOrigen')).toFixed(2));
+				$("#junioAporte__b").text(parseFloat($(this).attr('junio__aporteOrigen')).toFixed(2));
+				$("#julioAporte__b").text(parseFloat($(this).attr('julio__aporteOrigen')).toFixed(2));
+				$("#agostoAporte__b").text(parseFloat($(this).attr('agosto__aporteOrigen')).toFixed(2));
+				$("#septiembreAporte__b").text(parseFloat($(this).attr('septiembre__aporteOrigen')).toFixed(2));
+				$("#octubreAporte__b").text(parseFloat($(this).attr('octubre__aporteOrigen')).toFixed(2));
+				$("#noviembreAporte__b").text(parseFloat($(this).attr('noviembre__aporteOrigen')).toFixed(2));
+				$("#diciembreAporte__b").text(parseFloat($(this).attr('diciembre__aporteOrigen')).toFixed(2));
+
+				$("#eneroTercero__b").text(parseFloat($(this).attr('enero__decimoTercerOrigen')).toFixed(2));
+				$("#febreroTercero__b").text(parseFloat($(this).attr('febrero__decimoTercerOrigen')).toFixed(2));
+				$("#marzoTercero__b").text(parseFloat($(this).attr('marzo__decimoTercerOrigen')).toFixed(2));
+				$("#abrilTercero__b").text(parseFloat($(this).attr('abril__decimoTercerOrigen')).toFixed(2));
+				$("#mayoTercero__b").text(parseFloat($(this).attr('mayo__decimoTercerOrigen')).toFixed(2));
+				$("#junioTercero__b").text(parseFloat($(this).attr('junio__decimoTercerOrigen')).toFixed(2));
+				$("#julioTercero__b").text(parseFloat($(this).attr('julio__decimoTercerOrigen')).toFixed(2));
+				$("#agostoTercero__b").text(parseFloat($(this).attr('agosto__decimoTercerOrigen')).toFixed(2));
+				$("#septiembreTercero__b").text(parseFloat($(this).attr('septiembre__decimoTercerOrigen')).toFixed(2));
+				$("#octubreTercero__b").text(parseFloat($(this).attr('octubre__decimoTercerOrigen')).toFixed(2));
+				$("#noviembreTercero__b").text(parseFloat($(this).attr('noviembre__decimoTercerOrigen')).toFixed(2));
+				$("#diciembreTercero__b").text(parseFloat($(this).attr('diciembre__decimoTercerOrigen')).toFixed(2));
+
+				$("#eneroCuarto__b").text(parseFloat($(this).attr('enero__decimoCuartoOrigen')).toFixed(2));
+				$("#febreroCuarto__b").text(parseFloat($(this).attr('febrero__decimoCuartoOrigen')).toFixed(2));
+				$("#marzoCuarto__b").text(parseFloat($(this).attr('marzo__decimoCuartoOrigen')).toFixed(2));
+				$("#abrilCuarto__b").text(parseFloat($(this).attr('abril__decimoCuartoOrigen')).toFixed(2));
+				$("#mayoCuarto__b").text(parseFloat($(this).attr('mayo__decimoCuartoOrigen')).toFixed(2));
+				$("#junioCuarto__b").text(parseFloat($(this).attr('junio__decimoCuartoOrigen')).toFixed(2));
+				$("#julioCuarto__b").text(parseFloat($(this).attr('julio__decimoCuartoOrigen')).toFixed(2));
+				$("#agostoCuarto__b").text(parseFloat($(this).attr('agosto__decimoCuartoOrigen')).toFixed(2));
+				$("#septiembreCuarto__b").text(parseFloat($(this).attr('septiembre__decimoCuartoOrigen')).toFixed(2));
+				$("#octubreCuarto__b").text(parseFloat($(this).attr('octubre__decimoCuartoOrigen')).toFixed(2));
+				$("#noviembreCuarto__b").text(parseFloat($(this).attr('noviembre__decimoCuartoOrigen')).toFixed(2));
+				$("#diciembreCuarto__b").text(parseFloat($(this).attr('diciembre__decimoCuartoOrigen')).toFixed(2));
+
+				$("#eneroFondosReserva__b").text(parseFloat($(this).attr('enero__fondosReservaOrigen')).toFixed(2));
+				$("#febreroFondosReserva__b").text(parseFloat($(this).attr('febrero__fondosReservaOrigen')).toFixed(2));
+				$("#marzoFondosReserva__b").text(parseFloat($(this).attr('marzo__fondosReservaOrigen')).toFixed(2));
+				$("#abrilFondosReserva__b").text(parseFloat($(this).attr('abril__fondosReservaOrigen')).toFixed(2));
+				$("#mayoFondosReserva__b").text(parseFloat($(this).attr('mayo__fondosReservaOrigen')).toFixed(2));
+				$("#junioFondosReserva__b").text(parseFloat($(this).attr('junio__fondosReservaOrigen')).toFixed(2));
+				$("#julioFondosReserva__b").text(parseFloat($(this).attr('julio__fondosReservaOrigen')).toFixed(2));
+				$("#agostoFondosReserva__b").text(parseFloat($(this).attr('agosto__fondosReservaOrigen')).toFixed(2));
+				$("#septiembreFondosReserva__b").text(parseFloat($(this).attr('septiembre__fondosReservaOrigen')).toFixed(2));
+				$("#octubreFondosReserva__b").text(parseFloat($(this).attr('octubre__fondosReservaOrigen')).toFixed(2));
+				$("#noviembreFondosReserva__b").text(parseFloat($(this).attr('noviembre__fondosReservaOrigen')).toFixed(2));
+				$("#diciembreFondosReserva__b").text(parseFloat($(this).attr('diciembre__fondosReservaOrigen')).toFixed(2));
+
+			});
+
+			$("#resumidosDestino__boton"+x.idOrigenDestino).click(function(e){
+
+				$("#eneroSueldos__b").text(parseFloat($(this).attr('enero__salarios')).toFixed(2));
+				$("#febreroSueldos__b").text(parseFloat($(this).attr('febrero__salarios')).toFixed(2));
+				$("#marzoSueldos__b").text(parseFloat($(this).attr('marzo__salarios')).toFixed(2));
+				$("#abrilSueldos__b").text(parseFloat($(this).attr('abril__salarios')).toFixed(2));
+				$("#mayoSueldos__b").text(parseFloat($(this).attr('mayo__salarios')).toFixed(2));
+				$("#junioSueldos__b").text(parseFloat($(this).attr('junio__salarios')).toFixed(2));
+				$("#julioSueldos__b").text(parseFloat($(this).attr('julio__salarios')).toFixed(2));
+				$("#agostoSueldos__b").text(parseFloat($(this).attr('agosto__salarios')).toFixed(2));
+				$("#septiembreSueldos__b").text(parseFloat($(this).attr('septiembre__salarios')).toFixed(2));
+				$("#octubreSueldos__b").text(parseFloat($(this).attr('octubre__salarios')).toFixed(2));
+				$("#noviembreSueldos__b").text(parseFloat($(this).attr('noviembre__salarios')).toFixed(2));
+				$("#diciembreSueldos__b").text(parseFloat($(this).attr('diciembre__salarios')).toFixed(2));
+
+				$("#eneroAporte__b").text(parseFloat($(this).attr('enero__aporte')).toFixed(2));
+				$("#febreroAporte__b").text(parseFloat($(this).attr('febrero__aporte')).toFixed(2));
+				$("#marzoAporte__b").text(parseFloat($(this).attr('marzo__aporte')).toFixed(2));
+				$("#abrilAporte__b").text(parseFloat($(this).attr('abril__aporte')).toFixed(2));
+				$("#mayoAporte__b").text(parseFloat($(this).attr('mayo__aporte')).toFixed(2));
+				$("#junioAporte__b").text(parseFloat($(this).attr('junio__aporte')).toFixed(2));
+				$("#julioAporte__b").text(parseFloat($(this).attr('julio__aporte')).toFixed(2));
+				$("#agostoAporte__b").text(parseFloat($(this).attr('agosto__aporte')).toFixed(2));
+				$("#septiembreAporte__b").text(parseFloat($(this).attr('septiembre__aporte')).toFixed(2));
+				$("#octubreAporte__b").text(parseFloat($(this).attr('octubre__aporte')).toFixed(2));
+				$("#noviembreAporte__b").text(parseFloat($(this).attr('noviembre__aporte')).toFixed(2));
+				$("#diciembreAporte__b").text(parseFloat($(this).attr('diciembre__aporte')).toFixed(2));
+
+				$("#eneroTercero__b").text(parseFloat($(this).attr('enero__decimoTercer')).toFixed(2));
+				$("#febreroTercero__b").text(parseFloat($(this).attr('febrero__decimoTercer')).toFixed(2));
+				$("#marzoTercero__b").text(parseFloat($(this).attr('marzo__decimoTercer')).toFixed(2));
+				$("#abrilTercero__b").text(parseFloat($(this).attr('abril__decimoTercer')).toFixed(2));
+				$("#mayoTercero__b").text(parseFloat($(this).attr('mayo__decimoTercer')).toFixed(2));
+				$("#junioTercero__b").text(parseFloat($(this).attr('junio__decimoTercer')).toFixed(2));
+				$("#julioTercero__b").text(parseFloat($(this).attr('julio__decimoTercer')).toFixed(2));
+				$("#agostoTercero__b").text(parseFloat($(this).attr('agosto__decimoTercer')).toFixed(2));
+				$("#septiembreTercero__b").text(parseFloat($(this).attr('septiembre__decimoTercer')).toFixed(2));
+				$("#octubreTercero__b").text(parseFloat($(this).attr('octubre__decimoTercer')).toFixed(2));
+				$("#noviembreTercero__b").text(parseFloat($(this).attr('noviembre__decimoTercer')).toFixed(2));
+				$("#diciembreTercero__b").text(parseFloat($(this).attr('diciembre__decimoTercer')).toFixed(2));
+
+				$("#eneroCuarto__b").text(parseFloat($(this).attr('enero__decimoCuarto')).toFixed(2));
+				$("#febreroCuarto__b").text(parseFloat($(this).attr('febrero__decimoCuarto')).toFixed(2));
+				$("#marzoCuarto__b").text(parseFloat($(this).attr('marzo__decimoCuarto')).toFixed(2));
+				$("#abrilCuarto__b").text(parseFloat($(this).attr('abril__decimoCuarto')).toFixed(2));
+				$("#mayoCuarto__b").text(parseFloat($(this).attr('mayo__decimoCuarto')).toFixed(2));
+				$("#junioCuarto__b").text(parseFloat($(this).attr('junio__decimoCuarto')).toFixed(2));
+				$("#julioCuarto__b").text(parseFloat($(this).attr('julio__decimoCuarto')).toFixed(2));
+				$("#agostoCuarto__b").text(parseFloat($(this).attr('agosto__decimoCuarto')).toFixed(2));
+				$("#septiembreCuarto__b").text(parseFloat($(this).attr('septiembre__decimoCuarto')).toFixed(2));
+				$("#octubreCuarto__b").text(parseFloat($(this).attr('octubre__decimoCuarto')).toFixed(2));
+				$("#noviembreCuarto__b").text(parseFloat($(this).attr('noviembre__decimoCuarto')).toFixed(2));
+				$("#diciembreCuarto__b").text(parseFloat($(this).attr('diciembre__decimoCuarto')).toFixed(2));
+
+				$("#eneroFondosReserva__b").text(parseFloat($(this).attr('enero__fondosReserva')).toFixed(2));
+				$("#febreroFondosReserva__b").text(parseFloat($(this).attr('febrero__fondosReserva')).toFixed(2));
+				$("#marzoFondosReserva__b").text(parseFloat($(this).attr('marzo__fondosReserva')).toFixed(2));
+				$("#abrilFondosReserva__b").text(parseFloat($(this).attr('abril__fondosReserva')).toFixed(2));
+				$("#mayoFondosReserva__b").text(parseFloat($(this).attr('mayo__fondosReserva')).toFixed(2));
+				$("#junioFondosReserva__b").text(parseFloat($(this).attr('junio__fondosReserva')).toFixed(2));
+				$("#julioFondosReserva__b").text(parseFloat($(this).attr('julio__fondosReserva')).toFixed(2));
+				$("#agostoFondosReserva__b").text(parseFloat($(this).attr('agosto__fondosReserva')).toFixed(2));
+				$("#septiembreFondosReserva__b").text(parseFloat($(this).attr('septiembre__fondosReserva')).toFixed(2));
+				$("#octubreFondosReserva__b").text(parseFloat($(this).attr('octubre__fondosReserva')).toFixed(2));
+				$("#noviembreFondosReserva__b").text(parseFloat($(this).attr('noviembre__fondosReserva')).toFixed(2));
+				$("#diciembreFondosReserva__b").text(parseFloat($(this).attr('diciembre__fondosReserva')).toFixed(2));
+
+			});
 
 		}
 

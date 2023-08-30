@@ -2,6 +2,232 @@
 
 	class componentesModificacionRevisor{
 
+
+		public function modal__bonificaciones__meses__sueldos($parametro1){
+
+			$componentes= new componentes();
+
+
+			$modal="
+
+			<div class='modal fade' id='$parametro1'>
+
+				<div class='modal-dialog' style='min-width:28%!important;'>
+
+					<form class='modal-content formularioConfiguracion' id='formularioConfiguracion'>
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulos__remanentes row'></div>
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+						</div>
+
+						<div class='modal-body row'>
+
+							<div id='tabla__0' name='tabla__0'>
+
+									<table>
+										
+										<thead>
+
+											<tr>
+												
+												<th><center>MES</center></th>
+												<th><center>SUELDOS</center></th>
+												<th><center>APORTE PATRONAL</center></th>
+												<th><center>DÉCIMO TERCER SUELDO</center></th>
+												<th><center>DÉCIMO CUARTO SUELDO</center></th>
+												<th><center>FONDOS DE RESERVA</center></th>
+
+											</tr>
+
+
+										</thead>
+
+										<tbody>
+
+											<tr>
+
+												<td style='font-weight:bold;'>Enero</td>
+												<td id='eneroSueldos__b'></td>
+												<td id='eneroAporte__b'></td>
+												<td id='eneroTercero__b'></td>
+												<td id='eneroCuarto__b'></td>
+												<td id='eneroFondosReserva__b'></td>
+
+											</tr>
+
+											<tr>
+
+												<td style='font-weight:bold;'>Febrero</td>
+												<td id='febreroSueldos__b'></td>
+												<td id='febreroAporte__b'></td>
+												<td id='febreroTercero__b'></td>
+												<td id='febreroCuarto__b'></td>
+												<td id='febreroFondosReserva__b'></td>
+
+											</tr>
+
+											<tr>
+
+												<td style='font-weight:bold;'>Marzo</td>
+												<td id='marzoSueldos__b'></td>
+												<td id='marzoAporte__b'></td>
+												<td id='marzoTercero__b'></td>
+												<td id='marzoCuarto__b'></td>
+												<td id='marzoFondosReserva__b'></td>
+
+											</tr>
+
+											<tr>
+
+												<td style='font-weight:bold;'>Abril</td>
+												<td id='abrilSueldos__b'></td>
+												<td id='abrilAporte__b'></td>
+												<td id='abrilTercero__b'></td>
+												<td id='abrilCuarto__b'></td>
+												<td id='abrilFondosReserva__b'></td>
+
+											</tr>
+
+											<tr>
+
+												<td style='font-weight:bold;'>Mayo</td>
+												<td id='mayoSueldos__b'></td>
+												<td id='mayoAporte__b'></td>
+												<td id='mayoTercero__b'></td>
+												<td id='mayoCuarto__b'></td>
+												<td id='mayoFondosReserva__b'></td>
+
+											</tr>
+
+
+											<tr>
+
+												<td style='font-weight:bold;'>Junio</td>
+												<td id='junioSueldos__b'></td>
+												<td id='junioAporte__b'></td>
+												<td id='junioTercero__b'></td>
+												<td id='junioCuarto__b'></td>
+												<td id='junioFondosReserva__b'></td>
+
+											</tr>
+
+
+											<tr>
+
+												<td style='font-weight:bold;'>Julio</td>
+												<td id='julioSueldos__b'></td>
+												<td id='julioAporte__b'></td>
+												<td id='julioTercero__b'></td>
+												<td id='julioCuarto__b'></td>
+												<td id='julioFondosReserva__b'></td>
+
+											</tr>
+
+
+											<tr>
+
+												<td style='font-weight:bold;'>Agosto</td>
+												<td id='agostoSueldos__b'></td>
+												<td id='agostoAporte__b'></td>
+												<td id='agostoTercero__b'></td>
+												<td id='agostoCuarto__b'></td>
+												<td id='agostoFondosReserva__b'></td>
+
+											</tr>
+
+
+											<tr>
+
+												<td style='font-weight:bold;'>Septiembre</td>
+												<td id='septiembreSueldos__b'></td>
+												<td id='septiembreAporte__b'></td>
+												<td id='septiembreTercero__b'></td>
+												<td id='septiembreCuarto__b'></td>
+												<td id='septiembreFondosReserva__b'></td>
+
+											</tr>
+
+
+											<tr>
+
+												<td style='font-weight:bold;'>Octubre</td>
+												<td id='octubreSueldos__b'></td>
+												<td id='octubreAporte__b'></td>
+												<td id='octubreTercero__b'></td>
+												<td id='octubreCuarto__b'></td>
+												<td id='octubreFondosReserva__b'></td>
+
+											</tr>
+
+
+											<tr>
+
+												<td style='font-weight:bold;'>Noviembre</td>
+												<td id='noviembreSueldos__b'></td>
+												<td id='noviembreAporte__b'></td>
+												<td id='noviembreTercero__b'></td>
+												<td id='noviembreCuarto__b'></td>
+												<td id='noviembreFondosReserva__b'></td>
+
+											</tr>
+
+											<tr>
+
+												<td style='font-weight:bold;'>Diciembre</td>
+												<td id='diciembreSueldos__b'></td>
+												<td id='diciembreAporte__b'></td>
+												<td id='diciembreTercero__b'></td>
+												<td id='diciembreCuarto__b'></td>
+												<td id='diciembreFondosReserva__b'></td>
+
+											</tr>
+
+										</tbody>
+										
+									</table>
+
+							</div>
+
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+
+
+			";
+
+			return $modal;
+
+
+		}
+
+
 		public function modal__total__modificaciones($parametro1){
 
 			$componentes= new componentes();
@@ -119,8 +345,6 @@
 
 
 		}
-
-
 
 		public function matricez__origen__destino__inicial($parametro1){
  

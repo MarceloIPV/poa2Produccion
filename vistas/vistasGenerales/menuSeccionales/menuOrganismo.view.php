@@ -191,7 +191,7 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 		<?php endif ?>
 
-		<?php if ($aniosPeriodos__ingesos==2022): ?>
+		<?php if ($aniosPeriodos__ingesos==2022 || $aniosPeriodos__ingesos==2023): ?>
 			
 	
 		<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("seguimiento","seguimientoRe","seguimientoControlC","reportesSeguimientos","reporteAnexosOD"));?>">
@@ -263,7 +263,7 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 				</li>
 
-				<?php if (intval($_SESSION["selectorAniosA"])>=2022): ?>
+				<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
 
 					<li class="nav-item">
 
