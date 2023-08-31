@@ -5849,7 +5849,7 @@
 
 	 		$query="UPDATE poa_actdeportivas AS a SET  a.nombreEvento='$proyecto',a.Deporte='$deporte',a.provincia='$provincia',a.ciudadPais='$pais',a.alcance='$alcanse',a.fechaInicio='$fecha__inicio',a.fechaFin='$fecha__fin',a.genero='$genero',a.categoria='$categoria',a.numeroEntreandores='$numero__entrenadores',a.numeroAtletas='$numero__atletas',a.total='$total',a.mBenefici='$mujeresBeneficiarios',a.hBenefici='$hombresBeneficiarios' WHERE a.idPda='$proyectoHidden';";
 			$resultado= $conexionEstablecida->exec($query);
-
+			
 			// echo $query;
 
 
