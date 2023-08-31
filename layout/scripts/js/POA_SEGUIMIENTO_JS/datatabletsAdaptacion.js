@@ -978,7 +978,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     '<input type="checkbox" id="checkeds__cpacitacion'+z.idPda+'" name="checkeds__cpacitacion'+z.idPda+'" class="checkeds__cpacitaciones"/>'
             ]).draw(false);
     
-           checkeds__recorridos__general__capacitacion_presupuestaria($(".checkeds__cpacitaciones"),$("#checkeds__cpacitacion"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[3],z.totalTotales,z.esigef,z.totalCompletados,z.idItem, z.idActividad],'capacitacion__guardar','capacitacion__guardar__facturas','capacitacion__guardar__otros',1,158);		
+           checkeds__recorridos__general__capacitacion_presupuestaria($(".checkeds__cpacitaciones"),$("#checkeds__cpacitacion"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[2],z.totalTotales,z.esigef,z.totalCompletados,z.idItem, z.idActividad],'capacitacion__guardar','capacitacion__guardar__facturas','capacitacion__guardar__otros',1,158);		
                         
         }
     
@@ -1012,7 +1012,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
             ]).draw(false);
     
                         
-           checkeds__recorridos__general_competencia_presupuesto($(".checkeds__Competencias"),$("#checkedsCompetencias"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[3],z.totalTotales,z.esigef,z.totalCompletados,z.idItem,z.idActividad],'competencias__guardar','competencias__guardar__facturas','competencias__guardar__otros',1);	
+           checkeds__recorridos__general_competencia_presupuesto($(".checkeds__Competencias"),$("#checkedsCompetencias"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[2],z.totalTotales,z.esigef,z.totalCompletados,z.idItem,z.idActividad],'competencias__guardar','competencias__guardar__facturas','competencias__guardar__otros',1);	
         }
     
     }
@@ -1046,7 +1046,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
     
                         
 
-           checkeds__recorridos__general_recreativo_presupuestario($(".checkeds__recreativos"),$("#checkedsrecreativos"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[3],z.totalTotales,z.esigef,z.totalCompletados,z.idItem, z.idActividad],'recreativo__guardar','recreativo__guardar__facturas','recreativo__guardar__otros',1);
+           checkeds__recorridos__general_recreativo_presupuestario($(".checkeds__recreativos"),$("#checkedsrecreativos"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[2],z.totalTotales,z.esigef,z.totalCompletados,z.idItem, z.idActividad],'recreativo__guardar','recreativo__guardar__facturas','recreativo__guardar__otros',1);
         }
     
     }
@@ -1076,7 +1076,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
             ]).draw(false);
     
 
-           checkeds__recorridos__general_administrativo_presupuestario($(".checkeds__dinamicos__administrativos"),$("#checked"+z.idActividadAd),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idActividadAd,$(parametro1),$(parametro4),[z.idActividadAd,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[3],z.totalTotales,z.esigef,z.totalCompletados,z.idItem, z.idActividad],'administrativos__seguimientos','facturas__administrativas','otros__administrativas');	
+           checkeds__recorridos__general_administrativo_presupuestario($(".checkeds__dinamicos__administrativos"),$("#checked"+z.idActividadAd),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idActividadAd,$(parametro1),$(parametro4),[z.idActividadAd,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[2],z.totalTotales,z.esigef,z.totalCompletados,z.idItem, z.idActividad],'administrativos__seguimientos','facturas__administrativas','otros__administrativas');	
         }
     
     }
@@ -1112,7 +1112,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
     
 	
 
-           checkeds__recorridos__general__Honorarios($(".checkeds__dinamicos__honorarios"),$("#checkedHonorarios"+z.idHonorarios),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idHonorarios,$(parametro1),$(parametro4),[z.idHonorarios,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[3],z.totalTotales,z.esigef,z.totalCompletados,z.cedula, z.idActividad],'honorarios__guardar','honorarios__guardar__facturas','honorarios__guardar__otros',false,126);	
+           checkeds__recorridos__general__Honorarios($(".checkeds__dinamicos__honorarios"),$("#checkedHonorarios"+z.idHonorarios),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idHonorarios,$(parametro1),$(parametro4),[z.idHonorarios,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[2],z.totalTotales,z.esigef,z.totalCompletados,z.cedula, z.idActividad],'honorarios__guardar','honorarios__guardar__facturas','honorarios__guardar__otros',false,126);	
 
            contador++;
         }
@@ -1153,7 +1153,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
     
 	
 
-           checkeds__recorridos__general_implementacion_deportiva($(".checkedsinstalaciones"),$("#checkedsinstalaciones"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[3],z.totalTotales,z.esigef,z.totalCompletados,z.idItem,z.idActividad],'implementacion__guardar','implementacion__guardar__facturas','implementacion__guardar__otros',1,425);
+           checkeds__recorridos__general_implementacion_deportiva($(".checkedsinstalaciones"),$("#checkedsinstalaciones"+z.idPda),$("#contadorIndicador2"),$("#trimestreEvaluador").val(),z.idPda,$(parametro1),$(parametro4),[z.idPda,z.totalTotales,arrayRecibido[0],arrayRecibido[1],arrayRecibido[2],z.totalTotales,z.esigef,z.totalCompletados,z.idItem,z.idActividad],'implementacion__guardar','implementacion__guardar__facturas','implementacion__guardar__otros',1,425);
 
           
         }

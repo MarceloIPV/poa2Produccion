@@ -191,9 +191,8 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 		<?php endif ?>
 
-		<?php if ($aniosPeriodos__ingesos==2022 || $aniosPeriodos__ingesos==2023): ?>
+		<?php if ($aniosPeriodos__ingesos==2022): ?>
 			
-	
 		<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("seguimiento","seguimientoRe","seguimientoControlC","reportesSeguimientos","reporteAnexosOD"));?>">
 
 			<a href="#" class="nav-link">
@@ -263,7 +262,7 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 				</li>
 
-				<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+				<?php if (intval($_SESSION["selectorAniosA"])>=2022): ?>
 
 					<li class="nav-item">
 
@@ -280,7 +279,13 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 			</ul>
 
-		</li>	
+		</li>
+			
+		<?php endif ?>
+
+		<?php if ($aniosPeriodos__ingesos==2022): ?>
+			
+		
 		<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("modificacionesOrganismo","infraestructuraOrganismo","modificacionesMontos","modificacionesSueldosSalarios","modificacionesInformes","modificacionesCuadroAvances","dashboard","modificacionesDesvinculacion","modificaciones2022","modificarInformacion","crearInformacion","estadoTramitesModificaciones"));?>">
 
 			<a href="#" class="nav-link">
