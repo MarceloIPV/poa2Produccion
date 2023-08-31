@@ -292,7 +292,7 @@ var segmentosJsAjax=function(parametro1,parametro2){
 							$("#tablaItemsAc"+parametro2).dataTable().fnDestroy();
 
 
-					   		datatablets($("#tablaItemsAcModificaInsertas"+parametro2),"tablaItemsAcModificaInsertas"+parametro2,[$("#organismoIdPrin").val(),parametro2],objetos([2],["boton"],["<center><a class='itemsEscogidosEliminar estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></a><center>"],[false],[false]),-1,["funcion__datatabletsEliminar__modificaciones__en"],["itemsEscogidosEliminar"],["itemsPoaEliminas"],["elimina"]);
+					   		datatablets($("#tablaItemsAcModificaInsertas"+parametro2),"tablaItemsAcModificaInsertas"+parametro2,[$("#organismoIdPrin").val(),parametro2],objetos([15,16],["boton","boton"],["<center><a class='itemsEscogidosEliminar estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></a><center>","<center><a class='itemsEscogidosEditar estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#editarMesesItems'><i class='fas fa-user-edit'></i></a><center>"],[false],[false]),-1,["funcion__datatabletsEliminar__modificaciones__en","funcion__editarNue"],["itemsEscogidosEliminar","itemsEscogidosEditar"],["itemsPoaEliminas","itemsPoaEditas"],["elimina","edita"]);
 
 						
 						});
