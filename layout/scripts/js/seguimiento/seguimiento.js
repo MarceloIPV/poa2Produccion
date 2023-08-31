@@ -8424,7 +8424,10 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 			validacionRegistroMostrarErrores(parametro4);
 			var validador1= validacionRegistro(parametro5);
 			validacionRegistroMostrarErrores(parametro5);
-		
+			console.log("VALIDADOR");
+			console.log(validador);
+			console.log("VALIDADOR 1");
+			console.log(validador1);
 			if (validador==false || validador1==false) {
 
 				alertify.set("notifier","position", "top-center");

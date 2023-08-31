@@ -89,19 +89,18 @@ $componentesPaid= new componentesPaid();?>
 		<input type="hidden" id="valorAsignado__meses" name="valorAsignado__meses" />
 
 
-		<?php  
-					//   echo ("--tipoTrimestre:".$tipoTrimestre[0][tipoTrimestre]) ;
-					//   echo ("<br>--bloqueosSeguimientoII:".$bloqueosSeguimientoII[0][estado]) ;
-					//   echo ("<br>--bloqueosSeguimientoIII:".$bloqueosSeguimientoIII[0][estado]) ;
-					//   echo ("<br>--controlCambiosIII:".$controlCambiosIII[0][idSeguimientoCambio]) ;
-					//   echo ("<br>--bloqueosSeguimientoIV:".$bloqueosSeguimientoIV[0][estado]) ;
-					//   echo ("<br>--bloqueosSeguimientoI:".$bloqueosSeguimientoI[0][estado]) ;
-					//   echo ("<br>--controlCambiosI:".$controlCambiosI[0][idSeguimientoCambio]) ;
+				<?php  
+				// echo "<br>EL EL PUEBA POA";
+				// 	  echo ("<br>--tipoTrimestre:".$tipoTrimestre[0][tipoTrimestre]) ;
+				// 	  echo ("<br>--bloqueosSeguimientoIV:".$bloqueosSeguimientoIV[0][estado]) ;
+				// 	  echo ("<br>--controlCambiosI:".$controlCambiosI[0][idSeguimientoCambio]) ;
+				// 	  echo ("<br>--bloqueosSeguimientoI:".$bloqueosSeguimientoI[0][estado]) ;
+				// 	  echo ("<br>--controlCambiosI:".$controlCambiosI[0][idSeguimientoCambio]) ;
 				?>
-			<?php  
-					//   echo ("--tipoTrimestre:".$tipoTrimestre[0][tipoTrimestre]) ;
+				<?php  
+					//   echo ("<br>--tipoTrimestre:".$tipoTrimestre[0][tipoTrimestre]) ;
 					//   echo ("<br>--bloqueosSeguimientoI:".$bloqueosSeguimientoI[0][estado]) ;
-					//   echo ("<br>--bloqueosSeguimientoII:".$bloqueosSeguimientoII[0][estado]) ;
+					//   echo ("<br>--bloqueosSeguimientoI:".$bloqueosSeguimientoII[0][estado]) ;
 					//   echo ("<br>--bloqueosSeguimientoII:".$bloqueosSeguimientoII[0][estado]) ;
 					//   echo ("<br>--controlCambiosII:".$controlCambiosII[0][idSeguimientoCambio]) ;
 					//   echo ("<br>--controlCambiosIII:".$controlCambiosIII[0][idSeguimientoCambio]) ;
@@ -111,7 +110,7 @@ $componentesPaid= new componentesPaid();?>
 
 	
 
-		<?php if ($tipoTrimestre[0][tipoTrimestre] == "cuartoTrimestre" && empty($controlCambiosI[0][idSeguimientoCambio]) && empty($controlCambiosII[0][idSeguimientoCambio]) && empty($controlCambiosIII[0][idSeguimientoCambio]) && empty($controlCambiosIV[0][idSeguimientoCambio])) { ?>
+	<?php if ($tipoTrimestre[0][tipoTrimestre] == "cuartoTrimestre" && empty($controlCambiosI[0][idSeguimientoCambio]) && empty($controlCambiosII[0][idSeguimientoCambio]) && empty($controlCambiosIII[0][idSeguimientoCambio]) && empty($controlCambiosIV[0][idSeguimientoCambio])) { ?>
 			<div >
 			<center><img src="././images/paidpoa.PNG" width="100px"></center>
 				</div>
@@ -123,10 +122,9 @@ $componentesPaid= new componentesPaid();?>
 
 			<?php }else {?>
 
-		<?php if (
+				<?php if (
 			(empty($tipoTrimestre[0][tipoTrimestre]) || ($bloqueosSeguimientoIV[0][estado] == "si") || !empty($controlCambiosI[0][idSeguimientoCambio])) 
-			&& (empty($bloqueosSeguimientoI[0][estado]) || $bloqueosSeguimientoI[0][estado] == "no") 
-			|| !empty($controlCambiosI[0][idSeguimientoCambio])
+			&& (empty($bloqueosSeguimientoI[0][estado]) || $bloqueosSeguimientoI[0][estado] == "no") || !empty($controlCambiosI[0][idSeguimientoCambio])
 		) 
 		{ ?>
 
@@ -140,7 +138,7 @@ $componentesPaid= new componentesPaid();?>
 
 			</div>
 
-		<?php } else if (
+			<?php } else if (
 				($tipoTrimestre[0][tipoTrimestre] == "primerTrimestre" || ($bloqueosSeguimientoI[0][estado] == "si") || !empty($bloqueosSeguimientoII[0][estado])) 
 				&& (empty($bloqueosSeguimientoII[0][estado]) || $bloqueosSeguimientoII[0][estado] == "no")  
 				&& $tipoTrimestre[0][tipoTrimestre] != "segundoTrimestre" 
@@ -163,30 +161,27 @@ $componentesPaid= new componentesPaid();?>
 			</div>
 	
 
-		<?php } else if (($tipoTrimestre[0][tipoTrimestre] == "segundoTrimestre" || ($bloqueosSeguimientoII[0][estado] == "si") || !empty($bloqueosSeguimientoIII[0][estado])) && (empty($bloqueosSeguimientoIII[0][estado]) || $bloqueosSeguimientoIII[0][estado] == "no") || !empty($controlCambiosIII[0][idSeguimientoCambio]) || !empty($controlCambiosIII[0][idSeguimientoCambio])) { ?>
+			<?php } else if (($tipoTrimestre[0][tipoTrimestre] == "segundoTrimestre" || ($bloqueosSeguimientoII[0][estado] == "si") || !empty($bloqueosSeguimientoIII[0][estado])) || !empty($controlCambiosIII[0][idSeguimientoCambio])) { ?>
 
-			<input type="hidden" id="trimestreEvaluador" name="trimestreEvaluador" value="tercerTrimestre" />
+				<input type="hidden" id="trimestreEvaluador" name="trimestreEvaluador" value="tercerTrimestre" />
 
-			<div class="col col-12 textos__titulos__2d text-center d d-flex justify-content-center  mt-4" style='padding-right:11%;'>
+				<div class="col col-12 textos__titulos__2d text-center d d-flex justify-content-center  mt-4" style='padding-right:11%;'>
 
-				TERCER TRIMESTRE
+					TERCER TRIMESTRE
 
 			</div>
-		
-			
 
-		
-		<?php } else if ($tipoTrimestre[0][tipoTrimestre] == "tercerTrimestre" || ($bloqueosSeguimientoIII[0][estado] == "si") || !empty($bloqueosSeguimientoIV[0][estado] ) && (empty($bloqueosSeguimientoIV[0][estado]) || $bloqueosSeguimientoIV[0][estado] == "no") || !empty($controlCambiosIV[0][idSeguimientoCambio]) || !empty($controlCambiosIV[0][idSeguimientoCambio])) { ?>
+			<?php } else if ($tipoTrimestre[0][tipoTrimestre] == "tercerTrimestre" || ($bloqueosSeguimientoIII[0][estado] == "si") || !empty($bloqueosSeguimientoIV[0][estado] )|| !empty($controlCambiosIV[0][idSeguimientoCambio])) { ?>
 
 			<input type="hidden" id="trimestreEvaluador" name="trimestreEvaluador" value="cuartoTrimestre" />
 
 			<div class="col col-12 textos__titulos__2d text-center d d-flex justify-content-center  mt-4" style='padding-right:9%;'>
-			
+
 				CUARTO TRIMESTRE
 
 			</div>
-				
-		<?php } ?>
+
+			<?php } ?>
 
 		<div class="contenedor__seguiiento__sin">
 			
