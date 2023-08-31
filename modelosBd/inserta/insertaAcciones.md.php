@@ -3943,16 +3943,97 @@
 		break;
 
 		/*****************************************  GUARDAR TIRMESTRES 2023  ******************************** */
+		// case  "guardar__seguimiento__totales2023":
+
+		// 	$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT correo,nombreOrganismo FROM poa_organismo WHERE idOrganismo='$organismoIdPrin';");
+
+		// 	$indicadorInformacion2=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_docuento_final WHERE idOrganismo='$organismoIdPrin' AND perioIngreso='$aniosPeriodos__ingesos' ORDER BY idDocumento_seguimiento DESC;");
+
+		// 	$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_declaracion WHERE idOrganismo='$organismoIdPrin' AND perioIngreso='$aniosPeriodos__ingesos' ORDER BY idDeclaracion DESC LIMIT 1;");
+
+		// 	$indicadorInformacion4=$objeto->getObtenerInformacionGeneral("SELECT idOrganismo FROM poa_esigef WHERE idOrganismo='$organismoIdPrin';");
+
+		// 	if (!empty($indicadorInformacion4[0][idOrganismo])) {
+		// 		$varEsi="si";
+		// 	}else{
+		// 		$varEsi="no";
+		// 	}
+
+
+		// 	/*=============================
+		// 	=            Email            =
+		// 	=============================*/
+			
+
+		// 	if($trimestreEvaluador=="primerTrimestre") {
+		// 		$variableTrimestral="Primer Trimestre";
+		// 	}else if($trimestreEvaluador=="segundoTrimestre"){
+		// 		$variableTrimestral="Segundo Trimestre";
+		// 	}else if($trimestreEvaluador=="tercerTrimestre"){
+		// 		$variableTrimestral="Tercer Trimestre";
+		// 	}else if($trimestreEvaluador=="cuartoTrimestre"){
+		// 		$variableTrimestral="Cuarto Trimestre";
+		// 	}
+
+
+		// 	$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<span style="font-weight:bold;">COORDINACIÓN GENERAL DE PLANIFICACIÓN Y GESTIÓN ESTRATEGICA,</span><br><br>El Ministerio del Deporte, confirma que el día '.$fecha_actual.', a las '.$hora__dos.', fue recibida la información de seguimiento y evaluación al POA correspondiente a:<br><br><div style="font-weight;">Período:'.$variableTrimestral.' '.$aniosPeriodos__ingesos.'</div></body></html>';
+
+		// 	$emailArray = array($indicadorInformacion[0][correo]);
+
+		// 	$documentoE=$indicadorInformacion2[0][documento];
+
+		// 	$documentoE2=$indicadorInformacion3[0][documento];
+
+		// 	$correosEnviados=$objeto->getEnviarCorreo__atachmen($emailArray,$bodyMensaje,"../../documentos/final__seguimiento/$documentoE","../../documentos/declaracionTerminos/$documentoE2");
+
+		// 	$habilitarTrimestre=$objeto->getObtenerInformacionGeneral("SELECT estado FROM poa_seguimiento_control_cambios WHERE idOrganismo='$organismoIdPrin' AND estado='A' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre='$trimestreEvaluador';");
+			
+		// 	//$inserta=$objeto->getInsertaNormal('poa_trimestrales', array("`idEnviadorTrimestres`, ","`tipoTrimestre`, ","`fecha`, ","`idOrganismo`, ","`esigeft`, ","`perioIngreso`"),array("'$trimestreEvaluador', ","'$fecha_actual', ","'$organismoIdPrin', ","'$varEsi', ","'$aniosPeriodos__ingesos'"));	
+
+		// 	if (empty($guardar__seguimiento__totales[0][estado])) {
+		// 		// $inserta=$objeto->getInsertaNormal('poa_trimestrales', array("`idEnviadorTrimestres`, ","`tipoTrimestre`, ","`fecha`, ","`idOrganismo`, ","`esigeft`, ","`perioIngreso`"),array("'$trimestreEvaluador', ","'$fecha_actual', ","'$organismoIdPrin', ","'$varEsi', ","'$aniosPeriodos__ingesos'"));	
+			
+		// 		$conexionRecuperada= new conexion();
+		// 		$conexionEstablecida=$conexionRecuperada->cConexion();			
+	
+		// 		$inserta="INSERT INTO `poa_trimestrales`(`tipoTrimestre`, `fecha`, `idOrganismo`, `esigeft`, `perioIngreso`) VALUES ('$trimestreEvaluador','$fecha_actual','$organismoIdPrin','$varEsi','$aniosPeriodos__ingesos');";
+		
+		// 		$resultado= $conexionEstablecida->exec($inserta);
+			
+
+
+		// 	}
+
+
+		// 	$conexionRecuperada= new conexion();
+	 	// 	$conexionEstablecida=$conexionRecuperada->cConexion();	
+
+
+		// 	$indicadorInformacionComparaciones=$objeto->getObtenerInformacionGeneral("SELECT idSeguimientoCambio FROM poa_seguimiento_control_cambios WHERE idOrganismo='$organismoIdPrin' AND estado='A' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre='$trimestreEvaluador';");
+
+		// 	if (!empty($indicadorInformacionComparaciones[0][idSeguimientoCambio])) {
+
+		// 		$idSeguimientoCambioE=$indicadorInformacionComparaciones[0][idSeguimientoCambio];
+				
+	 	// 		$query="UPDATE poa_seguimiento_control_cambios SET estado='T' WHERE idSeguimientoCambio='$idSeguimientoCambioE';";
+		// 		$resultado= $conexionEstablecida->exec($query);
+
+		// 	}
+
+		
+			
+		// 	/*=====  End of Email  ======*/	
+
+		// 	$mensaje=1;
+		// 	$jason['mensaje']=$mensaje;		
+
+		// break;
+
 		case  "guardar__seguimiento__totales2023":
 
 			// $parametro1="../../documentos/final__seguimiento/";
 			// $parametro2="finalSeguiiento";	
 			// $parametro3=$organismoIdPrin."__".$fecha_actual;
-
-			// $nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
-			// $direccion1="../../documentos/seguimiento/declaracion_recursos_publicos/";
-			// $documento=$objeto->getEnviarPdf($_FILES["declaracion_rp"]['type'],$_FILES["declaracion_rp"]['size'],$_FILES["declaracion_rp"]['tmp_name'],$_FILES["declaracion_rp"]['name'],$direccion1,$nombre__archivo);
-		
 
 
 			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT correo,nombreOrganismo FROM poa_organismo WHERE idOrganismo='$organismoIdPrin';");
@@ -4000,18 +4081,8 @@
 			
 			//$inserta=$objeto->getInsertaNormal('poa_trimestrales', array("`idEnviadorTrimestres`, ","`tipoTrimestre`, ","`fecha`, ","`idOrganismo`, ","`esigeft`, ","`perioIngreso`"),array("'$trimestreEvaluador', ","'$fecha_actual', ","'$organismoIdPrin', ","'$varEsi', ","'$aniosPeriodos__ingesos'"));	
 
-			if (empty($guardar__seguimiento__totales[0][estado])) {
-				// $inserta=$objeto->getInsertaNormal('poa_trimestrales', array("`idEnviadorTrimestres`, ","`tipoTrimestre`, ","`fecha`, ","`idOrganismo`, ","`esigeft`, ","`perioIngreso`"),array("'$trimestreEvaluador', ","'$fecha_actual', ","'$organismoIdPrin', ","'$varEsi', ","'$aniosPeriodos__ingesos'"));	
-			
-				$conexionRecuperada= new conexion();
-				$conexionEstablecida=$conexionRecuperada->cConexion();			
-	
-				$inserta="INSERT INTO `poa_trimestrales`(`tipoTrimestre`, `fecha`, `idOrganismo`, `esigeft`, `perioIngreso`) VALUES ('$trimestreEvaluador','$fecha_actual','$organismoIdPrin','$varEsi','$aniosPeriodos__ingesos');";
-		
-				$resultado= $conexionEstablecida->exec($inserta);
-			
-
-
+			if (empty($habilitarTrimestre[0][estado])) {
+				$inserta=$objeto->getInsertaNormal('poa_trimestrales', array("`idEnviadorTrimestres`, ","`tipoTrimestre`, ","`fecha`, ","`idOrganismo`, ","`esigeft`, ","`perioIngreso`"),array("'$trimestreEvaluador', ","'$fecha_actual', ","'$organismoIdPrin', ","'$varEsi', ","'$aniosPeriodos__ingesos'"));	
 			}
 
 
@@ -4029,17 +4100,7 @@
 				$resultado= $conexionEstablecida->exec($query);
 
 			}
-			// if($btnEnviar == 1){
-			// 	$inserta=$objeto->getInsertaNormal('poa_seguimiento_docuento_final', array("`idDocumento_seguimiento`, ","`documento`, ","`idOrganismo`, ","`fecha`, ", "`perioIngreso`, ","`trimestre`"),array("'$parametro3.pdf', ","'$organismoIdPrin', ","'$fecha_actual', ", "'$aniosPeriodos__ingesos', ","'$trimestreEvaluador'"));
-			// }
 			
-
-				
-			// if($btnEnviar == 1){
-			// 	$query="INSERT INTO `poa_seguimiento_docuento_final`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`) VALUES ('$parametro3.pdf','$organismoIdPrin','$fecha_actual','$trimestreEvaluador','$aniosPeriodos__ingesos')";
-			// }
-			// $resultado= $conexionEstablecida->exec($query);
-		
 			
 			/*=====  End of Email  ======*/	
 
@@ -4047,7 +4108,6 @@
 			$jason['mensaje']=$mensaje;		
 
 		break;
-
 
 		/**************************************************************************************************** */
 
