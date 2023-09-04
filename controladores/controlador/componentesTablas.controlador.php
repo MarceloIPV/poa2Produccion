@@ -5779,9 +5779,7 @@
 						<div class='modal-body row'>
 
 							<section class='row'>
-								<div class='text-center textos__titulos col col-12 mt-2'>
-							
-								</div>
+								
 
 								<div class='row'>
 									<div class='col-md-3'>
@@ -5800,7 +5798,20 @@
 											<a class='btn btn-primary text-center' id='guardar_estado_cuenta'><i class='fa fa-floppy-o' aria-hidden='true'></i></a>
 										</div>
 									</div>
+
+									<div class='text-right col col-8 mt-8'>
+										<div class='col-md-12 end-0'>
+											<a class='btn btn-primary' id='contratcionActividadAdministrativo' data-bs-toggle='modal' data-bs-target='#contratcionActividades'>Editar Contratación Pública</a>
+										</div>
+									
+									</div>
+
+									
 								</div>
+
+
+
+								
 
 								<div class='table-wrapper'>
 
@@ -6215,6 +6226,13 @@
 
 							<section class='row'>
 
+								<div class='text-right col col-12 mt-12'>
+									<div class='col-md-12 end-0'>
+										<a class='btn btn-primary' id='contratcionActividadesMantenimiento' data-bs-toggle='modal' data-bs-target='#contratcionActividades'>Editar Contratación Pública</a>
+									</div>
+											
+								</div>
+
 								<div class='table-wrapper'>
 
 									<table id='$parametro4'>
@@ -6370,7 +6388,16 @@
 
 						<div class='modal-body row'>
 
+						
+
 							<section class='row'>
+
+								<div class='text-right col col-12 mt-12'>
+									<div class='col-md-12 end-0'>
+										<a class='btn btn-primary' id='contratcionActividadesCapacitacion' data-bs-toggle='modal' data-bs-target='#contratcionActividades'>Editar Contratación Pública</a>
+									</div>
+											
+								</div>
 
 								<div class='table-wrapper'>
 
@@ -6530,6 +6557,13 @@
 
 							<section class='row'>
 
+								<div class='text-right col col-12 mt-12'>
+									<div class='col-md-12 end-0'>
+										<a class='btn btn-primary' id='contratcionActividadesCompetencia' data-bs-toggle='modal' data-bs-target='#contratcionActividades'>Editar Contratación Pública</a>
+									</div>
+											
+								</div>
+
 								<div class='table-wrapper'>
 
 									<table id='$parametro4'>
@@ -6685,9 +6719,17 @@
 
 						</div>
 
+
 						<div class='modal-body row'>
 
 							<section class='row'>
+
+								<div class='text-right col col-12 mt-12'>
+									<div class='col-md-12 end-0'>
+										<a class='btn btn-primary' id='contratcionActividadesRecreativo' data-bs-toggle='modal' data-bs-target='#contratcionActividades'>Editar Contratación Pública</a>
+									</div>
+											
+								</div>
 
 								<div class='table-wrapper'>
 
@@ -6844,9 +6886,17 @@
 
 						</div>
 
+
 						<div class='modal-body row'>
 
 							<section class='row'>
+
+								<div class='text-right col col-12 mt-12'>
+									<div class='col-md-12 end-0'>
+										<a class='btn btn-primary' id='contratcionActividadesImplementacion' data-bs-toggle='modal' data-bs-target='#contratcionActividades'>Editar Contratación Pública</a>
+									</div>
+											
+								</div>
 
 								<div class='table-wrapper'>
 
@@ -7039,6 +7089,54 @@
 
 
 		}
+
+
+		public function getModalVacio($parametro1, $parametro2, $parametro3, $parametro4, $parametro6)
+		{
+
+			$modal = "
+
+			<div  class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true' data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog modal-lg'>
+
+					<form class='modal-content' id='$parametro2'>
+
+						<div class='modal-header row'>
+
+							<div class='col' style='z-index: 1;'>
+
+							<h5 class='modal-title' id='$parametro3'>$parametro3</h5>
+
+							</div>
+
+							<div class='col col-1' style='z-index: 2;'>
+
+							<button type='button' id='$parametro6' class='btn-close modales_reload pointer_botones' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+							</div>
+
+						</div>
+						
+
+						<div id='$parametro4' class='modal-body row'>
+
+					
+						</div>
+
+						
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+		}
+
+
 
 
 	}

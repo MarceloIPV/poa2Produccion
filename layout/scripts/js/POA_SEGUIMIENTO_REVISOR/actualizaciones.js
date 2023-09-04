@@ -211,7 +211,7 @@
 	=            Regresar actividades físicas            =
 	====================================================*/
 	
-	var informacion__analistas__reasignar__regresar__alto=function(parametro1){
+	var informacion__analistas__reasignar__regresar__alto2023=function(parametro1){
 
 		$(parametro1).click(function(e){
 
@@ -306,7 +306,7 @@
 	=            Enviar información actividades físicas            =
 	==============================================================*/
 	
-	var informacion__analistas__reasignar__altos=function(parametro1){
+	var informacion__analistas__reasignar__altos2023=function(parametro1){
 
 		$(parametro1).click(function(e){
 
@@ -403,7 +403,7 @@
 	================================*/
 	
 	
-	var informacion__analistas__reasignar__altos__infra__in__regresa=function(parametro1){
+	var informacion__analistas__reasignar__altos__infra__in__regresa2023=function(parametro1){
 
 		$(parametro1).click(function(e){
 
@@ -493,7 +493,7 @@
 	
 
 
-	var informacion__analistas__reasignar__altos__infra__in=function(parametro1){
+	var informacion__analistas__reasignar__altos__infra__in2023=function(parametro1){
 
 		$(parametro1).click(function(e){
 

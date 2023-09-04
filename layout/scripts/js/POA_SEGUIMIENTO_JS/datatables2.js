@@ -1117,7 +1117,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
           agregarDatatablets__capacitacion__seguimientos($("#capacitacion__in__2"),"seguimiento__capacitacion__2",variableTrimestral,selector__anios__se,"003 - Capacitación deportiva o de recreación - Ejecución presupuestaria"); 
       
       
-          var agregarDatatablets__competencia__seguimientos=function(parametro1,parametro3,parametro4,parametro5,nombreArchivo){
+          var agregarDatatablets__competencia__seguimientos2023=function(parametro1,parametro3,parametro4,parametro5,nombreArchivo){
       
           $(parametro1).click(function (e){
       
@@ -1189,7 +1189,7 @@ var datatableSeguimientoJurisdiccion=function(tabla,tipo){
       
           }
       
-          agregarDatatablets__competencia__seguimientos($("#competencia__in__2"),"seguimiento__competencia__2",variableTrimestral,selector__anios__se,"005 - Eventos de preparación y competencia - Ejecución presupuestaria"); 
+          agregarDatatablets__competencia__seguimientos2023($("#competencia__in__2"),"seguimiento__competencia__2",variableTrimestral,selector__anios__se,"005 - Eventos de preparación y competencia - Ejecución presupuestaria"); 
       
       
         var agregarDatatablets__recreativo__seguimientos=function(parametro1,parametro3,parametro4,parametro5,nombreArchivo){

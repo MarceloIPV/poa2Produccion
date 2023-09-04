@@ -16919,10 +16919,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 			=            Generar pdf            =
 			===================================*/
 
+			// $parametro1="../../documentos/final__seguimiento/";
+			// $parametro2="InformeFinalSeguimiento__".$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;	
+			// $parametro3=$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;
 			$parametro1="../../documentos/final__seguimiento/";
-			$parametro2="InformeFinalSeguimiento__".$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;	
-			$parametro3=$idOrganismo."__".$fecha_actual."__".$hora_actual."__".$hora_actual2;
-			
+			$parametro2="finalSeguiiento";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
 			/*=====  End of Generar pdf  ======*/
 
 			$auxiliar=" ";
@@ -17301,9 +17303,14 @@ internacional, organizaciones no gubernamentales, entre otros.
 					</tbody>
 
 				</table>';
-			if($btnEnviar == 1){
-				$inserta=$objeto->getInsertaNormal('poa_seguimiento_docuento_final', array("`idDocumento_seguimiento`, ","`documento`, ","`idOrganismo`, ","`fecha`, ", "`perioIngreso`, ","`trimestre`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ", "'$aniosPeriodos__ingesos', ","'$trimestreEvaluadorDos'"));
-			}
+
+				if($btnEnviar == 1){
+					$inserta=$objeto->getInsertaNormal('poa_seguimiento_docuento_final', array("`idDocumento_seguimiento`, ","`documento`, ","`idOrganismo`, ","`fecha`, ", "`perioIngreso`, ","`trimestre`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ", "'$aniosPeriodos__ingesos', ","'$trimestreEvaluadorDos'"));
+				}
+
+			// if($btnEnviar == 1){
+			// 	$inserta=$objeto->getInsertaNormal('poa_seguimiento_docuento_final', array("`idDocumento_seguimiento`, ","`documento`, ","`idOrganismo`, ","`fecha`, ", "`perioIngreso`, ","`trimestre`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ", "'$aniosPeriodos__ingesos', ","'$trimestreEvaluadorDos'"));
+			// }
 
 			// $conexionRecuperada= new conexion();
 			// $conexionEstablecida=$conexionRecuperada->cConexion();			

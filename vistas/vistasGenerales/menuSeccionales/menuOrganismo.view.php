@@ -262,7 +262,7 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 				</li>
 
-				<?php if (intval($_SESSION["selectorAniosA"])>=2022): ?>
+				<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
 
 					<li class="nav-item">
 

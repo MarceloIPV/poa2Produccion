@@ -1724,7 +1724,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.justificacion,
                     '<center><a class="btnFacturas btn btn-warning pointer__botones" item="'+z.itemPreesupuestario+'" mes="'+z.mes+'" trimestre="'+z.trimestre+'" idImplementacion="'+z.idImplementacion+'" idOrganismo="'+z.idOrganismo+'"  data-bs-toggle="modal" data-bs-target="#modalFacturasDocumentos"><i class="fas fa-file-invoice"></i></a></center>',
                     '<center><a class="btnDocumentos btn btn-warning pointer__botones" item="'+z.itemPreesupuestario+'" mes="'+z.mes+'" trimestre="'+z.trimestre+'" idImplementacion="'+z.idImplementacion+'" idOrganismo="'+z.idOrganismo+'"  data-bs-toggle="modal" data-bs-target="#modalFacturasDocumentos"><i class="fas fa-file"></i></a></center>',
-                    '<nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor'+z.idImplementacion+'" name="eliminarInfor'+z.idImplementacion+'" idPrincipal="'+z.idImplementacion+'" idContador="'+z.idImplementacion+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav>'
+                    '<nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor'+z.idImplementacion+'" name="eliminarInfor'+z.idImplementacion+'" idPrincipal="'+z.idImplementacion+'" idContador="'+z.idImplementacion+'" idItem="'+z.idItem+'" idOrganismo="'+z.idOrganismo+'" trimestre="'+z.trimestre+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav>'
 
             ]).draw(false);
 
@@ -1735,6 +1735,9 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
 
                 let idContador=$(this).attr('idContador');
                 let idPrincipal=$(this).attr('idPrincipal');
+                let idItem=$(this).attr('idItem');
+                let idOrganismo=$(this).attr('idOrganismo');
+                let trimestre=$(this).attr('trimestre');
                 
                 funcion__eliminar__general(idPrincipal,'eliminar__implementacion__seguimiento');
                 table.row($(this).closest('tr').index()).remove().draw();

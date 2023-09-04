@@ -45,11 +45,11 @@ $(document).ready(function () {
         informacion__analistas__reasignar__regresar__Contratacion_Publica($("#regresarSeguimientos__a__contratacionPublica"));
         informacion__analistas__reasignar__Contratacion_Publica($("#reasignarSeguimientos__a__contratacionPublica"));
 
-        informacion__analistas__reasignar__regresar__alto($("#regresarSeguimientos__a__actividad__fisicas2023"));	
-        informacion__analistas__reasignar__altos($("#reasignarSeguimientos__a__actividad__fisicas2023"));
+        informacion__analistas__reasignar__regresar__alto2023($("#regresarSeguimientos__a__actividad__fisicas2023"));	
+        informacion__analistas__reasignar__altos2023($("#reasignarSeguimientos__a__actividad__fisicas2023"));
 
-        informacion__analistas__reasignar__altos__infra__in($("#reasignarSeguimientos__a__actividad__fisicas__in2023"));	
-		informacion__analistas__reasignar__altos__infra__in__regresa($("#regresarSeguimientos__a__actividad__fisicas__in2023"));
+        informacion__analistas__reasignar__altos__infra__in2023($("#reasignarSeguimientos__a__actividad__fisicas__in2023"));	
+		informacion__analistas__reasignar__altos__infra__in__regresa2023($("#regresarSeguimientos__a__actividad__fisicas__in2023"));
         
     });
 
@@ -58,29 +58,29 @@ $(document).ready(function () {
 
     superioresSelectsContratacionPublica($("#selects__superiores1"));
 
-    agregarDatatablets__competencia__seguimientos($("#competencia__in__2"),$(".seguimiento__competencia__2"),"seguimiento__competencia__2"); 
+    agregarDatatablets__competencia__seguimientos2023($("#competencia__in__2"),$(".seguimiento__competencia__2"),"seguimiento__competencia__2"); 
 
-    agregarDatatablets__competencia__altos__formativos($("#competenciaFormativa__in__2"),$(".seguimiento__sueldos__salarios__2"),"seguimiento__sueldos__salarios__2"); 
+    agregarDatatablets__competencia__altos__formativos2023($("#competenciaFormativa__in__2"),$(".seguimiento__sueldos__salarios__2"),"seguimiento__sueldos__salarios__2"); 
 
-    agregarDatatablets__indicadores($("#indicadores__in__2"),$(".seguimiento__indicadores__2"),"seguimiento__indicadores__2","","SAD"); 
+    agregarDatatablets__indicadores2023($("#indicadores__in__2"),$(".seguimiento__indicadores__2"),"seguimiento__indicadores__2","","SAD"); 
 
-    agregarDatatablets__implementacion__seguimientos($("#implementacion__in__2"),$(".seguimiento__implementacion__2"),"seguimiento__implementacion__2","","Implementacion"); 
+    agregarDatatablets__implementacion__seguimientos2023($("#implementacion__in__2"),$(".seguimiento__implementacion__2"),"seguimiento__implementacion__2","","Implementacion"); 
    
     
-	agregarDatatablets__competencia__altos($("#competenciaAlto__in__2"),$(".seguimiento__sueldos__salarios__2"),"seguimiento__sueldos__salarios__2","","Alto Rendimiento"); 
+	agregarDatatablets__competencia__altos2023($("#competenciaAlto__in__2"),$(".seguimiento__sueldos__salarios__2"),"seguimiento__sueldos__salarios__2","","Alto Rendimiento"); 
 
-    agregarDatatablets__sueldos__salarios($("#sueldos__in__2"),$(".seguimiento__sueldos__salarios__2"),"seguimiento__sueldos__salarios__2","","Sueldos y Salarios"); 
+    agregarDatatablets__sueldos__salarios2023($("#sueldos__in__2"),$(".seguimiento__sueldos__salarios__2"),"seguimiento__sueldos__salarios__2","","Sueldos y Salarios"); 
 
-    agregarDatatablets__honorarios__seguimientos($("#honorarios__in__2"),$(".seguimiento__honorarios__2"),"seguimiento__honorarios__2","","Honorarios"); 
+    agregarDatatablets__honorarios__seguimientos2023($("#honorarios__in__2"),$(".seguimiento__honorarios__2"),"seguimiento__honorarios__2","","Honorarios"); 
 
-    agregarDatatablets__administrativos__seguimientos($("#administrativo__in__2"),$(".seguimiento__administrativas__2"),"seguimiento__administrativas__2","","001 - OPERACIÓN Y FUNCIONAMIENTO DE ORGANIZACIONES DEPORTIVAS Y ESCENARIOS DEPORTIVOS - EJECUCIÓN PRESUPUESTARIA"); 
+    agregarDatatablets__administrativos__seguimientos2023($("#administrativo__in__2"),$(".seguimiento__administrativas__2"),"seguimiento__administrativas__2","","001 - OPERACIÓN Y FUNCIONAMIENTO DE ORGANIZACIONES DEPORTIVAS Y ESCENARIOS DEPORTIVOS - EJECUCIÓN PRESUPUESTARIA"); 
 	
-	agregarDatatablets__mantenimiento__seguimientos($("#mantenimiento__in__2"),$(".seguimiento__mantenimientos__2"),"seguimiento__mantenimientos__2","","Mantenimiento"); 
+	agregarDatatablets__mantenimiento__seguimientos2023($("#mantenimiento__in__2"),$(".seguimiento__mantenimientos__2"),"seguimiento__mantenimientos__2","","Mantenimiento"); 
 
     
-	agregarDatatablets__capacitacion__seguimientos($("#capacitacion__in__2"),$(".seguimiento__capacitacion__2"),"seguimiento__capacitacion__2","","Capacitación"); 
+	agregarDatatablets__capacitacion__seguimientos2023($("#capacitacion__in__2"),$(".seguimiento__capacitacion__2"),"seguimiento__capacitacion__2","","Capacitación"); 
 
-    agregarDatatablets__recreativo__seguimientos($("#recreativo__in__2"),$(".seguimiento__recreativo__2"),"seguimiento__recreativo__2","","Recreativo"); 
+    agregarDatatablets__recreativo__seguimientos2023($("#recreativo__in__2"),$(".seguimiento__recreativo__2"),"seguimiento__recreativo__2","","Recreativo"); 
 
     agregarDatatablets($("#autogestionPoas__in__2"),$(".seguimiento__autogestiones__2"),"seguimiento__autogestiones__2","","","asdad"); 
     agregarDatatablets($("#mantenimientoTec__in__2"),$(".seguimiento__mantenimientosTec__2"),"seguimiento__mantenimientosTec__2","","","asdad"); 	
