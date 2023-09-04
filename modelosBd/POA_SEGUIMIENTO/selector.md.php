@@ -681,6 +681,17 @@
 
 	break;
 
+	//*********************************************** leer estado de contratacion publica por actividad***************************************** //
+
+	case "listar_estado_contratacion_seguimiento":
+
+		$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idItemCatalogo, a.idOrganismo, a.idRegistro, d.itemPreesupuestario, d.nombreItem, a.registra_Contratacion, a.justificacion from poa_registro_contratacion as a INNER JOIN poa_item AS d on d.idItem=a.idItemCatalogo where a.idOrganismo ='$idOrganismoSession' and a.trimestre ='$trimestre' and a.perioIngreso='$aniosPeriodos__ingesos' and a.idActividad ='$actividad';");
+
+	
+		$jason['indicadorInformacion']=$indicadorInformacion;
+
+	break;
+
     }
     echo json_encode($jason);
 

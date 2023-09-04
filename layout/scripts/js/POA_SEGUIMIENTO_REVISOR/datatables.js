@@ -132,39 +132,39 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
 
          
  
-        funcion__reasignar__contratacion_publica__unidos__altos("#"+tipo+" tbody",table);
+        funcion__reasignar__contratacion_publica__unidos__altos2023("#"+tipo+" tbody",table);
 
     }
     if (reasignacion[0]=="funcion__reasignar__contratacion_publica__unidos__altos__recomendados") {
 
          
  
-        funcion__reasignar__contratacion_publica__unidos__altos__recomendados("#"+tipo+" tbody",table);
+        funcion__reasignar__contratacion_publica__unidos__altos__recomendados2023("#"+tipo+" tbody",table);
 
     }
 
     if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__actividad__fisica1") {
 
         
-        funcion__reasignar__seguimientos__unidos__actividad__fisica("#"+tipo+" tbody",table);
+        funcion__reasignar__seguimientos__unidos__actividad__fisica2023("#"+tipo+" tbody",table);
 
     }
 
     if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins") {
 
-        funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins("#"+tipo+" tbody",table);
+        funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins2023("#"+tipo+" tbody",table);
 
     }
 
     if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones") {
 
-        funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones("#"+tipo+" tbody",table);
+        funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones2023("#"+tipo+" tbody",table);
 
        }
 
     if (reasignacion[0]=="funcion__reasignar__seguimiento__presupuestario_recibidosd") {
 
-        funcion__reasignar__seguimiento__presupuestario_recibidosd("#"+tipo+" tbody",table);
+        funcion__reasignar__seguimiento__presupuestario_recibidos2023("#"+tipo+" tbody",table);
 
     }
 
@@ -181,44 +181,38 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
     }
     if (reasignacion[0]=="funcion__bloqueos__seguimientos2023") {
 
-        funcion__bloqueos__seguimientos("#"+tipo+" tbody",table);
+        funcion__bloqueos__seguimientos2023("#"+tipo+" tbody",table);
 
     }
     if (reasignacion[0]=="funcion__reasignar__seguimientos__recorridos__anexos__reportes2023") {
 
-        funcion__reasignar__seguimientos__recorridos__anexos__reportes("#"+tipo+" tbody",table);
+        funcion__reasignar__seguimientos__recorridos__anexos__reportes2023("#"+tipo+" tbody",table);
 
     }
     if (reasignacion[0]=="funcion__reporte__seguimientos__anual__revisor") {
 
-        funcion__reporte__seguimientos__anual__revisor("#"+tipo+" tbody",table);
+        funcion__reporte__seguimientos__anual__revisor2023("#"+tipo+" tbody",table);
 
     }
     if (reasignacion[0]=="funcion__remanentes__asignados") {
 
-        funcion__remanentes__asignados("#"+tipo+" tbody",table);
+        funcion__remanentes__asignados2023("#"+tipo+" tbody",table);
 
     }
     if (reasignacion[0]=="funcionEditar__gestionados_s") {
 
-        funcionEditar__gestionados_s("#"+tipo+" tbody",table);
+        funcionEditar__gestionados_s2023("#"+tipo+" tbody",table);
 
     }   
 
     if (reasignacion[0]=="funcionEditar__gestionados") {
 
-        funcion__gestionados__i("#"+tipo+" tbody",table);
+        funcion__gestionados__i2023("#"+tipo+" tbody",table);
 
     }  
 
     
 
-    
-
-    
-    
-
-    funcion__reasignar__seguimientos__recorridos__anexos__reportes("#"+tipo+" tbody",table);
     
 }
 
@@ -389,7 +383,7 @@ var datatabletsSeguimientoRevisorVacio2=function(tabla,tipo,nombreDocumento,enla
 =            Funcion de contratacion_publica           =
 ====================================================*/
 
-var funcion__reasignar__contratacion_publica__unidos__altos=function(tbody,table){
+var funcion__reasignar__contratacion_publica__unidos__altos2023=function(tbody,table){
 
     $(tbody).on("click","button.reasignarTramites__seguimientosAltos",function(e){
         
@@ -1027,7 +1021,7 @@ var funcion__reasignar__contratacion_publica__unidos__altos=function(tbody,table
 =            Función recomendar altos            =
 =============================*/
 
-var funcion__reasignar__contratacion_publica__unidos__altos__recomendados=function(tbody,table){
+var funcion__reasignar__contratacion_publica__unidos__altos__recomendados2023=function(tbody,table){
 
     $(tbody).on("click","button.reasignarTramites__seguimientosAltos__recomendados",function(e){
   
@@ -1156,7 +1150,7 @@ var funcion__reasignar__contratacion_publica__unidos__altos__recomendados=functi
 =            Funcion de formativo-recreativo          =
 ====================================================*/
 
-var funcion__reasignar__seguimientos__unidos__actividad__fisica=function(tbody,table){
+var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbody,table){
 
     $(tbody).on("click","button.reasignarTramites__seguimientosActividad",function(e){
   
@@ -1617,7 +1611,7 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica=function(tbody,t
 ===============================================================*/
 
 
-var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins=function(tbody,table){
+var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins2023=function(tbody,table){
   
         $(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados__insta",function(e){
     
@@ -1858,325 +1852,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
   /*=====  End of  formatos relacionales infraestructuras  ======*/
 
 
-/*================================================================
-=                        PRESUPUESTARIO                          =
-=================================================================*/
-
-// var funcion__reasignar__seguimiento__presupuestario_recibidos=function(tbody,table){
-
-//     $(tbody).on("click","button.reasignarTramites__seguimientos__Preupuestario__recib",function(e){
-        
-  
-//         e.preventDefault();
-  
-//         var data=table.row($(this).parents("tr")).data();
-  
-  
-//         var paqueteDeDatos = new FormData();
-  
-//         paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
-  
-//         paqueteDeDatos.append("idOrganismo",data[19]);
-  
-//         paqueteDeDatos.append("periodo",data[7]);
-  
-      
-//       $.ajax({
-  
-//           type:"POST",
-//           url:"modelosBd/inserta/seleccionaAcciones.md.php",
-//           contentType: false,
-//           data:paqueteDeDatos,
-//           processData: false,
-//           cache: false, 
-//           success:function(response){
-
-//           $.getScript("layout/scripts/js/validacionBasica.js",function(){
-        
-//               var elementos=JSON.parse(response);
-             
-//               var poa__invers=elementos['poa__invers'];
-              
-//               var indicadores__altos=elementos['indicadores__altos'];
-              
-//               /*==================================================
-//               =            Registrar datos necesarios            =
-//               ==================================================*/
-            
-//               $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center'>SUBSECRETARÍA DE ALTO RENDIMIENTO</div><input type='hidden' id='subsecretarias__escritas' name='subsecretarias__escritas' value='SUBSECRETARÍA DE ALTO RENDIMIENTO'/>");
-  
-  
-//               if ($("#fisicamenteE").val()=="12" || $("#fisicamenteE").val()=="24") {
-
-  
-//                   $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center mt-2'>DIRECCIÓN DE DE ALTO RENDIMIENTO</div><input type='hidden' id='direccion__escritas' name='direccion__escritas' value='DIRECCIÓN DE DE ALTO RENDIMIENTO'/>");
-  
-//               }else if( $("#fisicamenteE").val()=="2" || $("#fisicamenteE").val()=="23"){
-//                 $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center mt-2'>DIRECCIÓN DE DE ALTO RENDIMIENTO</div><input type='hidden' id='direccion__escritas' name='direccion__escritas' value='DIRECCIÓN DE DE ALTO RENDIMIENTO'/>");
-//             }else{
-  
-//                   $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center mt-2'>DIRECCION DE DEPORTE PARA PERSONAS CON DISCAPACIDAD</div><input type='hidden' id='direccion__escritas' name='direccion__escritas' value='DIRECCION DE DEPORTE PARA PERSONAS CON DISCAPACIDAD'/>");
-  
-//               }
-
-           
-  
-//               /*====================================
-//               =            Sacar siglas            =
-//               ====================================*/
-              
-//                 let palabras = data[2];
-//               let array = palabras.split(" ");
-//               let total = array.length;
-//               let resultado = "";
-               
-//               for (var i = 0; i < total; i++){
-  
-//                   if (array[i].length>2) {
-  
-//                       resultado += array[i][0];
-  
-//                   }
-  
-//               }
-              
-//               $(".siglas__dinamicas").text(resultado);	
-  
-//               $("#siglas__dinamicas__inputs").val(resultado);	
-              
-//               /*=====  End of Sacar siglas  ======*/
-  
-              
-//               if (parseInt(data[10], 10)<10) {
-  
-//                   $(".numerico__dinamicas").text("0"+data[10]);
-  
-//                   $("#numerico__dinamicas__inputs").val("0"+data[10]);
-  
-//               }else{
-  
-//                   $(".numerico__dinamicas").text(data[10]);
-  
-//                   $("#numerico__dinamicas__inputs").val(data[10]);
-  
-//               }
-  
-  
-//               /*=====  End of Registrar datos necesarios  ======*/
-  
-  
-//               /*=====================================================
-//               =            Asignar datos del datatablets            =
-//               =====================================================*/
-  
-//               $("#organismoOculto__modal").val(data[18]);
-  
-//               $("#idOrganismo").val(data[18]);
-  
-//               $(".periodo__evaluados__anuales").text(data[11]);
-  
-//               $("#periodo__evaluados__anuales").val(data[11]);
-  
-//               if (data[6]=="primerTrimestre") {
-  
-//                   $(".trimestre__evaluados__al").text("I TRIMESTRE");
-//                   $("#trimestre__evaluados__al").val("I TRIMESTRE");
-  
-//               }else if (data[6]=="segundoTrimestre") {
-  
-  
-//                   $(".trimestre__evaluados__al").text("II TRIMESTRE");
-//                   $("#trimestre__evaluados__al").val("II TRIMESTRE");
-  
-//               }else if (data[6]=="tercerTrimestre") {
-  
-//                   $(".trimestre__evaluados__al").text("III TRIMESTRE");
-//                   $("#trimestre__evaluados__al").val("III TRIMESTRE");
-  
-//               }else if (data[6]=="cuartoTrimestre") {
-  
-//                   $(".trimestre__evaluados__al").text("IV TRIMESTRE");
-//                   $("#trimestre__evaluados__al").val("IV TRIMESTRE");
-//               }
-  
-//               $(".periodo__evaluados__anuales").text(data[11]);
-  
-//               $("#periodo__evaluados__anuales").val(data[11]);
-  
-//               $("#organismoOculto__modal").val(data[18]);
-  
-//               $("#idOrganismo").val(data[18]);
-  
-//               $("#periodo").val(data[6]);
-  
-//               $(".nombre__organizacion__deportivas").text(data[2]);
-  
-//               $("#nombre__organizacion__deportivas").val(data[2]);
-  
-//               $(".ruc__organizacion__deportivas").text(data[1]);
-  
-//               $("#ruc__organizacion__deportivas").val(data[1]);
-  
-//               $(".presidente__organizacion__deportivas").text(data[12]);
-  
-//               $("#presidente__organizacion__deportivas").val(data[12]);
-  
-//               $(".correo__organizacion__deportivas").text(data[13]);
-  
-//               $("#correo__organizacion__deportivas").val(data[13]);
-  
-//               $(".direccion__organizacion__deportivas").text(data[14]);
-  
-//               $("#direccion__organizacion__deportivas").val(data[14]);
-  
-//               $(".provincia__organizacion__deportivas").text(data[3]);
-  
-//               $("#provincia__organizacion__deportivas").val(data[3]);
-  
-//               $(".canton__organizacion__deportivas").text(data[4]);
-  
-//               $("#canton__organizacion__deportivas").val(data[4]);
-  
-//               $(".parroquia__organizacion__deportivas").text(data[5]);
-  
-//               $("#parroquia__organizacion__deportivas").val(data[5]);
-  
-//               $(".barrio__organizacion__deportivas").text(data[15]);
-  
-//               $("#barrio__organizacion__deportivas").val(data[15]);
-  
-//               $(".presupuesto__asignado__pais__altos").text(poa__invers);
-  
-//               $("#presupuesto__asignado__pais__altos").val(poa__invers);
-  
-//               $("#idUSeguimientos").val($("#idUsuarioC").val());
-  
-//               if ($("#idRolAd").val()=="7" || $("#idRolAd").val()==7) {
-  
-//                   $(".fila__reasignar").show();
-//                   $(".fila__regresar__a").hide();
-  
-//               }else if($("#idRolAd").val()=="2" || $("#idRolAd").val()==2 || $("#idRolAd").val()=="4" || $("#idRolAd").val()==4){
-  
-//                   $(".fila__reasignar").show();
-//                   $(".fila__regresar__a").hide();
-  
-//                   $(".reasignar__solo").removeClass('col');
-  
-//                   $(".reasignar__solo").removeClass('col-2');
-  
-//                   $(".reasignar__solo").addClass('col');
-  
-//                   $(".reasignar__solo").addClass('col-6');
-  
-//               }else{
-  
-//                   $(".fila__reasignar").hide();
-//                   $(".fila__regresar__a").show();
-  
-//               }
-  
-//               if ($("#idRolAd").val()=="3" || $("#idRolAd").val()==3) {
-  
-//                   $(".ocultos__en__altos").show();
-  
-//               }else{
-  
-//                   $(".ocultos__en__altos").remove();
-  
-//               }
-  
-//               /*=====  End of Asignar datos del datatablets  ======*/
-  
-//               /*=========================================================
-//               =            Construción tablas de indicadores            =
-//               =========================================================*/
-  
-//               let porcentajesCumplimientos=0;
-  
-//               let div="";
-  
-//               let sumaProgramado=0;
-//               let sumaAlcanzado=0;
-  
-//               let porcentajeFinalAl=0;
-  
-//               for (w of indicadores__altos) {
-  
-//                   sumaProgramado=parseFloat(sumaProgramado) + parseFloat(w.totalProgramado);
-//                   sumaAlcanzado=parseFloat(sumaAlcanzado) + parseFloat(w.totalEjecutado);
-  
-//                   porcentajesCumplimientos=(parseFloat(w.totalEjecutado) / parseFloat(w.totalProgramado))*100;
-  
-//                   if (parseFloat(porcentajesCumplimientos).toFixed(2)>=85) {
-  
-//                        div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
-  
-//                   }else if (parseFloat(porcentajesCumplimientos).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos).toFixed(2)<85) {
-  
-//                        div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
-  
-//                   }else if (parseFloat(porcentajesCumplimientos).toFixed(2)<70) {
-  
-//                        div="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
-  
-//                   }
-  
-  
-  
-//                   $(".cuerpo__items__alto__rendimientos").append('<tr><td>'+w.nombreActividades+'</td><td>'+w.nombreIndicador+'</td><td>'+w.totalProgramado+'</td><td>'+w.totalEjecutado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>');
-  
-//               }
-  
-//               porcentajeFinalAl=(parseFloat(sumaAlcanzado)/parseFloat(sumaProgramado))*100;
-  
-//               $(".footer__altos__indicadores").append('<tr><th colspan="2"><center>Total</center></th><th><center>'+parseFloat(sumaProgramado).toFixed(2)+'</center></th><th><center>'+parseFloat(sumaAlcanzado).toFixed(2)+'</center></th><th><center>'+parseFloat(porcentajeFinalAl).toFixed(2)+'</center></th></tr>');
-              
-//               /*=====  End of Construción tablas de indicadores  ======*/
-              
-  
-//               if($("#idRolAd").val()=="7" || $("#idRolAd").val()==7){
-  
-//                   // $(".superior__sin").remove();
-//                   // $(".superior__con").show();
-  
-                  
-//                   $(".superior__sin").show();
-//                   $(".superior__con").remove();
-  
-//               }else{
-  
-//                   $(".superior__sin").show();
-//                   $(".superior__con").remove();
-  
-//               }
-  
-//               if($("#idRolAd").val()=="4" || $("#idRolAd").val()==4){
-  
-//                   $(".regresar__superior__prin").remove();
-//                   $(".regresar__superior__con").show();
-  
-//               }else{
-  
-//                   $(".regresar__superior__prin").show();
-//                   $(".regresar__superior__con").remove();
-  
-//               }
-  
-//           });	
-  
-//           },
-//           error:function(){
-  
-//           }
-                  
-//       });	  	
-  
-//     });
-  
-// }
-
-var funcion__reasignar__seguimiento__presupuestario_recibidos=function(tbody,table){
+var funcion__reasignar__seguimiento__presupuestario_recibidos2023=function(tbody,table){
 
     $(tbody).on("click","button.reasignarTramites__seguimientos__Preupuestario__recib",function(e){
   
@@ -3328,210 +3004,8 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
 }
 
 
-//******************************************** Infraestructura RECOMENDADOS ********************************************* */
-// var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones=function(tbody,table){
 
-// 	$(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados__instalaciones",function(e){
-// 	   console.log("FUNCION DE DATATABLE INFRAESTRUCTURA RECOMENDADOS")
-// 		 e.preventDefault();
-   
-// 		 var data=table.row($(this).parents("tr")).data();
-   
-   
-// 		 var paqueteDeDatos = new FormData();
-   
-// 		 paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos_infraestructura');
-   
-// 		 paqueteDeDatos.append("idOrganismo",data[4]);
-   
-// 		 paqueteDeDatos.append("periodo",data[2]);
-   
-// 		 let idUsuarioC=$("#idUsuarioC").val();
-   
-// 		 paqueteDeDatos.append("idUsuarioC",idUsuarioC);
-   
-// 		 console.log(data);
-// 	   console.log("ANtiguos data[4] , data[2])");
-// 	   console.log(data[4],data[2]);
-// 	   console.log("idUsuarioC");
-// 	   console.log(idUsuarioC);
-   
-// 	   if ($("#idRolAd").val()==4) {
-   
-// 		   $(".recomendar__final__ins").show();
-// 		   // $(".recomendar__ins__ins").remove();
-   
-// 		   $(".eliminados__al__de").remove();
-   
-// 			$(".acciones__recomendaciones__finales").hide();
-   
-// 	   }
-   
-   
-// 	   $.ajax({
-   
-// 		   type:"POST",
-// 		   //url:"modelosBd/inserta/seleccionaAcciones.md.php",
-//            url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
-// 		   contentType: false,
-// 		   data:paqueteDeDatos,
-// 		   processData: false,
-// 		   cache: false, 
-// 		   success:function(response){
-   
-// 		   $.getScript("layout/scripts/js/validacionBasica.js",function(){
-   
-   
-// 			   let elementos=JSON.parse(response);
-   
-// 			   let envio__tecnicos__seguimientos__infraestructuras=elementos['envio__tecnicos__seguimientos__infraestructuras'];			
-   
-// 			   let estadoIR__estados=elementos['estadoIR__estados'];
-// 			   let estadoINR__estados=elementos['estadoINR__estados'];
-   
-// 			   let bandera__instalaciones1=false;
-// 			   let bandera__infraestructuras1=false;
-   
-   
-// 			   if ($("#idRolAd").val()==4) {
-   
-// 				 $(".recomendar__final__ins").show();
-   
-// 				for (z of envio__tecnicos__seguimientos__infraestructuras) {
-   
-// 				   if (estadoIR__estados=="N/A") {
-   
-// 						$("#documentos__tecnicos__t__infras").text('NO CORRESPONDE');
-   
-// 						bandera__infraestructuras1=true;
-   
-// 				   }else if($("#idUsuarioC").val()==estadoIR__estados){
-   
-// 					   $("#documentos__tecnicos__t__infras").attr('href','documentos/seguimiento/informesInfraestructuras/'+z.documentoInfras);
-   
-// 						$("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
-   
-// 					   bandera__infraestructuras1=true;
-   
-// 				   }else{
-   
-// 						$("#documentos__tecnicos__t__infras").text("NO PRESENTA");
-   
-// 						 bandera__infraestructuras1=false;
-   
-// 				   }
-   
-   
-// 				  if (estadoINR__estados=="N/A") {
-   
-// 						$("#documentos__tecnicos__t__infras__instalaciones").text('NO CORRESPONDE');
-   
-// 						 bandera__instalaciones1=true;
-   
-// 				   }else if($("#idUsuarioC").val()==estadoINR__estados){
-   
-   
-// 						$("#documentos__tecnicos__t__infras__instalaciones").attr('href','documentos/seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
-   
-// 						 $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
-   
-// 						 bandera__instalaciones1=true;
-   
-   
-// 				   }else{
-   
-// 						$("#documentos__tecnicos__t__infras__instalaciones").text("NO PRESENTA");
-   
-// 						 bandera__infraestructuras1=false;
-   
-   
-// 				   }
-   
-// 			   }
-   
-// 				   if (bandera__infraestructuras1==false) {
-   
-// 					   $(".acciones__recomendaciones__finales").remove();
-   
-// 				   }else{
-// 						$(".acciones__recomendaciones__finales").show();
-// 				   }
-   
-// 				   $(".eliminados__al__de").remove();
-   
-// 				 }else if($("#idRolAd").val()==2){
-   
-   
-// 				   if ($("#fisicamenteE").val()==6) {
-   
-// 						for (z of envio__tecnicos__seguimientos__infraestructuras) {
-   
-// 						   $("#documentos__tecnicos__t__infras__instalaciones").attr('href','documentos/seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
-   
-// 						   $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
-   
-	
-// 					   }
-   
-   
-// 					   // $(".insfraestructuras__re").remove(); 
-   
-// 				   }else{
-   
-// 					   $(".instalaciones__re").remove();
-   
-					 
-					  
-// 					  for (z of envio__tecnicos__seguimientos__infraestructuras) {
-   
-   
-// 						   $("#documentos__tecnicos__t__infras").attr('href','documentos/seguimiento/informesInfraestructuras/'+z.documentoInfras);
-   
-// 						   $("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
-   
-// 					  }
-   
-   
-// 				   }
-   
-// 					$(".eliminados__al__de").remove();
-   
-// 				   $(".recomendar__ins__ins").show();
-   
-   
-   
-// 				 }
-   
-// 			   if($("#fisicamenteE").val()=="27" || $("#fisicamenteE").val()=="28" || $("#fisicamenteE").val()=="29" || $("#fisicamenteE").val()=="30" || $("#fisicamenteE").val()=="31" || $("#fisicamenteE").val()=="32" || $("#fisicamenteE").val()=="33" || $("#fisicamenteE").val()=="34" || $("#fisicamenteE").val()=="35" || $("#fisicamenteE").val()=="36" || $("#fisicamenteE").val()=="37"){
-   
-// 					$(".recomendar__ins__ins").show();
-   
-// 			   }
-   
-   
-// 			   $("#organismoOculto__modal").val(data[4]);
-// 			   $("#periodo").val(data[2]);
-   
-// 			   if ($("#idRolAd").val()==4) {
-   
-// 				   $(".fila__regresar__a").show();
-   
-// 			   }
-   
-// 		   });	
-   
-// 		   },
-// 		   error:function(){
-   
-// 		   }
-				   
-// 	   });	  	
-   
-// 	 });
-   
-//    }
-
-   var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones=function(tbody,table){
+   var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones2023=function(tbody,table){
 
 	$(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados__instalaciones",function(e){
 	   console.log("FUNCION DE DATATABLE INFRAESTRUCTURA RECOMENDADOS")
@@ -3738,7 +3212,7 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
 ==========================================================*/
 
 
-var funcion__bloqueos__seguimientos=function(tbody,table){
+var funcion__bloqueos__seguimientos2023=function(tbody,table){
 
     $(tbody).on("change","select.selectores__bloqueos__seguimiento",function(e){
   
@@ -3800,7 +3274,7 @@ var funcion__bloqueos__seguimientos=function(tbody,table){
 =            Funciones realaciones seguimientos levantar           =
 ===================================================================*/
 
-var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbody,table){
+var funcion__reasignar__seguimientos__recorridos__anexos__reportes2023=function(tbody,table){
 
     $(tbody).on("click","button.reasignar__seguimientos__recorridos__boton__anexos__reportes",function(e){
   
@@ -4049,7 +3523,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
     =            Funciones realaciones seguimientos Reporte Anual   Revisor        =
     ===================================================================*/
 
-    var funcion__reporte__seguimientos__anual__revisor=function(tbody,table){
+    var funcion__reporte__seguimientos__anual__revisor2023=function(tbody,table){
 
         $(tbody).on("click","button.seguimientos__reporteria__anual",function(e){
     
@@ -4163,7 +3637,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
     =            Función de reamentes            =
     ============================================*/
 
-    var funcion__remanentes__asignados=function(tbody,table){
+    var funcion__remanentes__asignados2023=function(tbody,table){
         
         $(tbody).on("click","button.remantes__asignados",function(e){
             
@@ -4188,7 +3662,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
 =             Visualizar poas gestionados            =
 ====================================================*/
 
-var funcionEditar__gestionados_s=function(tbody,table,parametro3,parametro4,parametro5){
+var funcionEditar__gestionados_s2023=function(tbody,table,parametro3,parametro4,parametro5){
 
     $(tbody).on("click","button.generarVerG",function(e){
   
@@ -4299,7 +3773,7 @@ var funcionEditar__gestionados_s=function(tbody,table,parametro3,parametro4,para
 =             Actualizar nuevos            =
 ==========================================*/
 
-var funcion__gestionados__i=function(tbody,table,parametro3,parametro4,parametro5){
+var funcion__gestionados__i2023=function(tbody,table,parametro3,parametro4,parametro5){
 
     $(tbody).on("click","button.editarGestionados ",function(e){
   
@@ -4443,39 +3917,3 @@ var funcionEditar__gestionados_s=function(tbody,table,parametro3,parametro4,para
   
   }
   
-// var funcionEditar__gestionados_s=function(tbody,table,parametro3,parametro4,parametro5){
-
-//     $(tbody).on("click","button.generarVerG",function(e){
-  
-//         e.preventDefault();
-  
-//         var data=table.row($(this).parents("tr")).data();
-//        var paqueteDeDatos = new FormData();
-  
-//         paqueteDeDatos.append('idOrganismo',data[9]);
-//         paqueteDeDatos.append('tipo','seleccionasCoordinas');
-//         console.log("data REVISOR");
-//         console.log(data);
-//       $.ajax({
-  
-//           type:"POST",
-//           url:"modelosBd/inserta/seleccionaAcciones.md.php",
-//           contentType: false,
-//           data:paqueteDeDatos,
-//           processData: false,
-//           cache: false, 
-//           success:function(response){
-//             let elementos=JSON.parse(response);
-//             let envio__informaciones=elementos['envio__informaciones'];
-//             let envio__informaciones__documentos=elementos['envio__informaciones__documentos'];
-//           },
-//           error:function(){
-  
-//           }
-  
-//       });
-  
-  
-//     });
-  
-//   }

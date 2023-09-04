@@ -33,7 +33,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 /*=====  End of Selects superiores  ======*/
 
 
-	var agregarDatatablets__competencia__seguimientos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__competencia__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 	$(parametro1).click(function (e){
 
@@ -125,7 +125,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 
 
-	var agregarDatatablets__competencia__altos__formativos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__competencia__altos__formativos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 		$(parametro1).click(function (e){
 
@@ -195,7 +195,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 	}
 
 
-	var agregarDatatablets__indicadores=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__indicadores2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 		$(parametro1).click(function (e){
 
@@ -208,7 +208,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 	}
 
-	var agregarDatatablets__implementacion__seguimientos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__implementacion__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 			$(parametro1).click(function (e){
 
@@ -297,7 +297,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 	
 	}
 	
-	var agregarDatatablets__competencia__altos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__competencia__altos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 		$(parametro1).click(function (e){
 
@@ -354,7 +354,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 		}
 
-	var agregarDatatablets__sueldos__salarios=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__sueldos__salarios2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 			$(parametro1).click(function (e){
 	
@@ -415,7 +415,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 	
 	
 	
-	var agregarDatatablets__honorarios__seguimientos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__honorarios__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 		$(parametro1).click(function (e){
 
@@ -501,7 +501,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 	}
 
-	var agregarDatatablets__administrativos__seguimientos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__administrativos__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 			$(parametro1).click(function (e){
 	
@@ -591,7 +591,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 	
 	}
 	
-	var agregarDatatablets__mantenimiento__seguimientos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__mantenimiento__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 		$(parametro1).click(function (e){
 
@@ -674,7 +674,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 	}
 
-	var agregarDatatablets__capacitacion__seguimientos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__capacitacion__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 		$(parametro1).click(function (e){
 
@@ -761,7 +761,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 		}
 
-	var agregarDatatablets__recreativo__seguimientos=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+	var agregarDatatablets__recreativo__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
 			$(parametro1).click(function (e){
 	
