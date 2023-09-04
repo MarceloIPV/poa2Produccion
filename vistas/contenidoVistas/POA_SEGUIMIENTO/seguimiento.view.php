@@ -614,6 +614,8 @@ $componentesPaid= new componentesPaid();?>
 
 <?= $componentesTablas->getModalVacioXl("modalFacturasDocumentos", "formContratacionPublica", "idTituloModalDocumentos", "divDocumentos", "cerrarBtnContratacionPublica", "inputIdItem"); ?>
 
+<?= $componentesTablas->getModalVacioXl("contratcionActividades", "formPreviewBancos", "idTituloModalContratacion", "divcontratcionActividades", "cerrarBtnContratacionPublicaAdministracion", "inputIdItem"); ?>
+
 
    
 <!--====  End of Modales  ====-->

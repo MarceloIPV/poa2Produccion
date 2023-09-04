@@ -28008,3 +28008,79 @@ var limitarFechaActualInputDate=function(input){
 
 	/*=====  End of Indicadores - Estado de cuenta ======*/
 
+  
+  var funcion_click_boton_datatable_EditarContratcion=function(boton,idDivModal,idtituloModal,titulo,idTabla,idTbody,titulos, tipo,trimestre, actividad ){
+
+    $(boton).click(function(e) {
+
+      e.preventDefault();
+
+      $(idtituloModal).text(titulo);
+
+      var cuerpo = document.getElementById(idDivModal);
+
+      $("#"+idDivModal + " div").remove();
+     
+
+      cuerpo.insertAdjacentHTML('beforeend','<div><centre><table id="'+idTabla+'"><thead><tr id="theadTabla"></tr></thead><tbody id="'+idTbody+'"></tbody></table></centre></div>');
+    
+      var cuerpo1 = document.getElementById("theadTabla");
+      for(let i=0;i<titulos.length;i++){
+        cuerpo1.insertAdjacentHTML('beforeend','<th><center>'+titulos[i]+'</center></th>');
+      }
+
+      var paqueteDeDatos = new FormData();
+
+    paqueteDeDatos.append('tipo',tipo);
+    paqueteDeDatos.append('trimestre',trimestre);
+    paqueteDeDatos.append('actividad',actividad);
+
+    $.ajax({
+
+      type:"POST",
+      url:"modelosBd/POA_SEGUIMIENTO/selector.md.php",
+      contentType: false,
+      data:paqueteDeDatos,
+      processData: false,
+      cache: false, 
+      async: false,
+      success:function(response){
+        
+
+          var elementos=JSON.parse(response);
+
+          var indicadorInformacion=elementos['indicadorInformacion'];
+         
+            for (l of indicadorInformacion) {
+              
+              $("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__'+l.idRegistro+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td>'+l.registra_Contratacion+'</td><td>'+l.justificacion+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idRegistro+'" name="eliminarInfor__factureros__competencias'+l.idRegistro+'" idRegistro="'+l.idRegistro+'" idItemCatalogo="'+l.idItemCatalogo+'" idOrganismo="'+l.idOrganismo+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+
+              $("#eliminarInfor__factureros__competencias"+l.idRegistro).click(function(e) {
+
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idRegistro');
+                let idOrganismo=$(this).attr('idOrganismo');
+                let idItemCatalogo=$(this).attr('idItemCatalogo');
+                  
+                funcion__eliminar__general__contratacion__Seguimiento(idItemCatalogo, idOrganismo, trimestre, actividad,idPrincipal );
+
+              }); 
+            }
+
+      },
+      error:function(){
+
+       
+
+      }
+        
+    });
+
+
+
+     
+
+  });
+}
+
+
