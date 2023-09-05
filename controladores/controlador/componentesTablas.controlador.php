@@ -7137,6 +7137,298 @@
 		}
 
 
+		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados__reporterias__recorridos2023($parametro1,$parametro2,$parametro3){
+
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formularioConfiguracion'>
+
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span id='cerrarRecorridoSeguimeintoModal' class='button pointer__botones' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+
+						</div>
+
+					<div class='modal-body row $parametro3'>
+
+					<input type='hidden' name='tabChange' id='tabChange'/>
+
+					
+
+
+					<ul class='nav nav-underline' id='myTab' role='tablist'>
+					<li class='nav-item'><a class='nav-link active' id='general-tab' data-bs-toggle='tab' href='#tab-General' role='tab' aria-controls='tab-General' aria-selected='true' area='general'>General</a></li>
+					<li class='nav-item'><a class='nav-link' id='seguimiento-tab' data-bs-toggle='tab' href='#tab-Seguimiento' role='tab' aria-controls='tab-Seguimiento' aria-selected='false' area='seguimiento'>Seguimiento</a></li>
+					<li class='nav-item'><a class='nav-link' id='adFin-tab' data-bs-toggle='tab' href='#tab-adFin' role='tab' aria-controls='tab-adFin' aria-selected='false'area='adFin'>Administrativa Financiera</a></li>
+					<li class='nav-item'><a class='nav-link' id='actFis-tab' data-bs-toggle='tab' href='#tab-actFis' role='tab' aria-controls='tab-actFis' aria-selected='true' area='actFis'>Actividad Física</a></li>
+					<li class='nav-item'><a class='nav-link' id='altoRen-tab' data-bs-toggle='tab' href='#tab-altoRen' role='tab' aria-controls='tab-altoRen' aria-selected='false' area='altoRen'>Alto Rendimiento</a></li>
+					<li class='nav-item'><a class='nav-link' id='infra-tab' data-bs-toggle='tab' href='#tab-infra' role='tab' aria-controls='tab-infra' aria-selected='false'area='infra'>Administración e Infraestructura</a></li>
+					</ul>
+					
+					<div class='tab-content mt-3' id='myTabContent' style='border: 1px solid gray;'>
+
+					<div class='tab-pane fade show active' id='tab-General' role='tabpanel' aria-labelledby='general-tab'>
+						<div class='col col-12 text-center mt-2 titulo__enfasis'>
+							Recorrido General
+						</div>
+
+						<table style='margin-top:.5em!important; width:100%!important;'>
+
+							<thead>
+
+								<tr>
+
+									<th colspan='5'>
+
+										<center>RECORRIDO</center>
+
+									</th>
+
+								</tr>
+
+								<tr>
+
+									<th>FECHA</th>
+									<th>ESTADO</th>
+									<th>ÁREA</th>
+									<th>USUARIO ACTUAL</th>
+									<th>OBSERVACIONES</th>
+
+								</tr>
+
+							</thead>
+
+							<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+						</table>
+					</div>
+
+					<div class='tab-pane fade' id='tab-Seguimiento' role='tabpanel' aria-labelledby='seguimiento-tab'>
+						<div class='col col-12 text-center mt-2 titulo__enfasis'>
+							Recorrido Dirección de Seguimiento de Planes, Programas y Proyectos
+						</div>
+						<table style='margin-top:.5em!important; width:100%!important;'>
+
+							<thead>
+
+								<tr>
+
+									<th colspan='5'>
+
+										<center>RECORRIDO</center>
+
+									</th>
+
+								</tr>
+
+								<tr>
+
+									<th>FECHA</th>
+									<th>ESTADO</th>
+									<th>ÁREA</th>
+									<th>USUARIO ACTUAL</th>
+									<th>OBSERVACIONES</th>
+
+								</tr>
+
+							</thead>
+
+							<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+						</table>
+					</div>
+
+					<div class='tab-pane fade' id='tab-adFin' role='tabpanel' aria-labelledby='adFin-tab'>
+						<div class='col col-12 text-center mt-2 titulo__enfasis'>
+							Recorrido Coordinación General Administrativa Financiera
+						</div>
+						<table style='margin-top:.5em!important; width:100%!important;'>
+
+							<thead>
+
+								<tr>
+
+									<th colspan='5'>
+
+										<center>RECORRIDO</center>
+
+									</th>
+
+								</tr>
+
+								<tr>
+
+									<th>FECHA</th>
+									<th>ESTADO</th>
+									<th>ÁREA</th>
+									<th>USUARIO ACTUAL</th>
+									<th>OBSERVACIONES</th>
+
+								</tr>
+
+							</thead>
+
+							<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+						</table>
+					</div>
+
+					<div class='tab-pane fade' id='tab-actFis' role='tabpanel' aria-labelledby='actFis-tab'>
+						<div class='col col-12 text-center mt-2 titulo__enfasis'>
+							Recorrido Subsecretaría de Desarrollo de la Actividad Física
+						</div>
+						<table style='margin-top:.5em!important; width:100%!important;'>
+
+							<thead>
+
+								<tr>
+
+									<th colspan='5'>
+
+										<center>RECORRIDO</center>
+
+									</th>
+
+								</tr>
+
+								<tr>
+
+									<th>FECHA</th>
+									<th>ESTADO</th>
+									<th>ÁREA</th>
+									<th>USUARIO ACTUAL</th>
+									<th>OBSERVACIONES</th>
+
+								</tr>
+
+							</thead>
+
+							<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+						</table>
+					</div>
+
+					<div class='tab-pane fade' id='tab-altoRen' role='tabpanel' aria-labelledby='altoRen-tab'>
+						<div class='col col-12 text-center mt-2 titulo__enfasis'>
+							Recorrido Subsecretaría de Deporte de Alto Rendimiento
+						</div>
+						<table style='margin-top:.5em!important; width:100%!important;'>
+
+							<thead>
+
+								<tr>
+
+									<th colspan='5'>
+
+										<center>RECORRIDO</center>
+
+									</th>
+
+								</tr>
+
+								<tr>
+
+									<th>FECHA</th>
+									<th>ESTADO</th>
+									<th>ÁREA</th>
+									<th>USUARIO ACTUAL</th>
+									<th>OBSERVACIONES</th>
+
+								</tr>
+
+							</thead>
+
+							<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+						</table>
+					</div>
+
+					<div class='tab-pane fade' id='tab-infra' role='tabpanel' aria-labelledby='infra-tab'>
+						<div class='col col-12 text-center mt-2 titulo__enfasis'>
+							Recorrido Coordinación de Administración e Infraestructura Deportiva
+						</div>
+						<table style='margin-top:.5em!important; width:100%!important;'>
+
+							<thead>
+
+								<tr>
+
+									<th colspan='5'>
+
+										<center>RECORRIDO</center>
+
+									</th>
+
+								</tr>
+
+								<tr>
+
+									<th>FECHA</th>
+									<th>ESTADO</th>
+									<th>ÁREA</th>
+									<th>USUARIO ACTUAL</th>
+									<th>OBSERVACIONES</th>
+
+								</tr>
+
+							</thead>
+
+							<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+						</table>
+					</div>
+
+					
+					</div>
+					
+					</div>
+
+					
+
+					</form>
+
+				</div>
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
+
 
 
 	}

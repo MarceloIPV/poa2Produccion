@@ -14216,7 +14216,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 				foreach ($declaracion__maximo2 as $valor) {
 					 $variableAr=$declaracion__maximo2[$i][nombreActividades];
 					
-					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+					 if($variableAr == "1-OPERACIÓN Y FUNCIONAMIENTO DE ORGANIZACIONES DEPORTIVAS Y ESCENARIOS DEPORTIVOS"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
 	
@@ -14312,7 +14312,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 	
 	 
 	
-					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O DE RECREACIÓN"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
 						
@@ -14501,7 +14501,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
 	 
 	
-					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+					}else if($variableAr == "7-IMPLEMENTACIÓN DEPORTIVA"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
 			 
@@ -14820,7 +14820,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 				foreach ($declaracion__maximo2 as $valor) {
 					 $variableAr=$declaracion__maximo2[$i][nombreActividades];
 					
-					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+					 if($variableAr == "1-OPERACIÓN Y FUNCIONAMIENTO DE ORGANIZACIONES DEPORTIVAS Y ESCENARIOS DEPORTIVOS"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
 	
@@ -14916,7 +14916,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 	
 	 
 	
-					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O DE RECREACIÓN"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
 						
@@ -15105,7 +15105,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
 	 
 	
-					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+					}else if($variableAr == "7-IMPLEMENTACIÓN DEPORTIVA"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
 			 
@@ -15424,7 +15424,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 				foreach ($declaracion__maximo2 as $valor) {
 					 $variableAr=$declaracion__maximo2[$i][nombreActividades];
 					
-					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+					 if($variableAr == "1-OPERACIÓN Y FUNCIONAMIENTO DE ORGANIZACIONES DEPORTIVAS Y ESCENARIOS DEPORTIVOS"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
 	
@@ -15520,7 +15520,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 	
 	 
 	
-					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O DE RECREACIÓN"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
 						
@@ -15709,7 +15709,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
 	 
 	
-					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+					}else if($variableAr == "7-IMPLEMENTACIÓN DEPORTIVA"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
 			 
@@ -16027,7 +16027,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 					 $variableAr=$declaracion__maximo2[$i][nombreActividades];				
 	
 	
-					 if($variableAr == "1-GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS"){
+					 if($variableAr == "1-OPERACIÓN Y FUNCIONAMIENTO DE ORGANIZACIONES DEPORTIVAS Y ESCENARIOS DEPORTIVOS"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad1[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad1[0][sumaCataElectronicoMonto],2);
 	
@@ -16123,7 +16123,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 	
 	 
 	
-					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O RECREATIVA"){
+					}else if($variableAr == "3-CAPACITACIÓN DEPORTIVA O DE RECREACIÓN"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad3[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad3[0][sumaCataElectronicoMonto],2);
 						
@@ -16312,7 +16312,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 						$sum2C=floatval($monto_cat_electronico) + floatval($monto_subasta) + floatval($monto_infima) + floatval($monto_menorCuantia) + floatval($monto_cotizacion) + floatval($monto_licitacion) + floatval($monto_menorCuantiaObras) + floatval($monto_cotizacionObras) + floatval($monto_licitacionObras) + floatval($monto_precioObras) + floatval($monto_contratacionDirecta) + floatval($monto_contratacionListaCorta) + floatval($monto_contratacionConcursoPu);
 	 
 	
-					}else if($variableAr == "7-IMPLEMENTACIÓN Y EQUIPAMIENTO DEPORTIVO"){
+					}else if($variableAr == "7-IMPLEMENTACIÓN DEPORTIVA"){
 						$cantidad_cat_electronico = $catalogoElectCantActividad7[0][sumaCataElectronicoCantidad]; 
 						$monto_cat_electronico = round($catalogoElectMontoActividad7[0][sumaCataElectronicoMonto],2);
 			 
@@ -21113,6 +21113,10 @@ internacional, organizaciones no gubernamentales, entre otros.
 								</th>
 
 								<th>
+									<center>CANTIDAD DE LA CONTRATACIÓN </center>
+								</th>
+
+								<th>
 									<center>MONTO DE LA CONTRATACIÓN </center>
 								</th>
 
@@ -21147,7 +21151,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td>   <td><center>Catalogo Electrónico</center></td> <td><center>".$valor[catalogo__elect__objeto]."</center></td><td><center>".$valor[catalogo__elect__monto]."</center></td> <td><center>".$valor[catalogo__elect__proveedor]."</center></td> <td><center>".$valor[catalogo__elect__rucProveedor]."</center></td> <td><center>".$valor[catalogo__elect__texto]."</center></td> </tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td>   <td><center>Catalogo Electrónico</center></td> <td><center>".$valor[catalogo__elect__objeto]."</center></td><td><center>".$valor[catalogo__elect__cantidad]."</center></td><td><center>".$valor[catalogo__elect__monto]."</center></td> <td><center>".$valor[catalogo__elect__proveedor]."</center></td> <td><center>".$valor[catalogo__elect__rucProveedor]."</center></td> <td><center>".$valor[catalogo__elect__texto]."</center></td> </tr>";
 						
 							}
 
@@ -21156,7 +21160,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 								$contador++;
 
 								
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Subasta Inversa Electrónica</center></td><td><center>".$valor[catalogo__subasta__objeto]."</center></td> <td><center>".$valor[catalogo__subasta__monto]."</center></td> <td><center>".$valor[catalogo__subasta__proveedor]."</center></td> <td><center>".$valor[catalogo__subasta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__subasta__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Subasta Inversa Electrónica</center></td><td><center>".$valor[catalogo__subasta__objeto]."</center></td> <td><center>".$valor[catalogo__subasta__cantidad]."</center></td><td><center>".$valor[catalogo__subasta__monto]."</center></td> <td><center>".$valor[catalogo__subasta__proveedor]."</center></td> <td><center>".$valor[catalogo__subasta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__subasta__texto]."</center></td></tr>";
 						
 							}
 
@@ -21165,7 +21169,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 								$contador++;
 
 								
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Ínfima Cuantía</center></td><td><center>".$valor[catalogo__infima__objeto]."</center></td>  <td><center>".$valor[catalogo__infima__monto]."</center></td> <td><center>".$valor[catalogo__infima__proveedor]."</center></td> <td><center>".$valor[catalogo__infima__rucProveedor]."</center></td> <td><center>".$valor[catalogo__infima__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Ínfima Cuantía</center></td><td><center>".$valor[catalogo__infima__objeto]."</center></td> <td><center>".$valor[catalogo__infima__cantidad]."</center></td> <td><center>".$valor[catalogo__infima__monto]."</center></td> <td><center>".$valor[catalogo__infima__proveedor]."</center></td> <td><center>".$valor[catalogo__infima__rucProveedor]."</center></td> <td><center>".$valor[catalogo__infima__texto]."</center></td></tr>";
 						
 							}
 
@@ -21173,7 +21177,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Menor Cuantía Bienes</center></td> <td><center>".$valor[catalogo__menorCuantia__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantia__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantia__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Menor Cuantía Bienes</center></td> <td><center>".$valor[catalogo__menorCuantia__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantia__cantidad]."</center></td><td><center>".$valor[catalogo__menorCuantia__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantia__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__texto]."</center></td></tr>";
 						
 							}
 
@@ -21181,7 +21185,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Cotización Bienes</center></td> <td><center>".$valor[catalogo__cotizacion__objeto]."</center></td><td><center>".$valor[catalogo__cotizacion__monto]."</center></td> <td><center>".$valor[catalogo__cotizacion__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Cotización Bienes</center></td> <td><center>".$valor[catalogo__cotizacion__objeto]."</center></td><td><center>".$valor[catalogo__cotizacion__cantidad]."</center></td><td><center>".$valor[catalogo__cotizacion__monto]."</center></td> <td><center>".$valor[catalogo__cotizacion__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__texto]."</center></td></tr>";
 						
 							}
 
@@ -21189,7 +21193,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 								
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Licitación Bienes</center></td> <td><center>".$valor[catalogo__licitacion__objeto]."</center></td> <td><center>".$valor[catalogo__licitacion__monto]."</center></td> <td><center>".$valor[catalogo__licitacion__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Licitación Bienes</center></td> <td><center>".$valor[catalogo__licitacion__objeto]."</center></td><td><center>".$valor[catalogo__licitacion__cantidad]."</center></td> <td><center>".$valor[catalogo__licitacion__monto]."</center></td> <td><center>".$valor[catalogo__licitacion__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__texto]."</center></td></tr>";
 						
 							}
 
@@ -21197,7 +21201,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 								
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Menor Cuantía Obras</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantiaObras__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Menor Cuantía Obras</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantiaObras__cantidad]."</center></td><td><center>".$valor[catalogo__menorCuantiaObras__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__texto]."</center></td></tr>";
 						
 							}
 
@@ -21205,7 +21209,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Cotización Obras</center></td> <td><center>".$valor[catalogo__cotizacionObras__objeto]."</center></td><td><center>".$valor[catalogo__cotizacionObras__monto]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Cotización Obras</center></td> <td><center>".$valor[catalogo__cotizacionObras__objeto]."</center></td><td><center>".$valor[catalogo__cotizacionObras__cantidad]."</center></td><td><center>".$valor[catalogo__cotizacionObras__monto]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__texto]."</center></td></tr>";
 						
 							}
 
@@ -21213,7 +21217,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Licitación Obras</center></td> <td><center>".$valor[catalogo__licitacionObras__objeto]."</center></td><td><center>".$valor[catalogo__licitacionObras__monto]."</center></td> <td><center>".$valor[catalogo__licitacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Licitación Obras</center></td> <td><center>".$valor[catalogo__licitacionObras__objeto]."</center></td><td><center>".$valor[catalogo__licitacionObras__cantidad]."</center></td><td><center>".$valor[catalogo__licitacionObras__monto]."</center></td> <td><center>".$valor[catalogo__licitacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__texto]."</center></td></tr>";
 						
 							}
 
@@ -21221,7 +21225,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 							if($valor[catalogo__precioObras] == "si" ){
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Precio Fijo Obras</center></td> <td><center>".$valor[catalogo__precioObras__objeto]."</center></td><td><center>".$valor[catalogo__precioObras__monto]."</center></td> <td><center>".$valor[catalogo__precioObras__proveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Precio Fijo Obras</center></td> <td><center>".$valor[catalogo__precioObras__objeto]."</center></td><td><center>".$valor[catalogo__precioObras__cantidad]."</center></td><td><center>".$valor[catalogo__precioObras__monto]."</center></td> <td><center>".$valor[catalogo__precioObras__proveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__texto]."</center></td></tr>";
 						
 							}
 
@@ -21229,7 +21233,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Contratación Directa</center></td><td><center>".$valor[catalogo__contratacionDirecta__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Contratación Directa</center></td><td><center>".$valor[catalogo__contratacionDirecta__objeto]."</center></td><td><center>".$valor[catalogo__contratacionDirecta__cantidad]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__texto]."</center></td></tr>";
 						
 							}
 
@@ -21237,7 +21241,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Lista Corta</center></td><td><center>".$valor[catalogo__contratacionListaCorta__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__texto]."</center></td> </tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Lista Corta</center></td><td><center>".$valor[catalogo__contratacionListaCorta__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__cantidad]."</center></td><td><center>".$valor[catalogo__contratacionListaCorta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__texto]."</center></td> </tr>";
 						
 							}
 
@@ -21245,7 +21249,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 								$contador++;
 
-								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Concurso Público</center></td><td><center>".$valor[catalogo__contratacionConcursoPu__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__monto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__texto]."</center></td></tr>";
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>Concurso Público</center></td><td><center>".$valor[catalogo__contratacionConcursoPu__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__cantidad]."</center></td><td><center>".$valor[catalogo__contratacionConcursoPu__monto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__texto]."</center></td></tr>";
 						
 							}
 

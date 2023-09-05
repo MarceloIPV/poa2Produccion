@@ -12,7 +12,7 @@
 		<input type="hidden" id="idOrganismo">
 		<input type="hidden" id="periodo">
 
-		<table id="seguimiento__recorridos__tablas" class="col col-12 cell-border">
+		<table id="seguimiento__recorridos__tablas2023" class="col col-12 cell-border">
 
 			<thead>
 
@@ -51,7 +51,7 @@
 <script>
 	 $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/datatables.js",function(){
 
-		datatabletsSeguimientoRevisorVacio($("#seguimiento__recorridos__tablas"),"seguimiento__recorridos__tablas","s",objetos([9],["boton"],["<center><button class='reasignar__seguimientos__recorridos__boton estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarSeguimientos__recorridos'><i class='fas fa-user-edit'></i></button><center>"],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__reasignar__seguimientos__recorridos2023"]);
+		datatabletsSeguimientoRevisorVacio($("#seguimiento__recorridos__tablas2023"),"seguimiento__recorridos__tablas2023","s",objetos([9],["boton"],["<center><button class='reasignar__seguimientos__recorridos__boton estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarSeguimientos__recorridos'><i class='fas fa-user-edit'></i></button><center>"],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__reasignar__seguimientos__recorridos2023"]);
 	
 	});
 

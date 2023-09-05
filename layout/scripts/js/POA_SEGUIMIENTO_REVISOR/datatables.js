@@ -211,6 +211,14 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
 
     }  
 
+    if (reasignacion[0]=="funcion__reasignar__seguimientos__unido2023") {
+
+        
+
+        funcion__reasignar__seguimientos__unidos2023("#"+tipo+" tbody",table);
+
+       }
+
     
 
     
@@ -3917,3 +3925,669 @@ var funcionEditar__gestionados_s=function(tbody,table,parametro3,parametro4,para
   
   }
   
+
+/*===============================================
+=            Función de seguimientos            =
+===============================================*/
+
+var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
+
+	$(tbody).on("click","button.reasignarTramites__seguimientos",function(e){
+  
+		e.preventDefault();
+  
+		var data=table.row($(this).parents("tr")).data();
+  
+		console.log("FUNCION2");
+		console.log("HOILA response");
+		console.log(data[17],data[6],data[19]);
+		console.log(data[16],data[5],data[18]);
+		var paqueteDeDatos = new FormData();
+  
+		paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
+  
+		paqueteDeDatos.append("idOrganismo",data[17]);
+  
+		paqueteDeDatos.append("periodo",data[6]);
+  
+		paqueteDeDatos.append("tipo__dos",data[19]);
+  
+		console.log(data);
+		console.log("RESPONSE");
+	  $.ajax({
+  
+		  type:"POST",
+          url:"modelosBd/inserta/seleccionaAcciones.md.php",
+		  contentType: false,
+		  data:paqueteDeDatos,
+		  processData: false,
+		  cache: false, 
+		  success:function(response){
+  
+  
+			  $.getScript("layout/scripts/js/validacionBasica.js",function(){
+				  
+			  var elementos=JSON.parse(response);
+  
+			  var poa__invers=elementos['poa__invers'];
+  
+			  var sumas__programados=elementos['sumas__programados'];
+  
+			  var primer__sumas__p=elementos['primer__sumas__p'];
+			  var primer__sumas__e=elementos['primer__sumas__e'];
+			  var segundo__sumas__p=elementos['segundo__sumas__p'];
+			  var segundo__sumas__e=elementos['segundo__sumas__e'];
+			  var tercero__sumas__p=elementos['tercero__sumas__p'];
+			  var tercero__sumas__e=elementos['tercero__sumas__e'];
+			  var cuarto__sumas__p=elementos['cuarto__sumas__p'];
+			  var cuarto__sumas__e=elementos['cuarto__sumas__e'];
+  
+			  var varaible__culminados=elementos['varaible__culminados'];
+			  var documentos__tecnicos__2=elementos['documentos__tecnicos__2'];
+  
+			  var variable__1__suma__programados=elementos['variable__1__suma__programados'];
+			  var variable__1__suma__ejecutado=elementos['variable__1__suma__ejecutado'];
+			  var variable__1__suma__planificado=elementos['variable__1__suma__planificado'];
+  
+			  $("#presupuesto__segun__poas").val(poa__invers);
+  
+  
+			  if ($("#idRolAd").val()==2 && $("#fisicamenteE").val()==20) {
+  
+				  $(".fila__reasignar").show();
+				  $(".fila__regresar__a").hide(); 
+				  $(".solo__numero__montos").prop("disabled", true);
+				  $(".monto__ejecutado__trimestre").prop("disabled", true);
+				  $(".avance__trimestre__porcentaje").prop("disabled", true);
+				  $(".primer__esperado").prop("disabled", true);
+				  $(".segundo__esperado").prop("disabled", true);
+				  $(".tercero__esperado").prop("disabled", true);
+				  $(".cuarto__esperado").prop("disabled", true);
+				  $(".primer__ejecucion").prop("disabled", true);
+				  $(".segundo__ejecucion").prop("disabled", true);
+				  //$(".cuerpo__matricez__seguimientos").prop("disabled", true);
+  
+			  }else if($("#idRolAd").val()==3 && $("#fisicamenteE").val()==20){
+  
+				  $(".fila__reasignar").hide();
+				  $(".fila__regresar__a").show();
+  
+			  }else if($("#idRolAd").val()==4 && $("#fisicamenteE").val()==33){
+  
+				  $(".fila__reasignar").show();
+				  $(".fila__regresar__a").hide();
+				  $(".solo__numero__montos").prop("disabled", true);
+				  $(".monto__ejecutado__trimestre").prop("disabled", true);
+				  $(".avance__trimestre__porcentaje").prop("disabled", true);
+				  $(".primer__esperado").prop("disabled", true);
+				  $(".segundo__esperado").prop("disabled", true);
+				  $(".tercero__esperado").prop("disabled", true);
+				  $(".cuarto__esperado").prop("disabled", true);
+				  $(".primer__ejecucion").prop("disabled", true);
+				  $(".segundo__ejecucion").prop("disabled", true);
+  
+			  }else if($("#idRolAd").val()==3 && $("#fisicamenteE").val()==33){
+  
+				  $(".fila__reasignar").hide();
+				  $(".fila__regresar__a").show();
+  
+			  }
+  
+			  $("#tipos__nomenclaturas").val(data[19]);
+  
+			  /*====================================
+			  =            Sacar siglas            =
+			  ====================================*/
+			  
+				let palabras = data[2];
+			  let array = palabras.split(" ");
+			  let total = array.length;
+			  let resultado = "";
+			   
+			  for (var i = 0; i < total; i++){
+  
+				  if (array[i].length>2) {
+  
+					  resultado += array[i][0];
+  
+				  }
+  
+			  }
+			  
+			  $(".siglas__dinamicas").text(resultado);	
+  
+			  $("#siglas__dinamicas__inputs").val(resultado);	
+			  
+			  /*=====  End of Sacar siglas  ======*/
+			  
+		  /*=========================================
+		  =            Evaluar los datos            =
+		  =========================================*/
+		  
+			  
+		  if (parseInt(data[9], 10)<10) {
+  
+			  $(".numerico__dinamicas").text("0"+data[9]);
+  
+			  $("#numerico__dinamicas__inputs").val("0"+data[9]);
+  
+		  }else{
+  
+			  $(".numerico__dinamicas").text(data[9]);
+  
+			  $("#numerico__dinamicas__inputs").val(data[9]);
+  
+		  }
+  
+		  $(".periodo__evaluados__anuales").text(data[10]);
+  
+		  $("#periodo__evaluados__anuales").val(data[10]);
+  
+		  $("#organismoOculto__modal").val(data[17]);
+  
+		  $("#idOrganismo").val(data[17]);
+  
+		  $(".nombre__organizacion__deportivas").text(data[2]);
+  
+		  $("#nombre__organizacion__deportivas").val(data[2]);
+  
+		  $(".ruc__organizacion__deportivas").text(data[1]);
+  
+		  $("#ruc__organizacion__deportivas").val(data[1]);
+  
+		  $(".presidente__organizacion__deportivas").text(data[11]);
+  
+		  $("#presidente__organizacion__deportivas").val(data[11]);
+  
+		  $(".correo__organizacion__deportivas").text(data[12]);
+  
+		  $("#correo__organizacion__deportivas").val(data[12]);
+  
+		  $(".direccion__organizacion__deportivas").text(data[13]);
+  
+		  $("#direccion__organizacion__deportivas").val(data[13]);
+  
+		  $(".provincia__organizacion__deportivas").text(data[3]);
+  
+		  $("#provincia__organizacion__deportivas").val(data[3]);
+  
+		  $(".canton__organizacion__deportivas").text(data[4]);
+  
+		  $("#canton__organizacion__deportivas").val(data[4]);
+  
+		  $(".parroquia__organizacion__deportivas").text(data[5]);
+  
+		  $("#parroquia__organizacion__deportivas").val(data[5]);
+  
+		  $(".barrio__organizacion__deportivas").text(data[14]);
+  
+		  $("#barrio__organizacion__deportivas").val(data[14]);
+  
+		  $(".area__de__accion__llamados").text(data[15]);
+  
+		  $("#area__de__accion__llamados").val(data[15]);
+  
+		  $(".objetivo__institucional__estrategicos").text(data[16]);
+  
+		  $("#objetivo__institucional__estrategicos").val(data[16]);
+  
+		  if (data[6]=="primerTrimestre") {
+  
+			  $("#periodo__evaluado").val("ENERO - JUNIO");
+  
+		  }else if (data[6]=="segundoTrimestre") {
+  
+			  $("#periodo__evaluado").val("ENERO - JUNIO");
+  
+		  }else if (data[6]=="tercerTrimestre") {
+  
+			  $("#periodo__evaluado").val("JULIO - DICIEMBRE");
+  
+		  }else if (data[6]=="cuartoTrimestre") {
+  
+			  $("#periodo__evaluado").val("JULIO - DICIEMBRE");
+  
+		  }
+  
+		  if (data[18]=="si") {
+  
+			  $(".con__sin__e").text("Con e-SIGEF2");
+  
+		  }else{
+  
+			  $(".con__sin__e").text("Sin e-SIGEF2");
+  
+		  }
+  
+		  $("#periodo").val(data[6]);
+  
+		  let idUsuariosC=$("#idUsuarioC").val();
+  
+		  $("#idUSeguimientos").val(idUsuariosC);
+		  
+		  /*=====  End of Evaluar los datos  ======*/
+  
+		  if ($("#idRolAd").val()==3) {
+  
+			  $(".observacionesReasignaciones").hide();
+  
+		  }else{
+  
+			  $(".observacionesReasignaciones").show();
+  
+		  }
+  
+		  /*======================================
+		  =            Armando tablas            =
+		  ======================================*/
+  
+		  let porcentajes=0;
+		  let porcentajesExigefts=0;
+  
+		  let planificadoA=0;
+		  let programadoA=0;
+		  let ejecuadoA=0;
+		  let exigeftA=0;
+  
+		  let programadoAB=0;
+  
+		  $.getScript("layout/scripts/js/validacionesGenerales.js",function(){
+  
+			  for (w of sumas__programados) {
+  
+				  programadoAB=programadoAB+parseFloat(w.programado).toFixed(2);
+  
+			  }
+  
+			  let div="";
+  
+			  let porcentajeA1 = new Array();
+  
+			  let programado1=0;
+			  let programado2=0;
+			  let programado3=0;
+			  let programado4=0;
+  
+			  let ejecutado1=0;
+			  let ejecutado2=0;	
+			  let ejecutado3=0;
+			  let ejecutado4=0;
+  
+  
+			  for (z of sumas__programados) {
+  
+				  planificadoA=parseFloat(planificadoA)+parseFloat(z.sumaPlanificacion);
+				  programadoA=parseFloat(programadoA)+parseFloat(z.programado);
+				  ejecuadoA=parseFloat(ejecuadoA)+parseFloat(z.ejecutado);
+				  planificadoA=parseFloat(planificadoA)+parseFloat(z.sumaPlanificacion);
+  
+  
+				  porcentajes=(parseFloat(z.ejecutado)/parseFloat(z.programado)) * 100;
+  
+				  porcentajeA1.push(parseFloat(porcentajes).toFixed(2));
+  
+				  if (parseFloat(porcentajes).toFixed(2)>=85) {
+  
+					   div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+  
+				  }else if (parseFloat(porcentajes).toFixed(2)>=70 && parseFloat(porcentajes).toFixed(2)<85) {
+  
+					   div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+  
+				  }else if (parseFloat(porcentajes).toFixed(2)<70) {
+  
+					   div="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+  
+				  }
+  
+				  if (isNaN(porcentajes)) {
+					  porcentajes=0;
+				  }
+  
+				  $contador=0;
+				  if (data[18]=="si") {
+  
+					  $(".cuerpo__matricez__seguimientos").append('<tr><td><center>'+z.actividades+'</center></td><td style="display:none!important;"><center>'+parseFloat(z.sumaPlanificacion).toFixed(2)+'</center></td><td><center><input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos__programados" name="porcentajes__esigefts__nomenclaturas__programados[]" id="porcentajes__esigefts__nomenclaturas__programados'+z.idActividad+'"  value="'+parseFloat(z.programado).toFixed(2)+'"></center></td><td><center>'+parseFloat(z.ejecutado).toFixed(2)+'</center></td><td><center><div style="display:flex!important;">'+div+" "+'<input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos" id="porcentajes__esigefts__nomenclaturas'+z.idActividad+'"  value="'+parseFloat(porcentajes).toFixed(2)+'"><span>%</span></div></center></td><td><center><input type="text" class="ancho__total__input solo__numero__montos sumadores__exigets__ex" id="input__esigets'+z.idActividad+'" idEjecutados="'+parseFloat(z.programado).toFixed(2)+'" idContador="'+z.idActividad+'" value="0"/></center></td><td><center><div style="display:flex!important;"><span class="circulos__'+z.idActividad+'"></span><input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes" id="porcentajes__esigefts'+z.idActividad+'"  value="0"><span>%</span></div></center></td></tr>');
+					  $contador++;
+				  }else{
+  
+					  $(".cuerpo__matricez__seguimientos").append('<tr><td><center>'+z.actividades+'</center></td><td style="display:none!important;"><center>'+parseFloat(z.sumaPlanificacion).toFixed(2)+'</center></td><td><center><input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos__programados" id="porcentajes__esigefts__nomenclaturas__programados'+z.idActividad+'"  value="'+parseFloat(z.programado).toFixed(2)+'"></center></td><td><center>'+parseFloat(z.ejecutado).toFixed(2)+'</center></td><td><center><div style="display:flex!important;">'+div+" "+'<input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos" id="porcentajes__esigefts__nomenclaturas'+z.idActividad+'"  value="'+parseFloat(porcentajes).toFixed(2)+'"><span>%</span></div></center></td></tr>');
+  
+					  $(".oculto__sin__esiguefts").hide();
+  
+  
+				  }
+  
+  
+  
+				  //***************************************** */
+				  if ($("#idRolAd").val()==2 && $("#fisicamenteE").val()==20) {
+  
+				   
+					  $(".porcs__esigeftes__iniciales__montos__programados").prop("disabled", true);
+					  $(".porcs__esigeftes__iniciales__montos").prop("disabled", true);
+					  $(".sumadores__exigets__ex").prop("disabled", true);
+					  $(".porcs__esigeftes").prop("disabled", true);
+					  
+	  
+				  }else if($("#idRolAd").val()==3 && $("#fisicamenteE").val()==20){
+	  
+	  
+				  }else if($("#idRolAd").val()==4 && $("#fisicamenteE").val()==33){
+	  
+					  $(".porcs__esigeftes__iniciales__montos__programados").prop("disabled", true);
+					  $(".porcs__esigeftes__iniciales__montos").prop("disabled", true);
+					  $(".sumadores__exigets__ex").prop("disabled", true);
+	  
+				  }else if($("#idRolAd").val()==3 && $("#fisicamenteE").val()==33){
+	  
+				  }
+				  
+			  
+				  $("#porcentajes__esigefts__nomenclaturas__programados"+z.idActividad).on('input', function () {
+  
+					  let porcentajeExigefA1Programados = new Array();
+  
+   
+					  $(".porcs__esigeftes__iniciales__montos__programados").each(function(){
+  
+						  porcentajeExigefA1Programados.push($(this).val());
+  
+					  });
+  
+					  $("#arrayPorcenEsigefts__programados").val(porcentajeExigefA1Programados);
+  
+				  });                
+			  
+				  $("#porcentajes__esigefts"+z.idActividad).on('input', function () {
+  
+					  let porcentajeExigefA1 = new Array();
+  
+   
+					  $(".porcs__esigeftes").each(function(){
+  
+						  porcentajeExigefA1.push($(this).val());
+  
+					  });
+  
+					  $("#arrayPorcenEsigefts").val(porcentajeExigefA1);
+  
+				  });
+  
+  
+				  $("#procentajeSas").removeAttr('readonly');
+				  $("#montosExig").removeAttr('readonly');
+				  $("#procentajeExigefSas").removeAttr('readonly');
+  
+				  funcion__solo__numero__montos($(".solo__numero__montos"));
+  
+				  
+  
+				  funcion__cambio__de__numero($("#input__esigets"+z.idActividad));
+  
+				  $("#porcentajes__esigefts__nomenclaturas"+z.idActividad).on('input', function () {
+  
+					  let arrayAnadidosIniciales = new Array();
+  
+  
+					  $(".porcs__esigeftes__iniciales__montos").each(function(){
+  
+						  arrayAnadidosIniciales.push($(this).val());
+  
+					  });
+  
+					  $("#arrayPorcen__inicializados").val(arrayAnadidosIniciales);
+					  
+  
+  
+				  });
+  
+				  $("#input__esigets"+z.idActividad).on('input', function () {
+  
+  
+					  let esigefA1 = new Array();
+					  let porcentajeExigefA1 = new Array();
+  
+   
+  
+					  let sum=0;
+  
+					  let idContador=$(this).attr('idContador');
+					  let idEjecutados=$(this).attr('idEjecutados');
+  
+					  let per=0;
+					  let per2=0;
+  
+					  per=(parseFloat($(this).val())/parseFloat(idEjecutados)) * 100;
+  
+					  $("#porcentajes__esigefts"+idContador).val(parseFloat(per).toFixed(2));
+  
+  
+					  $(".porcs__esigeftes").each(function(){
+  
+						  porcentajeExigefA1.push($(this).val());
+  
+					  });
+  
+  
+					  $(".sumadores__exigets__ex").each(function(){
+  
+						  sum += parseFloat($(this).val());
+  
+						  esigefA1.push($(this).val());
+  
+					  });
+  
+  
+  
+					  $("#montosExig").val(parseFloat(sum).toFixed(2));
+  
+					  per2=(parseFloat(sum)/parseFloat(programadoAB)) * 100;
+  
+					  $("#procentajeExigefSas").val(parseFloat(per2).toFixed(2));
+  
+					  $("#arrayEsigefts").val(esigefA1);
+					  $("#arrayPorcenEsigefts").val(porcentajeExigefA1);
+  
+  
+					  $(".circulos__"+idContador).html(" ");
+  
+					  $("#procentajeSas").removeAttr('readonly');
+  
+					  $("#montosExig").removeAttr('readonly');
+  
+					  $("#procentajeExigefSas").removeAttr('readonly');
+  
+					  let div="";
+  
+					  if (parseFloat(per).toFixed(2)>=85) {
+  
+						   div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+  
+					  }else if (parseFloat(per).toFixed(2)>=70 && parseFloat(per).toFixed(2)<85) {
+  
+						   div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+  
+					  }else if (parseFloat(per).toFixed(2)<70) {
+  
+						   div="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+  
+					  }
+  
+					  $(".circulos__"+idContador).append(div);
+  
+  
+				  });
+  
+			  }
+  
+			  $("#arrayPorcen").val(porcentajeA1);
+  
+			  let porcentajesZA=0;
+  
+			  porcentajesZA=(parseFloat(variable__1__suma__ejecutado)/parseFloat(variable__1__suma__programados)) * 100;
+  
+			  $("#monto__ejecutado__trimestre").val(parseFloat(programadoA).toFixed(2));
+  
+			  $("#monto__reportado__tri").val(parseFloat(ejecuadoA).toFixed(2));
+  
+			  let porcentajesAdminRealizados=(parseFloat(ejecuadoA) / parseFloat(programadoA)) * 100;
+  
+			  if (data[18]=="si") {
+  
+				  $(".footer__matricez__seguimientos").append('<tr><th><center>Total</center></th><th style="display:none!important;"><center><input type="text" class="ancho__planificadoss" id="planificadoSas" name="planificadoSas" value="'+parseFloat(planificadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th ><center><input type="text" id="programadoSas" name="programadoSas" value="'+parseFloat(programadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th><center><input type="text" id="ejecutadoSas" name="ejecutadoSas" value="'+parseFloat(ejecuadoA)+'" style="border:none!important;color:black!important;" /></center></th><th><center><input type="text" id="procentajeSas" name="procentajeSas" value="'+parseFloat(porcentajesAdminRealizados).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th class="exigeft__fila__holguras"><center><input type="text" id="montosExig" name="montosExig" style="border:none!important; color:black!important;" value="0"  /><center></center></th><th class="exigeft__fila__holguras__porcentajes"><input type="text" id="procentajeExigefSas" name="procentajeExigefSas"  reandoly="" style="border:none!important; color:black!important;" value="0"/><center></th></tr>');
+			  }else{
+  
+				  $(".footer__matricez__seguimientos").append('<tr><th><center>Total</center></th><th style="display:none!important;"><center><input type="text" id="planificadoSas" class="planificadoSas" name="planificadoSas" value="'+parseFloat(planificadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th ><th><center><input type="text" id="programadoSas" name="programadoSas" value="'+parseFloat(programadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th><center><input type="text" id="ejecutadoSas" name="ejecutadoSas" value="'+parseFloat(ejecuadoA).toFixed(2)+'" style="border:none!important;color:black!important;"/></center></th><th><center><input type="text" id="procentajeSas" name="procentajeSas" value="'+parseFloat(porcentajesAdminRealizados).toFixed(2)+'" style="border:none!important; color:black!important;"/></center></th></tr>');
+  
+  
+			  }
+  
+			  //***************************************** */
+			  if ($("#idRolAd").val()==2 && $("#fisicamenteE").val()==20) {
+				  // var id1 = "#planificadoSas";
+				  // document.getElementById(id1).disabled = true;
+				   $(".ancho__planificadoss").prop("disabled", true);
+				  // $(".porcs__esigeftes__iniciales__montos").prop("disabled", true);
+				  // $(".sumadores__exigets__ex").prop("disabled", true);
+				  // $(".porcs__esigeftes").prop("disabled", true);
+				  
+  
+			  }else if($("#idRolAd").val()==3 && $("#fisicamenteE").val()==20){
+  
+  
+			  }else if($("#idRolAd").val()==4 && $("#fisicamenteE").val()==33){
+  
+				  $(".porcs__esigeftes__iniciales__montos__programados").prop("disabled", true);
+				  $(".porcs__esigeftes__iniciales__montos").prop("disabled", true);
+				  $(".sumadores__exigets__ex").prop("disabled", true);
+  
+			  }else if($("#idRolAd").val()==3 && $("#fisicamenteE").val()==33){
+  
+			  }
+			  
+			  /*=====  End of Armando tablas  ======*/
+  
+			  $("#avance__trimestre__porcentaje").val($("#procentajeSas").val()+"%");
+  
+  
+			  if (data[6]=="primerTrimestre" || data[6]=="segundoTrimestre") {
+  
+				  /*============================================
+				  =            Calculos programados            =
+				  ============================================*/
+			  
+				  programado1=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+				  $("#primer__esperado").val(parseFloat(programado1).toFixed(2)+" %");
+  
+  
+				  programado2=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+				  $("#segundo__esperado").val(parseFloat(programado2).toFixed(2)+" %");
+  
+				  $("#tercero__esperado").val("-");
+  
+				  $("#cuarto__esperado").val("-");
+				  
+				  /*=====  End of Calculos programados  ======*/
+			  
+  
+			  }else{
+  
+				  /*============================================
+				  =            Calculos programados            =
+				  ============================================*/
+			  
+				  programado1=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+				  $("#primer__esperado").val(parseFloat(programado1).toFixed(2)+" %");
+  
+  
+				  programado2=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+				  $("#segundo__esperado").val(parseFloat(programado2).toFixed(2)+" %");
+  
+				  programado3=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+				  $("#tercero__esperado").val(parseFloat(programado3).toFixed(2)+" %");
+  
+  
+				  programado4=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+				  $("#cuarto__esperado").val(parseFloat(programado4).toFixed(2)+" %");
+				  
+				  /*=====  End of Calculos programados  ======*/				
+  
+			  }
+  
+  
+			  
+			  let montoEjecutadoU=$("#presupuesto__segun__poas").val();
+  
+			  let ejecutadoSasU=$("#ejecutadoSas").val();
+  
+  
+			  if (data[6]=="primerTrimestre" || data[6]=="segundoTrimestre") {
+  
+  
+				  /*===========================================
+				  =            Calculos ejecutados            =
+				  ===========================================*/
+				  
+				  ejecutado1=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
+				  $("#primer__ejecucion").val(parseFloat(ejecutado1).toFixed(2)+" %");
+  
+				  /*=====  End of Calculos ejecutados  ======*/
+  
+				  ejecutado2=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
+				  $("#segundo__ejecucion").val(parseFloat(ejecutado2).toFixed(2)+" %");
+  
+				  $("#cuarto__ejecucion").val("-");
+  
+				  $(".ejecutados__al__segundo").show();
+  
+			  }else{
+  
+				  /*===========================================
+				  =            Calculos ejecutados            =
+				  ===========================================*/
+				  
+				  ejecutado1=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
+				  $("#primer__ejecucion").val(parseFloat(ejecutado1).toFixed(2)+" %");
+  
+				  /*=====  End of Calculos ejecutados  ======*/
+  
+				  ejecutado2=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
+				  $("#segundo__ejecucion").val(parseFloat(ejecutado2).toFixed(2)+" %");
+  
+				  $("#cuarto__ejecucion").val(parseFloat(ejecutado2).toFixed(2)+" %");
+  
+				  $(".ejecutados__al__cuarto").show();
+				  $(".ejecutados__al__segundo").show();
+  
+			  }
+  
+  
+  
+			  if (data[18]=="no") {
+  
+				  $(".oculto__sin__esiguefts").remove();
+  
+			  }
+			  
+  
+			  console.log(data);
+  
+		  });
+  
+		  });
+  
+		  },
+		  error:function(){
+  
+		  }
+				  
+	  });	  	
+  
+	});
+  
+  }
+
+
+
+/*=====  End of Función de seguimientos  ======*/
