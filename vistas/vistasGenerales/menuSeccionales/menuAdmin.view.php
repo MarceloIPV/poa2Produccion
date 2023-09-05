@@ -145,7 +145,7 @@
 </li> 
 
 
-<li class="nav-item">
+<!-- <li class="nav-item">
 
 <a href="poasGlobalesRecibidosM2022" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'poasGlobalesRecibidosM2022');?>">
 	<i class="fa fa-envelope-open-text"></i>
@@ -155,7 +155,7 @@
 </a>
 
 </li>
-
+ -->
 
 	
 <li class="nav-item">
@@ -439,7 +439,7 @@
 
 </li>
 
-<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("modificacionesRecibidosPlanificacion","directorMd2","modificacionesRevisor","modificacionesRevisorRecomendados","modificacionesRecibidosPlanificacionRecomendados","modificacionesRecibidosPlanificacionRecomendadosNotificacion"));?>">
+<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("modificacionesRecibidosPlanificacion","directorMd2","modificacionesRevisor","modificacionesRevisorRecomendados","modificacionesRecibidosPlanificacionRecomendados","modificacionesRecibidosPlanificacionRecomendadosNotificacion","tramitesModificaciones"));?>">
 
 	<a href="#" class="nav-link">
 		<p>
@@ -486,6 +486,18 @@
 			</a>
 
 		</li>
+
+		<li class="nav-item">
+
+			<a href="tramitesModificaciones" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'tramitesModificaciones');?>">
+				<i class="fa fa-check-circle"></i>
+				&nbsp;
+				<p>Trámites realizados en modificación</p>
+
+			</a>
+
+		</li>
+
 
 		<?php endif ?>
 
