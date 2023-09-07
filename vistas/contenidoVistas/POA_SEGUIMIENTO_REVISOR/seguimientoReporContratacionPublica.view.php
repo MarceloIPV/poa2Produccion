@@ -44,7 +44,7 @@
 
 $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/datatables.js",function(){
   
-  datatabletsSeguimientoRevisorVacio($("#organismos__ContratacionPublica"),"organismos__ContratacionPublica","Reporte de Bloqueos",objetos([8,10,12,14],["enlaces__enviado__documento","enlaces__enviado__documento","enlaces__enviado__documento","enlaces__enviado__documento"],[8,10,12,14],[$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/",$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/",$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/",$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/"],['documento','documento2','documento3','documento4'],['documento','documento2','documento3','documento4']),[$("#idUsuarioPrincipal").val(),$("#zonalUsuario").val(),$("#idRolAd").val()],false);
+  datatabletsSeguimientoRevisorVacio($("#organismos__ContratacionPublica"),"organismos__ContratacionPublica","Reporte de Bloqueos",objetosSeguimiento2023([8,10,12,14],["enlaces__enviado__documento","enlaces__enviado__documento","enlaces__enviado__documento","enlaces__enviado__documento"],[8,10,12,14],[$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/",$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/",$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/",$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/"],['documento','documento2','documento3','documento4'],['documento','documento2','documento3','documento4']),[$("#idUsuarioPrincipal").val(),$("#zonalUsuario").val(),$("#idRolAd").val()],false);
 
 
 });

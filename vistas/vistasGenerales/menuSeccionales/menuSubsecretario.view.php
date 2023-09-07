@@ -569,29 +569,88 @@
 
 				<?php endif ?>
 
-				<li class="nav-item">
+				
 
-					<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
-						<p>Organismos deportivos</p>
-					</a>
+				<?php if (intval($_SESSION["selectorAniosA"])==2022): ?>
 
-				</li>
+					<li class="nav-item">
 
-				<li class="nav-item">
+						<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
+							<p>Organismos deportivos</p>
+						</a>
 
-					<a href="documentosSustentacion" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'documentosSustentacion'); ?>">
-						<p>Declaración del correcto uso de recurso</p>
-					</a>
+					</li>
 
-				</li>
+					<li class="nav-item">
 
-				<li class="nav-item">
+						<a href="documentosSustentacion" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'documentosSustentacion'); ?>">
+							<p>Declaración del correcto uso de recurso</p>
+						</a>
 
-					<a href="remananentesRepors" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'remananentesRepors'); ?>">
-						<p>Remanentes</p>
-					</a>
+					</li>
 
-				</li>
+					<li class="nav-item">
+
+						<a href="remananentesRepors" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'remananentesRepors'); ?>">
+							<p>Remanentes</p>
+						</a>
+
+					</li>
+
+					
+
+				<?php endif ?>
+
+
+				<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+
+					<li class="nav-item">
+
+						<a href="reporteAnualSeRe" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteAnualSeRe'); ?>">
+							<p>Reportería Anual</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
+							<p>Estado Envío Información Trimestral</p>
+						</a>
+
+					</li>
+
+
+					<li class="nav-item">
+
+						<a href="documentosSustentacion" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'documentosSustentacion'); ?>">
+							<p>Declaración del correcto uso de recurso</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="seguimientoReporContratacionPublica" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporContratacionPublica'); ?>">
+							<p>Declaración de Contratación Pública</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="resumenTransferencias" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'resumenTransferencias'); ?>">
+							<p>Consulta de Transferencias</p>
+						</a>
+
+					</li>
+
+				<?php endif ?>
+
+
+
+
+				
 
 
 
@@ -610,15 +669,42 @@
 				</p>
 			</a>
 
+			
+
+
 			<ul class="nav nav-treeview">
 
-				<li class="nav-item">
+				
+
+				<?php if (intval($_SESSION["selectorAniosA"])>=2023){ ?>
+
+					<li class="nav-item">
+
+						<a href="registroRemanentesA" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'registroRemanentesA'); ?>">
+							<p>Monto Asignado POA</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="remananentesRepors" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'remananentesRepors'); ?>">
+							<p>Reporte Remanentes</p>
+						</a>
+
+					</li>
+
+				<?php } else { ?>
+
+					<li class="nav-item">
 
 					<a href="registroRemanentesA" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'registroRemanentesA'); ?>">
 						<p>Registro Remanentes</p>
 					</a>
 
-				</li>
+					</li>
+
+				<?php }  ?>
 
 			</ul>
 
@@ -1090,6 +1176,125 @@
 	<?php endif ?>
 
 
+	<?php if (($informacionFuncionario[0][fisicamenteEstructura] == 2 || $informacionFuncionario[0][fisicamenteEstructura] == 23 || $informacionFuncionario[0][fisicamenteEstructura] == 5) && (intval($_SESSION["selectorAniosA"])>=2023)) : ?>
+
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("segumientosProgramacionRen", "seguimientosFinancieroRecomen", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoReporOrganismos", "documentosSustentacion","transferencias","resumenTransferencias")); ?>">
+
+				<a href="#" class="nav-link">
+					<p>
+						SEGUIMIENTO
+						<i class="fas fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+				</a>
+
+				<ul class="nav nav-treeview">
+
+					<li class="nav-item">
+
+						<a href="segumientosProgramacionRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'segumientosProgramacionRen', 'seguimientoRecorrido', "seguimientoEjecucion", "reporteAnexosSe", "transferencias","resumenTransferencias"); ?>">
+							<p>Recibidos</p>
+						</a>
+
+					</li>
+
+
+
+					<?php if ($informacionObjeto[1] == 7 || $informacionObjeto[1] == 2 || $informacionObjeto[1] == 4) : ?>
+
+						<li class="nav-item">
+
+							<a href="seguimientosFinancieroRecomen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientosFinancieroRecomen'); ?>">
+								<p>Recomendados</p>
+							</a>
+
+						</li>
+
+					<?php endif ?>
+
+					<li class="nav-item">
+
+						<a href="seguimientoRecorrido" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoRecorrido'); ?>">
+							<p>Recorrido</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="reporteAnexosSe" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteAnexosSe'); ?>">
+							<p>Reporte y anexos</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="seguimientoEjecucion" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoEjecucion'); ?>">
+							<p>Ejecución</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
+							<p>Organismos deportivos</p>
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="documentosSustentacion" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'documentosSustentacion'); ?>">
+							<p>Declaración del correcto uso de recurso</p>
+						</a>
+
+					</li>
+
+					<?php if ($informacionObjeto[1] == 7 || $informacionObjeto[1] == 2 || $informacionObjeto[1] == 4) : ?>
+
+						<li class="nav-item">
+
+						<a href="transferencias" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'transferencias'); ?>">
+							<p>Transferencias</p>
+						</a>
+
+						</li>
+
+						<li class="nav-item">
+
+						<a href="resumenTransferencias" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'resumenTransferencias'); ?>">
+							<p>Resumen de Transferencias</p>
+						</a>
+
+						</li>
+
+					<?php endif ?>
+
+					<?php if ($informacionObjeto[1] == 3) : ?>
+
+						<li class="nav-item">
+
+						<a href="resumenTransferencias" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'resumenTransferencias'); ?>">
+							<p>Consulta de Transferencias</p>
+						</a>
+
+						</li>
+
+					<?php endif ?>
+
+					
+
+
+				</ul>
+
+			</li>
+
+
+
+	<?php endif ?>
 
 	<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 12 || $informacionFuncionario[0][fisicamenteEstructura] == 24 || $informacionFuncionario[0][fisicamenteEstructura] == 14) : ?>
 

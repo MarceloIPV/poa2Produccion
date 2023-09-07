@@ -56,7 +56,7 @@ $(document).ready(function () {
    $.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/selector.js",function(){
 
 
-    indicadores__seguimientos2023($(".body__indicadores__tablas"),$("#organismoIdPrin").val(),$("#idIndicadores2023"),"mostrar__indicadores__seguimiento__2023");
+    indicadores__seguimientos2023($(".body__indicadores__tablas"),$("#organismoIdPrin").val(),$("#idIndicadores2023"),"mostrar__indicadores__seguimiento__2023",$('#trimestreEvaluador').val());
     sueldos__salarios__seguimientos2023($(".body__sueldos__salarios__tablas"),$("#organismoIdPrin").val(),$("#idSueldosS2023"),$(".contenedor__pestanas"),$("#trimestreEvaluador").val());	
     
     mantenimiento__capacitacion_PRESUPUESTARIO($(".body__capacitacion__tablas"),$("#organismoIdPrin").val(),$("#idCapacitacionS2023"),$(".contenedor__pestanas__capacitacion__tecnicos"),$("#trimestreEvaluador").val());			
