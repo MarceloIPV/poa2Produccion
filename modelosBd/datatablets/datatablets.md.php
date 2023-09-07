@@ -315,10 +315,10 @@
 		break;	
 
 		case "asignarPresupuesto__paid":
-
+			
 			$query="SELECT a.ruc,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombreOrganismo, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreOrganismo,a.correo,(SELECT telefono FROM poa_usuario AS a1 WHERE a1.idUsuario=a.idUsuario LIMIT 1) AS telefonoOficina,IF(c.nombreTipo IS NULL, 'r. Asociaciones Metropolitanas de Ligas Parroquiales Rurales',c.nombreTipo) AS tipoOrganismo,a.idOrganismo,c.idTipoOrganismo,(SELECT UPPER(a1.nombreProvincia) FROM in_md_provincias AS a1 WHERE a1.idProvincia=a.idProvincia) AS provincia,a.cedulaResponsable,a.nombreResponsablePoa FROM poa_organismo AS a LEFT JOIN poa_competencia_organismo_competencia AS b ON a.idOrganismo=b.idOrganismo LEFT JOIN poa_tipo_organismo AS c ON c.idTipoOrganismo=b.idTipoOrganismo WHERE NOT EXISTS (SELECT t2.idOrganismo FROM poa_paid_asignacion t2 WHERE t2.idOrganismo = a.idOrganismo AND t2.estado='A' AND t2.valor__comparativo='$datos[3]') GROUP BY a.idOrganismo ORDER BY a.nombreOrganismo;";
-
-			$dataTablets=$objeto->getDatatablets($query);
+			
+			$dataTablets=$objeto->getDatatablets2($query);
 			echo json_encode($dataTablets);
 
 		break;	
