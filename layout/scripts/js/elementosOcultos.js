@@ -146,7 +146,7 @@ $("#visualizador__actividades__deportivas__con__competencia").hide();
 $("#visualizador__actividades__deportivas__con__recreativo").hide();
 
 $("#visualizador__actividades__deportivas__con__implementaciones").hide();
-
+$(".oculto__informacion_Contratacion_Publica").hide();
 $("#visualizador__poa__general__con").hide();
 
 $("#visualizador_suministros__con").hide();

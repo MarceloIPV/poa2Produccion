@@ -400,17 +400,316 @@
 
 		break;
 
+		case "enviar__infor__data__seguimientos2":
+
+
+			$inversionPoas=$objeto->getObtenerInformacionGeneral("SELECT b.nombreInversion FROM poa_inversion_usuario AS a INNER JOIN poa_inversion AS b ON a.idInversion=b.idInversion WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' ORDER BY b.idInversion DESC LIMIT 1;");
+
+			$poa__invers=$inversionPoas[0][nombreInversion];
+
+			if ($periodo=="primerTrimestre") {
+				$primero="enero";
+				$segundo="febrero";
+				$tercero="marzo";
+			}else if($periodo=="segundoTrimestre"){
+				$primero="abril";
+				$segundo="mayo";
+				$tercero="junio";
+			}else if($periodo=="tercerTrimestre"){
+				$primero="julio";
+				$segundo="agosto";
+				$tercero="septiembre";
+			}else if($periodo=="cuartoTrimestre"){
+				$primero="octubre";
+				$segundo="noviembre";
+				$tercero="diciembre";
+			}
+
+			if ($periodo=="primerTrimestre" OR $periodo=="segundoTrimestre") {
+				$sumaSemestrales="SUM(a1.enero)+SUM(a1.febrero)+SUM(a1.marzo)+SUM(a1.abril)+SUM(a1.mayo)+SUM(a1.junio)";
+			}else if($periodo=="tercerTrimestre" OR $periodo=="cuartoTrimestre"){
+				$sumaSemestrales="SUM(a1.julio)+SUM(a1.agosto)+SUM(a1.septiembre)+SUM(a1.octubre)+SUM(a1.noviembre)+SUM(a1.diciembre)";
+			}
+
+
+			if ($periodo=="primerTrimestre") {
+				$constula="a.trimestre='primerTrimestre'";
+			}else if($periodo=="segundoTrimestre"){
+				$constula="(a.trimestre='segundoTrimestre' OR a.trimestre='primerTrimestre')";
+			}else if($periodo=="tercerTrimestre"){
+				$constula="(a.trimestre='tercerTrimestre' OR a.trimestre='primerTrimestre' OR a.trimestre='segundoTrimestre')";
+			}else if($periodo=="cuartoTrimestre"){
+				$constula="(a.trimestre='cuartoTrimestre' OR a.trimestre='primerTrimestre' OR a.trimestre='segundoTrimestre' OR a.trimestre='tercerTrimestre')";
+			}			
+
+
+			if ($periodo=="primerTrimestre") {
+				$constula2__3="a1.trimestre='primerTrimestre'";
+			}else if($periodo=="segundoTrimestre"){
+				$constula2__3="(a1.trimestre='segundoTrimestre' OR a1.trimestre='primerTrimestre')";
+			}else if($periodo=="tercerTrimestre"){
+				$constula2__3="(a1.trimestre='tercerTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre')";
+			}else if($periodo=="cuartoTrimestre"){
+				$constula2__3="(a1.trimestre='cuartoTrimestre' OR a1.trimestre='primerTrimestre' OR a1.trimestre='segundoTrimestre' OR a1.trimestre='tercerTrimestre')";
+			}			
+
+			if ($periodo=="primerTrimestre") {
+				$constula2__3__periodo="a1.periodo='primerTrimestre'";
+			}else if($periodo=="segundoTrimestre"){
+				$constula2__3__periodo="(a1.periodo='segundoTrimestre' OR a1.periodo='primerTrimestre')";
+			}else if($periodo__periodo=="tercerTrimestre"){
+				$constula2__3__periodo="(a1.periodo='tercerTrimestre' OR a1.periodo='primerTrimestre' OR a1.periodo='segundoTrimestre')";
+			}else if($periodo=="cuartoTrimestre"){
+				$constula2__3__periodo="(a1.periodo='cuartoTrimestre' OR a1.periodo='primerTrimestre' OR a1.periodo='segundoTrimestre' OR a1.periodo='tercerTrimestre')";
+			}			
+
+			
+			
+			$primer__sumas=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.programado) AS programadosSumasP,SUM(a.ejecutado) AS ejecutadoSumasP FROM poa_seguimiento_reporteria AS a INNER JOIN poa_programacion_financiera AS b ON a.idOrganismo=b.idOrganismo WHERE a.trimestre='primerTrimestre' AND a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idOrganismo;");
+			
+			$segundo__sumas=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.programado) AS programadosSumasS,SUM(a.ejecutado) AS ejecutadoSumasS FROM poa_seguimiento_reporteria AS a INNER JOIN poa_programacion_financiera AS b ON a.idOrganismo=b.idOrganismo WHERE a.trimestre='segundoTrimestre' AND a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idOrganismo;");
+
+			$tercer__sumas=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.programado) AS programadosSumasT,SUM(a.ejecutado) AS ejecutadoSumasT FROM poa_seguimiento_reporteria AS a INNER JOIN poa_programacion_financiera AS b ON a.idOrganismo=b.idOrganismo WHERE a.trimestre='tercerTrimestre' AND a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idOrganismo;");
+			
+			$cuarto__sumas=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.programado) AS programadosSumasC,SUM(a.ejecutado) AS ejecutadoSumasC FROM poa_seguimiento_reporteria AS a INNER JOIN poa_programacion_financiera AS b ON a.idOrganismo=b.idOrganismo WHERE a.trimestre='cuartoTrimestre' AND a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idOrganismo;");
+
+			
+			$medallas__altos__sumas=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.oro) AS oro,SUM(a.plata) AS plata,SUM(a.bronce) AS bronce,SUM(a.total) AS total FROM poa_seguimiento_competencia_alto2 AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND $constula GROUP BY a.idOrganismo;");
+			
+			$sumas__altos__capacitadores=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.capacitadores) AS capacitadores FROM poa_seguimiento_competencia_alto2 AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND $constula GROUP BY a.idOrganismo;");
+		
+			$sumas__altos__beneficiarios=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.beneficiariosHombres) AS hombres,SUM(a.beneficiariosMujeres) AS mujeres,SUM(a.totalT) AS totalBeneficiarios FROM poa_seguimiento_competencia_alto2 AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND $constula GROUP BY a.idOrganismo;");
+			
+			$sumas__programados=$objeto->getObtenerInformacionGeneral("SELECT a.idActividad,IFNULL((SELECT a1.idSeguimientoFinanciero FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3 LIMIT 1),0) AS idSeguimientoFinanciero,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS actividades,IF((SELECT a1.idOrganismo FROM poa_programacion_financiera_dos AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad) IS NOT NULL,(SELECT ROUND($sumaSemestrales,2) FROM poa_programacion_financiera AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad),(SELECT ROUND($sumaSemestrales,2) FROM poa_programacion_financiera AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad)) AS sumaPlanificacion,IF((SELECT ROUND(SUM(a1.programado),2) FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3) IS NULL OR (SELECT ROUND(SUM(a1.programado),2) FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3)=0,IF((SELECT a1.idOrganismo FROM poa_programacion_financiera_dos AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad) IS NOT NULL,(SELECT ROUND($sumaSemestrales,2) FROM poa_programacion_financiera AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad),(SELECT ROUND($sumaSemestrales,2) FROM poa_programacion_financiera AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad)),(SELECT ROUND(SUM(a1.programado),2) FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3)) AS programado,a.idActividad,IFNULL((SELECT ROUND(SUM(a1.planificado),2) FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3),0) AS planificado,IFNULL((SELECT ROUND(IFNULL(SUM(a1.sueldoSalarioEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.aporteIessEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.decimoTerceroEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.decimoCuartoEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.fondosReservasEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.mensualEjecutado),0),2) FROM poa_seguimiento_honorarios AS a1 INNER JOIN poa_honorarios2022 AS b ON a1.idHonorarios=b.idHonorarios WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3 AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_seguimiento_administrativo AS a1 INNER JOIN poa_actividadesadministrativas AS b ON a1.idAdministrativo=b.idActividadAd INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_mantenimiento AS a1 INNER JOIN poa_mantenimiento AS b ON a1.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_competencias AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_capacitacion AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_recreativos AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_implementacion AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND a1.perioIngreso='$aniosPeriodos__ingesos' GROUP BY c.idActividad),0) AS ejecutado FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idActividad;");
+			//$sumas__programados=$objeto->getObtenerInformacionGeneral("SELECT a.idActividad,IFNULL((SELECT a1.idSeguimientoFinanciero FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3 LIMIT 1),0) AS idSeguimientoFinanciero,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad LIMIT 1) AS actividades,IF((SELECT a1.idOrganismo FROM poa_programacion_financiera_dos AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad) IS NOT NULL,(SELECT ROUND($sumaSemestrales,2) FROM poa_programacion_financiera AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad),(SELECT ROUND($sumaSemestrales,2) FROM poa_programacion_financiera AS a1 WHERE a1.idOrganismo=a.idOrganismo AND a.idActividad=a1.idActividad GROUP BY a1.idActividad)) AS sumaPlanificacion,IFNULL((SELECT ROUND(SUM(a1.programado),2) FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3),0) AS programado,a.idActividad,IFNULL((SELECT ROUND(SUM(a1.planificado),2) FROM poa_seguimiento_reporteria AS a1 WHERE a1.idActividad=a.idActividad AND a1.idOrganismo=a.idOrganismo AND a1.estado='A' AND $constula2__3),0) AS planificado,IFNULL((SELECT ROUND(IFNULL(SUM(a1.sueldoSalarioEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND YEAR(a1.fecha)='$anio' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.aporteIessEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND YEAR(a1.fecha)='$anio' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.decimoTerceroEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND YEAR(a1.fecha)='$anio' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.decimoCuartoEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND YEAR(a1.fecha)='$anio' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.fondosReservasEjecutado),0),2) FROM poa_seguimiento_sueldos_salarios AS a1 INNER JOIN poa_sueldossalarios2022 AS b ON a1.idSueldosSalarios=b.idSueldos WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3__periodo AND YEAR(a1.fecha)='$anio' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(IFNULL(SUM(a1.mensualEjecutado),0),2) FROM poa_seguimiento_honorarios AS a1 INNER JOIN poa_honorarios2022 AS b ON a1.idHonorarios=b.idHonorarios WHERE a1.idOrganismo=a.idOrganismo AND b.idActividad=a.idActividad AND $constula2__3 AND YEAR(a1.fecha)='$anio' GROUP BY b.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_seguimiento_administrativo AS a1 INNER JOIN poa_actividadesadministrativas AS b ON a1.idAdministrativo=b.idActividadAd INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND YEAR(a1.fecha)='$anio' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_mantenimiento AS a1 INNER JOIN poa_mantenimiento AS b ON a1.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND YEAR(a1.fecha)='$anio' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_competencias AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND YEAR(a1.fecha)='$anio' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_capacitacion AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND YEAR(a1.fecha)='$anio' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_recreativos AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND YEAR(a1.fecha)='$anio' GROUP BY c.idActividad),0) + IFNULL((SELECT ROUND(SUM(a1.mensualEjecutado),2) FROM poa_segimiento_implementacion AS a1 INNER JOIN poa_actdeportivas AS b ON a1.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON b.idProgramacionFinanciera=c.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem WHERE a1.idOrganismo=a.idOrganismo AND c.idActividad=a.idActividad AND $constula2__3 AND YEAR(a1.fecha)='$anio' GROUP BY c.idActividad),0) AS ejecutado FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' GROUP BY a.idActividad;");
+
+			
+			$sumas__programados__denitivos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT SUM(a1.programado) FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND $constula2__3 ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS programado,(SELECT a1.planificado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND $constula2__3 ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS planificado,(SELECT a1.ejecutado FROM poa_seguimiento_reporteria AS a1 WHERE a1.idProgramacionFinanciera=a.idProgramacionFinanciera AND $constula2__3 ORDER BY a1.idSeguimientoFinanciero DESC LIMIT 1) AS ejecutado FROM poa_programacion_financiera AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.idOrganismo ORDER BY a.idActividad;");
+
+			$variable__1__suma__programados=$sumas__programados__denitivos[0][programado];
+			$variable__1__suma__ejecutado=$sumas__programados__denitivos[0][ejecutado];
+			$variable__1__suma__planificado=$sumas__programados__denitivos[0][planificado];
+			
+
+			$indicadores__altos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad) AS nombreActividades,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 INNER JOIN poa_indicadores AS a2 ON a1.idLineaPolitica=a2.idIndicadores WHERE a1.idActividades=a.idActividad) AS nombreIndicador,a.totalProgramado,a.totalEjecutado FROM poa_indicadores_seguimiento AS a WHERE a.idOrganismo='$idOrganismo' AND $constula AND a.perioIngreso='$aniosPeriodos__ingesos';");
+			
+			$indicadores__administrativos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad) AS nombreActividades,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 INNER JOIN poa_indicadores AS a2 ON a1.idLineaPolitica=a2.idIndicadores WHERE a1.idActividades=a.idActividad) AS nombreIndicador,a.totalProgramado,a.totalEjecutado FROM poa_indicadores_seguimiento AS a WHERE a.idOrganismo='$idOrganismo' AND $constula AND a.perioIngreso='$aniosPeriodos__ingesos' and a.idActividad='1';");
+
+			$autogestion__formativos=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.montoAu) AS montoAutogestionables FROM poa_segimiento_montos_autogestion AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND $constula GROUP BY idOrganismo;");
+
+			$envio__tecnicos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT CONCAT_WS(' ',a1.nombre,a1.apellido) FROM th_usuario AS a1  WHERE a.idFuncionario=a1.id_usuario) AS nombreCompleto,a.fecha,a.hora FROM poa_seguimiento_recomienda_tecnicos AS a WHERE a.trimestre='$periodo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo' ORDER BY a.idRecomendacionFuncionario DESC LIMIT 1;");
+
+			$documentos__tecnicos=$objeto->getObtenerInformacionGeneral("SELECT archivo,observacion,recomendacion FROM poa_seguimiento_recomendado_tecnico WHERE trimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos' AND idOrganismo='$idOrganismo' AND tipo='alto__rendimientos' ORDER BY idInformacionEnviada DESC LIMIT 1;");
+
+			$documentos__tecnico__2__seguimientos=$objeto->getObtenerInformacionGeneral("SELECT documentos,observaciones,recomendaciones FROM poa_seguimiento_recomendado_tecnico_seguimientos WHERE trimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos' AND idOrganismo='$idOrganismo' ORDER BY idSeguimientosRecomendadosTe DESC LIMIT 1;");
+
+			$envio__tecnicos__seguimientos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT CONCAT_WS(' ',a1.nombre,a1.apellido) FROM th_usuario AS a1  WHERE a.idFuncionario=a1.id_usuario) AS nombreCompleto,a.fecha,a.hora FROM poa_seguimiento_recomienda_tecnicos AS a WHERE a.trimestre='$periodo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo' AND a.tipoE='SEGUIMIENTO' ORDER BY a.idRecomendacionFuncionario DESC LIMIT 1;");
+
+			$envio__tecnicos__seguimientos__infraestructuras=$objeto->getObtenerInformacionGeneral("SELECT (SELECT CONCAT_WS(' ',a1.nombre,a1.apellido) FROM th_usuario AS a1  WHERE a.idFuncionario=a1.id_usuario) AS nombreCompleto,a.fecha,a.hora,a.documentoInfras,a.documentoInstalaciones FROM poa_seguimiento_recomienda_tecnicos AS a WHERE a.trimestre='$periodo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo' AND a.tipoE='INFRA' ORDER BY a.idRecomendacionFuncionario DESC LIMIT 1;");
+
+			$nuevo__infras__seguimientos=$objeto->getObtenerInformacionGeneral("SELECT a.idMantenimiento FROM poa_segimiento_mantenimiento AS a WHERE a.trimestre='$periodo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo' ORDER BY a.idMantenimiento DESC LIMIT 1;");
+
+
+			$trimestrales__i__enviados=$objeto->getObtenerInformacionGeneral("SELECT a.idEnviadorTrimestres FROM poa_trimestrales AS a WHERE a.tipoTrimestre='$periodo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo' AND estadoIR='T' ORDER BY a.idEnviadorTrimestres DESC LIMIT 1;");
+
+			if (!empty($nuevo__infras__seguimientos[0][idMantenimiento])) {
+				$var_n_se_in=1;
+			}else{
+				$var_n_se_in=0;
+			}
+
+			if (!empty($trimestrales__i__enviados[0][idEnviadorTrimestres])) {
+				$var_n_se_in__45=1;
+			}else{
+				$var_n_se_in__45=0;
+			}
+
+
+			if (!empty($idUsuarioC)) {
+				
+				$envio__tecnicos__zonales=$objeto->getObtenerInformacionGeneral("SELECT zonal FROM th_usuario WHERE id_usuario='$idUsuarioC';");
+
+				$zonal__eu=$envio__tecnicos__zonales[0][zonal];
+				$jason['zonal__eu']=$zonal__eu;
+
+			}
+
+
+			$autogestionesV=$autogestion__formativos[0][montoAutogestionables];
+
+
+			if ($tipo__dos=="FORMATIVO") {
+
+				$documentos__tecnicos__2=$objeto->getObtenerInformacionGeneral("SELECT archivo,observacion,recomendacion FROM poa_seguimiento_recomendado_tecnico WHERE trimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos' AND idOrganismo='$idOrganismo' AND tipo='formativo' ORDER BY idInformacionEnviada DESC LIMIT 1;");
+
+				$trimestrales__culminados=$objeto->getObtenerInformacionGeneral("SELECT idEnviadorTrimestres FROM poa_trimestrales WHERE perioIngreso='$aniosPeriodos__ingesos' AND tipoTrimestre='$periodo' AND idOrganismo='$idOrganismo' AND estadoFR='T';");
+
+				$varaible__culminados=$trimestrales__culminados[0][idEnviadorTrimestres];
+
+				$medallas__altos__formativos=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.oro) AS oro,SUM(a.plata) AS plata,SUM(a.bronce) AS bronce,SUM(a.total) AS total FROM poa_seguimiento_competencia_formativo AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND $constula GROUP BY a.idOrganismo;");
+
+				$benficiarios__altos__formativos=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.beneficiariosHombres) AS hombres,SUM(a.beneficiariosMujeres) AS mujeres,SUM(a.totalT) AS total, SUM(a.beneficiariosHombres18) AS hombres18,SUM(a.beneficiariosMujeres18) AS mujeres18,SUM(a.totalT18) AS total18 FROM poa_seguimiento_competencia_formativo AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND $constula GROUP BY a.idOrganismo;");
+
+
+			}else if ($tipo__dos=="RECREACIÓN") {
+
+				$documentos__tecnicos__2=$objeto->getObtenerInformacionGeneral("SELECT archivo,observacion,recomendacion FROM poa_seguimiento_recomendado_tecnico WHERE trimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos' AND idOrganismo='$idOrganismo' AND  tipo='recreativo' ORDER BY idInformacionEnviada DESC LIMIT 1;");
+
+
+				$trimestrales__culminados=$objeto->getObtenerInformacionGeneral("SELECT idEnviadorTrimestres FROM poa_trimestrales WHERE perioIngreso='$aniosPeriodos__ingesos' AND tipoTrimestre='$periodo' AND idOrganismo='$idOrganismo' AND estadoFR='T';");
+
+				$varaible__culminados=$trimestrales__culminados[0][idEnviadorTrimestres];
+
+				$benficiarios__altos__formativos=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.beneficiariosHombres) AS hombres,SUM(a.beneficiariosMujeres) AS mujeres,SUM(a.totalT) AS total, SUM(a.beneficiariosHombres18) AS hombres18,SUM(a.beneficiariosMujeres18) AS mujeres18,SUM(a.totalT18) AS total18 FROM poa_seguimiento_competencia_formativo AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' AND $constula GROUP BY a.idOrganismo;");
+
+			}else{
+
+				$documentos__tecnicos__2=$objeto->getObtenerInformacionGeneral("SELECT archivo,observacion,recomendacion FROM poa_seguimiento_recomendado_tecnico WHERE trimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos' AND idOrganismo='$idOrganismo' AND  tipo='alto__rendimientos' ORDER BY idInformacionEnviada DESC LIMIT 1;");
+
+
+				$trimestrales__culminados=$objeto->getObtenerInformacionGeneral("SELECT idEnviadorTrimestres FROM poa_trimestrales WHERE perioIngreso='$aniosPeriodos__ingesos' AND tipoTrimestre='$periodo' AND idOrganismo='$idOrganismo' AND estadoAlR='T';");
+
+				$varaible__culminados=$trimestrales__culminados[0][idEnviadorTrimestres];
+
+			}
+
+			$trimestrales__inrA=$objeto->getObtenerInformacionGeneral("SELECT estadoIR,estadoInR FROM poa_trimestrales WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND tipoTrimestre='$periodo';");
+
+			$estadoIR__estados=$trimestrales__inrA[0][estadoIR];
+			$estadoINR__estados=$trimestrales__inrA[0][estadoInR];
+
+			$jason['estadoIR__estados']=$estadoIR__estados;
+			$jason['estadoINR__estados']=$estadoINR__estados;
+
+			if (empty($primer__sumas[0][programadosSumasP])) {
+				$primer__sumas__p=0;
+			}else{
+				$primer__sumas__p=$primer__sumas[0][programadosSumasP];
+			}
+
+			if (empty($primer__sumas[0][ejecutadoSumasP])) {
+				$primer__sumas__e=0;
+			}else{
+				$primer__sumas__e=$primer__sumas[0][ejecutadoSumasP];
+			}
+
+			if (empty($segundo__sumas[0][programadosSumasS])) {
+				$segundo__sumas__p=0;
+			}else{
+				$segundo__sumas__p=$segundo__sumas[0][programadosSumasS];
+			}
+
+						
+			if (empty($segundo__sumas[0][ejecutadoSumasS])) {
+				$segundo__sumas__e=0;
+			}else{
+				$segundo__sumas__e=$segundo__sumas[0][ejecutadoSumasS];
+			}
+
+			if (empty($tercer__sumas[0][programadosSumasT])) {
+				$tercero__sumas__p=0;
+			}else{
+				$tercero__sumas__p=$tercer__sumas[0][programadosSumasT];
+			}
+			
+			if (empty($tercer__sumas[0][ejecutadoSumasT])) {
+				$tercero__sumas__e=0;
+			}else{
+				$tercero__sumas__e=$tercer__sumas[0][ejecutadoSumasT];
+			}
+			
+			if (empty($cuarto__sumas[0][programadosSumasC])) {
+				$cuarto__sumas__p=0;
+			}else{
+				$cuarto__sumas__p=$cuarto__sumas[0][programadosSumasC];
+			}
+
+			
+			if (empty($cuarto__sumas[0][ejecutadoSumasC])) {
+				$cuarto__sumas__e=0;
+			}else{
+				$cuarto__sumas__e=$cuarto__sumas[0][ejecutadoSumasC];
+			}
+
+			if(empty($autogestionesV)){
+
+				$autogestionesV=0;
+
+			}
+			$jason['variable__1__suma__ejecutado']=$variable__1__suma__ejecutado;
+			$jason['variable__1__suma__planificado']=$variable__1__suma__planificado;
+
+			$jason['variable__1__suma__programados']=$variable__1__suma__programados;
+
+			$jason['var_n_se_in__45']=$var_n_se_in__45;
+
+			$jason['var_n_se_in']=$var_n_se_in;
+
+			$jason['envio__tecnicos__seguimientos__infraestructuras']=$envio__tecnicos__seguimientos__infraestructuras;
+
+			$jason['envio__tecnicos__seguimientos']=$envio__tecnicos__seguimientos;
+
+			$jason['documentos__tecnico__2__seguimientos']=$documentos__tecnico__2__seguimientos;
+
+			$jason['medallas__altos__formativos']=$medallas__altos__formativos;
+
+			$jason['medallas__altos__sumas']=$medallas__altos__sumas;
+			$jason['capacitadores__altos__sumas']=$sumas__altos__capacitadores;
+			$jason['sumas__altos__beneficiarios']=$sumas__altos__beneficiarios;
+			$jason['benficiarios__altos__formativos']=$benficiarios__altos__formativos;
+
+			$jason['CONSULTA']=$constula;
+
+			$jason['idOrg']=$idOrganismo;
+
+			$jason['tipo']=$tipo__dos;
+
+			$jason['aniosPeriodos__ingesos']=$aniosPeriodos__ingesos;
+
+			$jason['indicadores__administrativos']=$indicadores__administrativos;
+
+
+			
+			
+			
+
+			$jason['varaible__culminados']=$varaible__culminados;
+
+			$jason['documentos__tecnicos__2']=$documentos__tecnicos__2;
+
+			$jason['documentos__tecnicos']=$documentos__tecnicos;
+
+			$jason['envio__tecnicos']=$envio__tecnicos;
+
+			$jason['autogestionesV']=$autogestionesV;
+
+			$jason['indicadores__altos']=$indicadores__altos;
+
+			$jason['primer__sumas__p']=$primer__sumas__p;
+			$jason['primer__sumas__e']=$primer__sumas__e;
+			$jason['segundo__sumas__p']=$segundo__sumas__p;
+			$jason['segundo__sumas__e']=$segundo__sumas__e;
+			$jason['tercero__sumas__p']=$tercero__sumas__p;
+			$jason['tercero__sumas__e']=$tercero__sumas__e;
+			$jason['cuarto__sumas__p']=$cuarto__sumas__p;
+			$jason['cuarto__sumas__e']=$cuarto__sumas__e;
+
+			$jason['poa__invers']=$poa__invers;
+			$jason['sumas__programados']=$sumas__programados; 
+
+		break;
+
 
 		//************************************  tabla Contratación Publica Revisor **************************************** */
 		case "selectorTablaContratacionPublica":
 
 			if($semestre=="I SEMESTRE"){
 
-				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("Select a.idActividad, b.itemPreesupuestario, b.nombreItem,c.planificado, a.*  from poa_catalogo_contraloria_seguimiento as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo INNER JOIN poa_seguimiento_reporteria AS c on a.trimestre =c.trimestre and a.perioIngreso=c.perioIngreso and a.idOrganismo = c.idOrganismo and a.idItemCatalogo=c.idItem and a.idActividad=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and (a.trimestre='primerTrimestre' or a.trimestre='segundoTrimestre') GROUP BY a.idItemCatalogo  ORDER BY a.idActividad;");
+				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("Select a.idActividad, b.itemPreesupuestario, b.nombreItem,c.totalSumaItem as planificado, a.*  from poa_catalogo_contraloria_seguimiento as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo INNER JOIN poa_programacion_financiera AS c on  a.perioIngreso=c.perioIngreso and a.idOrganismo = c.idOrganismo and a.idItemCatalogo=c.idItem and a.idActividad=c.idActividad  WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and (a.trimestre='primerTrimestre' or a.trimestre='segundoTrimestre') GROUP BY a.idItemCatalogo  ORDER BY a.idActividad;");
 
 			}else if($semestre == "II SEMESTRE"){
 
-				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("Select a.idActividad, b.itemPreesupuestario, b.nombreItem,c.planificado, a.*  from poa_catalogo_contraloria_seguimiento as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo INNER JOIN poa_seguimiento_reporteria AS c on a.trimestre =c.trimestre and a.perioIngreso=c.perioIngreso and a.idOrganismo = c.idOrganismo and a.idItemCatalogo=c.idItem and a.idActividad=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and (a.trimestre='tercerTrimestre' or a.trimestre='cuartoTrimestre') GROUP BY a.idItemCatalogo  ORDER BY a.idActividad;");
+				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("Select a.idActividad, b.itemPreesupuestario, b.nombreItem,c.totalSumaItem as planificado, a.*  from poa_catalogo_contraloria_seguimiento as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo INNER JOIN poa_programacion_financiera AS c on  a.perioIngreso=c.perioIngreso and a.idOrganismo = c.idOrganismo and a.idItemCatalogo=c.idItem and a.idActividad=c.idActividad  WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and (a.trimestre='tercerTrimestre' or a.trimestre='cuartoTrimestre') GROUP BY a.idItemCatalogo  ORDER BY a.idActividad;");
 			}
 
 			
