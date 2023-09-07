@@ -168,6 +168,7 @@ var sueldos__salarios__seguimientos2023=function(parametro1,parametro2,parametro
 
 		paqueteDeDatos.append('tipo','mostrar__sueldos__salarios__seguimiento__2023');
 		paqueteDeDatos.append('idOrganismos',parametro2);
+		paqueteDeDatos.append('trimestre', parametro5);
 
 		if (parametro5=="primerTrimestre") {
 			paqueteDeDatos.append('mes','marzo');
@@ -1106,6 +1107,7 @@ var mantenimiento__capacitacion_PRESUPUESTARIO=function(parametro1,parametro2,pa
 
 		paqueteDeDatos.append('tipo','deportivas__tecnico__seguis');
 		paqueteDeDatos.append('idOrganismos',parametro2);
+		paqueteDeDatos.append('trimestre', parametro5);
 
 		if (parametro5=="primerTrimestre") {
 			paqueteDeDatos.append('mes','marzo');
@@ -1178,6 +1180,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 		paqueteDeDatos.append('tipo','deportivas__competencias__seguis');
 		paqueteDeDatos.append('idOrganismos',parametro2);
+		paqueteDeDatos.append('trimestre', parametro5);
 
 		if (parametro5=="primerTrimestre") {
 			paqueteDeDatos.append('mes','marzo');
@@ -1247,6 +1250,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','mantenimiento__seguis');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1322,6 +1326,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','deportivas__recreacion__seguis');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1392,6 +1397,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','administrativos__seguis');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1462,6 +1468,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','honorarios__seguis');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1531,6 +1538,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','deportivas__implementacion__seguis');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1601,6 +1609,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','mantenimiento__seguis__tecnicos');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1670,6 +1679,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','deportivas__tecnico__tecnico__seguis__altos');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1739,6 +1749,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','deportivas__tecnico__tecnico__seguis__capacitacion');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1809,6 +1820,7 @@ var actividades__deportivas__competencia_PRESUPUESTARIO=function(parametro1,para
 
 			paqueteDeDatos.append('tipo','deportivas__tecnico__tecnico__seguis');
 			paqueteDeDatos.append('idOrganismos',parametro2);
+			paqueteDeDatos.append('trimestre', parametro5);
 
 			if (parametro5=="primerTrimestre") {
 				paqueteDeDatos.append('mes','marzo');
@@ -1878,6 +1890,7 @@ var recreativo__tecnicos=function(parametro1,parametro2,parametro3,parametro4,pa
 
 		paqueteDeDatos.append('tipo','deportivas__tecnico__recreativas');
 		paqueteDeDatos.append('idOrganismos',parametro2);
+		paqueteDeDatos.append('trimestre', parametro5);
 
 		if (parametro5=="primerTrimestre") {
 			paqueteDeDatos.append('mes','marzo');
