@@ -6501,4 +6501,595 @@
 		}
 
 
+		/******************************* POA INICIAL SEGUIMIENTO modal principal ********************** */	
+		public function getModalConfiguracion__reporteria__organismos_seguimiento_mocdal_principal($parametro1,$parametro2,$parametro3){
+			$componentes= new componentes();
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+			<div class='modal-dialog' style='min-width:75%!important;'>
+
+			<form class='modal-content formularioConfiguracion' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+				<input type='hidden' name='idOrganismo' id='idOrganismo'/>
+
+				<input type='hidden' id='tipoPdf' name='tipoPdf' value='documento__seguimiento__final' />
+				
+				<input type='hidden' id='trimestreEvaluadorDos' name='trimestreEvaluadorDos'/>
+
+				<button class='btn btn-info'><i class='fa fa-cloud' aria-hidden='true'></i>&nbsp;&nbsp;GENERAR PDF</button>
+
+
+				<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+					<div class='col col-2 text-right'>
+
+						<image src='images/titulo__ministerio__deporte.png'/>
+
+					</div>
+					
+
+					<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+					</div>
+
+
+					<div class='col col-2 text-left'>
+
+						<image src='images/titulo__principis__ministerios.png'/>
+
+					</div>
+
+					<div class='col col-1'>
+
+					<span class='button pointer__botones' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					</div>
+
+
+				</div>
+
+				<div class='modal-body row $parametro3'>
+
+					<div class='col col-12 texto__evidenciales titulo__enfasis text-center' style='text-transform:uppercase!important;'></div>
+
+					<div class='autogestion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#poa__indi' id='poa__indi_poa'>POA</a>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class='autogestion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#autogestion__se__2' id='autogestionPoas__in__2'>Autogestión</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='indicadores__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#indicadores__se__2' id='indicadores__in__2'>Indicadores</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='administrativos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#administrativo__se__2' id='administrativo__in__2'>001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='mantenimiento__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#mantenimiento__se__2' id='mantenimiento__in__2'>002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='mantenimientoTEC__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#mantenimientoTec__se__2' id='mantenimientoTec__in__2'>002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='capacitacion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#capacitacion__se__2' id='capacitacion__in__2'>003 - Capacitación deportiva o de recreación - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='capacitacionTecnicos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#capacitacionTec__se__2' id='capacitacionTec__in__2'>003 - Capacitación deportiva o de recreación - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='sueldos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#sueldos__se__2' id='sueldos__in__2'>004 - Operación deportiva - Sueldos y salarios</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='honorarios__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#honorarios__se__2' id='honorarios__in__2'>004 - Operación deportiva - Honorarios</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='competencias__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competencia__se__2' id='competencia__in__2'>005 - Eventos de preparación y competencia - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='competenciasForma__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competenciaForma__se__2' id='competenciaFormativa__in__2'>005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='competenciasAlto__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competenciaAlto__se__2' id='competenciaAlto__in__2'>005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='recreativo__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#recreativo__se__2' id='recreativo__in__2'>006 - Actividades recreativas - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='recreativoTecnicos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#recreativoTec__se__2' id='recreativoTec__in__2'>006 - Actividades recreativas - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='implementacion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#implementacion__se__2' id='implementacion__in__2'>007 - implementación deportiva  - Ejecución presupuestaria e Información Técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</form>
+
+			</div>
+
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
+
+
+		/******************************* POA INICIAL SEGUIMIENTO ********************** */	
+		public function getModalConfiguracion__reporteria__organismos_seguimiento($parametro1,$parametro2,$parametro3){
+			$componentes= new componentes();
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+			<div class='modal-dialog' style='min-width:75%!important;'>
+
+			<form class='modal-content formularioConfiguracion' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+				<input type='hidden' name='idOrganismo' id='idOrganismo'/>
+
+				<input type='hidden' id='tipoPdf' name='tipoPdf' value='documento__seguimiento__final' />
+				
+				<input type='hidden' id='trimestreEvaluadorDos' name='trimestreEvaluadorDos'/>
+
+				<button class='btn btn-info'><i class='fa fa-cloud' aria-hidden='true'></i>&nbsp;&nbsp;GENERAR PDF</button>
+
+
+				<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+					<div class='col col-2 text-right'>
+
+						<image src='images/titulo__ministerio__deporte.png'/>
+
+					</div>
+					
+
+					<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+					</div>
+
+
+					<div class='col col-2 text-left'>
+
+						<image src='images/titulo__principis__ministerios.png'/>
+
+					</div>
+
+					<div class='col col-1'>
+
+					<span class='button pointer__botones' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					</div>
+
+
+				</div>
+
+				<div class='modal-body row $parametro3'>
+
+					<div class='col col-12 texto__evidenciales titulo__enfasis text-center' style='text-transform:uppercase!important;'></div>
+
+					<div class='autogestion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#poa__indi' id='poa__indi_poa'>POA</a>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class='autogestion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#autogestion__se__2' id='autogestionPoas__in__2'>Autogestión</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='indicadores__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#indicadores__se__2' id='indicadores__in__2'>Indicadores</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='administrativos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#administrativo__se__2' id='administrativo__in__2'>001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='mantenimiento__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#mantenimiento__se__2' id='mantenimiento__in__2'>002 - Mantenimiento de escenarios e infraestructura deportiva - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='mantenimientoTEC__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#mantenimientoTec__se__2' id='mantenimientoTec__in__2'>002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='capacitacion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#capacitacion__se__2' id='capacitacion__in__2'>003 - Capacitación deportiva o de recreación - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='capacitacionTecnicos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#capacitacionTec__se__2' id='capacitacionTec__in__2'>003 - Capacitación deportiva o de recreación - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='sueldos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#sueldos__se__2' id='sueldos__in__2'>004 - Operación deportiva - Sueldos y salarios</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='honorarios__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#honorarios__se__2' id='honorarios__in__2'>004 - Operación deportiva - Honorarios</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='competencias__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competencia__se__2' id='competencia__in__2'>005 - Eventos de preparación y competencia - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='competenciasForma__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competenciaForma__se__2' id='competenciaFormativa__in__2'>005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='competenciasAlto__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#competenciaAlto__se__2' id='competenciaAlto__in__2'>005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='recreativo__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#recreativo__se__2' id='recreativo__in__2'>006 - Actividades recreativas - Ejecución presupuestaria</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='recreativoTecnicos__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#recreativoTec__se__2' id='recreativoTec__in__2'>006 - Actividades recreativas - Información técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class='implementacion__verificables'>
+
+						<div class='row d d-flex flex-column justify-content-center card mt-4'>
+
+							<div class='card-body row'>
+
+								<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#implementacion__se__2' id='implementacion__in__2'>007 - implementación deportiva  - Ejecución presupuestaria e Información Técnica</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</form>
+
+			</div>
+
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
+
 	}

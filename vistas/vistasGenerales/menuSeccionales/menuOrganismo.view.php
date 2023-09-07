@@ -268,7 +268,7 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];
 
 
 						<a href="reporteAnexosOD" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteAnexosOD'); ?>">
-							<i class="fal fa-file-chart-pie"></i>
+							<i class="fas fa-file-invoice" style="color: #cbcdd9;"></i>
 							&nbsp
 							<p>Reporte y anexos</p>
 						</a>

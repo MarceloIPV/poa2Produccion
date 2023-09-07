@@ -458,6 +458,7 @@ checkboxFunciones($(".catalogo__elect"),$(".catalogo__elect__texto"));
 checkboxFunciones($(".catalogo__subasta"),$(".catalogo__subasta__texto"));
 checkboxFunciones($(".catalogo__infima"),$(".catalogo__infima__texto"));
 checkboxFunciones($(".catalogo__menorCuantia"),$(".catalogo__menorCuantia__texto"));
+checkboxFunciones($("#seguimiento__tables_Contratacion_Publica"),$(".oculto__informacion_Contratacion_Publica"));
 checkboxFunciones($(".catalogo__cotizacion"),$(".catalogo__cotizacion__texto"));
 checkboxFunciones($(".catalogo__licitacion"),$(".catalogo__licitacion__texto"));
 checkboxFunciones($(".catalogo__menorCuantiaObras"),$(".catalogo__menorCuantiaObras__texto"));

@@ -373,6 +373,8 @@
 
 		}
 
+
+
 		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados__reporterias__recorridos($parametro1,$parametro2,$parametro3){
 
 

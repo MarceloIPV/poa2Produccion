@@ -1984,7 +1984,7 @@ function crear_DataTable2(idDatatable){
             
             var spanArchivo = ""
             if(i==0){
-              spanArchivo="INFORME EJECUCIÓN DE REHABILITACIÓN Y/O MANTENIMIENTOS PLANIFICADOS"
+              spanArchivo="INFORME EJECUCIÓN DE REHABILITACIÓN Y-O MANTENIMIENTOS PLANIFICADOS"
             }else if(i==1)
             {
               spanArchivo="RESPALDOS DEL INFORME "
