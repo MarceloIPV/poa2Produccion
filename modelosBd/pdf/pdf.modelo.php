@@ -923,12 +923,12 @@ if($trimestreEvaluadorDos=="primerTrimestre") {
 	
 
 
-	$usuarioUsados__seguimientos=$objeto->getObtenerInformacionGeneral("SELECT b.descripcionPuestoInstitucional,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS nombreSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS apellidoSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.descripcionPuestoInstitucional, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 INNER JOIN th_puestoinstitucional AS a2 ON a1.puestoInstitucional=a2.id_PuestoInstitucional WHERE a1.id_usuario=a.PersonaACargo) AS cargoSuperior FROM th_usuario AS a INNER JOIN th_puestoinstitucional AS b ON a.puestoInstitucional=b.id_PuestoInstitucional WHERE a.id_usuario='$idUSeguimientos';");
+	$usuarioUsados__seguimientos=$objeto->getObtenerInformacionGeneral("SELECT a.PersonaACargo,b.descripcionPuestoInstitucional,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS nombreSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS apellidoSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.descripcionPuestoInstitucional, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 INNER JOIN th_puestoinstitucional AS a2 ON a1.puestoInstitucional=a2.id_PuestoInstitucional WHERE a1.id_usuario=a.PersonaACargo) AS cargoSuperior FROM th_usuario AS a INNER JOIN th_puestoinstitucional AS b ON a.puestoInstitucional=b.id_PuestoInstitucional WHERE a.id_usuario='$idUSeguimientos';");
 	
 
 		$indicadores__altos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad) AS nombreActividades,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 INNER JOIN poa_indicadores AS a2 ON a1.idLineaPolitica=a2.idIndicadores WHERE a1.idActividades=a.idActividad) AS nombreIndicador,a.totalProgramado,a.totalEjecutado FROM poa_indicadores_seguimiento AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos';");
 
-
+		
 	/*=====  End of Seguimientos relativos  ======*/
 	
 	$horizontal=false;
@@ -16914,7 +16914,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 		break;
 
 		case  "documento__seguimiento__final2": 
-
+			
 			/*===================================
 			=            Generar pdf            =
 			===================================*/
@@ -16926,7 +16926,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 			$parametro2="finalSeguiiento";	
 			$parametro3=$idOrganismo."__".$fecha_actual;
 			/*=====  End of Generar pdf  ======*/
-
+			
 			$auxiliar=" ";
 
 			if ($trimestreEvaluadorDos=="primerTrimestre") {
@@ -16964,7 +16964,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 					<tbody>
 				';				
 
-		
+				
 				if($trimestreEvaluadorDos=="primerTrimestre") {
 					$sumaTotalPlanificado1=0;
 					$sumaTotalEjecutado1=0;
@@ -17303,8 +17303,9 @@ internacional, organizaciones no gubernamentales, entre otros.
 					</tbody>
 
 				</table>';
-
+				
 				if($btnEnviar == 1){
+
 					$inserta=$objeto->getInsertaNormal('poa_seguimiento_docuento_final', array("`idDocumento_seguimiento`, ","`documento`, ","`idOrganismo`, ","`fecha`, ", "`perioIngreso`, ","`trimestre`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ", "'$aniosPeriodos__ingesos', ","'$trimestreEvaluadorDos'"));
 				}
 
@@ -17321,7 +17322,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 			//  $mensaje=1;
 			//  $jason['mensaje']=$mensaje;
 
-
+			
 
 		break;
 
@@ -21267,6 +21268,1885 @@ internacional, organizaciones no gubernamentales, entre otros.
 		
 
 				
+
+		break;
+
+		case  "pdf__seguimientos__Financiero":
+
+
+			
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/seguimiento/informeTecnico__seguimiento/";
+			$parametro2="seguimientoInformesTecnicos";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+
+
+			$documentoCuerpo="
+
+			
+				<table style='width:100%'>
+
+					<tr>
+						<th colspan='1'>
+
+							<img  src='../../images/titulo__ministerio__deporte.png'/>
+
+						</th>
+				
+
+
+						<th colspan='4'>
+
+							<center>";
+
+							if(substr($siglas__dinamicas__inputs,0, 2)=="DA"){
+								$documentoCuerpo.="
+									
+								".$subsecretarias__escritas." -
+								".$direccion__escritas."";
+							}else{
+								$documentoCuerpo.="
+									
+								".$subsecretarias__escritas."
+								";
+							}
+
+
+							$documentoCuerpo.="
+							
+
+							</center>
+
+						</th>
+
+		
+
+						<th colspan='1'>
+
+							<img  src='../../images/titulo__principis__ministerios.png'/>
+							
+						</th>
+					</tr>
+
+							
+
+				</table>";
+
+				
+				if($tipoInforme=="actividades"){
+					$documentoCuerpo.="
+					<table style='width:100%!important;'>
+	
+						<tr>
+	
+							<th>
+	
+								<center> <h1 style='font-weight:900;'>
+	
+								<div style='font-size:10px!important; padding:.5em; background:#1b5e20; color:white!important;'>
+	
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - RSET - ".$siglas__dinamicas__inputs." - <span class='numerico__dinamicas'>".$numerico__dinamicas__inputs."</span>
+								
+								</div>
+	
+								</h1></center>
+	
+							</th>
+	
+						</tr>
+	
+					</table>
+						<table style='width:100%!important; margin-top:2em;'>
+
+							<tr>
+
+								<th>
+
+									I. EJERCICIO FISCAL
+
+								</th>
+
+								<th>
+
+								AÑO
+
+								</th>
+
+								<td>
+
+									".$periodo__evaluados__anuales1."
+
+								</td>
+
+							</tr>
+
+						</table>
+
+						<table style='margin-top:1em!important; width:100%!importan;'>
+
+							<tr>
+
+								<th>
+
+									II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+								</th>
+
+							</tr>
+
+						</table>
+
+
+						<table style='width:100%!important; margin-top:.5em!important;'>
+
+							<tr>
+
+								<th style='width:40%!important;'>
+
+									NOMBRE DE LA ORGANIZACIÓN:
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$nombre__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									RUC DE LA ORGANIZACIÓN:
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$ruc__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									PRESIDENTE O REPRESENTANTE LEGAL:
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$informacionCompletoDosI[0][nombreResponsablePoa]."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$correo__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									DIRECCIÓN COMPLETA:
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$direccion__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+
+						</table>
+
+						<table style='margin-top:1em!important; width:100%!importan;'>
+
+							<tr>
+
+								<th>
+
+									III. UBICACIÓN GEOGRÁFICA
+
+								</th>
+
+							</tr>
+
+						</table>
+
+						<table style='margin-top:.5em!important; width:100%;'>
+
+							<tr>
+
+								<th style='width:40%!important;'>
+
+									PROVINCIA
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$provincia__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									CANTÓN
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$canton__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+
+							<tr>
+
+								<th>
+
+									PARROQUIA
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$parroquia__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									BARRIO
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+									".$barrio__organizacion__deportivas."
+								</td>
+
+							</tr>
+
+						</table>
+
+
+						<table style='margin-top:1em!important; width:100%!importan;'>
+
+							<tr>
+
+								<th>
+
+									IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+								</th>
+
+							</tr>
+
+						</table>
+
+						<table style='margin-top:.5em!important; width:100%!importan;'>
+
+							<tr>
+
+								<th style='width:40%!important;'>
+
+									ÁREA DE ACCIÓN:
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+
+								".$areaAccion."
+
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<th style='width:40%!important;'>
+
+									OBJETIVO ESTRATÉGICO INSTITUCIONAL
+
+								</th>
+
+								<td style = 'background:#e8edff'>
+
+								".$objetivoS."
+
+								</td>
+
+							</tr>
+
+						</table>
+
+						<table style='margin-top:1em!important; width:100%!importan;'>
+
+							<tr>
+
+								<th>
+
+									V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+								</th>
+
+							</tr>
+
+						</table>
+
+						<table style='margin-top:.5em!important; width:100%!importan;'>
+
+							<tr>
+
+								<th>	
+									V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+								</th>
+
+							</tr>";
+							$semestre;
+							if($trimestre__evaluados__al == "I SEMESTRE"){
+								$semestre = "Enero - Junio";
+							}elseif($trimestre__evaluados__al == "II SEMESTRE"){
+								$semestre = "Julio - Diciembre";
+							}
+
+
+							$documentoCuerpo.="
+
+							
+							<tr>
+								
+								<td style='width:40%!important;'>	
+									<br>
+									PERÍODO EVALUADO:
+								</td>
+
+								<td style = 'background:#e8edff'>	
+									<br>
+									".$semestre."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td style='width:40%!important;'>	
+									PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+								</td>
+
+								<td style = 'background:#e8edff'>	
+									".$presupuesto__asignado__pais__altos."
+								</td>
+
+							</tr>
+
+						</table>
+					";
+
+
+					$documentoCuerpo.="
+
+					<table style='margin-top:.5em!important; width:100%!important;'>
+
+						<tr>
+
+							<th>
+
+								V.II. RESUMEN DE CUMPLIMIENTO TÉCNICO DEL POA
+
+							</th>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:.5em!important; width:100%!important;'>
+
+						<tr>
+
+							<th>
+
+								<center> <h1 style='font-weight:900;'>AVANCE DE METAS</h1></center>
+
+							</th>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:1em!important;' border='1'>
+
+						<thead>
+
+							<tr>
+
+								<th>
+									<center>ACTIVIDADES</center>
+								</th>
+
+								<th>
+									<center>INDICADOR</center>
+								</th>
+
+								<th>
+									<center>META PLANIFICADA AL SEMESTRE (A)</center>
+								</th>
+
+								<th>
+									<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+								</th>
+
+								<th>
+									<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody>";
+
+						foreach ($indicadores__administrativos as $clave => $valor) {
+
+							$percen=(floatval($valor[totalEjecutado])/floatval($valor[totalProgramado]))*100;
+
+							if ($percen>=85) {
+								
+								$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+							}else if($percen>=70 && $percen<85){
+
+								$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+							}else if($percen<70){
+
+								$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+							}
+
+							$documentoCuerpo.="
+
+							<tr>
+
+							<td><center>".$valor[nombreActividades]."</center></td>
+							<td><center>".$valor[nombreIndicador]."</center></td>
+							<td><center>".$valor[totalProgramado]."</center></td>
+							<td><center>".$valor[totalEjecutado]."</center></td>
+							<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."</center></td>
+
+							</tr>	
+
+						";
+
+					}
+
+
+
+					if ($porcentaje__c__eje__alto>=85) {
+						
+						$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($porcentaje__c__eje__alto>=70 && $porcentaje__c__eje__alto<85){
+
+						$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($porcentaje__c__eje__alto<70){
+
+						$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+					}
+
+					if ($porcentaje__c__eje__alto__parti>=85) {
+						
+						$div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($porcentaje__c__eje__alto__parti>=70 && $porcentaje__c__eje__alto__parti<85){
+
+						$div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($porcentaje__c__eje__alto__parti<70){
+
+						$div2="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+					}
+
+
+					if ($porcentaje__c__implementacion__de__e__alto>=85) {
+						
+						$div3="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($porcentaje__c__implementacion__de__e__alto>=70 && $porcentaje__c__implementacion__de__e__alto<85){
+
+						$div3="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($porcentaje__c__implementacion__de__e__alto<70){
+
+						$div3="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+					}
+
+
+
+					if ($porcentaje__c__beneficiarios__de__e__alto>=85) {
+						
+						$div4="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($porcentaje__c__beneficiarios__de__e__alto>=70 && $porcentaje__c__beneficiarios__de__e__alto<85){
+
+						$div4="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($porcentaje__c__beneficiarios__de__e__alto<70){
+
+						$div4="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+					}
+
+					if ($porcentaje__c__preparacion__de__e__alto>=85) {
+						
+						$div5="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($porcentaje__c__preparacion__de__e__alto>=70 && $porcentaje__c__preparacion__de__e__alto<85){
+
+						$div5="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($porcentaje__c__preparacion__de__e__alto<70){
+
+						$div5="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+					}
+
+
+					$documentoCuerpo.="</tbody>
+
+						<tfoot></tfoot>
+
+					</table>";	
+
+
+					$documentoCuerpo.=" 
+
+					<table style='width:100%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<th>
+								V.IV. VERIFICACIÓN DE PRESENTACIÓN DE INFORMACIÓN:
+							</th>
+
+						</tr>
+
+					</table>
+
+					<table style='width:100%!important; margin-top:1em!important;'>
+
+							<tr>
+											
+							<td style='width:40%!important;'>	
+								<br>
+								PAGO SERVICIO BÁSICOS:
+							</td>
+							</tr>
+
+					</table>
+				
+				
+					<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr>
+
+								<th>
+
+									<center>DESCRIPCIÓN JUSTIFICACIÓN / TAREA</center>
+
+								</th>
+
+
+								<th>
+
+									<center>ÍTEMS</center>
+
+								</th>
+
+								<th>
+
+									<center>ESTADO</center>
+
+								</th>
+
+								<th>
+
+									<center>Nro. FACTURA / CUR</center>
+
+								</th>
+
+								<th>
+
+									<center>MONTO OBSERVADO</center>
+
+								</th>
+
+								<th>
+
+									<center>DETALLE DE OBSERVACIONES</center>
+
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody>
+
+							<tr>
+
+								<td>
+								Pago de agua potable
+								</td>
+
+
+								<td>
+								530101
+								</td>
+
+								<td>
+
+								".$reporteaguapotable."
+									
+								</td>
+
+								<td>
+								".$aguapotableFactura."
+								</td>
+
+								<td>
+								".$aguapotableValor."
+								</td>
+
+								<td>
+								".$aguapotableObservacion."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>
+								Agua de riego
+								</td>
+
+
+								<td>
+								530102
+								</td>
+
+								<td>
+
+								".$reporteAguaRiego."
+									
+								</td>
+
+								<td>
+								".$aguaRiegoFactura."
+								</td>
+
+								<td>
+								".$aguaRiegoValor."
+								</td>
+
+								<td>
+								".$aguaRiegoObservacion."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>
+								Pago de energía eléctrica 
+								</td>
+
+
+								<td>
+								530104
+								</td>
+
+								<td>
+
+								".$reporteEnergiaElec."
+									
+								</td>
+
+								<td>
+								".$energiaElecFactura."
+								</td>
+
+								<td>
+								".$energiaElecValor."
+								</td>
+
+								<td>
+								".$energiaElecObservacion."
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>
+								Telefonía fija 
+								</td>
+
+
+								<td>
+								530105
+								</td>
+
+								<td>
+
+								".$reporteTelefonia."
+									
+								</td>
+
+								<td>
+								".$telefoniaFactura."
+								</td>
+
+								<td>
+								".$telefoniaValor."
+								</td>
+
+								<td>
+								".$telefoniaObservacion."
+								</td>
+
+							</tr>
+
+
+						</tbody>
+
+					</table>
+
+					<table style='width:100%!important; margin-top:1em!important;'>
+
+							<tr>
+											
+							<td style='width:40%!important;'>	
+								<br>
+								OTROS PAGOS:
+							</td>
+							</tr>
+
+					</table>
+				
+				
+					<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr>
+
+								<th>
+
+									<center>DESCRIPCIÓN JUSTIFICACIÓN / TAREA</center>
+
+								</th>
+
+
+								<th>
+
+									<center>ÍTEMS</center>
+
+								</th>
+
+								<th>
+
+									<center>ESTADO</center>
+
+								</th>
+
+								<th>
+
+									<center>Nro. FACTURA / CUR</center>
+
+								</th>
+
+								<th>
+
+									<center>MONTO OBSERVADO</center>
+
+								</th>
+
+								<th>
+
+									<center>DETALLE DE OBSERVACIONES</center>
+
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody>";
+
+							if($trimestre__evaluados__al=="I SEMESTRE"){
+
+
+								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+
+							}else if($trimestre__evaluados__al=="II SEMESTRE"){
+
+								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+
+							}
+
+							
+
+							$contador=0;
+
+							foreach ($indicadores__sinContratacionPublica as $clave => $valor) {
+
+									$contador++;
+
+									$pagosSinContratacionPublicaSelector = "pagosSinContratacionPublicaSelector" . $contador;
+									$FacturaSinContratacionPublica = "FacturaSinContratacionPublica" . $contador;
+									$ValorSinContratacionPublica = "ValorSinContratacionPublica" . $contador;
+									$observacionSinContratacionPublica = "observacionSinContratacionPublica" . $contador;
+
+									$documentoCuerpo.="<tr><td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td><td> <center>".$$pagosSinContratacionPublicaSelector."</center> </td> <td> <center>".$$FacturaSinContratacionPublica."</center> </td> <td> <center>".$$ValorSinContratacionPublica."</center> </td><td> <center>".$$observacionSinContratacionPublica."</center> </td></tr>";
+						
+							}
+
+							$documentoCuerpo.="
+
+						</tbody>
+
+					</table>
+					
+					<table style='width:100%!important; margin-top:1em!important;'>
+
+							<tr>
+											
+							<td style='width:40%!important;'>	
+								<br>
+								ADQUISICIÓN DE BIENES Y/O CONTRATACIÓN DE SERVICIO:
+							</td>
+							</tr>
+
+					</table>
+					
+				
+					<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr>
+
+								<th>
+
+									<center>DESCRIPCIÓN JUSTIFICACIÓN / TAREA</center>
+
+								</th>
+
+
+								<th>
+
+									<center>ÍTEMS</center>
+
+								</th>
+
+								<th>
+
+									<center>ESTADO</center>
+
+								</th>
+
+								<th>
+
+									<center>Nro. FACTURA / CUR</center>
+
+								</th>
+
+								<th>
+
+									<center>MONTO OBSERVADO</center>
+
+								</th>
+
+								<th>
+
+									<center>DETALLE DE OBSERVACIONES</center>
+
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody>";
+
+							if($trimestre__evaluados__al=="I SEMESTRE"){
+
+
+								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+
+							}else if($trimestre__evaluados__al=="II SEMESTRE"){
+
+								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+
+							}
+
+							
+
+							$contador=0;
+
+							foreach ($indicadores__conContratacionPublica as $clave => $valor) {
+
+									$contador++;
+
+									$pagosConContratacionPublicaSelector = "pagosConContratacionPublicaSelector" . $contador;
+									$FacturaConContratacionPublica = "FacturaConContratacionPublica" . $contador;
+									$ValorConContratacionPublica = "ValorConContratacionPublica" . $contador;
+									$observacionConContratacionPublica = "observacionConContratacionPublica" . $contador;
+
+									$documentoCuerpo.="<tr><td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td><td> <center>".$$pagosConContratacionPublicaSelector."</center> </td> <td> <center>".$$FacturaConContratacionPublica."</center> </td> <td> <center>".$$ValorConContratacionPublica."</center> </td><td> <center>".$$observacionConContratacionPublica."</center> </td></tr>";
+						
+							}
+
+							$documentoCuerpo.="
+
+						</tbody>
+
+					</table>
+				
+				
+					
+						<table style='width:100%!important; margin-top:.5em!important;'>
+
+								<tr>
+
+									<th>
+										Observaciones:
+									</th>
+
+								</tr>
+
+						</table>
+
+
+						<table style='width:100%!important; margin-top:1em!important;'>
+
+								<tr>
+
+									<td>
+										".nl2br($observaciones__alto__seguis)."
+									</td>
+
+								</tr>
+
+						</table>
+
+
+						<table style='width:100%!important; margin-top:.5em!important;'>
+
+								<tr>
+
+									<th>
+										Recomendaciones:
+									</th>
+
+								</tr>
+
+						</table>
+
+
+						<table style='width:100%!important; margin-top:1em!important;'>
+
+								<tr>
+
+									<td>
+										".nl2br($recomendaciones__alto__seguis)."
+									</td>
+
+								</tr>
+
+						</table>";
+
+
+				
+
+
+
+
+				}else{
+
+					$horizontal=true;
+
+					$documentoCuerpo.="
+					<table style='width:100%!important;'>
+	
+						<tr>
+	
+							<th>
+	
+								<center> <h1 style='font-weight:900;'>
+	
+								<div style='font-size:10px!important; padding:.5em; background:#1b5e20; color:white!important;'>
+	
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - RSEPC - <span class='siglas__dinamicas' style='font-weight:bold;'>".$siglas__dinamicas__inputs."</span> - <span class='numerico__dinamicas'>".$numerico__dinamicas__inputs."</span>
+	
+								</div>
+	
+								</h1></center>
+	
+							</th>
+	
+						</tr>
+	
+					</table>
+					
+					<table style='width:100%!important; margin-top:2em;'>
+
+						<tr>
+
+							<th>
+
+								I. EJERCICIO FISCAL
+
+							</th>
+
+							<th>
+
+							AÑO
+
+							</th>
+
+							<td>
+
+								".$periodo__evaluados__anuales1."
+
+							</td>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:1em!important; width:100%!importan;'>
+
+						<tr>
+
+							<th>
+
+								II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+							</th>
+
+						</tr>
+
+					</table>
+
+
+					<table style='width:100%!important; margin-top:.5em!important;'>
+
+						<tr>
+
+							<th style='width:40%!important;'>
+
+								NOMBRE DE LA ORGANIZACIÓN:
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$nombre__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<th>
+
+								RUC DE LA ORGANIZACIÓN:
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$ruc__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<th>
+
+								PRESIDENTE O REPRESENTANTE LEGAL:
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$informacionCompletoDosI[0][nombreResponsablePoa]."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<th>
+
+								CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$correo__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<th>
+
+								DIRECCIÓN COMPLETA:
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$direccion__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+
+					</table>
+
+					<table style='margin-top:1em!important; width:100%!importan;'>
+
+						<tr>
+
+							<th>
+
+								III. UBICACIÓN GEOGRÁFICA
+
+							</th>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:.5em!important; width:100%;'>
+
+						<tr>
+
+							<th style='width:40%!important;'>
+
+								PROVINCIA
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$provincia__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<th>
+
+								CANTÓN
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$canton__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+
+						<tr>
+
+							<th>
+
+								PARROQUIA
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$parroquia__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<th>
+
+								BARRIO
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+								".$barrio__organizacion__deportivasContratacion."
+							</td>
+
+						</tr>
+
+					</table>
+
+
+					<table style='margin-top:1em!important; width:100%!importan;'>
+
+						<tr>
+
+							<th>
+
+								IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+							</th>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:.5em!important; width:100%!importan;'>
+
+						<tr>
+
+							<th style='width:40%!important;'>
+
+								ÁREA DE ACCIÓN:
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+
+							".$areaAccion."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<th style='width:40%!important;'>
+
+								OBJETIVO ESTRATÉGICO INSTITUCIONAL
+
+							</th>
+
+							<td style = 'background:#e8edff'>
+
+							".$objetivoS."
+
+							</td>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:1em!important; width:100%!importan;'>
+
+						<tr>
+
+							<th>
+
+								V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+							</th>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:.5em!important; width:100%!importan;'>
+
+						<tr>
+
+							<th>	
+								V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+							</th>
+
+						</tr>";
+						$semestre;
+						if($trimestre__evaluados__al == "I SEMESTRE"){
+							$semestre = "Enero - Junio";
+						}elseif($trimestre__evaluados__al == "II SEMESTRE"){
+							$semestre = "Julio - Diciembre";
+						}
+
+
+						$documentoCuerpo.="
+
+						
+						<tr>
+							
+							<td style='width:40%!important;'>	
+								<br>
+								PERÍODO EVALUADO:
+							</td>
+
+							<td style = 'background:#e8edff'>	
+								<br>
+								".$semestre."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td style='width:40%!important;'>	
+								PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+							</td>
+
+							<td style = 'background:#e8edff'>	
+								".$presupuesto__asignado__pais__altosContratacion."
+							</td>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:1em!important;' border='1'>
+
+						<thead>
+								<tr>
+
+														<th colspan='4' style = 'background:#d0cece'>
+
+															<center>PLANIFICADO</center>
+
+														</th>
+
+														<th colspan='6' style='background-color: #e8edff;'>
+
+															<center>EJECUTADO</center>
+
+														</th>
+
+														<th colspan='4' style = 'background:#fce4d6'>
+
+															<center>VERIFICACIÓN DE LA APLICACIÓN DE PROCEDIMIENTOS DE CONTRATACIÓN PÚBLICA</center>
+
+														</th>
+
+								</tr>
+
+								<tr>
+
+								<th style = 'background:#d0cece'>
+									<center>CÓDIGO ACTIVIDAD</center>
+								</th>
+
+								<th style = 'background:#d0cece'>
+									<center>ÍTEM</center>
+								</th>
+
+								<th style = 'background:#d0cece'>
+									<center>DESCRIPCIÓN DEL ÍTEM</center>
+								</th>
+
+								
+
+								<th style = 'background:#d0cece'>
+									<center>MONTO PLANIFICADO</center>
+								</th>
+
+								
+
+								<th style = 'background:#e8edff'>
+									<center>TIPO DE CONTRATACIÓN</center>
+								</th>
+
+								<th style = 'background:#e8edff'>
+									<center>OBJETO DE LA CONTRATACIÓN</center>
+								</th>
+
+								<th style = 'background:#e8edff'>
+									<center>MONTO DE LA CONTRATACIÓN </center>
+								</th>
+
+								<th style = 'background:#e8edff'>
+									<center>PROVEEDOR </center>
+								</th>
+
+								<th style = 'background:#e8edff'>
+									<center>RUC</center>
+								</th>
+
+								<th style = 'background:#e8edff'>
+									<center>LINK DE LA PUBLICACIÓN EN EL PORTAL DE COMPRAS PÚBLICAS</center>
+								</th>
+
+								<th style = 'background:#fce4d6'>
+									<center>CUMPLE LOS MONTOS VIGENTES DE CONTRATACIÓN PUBLICA</center>
+								</th>
+
+								<th style = 'background:#fce4d6'>
+									<center>EVIDENCIA DE RECURRENCIA DE ÍNFIMAS CUANTÍAS CON UNA MISMA NATURALEZA DEL GASTO</center>
+								</th>
+
+								<th style = 'background:#fce4d6'>
+									<center> PROCEDIMIENTOS DE CONTRATACIÓN VERIFICADOS</center>
+								</th>
+
+								<th style = 'background:#fce4d6'>
+									<center> OBSERVACIONES</center>
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody>";
+
+						if($trimestre__evaluados__al=="I SEMESTRE"){
+
+
+							$indicadores__ContratacionPublica=$objeto->getObtenerInformacionGeneral("Select a.idActividad, b.itemPreesupuestario, b.nombreItem,c.totalSumaItem as planificado, a.*  from poa_catalogo_contraloria_seguimiento as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo INNER JOIN poa_programacion_financiera AS c on  a.perioIngreso=c.perioIngreso and a.idOrganismo = c.idOrganismo and a.idItemCatalogo=c.idItem and a.idActividad=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and (a.trimestre='primerTrimestre' or a.trimestre='segundoTrimestre') GROUP BY a.idItemCatalogo  ORDER BY a.idActividad;");
+
+						}else if($trimestre__evaluados__al=="II SEMESTRE"){
+
+							$indicadores__ContratacionPublica=$objeto->getObtenerInformacionGeneral("Select a.idActividad, b.itemPreesupuestario, b.nombreItem,c.totalSumaItem as planificado, a.*  from poa_catalogo_contraloria_seguimiento as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo INNER JOIN poa_programacion_financiera AS c on  a.perioIngreso=c.perioIngreso and a.idOrganismo = c.idOrganismo and a.idItemCatalogo=c.idItem and a.idActividad=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and (a.trimestre='tercerTrimestre' or a.trimestre='cuartoTrimestre') GROUP BY a.idItemCatalogo  ORDER BY a.idActividad;");
+
+						}
+
+						
+
+						$contador=0;
+
+						foreach ($indicadores__ContratacionPublica as $clave => $valor) {
+
+							if($valor[catalogo__elect] == "si" ){
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td> <td><center>Catalogo Electrónico</center></td> <td><center>".$valor[catalogo__elect__objeto]."</center></td> <td><center>".$valor[catalogo__elect__monto]."</center></td> <td><center>".$valor[catalogo__elect__proveedor]."</center></td> <td><center>".$valor[catalogo__elect__rucProveedor]."</center></td> <td><center>".$valor[catalogo__elect__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__subasta] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Subasta Inversa Electrónica</center></td> <td><center>".$valor[catalogo__subasta__objeto]."</center></td><td><center>".$valor[catalogo__subasta__monto]."</center></td> <td><center>".$valor[catalogo__subasta__proveedor]."</center></td> <td><center>".$valor[catalogo__subasta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__subasta__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__infima] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Ínfima Cuantía</center></td> <td><center>".$valor[catalogo__infima__texto]."</center></td><td><center>".$valor[catalogo__infima__monto]."</center></td> <td><center>".$valor[catalogo__infima__proveedor]."</center></td> <td><center>".$valor[catalogo__infima__rucProveedor]."</center></td> <td><center>".$valor[catalogo__infima__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__menorCuantia] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Menor Cuantía Bienes</center></td> <td><center>".$valor[catalogo__menorCuantia__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantia__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantia__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantia__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__cotizacion] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Cotización Bienes</center></td><td><center>".$valor[catalogo__cotizacion__objeto]."</center></td> <td><center>".$valor[catalogo__cotizacion__monto]."</center></td> <td><center>".$valor[catalogo__cotizacion__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacion__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__licitacion] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Licitación Bienes</center></td> <td><center>".$valor[catalogo__licitacion__objeto]."</center></td><td><center>".$valor[catalogo__licitacion__monto]."</center></td> <td><center>".$valor[catalogo__licitacion__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacion__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__menorCuantiaObras] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Menor Cuantía Obras</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__objeto]."</center></td><td><center>".$valor[catalogo__menorCuantiaObras__monto]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__proveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__menorCuantiaObras__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__cotizacionObras] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Cotización Obras</center></td> <td><center>".$valor[catalogo__cotizacionObras__objeto]."</center></td><td><center>".$valor[catalogo__cotizacionObras__monto]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__cotizacionObras__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__licitacionObras] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td> <td><center>Licitación Obras</center></td> <td><center>".$valor[catalogo__licitacionObras__objeto]."</center></td> <td><center>".$valor[catalogo__licitacionObras__monto]."</center></td> <td><center>".$valor[catalogo__licitacionObras__proveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__licitacionObras__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+
+							if($valor[catalogo__precioObras] == "si" ){
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Precio Fijo Obras</center></td> <td><center>".$valor[catalogo__precioObras__objeto]."</center></td><td><center>".$valor[catalogo__precioObras__monto]."</center></td> <td><center>".$valor[catalogo__precioObras__proveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__rucProveedor]."</center></td> <td><center>".$valor[catalogo__precioObras__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__contratacionDirecta] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Contratación Directa</center></td> <td><center>".$valor[catalogo__contratacionDirecta__objeto]."</center></td><td><center>".$valor[catalogo__contratacionDirecta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionDirecta__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__contratacionListaCorta] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Lista Corta</center></td><td><center>".$valor[catalogo__contratacionListaCorta__objeto]."</center></td><td><center>".$valor[catalogo__contratacionListaCorta__monto]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionListaCorta__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+							if($valor[catalogo__contratacionConcursoPu] == "si" ){
+
+								$contador++;
+
+								$cumpleMontoVigenteCP = "cumpleMontoVigenteCP" . $contador;
+								$evidenciaRecurrenciaInfima = "evidenciaRecurrenciaInfima" . $contador;
+								$procedimientosContratacionVer = "procedimientosContratacionVer" . $contador;
+								$observacionCP = "observacionCP" . $contador;
+								
+								$documentoCuerpo.="<tr><td><center>".$valor[idActividad]."</center></td> <td><center>".$valor[itemPreesupuestario]."</center></td> <td><center>".$valor[nombreItem]."</center></td> <td><center>".$valor[planificado]."</center></td>  <td><center>Concurso Público</center></td><td><center>".$valor[catalogo__contratacionConcursoPu__objeto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__monto]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__proveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__rucProveedor]."</center></td> <td><center>".$valor[catalogo__contratacionConcursoPu__texto]."</center></td> <td> <center>".$$cumpleMontoVigenteCP."</center> </td> <td> <center>".$$evidenciaRecurrenciaInfima."</center> </td> <td> <center>".$$procedimientosContratacionVer."</center> </td><td> <center>".$$observacionCP."</center> </td></tr>";
+						
+							}
+
+						}
+
+						$documentoCuerpo.="
+
+						</tbody>
+								
+					</table>
+
+					<table style='width:100%!important; margin-top:.5em!important;'>
+
+						<tr>
+
+							<th>
+								Observaciones:
+							</th>
+
+						</tr>
+
+					</table>
+
+
+					<table style='width:100%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<td>
+								".nl2br($observaciones__alto__seguisContratacion)."
+							</td>
+
+						</tr>
+
+					</table>
+
+
+					<table style='width:100%!important; margin-top:.5em!important;'>
+
+						<tr>
+
+							<th>
+								Recomendaciones:
+							</th>
+
+						</tr>
+
+					</table>
+
+
+					<table style='width:100%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<td>
+								".nl2br($recomendaciones__alto__seguisContratacion)."
+							</td>
+
+						</tr>
+
+					</table>
+
+					";
+
+				}
+
+		
+				$documentoCuerpo.="
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<td style='width:100%!important; text-align:right;'>
+
+							Fecha de emisión&nbsp;&nbsp; ".$dia."/ ".$mes."/ ".$anio."
+									
+						</td>
+
+					</tr>
+
+
+				</table>";
+
+
+				if (strpos($subsecretarias__escritas, "Coordinación") !== false){
+					$documentoCuerpo.="
+					<table border='1' style='border-collapse: collapse; margin-top:2em!important; margin-top:1em!important; width:100%!importan;'>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>ELABORADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombre]." ".$usuarioUsados__seguimientos[0][apellido]."</div>
+									<div>".$usuarioUsados__seguimientos[0][descripcionPuestoInstitucional]."</div>
+									
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>REVISADO Y APROBADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombreSuperior]." ".$usuarioUsados__seguimientos[0][apellidoSuperior]."</div>
+									<div>".$usuarioUsados__seguimientos[0][cargoSuperior]."</div>
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+						
+	
+					</table>
+	
+					";
+
+				}else{
+
+					$documentoCuerpo.="
+					<table border='1' style='border-collapse: collapse; margin-top:2em!important; margin-top:1em!important; width:100%!importan;'>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>ELABORADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombre]." ".$usuarioUsados__seguimientos[0][apellido]."</div>
+									<div>".$usuarioUsados__seguimientos[0][descripcionPuestoInstitucional]."</div>
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>REVISADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombreSuperior]." ".$usuarioUsados__seguimientos[0][apellidoSuperior]."</div>
+									<div>".$usuarioUsados__seguimientos[0][cargoSuperior]."</div>
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>";
+						
+						$sup = $usuarioUsados__seguimientos[0][PersonaACargo];
+	
+						$usuarioUsados__seguimientos2=$objeto->getObtenerInformacionGeneral("SELECT b.descripcionPuestoInstitucional,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS nombreSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS apellidoSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.descripcionPuestoInstitucional, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 INNER JOIN th_puestoinstitucional AS a2 ON a1.puestoInstitucional=a2.id_PuestoInstitucional WHERE a1.id_usuario=a.PersonaACargo) AS cargoSuperior FROM th_usuario AS a INNER JOIN th_puestoinstitucional AS b ON a.puestoInstitucional=b.id_PuestoInstitucional WHERE a.id_usuario='$sup';");
+						
+						$documentoCuerpo.="
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>APROBADO POR:$idUSeguimientos </div>
+									<br>
+									<div>".$usuarioUsados__seguimientos2[0][nombreSuperior]." ".$usuarioUsados__seguimientos2[0][apellidoSuperior]."</div>
+									<div>".$usuarioUsados__seguimientos2[0][cargoSuperior]."</div>
+								
+								</center>		
+								
+								
+		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+	
+						
+	
+					</table>
+
+					
+	
+					";
+				}
+
 
 		break;
 

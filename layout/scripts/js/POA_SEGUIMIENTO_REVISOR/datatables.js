@@ -403,7 +403,7 @@ var funcion__reasignar__contratacion_publica__unidos__altos2023=function(tbody,t
   
         var paqueteDeDatos = new FormData();
   
-        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
+        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos2');
   
         paqueteDeDatos.append("idOrganismo",data[18]);
   
@@ -413,7 +413,7 @@ var funcion__reasignar__contratacion_publica__unidos__altos2023=function(tbody,t
       $.ajax({
   
           type:"POST",
-          url:"modelosBd/inserta/seleccionaAcciones.md.php",
+          url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
           contentType: false,
           data:paqueteDeDatos,
           processData: false,
@@ -504,13 +504,13 @@ var funcion__reasignar__contratacion_publica__unidos__altos2023=function(tbody,t
   
               $("#idOrganismo").val(data[18]);
             
-              $(".periodo__evaluados__anuales1").text(2022);
+              $(".periodo__evaluados__anuales1").text(data[22]);
   
-              $("#periodo__evaluados__anuales1").val(2022);
+              $("#periodo__evaluados__anuales1").val(data[22]);
 
-              $(".periodo__evaluados__anualesContratacion1").text(2022);
+              $(".periodo__evaluados__anualesContratacion1").text(data[22]);
   
-              $("#periodo__evaluados__anualesContratacion1").val(2022);
+              $("#periodo__evaluados__anualesContratacion1").val(data[22]);
 
               $(".areaAccion").text(data[16]);
               $("#areaAccion").val(data[16]);
@@ -1169,7 +1169,7 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
   
         var paqueteDeDatos = new FormData();
   
-        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
+        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos2');
   
         paqueteDeDatos.append("idOrganismo",data[18]);
   
@@ -1184,7 +1184,7 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
       $.ajax({
   
           type:"POST",
-          url:"modelosBd/inserta/seleccionaAcciones.md.php",
+          url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
           contentType: false,
           data:paqueteDeDatos,
           processData: false,
@@ -4589,5 +4589,2445 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
   }
 
 
+
+/*=====  End of Función de seguimientos  ======*/
+
+
+/*===============================================
+=            Objetos Datatables            =
+===============================================*/
+
+    var objetosSeguimiento2023=function(parametro1,parametro2,parametro3,parametro4,parametro5,parametro6){
+
+        var objeto = [];
+
+        /*=============================================
+        =            Creación de elementos            =
+        =============================================*/
+        
+
+        if (parametro1[0]!="" && parametro1[0]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[0]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[0]=="enlace" && row[parametro5[0]]!=null && row[parametro5[0]]!=undefined && row[parametro5[0]]!="" && row[parametro5[0]]!=" ") {
+
+                        if (row[parametro5[0]].indexOf('.pdf') > -1 ){
+                            return "<center><a href='"+parametro4[0]+row[parametro5[0]]+"' target='_blank'>"+row[parametro3[0]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[0]+row[parametro5[0]]+".pdf' target='_blank'>"+row[parametro3[0]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[0]=="enlaces__enviado__documento"){
+
+                        if (row[parametro3[0]]=="CUMPLE") {
+
+                            if (row[parametro5[0]].indexOf('.pdf') > -1 ){
+                                return "<a href='"+parametro4[0]+row[parametro5[0]]+"' target='_blank'>Enviado</a>";
+                            }else{
+                                return "<a href='"+parametro4[0]+row[parametro5[0]]+".pdf' target='_blank'>Enviado</a>";
+                            }
+                                
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                    }else if(parametro2[0]=="boton"){
+
+                        return parametro3[0];
+
+                    }else if(parametro2[0]=="texto__separadores"){
+
+
+                        if (row[parametro3[0]]!="" && row[parametro3[0]]!=null && row[parametro3[0]]!=undefined) {
+
+                            let arr = row[parametro3[0]].split(';;;;');
+
+                            if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }					
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            // return "Notificado por no presentación de requisitos";
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[0]=="texto__separadores__2"){
+
+                        if (row[parametro3[0]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[0]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[6]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:red;color:white;'><option value='si'>CERRADO</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[0]=="texto__separadores__cierre__anio__fiscal__2"){
+
+                        if (row[7]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:red;color:white;'><option value='si'>CERRADO</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
+
+                        }
+
+                    }else if(parametro2[0]=="texto__separadores__jurisdiccionN"){
+
+                    //  if (row[7]=="si") {
+
+                            return "<nav id='colorNav' style='position: relative; top: -5em!important;'><tr><td><div class='col-md-12'><select class='form-select' id='idSelectJurisdiccion' aria-label='Default select example'><option value='0'>Selecciona una opción</option><option value='9'>Planta Central</option><option value='1'>Zonal1</option><option value='2'>Zonal2</option><option value='3'>Zonal3</option><option value='4'>Zonal4</option><option value='6'>Zonal6</option><option value='7'>Zonal7</option><option value='8'>Zonal8</option></select></div></td><td><a id=''   name='' class='btn btn-primary'><i class='fa fa-floppy-o' aria-hidden='true'></i></a></td></tr></nav>";
+
+                    //     }else{
+
+                    //         return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
+
+                    //     }
+
+                        
+
+                    }else if(parametro2[0]=="radioSelectes__2"){
+
+                        return "<div style='display:flex;'>Si&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[0]]+"' name='radio__select__"+row[parametro3[0]]+"' value='A'/>&nbsp;&nbsp;No&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[0]]+"' id='radioBotomNegacion' name='radio__select__"+row[parametro3[0]]+"' value='N'/></div><div style='display:flex; justify-content-center;'><button class='btn btn-primary guardar__informacion__conjuntos__radios mt-2'><i class='fa fa-floppy-o' aria-hidden='true'></i></button></div>";
+
+                    }else if(parametro2[0]=="enlaces__definidos__2"){
+
+                        if (row[parametro3[0]]=="CUMPLE") {
+
+                            return "<a href='seguimientoRecorrido' target='_blank'>ENVIADO</a>";
+
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                        
+
+                    }else if(parametro2[0]=="formularioAbscritos"){
+
+                        return '<center><form class="col col-12 enviador__seguiiento__refs text-center mt-4" action="modelosBd/pdf/pdf2.modelo.php" method="post"><input type="hidden" id="trimestreEvaluador" name="trimestreEvaluador" value="'+row[parametro3[0]]+'"/><input type="hidden" id="idOrganismo" name="idOrganismo" value="'+row[parametro3[2]]+'"/><input type="hidden" id="tipoPdf" name="tipoPdf" value="documento__declaracion__seguimientos" /><input type="hidden" id="fechaEnviare" name="fechaEnviare" value="'+row[parametro3[1]]+'"/><input type="hidden" id="idMaximo" name="idMaximo" value="'+row[parametro3[3]]+'"/><input type="hidden" id="nombreOrganismo" name="nombreOrganismo" value="'+row[parametro3[7]]+'"/><input type="hidden" id="rucOrganismo" name="rucOrganismo" value="'+row[parametro3[6]]+'"/><input type="hidden" id="emailOrganismo" name="emailOrganismo" value="'+row[parametro3[4]]+'"/><input type="hidden" id="nombreResponsable" name="nombreResponsable" value="'+row[parametro3[5]]+'"/><button style="background:#006064; border-radius:.5em; text-color:white; pading:.2em;">Documento</button></form></center>';
+
+                    }else if(parametro2[0]=="chekeds__2__paids"){
+
+                        return "<center><input type='checkbox' class='checkeds__seleccionables' attr='primerTrimestre' idOrganismos='"+row[parametro3[0]]+"'/></center>";
+
+                    }else{
+                        return row[parametro3[0]];
+                    }
+
+                })
+
+            });		
+
+        }
+
+        if (parametro1[1]!="" && parametro1[1]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[1]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[1]=="enlace" && row[parametro5[1]]!=null && row[parametro5[1]]!=undefined && row[parametro5[1]]!="" && row[parametro5[1]]!=" ") {
+
+                        if (row[parametro5[1]].indexOf('.pdf') > -1 ){
+                            return "<center><a href='"+parametro4[1]+row[parametro5[1]]+"' target='_blank'>"+row[parametro3[1]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[1]+row[parametro5[1]]+".pdf' target='_blank'>"+row[parametro3[1]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[1]=="enlaces__enviado__documento"){
+
+                        if (row[parametro3[1]]=="CUMPLE") {
+
+                            
+                            if (row[parametro5[1]].indexOf('.pdf') > -1 ){
+                                return "<a href='"+parametro4[1]+row[parametro5[1]]+"' target='_blank'>Enviado</a>";
+                            }else{
+                                return "<a href='"+parametro4[1]+row[parametro5[1]]+".pdf' target='_blank'>Enviado</a>";
+                            }
+                            
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                        
+
+                        
+
+                    }else if(parametro2[1]=="boton"){
+
+                        return parametro3[1];
+
+                    }else if(parametro2[1]=="texto__separadores"){
+
+
+                        if (row[parametro3[1]]!="" && row[parametro3[1]]!=null && row[parametro3[1]]!=undefined) {
+
+                            let arr = row[parametro3[1]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }						
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[1]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[1]=="texto__separadores__2"){
+
+                        let arr = row[parametro3[1]].split('------');
+
+                        let primero="";
+                        let segundo="";
+                        let tercero="";
+
+                        if (arr[0]=="N/A"){
+
+                            primero="";
+
+                        }else{
+
+                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            
+                        }
+
+                        if (arr[1]=="N/A"){
+
+                            segundo="";
+
+                        }else{
+
+                            if (row[parametro6]=="FORMATIVO") {
+
+                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else if(row[parametro6]=="RECREACION"){
+
+                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else{
+
+                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }
+                            
+                        }
+
+                        if (arr[2]=="N/A"){
+
+                            tercero="";
+
+                        }else{
+
+                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            
+                        }
+
+
+                        return primero+segundo+tercero;
+
+                    }else if(parametro2[1]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' attr='primerTrimestre' idOrganismos='"+row[parametro3[1]]+"'/>";
+
+                    }else if(parametro2[1]=="enlaces__definidos__2"){
+
+                        if (row[parametro3[1]]=="CUMPLE") {
+
+                            return "<a href='seguimientoRecorrido' target='_blank'>ENVIADO</a>";
+
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                        
+
+                    }else if(parametro2[1]=="texto__separadores__2"){
+
+                        if (row[parametro3[1]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[1]=="texto__separadores__cierre__anio__fiscal"){
+
+
+                        if (row[7]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:red;color:white;'><option value='si'>CERRADO</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
+
+                        }
+
+
+                    }else if(parametro2[1]=="motivo__adicional"){
+
+
+                        if (row[8]=="" || row[8]==" " || row[8]==undefined || row[8]==null) {
+
+                            return " ";
+
+                        }else{
+
+                            return row[8];
+
+                        }
+
+                    }else if(parametro2[1]=="radioSelectes__2"){
+
+                        return "<div style='display:flex;'>Si&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[1]]+"' name='radio__select__"+row[parametro3[1]]+"' value='A'/>&nbsp;&nbsp;No&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[1]]+"' name='radio__select__"+row[parametro3[1]]+"' value='N'/></div><div style='display:flex; justify-content-center;'><button class='btn btn-primary guardar__informacion__conjuntos__radios mt-2'><i class='fa fa-floppy-o' aria-hidden='true'></i></button></div>";
+
+                    }else if(parametro2[1]=="chekeds__2__paids"){
+
+                        return "<center><input type='checkbox' class='checkeds__seleccionables' attr='primerTrimestre' idOrganismos='"+row[parametro3[1]]+"'/></center>";
+
+                    }else{
+                        return row[parametro3[1]];
+                    }
+
+                })
+
+            });
+        
+        }
+
+        if (parametro1[2]!="" && parametro1[2]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[2]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[2]=="enlace") {
+
+                        if (row[parametro5[2]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[2]+row[parametro5[2]]+"' target='_blank'>"+row[parametro3[2]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[2]+row[parametro5[2]]+".pdf' target='_blank'>"+row[parametro3[2]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[2]=="boton"){
+
+                        return parametro3[2];
+
+                    }else if(parametro2[2]=="enlaces__enviado__documento"){
+
+                        if (row[parametro3[2]]=="CUMPLE") {
+
+                            if (row[parametro5[2]].indexOf('.pdf') > -1 ){
+                                return "<a href='"+parametro4[2]+row[parametro5[2]]+"' target='_blank'>Enviado</a>";
+                            }else{
+                                return "<a href='"+parametro4[2]+row[parametro5[2]]+".pdf' target='_blank'>Enviado</a>";
+                            }
+
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                    }else if(parametro2[2]=="texto__separadores"){
+
+
+                        if (row[parametro3[2]]!="" && row[parametro3[2]]!=null && row[parametro3[2]]!=undefined) {
+
+                            let arr = row[parametro3[2]].split(';;;;');
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }			
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[2]=="enlaces__definidos__2"){
+
+                        if (row[parametro3[2]]=="CUMPLE") {
+
+                            return "<a href='seguimientoRecorrido' target='_blank'>ENVIADO</a>";
+
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                        
+
+                    }else if(parametro2[2]=="texto__separadores__2"){
+
+                        if (row[parametro3[2]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado2'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado2'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[2]=="texto__separadores__cierre__anio__fiscal"){
+
+
+                        if (row[7]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:red;color:white;'><option value='si'>CERRADO</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
+
+                        }
+                        
+
+                    }else if(parametro2[2]=="radioSelectes__2"){
+
+                        return "<div style='display:flex;'>Si&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[2]]+"' name='radio__select__"+row[parametro3[2]]+"' value='A'/>&nbsp;&nbsp;No&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[2]]+"' name='radio__select__"+row[parametro3[2]]+"' value='N'/></div><div style='display:flex; justify-content-center;'><button class='btn btn-primary guardar__informacion__conjuntos__radios mt-2'><i class='fa fa-floppy-o' aria-hidden='true'></i></button></div>";
+
+                    }else if(parametro2[2]=="texto__separadores__2"){
+
+                        if (row[parametro3[2]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado2'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado2'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[2]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[2]]+"'/>";
+
+                    }else if(parametro2[2]=="motivo__adicional"){
+
+
+                        if (row[8]=="" || row[8]==" " || row[8]==undefined || row[8]==null) {
+
+                            return " ";
+
+                        }else{
+
+                            return row[8];
+
+                        }
+
+                    }else if(parametro2[2]=="motivo__adicional__2"){
+
+
+                        if (row[9]=="" || row[9]==" " || row[9]==undefined || row[9]==null) {
+
+                            return " ";
+
+                        }else{
+
+                            return row[9];
+
+                        }
+
+                    }else{
+                        return row[parametro3[2]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[3]!="" && parametro1[3]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[3]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[3]=="enlace") {
+
+                        if (row[parametro5[3]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[3]+row[parametro5[3]]+"' target='_blank'>"+row[parametro3[3]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[3]+row[parametro5[3]]+".pdf' target='_blank'>"+row[parametro3[3]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[3]=="enlaces__enviado__documento"){
+
+                        if (row[parametro3[3]]=="CUMPLE") {
+
+                            if (row[parametro5[3]].indexOf('.pdf') > -1 ){
+                                return "<a href='"+parametro4[3]+row[parametro5[3]]+"' target='_blank'>Enviado</a>";
+                            }else{
+                                return "<a href='"+parametro4[3]+row[parametro5[3]]+".pdf' target='_blank'>Enviado</a>";
+                            }
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                    
+                    }else if(parametro2[3]=="boton"){
+
+                        return parametro3[3];
+
+                    }else if(parametro2[3]=="texto__separadores"){
+
+
+                        if (row[parametro3[3]]!="" && row[parametro3[3]]!=null && row[parametro3[3]]!=undefined) {
+
+                            let arr = row[parametro3[3]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }						
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[3]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[3]=="texto__separadores__2"){
+
+                        let arr = row[parametro3[3]].split('------');
+
+                        let primero="";
+                        let segundo="";
+                        let tercero="";
+
+                        if (arr[0]=="N/A"){
+
+                            primero="";
+
+                        }else{
+
+                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            
+                        }
+
+                        if (arr[1]=="N/A"){
+
+                            segundo="";
+
+                        }else{
+
+                            if (row[parametro6]=="FORMATIVO") {
+
+                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else if(row[parametro6]=="RECREACION"){
+
+                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else{
+
+                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }
+                            
+                        }
+
+                        if (arr[2]=="N/A"){
+
+                            tercero="";
+
+                        }else{
+
+                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            
+                        }
+
+
+                        return primero+segundo+tercero;
+
+                    }else if(parametro2[3]=="enlaces__definidos__2"){
+
+                        if (row[parametro3[3]]=="CUMPLE") {
+
+                            return "<a href='seguimientoRecorrido' target='_blank'>ENVIADO</a>";
+
+                        }else{
+                            return "NO ENVIADO";
+                        }
+
+                        
+
+                    }else if(parametro2[3]=="texto__separadores__2"){
+
+                        if (row[parametro3[3]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[3]=="texto__separadores__cierre__anio__fiscal"){
+
+
+                        if (row[10]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:red;color:white;'><option value='si'>CERRADO</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
+
+                        }
+                        
+
+                    }else if(parametro2[3]=="radioSelectes__2"){
+
+                        return "<div style='display:flex;'>Si&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[3]]+"' name='radio__select__"+row[parametro3[3]]+"' value='A'/>&nbsp;&nbsp;No&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[3]]+"' name='radio__select__"+row[parametro3[3]]+"' value='N'/></div><div style='display:flex; justify-content-center;'><button class='btn btn-primary guardar__informacion__conjuntos__radios mt-2'><i class='fa fa-floppy-o' aria-hidden='true'></i></button></div>";
+
+                    }else if(parametro2[3]=="texto__separadores__2"){
+
+                        if (row[parametro3[3]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[3]=="radioSelectes__2"){
+
+                        return "<div style='display:flex;'>Si&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[3]]+"' name='radio__select__"+row[parametro3[3]]+"' value='A'/>&nbsp;&nbsp;No&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[3]]+"' name='radio__select__"+row[parametro3[3]]+"' value='N'/></div><div style='display:flex; justify-content-center;'><button class='btn btn-primary guardar__informacion__conjuntos__radios mt-2'><i class='fa fa-floppy-o' aria-hidden='true'></i></button></div>";
+
+                    }else if(parametro2[3]=="texto__separadores__2"){
+
+                        if (row[parametro3[3]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[3]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[3]]+"' attr='segundoTrimestre'/>";
+
+                    }else{
+                        return row[parametro3[3]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        
+        if (parametro1[4]!="" && parametro1[4]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[4]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[4]=="enlace") {
+
+                        if (row[parametro5[4]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[4]+row[parametro5[4]]+"' target='_blank'>"+row[parametro3[4]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[4]+row[parametro5[4]]+".pdf' target='_blank'>"+row[parametro3[4]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[4]=="boton"){
+
+                        return parametro3[4];
+
+                    }else if(parametro2[4]=="texto__separadores"){
+
+
+                        if (row[parametro3[4]]!="" && row[parametro3[4]]!=null && row[parametro3[4]]!=undefined) {
+
+                            let arr = row[parametro3[4]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }			
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[4]=="texto__separadores__2informesSeguimientos"){
+
+                        // if (row[parametro3[4]]=="si") {
+
+                        // 	return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado3'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        // }else{
+
+                        // 	return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado3'><option value='no'>Noxxxx</option><option value='si'>Si</option></select>";
+
+                        // }
+                        let arr = row[parametro3[4]].split('------');
+
+                        let primero="";
+                        let segundo="";
+                        let tercero="";
+
+                        if (arr[0]=="N/A"){
+
+                            primero="";
+
+                        }else{
+
+                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            
+                        }
+
+                        if (arr[1]=="N/A"){
+
+                            segundo="";
+
+                        }else{
+
+                            if (row[parametro6]=="FORMATIVO") {
+
+                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else if(row[parametro6]=="RECREACION"){
+
+                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else{
+
+                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }
+                            
+                        }
+
+                        if (arr[2]=="N/A"){
+
+                            tercero="";
+
+                        }else{
+
+                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            
+                        }
+
+
+                        return primero+segundo+tercero;
+
+                        
+
+                    }else if(parametro2[4]=="texto__separadores__2"){
+
+                        if (row[parametro3[4]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado3'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado3'><option value='no'>Noxxxx</option><option value='si'>Si</option></select>";
+
+                        }
+                        
+                        
+
+                    }else if(parametro2[4]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[parametro3[4]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si' style='background:red;color:white;'>CERRADO</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no' style='background:green;color:white;'>No</option><option value='si'>APERTURADO</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[4]=="radioSelectes__2"){
+
+                        return "<div style='display:flex;'>Si&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[4]]+"' name='radio__select__"+row[parametro3[4]]+"' value='A'/>&nbsp;&nbsp;No&nbsp;&nbsp;<input type='radio'  class='radio__conjuntos radios_"+row[parametro3[4]]+"' name='radio__select__"+row[parametro3[4]]+"' value='N'/></div><div style='display:flex; justify-content-center;'><button class='btn btn-primary guardar__informacion__conjuntos__radios mt-2'><i class='fa fa-floppy-o' aria-hidden='true'></i></button></div>";
+
+                    }else if(parametro2[4]=="texto__separadores__2"){
+
+                        if (row[parametro3[4]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado3'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado3'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[4]=="motivo__adicional"){
+
+                        if (row[8]=="" || row[8]==" " || row[8]==undefined || row[8]==null) {
+
+                            return " ";
+
+                        }else{
+
+                            return row[8];
+
+                        }
+
+                        
+
+                    }else if(parametro2[4]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[4]]+"'/>";
+
+                    }else if(parametro2[4]=="chekeds__2__1"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables__transferencias' idOrganismos='"+row[5]+"'/>";
+
+                    }else{
+                        return row[parametro3[4]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[5]!="" && parametro1[5]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[5]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[5]=="enlace") {
+
+                        if (row[parametro5[5]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[5]+row[parametro5[5]]+"' target='_blank'>"+row[parametro3[5]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[5]+row[parametro5[5]]+".pdf' target='_blank'>"+row[parametro3[5]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[5]=="boton"){
+
+                        return parametro3[5];
+
+                    }else if(parametro2[5]=="texto__separadores"){
+
+
+                        if (row[parametro3[5]]!="" && row[parametro3[5]]!=null && row[parametro3[5]]!=undefined) {
+
+                            let arr = row[parametro3[5]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }							
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[5]=="texto__separadores__2"){
+
+                        let arr = row[parametro3[5]].split('------');
+
+                        let primero="";
+                        let segundo="";
+                        let tercero="";
+
+                        if (arr[0]=="N/A"){
+
+                            primero="";
+
+                        }else{
+
+                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            
+                        }
+
+                        if (arr[1]=="N/A"){
+
+                            segundo="";
+
+                        }else{
+
+                            if (row[parametro6]=="FORMATIVO") {
+
+                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else if(row[parametro6]=="RECREACION"){
+
+                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else{
+
+                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }
+                            
+                        }
+
+                        if (arr[2]=="N/A"){
+
+                            tercero="";
+
+                        }else{
+
+                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            
+                        }
+
+
+                        return primero+segundo+tercero;
+
+                    }else if(parametro2[5]=="texto__separadores__2"){
+
+                        if (row[parametro3[5]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[5]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[12]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si' style='background:red;color:white;'>CERRADO</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no' style='background:green;color:white;'>No</option><option value='si'>APERTURADO</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[5]=="motivo__adicional"){
+
+                        if (row[12]=="" || row[12]==" " || row[12]==undefined || row[12]==null) {
+
+                            return " ";
+
+                        }else{
+
+                            return row[12];
+
+                        }
+
+                    }else if(parametro2[5]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[5]]+"' attr='tercerTrimestre'/>";
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+
+
+        if (parametro1[6]!="" && parametro1[6]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[6]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[6]=="enlace") {
+
+                        if (row[parametro6[6]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[6]+row[parametro6[6]]+"' target='_blank'>"+row[parametro3[6]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[6]+row[parametro6[6]]+".pdf' target='_blank'>"+row[parametro3[6]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[6]=="boton"){
+
+                        return parametro3[6];
+
+                    }else if(parametro2[6]=="texto__separadores"){
+
+
+                        if (row[parametro3[6]]!="" && row[parametro3[6]]!=null && row[parametro3[6]]!=undefined) {
+
+                            let arr = row[parametro3[6]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[6]!=undefined && arr[6]!="undefined") {
+
+                                    var sexto="<div>"+arr[6]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }							
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[6]=="texto__separadores__2"){
+
+                        let arr = row[parametro3[6]].split('------');
+
+                        let primero="";
+                        let segundo="";
+                        let tercero="";
+
+                        if (arr[0]=="N/A"){
+
+                            primero="";
+
+                        }else{
+
+                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            
+                        }
+
+                        if (arr[1]=="N/A"){
+
+                            segundo="";
+
+                        }else{
+
+                            if (row[parametro6]=="FORMATIVO") {
+
+                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else if(row[parametro6]=="RECREACION"){
+
+                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else{
+
+                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }
+                            
+                        }
+
+                        if (arr[2]=="N/A"){
+
+                            tercero="";
+
+                        }else{
+
+                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            
+                        }
+
+
+                        return primero+segundo+tercero;
+
+                    }else if(parametro2[6]=="texto__separadores__2"){
+
+                        if (row[parametro3[6]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado4'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado4'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[6]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[11]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:red;color:white;'><option value='si'>CERRADO</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
+
+                        }
+                        
+
+                    }else if(parametro2[6]=="texto__separadores__4"){
+
+                        if (row[parametro3[6]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado4'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado4'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[6]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[6]]+"'/>";
+
+                    }else{
+                        return row[parametro3[6]];
+                    }
+
+                })
+
+            });
+
+        }
+
+
+
+
+        if (parametro1[7]!="" && parametro1[7]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[7]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[7]=="enlace") {
+
+                        if (row[parametro7[7]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[7]+row[parametro7[7]]+"' target='_blank'>"+row[parametro3[7]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[7]+row[parametro7[7]]+".pdf' target='_blank'>"+row[parametro3[7]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[7]=="boton"){
+
+                        return parametro3[7];
+
+                    }else if(parametro2[7]=="texto__separadores"){
+
+
+                        if (row[parametro3[7]]!="" && row[parametro3[7]]!=null && row[parametro3[7]]!=undefined) {
+
+                            let arr = row[parametro3[7]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[7]!=undefined && arr[7]!="undefined") {
+
+                                    var sexto="<div>"+arr[7]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }							
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[7]=="texto__separadores__2"){
+
+                        let arr = row[parametro3[7]].split('------');
+
+                        let primero="";
+                        let segundo="";
+                        let tercero="";
+
+                        if (arr[0]=="N/A"){
+
+                            primero="";
+
+                        }else{
+
+                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            
+                        }
+
+                        if (arr[1]=="N/A"){
+
+                            segundo="";
+
+                        }else{
+
+                            if (row[parametro6]=="FORMATIVO") {
+
+                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else if(row[parametro6]=="RECREACION"){
+
+                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }else{
+
+                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+
+                            }
+                            
+                        }
+
+                        if (arr[2]=="N/A"){
+
+                            tercero="";
+
+                        }else{
+
+                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            
+                        }
+
+
+                        return primero+segundo+tercero;
+
+                    }else if(parametro2[7]=="texto__separadores__2"){
+
+                        if (row[parametro3[7]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[5]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[parametro3[5]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si' style='background:red;color:white;'>CERRADO</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no' style='background:green;color:white;'>No</option><option value='si'>APERTURADO</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[7]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[7]]+"' attr='cuartoTrimestre'/>";
+
+                    }else if(parametro2[7]=="chekeds__2__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables__modificaciones' idOrganismos='"+row[5]+"'/>";
+
+                    }else{
+                        return row[parametro3[7]];
+                    }
+
+                })
+
+            });
+
+        }
+
+
+        if (parametro1[8]!="" && parametro1[8]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[8]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[8]=="enlace") {
+
+                        if (row[parametro8[8]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[8]+row[parametro8[8]]+"' target='_blank'>"+row[parametro3[8]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[8]+row[parametro8[8]]+".pdf' target='_blank'>"+row[parametro3[8]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[8]=="boton"){
+
+                        return parametro3[8];
+
+                    }else if(parametro2[8]=="texto__separadores"){
+
+
+                        if (row[parametro3[8]]!="" && row[parametro3[8]]!=null && row[parametro3[8]]!=undefined) {
+
+                            let arr = row[parametro3[8]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[8]!=undefined && arr[8]!="undefined") {
+
+                                    var sexto="<div>"+arr[8]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }							
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[8]=="texto__separadores__2"){
+
+                        if (row[parametro3[8]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si'>Si</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no'>No</option><option value='si'>Si</option></select>";
+
+                        }
+
+                        
+                    }else if(parametro2[5]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[parametro3[5]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si' style='background:red;color:white;'>CERRADO</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no' style='background:green;color:white;'>No</option><option value='si'>APERTURADO</option></select>";
+
+                        }
+
+                        
+
+                    }else if(parametro2[8]=="motivo__adicional"){
+
+                        if (row[13]=="" || row[13]==" " || row[13]==undefined || row[13]==null) {
+
+                            return " ";
+
+                        }else{
+
+                            return row[13];
+
+                        }
+
+                    }else if(parametro2[8]=="chekeds__2"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[8]]+"' attr='cuartoTrimestre'/>";
+
+                    }else{
+                        return row[parametro3[8]];
+                    }
+
+                })
+
+            });
+
+        }
+
+
+
+        if (parametro1[9]!="" && parametro1[9]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[9]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[5]=="enlace") {
+
+                        if (row[parametro5[5]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[5]+row[parametro5[5]]+"' target='_blank'>"+row[parametro3[5]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[5]+row[parametro5[5]]+".pdf' target='_blank'>"+row[parametro3[5]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[5]=="boton"){
+
+                        return parametro3[5];
+
+                    }else if(parametro2[5]=="texto__separadores"){
+
+
+                        if (row[parametro3[5]]!="" && row[parametro3[5]]!=null && row[parametro3[5]]!=undefined) {
+
+                            let arr = row[parametro3[5]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }							
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[5]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[parametro3[5]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si' style='background:red;color:white;'>CERRADO</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no' style='background:green;color:white;'>No</option><option value='si'>APERTURADO</option></select>";
+
+                        }
+
+                        
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+
+
+        if (parametro1[10]!="" && parametro1[10]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[10]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[5]=="enlace") {
+
+                        if (row[parametro5[5]].indexOf('.pdf') > -1){
+                            return "<center><a href='"+parametro4[5]+row[parametro5[5]]+"' target='_blank'>"+row[parametro3[5]]+"</a></center>";
+                        }else{
+                            return "<center><a href='"+parametro4[5]+row[parametro5[5]]+".pdf' target='_blank'>"+row[parametro3[5]]+"</a></center>";
+                        }
+
+                    }else if(parametro2[5]=="boton"){
+
+                        return parametro3[5];
+
+                    }else if(parametro2[5]=="texto__separadores"){
+
+
+                        if (row[parametro3[5]]!="" && row[parametro3[5]]!=null && row[parametro3[5]]!=undefined) {
+
+                            let arr = row[parametro3[5]].split(';;;;');
+
+                        if (arr.length>0) {
+
+                                if (arr[0]!=undefined && arr[0]!="undefined") {
+
+                                    var primero="<div>"+arr[0]+"</div>";
+
+                                }else{
+                                    primero="<div></div>";
+                                }
+
+
+
+                                if (arr[1]!=undefined && arr[1]!="undefined") {
+
+                                    var segundo="<div>"+arr[1]+"</div>";
+
+                                }else{
+                                    segundo="<div></div>";
+                                }
+
+
+
+                                if (arr[2]!=undefined && arr[2]!="undefined") {
+
+                                    var tercero="<div>"+arr[2]+"</div>";
+
+                                }else{
+                                    tercero="<div></div>";
+                                }
+
+
+
+                                if (arr[3]!=undefined && arr[3]!="undefined") {
+
+                                    var cuarto="<div>"+arr[3]+"</div>";
+
+                                }else{
+                                    cuarto="<div></div>";
+                                }
+
+
+
+                                if (arr[4]!=undefined && arr[4]!="undefined") {
+
+                                    var quinto="<div>"+arr[4]+"</div>";
+
+                                }else{
+                                    quinto="<div></div>";
+                                }
+
+
+
+                                if (arr[5]!=undefined && arr[5]!="undefined") {
+
+                                    var sexto="<div>"+arr[5]+"</div>";
+
+                                }else{
+                                    sexto="<div></div>";
+                                }
+
+
+
+                                return primero+"<br>"+segundo+"<br>"+tercero+"<br>"+cuarto+"<br>"+quinto+"<br>"+sexto;
+
+                            }else{
+
+                                return "No asignado";
+
+                            }							
+
+                        }else{
+
+                            return "No asignado";
+
+
+                        }
+
+                    }else if(parametro2[0]=="boton__2"){
+
+                        if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else if (row[parametro3[0]]!="" && row[parametro3[0]]!=null) {
+
+                            return "<center><button class='reasignarTramites estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarTra'><i class='fas fa-user-edit'></i></button><center><br>";
+
+                        }else{
+
+                            return "Aún no presenta los documentos";
+
+                        }
+
+
+                    }else if(parametro2[5]=="texto__separadores__cierre__anio__fiscal"){
+
+                        if (row[parametro3[5]]=="si") {
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='si' style='background:red;color:white;'>CERRADO</option><option value='no'>No</option></select>";
+
+                        }else{
+
+                            return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado'><option value='no' style='background:green;color:white;'>No</option><option value='si'>APERTURADO</option></select>";
+
+                        }
+
+                        
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }		
+
+
+        /*=====  End of Creación de elementos  ======*/
+
+        return objeto;
+
+    }
 
 /*=====  End of Función de seguimientos  ======*/

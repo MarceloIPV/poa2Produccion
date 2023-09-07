@@ -1,9 +1,10 @@
-var Selector_otros_Honorarios_Poa_Seguimiento = function (tipo,documento,idActividad) {
+var Selector_otros_Honorarios_Poa_Seguimiento = function (tipo,documento,idActividad,trimestre) {
 	let paqueteDeDatos = new FormData();
 
 	paqueteDeDatos.append("tipo", tipo);
 	paqueteDeDatos.append("documento", documento);
 	paqueteDeDatos.append("idActividad", idActividad);
+	paqueteDeDatos.append("trimestre", trimestre);
 
 		$.ajax({
 
@@ -43,7 +44,7 @@ var Selector_otros_Honorarios_Poa_Seguimiento = function (tipo,documento,idActiv
 	=            Indicadores           =
 	===================================*/
 	
-	var indicadores__seguimientos2023=function(parametro1,parametro2,parametro3,tipo){
+	var indicadores__seguimientos2023=function(parametro1,parametro2,parametro3,tipo,trimestre){
 
 		$(parametro3).click(function(e) {
 
@@ -54,7 +55,8 @@ var Selector_otros_Honorarios_Poa_Seguimiento = function (tipo,documento,idActiv
 
 			paqueteDeDatos.append('tipo',tipo);
 			paqueteDeDatos.append('idOrganismos',parametro2);
-
+			paqueteDeDatos.append('trimestre', trimestre);
+			
 			$.ajax({
 
 				type:"POST",

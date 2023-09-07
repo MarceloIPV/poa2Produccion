@@ -7429,6 +7429,4089 @@
 
 		}
 
+		public function get__modal__plantilla__inicios__seguimientos__Contratacion_Publica($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos__Financiero'/>
+
+						<input type='hidden' id='idOrganismo' name='idOrganismo' />
+						<input type='hidden' id='periodo' name='periodo' />
+						<input type='hidden' id='idUSeguimientos' name='idUSeguimientos' />
+
+						<input type='hidden' id='indicadorArray' name='indicadorArray' />
+						<input type='hidden' id='metaProgramadaArray' name='metaProgramadaArray' />
+						<input type='hidden' id='metaResultadoArray' name='metaResultadoArray' />
+						<input type='hidden' id='porcentajeCumplimientoArray' name='porcentajeCumplimientoArray' />
+						<input type='hidden' id='areaAccion' name='areaAccion' />
+						<input type='hidden' id='objetivoS' name='objetivoS' />
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+							<div class='col col-12 text-center' style='background:#1b5e20; color:white;padding-top:1.5em;padding-bottom:1.5em;'>
+								<div class='checkActividades'>
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - RSET - <span class='siglas__dinamicas'  style='font-weight:bold;'></span> - <span class='numerico__dinamicas'></span>
+								
+								</div>
+								<div class='checkContratacion'>
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - RSEPC - <span class='siglas__dinamicas'  style='font-weight:bold;'></span> - <span class='numerico__dinamicas'></span>
+								
+								</div>
+								
+								<input type='hidden' id='siglas__dinamicas__inputs' name='siglas__dinamicas__inputs'/>
+								<input type='hidden' id='numerico__dinamicas__inputs' name='numerico__dinamicas__inputs'/>
+								<input type='hidden' id='tipoInforme' name='tipoInforme'/>
+
+							</div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<div class='fila__reasignar col col-2' style='font-weight:bold;'>
+
+								Reasignar a
+
+							</div>
+
+							<div class='fila__reasignar col col-4'>
+
+								<select class='ancho__total__input__selects selects__superiores1 superior__sin' id='selects__superiores1'></select>
+								<select class='ancho__total__input__selects selects__superiores superior__con' id='selects__superiores__subsess'></select>
+
+							</div>
+
+
+							<div class='fila__reasignar col col-2 '>
+
+								<a class='btn btn-primary' id='reasignarSeguimientos__a__contratacionPublica'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
+
+							</div>
+
+
+							<div class='fila__regresar__a col col-2' style='font-weight:bold;'>
+
+								Regresar a
+
+							</div>
+
+							<div class='fila__regresar__a col col-4'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+								<select class='ancho__total__input__selects regresar__superior__con selects__superiores__regresar' id='selects__superiores__regresar__coors'>
+								</select>
+
+							</div>
+
+							<div class='fila__regresar__a col col-2'>
+
+								<a class='btn btn-warning' id='regresarSeguimientos__a__contratacionPublica'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Regresar</a>
+
+							</div>
+
+
+							<div class='col col-3'>
+
+								Reporte Técnico Actividad 001 
+								<br>
+								<br>
+								Reporte de Procedimientos de Contratación
+
+							</div>
+
+							<div class='col col-1'>
+
+								<input type='checkbox' id='seguimiento__tables' class='checkeds' />
+								<br>
+								<br>
+								<input type='checkbox' id='seguimiento__tables_Contratacion_Publica' class='checkeds' />
+
+							</div>
+
+
+							<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+							<div class='row oculto__informacion'>
+
+								<input type='hidden' id='organismoOculto__modal' />
+
+									<div class='col col-2 textos__titulos'>
+
+										I EJERCICIO FISCAL
+
+									</div>
+
+									<div class='col col-1' style='font-weight:bold;'>
+
+										AÑO 
+
+									</div>
+
+									<div class='col col-4 text-left periodo__evaluados__anuales1'></div>
+									<input type='hidden' id='periodo__evaluados__anuales1' name='periodo__evaluados__anuales1' />
+
+									
+									<input type='hidden' id='trimestre__evaluados__al' name='trimestre__evaluados__al' />
+
+
+									<div class='col col-12 row d-flex mt-4'>
+
+										<div class='col col-7 row'>
+
+											<div class='col col-12 text-left textos__titulos'>
+
+												II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+											</div>
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												NOMBRE DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='nombre__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='nombre__organizacion__deportivas' name='nombre__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												RUC DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='ruc__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='ruc__organizacion__deportivas' name='ruc__organizacion__deportivas' />
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PRESIDENTE O REPRESENTANTE LEGAL:
+
+											</div>
+
+											<div class='presidente__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='presidente__organizacion__deportivas' name='presidente__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='correo__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='correo__organizacion__deportivas' name='correo__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												DIRECCIÓN COMPLETA:
+
+											</div>
+
+											<div class='direccion__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='direccion__organizacion__deportivas' name='direccion__organizacion__deportivas' />
+
+
+										</div>
+
+										<div class='col col-5 row'>
+
+											<div class='col col-12 text-left textos__titulos'>
+
+												III. UBICACIÓN GEOGRÁFICA
+
+											</div>
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PROVINCIA:
+
+											</div>
+
+											<div class='provincia__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='provincia__organizacion__deportivas' name='provincia__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												CANTÓN:
+
+											</div>
+
+											<div class='canton__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='canton__organizacion__deportivas' name='canton__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PARROQUIA:
+
+											</div>
+
+											<div class='parroquia__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='parroquia__organizacion__deportivas' name='parroquia__organizacion__deportivas' />
+
+
+											<input type='hidden' id='barrio__organizacion__deportivas' name='barrio__organizacion__deportivas' />
+
+										</div>
+
+									</div>
+
+									<div class='textos__titulos' style='display:none!important;'>
+
+										IV. DATOS GENERALES DEL CONVENIO
+
+									</div>
+
+									<div style='font-weight:bold; display:none!important;'>
+
+										NÚMERO DE CONVENIO:
+
+									</div>
+
+									<div style='display:none!important;'>
+
+										<input type='text' id='numeroConvenio__paid' name='numeroConvenio__paid' class='ancho__total__input solo__numero__montos'/>
+
+									</div>
+
+									<div style='font-weight:bold;display:none!important;'>
+
+										ADMINISTRADOR DEL CONVENIO:
+
+									</div>
+
+									<div style='display:none!important;'>
+
+										<input type='text' id='administradorConvenio__paid' name='administradorConvenio__paid' class='ancho__total__input'/>
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;display:none!important;'>
+
+										DOCUMENTO DE DESIGNACIÓN:
+
+									</div>
+
+									<div style='display:none!important;'>
+
+										<input type='text' id='documentoAsignacionConvenio__paid' name='documentoAsignacionConvenio__paid' class='ancho__total__input'/>
+
+									</div>
+
+									<div class='col col-12 textos__titulos'>
+
+										IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										ÁREA DE ACCIÓN:
+
+									</div>
+
+
+									<div class='col col-8 areaAccion' style='font-weight:bold;'></div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										OBJETIVO ESTRATÉGICO INSTITUCIONAL:
+
+									</div>
+
+
+									<div class='col col-8 objetivoS' style='font-weight:bold;'></div>
+
+									<div class='col col-12 textos__titulos'>
+
+										 V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+									</div>
+
+									<div class='col col-12' style='font-weight:bold;'>
+
+										V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										PERÍODO EVALUADO:
+
+									</div>
+
+
+									<div class='col col-8 periodo__evaluado' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='periodo__evaluado' name='periodo__evaluado' />
+
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+
+									</div>
+
+
+									<div class='col col-8 presupuesto__asignado__pais__altos' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='presupuesto__asignado__pais__altos' name='presupuesto__asignado__pais__altos' />
+
+
+									<div class='col col-12 textos__titulos'>
+
+										V.II. RESUMEN DE CUMPLIMIENTO TÉCNICO DEL POA
+
+									</div>
+
+									<div class='col col-12 text-center' style='font-weight:bold!important;'>
+
+										AVANCE DE METAS
+
+									</div>
+
+									<table class='mt-4 col col-12'>
+
+										<thead>
+
+											<tr>
+
+												<th>
+													<center>ACTIVIDADES</center>
+												</th>
+
+												<th>
+													<center>INDICADOR</center>
+												</th>
+
+												<th>
+													<center>META PLANIFICADA AL SEMESTRE (A)</center>
+												</th>
+
+												<th>
+													<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+												</th>
+
+												<th>
+													<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='cuerpo__items__alto__rendimientos'></tbody>
+
+										<tfoot class='footer__altos__indicadores'></tfoot>
+
+									</table>
+
+									<div class='oculto_directivos'>
+									
+									<div class='col col-12 textos__titulos'>
+
+										V.III. VERIFICACIÓN DE INFORMACIÓN: ACTIVIDAD 001
+
+									</div>
+
+									<div class='col col-12 mt-2' style='font-weight:bold;'>
+
+										Pago Servicios Básicos:
+
+									</div>
+
+
+									<table class='col col-12 mt-2'>
+
+										<thead>
+
+											<tr>
+
+												<th>
+
+													<center>DESCRIPCIÓN JUSTIFICACIÓN / TAREA</center>
+
+												</th>
+
+
+												<th>
+
+													<center>ÍTEMS</center>
+
+												</th>
+
+												<th>
+
+													<center>ESTADO</center>
+
+												</th>
+
+												<th>
+
+													<center>Nro. FACTURA / CUR</center>
+
+												</th>
+
+												<th>
+
+													<center>MONTO OBSERVADO</center>
+
+												</th>
+
+												<th>
+
+													<center>DETALLE DE OBSERVACIONES</center>
+
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody>
+
+											<tr>
+
+												<td>
+												Pago de agua potable
+												</td>
+
+
+												<td>
+												530101
+												</td>
+
+												<td>
+													<select id='reporteaguapotable' name='reporteaguapotable' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Cumple'>Cumple</option>
+														<option value='No Cumple'>No Cumple</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+														
+													</select>
+												</td>
+		
+												<td>
+												<input type='text' id='aguapotableFactura' name='aguapotableFactura' class='ancho__total__input' value=' '/>
+												</td>
+
+												<td>
+												<input type='text' id='aguapotableValor' name='aguapotableValor' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+												</td>
+
+												<td>
+												<input type='text' id='aguapotableObservacion' name='aguapotableObservacion' class='ancho__total__input' value=' '/>
+												</td>
+
+												
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Agua de riego
+												</td>
+
+
+												<td>
+												530102
+												</td>
+
+												<td>
+													<select id='reporteAguaRiego' name='reporteAguaRiego' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Cumple'>Cumple</option>
+														<option value='No Cumple'>No Cumple</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+		
+												<td>
+												<input type='text' id='aguaRiegoFactura' name='aguaRiegoFactura' class='ancho__total__input' value=' '/>
+												</td>
+
+												<td>
+												<input type='text' id='aguaRiegoValor' name='aguaRiegoValor' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+												</td>
+
+												<td>
+												<input type='text' id='aguaRiegoObservacion' name='aguaRiegoObservacion' class='ancho__total__input' value=' '/>
+												</td>
+
+												
+
+											</tr>
+
+
+
+											<tr>
+
+												<td>
+												Pago de energía eléctrica 
+												</td>
+
+
+												<td>
+												530104
+												</td>
+
+												<td>
+													<select id='reporteEnergiaElec' name='reporteEnergiaElec' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Cumple'>Cumple</option>
+														<option value='No Cumple'>No Cumple</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+		
+												<td>
+												<input type='text' id='energiaElecFactura' name='energiaElecFactura' class='ancho__total__input' value=' '/>
+												</td>
+
+												<td>
+												<input type='text' id='energiaElecValor' name='energiaElecValor' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+												</td>
+
+												<td>
+												<input type='text' id='energiaElecObservacion' name='energiaElecObservacion' class='ancho__total__input' value=' '/>
+												</td>
+
+												
+
+											</tr>
+
+											
+
+											<tr>
+
+												<td>
+												Telefonía fija 
+												</td>
+
+
+												<td>
+												530105
+												</td>
+
+												<td>
+													<select id='reporteTelefonia' name='reporteTelefonia' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Cumple'>Cumple</option>
+														<option value='No Cumple'>No Cumple</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+		
+												<td>
+												<input type='text' id='telefoniaFactura' name='telefoniaFactura' class='ancho__total__input' value=' '/>
+												</td>
+
+												<td>
+												<input type='text' id='telefoniaValor' name='telefoniaValor' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+												</td>
+
+												<td>
+												<input type='text' id='telefoniaObservacion' name='telefoniaObservacion' class='ancho__total__input' value=' '/>
+												</td>
+
+												
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+									<div class='col col-12 mt-2' style='font-weight:bold;'>
+
+										Otros Pagos:
+
+									</div>
+
+
+									<table class='col col-12 cell-border'>
+
+											<thead>
+
+												<tr>
+
+													<th>
+
+														<center>DESCRIPCIÓN JUSTIFICACIÓN / TAREA</center>
+
+													</th>
+
+
+													<th>
+
+														<center>ÍTEMS</center>
+
+													</th>
+
+													<th>
+
+														<center>ESTADO</center>
+
+													</th>
+
+													<th>
+
+														<center>Nro. FACTURA / CUR</center>
+
+													</th>
+
+													<th>
+
+														<center>MONTO OBSERVADO</center>
+
+													</th>
+
+													<th>
+
+														<center>DETALLE DE OBSERVACIONES</center>
+
+													</th>
+
+												</tr>
+
+											</thead>
+
+											<tbody id='pagosSinContratacionPublica'>
+
+											</tbody>
+
+									</table>
+
+									<div class='col col-12 mt-2' style='font-weight:bold;'>
+
+										ADQUISICIÓN DE BIENES Y/O CONTRATACIÓN DE SERVICIO:
+
+									</div>
+
+
+									<table class='col col-12 cell-border'>
+
+											<thead>
+
+												<tr>
+
+													<th>
+
+														<center>DESCRIPCIÓN JUSTIFICACIÓN / TAREA</center>
+
+													</th>
+
+
+													<th>
+
+														<center>ÍTEMS</center>
+
+													</th>
+
+													<th>
+
+														<center>ESTADO</center>
+
+													</th>
+
+													<th>
+
+														<center>Nro. FACTURA / CUR</center>
+
+													</th>
+
+													<th>
+
+														<center>MONTO OBSERVADO</center>
+
+													</th>
+
+													<th>
+
+														<center>DETALLE DE OBSERVACIONES</center>
+
+													</th>
+
+												</tr>
+
+											</thead>
+
+											<tbody id='pagosConContratacionPublica'>
+
+											</tbody>
+
+									</table>
+
+									</div>
+
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Observaciones:
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='observaciones__alto__seguis' name='observaciones__alto__seguis'></textarea>
+
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Recomendaciones: 
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='recomendaciones__alto__seguis' name='recomendaciones__alto__seguis'></textarea>
+
+
+									<div class='col col-12 d d-flex justify-content-center '>
+
+										<a target='_blank' class='btn btn-primary' href='reporteAnexosSe'>REPORTES Y ANEXOS</a>
+
+									</div>									
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center ocultos__en__altos oculto_directivos'>
+
+										<button type='submit' class='btn btn-warning'><i class='fa fa-file-pdf-o' aria-hidden='true'></i>&nbsp;&nbsp;Generar pdf</button>
+
+									</div>
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center textos__titulos ocultos__en__altos oculto_directivos'>
+
+										Subir reporte generado en pdf
+
+									</div>
+
+									<div class='fila__regresar__a col col-4 mt-4 text-center ocultos__en__altos oculto_directivos'>
+
+										<input type='file' accept='application/pdf' id='archivoSubido__actividad1' name='archivoSubido__actividad1'>
+
+									</div>
+
+
+							</div>
+
+						
+
+							<div class='row oculto__informacion_Contratacion_Publica'>
+
+								<input type='hidden' id='organismoOculto__modal' />
+
+								<div class='col col-2 textos__titulos'>
+
+									I EJERCICIO FISCAL
+
+								</div>
+
+								<div class='col col-1' style='font-weight:bold;'>
+
+									AÑO 
+
+								</div>
+
+								<div class='col col-4 text-left periodo__evaluados__anuales1'></div>
+								<input type='hidden' id='periodo__evaluados__anualesContratacion1' name='periodo__evaluados__anualesContratacion1' />
+
+								
+								<input type='hidden' id='trimestre__evaluados__alContratacion' name='trimestre__evaluados__alContratacion' />
+
+
+								<div class='col col-12 row d-flex mt-4'>
+
+									<div class='col col-7 row'>
+
+										<div class='col col-12 text-left textos__titulos'>
+
+											II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+										</div>
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											NOMBRE DE LA ORGANIZACIÓN:
+
+										</div>
+
+										<div class='nombre__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='nombre__organizacion__deportivasContratacion' name='nombre__organizacion__deportivasContratacion' />
+
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											RUC DE LA ORGANIZACIÓN:
+
+										</div>
+
+										<div class='ruc__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='ruc__organizacion__deportivasContratacion' name='ruc__organizacion__deportivasContratacion' />
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											PRESIDENTE O REPRESENTANTE LEGAL:
+
+										</div>
+
+										<div class='presidente__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='presidente__organizacion__deportivas' name='presidente__organizacion__deportivas' />
+
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+										</div>
+
+										<div class='correo__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='correo__organizacion__deportivasContratacion' name='correo__organizacion__deportivasContratacion' />
+
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											DIRECCIÓN COMPLETA:
+
+										</div>
+
+										<div class='direccion__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='direccion__organizacion__deportivasContratacion' name='direccion__organizacion__deportivasContratacion' />
+
+
+									</div>
+
+									<div class='col col-5 row'>
+
+										<div class='col col-12 text-left textos__titulos'>
+
+											III. UBICACIÓN GEOGRÁFICA
+
+										</div>
+
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											PROVINCIA:
+
+										</div>
+
+										<div class='provincia__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='provincia__organizacion__deportivasContratacion' name='provincia__organizacion__deportivasContratacion' />
+
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											CANTÓN:
+
+										</div>
+
+										<div class='canton__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='canton__organizacion__deportivasContratacion' name='canton__organizacion__deportivasContratacion' />
+
+
+										<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+											PARROQUIA:
+
+										</div>
+
+										<div class='parroquia__organizacion__deportivas col col-6 mt-2'></div>
+
+										<input type='hidden' id='parroquia__organizacion__deportivasContratacion' name='parroquia__organizacion__deportivasContratacion' />
+
+
+										<input type='hidden' id='barrio__organizacion__deportivasContratacion' name='barrio__organizacion__deportivasContratacion' />
+
+									</div>
+
+								</div>
+
+								<div class='textos__titulos' style='display:none!important;'>
+
+									IV. DATOS GENERALES DEL CONVENIO
+
+								</div>
+
+								<div style='font-weight:bold; display:none!important;'>
+
+									NÚMERO DE CONVENIO:
+
+								</div>
+
+								<div style='display:none!important;'>
+
+									<input type='text' id='numeroConvenio__paid' name='numeroConvenio__paid' class='ancho__total__input solo__numero__montos'/>
+
+								</div>
+
+								<div style='font-weight:bold;display:none!important;'>
+
+									ADMINISTRADOR DEL CONVENIO:
+
+								</div>
+
+								<div style='display:none!important;'>
+
+									<input type='text' id='administradorConvenio__paid' name='administradorConvenio__paid' class='ancho__total__input'/>
+
+								</div>
+
+								<div class='col col-4' style='font-weight:bold;display:none!important;'>
+
+									DOCUMENTO DE DESIGNACIÓN:
+
+								</div>
+
+								<div style='display:none!important;'>
+
+									<input type='text' id='documentoAsignacionConvenio__paid' name='documentoAsignacionConvenio__paid' class='ancho__total__input'/>
+
+								</div>
+
+								<div class='col col-12 textos__titulos'>
+
+										IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										ÁREA DE ACCIÓN:
+
+									</div>
+
+
+									<div class='col col-8 areaAccion' style='font-weight:bold;'></div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										OBJETIVO ESTRATÉGICO INSTITUCIONAL:
+
+									</div>
+
+
+									<div class='col col-8 objetivoS' style='font-weight:bold;'></div>
+
+								<div class='col col-12 textos__titulos'>
+
+									V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+								</div>
+
+								<div class='col col-12' style='font-weight:bold;'>
+
+									V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+
+								</div>
+
+								<div class='col col-4' style='font-weight:bold;'>
+
+									PERÍODO EVALUADO:
+
+								</div>
+
+								<div  class='col col-8 periodo__evaluadoContratacion' style='font-weight:bold;'></div>
+
+								<input type='hidden' id='periodo__evaluadoContratacion' name='periodo__evaluadoContratacion' />
+
+
+								<div class='col col-4' style='font-weight:bold;'>
+
+									PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+
+								</div>
+
+								<div  class='col col-8 presupuesto__asignado__pais__altos' style='font-weight:bold;'></div>
+
+								<input type='hidden' id='presupuesto__asignado__pais__altosContratacion' name='presupuesto__asignado__pais__altosContratacion' />
+
+								<div class='oculto_directivos'>
+								
+									<div class='col col-12 ' style='overflow:auto;scrollbar-base-color:gold;'>
+
+										<table class='col col-12 cell-border'>
+
+											<thead>
+
+												<tr>
+
+													<th colspan='4' style='background-color: #878783;'>
+
+														<center>PLANIFICADO</center>
+
+													</th>
+
+													<th colspan='6' style='background-color: #7d818c;'>
+
+														<center>EJECUTADO</center>
+
+													</th>
+
+													<th colspan='4' style='background-color: #95877e;'>
+
+														<center>VERIFICACIÓN DE LA APLICACIÓN DE PROCEDIMIENTOS DE CONTRATACIÓN PÚBLICA</center>
+
+													</th>
+
+												</tr>
+
+												<tr>
+
+													<th style='background-color: #878783;'>
+														<center>CÓDIGO ACTIVIDAD</center>
+													</th>
+
+													<th style='background-color: #878783;'>
+														<center>ÍTEM</center>
+													</th>
+
+													<th style='background-color: #878783;'>
+														<center>DESCRIPCIÓN DEL ÍTEM</center>
+													</th>
+
+													
+
+													<th style='background-color: #878783;'>
+														<center>MONTO PLANIFICADO</center>
+													</th>
+
+													
+
+													<th style='background-color: #7d818c;'>
+														<center>TIPO DE CONTRATACIÓN</center>
+													</th>
+													<th style='background-color: #7d818c;'>
+													<center>OBJETO DE LA CONTRATACIÓN</center>
+													</th>
+													<th style='background-color: #7d818c;'>
+														<center>MONTO DE LA CONTRATACIÓN </center>
+													</th>
+
+													<th style='background-color: #7d818c;'>
+														<center>PROVEEDOR </center>
+													</th>
+
+													<th style='background-color: #7d818c;'>
+														<center>RUC</center>
+													</th>
+
+													<th style='background-color: #7d818c;'>
+														<center>LINK DE LA PUBLICACIÓN EN EL PORTAL DE COMPRAS PÚBLICAS</center>
+													</th>
+
+													<th style='background-color: #95877e;'>
+														<center>CUMPLE LOS MONTOS VIGENTES DE CONTRATACIÓN PUBLICA</center>
+													</th>
+
+													<th style='background-color: #95877e;'>
+														<center>EVIDENCIA DE RECURRENCIA DE ÍNFIMAS CUANTÍAS CON UNA MISMA NATURALEZA DEL GASTO</center>
+													</th>
+
+													<th style='background-color: #95877e;'>
+														<center> PROCEDIMIENTOS DE CONTRATACIÓN VERIFICADOS</center>
+													</th>
+
+													<th style='background-color: #95877e;'>
+														<center> OBSERVACIONES</center>
+													</th>
+
+												</tr>
+
+											</thead>
+
+											<tbody id='tablaCalificacionContratacionPublica'>
+
+											</tbody>
+
+										</table>
+									</div>
+
+								</div>
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Observaciones:
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='observaciones__alto__seguisContratacion' name='observaciones__alto__seguisContratacion'></textarea>
+
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Recomendaciones: 
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='recomendaciones__alto__seguisContratacion' name='recomendaciones__alto__seguisContratacion'></textarea>
+
+
+									<div class='col col-12 d d-flex justify-content-center'>
+
+										<a target='_blank' class='btn btn-primary' href='reporteAnexosSe'>REPORTES Y ANEXOS</a>
+
+									</div>									
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center ocultos__en__altos oculto_directivos'>
+
+										<button type='submit' class='btn btn-warning'><i class='fa fa-file-pdf-o' aria-hidden='true'></i>&nbsp;&nbsp;Generar pdf</button>
+
+									</div>
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center textos__titulos ocultos__en__altos oculto_directivos'>
+
+										Subir reporte generado en pdf
+
+									</div>
+
+									<div class='fila__regresar__a col col-4 mt-4 text-center ocultos__en__altos oculto_directivos'>
+
+										<input type='file' accept='application/pdf' id='archivoSubido__ContratacionPublica' name='archivoSubido__ContratacionPublica'>
+
+									</div>
+
+									<input type='hidden' id='rotulo__recomendado' name='rotulo__recomendado' value='contratacionPublica'/>
+
+									<div class=' col col-12     oculto_directivos' style='display: flex; justify-content: center; align-items: center;'>
+
+									<a class='btn btn-primary' id='recomendarcontratacionPublica' centre><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;RECOMENDAR</a>
+
+									</div>
+							</div>
+
+
+							
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
+		public function get__modal__plantilla__inicios__seguimientos__Contratacion_Publica__recomendados($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<input type='hidden' id='organismoOculto__modal' name='organismoOculto__modal' />
+							<input type='hidden' id='periodo' name='periodo' />
+							<input type='hidden' id='nombreDocumento_Contratacion' name='nombreDocumento_Contratacion' />
+							<input type='hidden' id='nombreDocumento_actividad1' name='nombreDocumento_actividad1' />
+
+
+							<div class='col col-3'>
+
+								<a id='informe__recomendados' target='_blank'>Descargar Informe recomendado Actividad 1</a>
+
+							</div>
+
+							<div class='col col-3'>
+
+								<a id='informe__recomendadosContratacion' target='_blank'>Descargar Informe recomendado Contratación Pública</a>
+
+							</div>
+
+							<div class='col col-6 oculto__subsess__deseados' style='font-weight:bold!important;'>
+								<div class='row'>
+									<div class='col col-6'>
+									Subir archivo firmado Actividad 1
+									</div>
+									<div class='col col-6'>
+									<input type='file' accept='application/pdf' id='informe__recomendado_actividad1' name='informe__recomendado_actividad1' class='ancho__total__input'/>
+									</div>
+									<div class='w-100'></div>
+									<div class='col col-6'>
+									Subir archivo firmado Contratación Pública
+									</div>
+									<div class='col col-6'>
+										<input type='file' accept='application/pdf' id='informe__recomendado_contratacion' name='informe__recomendado_contratacion' class='ancho__total__input'/>
+									</div>
+								</div>
+							</div>
+
+							
+
+							<div class='col col-2 mt-2' style='font-weight:bold;'>
+
+								Recomendar a
+
+							</div>
+
+							<div class='col col-8 mt-2'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+								<select class='ancho__total__input__selects regresar__superior__con selects__superiores__regresar' id='selects__superiores__regresar__coors'>
+								</select>
+
+								<div class='direccion__seguimientos__ocultos'>Dirección de seguimiento</div>
+
+							</div>
+
+							<div class='col col-2 mt-2'>
+
+								<a class='btn btn-warning' id='recomendar__Contratacion__recomendados'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;RECOMENDAR</a>
+
+							</div>
+
+							<div class='col col-2' style='font-weight:bold;'>
+
+								Devolver a
+
+							</div>
+
+							<div class='col col-8'>
+
+								
+								<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>
+								<select class='ancho__total__input__selects selects__superiores superior__con' id='selects__superiores__subsess'></select>
+
+								
+
+								
+							</div>
+
+							<div class='col col-2'>
+
+								<a class='btn btn-danger' id='devolver__altosReComendadosContratacion'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;DEVOLVER</a>
+
+							</div>
+
+							<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}	
+
+		public function get__modal__plantilla__inicios__seguimientos__actividad__fisica2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos__act__deportivas'/>
+
+						<input type='hidden' id='idOrganismo' name='idOrganismo' />
+						<input type='hidden' id='periodo' name='periodo' />
+						<input type='hidden' id='idUSeguimientos' name='idUSeguimientos' />
+						<input type='hidden' id='tipoAct' name='tipoAct' />
+
+
+						<input type='hidden' id='indicadorArray' name='indicadorArray' />
+						<input type='hidden' id='metaProgramadaArray' name='metaProgramadaArray' />
+						<input type='hidden' id='metaResultadoArray' name='metaResultadoArray' />
+						<input type='hidden' id='porcentajeCumplimientoArray' name='porcentajeCumplimientoArray' />
+						<input type='hidden' id='areaAccion' name='areaAccion' />
+						<input type='hidden' id='objetivoS' name='objetivoS' />
+
+					
+
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+							<div class='col col-12 text-center' style='background:#1b5e20; color:white;padding-top:1.5em;padding-bottom:1.5em;'>
+
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - ORGANIZACIONES DEPORTIVAS - <span class='siglas__dinamicas' style='font-weight:bold;'></span> ( RSEP-<span class='siglas__dinamicas' style='font-weight:bold;'></span>-<span class='numerico__dinamicas'></span>)
+
+								<input type='hidden' id='siglas__dinamicas__inputs' name='siglas__dinamicas__inputs'/>
+								<input type='hidden' id='numerico__dinamicas__inputs' name='numerico__dinamicas__inputs'/>
+
+							</div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<div class='fila__reasignar col col-2' style='font-weight:bold;'>
+
+								Reasignar a
+
+							</div>
+
+							<div class='fila__reasignar col col-4'>
+
+								<select class='ancho__total__input__selects selects__superiores1 superior__sin' id='selects__superiores1'></select>
+
+								<select class='ancho__total__input__selects selects__superiores1 superior__con' id='selects__superiores__subsess'></select>
+
+							</div>
+
+
+							<div class='fila__reasignar col col-2 reasignar__solo text-center'>
+
+								<a class='btn btn-primary' id='reasignarSeguimientos__a__actividad__fisicas2023'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
+
+							</div>
+
+
+							<div class='fila__regresar__a col col-2' style='font-weight:bold;'>
+
+								Regresar a
+
+							</div>
+
+							<div class='fila__regresar__a col col-4'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+								<select class='ancho__total__input__selects regresar__superior__con selects__superiores__regresar' id='selects__superiores__regresar__coors__acFisicas'>
+								</select>
+
+							</div>
+
+							<div class='fila__regresar__a col col-2'>
+
+								<a class='btn btn-warning' id='regresarSeguimientos__a__actividad__fisicas2023'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Regresar</a>
+
+							</div>
+
+
+							<div class='col col-3'>
+
+								Click para ver reporte
+
+							</div>
+
+							<div class='col col-1'>
+
+								<input type='checkbox' id='seguimiento__tables' class='checkeds' />
+
+							</div>
+
+
+
+							<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+
+							<div class='row oculto__informacion'>
+
+								<input type='hidden' id='organismoOculto__modal' />
+
+									<div class='col col-2 textos__titulos'>
+
+										I EJERCICIO FISCAL
+
+									</div>
+
+									<div class='col col-1' style='font-weight:bold;'>
+
+										AÑO 
+
+									</div>
+
+									<div class='col col-4 text-left periodo__evaluados__anuales'></div>
+									<input type='hidden' id='periodo__evaluados__anuales' name='periodo__evaluados__anuales' />
+
+									
+									<input type='hidden' id='trimestre__evaluados__al' name='trimestre__evaluados__al' />
+
+
+									<div class='col col-12 row d-flex mt-4'>
+
+										<div class='col col-7 row'>
+
+											<div class='col col-12 text-left textos__titulos'>
+
+												II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+											</div>
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												NOMBRE DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='nombre__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='nombre__organizacion__deportivas' name='nombre__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												RUC DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='ruc__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='ruc__organizacion__deportivas' name='ruc__organizacion__deportivas' />
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PRESIDENTE O REPRESENTANTE LEGAL:
+
+											</div>
+
+											<div class='presidente__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='presidente__organizacion__deportivas' name='presidente__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='correo__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='correo__organizacion__deportivas' name='correo__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												DIRECCIÓN:
+
+											</div>
+
+											<div class='direccion__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='direccion__organizacion__deportivas' name='direccion__organizacion__deportivas' />
+
+
+										</div>
+
+										<div class='col col-5 row'>
+
+											<div class='col col-12 text-left textos__titulos'>
+
+												III. UBICACIÓN GEOGRÁFICA
+
+											</div>
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PROVINCIA:
+
+											</div>
+
+											<div class='provincia__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='provincia__organizacion__deportivas' name='provincia__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												CANTÓN:
+
+											</div>
+
+											<div class='canton__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='canton__organizacion__deportivas' name='canton__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PARROQUIA:
+
+											</div>
+
+											<div class='parroquia__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='parroquia__organizacion__deportivas' name='parroquia__organizacion__deportivas' />
+
+											<input type='hidden' id='barrio__organizacion__deportivas' name='barrio__organizacion__deportivas' />
+
+										</div>
+
+									</div>
+
+									<div class='textos__titulos ocultos__paid__documentos' style='display:none!important;'>
+
+										IV. DATOS GENERALES DEL CONVENIO
+
+									</div>
+
+									<div class='ocultos__paid__documentos' style='font-weight:bold; display:none!important;'>
+
+										NÚMERO DE CONVENIO:
+
+									</div>
+
+									<div class='ocultos__paid__documentos' style='display:none!important;'>
+
+										<input type='text' id='numeroConvenio__paid' name='numeroConvenio__paid' class='ancho__total__input solo__numero__montos'/>
+
+									</div>
+
+									<div class='ocultos__paid__documentos' style='font-weight:bold;display:none!important;'>
+
+										ADMINISTRADOR DEL CONVENIO:
+
+									</div>
+
+									<div class='ocultos__paid__documentos' style='display:none!important;'>
+
+										<input type='text' id='administradorConvenio__paid' name='administradorConvenio__paid' class='ancho__total__input'/>
+
+									</div>
+
+									<div class='ocultos__paid__documentos' style='font-weight:bold; display:none!important;'>
+
+										DOCUMENTO DE DESIGNACIÓN:
+
+									</div>
+
+									<div class='ocultos__paid__documentos' style='display:none!important;'>
+
+										<input type='text' id='documentoAsignacionConvenio__paid' name='documentoAsignacionConvenio__paid' class='ancho__total__input'/>
+
+									</div>
+
+									<div class='col col-12 textos__titulos'>
+
+										 IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										ÁREA DE ACCIÓN:
+
+									</div>
+
+
+									<div class='col col-8 areaAccion' style='font-weight:bold;'></div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										OBJETIVO ESTRATÉGICO INSTITUCIONAL:
+
+									</div>
+
+
+									<div class='col col-8 objetivoS' style='font-weight:bold;'></div>
+
+
+									<div class='col col-12 textos__titulos'>
+
+										 V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+									</div>
+
+									<div class='col col-12' style='font-weight:bold;'>
+
+										V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										PERÍODO EVALUADO:
+
+									</div>
+
+
+									<div class='col col-8 periodo__evaluado' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='periodo__evaluado' name='periodo__evaluado' />
+
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+
+									</div>
+
+
+									<div class='col col-8 presupuesto__asignado__pais__altos' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='presupuesto__asignado__pais__altos' name='presupuesto__asignado__pais__altos' />
+
+									
+
+									<div class='col col-12 textos__titulos'>
+
+										V.II. RESUMEN DE CUMPLIMIENTO TÉCNICO DEL POA
+
+									</div>
+
+								
+
+									<div class='col col-12 text-center' style='font-weight:bold!important;'>
+
+										AVANCE DE METAS
+
+									</div>
+
+									<table class='mt-4 col col-12'>
+
+										<thead>
+
+											<tr>
+
+												<th>
+													<center>ACTIVIDADES</center>
+												</th>
+
+												<th>
+													<center>INDICADOR</center>
+												</th>
+
+												<th>
+													<center>META PLANIFICADA AL SEMESTRE (A)</center>
+												</th>
+
+												<th>
+													<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+												</th>
+
+												<th>
+													<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='cuerpo__items__alto__rendimientos'></tbody>
+
+										<tfoot class='footer__altos__indicadores'></tfoot>
+
+									</table>
+
+									<div class='col col-12 textos__titulos'>
+
+										V.III. OTROS ASPECTOS TÉCNICOS
+
+									</div>
+
+
+									<table class='tabla__recreativo__1'>
+
+										<thead>
+
+											<tr>
+
+												<th colspan='4'>
+
+													<center><a class='btn btn-warning' id='agregar__indicadoresOtros'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;&nbsp;AGREGAR</a></center>
+
+												</th>
+
+											</tr>
+
+											<tr>
+
+												<th>
+													<center>INDICADOR</center>
+												</th>
+
+												<th>
+													<center>META PLANIFICADA AL SEMESTRE (A)</center>
+												</th>
+
+
+												<th>
+													<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+												</th>
+
+
+												<th>
+													<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='cuerpo__indicadores__altos'>
+
+											<tr>
+
+												<td>Número de eventos ejecutados al trimestre:</td>
+												<td><input type='text' id='eventos__eje__alto' name='eventos__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='meta__eje__alto' name='meta__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__eventos__e'></div>
+														<input type='text' id='porcentaje__c__eje__alto' name='porcentaje__c__eje__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>Número de eventos en los que participa al trimestre:</td>
+												<td><input type='text' id='eventos__eje__alto__parti' name='eventos__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='meta__eje__alto__parti' name='meta__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__eventos__e__parti'></div>
+														<input type='text' id='porcentaje__c__eje__alto__parti' name='porcentaje__c__eje__alto__parti' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>Cantidad de implementación deportiva al I trimestre:</td>
+												<td><input type='text' id='implementacion__de__eje__alto__meta' name='implementacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='implementacion__de__eje__alto__resultado' name='implementacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__implementacion__de__e'></div>
+														<input type='text' id='porcentaje__c__implementacion__de__e__alto' name='porcentaje__c__implementacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Número de beneficiarios de capacitaciones deportivas:</td>
+												<td><input type='text' id='beneficiarios__de__eje__alto__meta' name='beneficiarios__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='beneficiarios__de__eje__alto__resultado' name='beneficiarios__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__beneficiarios__de__e'></div>
+														<input type='text' id='porcentaje__c__beneficiarios__de__e__alto' name='porcentaje__c__beneficiarios__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Número de beneficiarios de eventos de recreación:</td>
+												<td><input type='text' id='preparacion__de__eje__alto__meta' name='preparacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='preparacion__de__eje__alto__resultado' name='preparacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__preparacion__de__e'></div>
+														<input type='text' id='porcentaje__c__preparacion__de__e__alto' name='porcentaje__c__preparacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+									<table class='tabla__formativo__1'>
+
+										<thead>
+
+											<tr>
+
+												<th colspan='4'>
+
+													<center><a class='btn btn-warning' id='agregar__indicadoresOtros__formativos'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;&nbsp;AGREGAR</a></center>
+
+												</th>
+
+											</tr>
+
+
+											<tr>
+
+												<th>
+													<center>INDICADOR</center>
+												</th>
+
+												<th>
+													<center>META PLANIFICADA AL SEMESTRE (A)</center>
+												</th>
+
+
+												<th>
+													<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+												</th>
+
+
+												<th>
+													<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='cuerpo__indicadores__altos'>
+
+											<tr>
+
+												<td>Número de eventos ejecutados al trimestre:</td>
+												<td><input type='text' id='eventos__eje__alto' name='eventos__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f eventos__eje__alto' value='0'/></td>
+												<td><input type='text' id='meta__eje__alto' name='meta__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f meta__eje__alto' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__eventos__e'></div>
+														<input type='text' id='porcentaje__c__eje__alto' name='porcentaje__c__eje__alto' class='ancho__total__input solo__numero__montos porcentaje__c__eje__alto' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>Número de eventos en los que participa al trimestre:</td>
+												<td><input type='text' id='eventos__eje__alto__parti' name='eventos__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f eventos__eje__alto__parti' value='0'/></td>
+												<td><input type='text' id='meta__eje__alto__parti' name='meta__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f meta__eje__alto__parti' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__eventos__e__parti'></div>
+														<input type='text' id='porcentaje__c__eje__alto__parti' name='porcentaje__c__eje__alto__parti' class='ancho__total__input solo__numero__montos porcentaje__c__eje__alto__parti' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>Número de beneficiarios atendidos en las actividades del fomento deportivo:</td>
+												<td><input type='text' id='implementacion__de__eje__alto__meta' name='implementacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f implementacion__de__eje__alto__meta' value='0'/></td>
+												<td><input type='text' id='implementacion__de__eje__alto__resultado' name='implementacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f implementacion__de__eje__alto__resultado' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__implementacion__de__e'></div>
+														<input type='text' id='porcentaje__c__implementacion__de__e__alto' name='porcentaje__c__implementacion__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__implementacion__de__e__alto' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Número de actividades del fomento deportivo a las que se destina el recurso de operación deportiva:</td>
+												<td><input type='text' id='beneficiarios__de__eje__alto__meta' name='beneficiarios__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__de__eje__alto__meta' value='0'/></td>
+												<td><input type='text' id='beneficiarios__de__eje__alto__resultado' name='beneficiarios__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__de__eje__alto__resultado' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__beneficiarios__de__e'></div>
+														<input type='text' id='porcentaje__c__beneficiarios__de__e__alto' name='porcentaje__c__beneficiarios__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__beneficiarios__de__e__alto' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Cantidad de implementación deportiva al I trimestre:</td>
+												<td><input type='text' id='preparacion__de__eje__alto__meta' name='preparacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f preparacion__de__eje__alto__meta' value='0'/></td>
+												<td><input type='text' id='preparacion__de__eje__alto__resultado' name='preparacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f preparacion__de__eje__alto__resultado' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__preparacion__de__e'></div>
+														<input type='text' id='porcentaje__c__preparacion__de__e__alto' name='porcentaje__c__preparacion__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__preparacion__de__e__alto' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Número de beneficiarios de capacitaciones deportivas:</td>
+												<td><input type='text' id='beneficiarios__capa__de__eje__alto__meta' name='beneficiarios__capa__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__capa__de__eje__alto__meta' value='0'/></td>
+												<td><input type='text' id='beneficiarios__capa__de__eje__alto__resultado' name='beneficiarios__capa__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__capa__de__eje__alto__resultado' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__beneficiarios__capa__de__e'></div>
+														<input type='text' id='porcentaje__c__beneficiarios__capa__de__e__alto' name='porcentaje__c__beneficiarios__capa__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__beneficiarios__capa__de__e__alto' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Número de beneficiarios de eventos de preparación y competencias:</td>
+												<td><input type='text' id='beneficiarios__even__prepa__de__eje__alto__meta' name='beneficiarios__even__prepa__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__even__prepa__de__eje__alto__meta' value='0'/></td>
+												<td><input type='text' id='beneficiarios__even__prepa__de__eje__alto__resultado' name='beneficiarios__even__prepa__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__even__prepa__de__eje__alto__resultado' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__beneficiarios__even__prepa__de__e'></div>
+														<input type='text' id='porcentaje__c__even__prepa__capa__de__e__alto' name='porcentaje__c__even__prepa__capa__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__even__prepa__capa__de__e__alto' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+										</tbody>
+
+									</table>
+
+									
+
+									<div class='col col-6 '>
+
+									NÚMERO DE CAPACITADORES:
+
+									</div>
+
+									<div class='col col-6'>
+
+										<input type='text' id='numeroCapacitadores' name='numeroCapacitadores' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+									</div>
+
+									<div class='col col-6' >
+
+										MONTO DE AUTOGESTIÓN REPORTADO AL SEMESTRE (USD):
+
+									</div>
+
+
+									<div class='col col-6 presupuesto__autogestion__asignado__pais__altos' ></div>
+
+									<input type='hidden' id='presupuesto__autogestion__asignado__pais__altos' name='presupuesto__autogestion__asignado__pais__altos' />
+
+
+									<div class='col col-6 '>
+
+									% de Autogestión en relación al presupuesto POA asignado::
+
+									</div>
+
+									<div class='col col-6 porcentajeAutogestion'></div>
+
+									<input type='hidden' readonly id='porcentajeAutogestion' name='porcentajeAutogestion' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+									
+
+									<div class='col col-12 foramtivo__enlaces__medalleros'>
+
+										<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+											<tbody>
+
+												<tr >
+
+													<th colspan='4'>
+
+														<center>NÚMERO DE MEDALLAS ALCANZAS AL SEMESTRE:</center>
+
+													</th>
+								
+												</tr>
+
+												<tr>
+
+													<td>
+
+														<center>ORO</center>
+
+													</td>
+
+
+													<td>
+
+													<input type='text' id='oro__alto' name='oro__alto' class='ancho__total__input solo__numero cambio__de__numero__f'/>
+
+
+													</td>
+
+													
+
+												</tr>
+
+												<tr>
+
+													<td>
+
+														<center>PLATA</center>
+
+													</td>
+
+
+													<td>
+
+													<input type='text' id='plata__alto' name='plata__alto' class='ancho__total__input solo__numero cambio__de__numero__f'/>
+
+
+													</td>
+
+													
+
+												</tr>
+
+												<tr>
+
+													<td>
+
+														<center>BRONCE</center>
+
+													</td>
+
+
+													<td>
+
+													<input type='text' id='bronce__alto' name='bronce__alto' class='ancho__total__input solo__numero cambio__de__numero__f' />
+
+
+													</td>
+
+													
+
+												</tr>
+
+											</tbody>
+
+
+										</table>
+
+										
+									</div>	
+									
+									<div class='col col-12 foramtivo__enlaces__medalleros'>
+
+										<table style='margin-top:.5em!important; width:80%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+											<thead>
+
+												<tr >
+
+													<th colspan='4'>
+
+														<center>NÚMERO DE BENEFICIARIOS</center>
+
+													</th>
+								
+												</tr>
+
+												<tr>
+
+													<th>
+
+														<center>GRUPOS ETARIOS</center>
+
+													</th>
+
+
+													<th>
+
+														<center>HOMBRES</center>
+
+													</th>
+
+													<th>
+
+														<center>MUJERES</center>
+
+													</th>
+
+													<th>
+
+														<center>TOTAL</center>
+
+													</th>
+
+												</tr>
+
+											</thead>
+
+											<tbody>
+
+													<tr>
+
+														<td>De 5 a 17 años atendidos</td>
+													
+												
+														<td>
+
+														<input type='text' id='hombresB' class='solo__numero cambio__de__numero__f' name='hombresB' />
+													
+
+														</td>
+
+														<td>
+
+														<input type='text' id='mujeresB' class='solo__numero cambio__de__numero__f' name='mujeresB' />
+														
+														</td>
+
+														<td>
+
+														<input type='text' id='totalB' class='solo__numero cambio__de__numero__f' name='totalB' />
+														
+
+
+														</td>
+
+													</tr>
+
+													<tr>
+														<td>De 18 a 69 años atendidos</td>
+
+														<td>
+
+														<input type='text' id='hombresB18' class='solo__numero cambio__de__numero__f' name='hombresB18' />
+														
+														</td>
+
+														<td>
+
+														<input type='text' id='mujeresB18' class='solo__numero cambio__de__numero__f' name='mujeresB18' />
+														
+
+														</td>
+
+														<td>
+
+														<input type='text' id='totalB18' class='solo__numero cambio__de__numero__f' name='totalB18' />
+
+
+														</td>
+
+													</tr>
+
+
+											</tbody>
+
+
+										</table>
+
+										
+									</div>	
+
+
+
+									<div class='col col-12 recreativo__enlaces__medalleros'>
+
+										<table style='margin-top:.5em!important; width:80%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+											<thead>
+
+												<tr >
+
+													<th colspan='4'>
+
+														<center>NÚMERO DE BENEFICIARIOS</center>
+
+													</th>
+								
+												</tr>
+
+												<tr>
+
+													<th>
+
+														<center>GRUPOS ETARIOS</center>
+
+													</th>
+
+
+													<th>
+
+														<center>HOMBRES</center>
+
+													</th>
+
+													<th>
+
+														<center>MUJERES</center>
+
+													</th>
+
+													<th>
+
+														<center>TOTAL</center>
+
+													</th>
+
+												</tr>
+
+											</thead>
+
+											<tbody>
+
+													<tr>
+
+														<td>De 5 a 17 años atendidos</td>
+													
+												
+														<td>
+
+														<input type='text' id='hombresB' class='solo__numero cambio__de__numero__f' name='hombresB' />
+													
+
+														</td>
+
+														<td>
+
+														<input type='text' id='mujeresB' class='solo__numero cambio__de__numero__f' name='mujeresB' />
+														
+														</td>
+
+														<td>
+
+														<input type='text' id='totalB' class='solo__numero cambio__de__numero__f' name='totalB' />
+														
+
+
+														</td>
+
+													</tr>
+
+													<tr>
+														<td>De 18 a 69 años atendidos</td>
+
+														<td>
+
+														<input type='text' id='hombresB18' class='solo__numero cambio__de__numero__f' name='hombresB18' />
+														
+														</td>
+
+														<td>
+
+														<input type='text' id='mujeresB18' class='solo__numero cambio__de__numero__f' name='mujeresB18' />
+														
+
+														</td>
+
+														<td>
+
+														<input type='text' id='totalB18' class='solo__numero cambio__de__numero__f' name='totalB18' />
+
+
+														</td>
+
+													</tr>
+
+
+											</tbody>
+
+
+										</table>
+
+										
+									</div>		
+
+
+
+									<div class='col col-12 mt-2' style='font-weight:bold;'>
+
+										PRESENTAN INFORMACIÓN:
+
+									</div>
+
+
+									<table class='col col-12 mt-2 tabla__formativo__1'>
+
+										<thead>
+
+											<tr>
+
+												<th>
+
+													<center>DETALLE</center>
+
+												</th>
+
+
+												<th>
+
+													<center>CUMPLE</center>
+
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody>
+
+											<tr>
+
+												<td>
+												Listado de asistentes de capacitaciones:
+												</td>
+
+												<td>
+													<select id='listAsistCapForm__tabla__alto' name='listAsistCapForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Fotocopias de certificados de capacitaciones:
+												</td>
+
+												<td>
+													<select id='fotCertifCapForm__tabla__alto' name='fotCertifCapForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>
+													Registro fotográfico de capacitaciones:
+												</td>
+
+												<td>
+													<select id='regFotCapaFrom__tabla__alto' name='regFotCapaFrom__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+													Hojas de vida de profesionales:
+												</td>
+
+												<td>
+													<select id='cvForm__tabla__alto' name='cvForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+													Contrato de profesionales:
+												</td>
+
+												<td>
+													<select id='contratosForm__tabla__alto' name='contratosForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>
+													Registro fotográfico de los eventos deportivos:
+												</td>
+
+												<td>
+													<select id='registroFotEventoForm__tabla__alto' name='registroFotEventoForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Listados de asistencia de atletas suscrito por entrenador o coordinador técnico: 
+												</td>
+
+												<td>
+													<select id='listadoAsistenciaAtl__tabla__alto' name='listadoAsistenciaAtl__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Orden de compra o de servicio de implementación deportiva:
+												</td>
+
+												<td>
+													<select id='ordenCompraForm__tabla__alto' name='ordenCompraForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Actas de entrega recepción de la implementación deportiva adquirida:
+												</td>
+
+												<td>
+													<select id='actasForm__tabla__alto' name='actasForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Factura de implementación deportiva:
+												</td>
+
+												<td>
+													<select id='facturaForm__tabla__alto' name='facturaForm__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+
+										</tbody>
+
+									</table>
+
+									<table class='col col-12 mt-2 tabla__recreativo__1'>
+
+										<thead>
+
+											<tr>
+
+												<th>
+
+													<center>DETALLE</center>
+
+												</th>
+
+
+												<th>
+
+													<center>CUMPLE</center>
+
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody>
+
+											<tr>
+
+												<td>
+													Listado de asistentes de capacitaciones:
+												</td>
+
+												<td>
+													<select id='listAsisCapRec__tabla__alto' name='listAsisCapRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+													Fotocopias de certificados de capacitaciones:
+												</td>
+
+												<td>
+													<select id='fotCertCapRec__tabla__alto' name='fotCertCapRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>
+													Registro fotográfico de capacitaciones:
+												</td>
+
+												<td>
+													<select id='regFotCapRec__tabla__alto' name='regFotCapRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+													Hojas de vida de profesionales:
+												</td>
+
+												<td>
+													<select id='cvRec__tabla__alto' name='cvRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+													Contrato de profesionales:
+												</td>
+
+												<td>
+													<select id='contratoRec__tabla__alto' name='contratoRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Registro fotográfico de los eventos recreativos:
+												</td>
+
+												<td>
+													<select id='regFotEvenRec__tabla__alto' name='regFotEvenRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Listado de participantes de eventos recreativos:
+												</td>
+
+												<td>
+													<select id='listPartEven__tabla__alto' name='listPartEven__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Orden de compra o de servicio de implementación deportiva:
+												</td>
+
+												<td>
+													<select id='ordCompRec__tabla__alto' name='ordCompRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Actas de entrega recepción de la implementación deportiva adquirida:
+												</td>
+
+												<td>
+													<select id='actEntregaRec__tabla__alto' name='actEntregaRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											
+
+											<tr>
+
+												<td>
+												Factura de implementación deportiva:
+												</td>
+
+												<td>
+													<select id='facturaRec__tabla__alto' name='facturaRec__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Observaciones:
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='observaciones__alto__seguis' name='observaciones__alto__seguis'></textarea>
+
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Recomendaciones: 
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='recomendaciones__alto__seguis' name='recomendaciones__alto__seguis'></textarea>
+
+									<div class='col col-12 d d-flex justify-content-center'>
+
+										<a target='_blank' class='btn btn-primary' href='reporteAnexosSe'>REPORTES Y ANEXOS</a>
+
+									</div>
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center ocultos__en__altos'>
+
+										<button type='submit' class='btn btn-warning'><i class='fa fa-file-pdf-o' aria-hidden='true'></i>&nbsp;&nbsp;Generar pdf</button>
+
+									</div>
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center textos__titulos ocultos__en__altos'>
+
+										Subir reporte generado en pdf
+
+									</div>
+
+									<div class='fila__regresar__a col col-4 mt-4 text-center ocultos__en__altos'>
+
+										<input type='file' accept='application/pdf' id='archivoSubido__seguimientos' name='archivoSubido__seguimientos'>
+
+									</div>
+
+									<div class='fila__regresar__a col col-4 mt-4 text-center ocultos__en__altos'>
+
+										<input type='hidden' id='rotulo__recomendado' name='rotulo__recomendado'>
+
+										<a class='btn btn-primary' id='recomendarAltos' name='recomendarAltos'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;RECOMENDAR</a>
+
+									</div>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}		
+
+		public function get__modal__plantilla__inicios__seguimientos__actividad__fisica__ins2023($parametro1,$parametro2,$parametro3){
+
+			session_start();
+
+			$idUsuario=$_SESSION["idUsuario"];
+
+			$conexionRecuperada= new conexion();
+		 	$conexionEstablecida=$conexionRecuperada->cConexion();	
+
+		 	$query="SELECT a.id_usuario FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario WHERE a.id_usuario='$idUsuario' AND a.fisicamenteEstructura='1' AND b.id_rol='4'; ";
+			$resultado = $conexionEstablecida->query($query);
+
+
+			while($registro = $resultado->fetch()) {
+
+				$id_usuarioUsuarios=$registro['id_usuario'];
+
+			}
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<input type='hidden' id='idOrganismo' name='idOrganismo' />
+						<input type='hidden' id='periodo' name='periodo' />
+						<input type='hidden' id='idUSeguimientos' name='idUSeguimientos' />
+						<input type='hidden' id='tipoAct' name='tipoAct' />
+
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones' style='color:black!important; background:black!important;' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
+
+					        </div>
+
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<div class='fila__reasignar col col-2' style='font-weight:bold;'>
+
+								Reasignar a
+
+							</div>
+
+							<div class='fila__reasignar col col-8'>";
+							if (empty($id_usuarioUsuarios)) {
+								$modal.=	"<select class='ancho__total__input__selects selects__superiores1 superior__sin' id='selects__superiores1'></select>";
+							} else {
+								$modal.=	"<select class='ancho__total__input__selects selects__superiores1 superior__sin' multiple='multiple' style='height:80px!important;' id='selects__superiores1'></select>";
+							}
+							
+
+			$modal.=	"</div>
+
+
+							<div class='fila__reasignar col col-2 reasignar__solo text-center'>
+
+								<a class='btn btn-primary' id='reasignarSeguimientos__a__actividad__fisicas__in2023'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
+
+							</div>
+
+
+							<div class='fila__regresar__a col col-2' style='font-weight:bold;'>
+
+								Regresar a
+
+							</div>
+
+							<div class='fila__regresar__a col col-8'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+
+							</div>
+
+							<div class='fila__regresar__a col col-2'>
+
+								<a class='btn btn-warning' id='regresarSeguimientos__a__actividad__fisicas__in2023'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Regresar</a>
+
+							</div>
+
+
+
+							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
+
+								No corresponde
+
+							</div>		
+
+
+							<div class='fila__regresar__a__informe__recomendacion col col-8 oculto__file__recomendaciones text-left d d-flex justify-content-right'>
+
+								<a class='btn btn-danger' id='no__correspondeA'>No corresponde</a>
+
+							</div>
+
+
+
+							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
+
+								Subir informe de recomendación
+
+							</div>		
+
+							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
+
+								<input type='file' id='informe__recomendado' accept='application/pdf'/>
+
+							</div>					
+
+							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
+
+								<a class='btn btn-primary' id='recomendar__infraes'>Recomendar</a>
+
+							</div>
+
+							<div class='row'>
+
+								<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+									Observaciones
+
+								</div>
+
+								<div class='col col-10 observacionesReasignaciones'>
+
+									<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}	
+
+		public function get__modal__plantilla__inicios__seguimientos__alto2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos__altos'/>
+
+						<input type='hidden' id='idOrganismo' name='idOrganismo' />
+						<input type='hidden' id='periodo' name='periodo' />
+						<input type='hidden' id='idUSeguimientos' name='idUSeguimientos' />
+
+						<input type='hidden' id='indicadorArray' name='indicadorArray' />
+						<input type='hidden' id='metaProgramadaArray' name='metaProgramadaArray' />
+						<input type='hidden' id='metaResultadoArray' name='metaResultadoArray' />
+						<input type='hidden' id='porcentajeCumplimientoArray' name='porcentajeCumplimientoArray' />
+						<input type='hidden' id='objetivoS' name='objetivoS' />
+						<input type='hidden' id='areaAccion' name='areaAccion' />
+						
+						
+						
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+							<div class='col col-12 text-center' style='background:#1b5e20; color:white;padding-top:1.5em;padding-bottom:1.5em;'>
+
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - ORGANIZACIONES DEPORTIVAS - <span class='siglas__dinamicas' style='font-weight:bold;'></span> ( RSEP-<span class='siglas__dinamicas' style='font-weight:bold;'></span>-<span class='numerico__dinamicas'></span>)
+
+								<input type='hidden' id='siglas__dinamicas__inputs' name='siglas__dinamicas__inputs'/>
+								<input type='hidden' id='numerico__dinamicas__inputs' name='numerico__dinamicas__inputs'/>
+
+							</div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<div class='fila__reasignar col col-2' style='font-weight:bold;'>
+
+								Reasignar a
+
+							</div>
+
+							<div class='fila__reasignar col col-4'>
+
+								<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>
+
+								<select class='ancho__total__input__selects selects__superiores superior__con' id='selects__superiores__subsess'></select>
+
+							</div>
+
+
+							<div class='fila__reasignar col col-2 reasignar__solo text-center'>
+
+								<a class='btn btn-primary' id='reasignarSeguimientos__a__alto__rendimiento'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
+
+							</div>
+
+
+							<div class='fila__regresar__a col col-2' style='font-weight:bold;'>
+
+								Regresar a
+
+							</div>
+
+							<div class='fila__regresar__a col col-4'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+								<select class='ancho__total__input__selects regresar__superior__con selects__superiores__regresar' id='selects__superiores__regresar__coors'>
+								</select>
+
+							</div>
+
+							<div class='fila__regresar__a col col-2'>
+
+								<a class='btn btn-warning' id='regresarSeguimientos__a__alto__rendimiento'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Regresar</a>
+
+							</div>
+
+
+							<div class='col col-3'>
+
+								Click para ver reporte
+
+							</div>
+
+							<div class='col col-1'>
+
+								<input type='checkbox' id='seguimiento__tables' class='checkeds' />
+
+							</div>
+
+							<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+							<div class='row oculto__informacion'>
+
+								<input type='hidden' id='organismoOculto__modal' />
+
+									<div class='col col-2 textos__titulos'>
+
+										I EJERCICIO FISCAL
+
+									</div>
+
+									<div class='col col-1' style='font-weight:bold;'>
+
+										AÑO 
+
+									</div>
+
+									<div class='col col-4 text-left periodo__evaluados__anuales'></div>
+									<input type='hidden' id='periodo__evaluados__anuales' name='periodo__evaluados__anuales' />
+
+									
+									<input type='hidden' id='trimestre__evaluados__al' name='trimestre__evaluados__al' />
+
+
+									<div class='col col-12 row d-flex mt-4'>
+
+										<div class='col col-7 row'>
+
+											<div class='col col-12 text-left textos__titulos'>
+
+												II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+											</div>
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												NOMBRE DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='nombre__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='nombre__organizacion__deportivas' name='nombre__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												RUC DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='ruc__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='ruc__organizacion__deportivas' name='ruc__organizacion__deportivas' />
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PRESIDENTE O REPRESENTANTE LEGAL:
+
+											</div>
+
+											<div class='presidente__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='presidente__organizacion__deportivas' name='presidente__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+											</div>
+
+											<div class='correo__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='correo__organizacion__deportivas' name='correo__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												DIRECCIÓN COMPLETA:
+
+											</div>
+
+											<div class='direccion__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='direccion__organizacion__deportivas' name='direccion__organizacion__deportivas' />
+
+
+										</div>
+
+										<div class='col col-5 row'>
+
+											<div class='col col-12 text-left textos__titulos'>
+
+												III. UBICACIÓN GEOGRÁFICA
+
+											</div>
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PROVINCIA:
+
+											</div>
+
+											<div class='provincia__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='provincia__organizacion__deportivas' name='provincia__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												CANTÓN:
+
+											</div>
+
+											<div class='canton__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='canton__organizacion__deportivas' name='canton__organizacion__deportivas' />
+
+
+											<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+												PARROQUIA:
+
+											</div>
+
+											<div class='parroquia__organizacion__deportivas col col-6 mt-2'></div>
+
+											<input type='hidden' id='parroquia__organizacion__deportivas' name='parroquia__organizacion__deportivas' />
+
+
+											<input type='hidden' id='barrio__organizacion__deportivas' name='barrio__organizacion__deportivas' />
+
+										</div>
+
+									</div>
+
+									<div class='textos__titulos' style='display:none!important;'>
+
+										IV. DATOS GENERALES DEL CONVENIO
+
+									</div>
+
+									<div style='font-weight:bold; display:none!important;'>
+
+										NÚMERO DE CONVENIO:
+
+									</div>
+
+									<div style='display:none!important;'>
+
+										<input type='text' id='numeroConvenio__paid' name='numeroConvenio__paid' class='ancho__total__input solo__numero__montos'/>
+
+									</div>
+
+									<div style='font-weight:bold;display:none!important;'>
+
+										ADMINISTRADOR DEL CONVENIO:
+
+									</div>
+
+									<div style='display:none!important;'>
+
+										<input type='text' id='administradorConvenio__paid' name='administradorConvenio__paid' class='ancho__total__input'/>
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;display:none!important;'>
+
+										DOCUMENTO DE DESIGNACIÓN:
+
+									</div>
+
+									<div style='display:none!important;'>
+
+										<input type='text' id='documentoAsignacionConvenio__paid' name='documentoAsignacionConvenio__paid' class='ancho__total__input'/>
+
+									</div>
+
+									<div class='col col-12 textos__titulos'>
+
+										 IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										ÁREA DE ACCIÓN:
+
+									</div>
+
+
+									<div class='col col-8 areaAccion' ></div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										OBJETIVO ESTRATÉGICO INSTITUCIONAL:
+
+									</div>
+
+
+									<div class='col col-8 objetivoS' ></div>
+
+
+
+									<div class='col col-12 textos__titulos'>
+
+										 V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+									</div>
+
+									<div class='col col-12' style='font-weight:bold;'>
+
+										V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+
+									</div>
+
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										PERÍODO EVALUADO:
+
+									</div>
+
+
+									<div class='col col-8 periodo__evaluado' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='periodo__evaluado' name='periodo__evaluado' />
+
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+
+									</div>
+
+
+									<div class='col col-8 presupuesto__asignado__pais__altos' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='presupuesto__asignado__pais__altos' name='presupuesto__asignado__pais__altos' />
+
+
+									<div class='col col-12 textos__titulos'>
+
+										V.II. RESUMEN DE CUMPLIMIENTO TÉCNICO DEL POA
+
+									</div>
+
+									<div class='col col-12 text-center' style='font-weight:bold!important;'>
+
+										AVANCE DE METAS
+
+									</div>
+
+									<table class='mt-4 col col-12'>
+
+										<thead>
+
+											<tr>
+
+												<th>
+													<center>ACTIVIDADES</center>
+												</th>
+
+												<th>
+													<center>INDICADOR</center>
+												</th>
+
+												<th>
+													<center>META PLANIFICADA AL SEMESTRE (A)</center>
+												</th>
+
+												<th>
+													<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+												</th>
+
+												<th>
+													<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='cuerpo__items__alto__rendimientos'></tbody>
+
+										<tfoot class='footer__altos__indicadores'></tfoot>
+
+									</table>
+
+									<div class='col col-12 textos__titulos'>
+
+										V.III. OTROS ASPECTOS TÉCNICOS
+
+									</div>
+
+									<table>
+
+										<thead>
+
+											<tr>
+
+												<th colspan='4'>
+
+													<center><a class='btn btn-warning' id='agregar__indicadoresOtros'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;&nbsp;AGREGAR</a></center>
+
+												</th>
+
+											</tr>
+
+											<tr>
+
+												<th>
+													<center>INDICADOR</center>
+												</th>
+
+												<th>
+													<center>META PLANIFICADA AL SEMESTRE (A)</center>
+												</th>
+
+
+												<th>
+													<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+												</th>
+
+
+												<th>
+													<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody class='cuerpo__indicadores__altos'>
+
+											<tr>
+
+												<td>Número de eventos ejecutados al trimestre:</td>
+												<td><input type='text' id='eventos__eje__alto' name='eventos__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='meta__eje__alto' name='meta__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__eventos__e'></div>
+														<input type='text' id='porcentaje__c__eje__alto' name='porcentaje__c__eje__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>Número de eventos en los que participa al trimestre:</td>
+												<td><input type='text' id='eventos__eje__alto__parti' name='eventos__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='meta__eje__alto__parti' name='meta__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__eventos__e__parti'></div>
+														<input type='text' id='porcentaje__c__eje__alto__parti' name='porcentaje__c__eje__alto__parti' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>Cantidad de implementación deportiva al I trimestre:</td>
+												<td><input type='text' id='implementacion__de__eje__alto__meta' name='implementacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='implementacion__de__eje__alto__resultado' name='implementacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__implementacion__de__e'></div>
+														<input type='text' id='porcentaje__c__implementacion__de__e__alto' name='porcentaje__c__implementacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Número de beneficiarios de capacitaciones deportivas:</td>
+												<td><input type='text' id='beneficiarios__de__eje__alto__meta' name='beneficiarios__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='beneficiarios__de__eje__alto__resultado' name='beneficiarios__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__beneficiarios__de__e'></div>
+														<input type='text' id='porcentaje__c__beneficiarios__de__e__alto' name='porcentaje__c__beneficiarios__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Número de beneficiarios de eventos de preparación y competencias:</td>
+												<td><input type='text' id='preparacion__de__eje__alto__meta' name='preparacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td><input type='text' id='preparacion__de__eje__alto__resultado' name='preparacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
+												<td>
+													<div style='display:flex;'>
+														<div class='porcentaje__preparacion__de__e'></div>
+														<input type='text' id='porcentaje__c__preparacion__de__e__alto' name='porcentaje__c__preparacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
+													</div>
+												</td>
+
+											</tr>
+
+
+
+										</tbody>
+
+									</table>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										NÚMERO DE CAPACITADORES:
+
+									</div>
+
+
+									<div class='col col-6'>
+
+										<input type='text' id='capacitadores' name='capacitadores' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+									</div>
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										MONTO DE AUTOGESTIÓN REPORTADO AL SEMESTRE(USD):
+
+									</div>
+
+
+									<div class='col col-8 autogestion' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='autogestion' name='autogestion' />
+
+									<div class='col col-4' style='font-weight:bold;'>
+
+										% DE AUTOGESTIÓN EN RELACIÓN AL PRESUPUESTO POA ASIGNADO:
+
+									</div>
+
+									<div class='col col-8 porcentajeAutogestion' style='font-weight:bold;'></div>
+
+									<input type='hidden' id='porcentajeAutogestion' name='porcentajeAutogestion' />
+
+
+									<div class='col col-12 mt-2' style='font-weight:bold;'>
+
+										NÚMERO DE MEDALLAS ALCANZAS AL SEMESTRE:
+
+									</div>
+
+									<div class='col col-2'>
+
+										Oro
+
+									</div>
+
+									<div class='col col-2'>
+
+										<input type='text' id='oro__alto' name='oro__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+									</div>
+
+									<div class='col col-2'>
+
+										Plata
+
+									</div>
+
+									<div class='col col-2'>
+
+										<input type='text' id='plata__alto' name='plata__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+									</div>
+
+									<div class='col col-2'>
+
+										Bronce
+
+									</div>
+
+									<div class='col col-2'>
+
+										<input type='text' id='bronce__alto' name='bronce__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+
+									</div>	
+									
+									<div class='col col-12 '>
+
+										<table style='margin-top:.5em!important; width:80%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+											
+
+												<tr >
+
+													<th colspan='2'>
+
+														<center>NÚMERO DE  BENEFICIARIOS DE EVENTOS</center>
+
+													</th>
+								
+												</tr>
+
+												<tr>
+
+
+													<th>
+
+														<center>HOMBRES</center>
+
+													</th>
+
+													<td>
+														<center>
+														<input type='text' id='hombresB' class='solo__numero cambio__de__numero__f' name='hombresB' />
+														</center>
+													</td>
+
+													
+												</tr>
+
+													
+												<tr>
+												
+													<th>
+
+														<center>MUJERES</center>
+
+													</th>
+
+													
+													<td>
+														<center>
+														<input type='text' id='mujeresB' class='solo__numero cambio__de__numero__f' name='mujeresB' />
+														</center>
+													</td>
+
+													
+												</tr>
+
+													
+
+
+											
+
+
+										</table>
+
+										
+									</div>	
+
+									<input type='hidden' id='totalBeneficiarios' class='solo__numero cambio__de__numero__f' name='totalBeneficiarios' />
+
+									<div class='col col-12 textos__titulos'>
+
+									V.IV. VERIFICACIÓN DE PRESENTACIÓN DE INFORMACIÓN:
+
+									</div>
+
+									<table class='col col-12 mt-2'>
+
+										<thead>
+
+											<tr>
+
+												<th>
+
+													<center>DETALLE</center>
+
+												</th>
+
+
+												<th>
+
+													<center>CUMPLE</center>
+
+												</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody>
+
+											<tr>
+
+												<td>
+												Listado de asistentes de capacitaciones:	
+												</td>
+
+												<td>
+													<select id='lisAsisCap__tabla__alto' name='lisAsisCap__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Fotocopias de certificados de capacitaciones:	
+												</td>
+
+												<td>
+													<select id='fotCerCap__tabla__alto' name='fotCerCap__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>
+												Registro fotográfico de capacitaciones:	
+												</td>
+
+												<td>
+													<select id='regFotCap__tabla__alto' name='regFotCap__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Hojas de vida de profesionales:	
+												</td>
+
+												<td>
+													<select id='cvProf__tabla__alto' name='cvProf__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Contrato de profesionales:
+												</td>
+
+												<td>
+													<select id='contProf__tabla__alto' name='contProf__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>
+												Listados de asistencia de atletas suscrito por los entrenadores o coordinador técnico: 	
+												</td>
+
+												<td>
+													<select id='listAsisAtlSusEnt__tabla__alto' name='listAsisAtlSusEnt__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Informe médico y disciplinario de atletas:	
+												</td>
+
+												<td>
+													<select id='infMedico__tabla__alto' name='infMedico__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Registro fotográfico de los eventos deportivos:	
+												</td>
+
+												<td>
+													<select id='regFotEvenDep__tabla__alto' name='regFotEvenDep__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Reporte de resultados deportivo obtenidos en los eventos en los que participaron:	
+												</td>
+
+												<td>
+													<select id='repResDepObt__tabla__alto' name='repResDepObt__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Orden de compra o de servicio de implementación deportiva:		
+												</td>
+
+												<td>
+													<select id='ordCompImpl__tabla__alto' name='ordCompImpl__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Actas de entrega recepción de la implementación deportiva adquirida:	
+												</td>
+
+												<td>
+													<select id='actEntRecImp__tabla__alto' name='actEntRecImp__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td>
+												Factura de implementación deportiva:		
+												</td>
+
+												<td>
+													<select id='factImpDep__tabla__alto' name='factImpDep__tabla__alto' class='ancho__total__input__selects'>
+														<option value='0'>--Seleccione--</option>
+														<option value='Si'>Si</option>
+														<option value='No'>No</option>
+														<option value='Parcialmente'>Parcialmente</option>
+														<option value='N/A'>N/A</option>
+													</select>
+												</td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Observaciones:
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='observaciones__alto__seguis' name='observaciones__alto__seguis'></textarea>
+
+									<div class='col col-12 mt-2 ocultos__en__altos' style='font-weight:bold!important;'>
+										Recomendaciones: 
+									</div>
+
+									<textarea class='col col-12 ocultos__en__altos ancho__total__textareas' id='recomendaciones__alto__seguis' name='recomendaciones__alto__seguis'></textarea>
+
+
+									<div class='col col-12 d d-flex justify-content-center'>
+
+										<a target='_blank' class='btn btn-primary' href='reporteAnexosSe'>REPORTES Y ANEXOS</a>
+
+									</div>									
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center ocultos__en__altos'>
+
+										<button type='submit' class='btn btn-warning'><i class='fa fa-file-pdf-o' aria-hidden='true'></i>&nbsp;&nbsp;Generar pdf</button>
+
+									</div>
+
+									<div class='fila__regresar__a col col-2 mt-4 text-center textos__titulos ocultos__en__altos'>
+
+										Subir reporte generado en pdf
+
+									</div>
+
+									<div class='fila__regresar__a col col-4 mt-4 text-center ocultos__en__altos'>
+
+										<input type='file' accept='application/pdf' id='archivoSubido__seguimientos' name='archivoSubido__seguimientos'>
+
+									</div>
+
+									<input type='hidden' id='rotulo__recomendado' name='rotulo__recomendado' value='alto__rendimientos'/>
+
+									<div class='fila__regresar__a col col-4 mt-4 text-center ocultos__en__altos'>
+
+										<a class='btn btn-primary' id='recomendarAltos'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;RECOMENDAR</a>
+
+									</div>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}
+
 
 
 	}
