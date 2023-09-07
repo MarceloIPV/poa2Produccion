@@ -137,7 +137,7 @@
 
 		 $query="SELECT c.idItem FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE c.idOrganismo='$idOrganismos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND b.semestre='$semestre' AND c.semestre ='$semestre';";
 		 $resultado = $conexionEstablecida->query($query);
-
+		 
 		 while($registro = $resultado->fetch()) {
 			 
 			 array_push($array,$registro["idItem"]);
@@ -145,18 +145,19 @@
 		 }
 
 		$verificadorRepetidos=implode(",", $array);
-
+		
 		// if (empty($verificadorRepetidos)) {
 
 		$indicadorInformacion__mos=$objeto->getObtenerInformacionGeneral("SELECT a.idPda FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE b.idOrganismo='$idOrganismos' AND a.modifica='A' AND a.perioIngreso='$aniosPeriodos__ingesos' AND b.idActividad='5' AND a.semestre='$semestre' AND b.semestre='$semestre';");
-
+		
 		if (!empty($indicadorInformacion__mos[0][idPda])) {
-
+			
 			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT b.idItem,a.idPda,(SELECT a1.itemPreesupuestario FROM poa_item AS a1 WHERE a1.idItem=b.idItem) AS itemPreesupuestario,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_item AS a1 WHERE a1.idItem=b.idItem) AS nombreItem,a.tipoFinanciamiento,a.nombreEvento,a.detalleBien,a.justificacionAd,a.canitdarBie,a.enero,a.febrero,a.marzo,a.abril,a.mayo,a.junio,a.julio,a.agosto,a.septiembre,a.octubre,a.noviembre,a.diciembre,a.totalElem AS totalTotales,(SELECT a1.mes FROM poa_segimiento_competencias AS a1 WHERE a1.idAdministrativo=a.idPda LIMIT 1) AS mes,(SELECT SUM(mensualEjecutado) FROM poa_segimiento_competencias AS a1 WHERE a1.idAdministrativo=a.idPda GROUP BY a1.idOrganismo LIMIT 1) AS totalCompletados,a.fechaInicio,a.fechaFin,(SELECT a1.idEsigef FROM poa_esigef AS a1 WHERE a1.idOrganismo=b.idOrganismo) AS esigef,b.idActividad FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE b.idOrganismo='$idOrganismos' AND a.modifica='A' AND a.perioIngreso='$aniosPeriodos__ingesos' AND b.idActividad='5' AND a.semestre='$semestre' AND b.semestre='$semestre';");
-
+			
 		}else{
-			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT b.idItem,a.idPda,c.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.tipoFinanciamiento,a.nombreEvento,a.detalleBien,a.justificacionAd,a.canitdarBie,a.enero,a.febrero,a.marzo,a.abril,a.mayo,a.junio,a.julio,a.agosto,a.septiembre,a.octubre,a.noviembre,a.diciembre,a.totalElem AS totalTotales,(SELECT a1.mes FROM poa_segimiento_competencias AS a1 WHERE a1.idAdministrativo=a.idPda LIMIT 1) AS mes,(SELECT SUM(mensualEjecutado) FROM poa_segimiento_competencias AS a1 WHERE a1.idAdministrativo=a.idPda GROUP BY a1.idOrganismo LIMIT 1) AS totalCompletados,a.fechaInicio,a.fechaFin,(SELECT a1.idEsigef FROM poa_esigef AS a1 WHERE a1.idOrganismo=b.idOrganismo) AS esigef,b.idActividad FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS c ON c.idItem=b.idItem WHERE b.idOrganismo='$idOrganismos' AND b.idActividad='5' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.semestre='$semestre' AND b.semestre='$semestre  ORDER BY a.idPda DESC;");
-
+			
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT b.idItem,a.idPda,c.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.tipoFinanciamiento,a.nombreEvento,a.detalleBien,a.justificacionAd,a.canitdarBie,a.enero,a.febrero,a.marzo,a.abril,a.mayo,a.junio,a.julio,a.agosto,a.septiembre,a.octubre,a.noviembre,a.diciembre,a.totalElem AS totalTotales,(SELECT a1.mes FROM poa_segimiento_competencias AS a1 WHERE a1.idAdministrativo=a.idPda LIMIT 1) AS mes,(SELECT SUM(mensualEjecutado) FROM poa_segimiento_competencias AS a1 WHERE a1.idAdministrativo=a.idPda GROUP BY a1.idOrganismo LIMIT 1) AS totalCompletados,a.fechaInicio,a.fechaFin,(SELECT a1.idEsigef FROM poa_esigef AS a1 WHERE a1.idOrganismo=b.idOrganismo) AS esigef,b.idActividad FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS c ON c.idItem=b.idItem WHERE b.idOrganismo='$idOrganismos' AND b.idActividad='5' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.semestre='$semestre' AND b.semestre='$semestre'  ORDER BY a.idPda DESC;");
+			
 		}
 
 		// }else{
@@ -264,7 +265,7 @@
 	case "administrativos__seguis":
 
 		$semestre = validacionVariableTrimestre($trimestre);
-
+		
 		$indicadorInformacion__mos=$objeto->getObtenerInformacionGeneral("SELECT a.idActividadAd FROM poa_actividadesadministrativas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE b.idOrganismo='$idOrganismos' AND a.modifica='A' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.semestre='$semestre' AND b.semestre='$semestre';");
 
 		if (!empty($indicadorInformacion__mos[0][idActividadAd])) {
