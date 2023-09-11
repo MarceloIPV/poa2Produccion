@@ -11772,6 +11772,1919 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 		break;
 
+		case  "pdf__seguimientos__act__deportivas2023":
+
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			if ($tipoAct=="Formativo") {
+				$parametro1="../../documentos/seguimiento/informe__recreativos/";
+			} else {
+				$parametro1="../../documentos/seguimiento/informe__formativos/";
+			}
+			
+			$parametro2="seguimientoInformesTecnicos";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+
+
+			$documentoCuerpo="
+
+				<table style='width:100%'>
+
+					<tr>
+						<th colspan='1'>
+
+							<img  src='../../images/titulo__ministerio__deporte.png'/>
+
+						</th>
+				
+
+
+						<th colspan='7'>
+
+							<center>
+								
+								".$subsecretarias__escritas." -
+								".$direccion__escritas."
+
+							</center>
+
+						</th>
+
+		
+
+						<th colspan='1'>
+
+							<img  src='../../images/titulo__principis__ministerios.png'/>
+
+						</th>
+					</tr>
+
+							
+
+				</table>
+
+				<table style='width:100%!important;'>
+
+					<tr>
+
+						<th>
+
+							<center> <h1 style='font-weight:900;'>
+
+							<div style='font-size:10px!important; padding:.5em; background:#1b5e20; color:white!important;'>
+
+							REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - ORGANIZACIONES DEPORTIVAS - RSET-<span class='siglas__dinamicas' style='font-weight:bold;'>".$siglas__dinamicas__inputs."</span>-<span class='numerico__dinamicas'>".$numerico__dinamicas__inputs."</span>)
+
+							</div>
+
+							</h1></center>
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th>
+
+							<h1 style='font-weight:bold;'>
+
+							I EJERCICIO FISCAL
+
+							</h1>
+
+						</th>
+
+						<th>
+
+						AÑO
+
+						</th>
+
+						<td>
+
+							".$periodo__evaluados__anuales."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:.5em!important;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							NOMBRE DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$nombre__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							RUC DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$ruc__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							PRESIDENTE O REPRESENTANTE LEGAL:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$informacionCompletoDosI[0][nombreResponsablePoa]."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$correo__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							DIRECCIÓN COMPLETA:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$direccion__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							III. UBICACIÓN GEOGRÁFICA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							PROVINCIA
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$provincia__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							CANTÓN
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$canton__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+
+					<tr>
+
+						<th>
+
+							PARROQUIA
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$parroquia__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+				
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							 IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							ÁREA DE ACCIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+
+						".$areaAccion."
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							OBJETIVO ESTRATÉGICO INSTITUCIONAL
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+
+						".$objetivoS."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							 V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>	
+							V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+						</th>
+
+					</tr>
+					";
+					$semestre;
+					if($trimestre__evaluados__al == "I SEMESTRE"){
+						$semestre = "Enero - Junio";
+					}elseif($trimestre__evaluados__al == "II SEMESTRE"){
+						$semestre = "Julio - Diciembre";
+					}
+
+
+					$documentoCuerpo.="
+
+					<tr>
+
+						<td style='width:40%!important;'>	
+						<br>
+						PERÍODO EVALUADO:
+						</td>
+
+						<td style = 'background:#e8edff'>	
+						<br>
+							".$semestre."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td style='width:40%!important;'>	
+							PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+						</td>
+
+						<td style = 'background:#e8edff'>	
+							".$presupuesto__asignado__pais__altos."
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!important;'>
+
+					<tr>
+
+						<th>
+
+							V.II. RESUMEN DE CUMPLIMIENTO TÉCNICO DEL POA
+
+						</th>
+
+					</tr>
+
+				</table>
+				
+
+				<table style='margin-top:.5em!important; width:100%!important;'>
+
+					<tr>
+
+						<th>
+
+							<center> <h1 style='font-weight:900;'>AVANCE DE METAS</center>
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:1em!important;' border='1'>
+
+					<thead>
+
+						<tr>
+
+							<th>
+								<center>ACTIVIDADES</center>
+							</th>
+
+							<th>
+								<center>INDICADOR</center>
+							</th>
+
+							<th>
+								<center>META PLANIFICADA AL SEMESTRE (A)</center>
+							</th>
+
+							<th>
+								<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+							</th>
+
+							<th>
+								<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+							</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>";
+
+					foreach ($indicadores__altos as $clave => $valor) {
+
+						$percen=(floatval($valor[totalEjecutado])/floatval($valor[totalProgramado]))*100;
+
+						if ($percen>=85) {
+							
+							$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+						}else if($percen>=70 && $percen<85){
+
+							$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+						}else if($percen<70){
+
+							$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+						}
+
+					$documentoCuerpo.="
+
+						<tr>
+
+							<td><center>".$valor[nombreActividades]."</center></td>
+							<td><center>".$valor[nombreIndicador]."</center></td>
+							<td><center>".$valor[totalProgramado]."</center></td>
+							<td><center>".$valor[totalEjecutado]."</center></td>
+							<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."</center></td>
+
+						</tr>	
+
+					";
+
+				}
+
+
+
+				if ($porcentaje__c__eje__alto>=85) {
+					
+					$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__eje__alto>=70 && $porcentaje__c__eje__alto<85){
+
+					$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__eje__alto<70){
+
+					$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+				}
+
+				if ($porcentaje__c__eje__alto__parti>=85) {
+					
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__eje__alto__parti>=70 && $porcentaje__c__eje__alto__parti<85){
+
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__eje__alto__parti<70){
+
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+				}
+
+
+				if ($porcentaje__c__implementacion__de__e__alto>=85) {
+					
+					$div3="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__implementacion__de__e__alto>=70 && $porcentaje__c__implementacion__de__e__alto<85){
+
+					$div3="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__implementacion__de__e__alto<70){
+
+					$div3="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+				}
+
+
+
+				if ($porcentaje__c__beneficiarios__de__e__alto>=85) {
+					
+					$div4="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__beneficiarios__de__e__alto>=70 && $porcentaje__c__beneficiarios__de__e__alto<85){
+
+					$div4="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__beneficiarios__de__e__alto<70){
+
+					$div4="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+				}
+
+				if ($porcentaje__c__preparacion__de__e__alto>=85) {
+					
+					$div5="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__preparacion__de__e__alto>=70 && $porcentaje__c__preparacion__de__e__alto<85){
+
+					$div5="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__preparacion__de__e__alto<70){
+
+					$div5="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+				}
+
+				if ($tipoAct=="Formativo") {
+
+					if ($porcentaje__c__beneficiarios__capa__de__e__alto>=85) {
+						
+						$div6="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($porcentaje__c__beneficiarios__capa__de__e__alto>=70 && $porcentaje__c__beneficiarios__capa__de__e__alto<85){
+
+						$div6="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($porcentaje__c__beneficiarios__capa__de__e__alto<70){
+
+						$div6="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+					}
+
+
+
+					if ($porcentaje__c__even__prepa__capa__de__e__alto>=85) {
+						
+						$div7="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($porcentaje__c__even__prepa__capa__de__e__alto>=70 && $porcentaje__c__even__prepa__capa__de__e__alto<85){
+
+						$div7="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($porcentaje__c__even__prepa__capa__de__e__alto<70){
+
+						$div7="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+					}
+
+
+				}
+
+
+				$documentoCuerpo.="</tbody>
+
+					<tfoot></tfoot>
+
+				</table>				
+
+
+				<table style='width:100%!important; margin-top:1em!important;'>
+
+				<tr>
+
+					<th>V.III. OTROS ASPECTOS TÉCNICOS</th>
+
+				</tr>
+
+				</table>";
+
+				if ($tipoAct=="Formativo") {
+
+					$documentoCuerpo.="<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr>
+
+								<th>
+									<center>INDICADOR</center>
+								</th>
+
+								<th>
+									<center>META PLANIFICADA AL SEMESTRE (A)</center>
+								</th>
+
+
+								<th>
+									<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+								</th>
+
+
+								<th>
+									<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class='cuerpo__indicadores__altos'>
+
+							<tr>
+
+								<td>Número de eventos ejecutados al trimestre:</td>
+								<td>".$eventos__eje__alto."</td>
+								<td>".$meta__eje__alto."</td>
+								<td>
+
+									".$div1." ".$porcentaje__c__eje__alto."
+										
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>Número de eventos en los que participa al trimestre:</td>
+								<td>".$eventos__eje__alto__parti."</td>
+								<td>".$meta__eje__alto__parti."</td>
+								<td>
+
+									".$div2." ".$porcentaje__c__eje__alto__parti."
+															
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>Número de beneficiarios atendidos en las actividades del fomento deportivo:</td>
+								<td>".$implementacion__de__eje__alto__meta."</td>
+								<td>".$implementacion__de__eje__alto__resultado."</td>
+								<td>
+
+									".$div3." ".$porcentaje__c__implementacion__de__e__alto."
+
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>Número de actividades del fomento deportivo a las que se destina el recurso de operación deportiva:</td>
+								<td>".$beneficiarios__de__eje__alto__meta."</td>
+								<td>".$beneficiarios__de__eje__alto__resultado."</td>
+								<td>
+									
+															
+									".$div4." ".$porcentaje__c__beneficiarios__de__e__alto."
+		
+								</td>
+
+							</tr>
+
+
+							<tr>
+
+								<td>Cantidad de implementación deportiva al I trimestre:</td>
+								<td>".$preparacion__de__eje__alto__meta."</td>
+								<td>".$preparacion__de__eje__alto__resultado."</td>
+								<td>
+									
+									".$div5." ".$porcentaje__c__preparacion__de__e__alto."					
+
+								</td>
+
+							</tr>
+
+
+							<tr>
+
+								<td>Número de beneficiarios de capacitaciones deportivas:</td>
+								<td>".$beneficiarios__capa__de__eje__alto__meta."</td>
+								<td>".$beneficiarios__capa__de__eje__alto__resultado."</td>
+								<td>
+									
+									".$div6." ".$porcentaje__c__beneficiarios__capa__de__e__alto."					
+
+								</td>
+
+							</tr>
+
+
+							<tr>
+
+								<td>Número de beneficiarios de eventos de preparación y competencias:</td>
+								<td>".$beneficiarios__even__prepa__de__eje__alto__meta."</td>
+								<td>".$beneficiarios__even__prepa__de__eje__alto__resultado."</td>
+								<td>
+									
+									".$div7." ".$porcentaje__c__even__prepa__capa__de__e__alto."					
+
+								</td>
+
+							</tr>";
+
+
+						if (!empty($indicadorArray)) {
+									
+							$indicadorArray__1 = explode(",", $indicadorArray);
+							$metaProgramadaArray__1 = explode(",", $metaProgramadaArray);
+							$metaResultadoArray__1 = explode(",", $metaResultadoArray);
+							$porcentajeCumplimientoArray__1 = explode(",", $porcentajeCumplimientoArray);
+
+							foreach ($indicadorArray__1 as $key => $value) {
+								
+
+								if ($porcentajeCumplimientoArray__1[$key]>=85) {
+									
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+								}else if($porcentajeCumplimientoArray__1[$key]>=70 && $porcentajeCumplimientoArray__1[$key]<85){
+
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($porcentajeCumplimientoArray__1[$key]<70){
+
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+
+
+								$documentoCuerpo.="
+
+								<tr>
+
+									<td>".$indicadorArray__1[$key]."</td>
+									<td>".$metaProgramadaArray__1[$key]."</td>
+									<td>".$metaResultadoArray__1[$key]."</td>
+									<td>".$div1." ".$porcentajeCumplimientoArray__1[$key]."</td>
+
+								</tr>
+
+								";
+
+							}
+
+						}							
+
+					$documentoCuerpo.="</tbody>
+
+					</table>";
+
+				}else{
+
+					$documentoCuerpo.="<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr>
+
+								<th>
+									<center>INDICADOR</center>
+								</th>
+
+								<th>
+									<center>META PLANIFICADA AL SEMESTRE (A)</center>
+								</th>
+
+
+								<th>
+									<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+								</th>
+
+
+								<th>
+									<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class='cuerpo__indicadores__altos'>
+
+							<tr>
+
+								<td>Número de eventos ejecutados al trimestre:</td>
+								<td>".$eventos__eje__alto."</td>
+								<td>".$meta__eje__alto."</td>
+								<td>
+
+									".$div1." ".$porcentaje__c__eje__alto."
+										
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>Número de eventos en los que participa al trimestre:</td>
+								<td>".$eventos__eje__alto__parti."</td>
+								<td>".$meta__eje__alto__parti."</td>
+								<td>
+
+									".$div2." ".$porcentaje__c__eje__alto__parti."
+															
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>Cantidad de implementación deportiva al I trimestre:</td>
+								<td>".$implementacion__de__eje__alto__meta."</td>
+								<td>".$implementacion__de__eje__alto__resultado."</td>
+								<td>
+
+									".$div3." ".$porcentaje__c__implementacion__de__e__alto."
+
+								</td>
+
+							</tr>
+
+							<tr>
+
+								<td>Número de beneficiarios de capacitaciones deportivas:</td>
+								<td>".$beneficiarios__de__eje__alto__meta."</td>
+								<td>".$beneficiarios__de__eje__alto__resultado."</td>
+								<td>
+									
+															
+									".$div4." ".$porcentaje__c__beneficiarios__de__e__alto."
+		
+								</td>
+
+							</tr>
+
+
+							<tr>
+
+								<td>Número de beneficiarios de eventos de recreación:</td>
+								<td>".$preparacion__de__eje__alto__meta."</td>
+								<td>".$preparacion__de__eje__alto__resultado."</td>
+								<td>
+									
+									".$div5." ".$porcentaje__c__preparacion__de__e__alto."					
+
+								</td>
+
+							</tr>";
+
+
+						if (!empty($indicadorArray)) {
+							
+							$indicadorArray__1 = explode(",", $indicadorArray);
+							$metaProgramadaArray__1 = explode(",", $metaProgramadaArray);
+							$metaResultadoArray__1 = explode(",", $metaResultadoArray);
+							$porcentajeCumplimientoArray__1 = explode(",", $porcentajeCumplimientoArray);
+
+							foreach ($indicadorArray__1 as $key => $value) {
+								
+
+								if ($porcentajeCumplimientoArray__1[$key]>=85) {
+									
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+								}else if($porcentajeCumplimientoArray__1[$key]>=70 && $porcentajeCumplimientoArray__1[$key]<85){
+
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($porcentajeCumplimientoArray__1[$key]<70){
+
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+
+
+								$documentoCuerpo.="
+
+								<tr>
+
+									<td>".$indicadorArray__1[$key]."</td>
+									<td>".$metaProgramadaArray__1[$key]."</td>
+									<td>".$metaResultadoArray__1[$key]."</td>
+									<td>".$div1." ".$porcentajeCumplimientoArray__1[$key]."</td>
+
+								</tr>
+
+								";
+
+							}
+
+						}							
+
+				$documentoCuerpo.="</tbody>
+
+					</table>";
+
+
+				}
+
+
+
+			if ($tipoAct=="Formativo") {
+
+				$documentoCuerpo.="
+					<table style='margin-top:.5em!important; width:100%!importan;'>
+
+						
+						<tr>
+
+							<td style='width:40%!important;'>	
+							<br>
+							NÚMERO DE CAPACITADORES:
+							</td>
+
+							<td style = 'background:#e8edff'>	
+							<br>
+								".$numeroCapacitadores."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td style='width:40%!important;'>	
+								MONTO DE AUTOGESTIÓN REPORTADO AL SEMESTRE (USD):
+							</td>
+
+							<td style = 'background:#e8edff'>	
+								".$presupuesto__autogestion__asignado__pais__altos."
+							</td>
+
+						</tr>";
+
+						$porcentaje = ($presupuesto__autogestion__asignado__pais__altos * 100) / $presupuesto__asignado__pais__altos;
+	
+						$documentoCuerpo.="
+
+						<tr>
+
+							<td style='width:40%!important;'>	
+								% DE AUTOGESTIÓN EN RELACIÓN AL PRESUPUESTO POA ASIGNADO:
+							</td>
+
+							<td style = 'background:#e8edff'>	
+							". number_format((float)$porcentaje, 2, '.', '')." %
+							</td>
+
+						</tr>
+
+					</table>
+
+					<table style='width:100%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<th>
+								NÚMERO DE MEDALLAS ALCANZAS EN EL TRIMESTRE:
+							</th>
+
+						</tr>
+
+					</table>
+
+					<table style='margin-top:.5em!important; width:30%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr >
+
+								<th colspan='2'  style = 'background:#e8edff'>
+
+									<center>NÚMERO DE MEDALLAS ALCANZAS EN EL TRIMESTRE:</center>
+
+								</th>
+			
+							</tr>
+
+							<tr>
+
+								<th>
+
+									<center>Oro</center>
+
+								</th>
+								<td>
+
+									<center>".$oro__alto."</center>
+								
+								</td>
+
+							</tr>
+
+						</thead>
+
+						<tbody>
+
+							<tr>
+
+						
+								<th>
+
+									<center>Plata</center>
+
+								</th>
+
+
+								<td>
+
+									<center>".$plata__alto."</center>
+
+								</td>
+
+							
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									<center>Bronce</center>
+
+								</th>
+								<td>
+
+									<center>".$bronce__alto."</center>
+								
+								</td>
+
+							</tr>
+
+							
+
+
+						</tbody>
+
+					</table>
+
+				
+					
+					<table style='margin-top:.5em!important; width:80%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr >
+
+								<th colspan='4'>
+
+									<center>NÚMERO DE BENEFICIARIOS</center>
+
+								</th>
+			
+							</tr>
+
+							<tr>
+
+								<th>
+
+									<center>GRUPOS ETARIOS</center>
+
+								</th>
+
+
+								<th>
+
+									<center>HOMBRES</center>
+
+								</th>
+
+								<th>
+
+									<center>MUJERES</center>
+
+								</th>
+
+								<th>
+
+									<center>TOTAL</center>
+
+								</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody>
+
+							<tr>
+
+								<td>De 5 a 17 años atendidos</td>
+							
+						
+								<td>
+
+									".$hombresB."
+
+								</td>
+
+								<td>
+
+									".$mujeresB."
+
+								</td>
+
+								<td>
+
+									".$totalB."
+
+								</td>
+
+							</tr>
+
+							<tr>
+								<td>De 18 a 69 años atendidos</td>
+
+								<td>
+
+									".$hombresB18."
+
+								</td>
+
+								<td>
+
+									".$mujeresB18."
+
+								</td>
+
+								<td>
+
+									".$totalB18."
+
+								</td>
+
+							</tr>
+
+
+						</tbody>
+
+					</table>";
+
+			}else{
+
+				$documentoCuerpo.="
+
+					<table style='margin-top:.5em!important; width:100%!importan;'>
+
+						
+						<tr>
+
+							<td style='width:40%!important;'>	
+							<br>
+							NÚMERO DE CAPACITADORES:
+							</td>
+
+							<td style = 'background:#e8edff'>	
+							<br>
+								".$numeroCapacitadores."
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td style='width:40%!important;'>	
+								MONTO DE AUTOGESTIÓN REPORTADO AL SEMESTRE (USD):
+							</td>
+
+							<td style = 'background:#e8edff'>	
+								".$presupuesto__autogestion__asignado__pais__altos."
+							</td>
+
+						</tr>
+
+						";
+
+						$porcentaje = ($presupuesto__autogestion__asignado__pais__altos * 100) / $presupuesto__asignado__pais__altos;
+	
+						$documentoCuerpo.="
+						<tr>
+
+							<td style='width:40%!important;'>	
+								% DE AUTOGESTIÓN EN RELACIÓN AL PRESUPUESTO POA ASIGNADO:
+							</td>
+
+							<td style = 'background:#e8edff'>	
+							". number_format((float)$porcentaje, 2, '.', '')." %
+							</td>
+
+						</tr>
+
+					</table>
+
+			
+				<table style='margin-top:.5em!important; width:80%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+					<thead>
+
+						<tr >
+
+							<th colspan='4'>
+
+								<center>NÚMERO DE BENEFICIARIOS</center>
+
+							</th>
+		
+						</tr>
+
+						<tr>
+
+							<th>
+
+								<center>GRUPOS ETARIOS</center>
+
+							</th>
+
+
+							<th>
+
+								<center>HOMBRES</center>
+
+							</th>
+
+							<th>
+
+								<center>MUJERES</center>
+
+							</th>
+
+							<th>
+
+								<center>TOTAL</center>
+
+							</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+							<tr>
+
+								<td>De 5 a 17 años atendidos</td>
+							
+						
+								<td>
+
+									".$hombresB."
+
+								</td>
+
+								<td>
+
+									".$mujeresB."
+
+								</td>
+
+								<td>
+
+									".$totalB."
+
+								</td>
+
+							</tr>
+
+							<tr>
+								<td>De 18 a 69 años atendidos</td>
+
+								<td>
+
+									".$hombresB18."
+
+								</td>
+
+								<td>
+
+									".$mujeresB18."
+
+								</td>
+
+								<td>
+
+									".$totalB18."
+
+								</td>
+
+							</tr>
+
+
+					</tbody>
+
+
+				</table>";
+
+			}
+
+
+			$documentoCuerpo.="<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<th>
+							PRESENTA INFORMACIÓN:
+						</th>
+
+					</tr>
+
+				</table>";
+
+			if ($tipoAct=="Formativo") {
+
+			$documentoCuerpo.="	
+
+			<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+					<thead>
+
+						<tr>
+
+							<th>
+
+								<center>DETALLE</center>
+
+							</th>
+
+
+							<th>
+
+								<center>CUMPLE</center>
+
+							</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<tr>
+
+							<td>
+								Listado de asistentes de capacitaciones:
+							</td>
+
+							<td>
+
+								".$listAsistCapForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Fotocopias de certificados de capacitaciones:
+							</td>
+
+							<td>
+
+								".$fotCertifCapForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+
+						<tr>
+
+							<td>
+							Registro fotográfico de capacitaciones:
+							</td>
+
+							<td>
+
+								".$regFotCapaFrom__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+								Hojas de vida de profesionales:
+							</td>
+
+							<td>
+
+								".$cvForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Contrato de profesionales:
+							</td>
+
+							<td>
+
+								".$contratosForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Registro fotográfico de los eventos deportivos:
+							</td>
+
+							<td>
+
+								".$registroFotEventoForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Listados de asistencia de atletas suscrito por entrenador o coordinador técnico: 
+							</td>
+
+							<td>
+
+								".$listadoAsistenciaAtl__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Orden de compra o de servicio de implementación deportiva:
+							</td>
+
+							<td>
+
+								".$ordenCompraForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Actas de entrega recepción de la implementación deportiva adquirida:
+							</td>
+
+							<td>
+
+								".$actasForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Factura de implementación deportiva:
+							</td>
+
+							<td>
+
+								".$facturaForm__tabla__alto."
+
+							</td>
+
+						</tr>
+
+
+					</tbody>
+
+				</table>";
+
+
+			}else{
+
+			$documentoCuerpo.="	
+
+			<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+					<thead>
+
+						<tr>
+
+							<th>
+
+								<center>DETALLE</center>
+
+							</th>
+
+
+							<th>
+
+								<center>CUMPLE</center>
+
+							</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<tr>
+
+							<td>
+								Listado de asistentes de capacitaciones:
+							</td>
+
+							<td>
+
+								".$listAsisCapRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Fotocopias de certificados de capacitaciones:
+							</td>
+
+							<td>
+
+								".$fotCertCapRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+
+						<tr>
+
+							<td>
+							Registro fotográfico de capacitaciones:
+							</td>
+
+							<td>
+
+								".$regFotCapRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+								Hojas de vida de profesionales:
+							</td>
+
+							<td>
+
+								".$cvRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Contrato de profesionales:
+							</td>
+
+							<td>
+
+								".$contratoRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Registro fotográfico de los eventos recreativos:
+							</td>
+
+							<td>
+
+								".$regFotEvenRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Listado de participantes de eventos recreativos:
+							</td>
+
+							<td>
+
+								".$listPartEven__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Orden de compra o de servicio de implementación deportiva:
+							</td>
+
+							<td>
+
+								".$ordCompRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Actas de entrega recepción de la implementación deportiva adquirida:
+							</td>
+
+							<td>
+
+								".$actEntregaRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Factura de implementación deportiva:
+							</td>
+
+							<td>
+
+								".$facturaRec__tabla__alto."
+
+							</td>
+
+						</tr>
+
+
+					</tbody>
+
+				</table>";
+
+
+			}
+
+			$documentoCuerpo.="
+
+			<table style='width:100%!important; margin-top:.5em!important;'>
+
+					<tr>
+
+						<th>
+							Observaciones:
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<td>
+							".nl2br($observaciones__alto__seguis)."
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:.5em!important;'>
+
+					<tr>
+
+						<th>
+							Recomendaciones:
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<td>
+							".nl2br($recomendaciones__alto__seguis)."
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<td style='width:100%!important; text-align:right;'>
+
+							Fecha de emisión&nbsp;&nbsp; ".$dia."/ ".$mes."/ ".$anio."
+									
+						</td>
+
+					</tr>
+
+
+				</table>";
+
+				if (strpos($direccion__escritas, "COORDINACIÓN") !== false){
+					$documentoCuerpo.="
+					<table border='1' style='border-collapse: collapse; margin-top:2em!important; margin-top:1em!important; width:100%!importan;'>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>ELABORADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombre]." ".$usuarioUsados__seguimientos[0][apellido]."</div>
+									<div>".$usuarioUsados__seguimientos[0][descripcionPuestoInstitucional]."</div>
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>REVISADO Y APROBADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombreSuperior]." ".$usuarioUsados__seguimientos[0][apellidoSuperior]."</div>
+									<div>".$usuarioUsados__seguimientos[0][cargoSuperior]."</div>
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+						
+	
+					</table>
+	
+					";
+
+				}else{
+
+					$documentoCuerpo.="
+					<table border='1' style='border-collapse: collapse; margin-top:2em!important; margin-top:1em!important; width:100%!importan;'>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>ELABORADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombre]." ".$usuarioUsados__seguimientos[0][apellido]."</div>
+									<div>".$usuarioUsados__seguimientos[0][descripcionPuestoInstitucional]."</div>
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>REVISADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos[0][nombreSuperior]." ".$usuarioUsados__seguimientos[0][apellidoSuperior]."</div>
+									<div>".$usuarioUsados__seguimientos[0][cargoSuperior]."</div>
+								
+								</center>		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>";
+						
+						$sup = $usuarioUsados__seguimientos[0][PersonaACargo];
+	
+						$usuarioUsados__seguimientos2=$objeto->getObtenerInformacionGeneral("SELECT b.descripcionPuestoInstitucional,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS nombreSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS apellidoSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.descripcionPuestoInstitucional, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 INNER JOIN th_puestoinstitucional AS a2 ON a1.puestoInstitucional=a2.id_PuestoInstitucional WHERE a1.id_usuario=a.PersonaACargo) AS cargoSuperior FROM th_usuario AS a INNER JOIN th_puestoinstitucional AS b ON a.puestoInstitucional=b.id_PuestoInstitucional WHERE a.id_usuario='$sup';");
+						
+						$documentoCuerpo.="
+	
+						<tr>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+								<center>
+	
+									<div>APROBADO POR:</div>
+									<br>
+									<div>".$usuarioUsados__seguimientos2[0][nombreSuperior]." ".$usuarioUsados__seguimientos2[0][apellidoSuperior]."</div>
+									<div>".$usuarioUsados__seguimientos2[0][cargoSuperior]."</div>
+								
+								</center>		
+								
+								
+		
+	
+							</th>
+	
+							<th style='height:50px!important; width:50%!important;'>
+	
+	
+							</th>
+	
+						</tr>
+	
+						
+	
+					</table>
+	
+					";
+				}
+
+
+
+
+		break;
+
 
 
 		case  "pdf__seguimientos__altos":
@@ -22126,11 +24039,11 @@ internacional, organizaciones no gubernamentales, entre otros.
 							if($trimestre__evaluados__al=="I SEMESTRE"){
 
 
-								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anuales1'");
 
 							}else if($trimestre__evaluados__al=="II SEMESTRE"){
 
-								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anuales1'");
 
 							}
 
@@ -22222,11 +24135,11 @@ internacional, organizaciones no gubernamentales, entre otros.
 							if($trimestre__evaluados__al=="I SEMESTRE"){
 
 
-								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anualesContratacion1'");
 
 							}else if($trimestre__evaluados__al=="II SEMESTRE"){
 
-								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anualesContratacion1'");
 
 							}
 
