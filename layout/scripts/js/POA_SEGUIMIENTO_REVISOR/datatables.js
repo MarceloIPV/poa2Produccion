@@ -772,6 +772,9 @@ var funcion__reasignar__contratacion_publica__unidos__altos2023=function(tbody,t
               paqueteDeDatosContratacion1.append("tipo", "selectorTablapagosSinContratacionPublica");
               paqueteDeDatosContratacion1.append("idOrganismo",  $("#idOrganismo").val());
               paqueteDeDatosContratacion1.append("semestre", $("#trimestre__evaluados__al").val());
+              paqueteDeDatosContratacion1.append("anioEvaluadorr", $("#periodo__evaluados__anuales1").val());
+              
+
               
               $.ajax({
             
@@ -819,6 +822,9 @@ var funcion__reasignar__contratacion_publica__unidos__altos2023=function(tbody,t
               paqueteDeDatosContratacion2.append("tipo", "selectorTablapagosConContratacionPublica");
               paqueteDeDatosContratacion2.append("idOrganismo",  $("#idOrganismo").val());
               paqueteDeDatosContratacion2.append("semestre", $("#trimestre__evaluados__al").val());
+              paqueteDeDatosContratacion2.append("anioEvaluadorr", $("#periodo__evaluados__anuales1").val());
+
+              
               
               $.ajax({
             
@@ -2462,7 +2468,7 @@ var funcion__reasignar__seguimientos__unidos__altos2023=function(tbody,table){
   
         var paqueteDeDatos = new FormData();
   
-        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
+        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos2');
   
         paqueteDeDatos.append("idOrganismo",data[17]);
   
@@ -2476,7 +2482,7 @@ var funcion__reasignar__seguimientos__unidos__altos2023=function(tbody,table){
       $.ajax({
   
           type:"POST",
-          url:"modelosBd/inserta/seleccionaAcciones.md.php",
+          url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
           contentType: false,
           data:paqueteDeDatos,
           processData: false,

@@ -14309,6 +14309,8 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes=function(tbod
                     let indicadorInformacion2=elementos['indicadorInformacion2'];
                     let indicadorInformacion3=elementos['indicadorInformacion3'];
 
+                    
+
                     datatablets($(parametro2),parametro3,[data[7],parametro4,parametro5],false,false,[false],[false],false);
 
                     if (indicadorInformacion2!=null && indicadorInformacion2!=undefined && indicadorInformacion2!=" " && indicadorInformacion2!="") {

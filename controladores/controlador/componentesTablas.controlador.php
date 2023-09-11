@@ -8809,7 +8809,7 @@
 
 					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
 
-						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos__act__deportivas'/>
+						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos__act__deportivas2023'/>
 
 						<input type='hidden' id='idOrganismo' name='idOrganismo' />
 						<input type='hidden' id='periodo' name='periodo' />

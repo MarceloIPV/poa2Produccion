@@ -1240,7 +1240,7 @@
 					<li class="nav-item">
 
 						<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
-							<p>Organismos deportivos</p>
+							<p>Estado Envío Información Trimestral</p>
 						</a>
 
 					</li>
@@ -1357,13 +1357,19 @@
 
 				</li>
 
-				<li class="nav-item">
+				
+
+				<?php if (intval($_SESSION["selectorAniosA"])==2022): ?>
+
+					<li class="nav-item">
 
 					<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
 						<p>Organismos deportivos</p>
 					</a>
 
-				</li>
+					</li>
+
+				<?php endif ?>
 
 				<li class="nav-item">
 
@@ -1372,6 +1378,28 @@
 					</a>
 
 				</li>
+
+
+				<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+
+					<li class="nav-item">
+
+						<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
+							<p>Estado Envío Información Trimestral</p>
+						</a>
+
+					</li>
+
+
+					<li class="nav-item">
+
+						<a href="resumenTransferencias" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'resumenTransferencias'); ?>">
+							<p>Consulta de Transferencias</p>
+						</a>
+
+					</li>
+
+				<?php endif ?>
 
 			</ul>
 

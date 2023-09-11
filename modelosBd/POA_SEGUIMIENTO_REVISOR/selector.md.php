@@ -724,11 +724,11 @@
 
 			if($semestre=="I SEMESTRE"){
 
-				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$anioEvaluadorr'");
 
 			}else if($semestre == "II SEMESTRE"){
 
-				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$aniosPeriodos__ingesos'");
+				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$anioEvaluadorr'");
 			}
 
 			
@@ -742,11 +742,11 @@
 
 			if($semestre=="I SEMESTRE"){
 
-				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='2022'");
+				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$anioEvaluadorr'");
 
 			}else if($semestre == "II SEMESTRE"){
 
-				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='2022'");
+				$indicadorInformacion=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$anioEvaluadorr'");
 			}
 
 			
