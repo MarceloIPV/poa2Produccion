@@ -12,7 +12,7 @@
 
 		case "paid_general":
             $informacion=$objeto->getObtenerInformacionGeneral("SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreComponentes, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreComponentes,d.nombreIndicadores,d.idIndicadores,a.idComponentes,
-			REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreRubros, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreRubros,a.idAsignacion FROM poa_paid_asignacion AS a 
+			REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreRubros, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreRubros,a.idAsignacion,a.montos FROM poa_paid_asignacion AS a 
 			INNER JOIN poa_paid_componentes AS b ON a.idComponentes=b.idComponentes 
 			INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros INNER JOIN poa_paid_indicadores AS d ON d.idIndicadores=b.idIndicador 
 			WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.valor__comparativo='$identificador' 
@@ -163,7 +163,7 @@
 			  SELECT valorTotal FROM poa_paid_eventos where idOrganismo='$idOrganismoSession' AND perioIngreso='$aniosPeriodos__ingesos'  
 			  
 			  
-			) as CombinedTable INNER JOIN poa_paid_asignacion_dos AS b WHERE b.idOrganismo='$idOrganismoSession' AND b.perioIngreso='$aniosPeriodos__ingesos' and b.valor__comparativo='$identificador' ");
+			) as CombinedTable INNER JOIN poa_paid_asignacion_dos AS b WHERE b.idOrganismo='$idOrganismoSession' AND b.perioIngreso='$aniosPeriodos__ingesos' and b.estado='A' and b.valor__comparativo='$identificador' ");
 
 			$jason['informacion']=$informacion;
 		  break;
@@ -188,7 +188,7 @@
 			  SELECT valorTotal FROM poa_paid_eventos where idOrganismo='$idOrganismoSession' AND perioIngreso='$aniosPeriodos__ingesos'  and idComponente='$idComponente' and idRubro='$idRubro'
 			  
 			  
-			) as CombinedTable INNER JOIN poa_paid_asignacion AS b WHERE b.idOrganismo='$idOrganismoSession' AND b.perioIngreso='$aniosPeriodos__ingesos' and idComponentes='$idComponente' and idRubros='$idRubro' ");
+			) as CombinedTable INNER JOIN poa_paid_asignacion AS b WHERE b.idOrganismo='$idOrganismoSession' and b.estado='A' AND b.perioIngreso='$aniosPeriodos__ingesos' and idComponentes='$idComponente' and idRubros='$idRubro' ");
 
 			$jason['informacion']=$informacion;
 		  break;

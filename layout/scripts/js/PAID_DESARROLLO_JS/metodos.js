@@ -237,7 +237,7 @@ var mostrarbtnEnviarPaid = function (boton) {
 
   $(boton).click(function (e) {
     
-        if($("#montoPorAsignarDesarrollo").attr("valor") == 0){
+        if($("#montoPorAsignarPaidGeneralDesarrollo").attr("valor") == 0){
           $("#btnEnviarPAIDdesarrollo").show();
         }
   });

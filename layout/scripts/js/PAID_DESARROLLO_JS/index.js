@@ -199,6 +199,8 @@ $(document).ready(function () {
         CargarSelector_deporte_provincias_Paid_DesarrolloJN($("#btnNuevoSeguroProvincia"),"obtener_deporte_Hosp_Alim","selectorSeguroProvincia",$("#identificador").val());
         CargarSelector_deporte_provincias_Paid_DesarrolloJN($("#btnNuevoTransporteProvincia"),"obtener_deporte_Hosp_Alim","selectorTransporteProvincia",$("#identificador").val());
 
+        
+
     });
 
     $.getScript("layout/scripts/js/PAID_DESARROLLO_JS/metodos.js",function(){

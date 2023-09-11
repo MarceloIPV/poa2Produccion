@@ -52,35 +52,46 @@ var datatabletsDesarollo=function(tabla,tipo){
 
       dom: 'Bfrtip',
       buttons: [
-           'excel',
-            {
-              extend: 'pdf',
-              text: 'PDF',
-              orientation: 'landscape',
-              customize:function(doc) {
+        {
+          
+          extend: 'excel',
+          className: 'btn-excel',
+          text: '<button  class="buttonD" ><i class="fas fa-file-excel" style="color: #277c41; font-size: 36px;" ></i></button>',
 
-                  doc.defaultStyle.fontSize = 6;
+      
+          
 
-                  doc.styles.title = {
-                      color: 'black',
-                      fontSize: '8',
-                      alignment: 'center',
-                      margin:'0'                                                
-                  }
+      },
+    
+      {
+        extend: 'pdf',
+        text: '<button  class="buttonD" ><i class="fas fa-file-pdf " style="color: #BF0D0D; font-size: 36px;"></i></button>',
+       
+        orientation: 'landscape',
+        customize:function(doc) {
 
-                  doc.styles.tableHeader = {
+            doc.defaultStyle.fontSize = 6;
 
-                      fillColor:'#311b92',
-                      fontSize: '8',
-                      color:'white',
-                      alignment:'center',
-                                      
-                  }
+            doc.styles.title = {
+                color: 'black',
+                fontSize: '6',
+                alignment: 'center',
+                margin:'0'                                                
+            }
+            doc.styles.tableHeader = {
 
-              }
+              fillColor:'#311b92',
+              fontSize: '6',
+              color:'white',
+              alignment:'center',
+                              
+          }
+          
 
           }
-      ],
+
+        }
+    ],
     
       "bLengthChange": false,
       "pagingType": "full_numbers",
@@ -276,10 +287,21 @@ var datatabletsDesarollo=function(tabla,tipo){
   
         dom: 'Bfrtip',
         buttons: [
-             'excel',
+                {
+                  
+                  extend: 'excel',
+                  className: 'btn-excel',
+                  text: '<button  class="buttonD" ><i class="fas fa-file-excel" style="color: #277c41; font-size: 36px;" ></i></button>',
+     
+              
+                  
+
+              },
+            
               {
                 extend: 'pdf',
-                text: 'PDF',
+                text: '<button  class="buttonD" ><i class="fas fa-file-pdf " style="color: #BF0D0D; font-size: 36px;"></i></button>',
+               
                 orientation: 'landscape',
                 customize:function(doc) {
   
@@ -287,23 +309,23 @@ var datatabletsDesarollo=function(tabla,tipo){
   
                     doc.styles.title = {
                         color: 'black',
-                        fontSize: '8',
+                        fontSize: '6',
                         alignment: 'center',
                         margin:'0'                                                
                     }
-  
                     doc.styles.tableHeader = {
+
+                      fillColor:'#311b92',
+                      fontSize: '6',
+                      color:'white',
+                      alignment:'center',
+                                      
+                  }
+                  
   
-                        fillColor:'#311b92',
-                        fontSize: '8',
-                        color:'white',
-                        alignment:'center',
-                                        
-                    }
+                  }
   
                 }
-  
-            }
         ],
       
         "bLengthChange": false,
@@ -413,6 +435,48 @@ var datatabletsDesarolloCompleto=function(tabla,tipo){
         "sSortDescending": ": Activar para ordenar la columna de manera descendente"
       }
     },
+    dom: 'Bfrtip',
+    buttons: [
+                {
+                  
+                  extend: 'excel',
+                  className: 'btn-excel',
+                  text: '<button  class="buttonD" ><i class="fas fa-file-excel" style="color: #277c41; font-size: 36px;" ></i></button>',
+     
+              
+                  
+
+              },
+            
+              {
+                extend: 'pdf',
+                text: '<button  class="buttonD" ><i class="fas fa-file-pdf " style="color: #BF0D0D; font-size: 36px;"></i></button>',
+               
+                orientation: 'landscape',
+                customize:function(doc) {
+  
+                    doc.defaultStyle.fontSize = 6;
+  
+                    doc.styles.title = {
+                        color: 'black',
+                        fontSize: '6',
+                        alignment: 'center',
+                        margin:'0'                                                
+                    }
+                    doc.styles.tableHeader = {
+
+                      fillColor:'#311b92',
+                      fontSize: '6',
+                      color:'white',
+                      alignment:'center',
+                                      
+                  }
+                  
+  
+                  }
+  
+                }
+    ],
   
     "bLengthChange": false,
     "pagingType": "full_numbers",
