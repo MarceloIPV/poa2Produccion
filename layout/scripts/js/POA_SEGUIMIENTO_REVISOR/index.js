@@ -181,7 +181,6 @@ $(document).ready(function () {
         deshabilitarUnCheck("#seguimiento__tables","#seguimiento__tables_Contratacion_Publica");
         
         
-
         regresarEstadoOriginalSubirArchivo("#btnCerrarSubirTransferencias",".drop_boxSubirArchivoTransferenciasCSV" ,"#satCSV");
         regresarEstadoOriginalSubirArchivo("#btnCerrarSubirBancos",".drop_boxSubirArchivoBancosCSV" ,"#sabCSV");
        

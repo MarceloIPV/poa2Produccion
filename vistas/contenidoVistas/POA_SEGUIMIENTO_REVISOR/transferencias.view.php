@@ -255,11 +255,18 @@
 
 		 datatabletsSeguimientoRevisorVacio($("#seguimiento__tablas__remanentes"),"seguimiento__tablas__remanentes","s",objetos([6],["boton"],["<center><button class='remantes__asignados estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarRemanentes__asignados'><i class='fas fa-user-edit'></i></button><center>"],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__remanentes__asignados"]);
 
-		
+		subirArchivos(".drop_boxSubirArchivoTransferenciasCSV","#satCSV");
+        subirArchivos(".drop_boxSubirArchivoBancosCSV","#sabCSV");
+
 	
 	});
 
-	subirArchivos(".drop_boxSubirArchivoTransferenciasCSV","#satCSV");
-    subirArchivos(".drop_boxSubirArchivoBancosCSV","#sabCSV");
+	$.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/metodos.js",function(){
 
+	subirArchivos(".drop_boxSubirArchivoTransferenciasCSV","#satCSV");
+	subirArchivos(".drop_boxSubirArchivoBancosCSV","#sabCSV");
+
+	});
+
+	
 </script>
