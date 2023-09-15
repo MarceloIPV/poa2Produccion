@@ -11255,7 +11255,7 @@ $("#Marzo-tab").on('click', function () {
 let idContador=$("#agregarOtros__habilitantes__3"+parametro8[0]).attr('idContador');
 let rotulo=$("#agregarOtros__habilitantes__3"+parametro8[0]).attr('rotulo');
 
-$(".col__otros__habili__3"+idContador +" td").remove();
+$(".col__otros__habili__3"+idContador +" tr").remove();
 
 for(i=0;i<7;i++){
 

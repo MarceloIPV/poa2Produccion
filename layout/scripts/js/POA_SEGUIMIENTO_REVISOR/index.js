@@ -180,7 +180,9 @@ $(document).ready(function () {
 
         deshabilitarUnCheck("#seguimiento__tables","#seguimiento__tables_Contratacion_Publica");
         
-        
+        subirArchivos("#seleccionarArchivoTransferencia","archivoTransferenciaCSV","#satCSV");
+        subirArchivos("#seleccionarArchivoBancos","archivoBancoCSV","#sabCSV");
+		
 
         regresarEstadoOriginalSubirArchivo("#btnCerrarSubirTransferencias",".drop_boxSubirArchivoTransferenciasCSV" ,"#satCSV");
         regresarEstadoOriginalSubirArchivo("#btnCerrarSubirBancos",".drop_boxSubirArchivoBancosCSV" ,"#sabCSV");
@@ -191,6 +193,7 @@ $(document).ready(function () {
         ocultarBtnyDivDesarrollo($("#verTablaTransferencias"),$("#verTablaBancos"),$("#divTablaTransferencias"),$("#divTablaBancos"))
         ocultarBtnyDivDesarrollo($("#verTablaBancos"),$("#verTablaTransferencias"),$("#divTablaBancos"),$("#divTablaTransferencias"))
 
+        buscarFiltradoDataTable("#selectMesInicio","#selectMesFin",$("#tablaResumenTransferencias"));
  
     });
 

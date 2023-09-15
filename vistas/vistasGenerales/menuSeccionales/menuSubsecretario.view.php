@@ -197,6 +197,34 @@
 
 		<ul class="nav nav-treeview">
 
+			<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+
+
+				<li class="nav-item">
+
+					<a href="segumientosProgramacionRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'segumientosProgramacionRen', 'seguimientoRecorrido', "seguimientoEjecucion", "reporteAnexosSe", "resumenTransferencias"); ?>">
+						<p>Recibidos (Contratación Pública)</p>
+					</a>
+
+				</li>
+
+				<?php if ($informacionObjeto[1] == 4) : ?>
+
+					<li class="nav-item">
+
+						<a href="seguimientosFinancieroRecomen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientosFinancieroRecomen'); ?>">
+							<p>Recomendados (Contratación Pública)</p>
+						</a>
+
+					</li>
+
+				<?php endif ?>
+
+
+			<?php endif ?>
+
+			
+
 			<li class="nav-item">
 
 				<a href="seguimientosAcFisicasRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientosAcFisicasRen'); ?>">
@@ -238,11 +266,44 @@
 
 			<?php endif ?>
 
+			<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+			
+				<li class="nav-item">
+
+					<a href="seguimientosrecibidos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientosrecibidos'); ?>">
+						<p>Recibidos (Presupuestario)</p>
+					</a>
+
+				</li>
+
+
+				<?php if ($informacionObjeto[1] == 4) : ?>
+
+					<li class="nav-item">
+
+						<a href="seguimientosSeguimientoR" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientosSeguimientoR'); ?>">
+							<p>Recomendados (Presupuestario)</p>
+						</a>
+
+					</li>
+
+				<?php endif ?>
+
+			<?php endif ?>
+
 
 			<li class="nav-item">
 
 				<a href="seguimientoRecorrido" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoRecorrido'); ?>">
 					<p>Recorrido</p>
+				</a>
+
+			</li>
+
+			<li class="nav-item">
+
+				<a href="reporteAnualSeRe" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteAnualSeRe'); ?>">
+					<p>Reportería Anual</p>
 				</a>
 
 			</li>
@@ -263,14 +324,30 @@
 
 			</li>
 
-			<li class="nav-item">
+			<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+			
+				<?php if ($informacionObjeto[1] == 4) : ?>
 
-				<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
-					<p>Organismos deportivos</p>
-				</a>
+					<li class="nav-item">
 
-			</li>
+						<a href="seguimientoControlAdmin" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoControlAdmin'); ?>">
+							<p>Control de cambios</p>
+						</a>
 
+					</li>
+
+				<?php endif ?>
+			<?php endif ?>
+
+			<?php if (intval($_SESSION["selectorAniosA"])==2022): ?>
+				<li class="nav-item">
+
+					<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
+						<p>Organismos deportivos</p>
+					</a>
+
+				</li>
+			<?php endif ?>
 
 			<li class="nav-item">
 
@@ -280,6 +357,33 @@
 
 			</li>
 
+			<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+
+				<li class="nav-item">
+
+					<a href="seguimientoReporOrganismos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporOrganismos'); ?>">
+						<p>Estado Envío Información Trimestral</p>
+					</a>
+
+				</li>
+
+				<li class="nav-item">
+
+					<a href="seguimientoReporContratacionPublica" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporContratacionPublica'); ?>">
+						<p>Declaración de Contratación Pública</p>
+					</a>
+
+				</li>
+
+
+				<li class="nav-item">
+
+						<a href="resumenTransferencias" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'resumenTransferencias'); ?>">
+							<p>Consulta de Transferencias</p>
+						</a>
+
+				</li>
+			<?php endif ?>
 
 		</ul>
 
