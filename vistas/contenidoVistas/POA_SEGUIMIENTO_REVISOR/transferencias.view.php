@@ -84,13 +84,16 @@
 		<div  id="divReporteTransferencias">
 
 			<div class="d-grid gap-2 col-3 mx-auto">
-				<button id="verTablaTransferencias" type="button" class="btn btn-info" style=" margin-top: 10px;" align="center">Tabla Transferencias</button>
-				<button id="verTablaBancos" type="button" class="btn btn-info" style="margin-top: 10px;" align="center">Tabla Bancos</button>
+				<button id="verTablaTransferencias" type="button" class="btn btn-info" style=" margin-top: 10px;" align="center">Tabla Bancos</button>
+				<button id="verTablaBancos" type="button" class="btn btn-info" style="margin-top: 10px;" align="center">Tabla Transferencias</button>
 
 			</div>
 
 			<!-- Widget Type 1-->
 			<div  id="divTablaTransferencias">
+					<div class='col' style='z-index: 1;'>
+						<center> <h5 class='modal-title'style="color: black;" id='    '>Tabla Transferencias</h5></center>
+					</div>
 					<table id="tabla_transferencias" >
 
 						<thead>
@@ -116,6 +119,9 @@
 			</div>
 			
 			<div  id="divTablaBancos">
+				<div class='col' style='z-index: 1;'>
+					          <center><h5 class='modal-title' style="color: black;" id='    '>Tabla Bancos</h5></center>
+				</div>
 				
 				<table id="tabla_bancos" class="col col-12 cell-border">
 
@@ -146,6 +152,7 @@
 
 
 
+
 <!-- Small modal -->
 <div class='modal fade modal__ItemsGrup' id='modalSubirTransferencias' aria-hidden='true' data-backdrop='static' data-keyboard='false' tabindex='-1'>
 
@@ -160,7 +167,7 @@
 				
 				<div class="cardSubirArchivo">
 					<h3>Subir Archivo CSV</h3>
-					<div class="drop_box drop_boxSubirArchivoTransferenciasCSV">
+					<div id="drop_boxSubirArchivoTransferenciasCSV" class="drop_box drop_boxSubirArchivoTransferenciasCSV">
 						<header>
 					<h4>Seleccionar Un Archivo</h4>
 					</header>
@@ -168,7 +175,7 @@
 						<input type="file" hidden accept=".csv" id="archivoTransferenciaCSV">
 						<h3 id="satCSV"></h3>
 						<p id="previewTransferenciaCSV"  data-bs-toggle="modal" data-bs-target="#previewTransferencias" type="button" class="btn btn-primary" style="color:white ;display: none;" >PREVIEW</p>
-						<button class="btn">Elegir Archivo</button>
+						<button class="btn" id="seleccionarArchivoTransferencia">Elegir Archivo</button>
 					</div>
 				
 				</div>
@@ -207,7 +214,7 @@
 				
 				<div class="cardSubirArchivo">
 					<h3>Subir Archivo CSV</h3>
-					<div class="drop_box drop_boxSubirArchivoBancosCSV">
+					<div id="drop_boxSubirArchivoBancosCSV" class="drop_box drop_boxSubirArchivoBancosCSV">
 						<header>
 					<h4>Seleccionar Un Archivo</h4>
 					</header>
@@ -215,7 +222,7 @@
 						<input type="file" hidden accept=".csv" id="archivoBancoCSV">
 						<h3 id="sabCSV"></h3>
 						<p id="previewBancosCSV" data-bs-toggle="modal" data-bs-target="#previewBancos" type="button" class="btn btn-primary" style="color:white ;display: none;" >PREVIEW</p>
-						<button class="btn">Elegir Archivo</button>
+						<button class="btn" id="seleccionarArchivoBancos">Elegir Archivo</button>
 					</div>
 				
 				</div>
@@ -254,19 +261,9 @@
 	 $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/datatables.js",function(){
 
 		 datatabletsSeguimientoRevisorVacio($("#seguimiento__tablas__remanentes"),"seguimiento__tablas__remanentes","s",objetos([6],["boton"],["<center><button class='remantes__asignados estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarRemanentes__asignados'><i class='fas fa-user-edit'></i></button><center>"],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__remanentes__asignados"]);
-
-		subirArchivos(".drop_boxSubirArchivoTransferenciasCSV","#satCSV");
-        subirArchivos(".drop_boxSubirArchivoBancosCSV","#sabCSV");
-
-	
 	});
 
-	$.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/metodos.js",function(){
 
-	subirArchivos(".drop_boxSubirArchivoTransferenciasCSV","#satCSV");
-	subirArchivos(".drop_boxSubirArchivoBancosCSV","#sabCSV");
-
-	});
 
 	
 </script>

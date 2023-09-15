@@ -341,31 +341,31 @@ var insertar__contrataciones__publicas_seguimiento=function(boton){
 
             var contador = 0;
     
-            if(catalogo__elect == "si" && (catalogo__elect__cantidad == 0 || catalogo__elect__monto == 0 || catalogo__elect__proveedor == " " || catalogo__elect__objeto == " " || catalogo__elect__rucProveedor < 1000000000000)){
+            if(catalogo__elect == "si" && (catalogo__elect__cantidad == 0 || catalogo__elect__monto == 0 || catalogo__elect__proveedor == " " || catalogo__elect__objeto == " " || catalogo__elect__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__subasta == "si" && (catalogo__subasta__cantidad == 0 || catalogo__subasta__monto == 0 || catalogo__subasta__proveedor == " " || catalogo__subasta__objeto == " " || catalogo__subasta__rucProveedor < 1000000000000)){
+            }else if(catalogo__subasta == "si" && (catalogo__subasta__cantidad == 0 || catalogo__subasta__monto == 0 || catalogo__subasta__proveedor == " " || catalogo__subasta__objeto == " " || catalogo__subasta__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__infima == "si" && (catalogo__infima__cantidad == 0 || catalogo__infima__monto == 0 || catalogo__infima__proveedor == " " || catalogo__infima__objeto == " " || catalogo__infima__rucProveedor < 1000000000000)){
+            }else if(catalogo__infima == "si" && (catalogo__infima__cantidad == 0 || catalogo__infima__monto == 0 || catalogo__infima__proveedor == " " || catalogo__infima__objeto == " " || catalogo__infima__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__menorCuantia == "si" && (catalogo__menorCuantia__cantidad == 0 || catalogo__menorCuantia__monto == 0|| catalogo__menorCuantia__proveedor == " " || catalogo__menorCuantia__objeto == " " || catalogo__menorCuantia__rucProveedor < 1000000000000)){
+            }else if(catalogo__menorCuantia == "si" && (catalogo__menorCuantia__cantidad == 0 || catalogo__menorCuantia__monto == 0|| catalogo__menorCuantia__proveedor == " " || catalogo__menorCuantia__objeto == " " || catalogo__menorCuantia__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__cotizacion == "si"  && (catalogo__cotizacion__cantidad == 0 || catalogo__cotizacion__monto == 0|| catalogo__cotizacion__proveedor == " " || catalogo__cotizacion__objeto == " " || catalogo__cotizacion__rucProveedor < 1000000000000)){
+            }else if(catalogo__cotizacion == "si"  && (catalogo__cotizacion__cantidad == 0 || catalogo__cotizacion__monto == 0|| catalogo__cotizacion__proveedor == " " || catalogo__cotizacion__objeto == " " || catalogo__cotizacion__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__licitacion == "si" && (catalogo__licitacion__cantidad == 0 || catalogo__licitacion__monto == 0|| catalogo__licitacion__proveedor == " " || catalogo__licitacion__objeto == " " || catalogo__licitacion__rucProveedor < 1000000000000)){
+            }else if(catalogo__licitacion == "si" && (catalogo__licitacion__cantidad == 0 || catalogo__licitacion__monto == 0|| catalogo__licitacion__proveedor == " " || catalogo__licitacion__objeto == " " || catalogo__licitacion__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__menorCuantiaObras == "si" && (catalogo__menorCuantiaObras__cantidad == 0 || catalogo__menorCuantiaObras__monto == 0|| catalogo__menorCuantiaObras__proveedor == " " || catalogo__menorCuantiaObras__objeto == " " || catalogo__menorCuantiaObras__rucProveedor < 1000000000000)){
+            }else if(catalogo__menorCuantiaObras == "si" && (catalogo__menorCuantiaObras__cantidad == 0 || catalogo__menorCuantiaObras__monto == 0|| catalogo__menorCuantiaObras__proveedor == " " || catalogo__menorCuantiaObras__objeto == " " || catalogo__menorCuantiaObras__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__cotizacionObras == "si" && (catalogo__cotizacionObras__cantidad == 0 || catalogo__cotizacionObras__monto == 0|| catalogo__cotizacionObras__proveedor == " " || catalogo__cotizacionObras__objeto == " " || catalogo__cotizacionObras__rucProveedor < 1000000000000)){
+            }else if(catalogo__cotizacionObras == "si" && (catalogo__cotizacionObras__cantidad == 0 || catalogo__cotizacionObras__monto == 0|| catalogo__cotizacionObras__proveedor == " " || catalogo__cotizacionObras__objeto == " " || catalogo__cotizacionObras__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__licitacionObras == "si" && (catalogo__licitacionObras__cantidad == 0 || catalogo__licitacionObras__monto == 0|| catalogo__licitacionObras__proveedor == " " || catalogo__licitacionObras__objeto == " " || catalogo__licitacionObras__rucProveedor < 1000000000000)){
+            }else if(catalogo__licitacionObras == "si" && (catalogo__licitacionObras__cantidad == 0 || catalogo__licitacionObras__monto == 0|| catalogo__licitacionObras__proveedor == " " || catalogo__licitacionObras__objeto == " " || catalogo__licitacionObras__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__precioObras == "si" && (catalogo__precioObras__cantidad == 0 || catalogo__precioObras__monto == 0|| catalogo__precioObras__proveedor == " " || catalogo__precioObras__objeto == " " || catalogo__precioObras__rucProveedor < 1000000000000)){
+            }else if(catalogo__precioObras == "si" && (catalogo__precioObras__cantidad == 0 || catalogo__precioObras__monto == 0|| catalogo__precioObras__proveedor == " " || catalogo__precioObras__objeto == " " || catalogo__precioObras__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__contratacionDirecta == "si" && (catalogo__contratacionDirecta__cantidad == 0 || catalogo__contratacionDirecta__monto == 0|| catalogo__contratacionDirecta__proveedor == " " || catalogo__contratacionDirecta__objeto == " " || catalogo__contratacionDirecta__rucProveedor < 1000000000000)){
+            }else if(catalogo__contratacionDirecta == "si" && (catalogo__contratacionDirecta__cantidad == 0 || catalogo__contratacionDirecta__monto == 0|| catalogo__contratacionDirecta__proveedor == " " || catalogo__contratacionDirecta__objeto == " " || catalogo__contratacionDirecta__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__contratacionListaCorta == "si" && (catalogo__contratacionListaCorta__cantidad == 0 || catalogo__contratacionListaCorta__monto == 0|| catalogo__contratacionListaCorta__proveedor == " " || catalogo__contratacionListaCorta__objeto == " " ||  catalogo__contratacionListaCorta__rucProveedor < 1000000000000)){
+            }else if(catalogo__contratacionListaCorta == "si" && (catalogo__contratacionListaCorta__cantidad == 0 || catalogo__contratacionListaCorta__monto == 0|| catalogo__contratacionListaCorta__proveedor == " " || catalogo__contratacionListaCorta__objeto == " " ||  catalogo__contratacionListaCorta__rucProveedor < 100000000000)){
                 contador ++;
-            }else if(catalogo__contratacionConcursoPu == "si" && (catalogo__contratacionConcursoPu__cantidad == 0 || catalogo__contratacionConcursoPu__monto == 0|| catalogo__contratacionConcursoPu__proveedor == " " || catalogo__contratacionConcursoPu__objeto == " " || catalogo__contratacionConcursoPu__rucProveedor < 1000000000000)){
+            }else if(catalogo__contratacionConcursoPu == "si" && (catalogo__contratacionConcursoPu__cantidad == 0 || catalogo__contratacionConcursoPu__monto == 0|| catalogo__contratacionConcursoPu__proveedor == " " || catalogo__contratacionConcursoPu__objeto == " " || catalogo__contratacionConcursoPu__rucProveedor < 100000000000)){
                 contador ++;
             }
 

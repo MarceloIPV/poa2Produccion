@@ -116,25 +116,26 @@ var  descargarPorZipArchivos = function(boton, arrayArchivosConPath,nombreZip){
 
 }
 
-var subirArchivos = function(divSubirArchivo,tituloArchivo){
-  const dropArea = document.querySelector(divSubirArchivo);
-  button = dropArea.querySelector("button");
-  input = dropArea.querySelector("input");
- 
-
-  button.onclick = ()=>{
-    
-    input.click(); 
-  }
+var subirArchivos = function(boton,inputArchivo,tituloArchivo){
   
+ 
+  $(boton).click(function (e){
+    
+    input = document.getElementById(inputArchivo);
+    input.click(); 
 
-  input.addEventListener("change",function(e){
+    input.addEventListener("change",function(e){
       var fileName = e.target.files[0].name;
       $(tituloArchivo).show()
       
       $(tituloArchivo).text(fileName)
 
+    })
+    
   })
+  
+
+  
 }
 
 
@@ -160,4 +161,50 @@ function getFileNameFromUrl(url) {
   return parts[parts.length - 1];
 }
 
+
+var buscarFiltradoDataTable = function(input1,input2,datatable){
+  $(input2).on('change', function() {
+        startDate = $(input1).val();
+        endDate = $(input2).val();
+        
+        if(startDate == '' || endDate == ''){
+      
+          datatable.DataTable().ajax.reload();
+           
+         }else{
+            
+          var table = datatable.DataTable();
+          if((endDate >= startDate)&&(startDate != '' && endDate != '')){
+            var table = datatable.DataTable();
+        
+            $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+              let min = startDate
+              let max = endDate
+              let age = data[9] 
+
+              if (
+                  (min <= age && age <= max)
+              ) {
+                
+                  return true;
+              }
+            
+              return false;
+          });
+
+          
+            table.draw();
+        }else if((endDate < startDate) &&(startDate != '' && endDate != '')){
+          alertify.set("notifier","position", "top-center");
+          alertify.notify("Fecha de Fin no puede ser Mayor a la Fecha de Inicio", "error", 5, function(){});
+          
+        }
+        
+      }
+   
+    });
+
+
+
+}
 
