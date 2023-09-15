@@ -50,31 +50,45 @@ var datatabletsAR = function (tabla, identificador) {
 
     dom: 'Bfrtip',
     buttons: [
-      'excel',
+        {
+          
+          extend: 'excel',
+          className: 'btn-excel',
+          text: '<button  class="buttonD" ><i class="fas fa-file-excel" style="color: #277c41; font-size: 36px;" ></i></button>',
+
+      
+          
+
+      },
+    
       {
         extend: 'pdf',
-        text: 'PDF',
+        text: '<button  class="buttonD" ><i class="fas fa-file-pdf " style="color: #BF0D0D; font-size: 36px;"></i></button>',
+      
         orientation: 'landscape',
-        customize: function (doc) {
+        customize:function(doc) {
 
-          doc.defaultStyle.fontSize = 6;
+            doc.defaultStyle.fontSize = 6;
 
-          doc.styles.title = {
-            color: 'black',
-            fontSize: '8',
-            alignment: 'center',
-            margin: '0'
+            doc.styles.title = {
+                color: 'black',
+                fontSize: '6',
+                alignment: 'center',
+                margin:'0'                                                
+            }
+            doc.styles.tableHeader = {
+
+              fillColor:'#311b92',
+              fontSize: '6',
+              color:'white',
+              alignment:'center',
+                              
+          }
+          
+
           }
 
-          doc.styles.tableHeader = {
-
-            fillColor: '#311b92',
-            fontSize: '8',
-            color: 'white',
-            alignment: 'center',
-          }
         }
-      }
     ],
 
     "bLengthChange": false,
@@ -251,34 +265,45 @@ var datatabletsNormalAR = function (tabla, identificador) {
 
     dom: 'Bfrtip',
     buttons: [
-      'excel',
+        {
+          
+          extend: 'excel',
+          className: 'btn-excel',
+          text: '<button  class="buttonD" ><i class="fas fa-file-excel" style="color: #277c41; font-size: 36px;" ></i></button>',
+
+      
+          
+
+      },
+    
       {
         extend: 'pdf',
-        text: 'PDF',
+        text: '<button  class="buttonD" ><i class="fas fa-file-pdf " style="color: #BF0D0D; font-size: 36px;"></i></button>',
+      
         orientation: 'landscape',
-        customize: function (doc) {
+        customize:function(doc) {
 
-          doc.defaultStyle.fontSize = 6;
+            doc.defaultStyle.fontSize = 6;
 
-          doc.styles.title = {
-            color: 'black',
-            fontSize: '8',
-            alignment: 'center',
-            margin: '0'
+            doc.styles.title = {
+                color: 'black',
+                fontSize: '6',
+                alignment: 'center',
+                margin:'0'                                                
+            }
+            doc.styles.tableHeader = {
+
+              fillColor:'#311b92',
+              fontSize: '6',
+              color:'white',
+              alignment:'center',
+                              
           }
-
-          doc.styles.tableHeader = {
-
-            fillColor: '#311b92',
-            fontSize: '8',
-            color: 'white',
-            alignment: 'center',
+          
 
           }
 
         }
-
-      }
     ],
 
     "bLengthChange": false,

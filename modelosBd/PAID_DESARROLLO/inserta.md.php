@@ -166,7 +166,19 @@
 		case  "insertar_datos_PTC":		
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();			
-			$query="INSERT INTO `poa_paid_personal_tecnico_convensional` ( `id_item`, `deporte`, `jueces`, `nro_dias_jueces`, `comisionados`, `nro_dias_comisionados`, `p_apoyo`, `nro_dias_p_apoyo`, `valor_jueces`, `valor_comisionados`, `valor_p_apoyo`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`id_componente`, `id_rubro`) VALUES ( '$item', '$deporte', '$jueces', '$nJueces', '$comision', '$nComision', '$pApoyo', '$nPApoyo', '$vJueces', '$vComision', '$vPApoyo', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro');";
+			$query="//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Interdisciplinario >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+			case  "paidRubrosInterdisciplinario":
+			
+				 $conexionRecuperada= new conexion();
+				 $conexionEstablecida=$conexionRecuperada->cConexion();	
+				
+				$query=" DELETE FROM `poa_paid_interdisciplinario` WHERE `idIterdisciplinario` = '$id';";
+				$resultado= $conexionEstablecida->exec($query);
+	
+				$mensaje=1;
+				$jason['mensaje']=$mensaje;
+				
+			break;;";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;

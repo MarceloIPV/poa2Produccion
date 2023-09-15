@@ -253,7 +253,7 @@ var obtenerRubros = function (boton, tipo, identificador) {
 
                 celda1.innerHTML = '<p style="font-size: 15px">' + (y = y + 1) + '</p>';
                 celda2.innerHTML = '<p style="font-size: 15px">' + z.nombreRubros + '</p>';
-                celda3.innerHTML = '<p style="font-size: 15px">$ '+valorMonto.toFixed(2)+ '</p>';
+                celda3.innerHTML = '<p style="font-size: 15px">$ '+valorMonto.toLocaleString()+ '</p>';
                 celda4.innerHTML = '<p style="font-size: 15px" id="valorAsignadoAR'+z.idRubros+'"></p>';
                 celda5.innerHTML = '<p style="font-size: 15px" id="valorPorAsignarAR'+z.idRubros+'"></p>';
                 
@@ -454,7 +454,7 @@ var CargarMontoAsignado_Paid = function (tipo, identificador) {
             let num =parseFloat(z.monto);
 
             
-            tituloMonto.textContent='Monto: $'+num.toFixed(2);
+            tituloMonto.textContent='Monto: $'+num.toLocaleString();
             $("#montoPaidGneral").attr("valor",num.toFixed(2))
         }
   
@@ -486,6 +486,9 @@ var tablaPrincipal = function (tipo, body, identificador) {
        
         for (x of response.data.informacion) {
 
+            
+            if(x.montos > 0){
+            
             let fila = tabla.insertRow();
 
             
@@ -516,6 +519,7 @@ var tablaPrincipal = function (tipo, body, identificador) {
             obtenerRubros($("#item" + x.idComponentes), "obtener__rubros__inversion", identificador);
             obtenerIndicadoresRubro($("#btnVerIndicador"+x.idComponentes),"obtener_indicadores_inversion")
         }
+    }
 
 
     }).catch((error) => {
@@ -811,9 +815,9 @@ var mostrar_titulo_monto_rubros_principal = function (tipo, identificador) {
                 var titulo2 = document.getElementById('tituloRubroAR');
                 titulo2.textContent="Rubro: "+x[i].nombreRubros; 
                 
-                
+                let num =parseFloat(x[i].montos)
 
-                $("#MontoAR").text("$"+x[i].montos);
+                $("#MontoAR").text("$"+num.toLocaleString());
                 $("#MontoAR").attr("valor",x[i].montos);
                 $("#MontoAR").val(x[i].montos);
 
@@ -908,13 +912,14 @@ var sumaRestaMontosRubrosAR = function (tipo,idMontoAsignado,restaMontos,MontoPo
             
 
                 $(MontoPorAsignar).attr("valor", res.toFixed(2));
-                $(MontoPorAsignar).text("$ " + res.toFixed(2));
+                $(MontoPorAsignar).text("$ " + res.toLocaleString());
                 $(MontoPorAsignar).val(res.toFixed(2));
 
 
 
             }else{
-                $(idMontoAsignado).text("$ "+z.valorAsignado);
+                let num=parseFloat(z.valorAsignado)
+                $(idMontoAsignado).text("$ "+num.toLocaleString());
                 $(idMontoAsignado).attr("valor",z.valorAsignado);
 
 
@@ -923,7 +928,7 @@ var sumaRestaMontosRubrosAR = function (tipo,idMontoAsignado,restaMontos,MontoPo
                 var res= val - z.valorAsignado;	
 
                 $(MontoPorAsignar).attr("valor", res.toFixed(2));
-                $(MontoPorAsignar).text("$ " + res.toFixed(2));
+                $(MontoPorAsignar).text("$ " + res.toLocaleString());
                 $(MontoPorAsignar).val(res.toFixed(2));
 
 
@@ -996,6 +1001,7 @@ var AsignarMontoAsignadoPaidGeneralEventosAR = function (tipo) {
                 restarIndicadoresGeneralAR($("#montoGeneralEventosAR"),$(".restaDeMontosEventos"),$("#montoPorAsignarGeneralEventosAR"));
                
             }else{
+                
                 $("#montoAsignadoGeneralEventosAr").val(z.valorAsignado);
 
                 $("#montoAsignadoGeneralEventosAr").attr("valor",z.valorAsignado);
@@ -1759,7 +1765,8 @@ var valor_total_eventos = function (tipo) {
                 $("#total_eventos_preparacion").text(": 0");
                 $("#total_eventos_preparacion").attr("valor",0);
             }else{
-                $("#total_eventos_preparacion").text(": "+z.valorTotal);
+                let num=parseFloat(z.valorTotal);
+                $("#total_eventos_preparacion").text(": "+num.toLocaleString());
                 $("#total_eventos_preparacion").attr("valor",z.valorTotal);            
             }
         }
@@ -1796,7 +1803,8 @@ var valor_total_equipo_interdisciplinario = function (tipo) {
                 $("#total_equipo_interdiciplinario").text(": 0");
                 $("#total_equipo_interdiciplinario").attr("valor",0);
             }else{
-                $("#total_equipo_interdiciplinario").text(": "+z.valorAsignado);
+                let num=parseFloat(z.valorAsignado)
+                $("#total_equipo_interdiciplinario").text(": "+num.toLocaleString());
                 $("#total_equipo_interdiciplinario").attr("valor",z.valorAsignado);            
             }
         }
@@ -1842,16 +1850,16 @@ var AsignarMontoPlanificadosGENERALRubrosAR = function (tipo,valoren0, idCompone
 
                 $("#"+valorporPlanificar).attr("valor", res.toFixed(2));
 
-                $("#"+valorporPlanificar).text(" $ " + res.toFixed(2));
+                $("#"+valorporPlanificar).text(" $ " + res.toLocaleString());
 
                
             }else{
 
-              
+            
 
                 var totalPlanificado = parseFloat(z.TotalPlanificado);
 
-                $("#"+valorPlanificado).text(" $ "+totalPlanificado.toFixed(2));
+                $("#"+valorPlanificado).text(" $ "+totalPlanificado.toLocaleString());
                 $("#"+valorPlanificado).attr("valor",totalPlanificado.toFixed(2));
                 
                 var val = parseFloat(z.montos);
@@ -1862,7 +1870,7 @@ var AsignarMontoPlanificadosGENERALRubrosAR = function (tipo,valoren0, idCompone
     
                 $("#"+valorporPlanificar).attr("valor", res.toFixed(2));
 
-                $("#"+valorporPlanificar).text("$ " + res.toFixed(2));
+                $("#"+valorporPlanificar).text("$ " + res.toLocaleString());
 
 
             }
@@ -1911,7 +1919,7 @@ var AsignarMontoPlanificadosGENERALTOTALAR = function (tipo, identificador, valo
 
                 $("#"+valorporPlanificar).attr("valor", res.toFixed(2));
 
-                $("#"+valorporPlanificar).text("Monto Por Planificar $ " + res.toFixed(2));
+                $("#"+valorporPlanificar).text("Monto Por Planificar $ " + res.toLocaleString());
 
                
             }else{
@@ -1920,7 +1928,7 @@ var AsignarMontoPlanificadosGENERALTOTALAR = function (tipo, identificador, valo
 
                 var totalPlanificado = parseFloat(z.TotalPlanificado);
 
-                $("#"+valorPlanificado).text("Monto Planificado $ "+totalPlanificado.toFixed(2));
+                $("#"+valorPlanificado).text("Monto Planificado $ "+totalPlanificado.toLocaleString());
                 $("#"+valorPlanificado).attr("valor",totalPlanificado.toFixed(2));
                 
                 var val = parseFloat(z.monto);
@@ -1929,7 +1937,7 @@ var AsignarMontoPlanificadosGENERALTOTALAR = function (tipo, identificador, valo
 
                 $("#"+valorporPlanificar).attr("valor", res.toFixed(2));
 
-                $("#"+valorporPlanificar).text("Monto Por Planificar $ " + res.toFixed(2));
+                $("#"+valorporPlanificar).text("Monto Por Planificar $ " + res.toLocaleString());
 
 
             }

@@ -327,35 +327,7 @@ var datatabletsSeguimientoRevisorVacio2=function(tabla,tipo,nombreDocumento,enla
 
       "initComplete": function (settings, json) {
 
-        this.api()
-            .columns()
-            .eq(0).each(function () {
-
-                var column1 = table.column( 9 );
-                
-                var fecha = new Date(column1.data());
- 
-
-                let select1 = document.getElementById("selectMesInicio")
-                let select2 = document.getElementById("selectMesFin")
-
-                // Apply listener for user change in value
-                select1.addEventListener('change', function () {
-                    var val = select1.value;
-                    var va2 = select2.value;
-                   
-                    
-                    column1
-                        .filter( function ( val, va2 ) {
-                            return (val >= 30 && va2 < 60) ? true : false;
-                        })
-                        .draw();
-                });
-               
-
-
- 
-            });
+       
 
         $(tabla).wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
       },

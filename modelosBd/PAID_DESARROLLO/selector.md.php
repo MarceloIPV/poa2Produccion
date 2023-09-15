@@ -11,7 +11,7 @@
     switch ($tipo) {
 
 		case "paid_general":
-            $informacion=$objeto->getObtenerInformacionGeneral("SELECT b.nombreComponentes,d.nombreIndicadores,d.idIndicadores,a.idComponentes,c.nombreRubros,a.idAsignacion FROM poa_paid_asignacion AS a INNER JOIN poa_paid_componentes AS b ON a.idComponentes=b.idComponentes INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros INNER JOIN poa_paid_indicadores AS d ON d.idIndicadores=b.idIndicador WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.valor__comparativo='$identificador' GROUP BY a.idComponentes;");
+            $informacion=$objeto->getObtenerInformacionGeneral("SELECT b.nombreComponentes,d.nombreIndicadores,d.idIndicadores,a.idComponentes,c.nombreRubros,a.idAsignacion,a.montos FROM poa_paid_asignacion AS a INNER JOIN poa_paid_componentes AS b ON a.idComponentes=b.idComponentes INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros INNER JOIN poa_paid_indicadores AS d ON d.idIndicadores=b.idIndicador WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.valor__comparativo='$identificador' GROUP BY a.idComponentes;");
             $jason['informacion']=$informacion;
 		break;
 
@@ -233,7 +233,7 @@
         UNION ALL
         SELECT valorTotal FROM poa_paid_uniformes_adaptado where idOrganismo='$idOrganismoSession' AND perioIngreso='$aniosPeriodos__ingesos' and id_rubro='$idRubro' and id_componente='$idComponente'
 
-      ) as CombinedTable INNER JOIN poa_paid_asignacion AS b WHERE b.idOrganismo='$idOrganismoSession' AND b.perioIngreso='$aniosPeriodos__ingesos' and b.idRubros='$idRubro' and b.idComponentes='$idComponente' ");
+      ) as CombinedTable INNER JOIN poa_paid_asignacion AS b WHERE b.idOrganismo='$idOrganismoSession' AND b.perioIngreso='$aniosPeriodos__ingesos' and b.estado='A' and b.idRubros='$idRubro' and b.idComponentes='$idComponente' ");
 
       $jason['informacion']=$informacion;
     break;
@@ -264,7 +264,7 @@
         UNION ALL
         SELECT valorTotal FROM poa_paid_uniformes_adaptado where idOrganismo='$idOrganismoSession' AND perioIngreso='$aniosPeriodos__ingesos'   and identificador='$identificador'
 
-      ) as CombinedTable INNER JOIN poa_paid_asignacion_dos AS b WHERE b.idOrganismo='$idOrganismoSession' AND b.perioIngreso='$aniosPeriodos__ingesos' and b.valor__comparativo='$identificador'");
+      ) as CombinedTable INNER JOIN poa_paid_asignacion_dos AS b WHERE b.idOrganismo='$idOrganismoSession' AND b.perioIngreso='$aniosPeriodos__ingesos' and b.estado='A' and b.valor__comparativo='$identificador'");
 
       $jason['informacion']=$informacion;
     break;
