@@ -5082,7 +5082,7 @@
 			$nombre__archivo=$fecha_actual."__".$arrayInformacion[2]."__".$arrayInformacion[3].".pdf";
 			$direccion=VARIABLE__BACKEND."seguimiento/indicadoresDocumento/";
 
-			$documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion,$nombre__archivo);
+			$documento=$objeto->getEnviarPdf($_FILES["fileArchivoEvidencias"]['type'],$_FILES["fileArchivoEvidencias"]['size'],$_FILES["fileArchivoEvidencias"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion,$nombre__archivo);
 
 			$inserta=$objeto->getInsertaNormal('poa_indicadores_seguimiento', array("`idModificaIndicadores`, ","`totalProgramado`, ","`totalEjecutado`, ","`documento`, ","`idOrganismo`, ","`idActividad`, ","`trimestre`, ","`fecha`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$nombre__archivo', ","'$arrayInformacion[2]', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$fecha_actual', ","'$aniosPeriodos__ingesos'"));
 
