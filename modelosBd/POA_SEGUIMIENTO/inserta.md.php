@@ -120,14 +120,39 @@
 
 //******************************* Guardado de Indicadores (Meta Programado Meta ejecutado Doc Sustento) ********************************//
 		case  "seguimiento__indicadores2023":
+			$arrayInformacion = json_decode($prametros);
 
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idModificaIndicadores, a.documento FROM poa_indicadores_seguimiento AS a WHERE a.idOrganismo='$arrayInformacion[2]' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.trimestre='$arrayInformacion[4]' and a.idActividad = '$arrayInformacion[3]';"); 
+
+			$nombre__archivo=$fecha_actual."__".$arrayInformacion[2]."__".$arrayInformacion[3].".pdf";
+			$direccion=VARIABLE__BACKEND."seguimiento/indicadoresDocumento/";
+
+			if (!empty($indicadorInformacion[0][idModificaIndicadores])){
+
+				$elimina=$objeto->getElimina('poa_indicadores_seguimiento','idModificaIndicadores',$indicadorInformacion[0][idModificaIndicadores]);
+
+				$nombreArchivo =$indicadorInformacion[0][documento];
+
+				//unlink($direccion.$nombreArchivo);
+			}
+
+			// $documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion,$nombre__archivo);
+
+			$inserta=$objeto->getInsertaNormal('poa_indicadores_seguimiento', array("`idModificaIndicadores`, ","`totalProgramado`, ","`totalEjecutado`, ","`documento`, ","`idOrganismo`, ","`idActividad`, ","`trimestre`, ","`fecha`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$nombre__archivo', ","'$arrayInformacion[2]', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$fecha_actual', ","'$aniosPeriodos__ingesos'"));
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;
+
+		break;
+
+		case  "seguimiento__indicadores":
 
 			$arrayInformacion = json_decode($prametros);
 
 			$nombre__archivo=$fecha_actual."__".$arrayInformacion[2]."__".$arrayInformacion[3].".pdf";
 			$direccion=VARIABLE__BACKEND."seguimiento/indicadoresDocumento/";
 
-			// $documento=$objeto->getEnviarPdf($_FILES["archivo"]['type'],$_FILES["archivo"]['size'],$_FILES["archivo"]['tmp_name'],$_FILES["archivo"]['name'],$direccion,$nombre__archivo);
+			//$documento=$objeto->getEnviarPdf($_FILES["fileArchivoEvidencias"]['type'],$_FILES["fileArchivoEvidencias"]['size'],$_FILES["fileArchivoEvidencias"]['tmp_name'],$_FILES["archivo1"]['name'],$direccion,$nombre__archivo);
 
 			$inserta=$objeto->getInsertaNormal('poa_indicadores_seguimiento', array("`idModificaIndicadores`, ","`totalProgramado`, ","`totalEjecutado`, ","`documento`, ","`idOrganismo`, ","`idActividad`, ","`trimestre`, ","`fecha`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$nombre__archivo', ","'$arrayInformacion[2]', ","'$arrayInformacion[3]', ","'$arrayInformacion[4]', ","'$fecha_actual', ","'$aniosPeriodos__ingesos'"));
 

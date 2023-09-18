@@ -12,9 +12,26 @@
 		<input type="hidden" id="idOrganismo">
 		<input type="hidden" id="periodo">
 
-		
-		<input type="date" name="selectMesInicio" id="selectMesInicio">
-		<input type="date" name="selectMesFin" id="selectMesFin">
+		<div class='col' style='z-index: 1;'>
+			<center> <h5 class='modal-title'style="color: black;" id='    '>Resumen Transferencias</h5></center>
+		</div>
+
+
+		<div class="mb-3 row">
+			<br>
+          <label for="html5-week-input" class="col-md-1 col-form-label">Fecha Inicial:</label>
+          <div class="col-md-5">
+		  <input type="date" class="form-control" name="selectMesInicio" id="selectMesInicio">
+          </div>
+		  <br>
+        </div>
+
+		<div class="mb-3 row">
+          <label for="html5-week-input" class="col-md-1 col-form-label">Fecha Final:</label>
+          <div class="col-md-5">
+		  <input type="date" class="form-control" name="selectMesFin" id="selectMesFin">
+          </div>
+        </div>
 		
 		<table id="tablaResumenTransferencias" class="col col-12 cell-border">
 
