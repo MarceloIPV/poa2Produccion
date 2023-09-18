@@ -407,7 +407,80 @@ var funcion__guardado__matricez_Seguimiento2023 = function (parametro1, parametr
 
 // }
 
+var funcion__guardado__general_estado_cuenta_indicadores2023 = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7) {
+	// $(parametro1).click(function(e) {
+		$Valorcomparar = parametro3[0];
+		$ValorExedido = parametro3[1];
+ 
+		if($ValorExedido > $Valorcomparar){
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Valor supera la cantidad de META PROGRAMADA", "error", 5, function(){});	
+		
+		}else{
+		var confirm = alertify.confirm('¿Está seguro de guardar la información ingresada?', '¿Está seguro de guardar la información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
+	
+		confirm.set({ transition: 'slide' });
 
+		confirm.set('onok', function () {
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append("tipo", parametro5);
+
+			paqueteDeDatos.append("prametros", JSON.stringify(parametro3));
+
+			
+
+			$.ajax({
+
+				type: "POST",
+				url: "modelosBd/POA_SEGUIMIENTO/inserta.md.php",
+				contentType: false,
+				data: paqueteDeDatos,
+				processData: false,
+				cache: false,
+				success: function (response) {			
+					
+					var elementos = JSON.parse(response);
+					var mensaje = elementos['mensaje'];
+					console.log("mensaje")
+					console.log(mensaje)
+
+					if (mensaje == 1) {
+						alertify.set("notifier", "position", "top-center");
+						alertify.notify("Registro realizado correctamente", "success", 5, function () { });
+
+						// $(parametro6).remove();
+						// $(parametro7).hide();
+
+					}
+
+				},
+				error: function () {
+
+				}
+
+			});
+
+			$(parametro1).hide();
+			$(parametro1).remove();
+		});
+	}
+
+		confirm.set('oncancel', function () { //callbak al pulsar botón negativo
+			alertify.set("notifier", "position", "top-center");
+			alertify.notify("Acción cancelada", "error", 1, function () {
+
+				$(parametro1).show();
+
+			});
+		});
+
+	
+
+	// });
+
+}
 var funcion__guardado__indicadores__general2023 = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6) {
 
 	$Valorcomparar = parametro3[0];
@@ -1075,7 +1148,7 @@ console.log(parametro3);
 var funcion__guardado__matricez = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7, parametro8, parametro9, parametro10, parametro11, parametro12, parametro13, parametro14, parametro15) {
 
 	// $(parametro1).click(function(e) {
-		alert("GUARDADO ADENTRO")
+		//alert("GUARDADO ADENTRO")
 	var validador = validacionRegistro(parametro2);
 	validacionRegistroMostrarErrores(parametro2);
 

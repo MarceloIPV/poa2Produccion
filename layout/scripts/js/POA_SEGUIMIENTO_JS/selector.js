@@ -77,45 +77,14 @@ var Selector_otros_Honorarios_Poa_Seguimiento = function (tipo,documento,idActiv
 
 							let trimestresV="";
 
-							if($("#trimestreEvaluador").val()=="primerTrimestre"){
-								trimestresV=z.primertrimestre;
-							}else if($("#trimestreEvaluador").val()=="segundoTrimestre"){
-								trimestresV=z.segundotrimestre;
-							}else if($("#trimestreEvaluador").val()=="tercerTrimestre"){
-								trimestresV=z.tercertrimestre;
-							}else if($("#trimestreEvaluador").val()=="cuartoTrimestre"){
-								trimestresV=z.cuartotrimestre;
-							}					
+							if(z.totalEjecutado==null){
+								z.totalEjecutado =0;
+							}				
 									
-									$trimestre1 = z.primertrimestre;
-									console.log("trimestre1");
-									console.log($trimestre1);
-
-									$trimestre2 = z.segundotrimestre;
-									console.log("trimestre2");
-									console.log($trimestre2);
-
-									$trimestre3 = z.tercertrimestre;
-									console.log("trimestre3");
-									console.log($trimestre3);
-
-									$trimestre4 = z.cuartotrimestre;
-									console.log("trimestre4");
-									console.log($trimestre4);
-
-									$cantidadprogramada = z.metaindicador;
-									console.log("PROGMAOD");
-									console.log($cantidadprogramada);
+									
 							
-									// if(z.nombreActividades == "MANTENIMIENTO DE ESCENARIOS  E INFRAESTRUCTURA DEPORTIVA" || z.nombreActividades == "CAPACITACIÓN DEPORTIVA O RECREATIVA" || z.nombreActividades == "OPERACIÓN DEPORTIVA" || z.nombreActividades == "EVENTOS DE PREPARACIÓN Y COMPETENCIA" || z.nombreActividades == "ACTIVIDADES RECREATIVAS"){
-
-									// 	$(parametro1).append('<tr id="filaIndicadora"class="filaIndicadora'+z.idActividades+'"><td style="font-weight:bold;"><center>'+z.idActividades+'</center></td><td>'+z.nombreActividades+'</td><td>'+z.indicador+'</td><td><input type="text" id="totalProgramado'+z.idActividades+'" name="totalProgramado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" style="border:none;" disabled="disabled" /></td><td class="celdas'+z.idActividades+'"><input type="text" id="totalEjecutado'+z.idActividades+'" disabled="disabled" name="totalEjecutado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" /><div class="rotulo'+z.idActividades+'" style="text-align:center; widht:100%;"></div></td><td><a id="guardar'+z.idActividades+'" parametro7="'+parametro2+'" parametro8="'+$("#trimestreEvaluador").val()+'" name="guardar'+z.idActividades+'" idContador="'+z.idActividades+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');	
-
-									// $(parametro1).append('<?php if ($trimestre1 >  $trimestre1 ||  $trimestre2 > $trimestre2 ||  $trimestre3 >  $trimestre3 ||  $trimestre4 >  $trimestre4){echo "Valor supera la cantidad de Meta Programada"}else{<tr id="filaIndicadora"class="filaIndicadora'+z.idActividades+'"><td style="font-weight:bold;"><center>'+z.idActividades+'</center></td><td>'+z.nombreActividades+'</td><td>'+z.indicador+'</td><td><input type="text" id="totalProgramado'+z.idActividades+'" name="totalProgramado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" style="border:none;" disabled="disabled" /></td><td class="celdas'+z.idActividades+'"><input type="text" id="totalEjecutado'+z.idActividades+'" disabled="disabled" name="totalEjecutado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" /><div class="rotulo'+z.idActividades+'" style="text-align:center; widht:100%;"></div></td><td><a id="guardar'+z.idActividades+'" parametro7="'+parametro2+'" parametro8="'+$("#trimestreEvaluador").val()+'" name="guardar'+z.idActividades+'" idContador="'+z.idActividades+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr> <?php } ?>');	
-				
-								
-									// }else{
-									$(parametro1).append('<tr id="filaIndicadora"class="filaIndicadora'+z.idActividades+'"><td style="font-weight:bold;"><center>'+z.idActividades+'</center></td><td>'+z.nombreActividades+'</td><td>'+z.indicador+'</td><td><input type="text" id="totalProgramado'+z.idActividades+'" name="totalProgramado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" style="border:none;" disabled="disabled" /></td><td class="celdas'+z.idActividades+'"><input type="text" id="totalEjecutado'+z.idActividades+'" name="totalEjecutado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" /><div class="rotulo'+z.idActividades+'" style="text-align:center; widht:100%;"></div></td><td><a id="guardar'+z.idActividades+'" parametro7="'+parametro2+'" parametro8="'+$("#trimestreEvaluador").val()+'" name="guardar'+z.idActividades+'" idContador="'+z.idActividades+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');	
+									
+									$(parametro1).append('<tr id="filaIndicadora"class="filaIndicadora'+z.idActividades+'"><td style="font-weight:bold;"><center>'+z.idActividades+'</center></td><td>'+z.nombreActividades+'</td><td>'+z.indicador+'</td><td><input type="text" id="totalProgramado'+z.idActividades+'" name="totalProgramado'+z.idActividades+'" value="'+z.trimestre+'" class="solo__numeros ancho__total__input text-center obligatorios" style="border:none;" disabled="disabled" /></td><td class="celdas'+z.idActividades+'"><input type="text" id="totalEjecutado'+z.idActividades+'" name="totalEjecutado'+z.idActividades+'" value="'+z.totalEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios" /><div class="rotulo'+z.idActividades+'" style="text-align:center; widht:100%;"></div></td><td><a id="guardar'+z.idActividades+'" parametro7="'+parametro2+'" parametro8="'+$("#trimestreEvaluador").val()+'" name="guardar'+z.idActividades+'" idContador="'+z.idActividades+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');	
 									// }
 								
 
@@ -2488,7 +2457,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasTecnicas).click(function(e) {
@@ -2597,7 +2566,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosMantenimientoTecnico).click(function(e) {

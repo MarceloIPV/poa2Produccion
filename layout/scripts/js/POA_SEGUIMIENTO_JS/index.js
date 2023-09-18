@@ -93,7 +93,7 @@ $(document).ready(function () {
 
     $.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/metodos2.js",function(){
 
-        indicadores__funcionales_estado_cuenta($(".body__indicadores__tablas1"),$("#organismoIdPrin").val(),$("#idIndicadores_estadoCuenta2023"),"indicadores__funcionales__seguimientos");
+        indicadores__funcionales_estado_cuenta($(".body__indicadores__tablas1"),$("#organismoIdPrin").val(),$("#idIndicadores_estadoCuenta2023"),"mostrar__indicadores__seguimiento__2023",$('#trimestreEvaluador').val());
 	
 	
         visualizarOpcionesCambiar($("#tipo__cambiosSeguimientos"),$(".contenidos__formularios__enviados2023"));

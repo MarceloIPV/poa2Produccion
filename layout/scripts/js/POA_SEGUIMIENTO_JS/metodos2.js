@@ -406,7 +406,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
     
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes__2",idContador,$("#otrosHabilitantes__2"+idContador));
     
@@ -475,7 +477,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
     
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes__2",idContador,$("#otrosHabilitantes__2"+idContador));
     
@@ -544,7 +548,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
     
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes__2",idContador,$("#otrosHabilitantes__2"+idContador));
     
@@ -613,7 +619,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
     
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes__2",idContador,$("#otrosHabilitantes__2"+idContador));
     
@@ -685,7 +693,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
     
@@ -760,7 +770,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
     
@@ -832,7 +844,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
     
@@ -904,7 +918,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
     
@@ -976,7 +992,9 @@ function crear_DataTable2(idDatatable){
                   let idPrincipal=$(this).attr('idPrincipal');
                   let rotulo=$(this).attr('rotulo');
                   let idContador2=$(this).attr('idContador2');
-                  nombreArchivo=$(this).attr('nombre')
+                  let nombreArchivo=$(this).attr('nombre');
+
+                  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
     
@@ -1049,7 +1067,10 @@ function crear_DataTable2(idDatatable){
 							let idPrincipal=$(this).attr('idPrincipal');
 							let rotulo=$(this).attr('rotulo');
 							let idContador2=$(this).attr('idContador2');
-              nombreArchivo=$(this).attr('nombre')
+              let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
 							funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes__3",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -1117,7 +1138,10 @@ function crear_DataTable2(idDatatable){
 							let idPrincipal=$(this).attr('idPrincipal');
 							let rotulo=$(this).attr('rotulo');
 							let idContador2=$(this).attr('idContador2');
-              nombreArchivo=$(this).attr('nombre')
+              let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
 							funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes__3",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -1185,7 +1209,10 @@ function crear_DataTable2(idDatatable){
 							let idPrincipal=$(this).attr('idPrincipal');
 							let rotulo=$(this).attr('rotulo');
 							let idContador2=$(this).attr('idContador2');
-              nombreArchivo=$(this).attr('nombre')
+              let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
 							funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes__3",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -1255,7 +1282,10 @@ function crear_DataTable2(idDatatable){
 							let idPrincipal=$(this).attr('idPrincipal');
 							let rotulo=$(this).attr('rotulo');
 							let idContador2=$(this).attr('idContador2');
-              nombreArchivo=$(this).attr('nombre')
+              let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
 							funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,parametro8[8],parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes__3",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -1984,7 +2014,7 @@ function crear_DataTable2(idDatatable){
             
             var spanArchivo = ""
             if(i==0){
-              spanArchivo="INFORME EJECUCIÓN DE REHABILITACIÓN Y-O MANTENIMIENTOS PLANIFICADOS"
+              spanArchivo="INFORME EJECUCION DE REHABILITACIÓN Y-O MANTENIMIENTOS PLANIFICADOS"
             }else if(i==1)
             {
               spanArchivo="RESPALDOS DEL INFORME "
@@ -2010,7 +2040,9 @@ function crear_DataTable2(idDatatable){
               let idPrincipal=$(this).attr('idPrincipal');
               let rotulo=$(this).attr('rotulo');
               let idContador2=$(this).attr('idContador2');
-              nombreArchivo=$(this).attr('nombre')
+              let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
               funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo],$(".obligatorioOtros__"+idContador),parametro12,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -2474,7 +2506,9 @@ function crear_DataTable2(idDatatable){
               let idPrincipal=$(this).attr('idPrincipal');
               let rotulo=$(this).attr('rotulo');
               let idContador2=$(this).attr('idContador2');
-              nombreArchivo=$(this).attr('nombre')
+              let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
               funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo],$(".obligatorioOtros__"+idContador),parametro12,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -2926,7 +2960,9 @@ function crear_DataTable2(idDatatable){
               let idPrincipal=$(this).attr('idPrincipal');
               let rotulo=$(this).attr('rotulo');
               let idContador2=$(this).attr('idContador2');
-              nombreArchivo=$(this).attr('nombre')
+              let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
               funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo],$(".obligatorioOtros__"+idContador),parametro12,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -3391,7 +3427,9 @@ function crear_DataTable2(idDatatable){
                       let idPrincipal=$(this).attr('idPrincipal');
                       let rotulo=$(this).attr('rotulo');
                       let idContador2=$(this).attr('idContador2');
-                      nombreArchivo=$(this).attr('nombre')
+                      let nombreArchivo=$(this).attr('nombre');
+
+                       nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
         
                       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo],$(".obligatorioOtros__"+idContador),parametro12,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
         
@@ -3761,7 +3799,9 @@ var checkeds__recorridos__general__tecnicos__matenimientos__recreativo=function(
                       let idPrincipal=$(this).attr('idPrincipal');
                       let rotulo=$(this).attr('rotulo');
                       let idContador2=$(this).attr('idContador2');
-                      nombreArchivo=$(this).attr('nombre')
+                      let nombreArchivo=$(this).attr('nombre');
+
+                      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
         
                       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo],$(".obligatorioOtros__"+idContador),parametro12,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
         
@@ -4239,7 +4279,9 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
+                let nombreArchivo=$(this).attr('nombre');
+
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
   
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
   
@@ -4297,7 +4339,9 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
+                let nombreArchivo=$(this).attr('nombre');
+
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
   
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
   
@@ -4356,8 +4400,10 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
-  
+                let nombreArchivo=$(this).attr('nombre');
+
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
   
   
@@ -4421,8 +4467,10 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
-  
+                let nombreArchivo=$(this).attr('nombre');
+
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");  
+
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
   
   
@@ -4492,8 +4540,9 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
+                let nombreArchivo=$(this).attr('nombre');
 
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
   
   
@@ -4563,7 +4612,9 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
+                let nombreArchivo=$(this).attr('nombre');
+
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
   
@@ -4623,8 +4674,10 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
+                let nombreArchivo=$(this).attr('nombre');
 
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+                
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
   
   
@@ -4684,7 +4737,9 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
+                let nombreArchivo=$(this).attr('nombre');
+
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
   
@@ -4745,7 +4800,9 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
                 let idPrincipal=$(this).attr('idPrincipal');
                 let rotulo=$(this).attr('rotulo');
                 let idContador2=$(this).attr('idContador2');
-                nombreArchivo=$(this).attr('nombre')
+                let nombreArchivo=$(this).attr('nombre');
+
+                nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
                 funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
   
@@ -4807,8 +4864,11 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
             let idPrincipal=$(this).attr('idPrincipal');
             let rotulo=$(this).attr('rotulo');
             let idContador2=$(this).attr('idContador2');
-            nombreArchivo=$(this).attr('nombre')
-            funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
+            let nombreArchivo=$(this).attr('nombre');
+
+              nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,""); 
+              
+              funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
           });	
@@ -4864,7 +4924,10 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
             let idPrincipal=$(this).attr('idPrincipal');
             let rotulo=$(this).attr('rotulo');
             let idContador2=$(this).attr('idContador2');
-            nombreArchivo=$(this).attr('nombre')
+            let nombreArchivo=$(this).attr('nombre');
+
+            nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
             funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -4921,7 +4984,10 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
             let idPrincipal=$(this).attr('idPrincipal');
             let rotulo=$(this).attr('rotulo');
             let idContador2=$(this).attr('idContador2');
-            nombreArchivo=$(this).attr('nombre')
+            let nombreArchivo=$(this).attr('nombre');
+
+            nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");  
+              
             funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -4980,7 +5046,10 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
             let idPrincipal=$(this).attr('idPrincipal');
             let rotulo=$(this).attr('rotulo');
             let idContador2=$(this).attr('idContador2');
-            nombreArchivo=$(this).attr('nombre')
+            let nombreArchivo=$(this).attr('nombre');
+
+            nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
             funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -5812,7 +5881,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -5880,7 +5951,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -5949,7 +6022,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -6020,7 +6095,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -6095,7 +6172,9 @@ if(i==0){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -6176,7 +6255,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -6245,7 +6326,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -6315,7 +6398,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -6385,7 +6470,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -6456,7 +6543,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -6522,7 +6612,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -6588,7 +6681,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -6656,7 +6752,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item, parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -7496,7 +7595,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -7551,7 +7652,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -7608,7 +7711,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -7671,7 +7776,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -7738,7 +7845,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -7807,7 +7916,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -7864,7 +7975,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -7922,7 +8035,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -7980,7 +8095,9 @@ for(i=0;i<4;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -8039,7 +8156,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -8093,7 +8213,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+              
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -8146,7 +8269,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+  
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -8202,7 +8328,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -9047,7 +9176,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -9115,7 +9246,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -9184,7 +9317,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -9258,7 +9393,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -9337,7 +9474,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -9418,7 +9557,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -9487,7 +9628,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -9557,7 +9700,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -9627,7 +9772,9 @@ for(i=0;i<8;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -9698,7 +9845,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -9764,7 +9914,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -9830,7 +9983,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -9898,7 +10054,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -10677,8 +10836,10 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
 
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+      
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
 
@@ -10742,7 +10903,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -10808,7 +10971,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -10880,7 +11045,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -10957,7 +11124,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -11035,7 +11204,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -11101,7 +11272,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -11168,7 +11341,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -11235,7 +11410,9 @@ for(i=0;i<7;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -11303,7 +11480,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -11365,7 +11545,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -11427,7 +11610,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -11491,7 +11677,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -12326,7 +12515,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -12388,7 +12579,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -12450,7 +12643,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -12518,7 +12713,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__2__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__2"+idContador));
 
@@ -12592,7 +12789,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -12666,7 +12865,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -12728,7 +12929,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -12791,7 +12994,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -12854,7 +13059,9 @@ for(i=0;i<6;i++){
       let idPrincipal=$(this).attr('idPrincipal');
       let rotulo=$(this).attr('rotulo');
       let idContador2=$(this).attr('idContador2');
-      nombreArchivo=$(this).attr('nombre')
+      let nombreArchivo=$(this).attr('nombre');
+
+      nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
       funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes"+idContador));
 
@@ -12918,7 +13125,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -12977,7 +13187,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -13036,7 +13249,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 });	
@@ -13097,7 +13313,10 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
   let idPrincipal=$(this).attr('idPrincipal');
   let rotulo=$(this).attr('rotulo');
   let idContador2=$(this).attr('idContador2');
-  nombreArchivo=$(this).attr('nombre')
+  let nombreArchivo=$(this).attr('nombre');
+
+  nombreArchivo=nombreArchivo.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
   funcion__agregar__filas_seguimiento_2023($("#guardarOtros__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#organismoIdPrin").val(),nombreArchivo,item,parametro8[9]],$(".obligatorioOtros__3__"+idContador),parametro11,"otrosHabilitantes",idContador,$("#otrosHabilitantes__3"+idContador));
 
 
@@ -27924,7 +28143,7 @@ var limitarFechaActualInputDate=function(input){
 	=            Indicadores - Estado de cuenta          =
 	======================================================*/
 	
-	var indicadores__funcionales_estado_cuenta=function(parametro1,parametro2,parametro3,tipo){
+	var indicadores__funcionales_estado_cuenta=function(parametro1,parametro2,parametro3,tipo,trimestre){
 
 		$(parametro3).click(function(e) {
 
@@ -27935,11 +28154,12 @@ var limitarFechaActualInputDate=function(input){
 
 			paqueteDeDatos.append('tipo',tipo);
 			paqueteDeDatos.append('idOrganismos',parametro2);
+      paqueteDeDatos.append('trimestre', trimestre);
 
 			$.ajax({
 
 				type:"POST",
-				url:"modelosBd/inserta/seleccionaAcciones.md.php",
+				url:"modelosBd/POA_SEGUIMIENTO/selector.md.php",
 				contentType: false,
 				data:paqueteDeDatos,
 				processData: false,
@@ -27954,19 +28174,12 @@ var limitarFechaActualInputDate=function(input){
 
 						for (z of indicadorInformacion) {
 
-							let trimestresV="";
-
-							if($("#trimestreEvaluador").val()=="primerTrimestre"){
-								trimestresV=z.primertrimestre;
-							}else if($("#trimestreEvaluador").val()=="segundoTrimestre"){
-								trimestresV=z.segundotrimestre;
-							}else if($("#trimestreEvaluador").val()=="tercerTrimestre"){
-								trimestresV=z.tercertrimestre;
-							}else if($("#trimestreEvaluador").val()=="cuartoTrimestre"){
-								trimestresV=z.cuartotrimestre;
+              if(z.totalEjecutado==null){
+								z.totalEjecutado =0;
 							}
-							
-								 $(parametro1).append('<tr id="filaIndicadora"class="filaIndicadora'+z.idActividades+'"><td style="font-weight:bold;"><center>'+z.idActividades+'</center></td><td>'+z.nombreActividades+'</td><td>'+z.indicador+'</td><td><input type="text" id="totalProgramado'+z.idActividades+'" name="totalProgramado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" style="border:none;" disabled="disabled" /></td><td class="celdas'+z.idActividades+'"><input type="text" id="totalEjecutado'+z.idActividades+'" name="totalEjecutado'+z.idActividades+'" value="'+trimestresV+'" class="solo__numeros ancho__total__input text-center obligatorios" /><div class="rotulo'+z.idActividades+'" style="text-align:center; widht:100%;"></div></td><td><a id="guardar1'+z.idActividades+'" parametro7="'+parametro2+'" parametro8="'+$("#trimestreEvaluador").val()+'" name="guardar1'+z.idActividades+'" idContador="'+z.idActividades+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');								 
+
+           
+								 $(parametro1).append('<tr id="filaIndicadora"class="filaIndicadora'+z.idActividades+'"><td style="font-weight:bold;"><center>'+z.idActividades+'</center></td><td>'+z.nombreActividades+'</td><td>'+z.indicador+'</td><td><input type="text" id="totalProgramado'+z.idActividades+'" name="totalProgramado'+z.idActividades+'" value="'+z.trimestre+'" class="solo__numeros ancho__total__input text-center obligatorios" style="border:none;" disabled="disabled" /></td><td class="celdas'+z.idActividades+'"><input type="text" id="totalEjecutado'+z.idActividades+'" name="totalEjecutado'+z.idActividades+'" value="'+z.totalEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios" /><div class="rotulo'+z.idActividades+'" style="text-align:center; widht:100%;"></div></td><td><a id="guardar1'+z.idActividades+'" parametro7="'+parametro2+'" parametro8="'+$("#trimestreEvaluador").val()+'" name="guardar1'+z.idActividades+'" idContador="'+z.idActividades+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');								 
 								
 								 // console.log("IDActividad");
 								 // console.log(z.idActividades);
@@ -27983,7 +28196,7 @@ var limitarFechaActualInputDate=function(input){
 
 									console.log(idContador,parametro7,parametro8)
 									
-									funcion__guardado__general_estado_cuenta_indicadores($("#guardar1"+idContador),$(".obligatorios"+idContador),[$("#totalProgramado"+idContador).val(),$("#totalEjecutado"+idContador).val(),parametro7,idContador,parametro8],$("#documentoSustento"+idContador),"seguimiento__indicadores",$(".filaIndicadora"+idContador),$(".oculto__trimestrales"));
+									funcion__guardado__general_estado_cuenta_indicadores2023($("#guardar1"+idContador),$(".obligatorios"+idContador),[$("#totalProgramado"+idContador).val(),$("#totalEjecutado"+idContador).val(),parametro7,idContador,parametro8],$("#documentoSustento"+idContador),"seguimiento__indicadores",$(".filaIndicadora"+idContador),$(".oculto__trimestrales"));
 
 								}); 
 							// }
