@@ -185,7 +185,7 @@
 //--------------------------------------Bono Deportivo----------------------------------------------
 		case "paidBonoDeportivoJuegosNacionales":
 
-			$query="select ROW_NUMBER() OVER(ORDER BY a.idBonoDeportivo) AS numero, b.itemPreesupuestario,b.nombreItem,a.Deporte,a.nroDias,a.totalPersonas,a.valorBonoDiario,a.valorTotal,a.idBonoDeportivo from poa_paid_bono_deportivo as  a INNER JOIN poa_paid_item as b on a.IdItem = b.idItem where a.idOrganismo='$idOrganismoSession' and a.perioIngreso='$aniosPeriodos__ingesos' and a.identificador='1' and a.idcomponente='$idcomponentePAID' and a.idrubro='$idrubroPAID'; ;";
+			$query="select ROW_NUMBER() OVER(ORDER BY a.idBonoDeportivo) AS numero, b.itemPreesupuestario,b.nombreItem,a.Deporte,a.nroDias,a.totalPersonas,a.valorBonoDiario,a.valorTotal,a.idBonoDeportivo from poa_paid_bono_deportivo as  a INNER JOIN poa_paid_item as b on a.IdItem = b.idItem where a.idOrganismo='$idOrganismoSession' and a.perioIngreso='$aniosPeriodos__ingesos' and a.identificador='1' and a.idcomponente='$idcomponentePAID' and a.idrubro='$idrubroPAID';";
 			$dataTablets=$objeto->getDatatablets2($query);
 			echo json_encode($dataTablets);
 

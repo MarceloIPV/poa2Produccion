@@ -111,15 +111,6 @@
 
 		break;	
 
-		
-		case "paidIndicadores__revisor":
-
-			$query="select b.nombreIndicadores, a.primertrimestre,a.segundotrimestre,a.tercertrimestre,a.cuartotrimestre,a.metaindicador from poa_paid_indicadores_organismos as a INNER JOIN poa_paid_indicadores as b on a.idIndicador=b.idIndicadores where a.idOrganismo='$datos[0]' and a.perioIngreso='$aniosPeriodos__ingesos';";
-
-			$dataTablets=$objeto->getDatatablets($query);
-			echo json_encode($dataTablets);
-
-		break;	
 
 		case "paidEncuentroAc__revisor":
 
@@ -132,8 +123,7 @@
 
 		case "paidEventos__revisor":
 
-			$query="SELECT a.actividadDeportiva, a.deporte, a.modalidad, a.nombreEvento, a.prueba, a.categoria, a.fechaInicio, a.fechaFin, a.pais, a.sede, a.numeroOficina, a.numeroAtletas, a.numeroDias, a.numeroPax, a.valorTotal, a.Observaciones, a.idEventos
-			FROM `poa_paid_eventos` AS a WHERE  idOrganismo ='$datos[0]' AND a.perioIngreso='$aniosPeriodos__ingesos';";
+			$query="SELECT ROW_NUMBER() OVER(ORDER BY a.idEventos) AS numero, a.deporte, a.modalidad, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombreEvento, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreEvento, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre_atletas, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre_atletas, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre_entrenadores, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre_entrenadores, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.categoria, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS categoria, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.pais, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS pais, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.sede, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS sede, a.tipo_evento, a.fecha_inicio, a. Fecha_Fin, a.num_entrenador_ofi, a.num_atletas, a.num_dias, a.num_pax, a.alojamiento, a.alimentacion, a.hidratacion, a.transporte_aereo, transporte_terrestre, a.bono_deportivo_interal, a.inscripcion, a.visa, a.fondo_emergencia, a.especificos_deporte, a.valorTotal, a.Observaciones,c.nombreComponentes,d.nombreRubros FROM poa_paid_eventos AS a INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros WHERE a.idOrganismo='$datos[0]' AND a.perioIngreso='$aniosPeriodos__ingesos'";
 
 			$dataTablets=$objeto->getDatatablets($query);
 			echo json_encode($dataTablets);
@@ -142,7 +132,7 @@
 
 		case "paidNecesidadesGenerales__revisor":
 
-			$query="SELECT modalidad, articulo, cantidad, valorUnitario, valorTotal, sector, idNecesidadesGenerales FROM poa_paid_necesidades_generales where idOrganismo='$datos[0]' AND  perioIngreso='$aniosPeriodos__ingesos';";
+			$query="SELECT ROW_NUMBER() OVER(ORDER BY a.idNecesidadesGenerales ) AS numero, a.deporte, a.modalidad,a.sector,a.articulo,a.cantidad,a.valorUnitario,a.valorTotal, c.nombreComponentes,d.nombreRubros from poa_paid_necesidades_generales as a INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros where a.idOrganismo='$datos[0]'  AND a.perioIngreso='$aniosPeriodos__ingesos' 			";
 
 			$dataTablets=$objeto->getDatatablets($query);
 			echo json_encode($dataTablets);
@@ -151,7 +141,7 @@
 
 		case "paidIndividuales__revisor":
 
-			$query="SELECT modalidad, nombres, apellidos, articulo, cantidad, valorUnitario, valorTotal, sector, idNecesidadesIndividuales FROM poa_paid_necesidades_individuales where idOrganismo='$datos[0]' AND perioIngreso='$aniosPeriodos__ingesos';";
+			$query="SELECT a.modalidad, a.nombres, a.apellidos, a.articulo, a.cantidad, a.valorUnitario, a.valorTotal, a.sector,c.nombreComponentes,d.nombreRubros FROM poa_paid_necesidades_individuales as a INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros where a.idOrganismo = '$datos[0]' and a.perioIngreso='$aniosPeriodos__ingesos' ";
 
 			$dataTablets=$objeto->getDatatablets($query);
 			echo json_encode($dataTablets);
@@ -160,14 +150,110 @@
 
 		case "paidInterdiciplinarios__revisor":
 
-			$query="SELECT a.cedula, a.modalidad, a.sexo, a.cargo, a.nombres, a.apellidos, a.fechaInicio, a.fechaFin, a.valor, a.numeroMeses, a.valorTotal, a.sector, a.idIterdisciplinario 
-			FROM poa_paid_interdisciplinario AS a WHERE idOrganismo='$datos[0]' AND a.perioIngreso='$aniosPeriodos__ingesos';";
+			$query="SELECT ROW_NUMBER() OVER(ORDER BY a.idIterdisciplinario ) AS numero, a.cedula, a.modalidad, a.sexo, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.cargo, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS cargo, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombres, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombres, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellidos, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellidos, a.fechaInicio, a.fechaFin, a.valor, a.numeroMeses, a.valorTotal, a.sector ,c.nombreComponentes,d.nombreRubros  FROM poa_paid_interdisciplinario AS a INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros WHERE a.idOrganismo='$datos[0]' AND a.perioIngreso='$aniosPeriodos__ingesos' 
+			";
 
 			$dataTablets=$objeto->getDatatablets($query);
 			echo json_encode($dataTablets);
 
 		break;	
+
+		case "paidEncuentroMedallas__revisor":
+
+			$query="select ROW_NUMBER() OVER(ORDER BY a.idMedallas) AS numero, b.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.deporte,a.cantidadMedallasOro,a.cantidadMedallasPlata,a.cantidadMedallasBronce,a.totalMedallas,a.valorUnitario,a.valorTotal,c.nombreComponentes,d.nombreRubros from poa_paid_medallas_convencional as  a INNER JOIN poa_paid_item as b on a.item = b.idItem INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros where a.idOrganismo='$idOrganismoSession' and a.perioIngreso='$aniosPeriodos__ingesos'";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+
+		case "paidEncuentroPasajesAereos__revisor":
+
+			$query="SELECT ROW_NUMBER() OVER(ORDER BY id_pasajes_aereos ) AS numero, CONCAT_WS(' ',b.itemPreesupuestario, b.nombreItem) AS nombreItem, a.deporte, a.pasajes, a.n_deportistas, a.n_entrenadores, a.tota_personas, a.n_dias, a.valorTotal, c.nombreComponentes,d.nombreRubros FROM poa_paid_pasajes_aereos AS a INNER JOIN poa_paid_item AS b ON a.id_item = b.idItem INNER JOIN poa_paid_componentes as c on a.id_componente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.id_rubro=d.idRubros WHERE a.idOrganismo='$datos[0]' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.identificador = '1' ;";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "paidEncuentroTransporte__revisor":
+
+			$query="select ROW_NUMBER() OVER(ORDER BY a.idTransporte) AS numero, b.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.Provincia,a.Deporte,a.cantidad,a.nroCupos,a.valorUnitario,a.valorTotal, c.nombreComponentes,d.nombreRubros from poa_paid_transporte as  a INNER JOIN poa_paid_item as b on a.item = b.idItem   INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros where a.idOrganismo='$datos[0]' and a.perioIngreso='$aniosPeriodos__ingesos' and a.identificador='1' ";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "paidEncuentroSeguros__revisor":
+
+			$query="select ROW_NUMBER() OVER(ORDER BY a.idSeguro) AS numero, b.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.Provincia,a.Deporte,a.cantidad,a.nroCupos,a.valorUnitario,a.valorTotal,  c.nombreComponentes,d.nombreRubros from poa_paid_seguros as  a INNER JOIN poa_paid_item as b on a.item = b.idItem INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros where a.idOrganismo='$datos[0]' and a.perioIngreso='$aniosPeriodos__ingesos' and a.identificador='1' ";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "paidEncuentroUniformes__revisor":
+
+			$query="SELECT ROW_NUMBER() OVER(ORDER BY id_uniformes_adaptado) AS numero, CONCAT_WS(' ',b.itemPreesupuestario, b.nombreItem) AS nombreItem, a.deporte, a.delegaciones,a.p_apoyo, a.v_unitario, a.valorTotal,a.tipo, c.nombreComponentes,d.nombreRubros FROM poa_paid_uniformes_adaptado AS a INNER JOIN poa_paid_item AS b ON a.id_item = b.idItem INNER JOIN poa_paid_componentes as c on a.id_componente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.id_rubro=d.idRubros  WHERE a.idOrganismo = '$datos[0]' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND a.identificador = '1' ";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "paidEncuentroBonoDeportivo__revisor":
+
+			$query="select ROW_NUMBER() OVER(ORDER BY a.idBonoDeportivo) AS numero, b.itemPreesupuestario,b.nombreItem,a.Deporte,a.nroDias,a.totalPersonas,a.valorBonoDiario,a.valorTotal,c.nombreComponentes,d.nombreRubros from poa_paid_bono_deportivo as  a INNER JOIN poa_paid_item as b on a.IdItem = b.idItem INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros where a.idOrganismo='$datos[0]' and a.perioIngreso='$aniosPeriodos__ingesos' and a.identificador='1' 			";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "paidEncuentroPersonalTecnico__revisor":
+
+			$query="SELECT ROW_NUMBER() OVER(ORDER BY id_personal_tecnico_convensional ) AS numero, CONCAT_WS(' ',b.itemPreesupuestario, b.nombreItem) AS nombreItem, a.deporte,a.jueces, a.nro_dias_jueces, a.comisionados, a.nro_dias_comisionados, a.p_apoyo, a.nro_dias_p_apoyo, a.valor_jueces, a.valor_comisionados, a.valor_p_apoyo, a.valorTotal,  c.nombreComponentes,d.nombreRubros FROM poa_paid_personal_tecnico_convensional AS  a INNER JOIN poa_paid_item AS b ON a.id_item	 = b.idItem INNER JOIN poa_paid_componentes as c on a.id_componente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.id_rubro=d.idRubros   WHERE a.idOrganismo='$datos[0]' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.identificador = '1'";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+
+		case "paidEncuentroMatricesAux__revisor":
+
+			$query="select ROW_NUMBER() OVER(ORDER BY a.idMatriz) AS numero, b.itemPreesupuestario,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.descripcion,a.cantidad,a.valorUnitario,a.valorTotal,a.nombreMatriz,c.nombreComponentes,d.nombreRubros from poa_paid_matrices_juegos_nacionales as  a INNER JOIN poa_paid_item as b on a.item = b.idItem  INNER JOIN poa_paid_componentes as c on a.idComponente=c.idComponentes INNER JOIN poa_paid_rubros as d on a.idRubro=d.idRubros where a.idOrganismo='$datos[0]' and a.perioIngreso='$aniosPeriodos__ingesos' and a.identificador='1' 			";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "paidEncuentroHospAli__revisor":
+
+			$query="SELECT ROW_NUMBER() OVER(ORDER BY a.nombreMatriz) AS numero,  CONCAT_WS(' ',c.itemPreesupuestario,c.nombreItem) AS nombreItem1, CONCAT_WS(' ',d.itemPreesupuestario,d.nombreItem) AS nombreItem2,a.provincia, a.nombre_deporte, a.nro_cupos, a.hosp_alim_hidr, a.dias, a.valor_total,a.nombreMatriz, e.nombreComponentes,f.nombreRubros  FROM poa_paid_juegos_nacionales_hosp_alim_hidr AS a INNER JOIN poa_paid_item AS c ON  a.id_item1 = c.idItem INNER JOIN poa_paid_item AS d ON d.idItem=a.id_item2 INNER JOIN poa_paid_componentes as e on a.id_componente=e.idComponentes INNER JOIN poa_paid_rubros as f on a.id_rubro=f.idRubros  WHERE a.idOrganismo = '$datos[0]' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND a.identificador= '1'";
+
+			$dataTablets=$objeto->getDatatablets($query);
+			echo json_encode($dataTablets);
+
+		break;
+
+
 		
+		
+
+
+
+		
+
+
+		
+
+
+
 
 
     }
