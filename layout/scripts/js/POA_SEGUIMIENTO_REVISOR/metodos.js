@@ -196,7 +196,7 @@ var buscarFiltradoDataTable = function(input1,input2,datatable){
             table.draw();
         }else if((endDate < startDate) &&(startDate != '' && endDate != '')){
           alertify.set("notifier","position", "top-center");
-          alertify.notify("Fecha de Fin no puede ser Mayor a la Fecha de Inicio", "error", 5, function(){});
+          alertify.notify("Fecha de Inicial no puede ser Mayor a la Fecha de Final", "error", 5, function(){});
           
         }
         
