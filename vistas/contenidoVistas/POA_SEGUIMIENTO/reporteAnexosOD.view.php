@@ -85,10 +85,9 @@
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("recreativo__se__2__2023","006 - Actividades recreativas - Ejecución presupuestaria","seguimiento__recreativo__2",["Año","Trimestre","Mes","Código del Item","Ítem","Monto Programado","Monto ejecutado"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("recreativoTec__se__2__2023","006 - Actividades recreativas - Información técnica","seguimiento__recreativoTec__2",["Ítem","Observaciones","Porcentaje","Beneficiarios hombres","Beneficiarios mujeres","Total","Fecha inicio planificacdo","Fecha inicio ejecutado","Fecha fin planificado","Fecha fin ejecutado","Tipo evento","Evento tarea","Nivel","Total","Tipo organización","Nombre organismo","Trimestre","Año"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("recreativoTec__se__2__2023","006 - Actividades recreativas - Información técnica","seguimiento__recreativoTec__2",["Ítem","Evento","Observaciones","Beneficiarios hombres 5-17 Años","Beneficiarios Mujeres 5-17 Años","Total 5-17 Años","Beneficiarios hombres 18-69 Años","Beneficiarios Mujeres 18-69 Años","Total 18-69 Años","Fecha inicio planificacdo","Fecha inicio ejecutado","Fecha fin planificado","Fecha fin ejecutado","Tipo organización","Ruc","Nombre organismo","Trimestre","Año"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("implementacion__se__2__2023","007 - implementación deportiva  - Ejecución presupuestaria e Información Técnica","seguimiento__implementacion__2",["Año","Trimestre","Mes","Código del Item","Ítem","Monto Programado","Monto ejecutado"]);?>
-
 
 <!--====  End of Modales  ====-->
 <script>
