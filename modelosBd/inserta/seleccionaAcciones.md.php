@@ -1602,7 +1602,7 @@
 
 			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idMantenimientoTec,a.planificadoInicial,a.ejecutadoInicial,a.planificadoFinal,a.ejectuadoFinal,a.trimestre,a.porcentaje,b.nombreInfras AS detallarTipoIn,(SELECT a1.nombreProvincia FROM in_md_provincias AS a1 WHERE a1.idProvincia=b.provincia) AS provincias,b.direccionCompleta, b.estado,b.tipoMantenimiento FROM poa_seguimiento_mantenimiento_tecnico AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
 
-			$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT a.idOtrosMantenimientoTecnico,a.documento,a.mes,a.trimestre,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_mantenimiento AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idActividadAd=a.idActividadAc)  AS nombreItem,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.itemPreesupuestario, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_mantenimiento AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idMantenimiento=a.idActividadAc)  AS itemPreesupuestario FROM poa_seguimiento_otros_mantenimiento_tecnico AS a WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+			$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT a.idOtrosMantenimientoTecnico,a.documento,a.mes,a.trimestre,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_mantenimiento AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idMantenimiento=a.idActividadAc)  AS nombreItem,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.itemPreesupuestario, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_mantenimiento AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idMantenimiento=a.idActividadAc)  AS itemPreesupuestario FROM poa_seguimiento_otros_mantenimiento_tecnico AS a WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
 
 
 			$jason['indicadorInformacion']=$indicadorInformacion;
@@ -3776,11 +3776,21 @@
 			
 			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento, fecha, perioIngreso, trimestre as listaTrimestres FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY idDeclaracion DESC;");
 
+			
+
 			$jason['obtenerInformacion']=$obtenerInformacion;
 
 		break;	
 
 		case  "eliminar_declaracion_recusos":
+
+			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY idDeclaracion DESC;");
+
+			$archivo = $obtenerInformacion[0][documento];
+
+			$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_recursos_publicos/";
+
+			unlink($direccion1.$archivo);
 
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
@@ -3805,11 +3815,21 @@
 
 		case  "eliminar_declaracion_publica":
 
+			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY id_declaracion_contratacion_publica DESC;
+			");
+
+
+			$archivo = $obtenerInformacion[0][documento];
+			
+			$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_contratacion_publica/";
+
+			unlink($direccion1.$archivo);
+
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 				$query="DELETE FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre'";		
 
-			$resultado= $conexionEstablecida->exec($query);
+				$resultado= $conexionEstablecida->exec($query);
 		
 				$mensaje=1;
 				$jason['mensaje']=$mensaje;	

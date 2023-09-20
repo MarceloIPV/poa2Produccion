@@ -2525,6 +2525,7 @@ function crear_DataTable2(idDatatable){
           
           
           $("#guardarTecnicos"+parametro8[0]).click(function(e) {
+            
 
             var validador = validacionRegistro( $(".obligatorioOtros__1"));
 	          validacionRegistroMostrarErrores( $(".obligatorioOtros__1"));
@@ -3448,19 +3449,16 @@ function crear_DataTable2(idDatatable){
                   $("#guardarTecnicos"+parametro8[0]).click(function(e) {
                     
 
-                    if($(".obligatorioOtros__2").val()=="" && $(".obligatorioOtros__3").val()=="" ){
-                      var validador = validacionRegistro( $(".obligatorioOtros__2"));
+                    if($(".obligatorioOtros__2").val()=="" || $(".obligatorioOtros__1").val()=="" || $(".obligatorioOtros__3").val()=="" ){
+                      var validador = validacionRegistro( $(".obligatorioOtros__1"));
+                      validacionRegistroMostrarErrores( $(".obligatorioOtros__1"));
+                      var validador2 = validacionRegistro( $(".obligatorioOtros__2"));
                       validacionRegistroMostrarErrores( $(".obligatorioOtros__2"));
                       var validador3 = validacionRegistro( $(".obligatorioOtros__3"));
                       validacionRegistroMostrarErrores( $(".obligatorioOtros__3"));
                     }
                   
-                  
-                
-
-              
-                
-                    if (validador == false && validador3 ==false) {
+                    if (validador == false || validador2 ==false || validador3 ==false) {
 
                         alertify.set("notifier", "position", "top-center");
                         alertify.notify("Campos obligatorios", "error", 5, function () { });

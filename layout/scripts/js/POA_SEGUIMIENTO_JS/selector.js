@@ -2511,7 +2511,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".alto__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasAltos+'"><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_alto/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" idPrincipal="'+l.idOtrosCompetenciasAltos+'" idContador="'+l.idOtrosCompetenciasAltos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".alto__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasAltos+'"><td>'+l.nombreEvento+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_alto/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasAltos+'" idPrincipal="'+l.idOtrosCompetenciasAltos+'" idContador="'+l.idOtrosCompetenciasAltos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasAltos).click(function(e) {
@@ -2587,6 +2587,20 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 							}
 
 
+							$.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatabletsAdaptacion.js",function(){
+	
+								var elementos=JSON.parse(response);
+	
+								var indicadorInformacion=elementos['indicadorInformacion'];
+								console.log(indicadorInformacion)
+								
+								var table = datatabletsConfiguration($("#recreativo__seguimientos"),"006 - Actividades recreativas - Ejecución presupuestaria");
+								
+								visor__actividades__recreativo_presupuestario(indicadorInformacion,table)
+	
+							});	
+
+
 							for (z of indicadorInformacion) {
 
 								$(parametro2).append('<tr class="fila__seguis__administrativos'+z.idMantenimientoTec+' fila__corresponsal"><td>'+z.detallarTipoIn+'</td><td>'+z.planificadoInicial+'</td><td>'+z.ejecutadoInicial+'</td><td>'+z.planificadoFinal+'</td><td>'+z.ejectuadoFinal+'</td><td>'+z.porcentaje+'</td><td>'+z.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__mantenimiento__tecnicos'+z.idMantenimientoTec+'" name="eliminarInfor__mantenimiento__tecnicos'+z.idMantenimientoTec+'" idPrincipal="'+z.idMantenimientoTec+'" idContador="'+z.idMantenimientoTec+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
@@ -2622,7 +2636,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__capacitacion__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacionTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.idOtrosCapacitacionTecnico+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCpacitacion_tecnico/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" name="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" idPrincipal="'+l.idOtrosCapacitacionTecnico+'" idContador="'+l.idOtrosCapacitacionTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__capacitacion__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCapacitacionTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCpacitacion_tecnico/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" name="eliminarInfor__otros'+l.idOtrosCapacitacionTecnico+'" idPrincipal="'+l.idOtrosCapacitacionTecnico+'" idContador="'+l.idOtrosCapacitacionTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCapacitacionTecnico).click(function(e) {
@@ -2641,25 +2655,22 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								$(".tabla__capacitacion__tecnicos").hide();
 
-							}							
+							}	
+							
+							$.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatabletsAdaptacion.js",function(){
+	
+								var elementos=JSON.parse(response);
+	
+								var indicadorInformacion=elementos['indicadorInformacion'];
+								console.log(indicadorInformacion)
+								
+								var table = datatabletsConfiguration($("#capacitacion__seguimientos__tecnico"),"003 - Capacitación deportiva o de recreación - Información Técnica");
+								
+								visor__capacitacion_Tecnica(indicadorInformacion,table)
+	
+							});	
 
-							for (z of indicadorInformacion) {
-
-								$(parametro2).append('<tr class="fila__seguis__administrativos'+z.idCapacitacionTec+' fila__corresponsal"><td>'+z.nombreEvento+'</td><td>'+z.planificadoInicial+'</td><td>'+z.ejecutadoInicial+'</td><td>'+z.planificadoFinal+'</td><td>'+z.ejectuadoFinal+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__alto'+z.idCapacitacionTec+'" name="eliminarInfor__alto'+z.idCapacitacionTec+'" idPrincipal="'+z.idCapacitacionTec+'" idContador="'+z.idCapacitacionTec+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
-
-								$(".cuerpo__capacitacion__2").append('<tr class="fila__seguis__administrativos'+z.idCapacitacionTec+' fila__corresponsal"><td>'+z.nombreEvento+'</td><td>'+z.planificadoInicial+'</td><td>'+z.ejecutadoInicial+'</td><td>'+z.planificadoFinal+'</td><td>'+z.ejectuadoFinal+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td></tr>');
-
-								$("#eliminarInfor__alto"+z.idCapacitacionTec).click(function(e) {
-
-									let idContador=$(this).attr('idContador');
-									let idPrincipal=$(this).attr('idPrincipal');
-									
-									funcion__eliminar__general(idPrincipal,'eliminar__capacitacion__seguimiento');
-
-								}); 
-
-
-							}
+							
 
 						}
 

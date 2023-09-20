@@ -29,8 +29,9 @@ $(document).ready(function () {
 
         guardar_estado_cuenta2023($("#guardar_estado_cuenta"),$(".obligatorios_estado_cuenta"),$("#estado_cuenta"));
         guardar_estado_cuenta_indicadores2023($("#guardar_estado_cuenta_indicadores"),$(".obligatorios_estado_cuenta_indicadores"),$("#estado_cuenta_indicadores"));
-        
-        
+        guardar__declaracion_recursos_publicos($("#guardar_declaracion_rp"),$(".obligatorios_declaracion_rp"),$("#declaracion_rp"));
+        guardar__declaracion_contratacion_publica($("#guardar_declaracion_cp"),$(".obligatorios_declaracion_cp"),$("#declaracion_cp"));
+
         enviarCorreo($("#guardar_"));
 
     });
@@ -87,6 +88,9 @@ $(document).ready(function () {
     visores_actividades_seguimiento2023($("#idSueldosME2023"),$(".cuerpo__sueldos__slaraios__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'sueldos__seguimientos__tablas');
     visores_actividades_seguimiento2023($("#idCompetencia__formativaME2023"),$(".cuerpo__formativos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreativos__formativo__seguimiento');
 
+    visores_actividades_seguimiento2023($("#idCapacitacionTecnicoME2023"),$(".cuerpo__capacitacion"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'capacitacion__seguimiento__tablas');
+    visores_actividades_seguimiento2023($("#idMantenimientoTecnicoME2023"),$(".cuerpo__mantenimiento__tecnicos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'mantenimiento__tecnicos__seguimiento__tablas');
+    visores_actividades_seguimiento2023($("#idCompetencia__altoRenME2023"),$(".cuerpo__altos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreativos__altos__seguimiento');
     });
 
 
@@ -134,7 +138,7 @@ $(document).ready(function () {
 
         cerrarDivsDesarrollo("#cerrarBtnContratacionPublica","#divContratacionPublicaSeguimiento");
         
-        agregarDatatablets($("#documentacionGenerada__in"),"seguimiento__documentacionGenerada","Uso_Correcto_Recursos",objetos([2],["enlace"],['documento'],[$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/"],["documento"]),"");
+        agregarDatatablets($("#documentacionGenerada__in"),"seguimiento__documentacionGenerada","Uso_Correcto_Recursos",objetos([2],["enlace"],['documento'],[$("#filesFrontend").val()+"seguimiento/declaracion_recursos_publicos/"],["documento"]),"");
         agregarDatatablets($("#documentacionGenerada__in__final"),"seguimiento__documentacionGenerada__2","Reporte_Trimestral",objetos([2],["enlace"],['documentoSIF'],[$("#filesFrontend").val()+"final__seguimiento/"],["documentoSIF"]),"");
 
         agregarDatatablets($("#autogestionPoas__in"),"seguimiento__autogestiones","Autogestion","");
@@ -154,7 +158,7 @@ $(document).ready(function () {
         agregarDatatablets($("#capacitacion__in"),"seguimiento__capacitacion","003 - Capacitación deportiva o de recreación - Ejecución presupuestaria","","");     
 
     
-        agregarDatatablets($("#btn_documentacion__Generada__cp"),"dt_seguimiento__documentacionGenerada_cp","Uso_Correcto_Contratacion_Publica",objetos([2],["enlace"],['documentoCP'],[$("#filesFrontend").val()+"declaracionTerminos/"],["documentoCP"]),"");
+        agregarDatatablets($("#btn_documentacion__Generada__cp"),"dt_seguimiento__documentacionGenerada_cp","Uso_Correcto_Contratacion_Publica",objetos([2],["enlace"],['documentoCP'],[$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/"],["documentoCP"]),"");
     
         
         buscador_datos($("#idSueldosME"),$(".cuerpo__sueldos__slaraios__seguimientos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'sueldos__seguimientos__tablas',$("#buscar__sueldos"));
@@ -171,7 +175,7 @@ $(document).ready(function () {
         buscador_datos_recreativo_tecnico_IT_006($("#RecreativaTecnicoME"),$(".cuerpo__recreacion"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreacion__seguimiento__tablas',$("#buscar__recreativoIT_006"));
         buscador_datos__implementacion__007($("#implementacionME"),$(".cuerpo__competencia__implementaciones"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'competencia__implementacion__tablas',$("#buscar__recreativo__Implementacion__007"));
         buscador_datos_capacitacion_EP_003($("#cpacitacionME"),$(".cuerpo__capacitacion__vs"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'capacitacion__seguimiento__tablas__ms',$("#buscar__capacitacion_EP_003"));
-        buscador_datos_capacitacion_tecnico_IT_003($("#cpacitacionTecnicoME"),$(".cuerpo__capacitacion"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'capacitacion__seguimiento__tablas',$("#buscar__capacitacion_tecnico_IT_003"));
+        buscador_datos_capacitacion_tecnico_IT_003($("#cpacitacionTecnicoME2023"),$(".cuerpo__capacitacion"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'capacitacion__seguimiento__tablas',$("#buscar__capacitacion_tecnico_IT_003"));
         buscador_datos_indicadores_estado_cuenta($("#indicadoresMEindicadoresM_estadoCuenta"),$(".cuerpo__indicadores__seguimientos_estado_cuenta"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'indicadores__seguimientos__tablas_estado_cuenta',$("#buscar__indicador_estado_cuenta"));
 
         //buscador_datos($("#sueldosME"),$("#searchInput").attr("id"), $("#sueldos__salarios__seguimientos"));
