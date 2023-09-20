@@ -91,6 +91,8 @@ $(document).ready(function () {
     visores_actividades_seguimiento2023($("#idCapacitacionTecnicoME2023"),$(".cuerpo__capacitacion"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'capacitacion__seguimiento__tablas');
     visores_actividades_seguimiento2023($("#idMantenimientoTecnicoME2023"),$(".cuerpo__mantenimiento__tecnicos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'mantenimiento__tecnicos__seguimiento__tablas');
     visores_actividades_seguimiento2023($("#idCompetencia__altoRenME2023"),$(".cuerpo__altos"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreativos__altos__seguimiento');
+    visores_actividades_seguimiento2023($("#idRecreativaTecnicoME2023"),$(".cuerpo__recreacion"),$("#organismoIdPrin").val(),$("#trimestreEvaluador").val(),'recreacion__seguimiento__tablas');
+
     });
 
 

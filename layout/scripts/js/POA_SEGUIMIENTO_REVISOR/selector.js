@@ -123,7 +123,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
   
 	}
 
-
+	
 
 	var agregarDatatablets__competencia__altos__formativos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
   
@@ -142,7 +142,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 			$.ajax({
 
 				type:"POST",
-				url:"modelosBd/inserta/seleccionaAcciones.md.php",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
 				contentType: false,
 				data:paqueteDeDatos,
 				processData: false,
@@ -157,15 +157,21 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 
 					if (indicadorInformacion3!=null && indicadorInformacion3!=undefined && indicadorInformacion3!=" " && indicadorInformacion3!="") {
+						$(".contenedor__sueldos__salarios").append("<h4 style='text-align:center' class='texto__evidenciales titulo__enfasis text-center'>Documentos de Respaldo</h4>");
+						$(".contenedor__sueldos__salarios").append("<br><a class='btnDescargarDocumentosCompetenciaFormativo btn btn-warning pointer__botones' >DESCARGAR TODO</a><br>");
+						$(".contenedor__sueldos__salarios").append("<table class='contenido__tablas__facturas__sueldos'><tr><th>Evento</th><th>Documento</th></tr></table>");
 
-						$(".contenedor__sueldos__salarios").append("<table class='contenido__tablas__facturas__sueldos'><tr><th>Documento</th></tr></table>");
+						const documentosCompetencia = [];
 
 						for(z of indicadorInformacion3){
 
-							$(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
+							$(".contenido__tablas__facturas__sueldos").append('<tr><td>'+z.nombreEvento+'</a></td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
 
-						}                           
-
+							documentosCompetencia.push($("#filesFrontend").val()+"seguimiento/otrosCompentencia_formativo/"+z.documento);
+  
+						}	
+						
+						descargarPorZipArchivos($(".btnDescargarDocumentosCompetenciaFormativo"),documentosCompetencia,"DocumentosCompetencia"+$("#trimestreN").val())
 					}
 
 
@@ -314,7 +320,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 			$.ajax({
 
 				type:"POST",
-				url:"modelosBd/inserta/seleccionaAcciones.md.php",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
 				contentType: false,
 				data:paqueteDeDatos,
 				processData: false,
@@ -330,14 +336,21 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 					if (indicadorInformacion3!=null && indicadorInformacion3!=undefined && indicadorInformacion3!=" " && indicadorInformacion3!="") {
 
-						$(".contenedor__sueldos__salarios").append("<table class='contenido__tablas__facturas__sueldos'><tr><th>Documento</th></tr></table>");
+						$(".contenedor__sueldos__salarios").append("<h4 style='text-align:center' class='texto__evidenciales titulo__enfasis text-center'>Documentos de Respaldo</h4>");
+						$(".contenedor__sueldos__salarios").append("<br><a class='btnDescargarDocumentosCompetenciaAltoTecnico btn btn-warning pointer__botones' >DESCARGAR TODO</a><br>");
+
+						$(".contenedor__sueldos__salarios").append("<table class='contenido__tablas__facturas__sueldos'><tr><th>Evento</th><th>Documento</th></tr></table>");
+
+						const documentosCompetenciaAltoTecnico = [];
 
 						for(z of indicadorInformacion3){
 
-							$(".contenido__tablas__facturas__sueldos").append('<tr><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_alto/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
+							$(".contenido__tablas__facturas__sueldos").append('<tr><td>'+z.nombreEvento+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_alto/'+z.documento+'" target="_blank">'+z.documento+'</a></td></tr>');
 
+							documentosCompetenciaAltoTecnico.push($("#filesFrontend").val()+"seguimiento/otrosCompentencia_alto/"+z.documento);
 						}                           
 
+						descargarPorZipArchivos($(".btnDescargarDocumentosCompetenciaAltoTecnico"),documentosCompetenciaAltoTecnico,"DocumentosCompetenciaAltoRendimientoTecnico"+$("#trimestreN").val())
 					}
 
 
@@ -843,6 +856,70 @@ var superioresSelectsContratacionPublica=function(parametro1){
 			});
 	
 	}
+
+	var agregarDatatablets__recreativo__tecnico__seguimientos2023=function(parametro1,parametro2,parametro3,parametro4,parametro5){
+  
+		$(parametro1).click(function (e){
+
+			$(".contenedor__sueldos__salarios").html(" ");
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','recreacion__seguimiento__documentos__tecnicos');
+
+			paqueteDeDatos.append("idOrganismo",$("#idOrganismo").val());
+			paqueteDeDatos.append("anio2",parametro5);
+			paqueteDeDatos.append("trimestres",$("#trimestreN").val());
+
+			$.ajax({
+
+				type:"POST",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+				$.getScript("layout/scripts/js/validacionBasica.js",function(){
+
+					let elementos=JSON.parse(response);
+
+					let indicadorInformacion3=elementos['indicadorInformacion3'];
+
+					datatabletsSeguimientoRevisorVacio($("#"+parametro3),parametro3,parametro5,"",[$("#idOrganismo").val(),$("#trimestreN").val(),parametro5],false);
+
+					if (indicadorInformacion3!=null && indicadorInformacion3!=undefined && indicadorInformacion3!=" " && indicadorInformacion3!="") {
+						$(".contenedor__sueldos__salarios").append("<h4 style='text-align:center' class='texto__evidenciales titulo__enfasis text-center'>Documentos de Respaldo</h4>");
+						$(".contenedor__sueldos__salarios").append("<br><a class='btnDescargarDocumentosRecreativoTecnico btn btn-warning pointer__botones' >DESCARGAR TODO</a><br>");
+						$(".contenedor__sueldos__salarios").append("<table class='contenido__tablas__facturas__honorarios1'><tr><th>Trimestre</th><th>Evento</th><th>Documento</th></tr></table>");
+
+						const documentosRecreativo = [];
+
+						for(w of indicadorInformacion3){
+
+							$(".contenido__tablas__facturas__honorarios1").append('<tr><td>'+w.trimestre+'</td><td>'+w.nombreEvento+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otros__recreativos__tecnicos/'+w.documento+'" target="_blank">'+w.documento+'</a></td></tr>');
+
+							documentosRecreativo.push($("#filesFrontend").val()+"seguimiento/otros__recreativos__tecnicos/"+w.documento);
+						}	
+						
+						descargarPorZipArchivos($(".btnDescargarDocumentosRecreativoTecnico"),documentosRecreativo,"DocumentosRecreativo"+$("#trimestreN").val())
+
+					}
+
+
+				});	
+
+				},
+				error:function(){
+
+				}
+						
+			});	  	
+
+		});
+
+}
 	
 
 	var seleccionTabsRecorrido=function(boton,idOrganismo,periodo){

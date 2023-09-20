@@ -392,8 +392,7 @@
 						
 						<input type='hidden' id='trimestreEvaluadorDos' name='trimestreEvaluadorDos'/>
 
-						<button class='btn btn-info'><i class='fa fa-cloud' aria-hidden='true'></i>&nbsp;&nbsp;GENERAR PDF</button>
-
+						
 
 						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
 
@@ -632,7 +631,7 @@
 
 									<div class='card-body row'>
 
-										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#implementacion__se__2__2023' id='implementacion__in__2'>007 - implementación deportiva  - Ejecución presupuestaria e Información Técnica</a>
+										<a class='card-title text-center titulo__enfasis pointer__botones' data-bs-toggle='modal' data-bs-target='#implementacion__se__2__2023' id='implementacion__in__2'>007 - Implementación deportiva  - Ejecución presupuestaria e Información Técnica</a>
 
 									</div>
 
