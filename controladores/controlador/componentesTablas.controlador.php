@@ -5624,7 +5624,7 @@
 
 											<tr>
 
-												
+												<th>Evento</th>
 												<th>Deporte</th>
 												<th>Provincia</th>
 												<th>Sede ciudad<br>país</th>
@@ -6661,6 +6661,8 @@
 												<th>Total<br>de atletas</th>
 												<th>Mújeres<br>beneficiarios</th>
 												<th>Hombres<br>beneficiarios</th>
+												<th>Fecha<br>Inicio</th>
+												<th>Fecha<br>Fin</th>
 												<th>Escoger</th>
 
 											</tr>

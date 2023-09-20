@@ -61,7 +61,7 @@
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("autogestion__se__2__2023","Autogestión","seguimiento__autogestiones__2",["Detalle autogestión","Monto autogestión","Detalle de reinversión en el reporte educación física y/o recreación","Trimestre","Año"]);?>
 
-<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("indicadores__se__2__2023","Indicadores","seguimiento__indicadores__2",["Actividad","Trimestre","Año","Total programado","Total ejecutado","Documento"]);?>
+<?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("indicadores__se__2__2023","Indicadores","seguimiento__indicadores__2",["Actividad","Trimestre","Año","Total programado","Total ejecutado"]);?>
 
 <?=$componentesTablas->getModalConfiguracion__reporteria__organismos__seguimientos2("administrativo__se__2__2023","001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria","seguimiento__administrativas__2",["Año","Trimestre","Mes","Código del Item","Ítem","Monto Programado","Monto ejecutado"]);?>
 

@@ -201,7 +201,7 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 			$(".contenedor__sueldos__salarios").html(" ");
 
-			datatabletsSeguimientoRevisorVacio($("#"+parametro3),parametro3,parametro5,objetos([5],["enlace"],['documento'],[$("#filesFrontend").val()+"seguimiento/indicadoresDocumento/"],["documento"]),[$("#idOrganismo").val(),$("#trimestreN").val(),parametro5],false);
+			datatabletsSeguimientoRevisorVacio($("#"+parametro3),parametro3,parametro5,"",[$("#idOrganismo").val(),$("#trimestreN").val(),parametro5],false);
 
 
 		});
