@@ -2457,7 +2457,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".formativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosCompetenciasTecnicas+'"><td>'+l.nombreEvento+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosCompentencia_formativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" name="eliminarInfor__otros'+l.idOtrosCompetenciasTecnicas+'" idPrincipal="'+l.idOtrosCompetenciasTecnicas+'" idContador="'+l.idOtrosCompetenciasTecnicas+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosCompetenciasTecnicas).click(function(e) {
@@ -2477,23 +2477,20 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 							}
 
-							for (z of indicadorInformacion) {
+							$.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatabletsAdaptacion.js",function(){
+	
+								var elementos=JSON.parse(response);
+	
+								var indicadorInformacion=elementos['indicadorInformacion'];
+								console.log(indicadorInformacion)
+								
+								var table = datatabletsConfiguration($("#tecnico__formativos"),"005 - Eventos de preparación y competencia - Deporte Formativo - Información técnica ");
+								
+								visor__recreativo_formativo_Tecnica(indicadorInformacion,table)
+	
+							});	
 
-								$(parametro2).append('<tr class="fila__seguis__administrativos'+z.idCompetenciaFormativo+' fila__corresponsal"><td>'+z.nombreEvento+'</td><td>'+z.oro+'</td><td>'+z.plata+'</td><td>'+z.bronce+'</td><td>'+z.total+'</td><td>'+z.cuarOc+'</td><td>'+z.analisis+'</td><td>'+z.beneficiariosMujeres+'</td><td>'+z.beneficiariosHombres+'</td><td>'+z.totalT+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td><td>'+z.observacionesTecnicas+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__formativo'+z.idCompetenciaFormativo+'" name="eliminarInfor__formativo'+z.idCompetenciaFormativo+'" idPrincipal="'+z.idCompetenciaFormativo+'" idContador="'+z.idCompetenciaFormativo+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
-
-								$(".cuerpo__formativos__2").append('<tr><td>'+z.nombreEvento+'</td><td>'+z.oro+'</td><td>'+z.plata+'</td><td>'+z.bronce+'</td><td>'+z.total+'</td><td>'+z.cuarOc+'</td><td>'+z.analisis+'</td><td>'+z.beneficiariosMujeres+'</td><td>'+z.beneficiariosHombres+'</td><td>'+z.totalT+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td><td>'+z.observacionesTecnicas+'</td></tr>');
-
-								$("#eliminarInfor__formativo"+z.idCompetenciaFormativo).click(function(e) {
-
-									let idContador=$(this).attr('idContador');
-									let idPrincipal=$(this).attr('idPrincipal');
-									
-									funcion__eliminar__general(idPrincipal,'eliminar__formativos__seguimiento');
-
-								}); 
-
-
-							}
+							
 
 						}
 
@@ -2531,25 +2528,18 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 							}
 
-							for (z of indicadorInformacion) {
-
-								$(parametro2).append('<tr class="fila__seguis__administrativos'+z.idCompetenciaAltos+' fila__corresponsal"><td>'+z.nombreEvento+'</td><td>'+z.oro+'</td><td>'+z.plata+'</td><td>'+z.bronce+'</td><td>'+z.total+'</td><td>'+z.cuarOc+'</td><td>'+z.analisis+'</td><td>'+z.beneficiariosMujeres+'</td><td>'+z.beneficiariosHombres+'</td><td>'+z.totalT+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__alto'+z.idCompetenciaAltos+'" name="eliminarInfor__alto'+z.idCompetenciaAltos+'" idPrincipal="'+z.idCompetenciaAltos+'" idContador="'+z.idCompetenciaAltos+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
-
-								$(".cuerpo__altos__2").append('<tr class="fila__seguis__administrativos'+z.idCompetenciaAltos+' fila__corresponsal"><td>'+z.nombreEvento+'</td><td>'+z.oro+'</td><td>'+z.plata+'</td><td>'+z.bronce+'</td><td>'+z.total+'</td><td>'+z.cuarOc+'</td><td>'+z.analisis+'</td><td>'+z.beneficiariosMujeres+'</td><td>'+z.beneficiariosHombres+'</td><td>'+z.totalT+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td></tr>');
-
-								$("#eliminarInfor__alto"+z.idCompetenciaAltos).click(function(e) {
-
-									let idContador=$(this).attr('idContador');
-									let idPrincipal=$(this).attr('idPrincipal');
-
-									$(".fila__seguis__administrativos"+idContador).remove();
-									
-									funcion__eliminar__general(idPrincipal,'eliminar__altos__seguimiento');
-
-								}); 
-
-
-							}
+							$.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatabletsAdaptacion.js",function(){
+	
+								var elementos=JSON.parse(response);
+	
+								var indicadorInformacion=elementos['indicadorInformacion'];
+								console.log(indicadorInformacion)
+								
+								var table = datatabletsConfiguration($("#tecnico__altos"),"005 - Eventos de preparación y competencia - Alto Rendimiento - Información técnica");
+								
+								visor__recreativo_alto_Tecnica(indicadorInformacion,table)
+	
+							});	
 
 						}
 
@@ -2566,7 +2556,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".otros__mantenimiento__tecnicos").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosMantenimientoTecnico+'"><td>'+l.nombreInfras+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" name="eliminarInfor__otros'+l.idOtrosMantenimientoTecnico+'" idPrincipal="'+l.idOtrosMantenimientoTecnico+'" idContador="'+l.idOtrosMantenimientoTecnico+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosMantenimientoTecnico).click(function(e) {
@@ -2586,7 +2576,6 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 							}
 
-
 							$.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatabletsAdaptacion.js",function(){
 	
 								var elementos=JSON.parse(response);
@@ -2594,30 +2583,13 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 								var indicadorInformacion=elementos['indicadorInformacion'];
 								console.log(indicadorInformacion)
 								
-								var table = datatabletsConfiguration($("#recreativo__seguimientos"),"006 - Actividades recreativas - Ejecución presupuestaria");
+								var table = datatabletsConfiguration($("#tecnico__mantenimientos"),"002 - Mantenimiento de escenarios e infraestructura deportiva - Información técnica");
 								
-								visor__actividades__recreativo_presupuestario(indicadorInformacion,table)
+								visor__mantenimiento_Tecnica(indicadorInformacion,table)
 	
 							});	
 
-
-							for (z of indicadorInformacion) {
-
-								$(parametro2).append('<tr class="fila__seguis__administrativos'+z.idMantenimientoTec+' fila__corresponsal"><td>'+z.detallarTipoIn+'</td><td>'+z.planificadoInicial+'</td><td>'+z.ejecutadoInicial+'</td><td>'+z.planificadoFinal+'</td><td>'+z.ejectuadoFinal+'</td><td>'+z.porcentaje+'</td><td>'+z.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__mantenimiento__tecnicos'+z.idMantenimientoTec+'" name="eliminarInfor__mantenimiento__tecnicos'+z.idMantenimientoTec+'" idPrincipal="'+z.idMantenimientoTec+'" idContador="'+z.idMantenimientoTec+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
-
-								$(".cuerpo__mantenimiento__tecnicos__2").append('<tr><td>'+z.detallarTipoIn+'</td><td>'+z.provincias+'</td><td>'+z.direccionCompleta+'</td><td>'+z.estado+'</td><td>'+z.tipoMantenimiento+'</td><td>'+z.mensualProgramado+'</td><td>'+z.mensualEjecutado+'</td><td>'+z.observaciones+'</td><td>'+z.planificadoInicial+'</td><td>'+z.ejecutadoInicial+'</td><td>'+z.planificadoFinal+'</td><td>'+z.ejectuadoFinal+'</td><td>'+z.porcentaje+'</td><td>'+z.trimestre+'</td></tr>');
-
-								$("#eliminarInfor__mantenimiento__tecnicos"+z.idMantenimientoTec).click(function(e) {
-
-									let idContador=$(this).attr('idContador');
-									let idPrincipal=$(this).attr('idPrincipal');
-									
-									funcion__eliminar__general(idPrincipal,'eliminar__mantenimientos__tecnicos');
-
-								}); 
-
-
-							}
+							
 
 						}
 
@@ -2687,7 +2659,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 								for (l of indicadorInformacion3) {
 
-									$(".recreativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRT+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otros__recreativos__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRT+'" name="eliminarInfor__otros'+l.idOtrosRT+'" idPrincipal="'+l.idOtrosRT+'" idContador="'+l.idOtrosRT+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+									$(".recreativo__otros__tecnicos__cuerpo").append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosRT+'"><td>'+l.nombreEvento+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otros__recreativos__tecnicos/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosRT+'" name="eliminarInfor__otros'+l.idOtrosRT+'" idPrincipal="'+l.idOtrosRT+'" idContador="'+l.idOtrosRT+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
 									
 
 										$("#eliminarInfor__otros"+l.idOtrosRT).click(function(e) {
@@ -2707,23 +2679,22 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 
 							}
 
-							for (z of indicadorInformacion) {
+							$.getScript("layout/scripts/js/POA_SEGUIMIENTO_JS/datatabletsAdaptacion.js",function(){
+	
+								var elementos=JSON.parse(response);
+	
+								var indicadorInformacion=elementos['indicadorInformacion'];
+								console.log(indicadorInformacion)
+								
+								var table = datatabletsConfiguration($("#tecnico__recracion"),"006 - Actividades recreativas - Información técnica");
+								
+								visor__recreativo_Tecnica(indicadorInformacion,table)
+	
+							});	
 
-								$(parametro2).append('<tr class="fila__seguis__administrativos'+z.idCompetenciaSeguimiento+' fila__corresponsal"><td>'+z.nombreEvento+'</td><td>'+z.fechaInicioP+'</td><td>'+z.fechaInicioEjecutado+'</td><td>'+z.fechaFinP+'</td><td>'+z.fechaFinEjecutado+'</td><td>'+z.beneficiariosHombres+'</td><td>'+z.beneficiariosMujeres+'</td><td>'+z.totalT+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__alto'+z.idCompetenciaSeguimiento+'" name="eliminarInfor__alto'+z.idCompetenciaSeguimiento+'" idPrincipal="'+z.idCompetenciaSeguimiento+'" idContador="'+z.idCompetenciaSeguimiento+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+							
 
-								$(".cuerpo__recreacion__2").append('<tr><td>'+z.nombreEvento+'</td><td>'+z.fechaInicioP+'</td><td>'+z.fechaInicioEjecutado+'</td><td>'+z.fechaFinP+'</td><td>'+z.fechaFinEjecutado+'</td><td>'+z.beneficiariosHombres+'</td><td>'+z.beneficiariosMujeres+'</td><td>'+z.totalT+'</td><td>'+z.tipoOrganizacion+'</td><td>'+z.trimestre+'</td></tr>');
-
-								$("#eliminarInfor__alto"+z.idCompetenciaSeguimiento).click(function(e) {
-
-									let idContador=$(this).attr('idContador');
-									let idPrincipal=$(this).attr('idPrincipal');
-									
-									funcion__eliminar__general(idPrincipal,'eliminar__recreacion__seguimiento');
-
-								}); 
-
-
-							}
+							
 
 						}
 

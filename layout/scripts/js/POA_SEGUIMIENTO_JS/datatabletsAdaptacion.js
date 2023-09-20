@@ -1789,6 +1789,225 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
     }
 
 
+
+    /*==================================================================
+    =            visor Recreativo Tecnico                    =
+    ================================================================*/
+
+    var visor__recreativo_Tecnica=function(informacionObtenida,table){
+
+        table.clear();
+
+        
+
+        for(z of informacionObtenida){
+		
+    
+            /*===============================
+            =            Destino            =
+            ===============================*/
+
+            table.row.add([
+                    z.nombreEvento,
+                    z.fechaInicioP,
+                    z.fechaInicioEjecutado,
+                    z.fechaFinP,
+                    z.fechaFinEjecutado,
+                    z.beneficiariosHombres,
+                    z.beneficiariosMujeres,
+                    z.totalT,
+                    z.beneficiariosHombres18,
+                    z.beneficiariosMujeres18,
+                    z.totalT18,
+                    z.tipoOrganizacion,
+                    z.ruc,
+                    z.nombreOrganismo,
+                    z.observacionesTecnicas,
+                    z.trimestre,
+                    '<nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__alto'+z.idCompetenciaSeguimiento+'" name="eliminarInfor__alto'+z.idCompetenciaSeguimiento+'" idPrincipal="'+z.idCompetenciaSeguimiento+'" idContador="'+z.idCompetenciaSeguimiento+'" idItem="'+z.idItem+'" idOrganismo="'+z.idOrganismo+'" trimestre="'+z.trimestre+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav>'
+
+            ]).draw(false);
+
+            $("#eliminarInfor__alto"+z.idCompetenciaSeguimiento).click(function(e) {
+
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                
+                funcion__eliminar__general(idPrincipal,'eliminar__recreacion__seguimiento');
+                table.row($(this).closest('tr').index()).remove().draw();
+            }); 
+
+
+
+         
+           
+
+        }
+    
+    }
+
+
+        /*==================================================================
+    =            visor Mantenimeinto Tecnico                    =
+    ================================================================*/
+
+    var visor__mantenimiento_Tecnica=function(informacionObtenida,table){
+
+        table.clear();
+
+        
+
+        for(z of informacionObtenida){
+		
+    
+            /*===============================
+            =            Destino            =
+            ===============================*/
+
+            table.row.add([
+                    z.detallarTipoIn,
+                    z.planificadoInicial,
+                    z.ejecutadoInicial,
+                    z.planificadoFinal,
+                    z.ejectuadoFinal,
+                    z.porcentaje,
+                    z.trimestre,
+                    '<nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__alto'+z.idMantenimientoTec+'" name="eliminarInfor__alto'+z.idMantenimientoTec+'" idPrincipal="'+z.idMantenimientoTec+'" idContador="'+z.idMantenimientoTec+'" idItem="'+z.idItem+'" idOrganismo="'+z.idOrganismo+'" trimestre="'+z.trimestre+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav>'
+
+            ]).draw(false);
+
+            $("#eliminarInfor__alto"+z.idMantenimientoTec).click(function(e) {
+
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                
+                funcion__eliminar__general(idPrincipal,'eliminar__mantenimientos__tecnicos');
+                table.row($(this).closest('tr').index()).remove().draw();
+            }); 
+
+
+        }
+    
+    }
+
+
+        /*==================================================================
+    =            visor Recreativo Formativo Tecnico                    =
+    ================================================================*/
+
+    var visor__recreativo_formativo_Tecnica=function(informacionObtenida,table){
+
+        table.clear();
+
+        
+
+        for(z of informacionObtenida){
+		
+    
+            /*===============================
+            =            Destino            =
+            ===============================*/
+
+            table.row.add([
+                    z.nombreEvento,
+                    z.oro,
+                    z.plata,
+                    z.bronce,
+                    z.total,
+                    z.cuarOc,
+                    z.analisis,
+                    z.beneficiariosMujeres,
+                    z.beneficiariosHombres,
+                    z.totalT,
+                    z.tipoOrganizacion,
+                    z.trimestre,
+                    z.observacionesTecnicas,
+                   
+                    '<nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__formativo'+z.idCompetenciaFormativo+'" name="eliminarInfor__formativo'+z.idCompetenciaFormativo+'" idPrincipal="'+z.idCompetenciaFormativo+'" idContador="'+z.idCompetenciaFormativo+'" idItem="'+z.idItem+'" idOrganismo="'+z.idOrganismo+'" trimestre="'+z.trimestre+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav>'
+
+            ]).draw(false);
+
+            $("#eliminarInfor__formativo"+z.idCompetenciaFormativo).click(function(e) {
+
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                
+                funcion__eliminar__general(idPrincipal,'eliminar__formativos__seguimiento');
+                table.row($(this).closest('tr').index()).remove().draw();
+            }); 
+
+
+        }
+
+       
+    
+    }
+
+
+         /*==================================================================
+    =            visor Recreativo Formativo Tecnico                    =
+    ================================================================*/
+
+    var visor__recreativo_alto_Tecnica=function(informacionObtenida,table){
+
+        table.clear();
+
+        
+
+        for(z of informacionObtenida){
+		
+    
+            /*===============================
+            =            Destino            =
+            ===============================*/
+
+            table.row.add([
+                    z.nombreEvento,
+                    z.oro,
+                    z.plata,
+                    z.bronce,
+                    z.total,
+                    z.cuarOc,
+                    z.analisis,
+                    z.beneficiariosMujeres,
+                    z.beneficiariosHombres,
+                    z.totalT,
+                    z.tipoOrganizacion,
+                    z.observacionesTecnicas,
+                    z.fecha1,
+                    z.fecha2,
+                    z.fecha3,
+                    z.fecha4,
+                    z.trimestre,
+                   
+                    '<nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__alto'+z.idCompetenciaAltos+'" name="eliminarInfor__alto'+z.idCompetenciaAltos+'" idPrincipal="'+z.idCompetenciaAltos+'" idContador="'+z.idCompetenciaAltos+'" idItem="'+z.idItem+'" idOrganismo="'+z.idOrganismo+'" trimestre="'+z.trimestre+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav>'
+
+            ]).draw(false);
+
+            $("#eliminarInfor__alto"+z.idCompetenciaAltos).click(function(e) {
+
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                
+                funcion__eliminar__general(idPrincipal,'eliminar__altos__seguimiento');
+                table.row($(this).closest('tr').index()).remove().draw();
+            }); 
+
+
+        }
+
+      
+       
+    
+    }
+
+
+
+   
+
+    
+
+
     
 
   

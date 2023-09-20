@@ -3826,9 +3826,6 @@ var checkeds__recorridos__general__tecnicos__matenimientos__recreativo=function(
                     let tipoParticipas=$("#tipoParticipas"+idContador).val();
 
 
-          
-                    $(this).hide();
-
                     var validador = validacionRegistro( $(".obligatorioOtros__1"));
                     validacionRegistroMostrarErrores( $(".obligatorioOtros__1"));
         
@@ -3849,8 +3846,10 @@ var checkeds__recorridos__general__tecnicos__matenimientos__recreativo=function(
           
                       funcion__guardado__matricez_Seguimiento2023($("#guardarTecnicos"+idContador),$(".obligatorios"),[idContador,parametro4,$("#organismoIdPrin").val(),$("#observaciones__tecnicas__"+idContador).val(),$("#porcentajeA"+idContador).val(),$("#hombresB"+idContador).val(),$("#mujeresB"+idContador).val(),$("#totalB"+idContador).val(),$("#planificadoInicio"+idContador).val(),$("#ejecutadoInicio"+idContador).val(),$("#planificadoFin"+idContador).val(),$("#ejecutadoFin"+idContador).val(),$("#porcentajeA"+idContador).val(),$("#tipoEventos"+idContador).val(),$("#eventoTarea__ejecutado"+idContador).val(),$("#nivel"+idContador).val(),$("#totalEjecutados__al"+idContador).val(),rucOrganizacion,nombreOrganizacion,tipoParticipas,$("#hombresB18"+idContador).val(),$("#mujeresB18"+idContador).val(),$("#totalB18"+idContador).val()],false,false,false,false,parametro13,false,false,false,false,"#rotulo-tab",$(".filaIndicadora__administra"+parametro8[0]),true);
 
+                      $(this).hide();
                     }
           
+                    
                     }
                   }); 
                   
@@ -27881,7 +27880,7 @@ var funcion_click_boton_datatable_Recreativo_Presupuestario=function(tbody,boton
               
               $("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarfactureros'+l.idFacturaRecreativo+'" name="eliminarfactureros'+l.idFacturaRecreativo+'" idPrincipal="'+l.idFacturaRecreativo+'" idContador="'+l.idFacturaRecreativo+'" class="eliminar__ides eliminarIdes__recreativo"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
-              $(".eliminarfactureros").click(function(e) {
+              $("#eliminarfactureros"+l.idFacturaRecreativo).click(function(e) {
 
                 let idContador=$(this).attr('idContador');
                 let idPrincipal=$(this).attr('idPrincipal');

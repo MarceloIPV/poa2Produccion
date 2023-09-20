@@ -81,6 +81,7 @@ $(document).ready(function () {
 	agregarDatatablets__capacitacion__seguimientos2023($("#capacitacion__in__2"),$(".seguimiento__capacitacion__2"),"seguimiento__capacitacion__2","","Capacitación"); 
 
     agregarDatatablets__recreativo__seguimientos2023($("#recreativo__in__2"),$(".seguimiento__recreativo__2"),"seguimiento__recreativo__2","","Recreativo"); 
+    agregarDatatablets__recreativo__tecnico__seguimientos2023($("#recreativoTec__in__2"),$(".seguimiento__recreativoTec__2"),"seguimiento__recreativoTec__2","","Recreativo"); 
 
     agregarDatatablets($("#autogestionPoas__in__2"),$(".seguimiento__autogestiones__2"),"seguimiento__autogestiones__2","","","asdad"); 
     agregarDatatablets($("#mantenimientoTec__in__2"),$(".seguimiento__mantenimientosTec__2"),"seguimiento__mantenimientosTec__2","","","asdad"); 	
@@ -90,7 +91,6 @@ $(document).ready(function () {
 
     agregarDatatablets($("#competenciaAlto__in__2"),$(".seguimiento__competenciaAlto__2"),"seguimiento__competenciaAlto__2","","","asdad"); 
 
-    agregarDatatablets($("#recreativoTec__in__2"),$(".seguimiento__recreativoTec__2"),"seguimiento__recreativoTec__2","","","asdad"); 
 
     seleccionTabsRecorrido("#general-tab","#idOrganismo","#periodo")
     seleccionTabsRecorrido("#seguimiento-tab","#idOrganismo","#periodo")
