@@ -111,9 +111,9 @@ $(document).ready(function () {
         cerrarModalReporteriaAnualRevisor("#btnCerrarReporteriaAnualRevisor");
         cerrartablaSeguimientoModal("#cerrarRecorridoSeguimeintoModal",".cuerpo__contenedor__recorridos","#reasignarSeguimientos__recorridos");
         
-        agregarDatatabletsRefrescar($("#btn_documentacion__Generada__cp"),"dt_seguimiento__documentacionGenerada_cp_Revisor","Uso_Correcto_Contratacion_Publica",objetos([2],["enlace"],['documentoCP'],[$("#filesFrontend").val()+"declaracionTerminos/"],["documentoCP"]),"#idOrganismoReporteriaAnual");
+        agregarDatatabletsRefrescar($("#btn_documentacion__Generada__cp"),"dt_seguimiento__documentacionGenerada_cp_Revisor","Uso_Correcto_Contratacion_Publica",objetos([2],["enlace"],['documentoCP'],[$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/"],["documentoCP"]),"#idOrganismoReporteriaAnual");
         agregarDatatabletsRefrescar($("#autogestionPoas__in"),"seguimiento__autogestionesRevisor","Autogestion","","#idOrganismoReporteriaAnual");
-        agregarDatatabletsRefrescar($("#documentacionGenerada__in"),"seguimiento__UsoCorrectoRecursosRevisor","Uso_Correcto_Recursos",objetos([2],["enlace"],['documento'],[$("#filesFrontend").val()+"seguimiento/declaracion_contratacion_publica/"],["documento"]),"#idOrganismoReporteriaAnual");
+        agregarDatatabletsRefrescar($("#documentacionGenerada__in"),"seguimiento__UsoCorrectoRecursosRevisor","Uso_Correcto_Recursos",objetos([2],["enlace"],['documento'],[$("#filesFrontend").val()+"seguimiento/declaracion_recursos_publicos/"],["documento"]),"#idOrganismoReporteriaAnual");
         agregarDatatabletsRefrescar($("#documentacionGenerada__in__final"),"seguimiento__reporte__trimestralRevisor","Reporte_Trimestral",objetos([2],["enlace"],['documentoSIF'],[$("#filesFrontend").val()+"final__seguimiento/"],["documentoSIF"]),"#idOrganismoReporteriaAnual");
         agregarDatatabletsRefrescar($("#administrativo__in"),"seguimiento__administrativasRevisor","001 - Operación y funcionamiento de organizaciones deportivas y escenarios deportivos - Ejecución Presupuestaria","","#idOrganismoReporteriaAnual");
         agregarDatatabletsRefrescar($("#indicadores__in"),"seguimiento__indicadoresRevisor","Indicadores","","#idOrganismoReporteriaAnual");

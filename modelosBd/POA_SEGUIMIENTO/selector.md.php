@@ -473,11 +473,11 @@
 
 		if (!empty($indicadorInformacion__mos[0][idPda])) {
 
-			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idPda, (SELECT a1.nombreDeporte FROM poa_deporte AS a1 WHERE a1.idDeporte=a.Deporte) AS nombreDeporte,(SELECT a1.nombreProvincia FROM in_md_provincias AS a1 WHERE a1.idProvincia=a.provincia) AS nombreProvincia, a.ciudadPais AS paisNombre,a.genero,a.categoria,a.numeroEntreandores,a.numeroAtletas,a.total,a.mBenefici,a.hBenefici,a.fechaInicio,a.fechaFin FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS c ON c.idItem=b.idItem WHERE b.idOrganismo='$idOrganismos' AND b.idActividad='5' AND a.modifica='A' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.semestre='$semestre' AND b.semestre='$semestre'  ORDER BY a.idActividad;");
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idPda, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombreEvento, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreEvento, (SELECT a1.nombreDeporte FROM poa_deporte AS a1 WHERE a1.idDeporte=a.Deporte) AS nombreDeporte,(SELECT a1.nombreProvincia FROM in_md_provincias AS a1 WHERE a1.idProvincia=a.provincia) AS nombreProvincia, a.ciudadPais AS paisNombre,a.genero,a.categoria,a.numeroEntreandores,a.numeroAtletas,a.total,a.mBenefici,a.hBenefici,a.fechaInicio,a.fechaFin FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS c ON c.idItem=b.idItem WHERE b.idOrganismo='$idOrganismos' AND b.idActividad='5' AND a.modifica='A' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.semestre='$semestre' AND b.semestre='$semestre'  GROUP BY a.nombreEvento, a.genero, a.categoria,a.numeroEntreandores,a.numeroAtletas,a.total,a.mBenefici,a.hBenefici,a.fechaInicio,a.fechaFin ORDER BY a.idActividad;");
 
 		}else{
 
-			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idPda,(SELECT a1.nombreDeporte FROM poa_deporte AS a1 WHERE a1.idDeporte=a.Deporte) AS nombreDeporte,(SELECT a1.nombreProvincia FROM in_md_provincias AS a1 WHERE a1.idProvincia=a.provincia) AS nombreProvincia,(SELECT a1.paisnombre FROM poa_pais AS a1 WHERE a1.id=a.ciudadPais) AS paisNombre,a.genero,a.categoria,a.numeroEntreandores,a.numeroAtletas,a.total,a.mBenefici,a.hBenefici,a.fechaInicio,a.fechaFin FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS c ON c.idItem=b.idItem WHERE b.idOrganismo='$idOrganismos' AND b.idActividad='5' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.semestre='$semestre'AND b.semestre='$semestre' ORDER BY a.idActividad;");
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idPda,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombreEvento, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreEvento,(SELECT a1.nombreDeporte FROM poa_deporte AS a1 WHERE a1.idDeporte=a.Deporte) AS nombreDeporte,(SELECT a1.nombreProvincia FROM in_md_provincias AS a1 WHERE a1.idProvincia=a.provincia) AS nombreProvincia,(SELECT a1.paisnombre FROM poa_pais AS a1 WHERE a1.id=a.ciudadPais) AS paisNombre,a.genero,a.categoria,a.numeroEntreandores,a.numeroAtletas,a.total,a.mBenefici,a.hBenefici,a.fechaInicio,a.fechaFin FROM poa_actdeportivas AS a INNER JOIN poa_programacion_financiera AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS c ON c.idItem=b.idItem WHERE b.idOrganismo='$idOrganismos' AND b.idActividad='5' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.semestre='$semestre'AND b.semestre='$semestre'  GROUP BY a.nombreEvento, a.genero, a.categoria,a.numeroEntreandores,a.numeroAtletas,a.total,a.mBenefici,a.hBenefici,a.fechaInicio,a.fechaFin ORDER BY a.idActividad;");
 
 		}
 
@@ -726,5 +726,56 @@
 
 	break;
 
+		//*********************************************** VISOR ACTIVIDAD 3 capacitacion INFORMACION TECNICA***************************************** //
+
+	case "capacitacion__seguimiento__tablas":
+
+		$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idCapacitacionTec,b.nombreEvento,a.planificadoInicial,a.ejecutadoInicial,a.planificadoFinal,a.ejectuadoFinal,a.tipoOrganizacion,a.trimestre, a.observacionesTecnicas, a.beneficiariosHombres, a.beneficiariosMujeres, a.totalT,a.capacitadores , a.TipoOrganizacion, a.ruc, a.nombreOrganismo  FROM poa_seguimiento_capacitacion_tecnico AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+
+
+		$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT a.idOtrosCapacitacionTecnico,a.documento,a.mes,a.trimestre,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actdeportivas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idPda=a.idActividadAc)  AS nombreItem,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.itemPreesupuestario, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actdeportivas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idPda=a.idActividadAc)  AS itemPreesupuestario FROM poa_seguimiento_otros_capacitacion_tecnico AS a  WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+		$jason['indicadorInformacion']=$indicadorInformacion;
+		$jason['indicadorInformacion3']=$indicadorInformacion3;
+
+	break;
+
+		//*********************************************** VISOR ACTIVIDAD 2 mantenimeinto INFORMACION TECNICA***************************************** //
+
+
+		case "mantenimiento__tecnicos__seguimiento__tablas":
+
+			
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idMantenimientoTec,a.planificadoInicial,a.ejecutadoInicial,a.planificadoFinal,a.ejectuadoFinal,a.trimestre,a.porcentaje,b.nombreInfras AS detallarTipoIn,(SELECT a1.nombreProvincia FROM in_md_provincias AS a1 WHERE a1.idProvincia=b.provincia) AS provincias,b.direccionCompleta, b.estado,b.tipoMantenimiento FROM poa_seguimiento_mantenimiento_tecnico AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+			
+
+			$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT a.idOtrosMantenimientoTecnico,a.documento,a.mes,a.trimestre,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_mantenimiento AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idMantenimiento=a.idActividadAc)  AS nombreItem,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.itemPreesupuestario, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_mantenimiento AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idMantenimiento=a.idActividadAc)  AS itemPreesupuestario FROM poa_seguimiento_otros_mantenimiento_tecnico AS a WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+			
+
+			$jason['indicadorInformacion']=$indicadorInformacion;
+			$jason['indicadorInformacion3']=$indicadorInformacion3;
+
+		break;
+
+		//*********************************************** VISOR ACTIVIDAD 5 alto INFORMACION TECNICA***************************************** //
+
+		case "recreativos__altos__seguimiento":
+
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idCompetenciaAltos,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreEvento, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreEvento,a.evento,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.predicionResultados, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS predicionResultados,a.oro,a.plata,a.bronce,a.total,a.cuarOc,a.analisis,a.trimestre,a.observacionesTecnicas,a.porcentaje,a.beneficiariosHombres,a.beneficiariosMujeres,a.totalT,a.tipoOrganizacion,a.ruc,a.nombreOrganismo FROM poa_seguimiento_competencia_alto2 AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+			$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT a.idOtrosCompetenciasAltos,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreEvento, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreEvento,a.documento,a.mes,a.trimestre,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividadesadministrativas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idActividadAd=a.idActividadAc)  AS nombreItem,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.itemPreesupuestario, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividadesadministrativas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idActividadAd=a.idActividadAc)  AS itemPreesupuestario FROM poa_seguimiento_otros_competencia_alto AS a INNER JOIN poa_actdeportivas AS b ON a.idActividadAc=b.idPda WHERE a.idOrganismo='$idOrganismos' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+			$jason['indicadorInformacion']=$indicadorInformacion;
+
+			$jason['indicadorInformacion3']=$indicadorInformacion3;
+
+		break;
+
     }
+
+
+
+	
     echo json_encode($jason);

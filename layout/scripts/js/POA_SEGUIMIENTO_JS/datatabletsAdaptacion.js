@@ -1232,6 +1232,8 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.total,
                     z.mBenefici,
                     z.hBenefici,
+                    z.fechaInicio,
+                    z.fechaFin,
                     '<input type="checkbox" id="checkeds__competencia__alto'+z.idPda+'" name="checkeds__competencia__alto'+z.idPda+'" class="checkeds__competencia__alto"/>'
                     
             ]).draw(false);
@@ -1313,6 +1315,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
             ===============================*/
     
             table.row.add([
+                    z.nombreEvento,
                     z.nombreDeporte,
                     z.nombreProvincia,
                     z.paisNombre,
@@ -1404,7 +1407,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.itemPreesupuestario,
                     z.nombreItem,
                     '<div style="display:none;">'+z.mensualProgramado+'</div><input type="text" id="totalProgramado'+z.idAdministrativoSegui+'" name="totalProgramado'+z.idAdministrativoSegui+'" value="'+z.mensualProgramado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idAdministrativoSegui+'" style="border:none;" disabled="disabled" />',
-                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idAdministrativoSegui+'"><input type="text" id="totalEjecutado'+z.idAdministrativoSegui+'" name="totalEjecutado'+z.idAdministrativoSegui+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idAdministrativoSegui+'" readonly=""/><div class="rotulo'+z.idAdministrativoSegui+'" style="text-align:center; widht:100%;"></div></div>',
+                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idAdministrativoSegui+'"><input type="text" id="totalEjecutado'+z.idAdministrativoSegui+'" name="totalEjecutado'+z.idAdministrativoSegui+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idAdministrativoSegui+'" readonly=""/></div>',
                     z.observaciones,
                     '<center><button class="btnFacturas btn btn-warning pointer__botones" item="'+z.itemPreesupuestario+'" mes="'+z.mes+'" trimestre="'+z.trimestre+'" idAdministrativo="'+z.idAdministrativo+'" idOrganismo="'+z.idOrganismo+'"  data-bs-toggle="modal" data-bs-target="#modalFacturasDocumentos"><i class="fas fa-file-invoice"></i></button></center>',
                     '<center><button class="btnDocumentos btn btn-warning pointer__botones" item="'+z.itemPreesupuestario+'" mes="'+z.mes+'" trimestre="'+z.trimestre+'" idAdministrativo="'+z.idAdministrativo+'" idOrganismo="'+z.idOrganismo+'"  data-bs-toggle="modal" data-bs-target="#modalFacturasDocumentos"><i class="fas fa-file"></i></button></center>',
@@ -1416,8 +1419,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
 	
                 funcion__cambio__de__numero($("#totalEjecutado"+z.idAdministrativoSegui));
                 funcion__solo__numero($(".solo__numeros"));
-                funcion_porcentajes__colores($("#totalEjecutado"+z.idAdministrativoSegui),$("#totalProgramado"+z.idAdministrativoSegui).val(),$(".celdas"+z.idAdministrativoSegui),$(".rotulo"+z.idAdministrativoSegui),4888888888889);
-                funcion_porcentajes__colores__auto__ejecutables($("#totalEjecutado"+z.idAdministrativoSegui),$("#totalProgramado"+z.idAdministrativoSegui).val(),$(".celdas"+z.idAdministrativoSegui),$(".rotulo"+z.idAdministrativoSegui));
+               
                 $("#eliminarInfor"+z.idAdministrativoSegui).click(function(e) {
         
 
@@ -1455,7 +1457,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.nombreItem,
                     z.detallarTipoIn,
                     '<div style="display:none;">'+z.mensualProgramado+'</div><input type="text" id="totalProgramado'+z.idMantenimiento+'" name="totalProgramado'+z.idMantenimiento+'" value="'+z.mensualProgramado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idMantenimiento+'" style="border:none;" disabled="disabled" />',
-                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idMantenimiento+'"><input type="text" id="totalEjecutado'+z.idMantenimiento+'" name="totalEjecutado'+z.idMantenimiento+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idMantenimiento+'" readonly=""/><div class="rotulo'+z.idMantenimiento+'" style="text-align:center; widht:100%;"></div></div>',
+                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idMantenimiento+'"><input type="text" id="totalEjecutado'+z.idMantenimiento+'" name="totalEjecutado'+z.idMantenimiento+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idMantenimiento+'" readonly=""/></div>',
                     z.observaciones,
                     z.registra_Contratacion,
                     z.justificacion,
@@ -1469,10 +1471,6 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
             funcion__cambio__de__numero($("#totalEjecutado"+z.idMantenimiento));
 
             funcion__solo__numero($(".solo__numeros"));
-
-            funcion_porcentajes__colores($("#totalEjecutado"+z.idMantenimiento),$("#totalProgramado"+z.idMantenimiento).val(),$(".celdas"+z.idMantenimiento),$(".rotulo"+z.idMantenimiento),4888888888889);
-
-            funcion_porcentajes__colores__auto__ejecutables($("#totalEjecutado"+z.idMantenimiento),$("#totalProgramado"+z.idMantenimiento).val(),$(".celdas"+z.idMantenimiento),$(".rotulo"+z.idMantenimiento));
 
 
             $("#eliminarInfor"+z.idMantenimiento).click(function(e) {
@@ -1493,7 +1491,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
     
     }
 
-        /*==================================================================
+    /*==================================================================
     =            visor capacitacion presupuestario    =
     ================================================================*/
 
@@ -1513,7 +1511,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.itemPreesupuestario,
                     z.nombreItem,
                     '<div style="display:none;">'+z.mensualProgramado+'</div><input type="text" id="totalProgramado'+z.idCapacitacion+'" name="totalProgramado'+z.idCapacitacion+'" value="'+z.mensualProgramado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idCapacitacion+'" style="border:none;" disabled="disabled" />',
-                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idCapacitacion+'"><input type="text" id="totalEjecutado'+z.idCapacitacion+'" name="totalEjecutado'+z.idCapacitacion+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idCapacitacion+'" readonly=""/><div class="rotulo'+z.idCapacitacion+'" style="text-align:center; widht:100%;"></div></div>',
+                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idCapacitacion+'"><input type="text" id="totalEjecutado'+z.idCapacitacion+'" name="totalEjecutado'+z.idCapacitacion+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idCapacitacion+'" readonly=""/></div>',
                     z.observaciones,
                     z.cantidadBienes,
                     z.registra_Contratacion,
@@ -1524,9 +1522,6 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
 
             ]).draw(false);
 
-
-
-            funcion_porcentajes__colores__auto__ejecutables($("#totalEjecutado"+z.idCapacitacion),$("#totalProgramado"+z.idCapacitacion).val(),$(".celdas"+z.idCapacitacion),$(".rotulo"+z.idCapacitacion));
 
             $("#eliminarInfor"+z.idCapacitacion).click(function(e) {
 
@@ -1575,12 +1570,6 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
 
             ]).draw(false);
 
-      
-
-            funcion_porcentajes__colores($("#mensualEjecutado"+z.idHonorariosSeguimientos),$("#mensualProgramado"+z.idHonorariosSeguimientos).val(),$(".celdas"+z.idHonorariosSeguimientos),$(".rotulo"+z.idHonorariosSeguimientos),4888888888889);
-
-            funcion_porcentajes__colores__auto__ejecutables($("#mensualEjecutado"+z.idHonorariosSeguimientos),$("#mensualProgramado"+z.idHonorariosSeguimientos).val(),$(".celdas"+z.idHonorariosSeguimientos),$(".rotulo"+z.idHonorariosSeguimientos));
-
             $("#eliminarInfor"+z.idHonorariosSeguimientos).click(function(e) {
 
                 let idContador=$(this).attr('idContador');
@@ -1616,7 +1605,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.itemPreesupuestario,
                     z.nombreItem,
                     '<div style="display:none;">'+z.mensualProgramado+'</div><input type="text" id="totalProgramado'+z.idCompetencias+'" name="totalProgramado'+z.idCompetencias+'" value="'+z.mensualProgramado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idCompetencias+'" style="border:none;" disabled="disabled" />',
-                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idCompetencias+'"><input type="text" id="totalEjecutado'+z.idCompetencias+'" name="totalEjecutado'+z.idCompetencias+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idCompetencias+'" readonly=""/><div class="rotulo'+z.idCompetencias+'" style="text-align:center; widht:100%;"></div></div>',
+                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idCompetencias+'"><input type="text" id="totalEjecutado'+z.idCompetencias+'" name="totalEjecutado'+z.idCompetencias+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idCompetencias+'" readonly=""/></div>',
                     z.observaciones,
                     z.cantidadBienes,
                     z.registra_Contratacion,
@@ -1629,8 +1618,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
 
          
 
-            funcion_porcentajes__colores__auto__ejecutables($("#totalEjecutado"+z.idCompetencias),$("#totalProgramado"+z.idCompetencias).val(),$(".celdas"+z.idCompetencias),$(".rotulo"+z.idCompetencias));
-
+            
             $("#eliminarInfor"+z.idCompetencias).click(function(e) {
 
                 let idContador=$(this).attr('idContador');
@@ -1667,7 +1655,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.itemPreesupuestario,
                     z.nombreItem,
                     '<div style="display:none;">'+z.mensualProgramado+'</div><input type="text" id="totalProgramado'+z.idRecreativos+'" name="totalProgramado'+z.idRecreativos+'" value="'+z.mensualProgramado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idRecreativos+'" style="border:none;" disabled="disabled" />',
-                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idRecreativos+'"><input type="text" id="totalEjecutado'+z.idRecreativos+'" name="totalEjecutado'+z.idRecreativos+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idRecreativos+'" readonly=""/><div class="rotulo'+z.idRecreativos+'" style="text-align:center; widht:100%;"></div></div>',
+                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idRecreativos+'"><input type="text" id="totalEjecutado'+z.idRecreativos+'" name="totalEjecutado'+z.idRecreativos+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idRecreativos+'" readonly=""/></div>',
                     z.observaciones,
                     z.cantidadBienes,
                     z.registra_Contratacion,
@@ -1680,8 +1668,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
 
             
 
-            funcion_porcentajes__colores__auto__ejecutables($("#totalEjecutado"+z.idRecreativos),$("#totalProgramado"+z.idRecreativos).val(),$(".celdas"+z.idRecreativos),$(".rotulo"+z.idRecreativos));
-
+            
             $("#eliminarInfor"+z.idRecreativos).click(function(e) {
 
                 let idContador=$(this).attr('idContador');
@@ -1717,7 +1704,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                     z.itemPreesupuestario,
                     z.nombreItem,
                     '<div style="display:none;">'+z.mensualProgramado+'</div><input type="text" id="totalProgramado'+z.idImplementacion+'" name="totalProgramado'+z.idImplementacion+'" value="'+z.mensualProgramado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idImplementacion+'" style="border:none;" disabled="disabled" />',
-                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idImplementacion+'"><input type="text" id="totalEjecutado'+z.idImplementacion+'" name="totalEjecutado'+z.idImplementacion+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idImplementacion+'" readonly=""/><div class="rotulo'+z.idImplementacion+'" style="text-align:center; widht:100%;"></div></div>',
+                    '<div style="display:none;">'+z.mensualEjecutado+'</div><div class="celdas'+z.idImplementacion+'"><input type="text" id="totalEjecutado'+z.idImplementacion+'" name="totalEjecutado'+z.idImplementacion+'" value="'+z.mensualEjecutado+'" class="solo__numeros ancho__total__input text-center obligatorios'+z.idImplementacion+'" readonly=""/></div>',
                     z.observaciones,
                     z.cantidadBienes,
                     z.registra_Contratacion,
@@ -1729,8 +1716,7 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
             ]).draw(false);
 
          
-            funcion_porcentajes__colores__auto__ejecutables($("#totalEjecutado"+z.idImplementacion),$("#totalProgramado"+z.idImplementacion).val(),$(".celdas"+z.idImplementacion),$(".rotulo"+z.idImplementacion));
-
+            
             $("#eliminarInfor"+z.idImplementacion).click(function(e) {
 
                 let idContador=$(this).attr('idContador');
@@ -1742,6 +1728,61 @@ var visualizar__actividades__sueldos_salarios=function(informacionObtenida,table
                 funcion__eliminar__general(idPrincipal,'eliminar__implementacion__seguimiento');
                 table.row($(this).closest('tr').index()).remove().draw();
             }); 
+
+        }
+    
+    }
+
+
+
+/*==================================================================
+    =            visor Capacitacion Tecnico                    =
+    ================================================================*/
+
+    var visor__capacitacion_Tecnica=function(informacionObtenida,table){
+
+        table.clear();
+
+        
+
+        for(z of informacionObtenida){
+		
+    
+            /*===============================
+            =            Destino            =
+            ===============================*/
+
+            table.row.add([
+                    z.nombreEvento,
+                    z.planificadoInicial,
+                    z.ejecutadoInicial,
+                    z.planificadoFinal,
+                    z.ejectuadoFinal,
+                    z.tipoOrganizacion,
+                    z.ruc,
+                    z.nombreOrganismo,
+                    z.observacionesTecnicas,
+                    z.beneficiariosHombres,
+                    z.beneficiariosMujeres,
+                    z.totalT,
+                    z.capacitadores,
+                    z.trimestre,
+                    '<nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__alto'+z.idCapacitacionTec+'" name="eliminarInfor__alto'+z.idCapacitacionTec+'" idPrincipal="'+z.idCapacitacionTec+'" idContador="'+z.idCapacitacionTec+'" idItem="'+z.idItem+'" idOrganismo="'+z.idOrganismo+'" trimestre="'+z.trimestre+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav>'
+
+            ]).draw(false);
+
+
+            $("#eliminarInfor__alto"+z.idCapacitacionTec).click(function(e) {
+
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                
+                funcion__eliminar__general(idPrincipal,'eliminar__capacitacion__seguimiento');
+                table.row($(this).closest('tr').index()).remove().draw();
+            }); 
+
+         
+           
 
         }
     
