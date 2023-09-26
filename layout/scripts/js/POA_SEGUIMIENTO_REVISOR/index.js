@@ -28,6 +28,13 @@ $(document).ready(function () {
         informacion__seguimiento__recomendadas_Contratacion_Publica($("#recomendarcontratacionPublica"));	
         informacion__analistas__reasignar__regresar__alto__recomendar__recomendados_Contratacion_Publica($("#recomendar__Contratacion__recomendados"));	
         
+        seguimiento__insertarFechaPlazosTodos("#guardarFecha1erTrimestre","#fecha1erTrimestre");
+        seguimiento__insertarFechaPlazosTodos("#guardarFecha2doTrimestre","#fecha2doTrimestre");
+        seguimiento__insertarFechaPlazosTodos("#guardarFecha3erTrimestre","#fecha3erTrimestre");
+        seguimiento__insertarFechaPlazosTodos("#guardarFecha4toTrimestre","#fecha4toTrimestre");
+
+        funcion__editar_fecha_plazos_individuales("#seguimiento__PlazosTablaTrimestres tbody",$("#seguimiento__PlazosTablaTrimestres"));
+        seguimiento__insertarPlazosPersonal("#guardarPlazosPersonal")
     });
 
 
@@ -182,10 +189,13 @@ $(document).ready(function () {
         
         subirArchivos("#seleccionarArchivoTransferencia","archivoTransferenciaCSV","#satCSV");
         subirArchivos("#seleccionarArchivoBancos","archivoBancoCSV","#sabCSV");
+
+        subirArchivos("#seleccionarArchivoPlazosPersonal","archivoPlazosPersonal","#plazosTexto");
 		
 
         regresarEstadoOriginalSubirArchivo("#btnCerrarSubirTransferencias",".drop_boxSubirArchivoTransferenciasCSV" ,"#satCSV");
         regresarEstadoOriginalSubirArchivo("#btnCerrarSubirBancos",".drop_boxSubirArchivoBancosCSV" ,"#sabCSV");
+        regresarEstadoOriginalSubirArchivo("#btnCerrarSubirPlazos",".drop_boxSubirArchivoTransferenciasCSV" ,"#plazosTexto");
        
         ocultarBtnyDivDesarrollo($("#verReporteTransferencias"),$("#cerrarReporteTransferencias"),$("#divSubirTransferencias"),$("#divReporteTransferencias"))
         ocultarBtnyDivDesarrollo($("#cerrarReporteTransferencias"),$("#verReporteTransferencias"),$("#divReporteTransferencias"),$("#divSubirTransferencias"))
