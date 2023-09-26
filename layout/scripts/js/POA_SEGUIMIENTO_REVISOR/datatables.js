@@ -4736,6 +4736,20 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         
 
+                    }else if(parametro2[0]=="texto__fecha__selector"){
+
+                        if (row[parametro3[0]]!=null) {
+
+                            return "<input type='date' id='fechaPlazo1erTrimestre"+row[parametro3[4]]+"' value='"+row[parametro3[0]]+"'/>";
+
+                        }else{
+
+                            return "<input id='fechaPlazo1erTrimestre"+row[parametro3[4]]+"' type='date'/>";
+
+                        }
+
+                        
+
                     }else if(parametro2[0]=="texto__separadores__cierre__anio__fiscal"){
 
                         if (row[6]=="si") {
@@ -4764,17 +4778,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                     }else if(parametro2[0]=="texto__separadores__jurisdiccionN"){
 
-                    //  if (row[7]=="si") {
-
                             return "<nav id='colorNav' style='position: relative; top: -5em!important;'><tr><td><div class='col-md-12'><select class='form-select' id='idSelectJurisdiccion' aria-label='Default select example'><option value='0'>Selecciona una opción</option><option value='9'>Planta Central</option><option value='1'>Zonal1</option><option value='2'>Zonal2</option><option value='3'>Zonal3</option><option value='4'>Zonal4</option><option value='6'>Zonal6</option><option value='7'>Zonal7</option><option value='8'>Zonal8</option></select></div></td><td><a id=''   name='' class='btn btn-primary'><i class='fa fa-floppy-o' aria-hidden='true'></i></a></td></tr></nav>";
-
-                    //     }else{
-
-                    //         return "<select  class='selectores__bloqueos__seguimiento ancho__total__input__selects' attr='estado' style='background:green;color:white;'><option value='no'>ABIERTO</option></select>";
-
-                    //     }
-
-                        
 
                     }else if(parametro2[0]=="radioSelectes__2"){
 
@@ -5007,6 +5011,10 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         return "<input type='checkbox' class='checkeds__seleccionables' attr='primerTrimestre' idOrganismos='"+row[parametro3[1]]+"'/>";
 
+                    }else if(parametro2[1]=="guardar_plazos_personal"){
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' trimestre='primerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirPlazosInicial' class='seguimiento_guardar_plazo_individual estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-save'></i></button></center>";
+
                     }else if(parametro2[1]=="enlaces__definidos__2"){
 
                         if (row[parametro3[1]]=="CUMPLE") {
@@ -5210,6 +5218,20 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }
 
+
+                    }else if(parametro2[2]=="texto__fecha__selector"){
+
+                        if (row[parametro3[1]]!=null) {
+
+                            return "<input type='date' id='fechaPlazo2doTrimestre"+row[parametro3[4]]+"' value='"+row[parametro3[1]]+"'/>";
+
+                        }else{
+
+                            return "<input id='fechaPlazo2doTrimestre"+row[parametro3[4]]+"' type='date'/>";
+
+                        }
+
+                        
 
                     }else if(parametro2[2]=="enlaces__definidos__2"){
 
@@ -5523,6 +5545,10 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         
 
+                    }else if(parametro2[3]=="guardar_plazos_personal"){
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' trimestre='segundoTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirPlazosInicial' class='seguimiento_guardar_plazo_individual estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-save'></i></button></center>";
+
                     }else if(parametro2[3]=="texto__separadores__cierre__anio__fiscal"){
 
 
@@ -5690,6 +5716,28 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
 
                         }
+
+                    }else if(parametro2[4]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[4]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[4]]+"' target='_blank'>"+row[parametro1[4]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[4]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else if(parametro2[4]=="texto__fecha__selector"){
+
+                        if (row[parametro3[2]]!=null) {
+
+                            return "<input type='date' id='fechaPlazo3erTrimestre"+row[parametro3[4]]+"' value='"+row[parametro3[2]]+"'/>";
+
+                        }else{
+
+                            return "<input id='fechaPlazo3erTrimestre"+row[parametro3[4]]+"' type='date'/>";
+
+                        }
+
+                        
 
                     }else if(parametro2[0]=="boton__2"){
 
@@ -5954,6 +6002,14 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }
 
+                    }else if(parametro2[5]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[5]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[5]]+"' target='_blank'>"+row[parametro1[5]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[5]]+".pdf' target='_blank'></a>";
+                        }
+
                     }else if(parametro2[0]=="boton__2"){
 
                         if(row[parametro4[0]]=="Notificado por no presentación de requisitos"){
@@ -6038,6 +6094,10 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         
 
+                    }else if(parametro2[5]=="guardar_plazos_personal"){
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' trimestre='tercerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirPlazosInicial' class='seguimiento_guardar_plazo_individual estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-save'></i></button></center>";
+
                     }else if(parametro2[5]=="texto__separadores__cierre__anio__fiscal"){
 
                         if (row[12]=="si") {
@@ -6096,9 +6156,31 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                             return "<center><a href='"+parametro4[6]+row[parametro6[6]]+".pdf' target='_blank'>"+row[parametro3[6]]+"</a></center>";
                         }
 
+                    }else if(parametro2[6]=="texto__fecha__selector"){
+
+                        if (row[parametro3[3]]!=null) {
+
+                            return "<input type='date' id='fechaPlazo4toTrimestre"+row[parametro3[4]]+"' value='"+row[parametro3[3]]+"'/>";
+
+                        }else{
+
+                            return "<input id='fechaPlazo4toTrimestre"+row[parametro3[4]]+"' type='date'/>";
+
+                        }
+
+                        
+
                     }else if(parametro2[6]=="boton"){
 
                         return parametro3[6];
+
+                    }else if(parametro2[6]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[6]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[6]]+"' target='_blank'>"+row[parametro1[6]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[6]]+".pdf' target='_blank'></a>";
+                        }
 
                     }else if(parametro2[6]=="texto__separadores"){
 
@@ -6332,6 +6414,14 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         return parametro3[7];
 
+                    }else if(parametro2[7]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[7]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[7]]+"' target='_blank'>"+row[parametro1[7]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[7]]+".pdf' target='_blank'></a>";
+                        }
+
                     }else if(parametro2[7]=="texto__separadores"){
 
 
@@ -6485,6 +6575,10 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
 
                         return primero+segundo+tercero;
+
+                    }else if(parametro2[7]=="guardar_plazos_personal"){
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' trimestre='cuartoTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirPlazosInicial' class='seguimiento_guardar_plazo_individual estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-save'></i></button></center>";
 
                     }else if(parametro2[7]=="texto__separadores__2"){
 

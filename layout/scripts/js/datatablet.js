@@ -1699,9 +1699,9 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica=function(tbody,t
 
 			$("#idOrganismo").val(data[16]);
 
-			$(".periodo__evaluados__anuales").text(data[9]);
+			$(".periodo__evaluados__anuales").text(data[21]);
 
-			$("#periodo__evaluados__anuales").val(data[9]);
+			$("#periodo__evaluados__anuales").val(data[21]);
 
 			if (data[5]=="primerTrimestre") {
 
@@ -1725,9 +1725,9 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica=function(tbody,t
 				$("#trimestre__evaluados__al").val("IV TRIMESTRE");
 			}
 
-			$(".periodo__evaluados__anuales").text(data[9]);
+			$(".periodo__evaluados__anuales").text(data[21]);
 
-			$("#periodo__evaluados__anuales").val(data[9]);
+			$("#periodo__evaluados__anuales").val(data[21]);
 
 			$("#organismoOculto__modal").val(data[16]);
 

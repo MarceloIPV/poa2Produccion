@@ -343,6 +343,118 @@
 
 		break;
 
+
+		//******************************* Guardado fechas plazos ********************************//
+
+
+		case  "guarda__seguimientos__plazos":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			$arrayD = json_decode($array);
+
+			if ($trimestre=="primerTrimestre") {
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+			}else if($trimestre=="segundoTrimestre"){
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";		
+			}else if($trimestre=="tercerTrimestre"){
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";		
+			}else if($trimestre=="cuartoTrimestre"){
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";		
+			}
+
+
+			foreach ($arrayD as $clave => $valor) {
+
+				
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos__seguimientos FROM poa_seguimiento_plazos WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos';");
+				
+				if (!empty($select_ifExist[0][idPlazos__seguimientos])) {
+					
+					$query="UPDATE `poa_seguimiento_plazos` SET  `$columnaFecha` = '$fecha' , `$columnaEstado` = '$estado', `fecha`='$fecha_actual' WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso` ) VALUES ('$fecha','$estado','$fecha_actual','$valor','$aniosPeriodos__ingesos' ) ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+				
+				
+			}
+
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
+		//******************************* Guardado fechas plazos ********************************//
+
+
+		case  "guarda__seguimientos__plazos__personal":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			if ($trimestre=="primerTrimestre") {
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+				$columnaDocumento="documentoTrimestre1";
+			}else if($trimestre=="segundoTrimestre"){
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";	
+				$columnaDocumento="documentoTrimestre2";	
+			}else if($trimestre=="tercerTrimestre"){
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";	
+				$columnaDocumento="documentoTrimestre3";	
+			}else if($trimestre=="cuartoTrimestre"){
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";	
+				$columnaDocumento="documentoTrimestre4";	
+			}
+
+			$nombre__archivo1=$tipoDocumento."__".$idOrganismo."__".$trimestre."__".$aniosPeriodos__ingesos.".pdf";
+				
+   
+			$direccion1=VARIABLE__BACKEND."seguimiento/documentos_plazos/";
+
+			$documento=$objeto->getEnviarPdf($_FILES["nombreDocumentoactividad1"]['type'],$_FILES["nombreDocumentoactividad1"]['size'],$_FILES["nombreDocumentoactividad1"]['tmp_name'],$_FILES["nombreDocumentoactividad1"]['name'],$direccion1,$nombre__archivo1);
+			
+			$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos__seguimientos, $columnaDocumento FROM poa_seguimiento_plazos WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';");
+			
+			if (!empty($select_ifExist[0][idPlazos__seguimientos])) {
+				
+				unlink($direccion1.$select_ifExist[0][$columnaDocumento]);
+				$query="UPDATE `poa_seguimiento_plazos` SET  `$columnaFecha` = '$fecha' , `$columnaEstado` = '$tipoDocumento', `$columnaDocumento` = '$nombre__archivo1', `fecha`='$fecha_actual' WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+				
+				$resultado= $conexionEstablecida->exec($query);
+				
+
+			}else{
+				$query="INSERT INTO `poa_seguimiento_plazos` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso`, `$columnaDocumento` ) VALUES ('$fecha','$tipoDocumento','$fecha_actual','$idOrganismo','$aniosPeriodos__ingesos','$nombre__archivo1' ) ;";
+
+				$resultado= $conexionEstablecida->exec($query);
+				
+			}
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
   } 
  
  
