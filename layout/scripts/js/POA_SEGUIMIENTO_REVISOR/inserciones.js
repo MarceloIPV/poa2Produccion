@@ -308,106 +308,6 @@ var funcion__guardado__reporte_infraestructura = function (parametro1, parametro
 
 }
 
-// var funcion__guardado__reporte_infraestructura = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7) {
-
-// 	// $(parametro1).click(function(e) {
-// 		console.log("PARAMETRO #1");
-// 		console.log(parametro1);
-// 		console.log("PARAMETRO #3");
-// 		console.log(parametro3);
-
-// z
-
-// 			var paqueteDeDatos = new FormData();
-
-// 			paqueteDeDatos.append("tipo", parametro5);
-
-// 			paqueteDeDatos.append("parametros", JSON.stringify(parametro3));
-
-
-// 			// if (parametro8 == "honorarios__seguimientos") {
-
-// 			// 	paqueteDeDatos.append('archivo1', $(parametro4)[0].files[0]);
-// 			// 	paqueteDeDatos.append('archivo2', $(parametro5)[0].files[0]);
-// 			// 	paqueteDeDatos.append('archivo3', $(parametro6)[0].files[0]);
-// 			// 	paqueteDeDatos.append('archivo4', $(parametro7)[0].files[0]);
-
-// 			// }
-
-
-// 			// if (parametro8 == "administrativos__seguimientos") {
-
-// 			// 	paqueteDeDatos.append('archivo1', $(parametro4)[0].files[0]);
-// 			// 	paqueteDeDatos.append('archivo2', $(parametro5)[0].files[0]);
-
-// 			// }
-
-// 			$.ajax({
-
-// 				type: "POST",
-// 				//url: "modelosBd/inserta/insertaAcciones.md.php",
-// 				url: "modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
-// 				contentType: false,
-// 				data: paqueteDeDatos,
-// 				processData: false,
-// 				cache: false,
-// 				success: function (response) {
-						
-// 					let elementos = JSON.parse(response);
-
-// 					let mensaje = elementos['mensaje'];
-
-// 					// $(parametro13).remove();
-
-// 					// $(parametro14).remove();
-
-
-// 					// if (parametro3[12] == "Marzo" || parametro3[12] == "Junio" || parametro3[12] == "Septiembre" || parametro3[12] == "Diciembre" || parametro3[4] == "Marzo" || parametro3[4] == "Junio" || parametro3[4] == "Septiembre" || parametro3[4] == "Diciembre" || parametro15 == true) {
-
-// 					// 	$("#contadorIndicador").val(0);
-// 					// 	$("#contadorIndicador2").val(0);
-
-// 					// 	//$(".modal__ItemsGrup").modal('hide');//ocultamos el modal
-// 					// 	//$('.modal-backdrop').remove();//eliminamos el backdrop del modal
-
-// 					// }
-
-// 					if (mensaje == 1) {
-
-// 						alertify.set("notifier", "position", "top-center");
-// 						alertify.notify("Registro realizado correctamente escoger la siguiente pestaña", "success", 10, function () { });
-
-
-// 					}
-
-// 				},
-// 				error: function () {
-
-// 				}
-
-// 			});
-			
-// 		//});
-
-
-// 		// confirm.set('oncancel', function () { //callbak al pulsar botón negativo
-// 		// 	alertify.set("notifier", "position", "top-center");
-// 		// 	alertify.notify("Acción cancelada", "error", 1, function () {
-
-// 		// 		$(parametro1).show();
-
-// 		// 	});
-// 		// });
-
-// 	//}
-
-// 	// });
-
-// }
-
-
-
-
 
 /*========================================================
 =            Insertar archivos transferencia         =
@@ -587,6 +487,205 @@ var insertar_informacion_trasferencias=function( mes,nombreArchivo){
 
 }
 
+/*=====  End of Insertar seguimiento definitivos  ======*/
+
+var seguimiento__insertarFechaPlazosTodos=function(boton,fechaInput){
+
+	$(boton).click(function(){
+
+		$(boton).hide();
+
+		var trimestre = $(boton).attr('trimestre');
+
+		var fecha = $(fechaInput).val();
+
+		var array = new Array(); 
+
+		var table = $('#seguimiento__PlazosTablaTrimestres').DataTable();
+
+		for(let i=0;i<table.data().count();i++ ){
+			var rows = table.row( i ).data()
+
+			array.push(rows[10])
+		}
+
+
+		var confirm= alertify.confirm('¿Desea Guardar la Fecha Ingresada?','¿Desea Guardar la Fecha Ingresada?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+
+		confirm.set({transition:'slide'});    
+
+		confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','guarda__seguimientos__plazos');	
+
+			paqueteDeDatos.append("array",JSON.stringify(array));
+
+			paqueteDeDatos.append('trimestre',trimestre);	
+			paqueteDeDatos.append('fecha',fecha);	
+			paqueteDeDatos.append('estado','Inicial');	
+
+			$.ajax({
+				
+				type:"POST",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+					 var elementos=JSON.parse(response);
+
+					 var mensaje=elementos['mensaje'];
+
+					if(mensaje==1){
+
+						alertify.set("notifier","position", "top-center");
+						alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+						window.setTimeout(function(){ 
+
+							location.reload();
+
+						} ,5000); 
+
+					 }		    
+
+				},
+				error:function(){
+
+				}
+						
+			});					
+
+		});
+
+		confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Canceló el envío", "error", 5, function(){}); 
+			$(boton).show();	
+		}); 
+
+		
+
+	});
+
+
+}
+
+
+/*====================================
+=            insertar fecha plazos individuales            =
+====================================*/
+    
+var funcion__editar_fecha_plazos_individuales=function(tbody,tabla){
+
+    
+    $(tbody).on("click","button.seguimiento_guardar_plazo_individual",function(e){
+
+        e.preventDefault();
+
+        var trimestre = $(this).attr("trimestre")
+
+        let data=tabla.DataTable().row($(this).parents("tr")).data();
+
+        console.log(data);
+
+		$("#idOrganismo").val(data[10])
+		$("#trimestre").val(trimestre)
+		if(trimestre =="primerTrimestre"){
+			$("#fechaModificacion").val($("#fechaPlazo1erTrimestre"+data[10]).val())
+		}else if(trimestre =="segundoTrimestre"){
+			$("#fechaModificacion").val($("#fechaPlazo2doTrimestre"+data[10]).val())
+		}else if(trimestre =="tercerTrimestre"){
+			$("#fechaModificacion").val($("#fechaPlazo3erTrimestre"+data[10]).val())
+		}else if(trimestre =="cuartoTrimestre"){
+			$("#fechaModificacion").val($("#fechaPlazo4toTrimestre"+data[10]).val())
+		}
+		
+
+    });
+        
+}
+
+var seguimiento__insertarPlazosPersonal=function(boton){
+
+	$(boton).click(function(){
+
 	
-	
+		var fecha = $("#fechaModificacion").val();
+		var trimestre = $("#trimestre").val();
+		var idOrganismo = $("#idOrganismo").val();
+
+		if( $('#selectorPlazosPersonal').val() == "incidencia"){
+			var tipoDocumento = $("#selectorPlazosPersonal").val();
+			
+		}else if( $('#selectorPlazosPersonal').val() == "prorroga"){
+			var tipoDocumento = $("#selectorPlazosPersonal").val();
+			
+		}
+		
+		
+
+		var confirm= alertify.confirm('¿Desea Guardar la Fecha Ingresada?','¿Desea Guardar la Fecha Ingresada?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+
+		confirm.set({transition:'slide'});    
+
+		confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','guarda__seguimientos__plazos__personal');	
+
+			paqueteDeDatos.append('trimestre',trimestre);	
+			paqueteDeDatos.append('fecha',fecha);	
+			paqueteDeDatos.append('idOrganismo',idOrganismo);	
+			paqueteDeDatos.append('tipoDocumento',tipoDocumento);	
+			paqueteDeDatos.append('nombreDocumentoactividad1', $("#archivoPlazosPersonal")[0].files[0]);
+
+			$.ajax({
+				
+				type:"POST",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+					 var elementos=JSON.parse(response);
+
+					 var mensaje=elementos['mensaje'];
+
+					if(mensaje==1){
+
+						alertify.set("notifier","position", "top-center");
+						alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+					 }		    
+
+				},
+				error:function(){
+
+				}
+						
+			});					
+
+		});
+
+		confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Canceló el envío", "error", 5, function(){}); 
+			
+		}); 
+
+		
+
+	});
+
+
+}
+
 /*=====  End of Insertar seguimiento definitivos  ======*/

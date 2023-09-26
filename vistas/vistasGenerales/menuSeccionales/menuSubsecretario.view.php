@@ -680,13 +680,7 @@
 
 					</li>
 
-					<li class="nav-item">
-
-						<a href="seguimientoBloqueo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoBloqueo'); ?>">
-							<p>Bloqueos</p>
-						</a>
-
-					</li>
+					
 
 
 					<li class="nav-item">
@@ -702,6 +696,14 @@
 				
 
 				<?php if (intval($_SESSION["selectorAniosA"])==2022): ?>
+
+					<li class="nav-item">
+
+						<a href="seguimientoBloqueo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoBloqueo'); ?>">
+							<p>Bloqueos</p>
+						</a>
+
+					</li>
 
 					<li class="nav-item">
 
@@ -759,6 +761,14 @@
 
 					</li>
 
+					<?php if ($informacionObjeto[1] == 2) : ?>
+						<li class="nav-item">
+							<a href="seguimientoSuspencionReactivacion" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoSuspencionReactivacion'); ?>">
+								<p>Suspensiones y Reactivación de Transferencias</p>
+							</a>
+						</li>
+					<?php endif ?>
+					
 					<li class="nav-item">
 
 						<a href="seguimientoReporContratacionPublica" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoReporContratacionPublica'); ?>">
@@ -1114,7 +1124,7 @@
 	<?php endif ?>
 
 
-	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("esigef", "jurisdicciones")); ?>">
+	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("esigef", "jurisdicciones","seguimientoPlazos")); ?>">
 
 		<a href="#" class="nav-link">
 			<p>
@@ -1141,6 +1151,19 @@
 					<p>Jurisdicción</p>
 				</a>
 			</li>
+
+			<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+
+				<li class="nav-item">
+
+					<a href="seguimientoPlazos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoPlazos'); ?>">
+						<p>Plazos</p>
+					</a>
+
+
+				</li>
+
+			<?php endif ?>
 
 		</ul>
 
