@@ -26,24 +26,28 @@
 					<th><center>FECHA PLAZO</center></th>
 					<th><center>DOCUMENTO PLAZO</center></th>
 					<th><center>ESTADO TRANSFERENCIA</center></th>
+					<th><center>ACCIONES</center></th>
 					<th><center>II</center></th>
 					<th><center>FECHA</center></th>
 					<th><center>ESTADO PLAZO</center></th>
 					<th><center>FECHA PLAZO</center></th>
 					<th><center>DOCUMENTO PLAZO</center></th>
 					<th><center>ESTADO TRANSFERENCIA</center></th>
+					<th><center>ACCIONES</center></th>
 					<th><center>IIII</center></th>
 					<th><center>FECHA</center></th>
 					<th><center>ESTADO PLAZO</center></th>
 					<th><center>FECHA PLAZO</center></th>
 					<th><center>DOCUMENTO PLAZO</center></th>
 					<th><center>ESTADO TRANSFERENCIA</center></th>
+					<th><center>ACCIONES</center></th>
 					<th><center>IV</center></th>
 					<th><center>FECHA</center></th>
 					<th><center>ESTADO PLAZO</center></th>
 					<th><center>FECHA PLAZO</center></th>
 					<th><center>DOCUMENTO PLAZO</center></th>
 					<th><center>ESTADO TRANSFERENCIA</center></th>
+					<th><center>ACCIONES</center></th>
 				</tr>
 
 			</thead>
@@ -59,7 +63,7 @@
 
 $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/datatables.js",function(){
   
-  datatabletsSeguimientoRevisorVacio($("#reactivaciones_suspenciones_plazos"),"reactivaciones_suspenciones_plazos","Reporte de Bloqueos",objetosSeguimiento2023([7,13,19,25,11,17,23,29],["enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2","enlaces__documentos__simples","enlaces__documentos__simples","enlaces__documentos__simples","enlaces__documentos__simples"],[7,13,19,25],[7,13,19,25],[$("#filesFrontend").val()+'seguimiento/documentos_plazos/',]),[$("#idUsuarioPrincipal").val(),$("#zonalUsuario").val(),$("#idRolAd").val()],["funcion__bloqueos__seguimientos2023"]);
+  datatabletsSeguimientoRevisorVacio($("#reactivaciones_suspenciones_plazos"),"reactivaciones_suspenciones_plazos","Reporte de Bloqueos",objetosSeguimiento2023([7,14,21,28,11,18,25,32,12,19,26,33,13,20,27,34],["enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2","enlaces__documentos__simples","enlaces__documentos__simples","enlaces__documentos__simples","enlaces__documentos__simples"],[7,14,21,28,8,15,22,29],[7,14,21,28,10,17,24,31],[$("#filesFrontend").val()+'seguimiento/documentos_plazos/',]),[$("#idUsuarioPrincipal").val(),$("#zonalUsuario").val(),$("#idRolAd").val()],["funcion__bloqueos__seguimientos2023"]);
 
 
 });

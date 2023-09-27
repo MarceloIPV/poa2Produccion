@@ -7093,7 +7093,48 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
             });
 
-        }		
+        }	
+        
+        if (parametro1[11]!="" && parametro1[11]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[11]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if (parametro2[8]=="estado_plazo_suspenciones") {
+
+                        //parametro 3 fecha de envio de poa
+                        //parametro 4 fecha de registro plazo
+
+                        if (row[parametro1[11]]!=null) {
+
+                            return row[parametro1[11]];
+
+                        }else if ((row[parametro3[7]]!=null) && (row[parametro4[7]]!=null) && (row[parametro3[7]] > row[parametro4[7]])) {
+
+                            return "Suspención";
+
+                        }else if ((row[parametro3[7]]!=null) && (row[parametro4[7]]!=null) && (row[parametro3[7]] < row[parametro4[7]])){
+
+                            return "------";
+
+                        }
+
+                    }else if(parametro2[5]=="boton"){
+
+                        return parametro3[5];
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
 
 
         /*=====  End of Creación de elementos  ======*/
