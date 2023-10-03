@@ -399,7 +399,7 @@
 
 		break;
 
-		//******************************* Guardado fechas plazos ********************************//
+		//******************************* Guardado fechas plazos personal ********************************//
 
 
 		case  "guarda__seguimientos__plazos__personal":
@@ -425,20 +425,26 @@
 				$columnaDocumento="documentoTrimestre4";	
 			}
 
-			$nombre__archivo1=$tipoDocumento."__".$idOrganismo."__".$trimestre."__".$aniosPeriodos__ingesos.".pdf";
+			$nombre__archivo1=$tipoDocumento."__".$idOrganismo."__".$trimestre."__".$fecha_actual."__".$hora_actual2."__".$aniosPeriodos__ingesos.".pdf";
 				
-   
 			$direccion1=VARIABLE__BACKEND."seguimiento/documentos_plazos/";
-
+			
 			$documento=$objeto->getEnviarPdf($_FILES["nombreDocumentoactividad1"]['type'],$_FILES["nombreDocumentoactividad1"]['size'],$_FILES["nombreDocumentoactividad1"]['tmp_name'],$_FILES["nombreDocumentoactividad1"]['name'],$direccion1,$nombre__archivo1);
 			
-			$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos__seguimientos, $columnaDocumento FROM poa_seguimiento_plazos WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';");
+		
+			$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos__seguimientos,$columnaEstado, $columnaDocumento FROM poa_seguimiento_plazos WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';");
 			
 			if (!empty($select_ifExist[0][idPlazos__seguimientos])) {
 				
-				unlink($direccion1.$select_ifExist[0][$columnaDocumento]);
+				$documentoHistorico = $select_ifExist[0][$columnaDocumento];
+				$estadoHistorico = $select_ifExist[0][$columnaEstado];
+				
 				$query="UPDATE `poa_seguimiento_plazos` SET  `$columnaFecha` = '$fecha' , `$columnaEstado` = '$tipoDocumento', `$columnaDocumento` = '$nombre__archivo1', `fecha`='$fecha_actual' WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
 				
+				$resultado= $conexionEstablecida->exec($query);
+
+				$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estadoHistorico','$documentoHistorico','$trimestre','$idOrganismo','$aniosPeriodos__ingesos' )  ;";
+
 				$resultado= $conexionEstablecida->exec($query);
 				
 
@@ -454,6 +460,653 @@
 	 		
 
 		break;
+
+
+		//******************************* Guardado estado plazos ********************************//
+
+
+		case  "guarda__seguimientos__plazos__estado":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			$arrayD = json_decode($array);
+
+			if ($trimestre=="primerTrimestre") {
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+				$columnaDocumento="documentoTrimestre1";
+			}else if($trimestre=="segundoTrimestre"){
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";	
+				$columnaDocumento="documentoTrimestre2";	
+			}else if($trimestre=="tercerTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";	
+				$columnaDocumento="documentoTrimestre3";	
+			}else if($trimestre=="cuartoTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";	
+				$columnaDocumento="documentoTrimestre4";	
+			}
+
+
+			foreach ($arrayD as $clave => $valor) {
+
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos, $columnaEstado, $columnaDocumento FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos';");
+			
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$documentoHistorico = $select_ifExist[0][$columnaDocumento];
+					$estadoHistorico = $select_ifExist[0][$columnaEstado];
+
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `fecha`='$fecha_actual' , `$columnaDocumento`=NULL WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estadoHistorico','$documentoHistorico','$trimestre','$valor','$aniosPeriodos__ingesos' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso` ) VALUES ('$fecha_actual','$estado','$fecha_actual','$valor','$aniosPeriodos__ingesos' ) ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+				foreach ($arrayNombreODCuartoTrimestre as $clave => $valor1) {
+					$odSuspendidas .= "<span style='font-weight:bold;'>$valor1</span><br>";
+				}
+
+				$select_ifExist1=$objeto->getObtenerInformacionGeneral("SELECT $columnaFecha FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND $columnaEstado='SUSPENSION' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+	
+				$select_nombre=$objeto->getObtenerInformacionGeneral("SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreOrganismo, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') as nombreOrganismo FROM poa_organismo WHERE idOrganismo = '$valor'");
+
+				$valor1=$select_nombre[0][nombreOrganismo];
+				$fechaSuspension=$select_ifExist1[0][$columnaFecha];
+
+				$odSuspendidas = "<span style='font-weight:bold;'>$valor1</span><br>";
+
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br>La Ley del Deporte, Educación Física y Recreación, en el Título XVI De las Sanciones, establece lo siguiente:<br><br><br>"Art. 166.- Del incumplimiento y Tipos de Sanciones.- El incumplimiento de las disposiciones consagradas en la presente Ley por parte de los dirigentes, autoridades, técnicos en general, así como las y los deportistas, dará lugar a que el Ministerio Sectorial, respetando el debido proceso, imponga las siguientes sanciones:<br> 1.	Amonestación<br>2.	Sanción económica;<br> 3.	Suspensión temporal;<br> 4.	Suspensión definitiva; y,<br> 5.	Limitación, reducción o cancelación de los estímulos concedidos.<br><br> Art. 173.- De la Sanción Económica.- Se contemplan tres tipos de sanciones económicas, a saber:<br> 1.	Multas<br>2.	Suspensión temporal de asignaciones presupuestarias; y,<br>3.	Retiro definitivo de asignaciones presupuestarias.<br><br> (...) <u>en el caso en que la organización deportiva no haya registrado su directorio en el Ministerio Sectorial, no haya presentado el plan operativo anual dentro del plazo establecido en la presente Ley, o la información anual requerida, se suspenderá de manera inmediata y sin más trámite las transferencias, hasta que se subsane dicha inobservancia".</u><br><br> El Informe Nro. DPO-0009-2019 emitido por la Contraloría General del Estado, correspondiente al "Examen especial a las transferencias, uso, liquidación y control de los recursos financieros entregados a las Ligas Deportivas de la provincia de Orellana por el Ministerio del Deporte", en su recomendación 5, establece lo siguiente:<br><br> “Previo a realizar las transferencias económicas a los Organismos Deportivos solicitará al Coordinador Zonal, remita el detalle de los Organismos Deportivos que no cumplieron con la presentación de la información para el seguimiento y evaluación de los POAS, a fin de suspender oportunamente las transferencias de los recursos financieros, hasta que presenten la documentación completa para el seguimiento y evaluación”. <br><br>Mediante Acuerdo Ministerial Nro. 0456 de 30 de diciembre de 2021 y sus modificaciones, se expide "El Procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas", y se establece lo siguiente:<br><br> "Artículo 43. Incumplimiento en la presentación de información.- En el caso de que las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias hasta que las organizaciones deportivas presenten lo requerido".<br><br>El "Procedimiento de Seguimiento y Evaluación a las Planificaciones Operativas Anuales de las Organizaciones Deportivas", emitido en mayo de 2023, establece en la actividad 10: "Si la organización deportiva no reportó en el plazo establecido, se notificará la suspensión temporal de las transferencias que corresponda según el flujo de POA aprobado".<br><br> En este sentido, se solicitó a las siguientes organizaciones deportivas cargar la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">'.$trimestre.' '.$aniosPeriodos__ingesos.'</span>, hasta el <span style="font-weight:bold;">'.$fecha_actual.'</span>; sin embargo, en cumplimiento a la normativa legal vigente, y una vez fenecidos los plazos establecidos para la presentación de información, se observa que no han remitido la información requerida:<br><br>  <span style="font-weight:bold;">'.$odSuspendidas.'</span><br><br>Por lo expuesto, se solicita que, en el ámbito de sus competencias, se realice la suspensión temporal de transferencias de recursos financieros correspondientes al POA 2023.<br><br>Particular que comunico para los fines pertinentes.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de suspensión temporal de transferencia de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+
+				
+			}
+
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
+		case  "guarda__seguimientos__plazos__estado_documentos":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			$arrayD = json_decode($array);
+
+			if ($trimestre=="primerTrimestre") {
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+				$columnaDocumento="documentoTrimestre1";
+			}else if($trimestre=="segundoTrimestre"){
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";	
+				$columnaDocumento="documentoTrimestre2";	
+			}else if($trimestre=="tercerTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";	
+				$columnaDocumento="documentoTrimestre3";	
+			}else if($trimestre=="cuartoTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";	
+				$columnaDocumento="documentoTrimestre4";	
+			}
+
+			
+
+			$nombre__archivo1=$estado."__".$trimestre."__".$fecha_actual."__".$hora_actual2."__".$aniosPeriodos__ingesos.".pdf";
+				
+   
+			$direccion1=VARIABLE__BACKEND."seguimiento/documentos_plazos/";
+
+			$documento=$objeto->getEnviarPdf($_FILES["nombreDocumentoactividad1"]['type'],$_FILES["nombreDocumentoactividad1"]['size'],$_FILES["nombreDocumentoactividad1"]['tmp_name'],$_FILES["nombreDocumentoactividad1"]['name'],$direccion1,$nombre__archivo1);
+
+			foreach ($arrayD as $clave => $valor) {
+
+				
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos, $columnaEstado, $columnaDocumento FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+				$select_ifExist1=$objeto->getObtenerInformacionGeneral("SELECT $columnaFecha FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND $columnaEstado='SUSPENSION' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+	
+				$select_nombre=$objeto->getObtenerInformacionGeneral("SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreOrganismo, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') as nombreOrganismo FROM poa_organismo WHERE idOrganismo = '$valor'");
+
+				$valor1=$select_nombre[0][nombreOrganismo];
+				$fechaSuspension=$select_ifExist1[0][$columnaFecha];
+
+				$odSuspendidas = "<span style='font-weight:bold;'>$valor1</span><br>";
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$documentoHistorico = $select_ifExist[0][$columnaDocumento];
+					$estadoHistorico = $select_ifExist[0][$columnaEstado];
+
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `$columnaDocumento` = '$nombre__archivo1', `fecha`='$fecha_actual' WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estadoHistorico','$documentoHistorico','$trimestre','$valor','$aniosPeriodos__ingesos' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso`, `$columnaDocumento` ) VALUES('$fecha_actual','$estado','$fecha_actual','$valor','$aniosPeriodos__ingesos','$nombre__archivo1' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+				if($estado=="REACTIVACION"){
+
+	
+						$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido el <span style="font-weight:bold;">'.$fechaSuspension.'</span>, en cumplimiento a la normativa legal vigente, se remitió el detalle de las organizaciones deportivas que no habían remitido la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">'.$trimestre.' '.$aniosPeriodos__ingesos.' </span>; y se solicitó, en el ámbito de sus competencias, se realice la suspensión temporal de transferencias de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.'. <br><br> En este sentido, y una vez que se ha identificado que la <span style="font-weight:bold;">'.$odSuspendidas.' </span> ha remitido la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">'.$trimestre.' '.$aniosPeriodos__ingesos.' </span>, me permito solicitar se realice la reactivación de las transferencias de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de mencionada organización deportiva, conforme lo establecido en la normativa<br><br>Particular que comunico para los fines pertinentes.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+					
+	
+						//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+						$emailArray = array("miperez@deporte.gob.ec");
+							
+						$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de reactivación de transferencia de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+	
+					
+	
+					
+				}else if($estado=="AJUSTE"){
+
+					
+					$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante Acuerdo Ministerial Nro. 0456 de 30 de diciembre de 2021 y sus modificaciones, se expide  <i>"El Procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas"</i>, y se establece lo siguiente:<br><br> "<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias hasta que las organizaciones deportivas presenten lo requerido".<br><br>   "<span style="font-weight:bold;">Artículo 44. De la reactivación de las transferencias.-</span> La organización deportiva podrá solicitar la reactivación de las transferencias de recursos, siempre y cuando dicha petición se efectúe hasta los quince primeros días del mes siguiente en el cual se configuró el incumplimiento, y que haya reportado a través del aplicativo informático la información señalada en el artículo 42 del presente Acuerdo Ministerial. En cuyo caso, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera la verificación del cumplimiento de las obligaciones de la organización deportiva y solicitará la reactivación de las transferencias.<br><br><u>En caso de que las organizaciones deportivas no presenten la información en los tiempos y formatos establecidos en el párrafo precedente, la Dirección de Seguimiento de Planes, Programas y Proyectos, solicitará a la Dirección de Planificación e Inversión, se revise la planificación de las organizaciones deportivas y se ajuste las actividades a los meses restantes del ejercicio fiscal, sin que pueda reclamarse la asignación retroactiva de valores (...)"</u><br><br> Mediante correo electrónico se comunicó a la organización deportiva, respecto a la suspensión temporal de transferencias de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.', debido a que fenecidos los plazos establecidos para la presentación de información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">'.$semestre.' '.$aniosPeriodos__ingesos.' </span>, no se identificó el reporte respectivo; y, se otorgó como fecha máxima para la presentación de mencionada información, el <span style="font-weight:bold;">'.$fechaSuspension.'</span><br><br> Por lo expuesto, en cumplimiento a la normativa legal vigente, me permito indicar que, una vez que se ha verificado que las organizaciones deportivas detalladas en el documento adjunto, no han remitido la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al  <span style="font-weight:bold;">'.$semestre.' '.$aniosPeriodos__ingesos.' </span> en el aplicativo, se solicita se revise la Planificación Operativa Anual '.$aniosPeriodos__ingesos.' de la <span style="font-weight:bold;">'.$odSuspendidas.' </span>, y se ajusten las actividades a los meses restantes del ejercicio fiscal, conforme lo establecido en el artículo 44 del Acuerdo Ministerial Nro. 0456 y sus reformas.<br><br> Con sentimientos de distinguida consideración.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+					
+	
+					//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+					$emailArray = array("miperez@deporte.gob.ec");
+						
+					$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de revisión de la Planificación Operativa Anual $aniosPeriodos__ingesos y ajuste de las actividades POA $aniosPeriodos__ingesos por suspensión de transferencias");	
+				}
+
+				
+				
+			}
+
+			
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
+
+		case  "guarda__seguimientos__plazos__estado__suspenciones__automaticas":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			$arrayOrganismoPrimerTrimestreD = json_decode($arrayOrganismoPrimerTrimestre);
+			$arrayOrganismoSegundoTrimestreD = json_decode($arrayOrganismoSegundoTrimestre);
+			$arrayOrganismoTercerTrimestreD = json_decode($arrayOrganismoTercerTrimestre);
+			$arrayOrganismoCuartoTrimestreD = json_decode($arrayOrganismoCuartoTrimestre);
+
+			$arrayCorreoPrimerTrimestreD = json_decode($arrayCorreoPrimerTrimestre);
+			$arrayCorreoSegundoTrimestreD = json_decode($arrayCorreoSegundoTrimestre);
+			$arrayCorreoTercerTrimestreD = json_decode($arrayCorreoTercerTrimestre);
+			$arrayCorreoCuartoTrimestreD = json_decode($arrayCorreoCuartoTrimestre);
+
+			$arrayNombreODPrimerTrimestre = json_decode($arrayNombreODPrimerTrimestre);
+			$arrayNombreODSegundoTrimestre = json_decode($arrayNombreODSegundoTrimestre);
+			$arrayNombreODTercerTrimestre = json_decode($arrayNombreODTercerTrimestre);
+			$arrayNombreODCuartoTrimestre = json_decode($arrayNombreODCuartoTrimestre);
+
+			$arrayFechaPrimerTrimestre = json_decode($arrayFechaPrimerTrimestre);
+			$arrayFechaSegundoTrimestre = json_decode($arrayFechaSegundoTrimestre);
+			$arrayFechaTercerTrimestre = json_decode($arrayFechaTercerTrimestre);
+			$arrayFechaCuartoTrimestre = json_decode($arrayFechaCuartoTrimestre);
+
+			if ($trimestre=="primerTrimestre") {
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+			}else if($trimestre=="segundoTrimestre"){
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";		
+			}else if($trimestre=="tercerTrimestre"){
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";		
+			}else if($trimestre=="cuartoTrimestre"){
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";		
+			}
+
+			$i = 0;
+			foreach ($arrayOrganismoPrimerTrimestreD as $clave => $valor) {
+
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+				$columnaDocumento="documentoTrimestre1";
+				
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos';");
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `fecha`='$fecha_actual', `$columnaDocumento`=NULL WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso` ) VALUES ('$fecha_actual','$estado','$fecha_actual','$valor','$aniosPeriodos__ingesos' ) ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">'.$trimestre.' '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaPrimerTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoPrimerTrimestreD[$i]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del I Semestre del POA $aniosPeriodos__ingesos");	
+
+				$i++;
+				
+			}
+
+			$j=0;
+			foreach ($arrayOrganismoSegundoTrimestreD as $clave => $valor) {
+
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";
+				$columnaDocumento="documentoTrimestre2";
+
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos';");
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `fecha`='$fecha_actual', `$columnaDocumento`=NULL WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso` ) VALUES ('$fecha_actual','$estado','$fecha_actual','$valor','$aniosPeriodos__ingesos' ) ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">'.$trimestre.' '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaPrimerTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoSegundoTrimestreD[$j]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del I Semestre del POA $aniosPeriodos__ingesos");	
+
+				$j++;
+				
+			}
+
+			$k=0;
+			foreach ($arrayOrganismoTercerTrimestreD as $clave => $valor) {
+
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";	
+				$columnaDocumento="documentoTrimestre3";
+				
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos';");
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `fecha`='$fecha_actual',`$columnaDocumento`=NULL WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso` ) VALUES ('$fecha_actual','$estado','$fecha_actual','$valor','$aniosPeriodos__ingesos' ) ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">'.$trimestre.' '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaPrimerTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoTercerTrimestreD[$k]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del I Semestre del POA $aniosPeriodos__ingesos");	
+
+				$k++;
+
+				
+				
+			}
+
+			$l=0;
+			foreach ($arrayOrganismoCuartoTrimestreD as $clave => $valor) {
+
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";
+				$columnaDocumento="documentoTrimestre4";
+				
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos';");
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `fecha`='$fecha_actual',`$columnaDocumento`=NULL WHERE idOrganismo = '$valor' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso` ) VALUES ('$fecha_actual','$estado','$fecha_actual','$valor','$aniosPeriodos__ingesos' ) ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">'.$trimestre.' '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaPrimerTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del I Semestre del POA $aniosPeriodos__ingesos");	
+
+				$l++;
+				
+				
+			}
+
+			if(count($arrayNombreODPrimerTrimestre)  > 0){
+
+				foreach ($arrayNombreODPrimerTrimestre as $clave => $valor1) {
+					$odSuspendidas .= "<span style='font-weight:bold;'>$valor1</span><br>";
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br>La Ley del Deporte, Educación Física y Recreación, en el Título XVI De las Sanciones, establece lo siguiente:<br><br><br>"Art. 166.- Del incumplimiento y Tipos de Sanciones.- El incumplimiento de las disposiciones consagradas en la presente Ley por parte de los dirigentes, autoridades, técnicos en general, así como las y los deportistas, dará lugar a que el Ministerio Sectorial, respetando el debido proceso, imponga las siguientes sanciones:<br> 1.	Amonestación<br>2.	Sanción económica;<br> 3.	Suspensión temporal;<br> 4.	Suspensión definitiva; y,<br> 5.	Limitación, reducción o cancelación de los estímulos concedidos.<br><br> Art. 173.- De la Sanción Económica.- Se contemplan tres tipos de sanciones económicas, a saber:<br> 1.	Multas<br>2.	Suspensión temporal de asignaciones presupuestarias; y,<br>3.	Retiro definitivo de asignaciones presupuestarias.<br><br> (...) <u>en el caso en que la organización deportiva no haya registrado su directorio en el Ministerio Sectorial, no haya presentado el plan operativo anual dentro del plazo establecido en la presente Ley, o la información anual requerida, se suspenderá de manera inmediata y sin más trámite las transferencias, hasta que se subsane dicha inobservancia".</u><br><br> El Informe Nro. DPO-0009-2019 emitido por la Contraloría General del Estado, correspondiente al "Examen especial a las transferencias, uso, liquidación y control de los recursos financieros entregados a las Ligas Deportivas de la provincia de Orellana por el Ministerio del Deporte", en su recomendación 5, establece lo siguiente:<br><br> “Previo a realizar las transferencias económicas a los Organismos Deportivos solicitará al Coordinador Zonal, remita el detalle de los Organismos Deportivos que no cumplieron con la presentación de la información para el seguimiento y evaluación de los POAS, a fin de suspender oportunamente las transferencias de los recursos financieros, hasta que presenten la documentación completa para el seguimiento y evaluación”. <br><br>Mediante Acuerdo Ministerial Nro. 0456 de 30 de diciembre de 2021 y sus modificaciones, se expide "El Procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas", y se establece lo siguiente:<br><br> "Artículo 43. Incumplimiento en la presentación de información.- En el caso de que las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias hasta que las organizaciones deportivas presenten lo requerido".<br><br>El "Procedimiento de Seguimiento y Evaluación a las Planificaciones Operativas Anuales de las Organizaciones Deportivas", emitido en mayo de 2023, establece en la actividad 10: "Si la organización deportiva no reportó en el plazo establecido, se notificará la suspensión temporal de las transferencias que corresponda según el flujo de POA aprobado".<br><br> En este sentido, se solicitó a las siguientes organizaciones deportivas cargar la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">I Trimestre '.$aniosPeriodos__ingesos.'</span>, hasta el <span style="font-weight:bold;">'.$arrayFechaPrimerTrimestre[0].'</span>; sin embargo, en cumplimiento a la normativa legal vigente, y una vez fenecidos los plazos establecidos para la presentación de información, se observa que no han remitido la información requerida:<br><br>  <span style="font-weight:bold;">'.$odSuspendidas.'</span><br><br>Por lo expuesto, se solicita que, en el ámbito de sus competencias, se realice la suspensión temporal de transferencias de recursos financieros correspondientes al POA 2023.<br><br>Particular que comunico para los fines pertinentes.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de suspensión temporal de transferencia de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+
+
+			}
+
+			if(count($arrayNombreODSegundoTrimestre) > 0){
+
+				foreach ($arrayNombreODSegundoTrimestre as $clave => $valor1) {
+					$odSuspendidas .= "<span style='font-weight:bold;'>$valor1</span><br>";
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br>La Ley del Deporte, Educación Física y Recreación, en el Título XVI De las Sanciones, establece lo siguiente:<br><br><br>"Art. 166.- Del incumplimiento y Tipos de Sanciones.- El incumplimiento de las disposiciones consagradas en la presente Ley por parte de los dirigentes, autoridades, técnicos en general, así como las y los deportistas, dará lugar a que el Ministerio Sectorial, respetando el debido proceso, imponga las siguientes sanciones:<br> 1.	Amonestación<br>2.	Sanción económica;<br> 3.	Suspensión temporal;<br> 4.	Suspensión definitiva; y,<br> 5.	Limitación, reducción o cancelación de los estímulos concedidos.<br><br> Art. 173.- De la Sanción Económica.- Se contemplan tres tipos de sanciones económicas, a saber:<br> 1.	Multas<br>2.	Suspensión temporal de asignaciones presupuestarias; y,<br>3.	Retiro definitivo de asignaciones presupuestarias.<br><br> (...) <u>en el caso en que la organización deportiva no haya registrado su directorio en el Ministerio Sectorial, no haya presentado el plan operativo anual dentro del plazo establecido en la presente Ley, o la información anual requerida, se suspenderá de manera inmediata y sin más trámite las transferencias, hasta que se subsane dicha inobservancia".</u><br><br> El Informe Nro. DPO-0009-2019 emitido por la Contraloría General del Estado, correspondiente al "Examen especial a las transferencias, uso, liquidación y control de los recursos financieros entregados a las Ligas Deportivas de la provincia de Orellana por el Ministerio del Deporte", en su recomendación 5, establece lo siguiente:<br><br> “Previo a realizar las transferencias económicas a los Organismos Deportivos solicitará al Coordinador Zonal, remita el detalle de los Organismos Deportivos que no cumplieron con la presentación de la información para el seguimiento y evaluación de los POAS, a fin de suspender oportunamente las transferencias de los recursos financieros, hasta que presenten la documentación completa para el seguimiento y evaluación”. <br><br>Mediante Acuerdo Ministerial Nro. 0456 de 30 de diciembre de 2021 y sus modificaciones, se expide "El Procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas", y se establece lo siguiente:<br><br> "Artículo 43. Incumplimiento en la presentación de información.- En el caso de que las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias hasta que las organizaciones deportivas presenten lo requerido".<br><br>El "Procedimiento de Seguimiento y Evaluación a las Planificaciones Operativas Anuales de las Organizaciones Deportivas", emitido en mayo de 2023, establece en la actividad 10: "Si la organización deportiva no reportó en el plazo establecido, se notificará la suspensión temporal de las transferencias que corresponda según el flujo de POA aprobado".<br><br> En este sentido, se solicitó a las siguientes organizaciones deportivas cargar la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">II Trimestre '.$aniosPeriodos__ingesos.'</span>, hasta el <span style="font-weight:bold;">'.$arrayFechaSegundoTrimestre[0].'</span>; sin embargo, en cumplimiento a la normativa legal vigente, y una vez fenecidos los plazos establecidos para la presentación de información, se observa que no han remitido la información requerida:<br><br>  <span style="font-weight:bold;">'.$odSuspendidas.'</span><br><br>Por lo expuesto, se solicita que, en el ámbito de sus competencias, se realice la suspensión temporal de transferencias de recursos financieros correspondientes al POA 2023.<br><br>Particular que comunico para los fines pertinentes.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de suspensión temporal de transferencia de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+
+			}
+
+			if(count($arrayNombreODTercerTrimestre) > 0){
+
+				foreach ($arrayNombreODTercerTrimestre as $clave => $valor1) {
+					$odSuspendidas .= "<span style='font-weight:bold;'>$valor1</span><br>";
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br>La Ley del Deporte, Educación Física y Recreación, en el Título XVI De las Sanciones, establece lo siguiente:<br><br><br>"Art. 166.- Del incumplimiento y Tipos de Sanciones.- El incumplimiento de las disposiciones consagradas en la presente Ley por parte de los dirigentes, autoridades, técnicos en general, así como las y los deportistas, dará lugar a que el Ministerio Sectorial, respetando el debido proceso, imponga las siguientes sanciones:<br> 1.	Amonestación<br>2.	Sanción económica;<br> 3.	Suspensión temporal;<br> 4.	Suspensión definitiva; y,<br> 5.	Limitación, reducción o cancelación de los estímulos concedidos.<br><br> Art. 173.- De la Sanción Económica.- Se contemplan tres tipos de sanciones económicas, a saber:<br> 1.	Multas<br>2.	Suspensión temporal de asignaciones presupuestarias; y,<br>3.	Retiro definitivo de asignaciones presupuestarias.<br><br> (...) <u>en el caso en que la organización deportiva no haya registrado su directorio en el Ministerio Sectorial, no haya presentado el plan operativo anual dentro del plazo establecido en la presente Ley, o la información anual requerida, se suspenderá de manera inmediata y sin más trámite las transferencias, hasta que se subsane dicha inobservancia".</u><br><br> El Informe Nro. DPO-0009-2019 emitido por la Contraloría General del Estado, correspondiente al "Examen especial a las transferencias, uso, liquidación y control de los recursos financieros entregados a las Ligas Deportivas de la provincia de Orellana por el Ministerio del Deporte", en su recomendación 5, establece lo siguiente:<br><br> “Previo a realizar las transferencias económicas a los Organismos Deportivos solicitará al Coordinador Zonal, remita el detalle de los Organismos Deportivos que no cumplieron con la presentación de la información para el seguimiento y evaluación de los POAS, a fin de suspender oportunamente las transferencias de los recursos financieros, hasta que presenten la documentación completa para el seguimiento y evaluación”. <br><br>Mediante Acuerdo Ministerial Nro. 0456 de 30 de diciembre de 2021 y sus modificaciones, se expide "El Procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas", y se establece lo siguiente:<br><br> "Artículo 43. Incumplimiento en la presentación de información.- En el caso de que las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias hasta que las organizaciones deportivas presenten lo requerido".<br><br>El "Procedimiento de Seguimiento y Evaluación a las Planificaciones Operativas Anuales de las Organizaciones Deportivas", emitido en mayo de 2023, establece en la actividad 10: "Si la organización deportiva no reportó en el plazo establecido, se notificará la suspensión temporal de las transferencias que corresponda según el flujo de POA aprobado".<br><br> En este sentido, se solicitó a las siguientes organizaciones deportivas cargar la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">III Trimestre '.$aniosPeriodos__ingesos.'</span>, hasta el <span style="font-weight:bold;">'.$arrayFechaTercerTrimestre[0].'</span>; sin embargo, en cumplimiento a la normativa legal vigente, y una vez fenecidos los plazos establecidos para la presentación de información, se observa que no han remitido la información requerida:<br><br>  <span style="font-weight:bold;">'.$odSuspendidas.'</span><br><br>Por lo expuesto, se solicita que, en el ámbito de sus competencias, se realice la suspensión temporal de transferencias de recursos financieros correspondientes al POA 2023.<br><br>Particular que comunico para los fines pertinentes.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de suspensión temporal de transferencia de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+
+			}
+
+			if(count($arrayNombreODCuartoTrimestre) > 0){
+
+				foreach ($arrayNombreODCuartoTrimestre as $clave => $valor1) {
+					$odSuspendidas .= "<span style='font-weight:bold;'>$valor1</span><br>";
+				}
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br>La Ley del Deporte, Educación Física y Recreación, en el Título XVI De las Sanciones, establece lo siguiente:<br><br><br>"Art. 166.- Del incumplimiento y Tipos de Sanciones.- El incumplimiento de las disposiciones consagradas en la presente Ley por parte de los dirigentes, autoridades, técnicos en general, así como las y los deportistas, dará lugar a que el Ministerio Sectorial, respetando el debido proceso, imponga las siguientes sanciones:<br> 1.	Amonestación<br>2.	Sanción económica;<br> 3.	Suspensión temporal;<br> 4.	Suspensión definitiva; y,<br> 5.	Limitación, reducción o cancelación de los estímulos concedidos.<br><br> Art. 173.- De la Sanción Económica.- Se contemplan tres tipos de sanciones económicas, a saber:<br> 1.	Multas<br>2.	Suspensión temporal de asignaciones presupuestarias; y,<br>3.	Retiro definitivo de asignaciones presupuestarias.<br><br> (...) <u>en el caso en que la organización deportiva no haya registrado su directorio en el Ministerio Sectorial, no haya presentado el plan operativo anual dentro del plazo establecido en la presente Ley, o la información anual requerida, se suspenderá de manera inmediata y sin más trámite las transferencias, hasta que se subsane dicha inobservancia".</u><br><br> El Informe Nro. DPO-0009-2019 emitido por la Contraloría General del Estado, correspondiente al "Examen especial a las transferencias, uso, liquidación y control de los recursos financieros entregados a las Ligas Deportivas de la provincia de Orellana por el Ministerio del Deporte", en su recomendación 5, establece lo siguiente:<br><br> “Previo a realizar las transferencias económicas a los Organismos Deportivos solicitará al Coordinador Zonal, remita el detalle de los Organismos Deportivos que no cumplieron con la presentación de la información para el seguimiento y evaluación de los POAS, a fin de suspender oportunamente las transferencias de los recursos financieros, hasta que presenten la documentación completa para el seguimiento y evaluación”. <br><br>Mediante Acuerdo Ministerial Nro. 0456 de 30 de diciembre de 2021 y sus modificaciones, se expide "El Procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas", y se establece lo siguiente:<br><br> "Artículo 43. Incumplimiento en la presentación de información.- En el caso de que las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias hasta que las organizaciones deportivas presenten lo requerido".<br><br>El "Procedimiento de Seguimiento y Evaluación a las Planificaciones Operativas Anuales de las Organizaciones Deportivas", emitido en mayo de 2023, establece en la actividad 10: "Si la organización deportiva no reportó en el plazo establecido, se notificará la suspensión temporal de las transferencias que corresponda según el flujo de POA aprobado".<br><br> En este sentido, se solicitó a las siguientes organizaciones deportivas cargar la información para el seguimiento y evaluación de la Planificación Operativa Anual correspondiente al <span style="font-weight:bold;">IV Trimestre '.$aniosPeriodos__ingesos.'</span>, hasta el <span style="font-weight:bold;">'.$arrayFechaCuartoTrimestre[0].'</span>; sin embargo, en cumplimiento a la normativa legal vigente, y una vez fenecidos los plazos establecidos para la presentación de información, se observa que no han remitido la información requerida:<br><br>  <span style="font-weight:bold;">'.$odSuspendidas.'</span><br><br>Por lo expuesto, se solicita que, en el ámbito de sus competencias, se realice la suspensión temporal de transferencias de recursos financieros correspondientes al POA 2023.<br><br>Particular que comunico para los fines pertinentes.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+				$emailArray = array("miperez@deporte.gob.ec");
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de suspensión temporal de transferencia de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+
+			}
+
+
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
+		//******************************* Notificar Correo Plazos ********************************//
+		case  "notificar__correos__plazos__ODS":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			$arrayOrganismoPrimerTrimestreD = json_decode($arrayOrganismoPrimerTrimestre);
+			$arrayOrganismoSegundoTrimestreD = json_decode($arrayOrganismoSegundoTrimestre);
+			$arrayOrganismoTercerTrimestreD = json_decode($arrayOrganismoTercerTrimestre);
+			$arrayOrganismoCuartoTrimestreD = json_decode($arrayOrganismoCuartoTrimestre);
+
+			$arrayFechaPrimerTrimestreD = json_decode($arrayFechaPrimerTrimestre);
+			$arrayFechaSegundoTrimestreD = json_decode($arrayFechaSegundoTrimestre);
+			$arrayFechaTercerTrimestreD = json_decode($arrayFechaTercerTrimestre);
+			$arrayFechaCuartoTrimestreD = json_decode($arrayFechaCuartoTrimestre);
+
+			$i=0;
+			foreach ($arrayOrganismoPrimerTrimestreD as $clave => $valor) {
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">I Trimestre '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaPrimerTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($correoEnviar);
+				$emailArray = array($valor);
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del I Semestre del POA $aniosPeriodos__ingesos");		
+
+				$i++;
+			}
+
+			$j=0;
+			foreach ($arrayOrganismoSegundoTrimestreD as $clave => $valor) {
+
+				
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">II Trimestre '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaSegundoTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($correoEnviar);
+				$emailArray = array($valor);
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del I Semestre del POA $aniosPeriodos__ingesos");		
+
+				$j++;
+				
+				
+			}
+
+			$k=0;
+			foreach ($arrayOrganismoTercerTrimestreD as $clave => $valor) {
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">III Trimestre '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaTercerTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($correoEnviar);
+				$emailArray = array($valor);
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del II Semestre del POA $aniosPeriodos__ingesos");		
+
+				$k++;
+
+				
+				
+			}
+
+			$l=0;
+			foreach ($arrayOrganismoCuartoTrimestreD as $clave => $valor) {
+
+				$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<center><span style="font-weight:bold; text-align: center;">COMUNICADO</span></center><br><br>Se recuerda a las organizaciones deportivas que, en cumplimiento a lo establecido en el Acuerdo Ministerial Nro. 0456 y sus modificaciones, y a las notificaciones realizadas mediante oficio y correo electrónico, la información correspondiente al <span style="font-weight:bold;">IV Trimestre '.$aniosPeriodos__ingesos.'</span>, debe ser cargada en el aplicativo informático hasta el <span style="font-weight:bold;">'.$arrayFechaCuartoTrimestreD[$i].'</span><br><br>Cabe indicar que el artículo 43 de mencionado acuerdo, establece: “<span style="font-weight:bold;">Artículo 43. Incumplimiento en la presentación de información.-</span> En el caso de que <u>las organizaciones deportivas no presenten la información para el proceso de seguimiento y evaluación a través de las herramientas y términos definidos en los lineamientos, el/la titular de la Dirección de Seguimiento de Planes, Programas y Proyectos notificará al/la titular de la Dirección Financiera los hallazgos y solicitará la suspensión temporal de las transferencias</u> hasta que las organizaciones deportivas presenten lo requerido”. <br><br>Es importante señalar que, la calidad y veracidad de la información reportada es de exclusiva responsabilidad de la organización deportiva.<br><br>Gracias por su atención.<br><br>Atentamente,<br><br><span style="font-weight:bold;">DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS</span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+				
+
+				//$emailArray = array($correoEnviar);
+				$emailArray = array($valor);
+					
+				$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Recordatorio de Presentación de Información de Seguimiento y Evaluación del II Semestre del POA $aniosPeriodos__ingesos");		
+
+				$l++;
+
+				
+				
+			}
+
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
+		case  "guarda__seguimientos__estado__ajustado__planificacion_documentos":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			
+
+			if ($trimestre=="primerTrimestre") {
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+				$columnaDocumento="documentoTrimestre1";
+			}else if($trimestre=="segundoTrimestre"){
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";	
+				$columnaDocumento="documentoTrimestre2";	
+			}else if($trimestre=="tercerTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";	
+				$columnaDocumento="documentoTrimestre3";	
+			}else if($trimestre=="cuartoTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";	
+				$columnaDocumento="documentoTrimestre4";	
+			}
+
+			
+
+			$nombre__archivo1=$estado."__".$trimestre."__".$fecha_actual."__".$hora_actual2."__".$aniosPeriodos__ingesos.".pdf";
+				
+   
+			$direccion1=VARIABLE__BACKEND."seguimiento/documentos_plazos/";
+
+			$documento=$objeto->getEnviarPdf($_FILES["nombreDocumentoactividad1"]['type'],$_FILES["nombreDocumentoactividad1"]['size'],$_FILES["nombreDocumentoactividad1"]['tmp_name'],$_FILES["nombreDocumentoactividad1"]['name'],$direccion1,$nombre__archivo1);
+
+		
+
+				
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos, $columnaEstado, $columnaDocumento FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+				$select_ifExist1=$objeto->getObtenerInformacionGeneral("SELECT $columnaFecha FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$idOrganismo' AND $columnaEstado='SUSPENSION' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+	
+				$select_nombre=$objeto->getObtenerInformacionGeneral("SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreOrganismo, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') as nombreOrganismo FROM poa_organismo WHERE idOrganismo = '$idOrganismo'");
+
+				$valor1=$select_nombre[0][nombreOrganismo];
+				$fechaSuspension=$select_ifExist1[0][$columnaFecha];
+
+				$odSuspendidas = "<span style='font-weight:bold;'>$valor1</span><br>";
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$documentoHistorico = $select_ifExist[0][$columnaDocumento];
+					$estadoHistorico = $select_ifExist[0][$columnaEstado];
+
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `$columnaDocumento` = '$nombre__archivo1', `fecha`='$fecha_actual' WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estadoHistorico','$documentoHistorico','$trimestre','$idOrganismo','$aniosPeriodos__ingesos' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso`, `$columnaDocumento` ) VALUES('$fecha_actual','$estado','$fecha_actual','$idOrganismo','$aniosPeriodos__ingesos','$nombre__archivo1' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+						$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio al ajuste de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+					
+	
+						//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+						$emailArray = array("miperez@deporte.gob.ec");
+							
+						$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Ajuste de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+	
+					
+	
+					
+				
+
+				
+				
+			
+
+			
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+				
 
   } 
  

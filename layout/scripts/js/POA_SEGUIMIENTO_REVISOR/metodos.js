@@ -126,6 +126,14 @@ var subirArchivos = function(boton,inputArchivo,tituloArchivo){
 
     input.addEventListener("change",function(e){
       var fileName = e.target.files[0].name;
+
+      if (e.target.files[0].size > 2097152) // 2 MiB for bytes.
+      {
+        alertify.set("notifier","position", "top-center");
+        alertify.notify("Archivo no puede superar los 2MB!", "error", 5, function(){});
+        return;
+      }
+
       $(tituloArchivo).show()
       
       $(tituloArchivo).text(fileName)
@@ -136,7 +144,7 @@ var subirArchivos = function(boton,inputArchivo,tituloArchivo){
   
 
   
-}
+};
 
 
 var regresarEstadoOriginalSubirArchivo=function(btnCerrar,div,tituloArchivo){
@@ -153,13 +161,10 @@ var regresarEstadoOriginalSubirArchivo=function(btnCerrar,div,tituloArchivo){
 };
 
 
-
-
-
 function getFileNameFromUrl(url) {
   const parts = url.split('/');
   return parts[parts.length - 1];
-}
+};
 
 
 var buscarFiltradoDataTable = function(input1,input2,datatable){
@@ -206,5 +211,82 @@ var buscarFiltradoDataTable = function(input1,input2,datatable){
 
 
 
-}
+};
+
+
+
+/*=======================================
+=            Enviar correos             =
+=======================================*/
+
+var enviarCorreosPlazos=function(boton,parametro2){
+
+  $(boton).click(function (e){
+  
+    e.preventDefault();	
+
+      var confirm= alertify.confirm('¿Está seguro de '+parametro2+'?','¿Está seguro de '+parametro2+'?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+  
+      confirm.set({transition:'slide'});    
+  
+      confirm.set('onok', function(){ //callbak al pulsar botón positivo
+          
+        var paqueteDeDatos = new FormData();
+  
+        paqueteDeDatos.append('tipo',"correoPlazos");		
+  
+        
+  
+        $.ajax({
+  
+          type:"POST",
+          url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+          contentType: false,
+          data:paqueteDeDatos,
+          processData: false,
+          cache: false, 
+          success:function(response){
+  
+                  var elementos=JSON.parse(response);
+  
+                  var mensaje=elementos['mensaje'];
+  
+            if(mensaje==1){
+  
+                alertify.set("notifier","position", "top-center");
+                alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+  
+                  window.setTimeout(function(){ 
+  
+                    location.reload();
+  
+                } ,5000); 
+  
+                  }
+  
+          },
+          error:function(){
+  
+          }
+          
+        });	
+  
+      });
+  
+      confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+        alertify.set("notifier","position", "top-center");
+        alertify.notify("Acción cancelada", "error", 1, function(){
+  
+          $(".boton__enlacesOcultos").show();
+          $('.reload__Enviosrealizados').html(' ');
+  
+        }); 
+      }); 
+  
+    
+  
+  });
+  
+  }
+
 

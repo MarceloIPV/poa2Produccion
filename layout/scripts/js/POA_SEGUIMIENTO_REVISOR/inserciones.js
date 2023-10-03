@@ -688,4 +688,719 @@ var seguimiento__insertarPlazosPersonal=function(boton){
 
 }
 
+var seguimiento__insertarPlazosEstados=function(parametro1){
+
+	$(parametro1).click(function(){
+
+		trimestre = $(this).attr('trimestre');
+		estado = $(this).attr('estado');
+		
+
+		var array = new Array(); 
+
+		$(".checkeds__seleccionables__estado__plazos").each(function(index) {
+
+			if ($(this).attr('attr')==trimestre) {
+
+				var condicion = $(this).is(":checked");
+
+				 if (condicion) {
+
+					let idOrganismoVar=$(this).attr('idOrganismos');
+
+					
+
+					array.push(idOrganismoVar);
+
+				}
+
+		   } 
+
+		});
+
+		if (array.length==0) {
+
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Es obligatorio seleccionar por lo menos un organismo a realizar "+estado +" del "+trimestre, "error", 5, function(){});
+
+		}else{
+
+		let letrero=$(this).attr('botonClass');
+
+		
+			var confirm= alertify.confirm('','¿Está seguro de realizar '+estado +' de los organismos seleccionados?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+		
+
+		confirm.set({transition:'slide'});    
+
+		confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','guarda__seguimientos__plazos__estado');	
+
+			paqueteDeDatos.append("array",JSON.stringify(array));
+
+			paqueteDeDatos.append('estado',estado);	
+
+			paqueteDeDatos.append('trimestre',trimestre);	
+
+			$.ajax({
+
+				type:"POST",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+					 var elementos=JSON.parse(response);
+
+					 var mensaje=elementos['mensaje'];
+
+					if(mensaje==1){
+
+						alertify.set("notifier","position", "top-center");
+						alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+						window.setTimeout(function(){ 
+
+							location.reload();
+
+						} ,5000); 
+
+					 }		    
+
+				},
+				error:function(){
+
+				}
+						
+			});					
+
+		});
+
+		confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Canceló el envío", "error", 5, function(){}); 
+				
+		}); 
+
+		}
+
+	});
+
+
+}
+
+
+var funcion__insertar_estado_plazos_modal=function(boton){
+
+    
+    $(boton).click(function(){
+
+		var trimestre = $(this).attr("trimestre")
+		var estado = $(this).attr("estado");
+
+			$("#trimestre").val(trimestre)
+		
+			$("#estado").val(estado)
+		
+		
+
+    });
+        
+}
+
+var seguimiento__insertarPlazosEstados_Documentos=function(parametro1){
+
+	$(parametro1).click(function(){
+
+		var trimestre = $("#trimestre").val();
+		var estado = $("#estado").val();
+		
+		var array = new Array(); 
+
+		$(".checkeds__seleccionables__estado__plazos").each(function(index) {
+
+			if ($(this).attr('attr')==trimestre) {
+
+				var condicion = $(this).is(":checked");
+
+				 if (condicion) {
+
+					let idOrganismoVar=$(this).attr('idOrganismos');
+
+					
+
+					array.push(idOrganismoVar);
+
+				}
+
+		   } 
+
+		});
+
+		if (array.length==0) {
+
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Es obligatorio seleccionar por lo menos un organismo a realizar "+estado +" del "+trimestre, "error", 5, function(){});
+
+		}else{
+
+		var confirm= alertify.confirm('','¿Está seguro de realizar '+estado +' de los organismos seleccionados?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+		
+
+		confirm.set({transition:'slide'});    
+
+		confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','guarda__seguimientos__plazos__estado_documentos');	
+
+			paqueteDeDatos.append("array",JSON.stringify(array));
+
+			paqueteDeDatos.append('estado',estado);	
+
+			paqueteDeDatos.append('trimestre',trimestre);	
+
+			paqueteDeDatos.append('nombreDocumentoactividad1', $("#archivoPlazosPersonal")[0].files[0]);
+
+			$.ajax({
+
+				type:"POST",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+					 var elementos=JSON.parse(response);
+
+					 var mensaje=elementos['mensaje'];
+
+					if(mensaje==1){
+
+						alertify.set("notifier","position", "top-center");
+						alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+						window.setTimeout(function(){ 
+
+							location.reload();
+
+						} ,5000); 
+
+					 }		    
+
+				},
+				error:function(){
+
+				}
+						
+			});					
+
+		});
+
+		confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Canceló el envío", "error", 5, function(){}); 
+				
+		}); 
+
+		}
+
+	});
+
+
+}
+
+
+var seguimiento__insertarPlazosSuspension=function(parametro1){
+
+	$(parametro1).click(function(){
+
+		var arrayOrganismoPrimerTrimestre = new Array(); 
+		var arrayOrganismoSegundoTrimestre = new Array(); 
+		var arrayOrganismoTercerTrimestre = new Array(); 
+		var arrayOrganismoCuartoTrimestre = new Array(); 
+
+		var arrayCorreoPrimerTrimestre = new Array(); 
+		var arrayCorreoSegundoTrimestre = new Array(); 
+		var arrayCorreoTercerTrimestre = new Array(); 
+		var arrayCorreoCuartoTrimestre = new Array(); 
+
+		var arrayNombreODPrimerTrimestre = new Array(); 
+		var arrayNombreODSegundoTrimestre = new Array(); 
+		var arrayNombreODTercerTrimestre = new Array(); 
+		var arrayNombreODCuartoTrimestre = new Array(); 
+
+		var arrayFechaPrimerTrimestre = new Array(); 
+		var arrayFechaSegundoTrimestre = new Array(); 
+		var arrayFechaTercerTrimestre = new Array(); 
+		var arrayFechaCuartoTrimestre = new Array(); 
+	
+
+		var table = $('#reactivaciones_suspenciones_plazos').DataTable();
+
+		for(let i=0;i<table.data().count();i++ ){
+
+			var rows = table.row( i ).data()
+
+			if(i==0){
+				console.log(table.row( i ).data())
+			}
+
+			const today = new Date();
+                        
+			const fecha1= new Date(rows[10])
+			const fecha2= new Date(rows[17])
+			const fecha3= new Date(rows[24])
+			const fecha4= new Date(rows[31])
+
+			const timeDifference = fecha1 - today;
+			const timeDifference2 = fecha2 - today;
+			const timeDifference3 = fecha3 - today;
+			const timeDifference4 = fecha4 - today;
+
+			const daysDifference1 = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+			const daysDifference2 = Math.ceil(timeDifference2 / (1000 * 60 * 60 * 24));
+			const daysDifference3 = Math.ceil(timeDifference3 / (1000 * 60 * 60 * 24));
+			const daysDifference4 = Math.ceil(timeDifference4 / (1000 * 60 * 60 * 24));
+
+			if(((rows[8]!=null) && (rows[10]!=null) && (rows[8] > rows[10]) && rows[12]==null) || ((rows[8]==null) && (rows[10]!=null) && (daysDifference1 < 0) && rows[12]==null)){
+				
+				arrayOrganismoPrimerTrimestre.push(rows[35])
+				arrayCorreoPrimerTrimestre.push(rows[5])
+				arrayNombreODPrimerTrimestre.push(rows[2])
+				arrayFechaPrimerTrimestre.push(rows[10])
+				
+				
+			}
+			if(((rows[15]!=null) && (rows[17]!=null) && (rows[15] > rows[17]) && rows[19]==null) || ((rows[15]==null) && (rows[17]!=null) && (daysDifference2 < 0) && rows[19]==null)){
+				
+				arrayOrganismoSegundoTrimestre.push(rows[35])
+				arrayCorreoSegundoTrimestre.push(rows[5])
+				arrayNombreODSegundoTrimestre.push(rows[2])
+				arrayFechaSegundoTrimestre.push(rows[17])
+			}
+			if(((rows[22]!=null) && (rows[24]!=null) && (rows[22] > rows[24]) && rows[26]==null) || ((rows[22]==null) && (rows[24]!=null) && (daysDifference3 < 0) && rows[26]==null)){
+				
+				arrayOrganismoTercerTrimestre.push(rows[35])
+				arrayCorreoTercerTrimestre.push(rows[5])
+				arrayNombreODTercerTrimestre.push(rows[2])
+				arrayFechaTercerTrimestre.push(rows[24])
+				
+			}
+			if(((rows[29]!=null) && (rows[31]!=null) && (rows[29] > rows[31]) && rows[33]==null) || ((rows[29]==null) && (rows[31]!=null) && (daysDifference4 < 0) && rows[33]==null) ){
+				
+				arrayOrganismoCuartoTrimestre.push(rows[35])
+				arrayCorreoCuartoTrimestre.push(rows[5])
+				arrayNombreODCuartoTrimestre.push(rows[2])
+				arrayFechaCuartoTrimestre.push(rows[31])
+			}
+		
+			
+		}
+
+		
+		var paqueteDeDatos = new FormData();
+
+		paqueteDeDatos.append('tipo','guarda__seguimientos__plazos__estado__suspenciones__automaticas');	
+
+		paqueteDeDatos.append("arrayOrganismoPrimerTrimestre",JSON.stringify(arrayOrganismoPrimerTrimestre));
+	
+		paqueteDeDatos.append("arrayOrganismoSegundoTrimestre",JSON.stringify(arrayOrganismoSegundoTrimestre));
+		
+		paqueteDeDatos.append("arrayOrganismoTercerTrimestre",JSON.stringify(arrayOrganismoTercerTrimestre));
+
+		paqueteDeDatos.append("arrayOrganismoCuartoTrimestre",JSON.stringify(arrayOrganismoCuartoTrimestre));
+
+		paqueteDeDatos.append("arrayCorreoPrimerTrimestre",JSON.stringify(arrayCorreoPrimerTrimestre));
+	
+		paqueteDeDatos.append("arrayCorreoSegundoTrimestre",JSON.stringify(arrayCorreoSegundoTrimestre));
+		
+		paqueteDeDatos.append("arrayCorreoTercerTrimestre",JSON.stringify(arrayCorreoTercerTrimestre));
+
+		paqueteDeDatos.append("arrayCorreoCuartoTrimestre",JSON.stringify(arrayCorreoCuartoTrimestre));
+
+		paqueteDeDatos.append("arrayNombreODPrimerTrimestre",JSON.stringify(arrayNombreODPrimerTrimestre));
+	
+		paqueteDeDatos.append("arrayNombreODSegundoTrimestre",JSON.stringify(arrayNombreODSegundoTrimestre));
+		
+		paqueteDeDatos.append("arrayNombreODTercerTrimestre",JSON.stringify(arrayNombreODTercerTrimestre));
+
+		paqueteDeDatos.append("arrayNombreODCuartoTrimestre",JSON.stringify(arrayNombreODCuartoTrimestre));
+
+		paqueteDeDatos.append("arrayFechaPrimerTrimestre",JSON.stringify(arrayFechaPrimerTrimestre));
+	
+		paqueteDeDatos.append("arrayFechaSegundoTrimestre",JSON.stringify(arrayFechaSegundoTrimestre));
+		
+		paqueteDeDatos.append("arrayFechaTercerTrimestre",JSON.stringify(arrayFechaTercerTrimestre));
+
+		paqueteDeDatos.append("arrayFechaCuartoTrimestre",JSON.stringify(arrayFechaCuartoTrimestre));
+
+		paqueteDeDatos.append("estado","SUSPENSION");
+
+
+		$.ajax({
+
+			type:"POST",
+			url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+			contentType: false,
+			data:paqueteDeDatos,
+			processData: false,
+			cache: false, 
+			success:function(response){
+
+					var elementos=JSON.parse(response);
+
+					var mensaje=elementos['mensaje'];
+
+				if(mensaje==1){
+
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+					window.setTimeout(function(){ 
+
+						location.reload();
+
+					} ,5000); 
+
+					}		    
+
+			},
+			error:function(){
+
+			}
+					
+		});					
+
+
+	});
+
+
+}
+
+/*====================================
+=           notificarFechasPlazos          =
+====================================*/
+
+var seguimiento__notificarFechasPlazos=function(parametro1){
+
+	$(parametro1).click(function(){
+
+		var arrayOrganismoPrimerTrimestre = new Array(); 
+		var arrayOrganismoSegundoTrimestre = new Array(); 
+		var arrayOrganismoTercerTrimestre = new Array(); 
+		var arrayOrganismoCuartoTrimestre = new Array(); 
+		var arrayFechaPrimerTrimestre = new Array(); 
+		var arrayFechaSegundoTrimestre = new Array(); 
+		var arrayFechaTercerTrimestre = new Array(); 
+		var arrayFechaCuartoTrimestre = new Array(); 
+	
+
+		var table = $('#reactivaciones_suspenciones_plazos').DataTable();
+
+		for(let i=0;i<table.data().count();i++ ){
+
+			var rows = table.row( i ).data()
+			
+			const fechaActual = new Date();
+
+			// Calculate the time difference in milliseconds
+
+			let fecha1trismetre=new Date(rows[10]);
+			let fecha2trismetre=new Date(rows[17]);
+			let fecha3trismetre=new Date(rows[24]);
+			let fecha4trismetre=new Date(rows[31]);
+
+			const fechaPrimerTrimestre = fecha1trismetre - fechaActual;
+			const fechaSegundoTrimestre = fecha2trismetre - fechaActual;
+			const fechaTercerTrimestre = fecha3trismetre - fechaActual;
+			const fechaCuartoTrimestre = fecha4trismetre - fechaActual;
+
+			// Convert milliseconds to days
+
+			const diferenciaDias1 = Math.ceil(fechaPrimerTrimestre / (1000 * 60 * 60 * 24));
+			const diferenciaDias2 = Math.ceil(fechaSegundoTrimestre / (1000 * 60 * 60 * 24));
+			const diferenciaDias3 = Math.ceil(fechaTercerTrimestre / (1000 * 60 * 60 * 24));
+			const diferenciaDias4 = Math.ceil(fechaCuartoTrimestre / (1000 * 60 * 60 * 24));
+
+			if((rows[10]!=null) && (diferenciaDias1==10 || diferenciaDias1==20)){
+				arrayOrganismoPrimerTrimestre.push(rows[5])
+				arrayFechaPrimerTrimestre.push(rows[10])
+
+			}
+			if((rows[17]!=null) && (diferenciaDias2==10 || diferenciaDias2==20) ){
+				
+				arrayOrganismoSegundoTrimestre.push(rows[5])
+				arrayFechaSegundoTrimestre.push(rows[17])
+			}
+			if((rows[24]!=null) && (diferenciaDias3==10 || diferenciaDias3==20) ){
+				
+				arrayOrganismoTercerTrimestre.push(rows[5])
+				arrayFechaTercerTrimestre.push(rows[24])
+				
+			}
+			if((rows[31]!=null) && (diferenciaDias4==10 || diferenciaDias4==20)){
+				
+				arrayOrganismoCuartoTrimestre.push(rows[5])
+				arrayFechaCuartoTrimestre.push(rows[31])
+				
+			}
+		
+			
+		}
+
+		var paqueteDeDatos = new FormData();
+
+		paqueteDeDatos.append('tipo','notificar__correos__plazos__ODS');	
+
+		paqueteDeDatos.append("arrayOrganismoPrimerTrimestre",JSON.stringify(arrayOrganismoPrimerTrimestre));
+	
+		paqueteDeDatos.append("arrayOrganismoSegundoTrimestre",JSON.stringify(arrayOrganismoSegundoTrimestre));
+		
+		paqueteDeDatos.append("arrayOrganismoTercerTrimestre",JSON.stringify(arrayOrganismoTercerTrimestre));
+
+		paqueteDeDatos.append("arrayOrganismoCuartoTrimestre",JSON.stringify(arrayOrganismoCuartoTrimestre));
+
+		paqueteDeDatos.append("arrayFechaPrimerTrimestre",JSON.stringify(arrayFechaPrimerTrimestre));
+	
+		paqueteDeDatos.append("arrayFechaSegundoTrimestre",JSON.stringify(arrayFechaSegundoTrimestre));
+		
+		paqueteDeDatos.append("arrayFechaTercerTrimestre",JSON.stringify(arrayFechaTercerTrimestre));
+
+		paqueteDeDatos.append("arrayFechaCuartoTrimestre",JSON.stringify(arrayFechaCuartoTrimestre));
+
+		
+		$.ajax({
+
+			type:"POST",
+			url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+			contentType: false,
+			data:paqueteDeDatos,
+			processData: false,
+			cache: false, 
+			success:function(response){
+
+					var elementos=JSON.parse(response);
+
+					var mensaje=elementos['mensaje'];
+
+				if(mensaje==1){
+
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+					}		    
+
+			},
+			error:function(){
+
+			}
+					
+		});					
+
+
+	});
+
+
+}
+
+/*====================================
+=           notificar_plazos_planificacion_financiero          =
+====================================*/
+    
+var funcion__notificar_plazos_planificacion_financiero=function(tbody,tabla){
+
+    
+    $(tbody).on("click","button.seguimiento_notificar_plazos_planificacion_financiero",function(e){
+
+        e.preventDefault();
+
+        var trimestre = $(this).attr("trimestre")
+		var estado = $(this).attr("estado")
+
+        let data=tabla.DataTable().row($(this).parents("tr")).data();
+
+        console.log(data);
+
+		
+		var confirm= alertify.confirm('¿Está seguro de '+estado+'?','¿Está seguro de notificar la acción de '+estado+'?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+  
+		confirm.set({transition:'slide'});    
+	
+		confirm.set('onok', function(){ //callbak al pulsar botón positivo
+			
+			var paqueteDeDatos = new FormData();
+	
+			paqueteDeDatos.append('tipo',"correoPlazosNotificacionFinanciero");	
+			paqueteDeDatos.append('trimestre',trimestre);
+			paqueteDeDatos.append('estado',estado);	
+			paqueteDeDatos.append('correoEnviar', data[5]);	
+			paqueteDeDatos.append('organizacionD', data[2]);	
+	
+			$.ajax({
+	
+			type:"POST",
+			url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+			contentType: false,
+			data:paqueteDeDatos,
+			processData: false,
+			cache: false, 
+			success:function(response){
+	
+					var elementos=JSON.parse(response);
+	
+					var mensaje=elementos['mensaje'];
+	
+				if(mensaje==1){
+	
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+	
+					window.setTimeout(function(){ 
+	
+						location.reload();
+	
+					} ,5000); 
+	
+					}
+	
+			},
+			error:function(){
+	
+			}
+			
+			});	
+	
+		});
+	
+		confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Acción cancelada", "error", 1, function(){
+	
+			$(".boton__enlacesOcultos").show();
+			$('.reload__Enviosrealizados').html(' ');
+	
+			}); 
+		}); 
+
+		
+
+    });
+        
+}
+
+
+
+/*=====  End of Insertar seguimiento definitivos  ======*/
+
+/*====================================
+=           notificar_plazos_planificacion_financiero          =
+====================================*/
+    
+var funcion__ajustado_planificacion_financiero=function(tbody,tabla){
+
+    
+    $(tbody).on("click","button.seguimiento_notificar_plazos_planificacion_financiero",function(e){
+
+        e.preventDefault();
+
+        var trimestre = $(this).attr("trimestre")
+		var estado = $(this).attr("estado")
+
+        let data=tabla.DataTable().row($(this).parents("tr")).data();
+
+		$("#trimestre").val(trimestre)
+		$("#estado").val(estado)
+		$("#idOrganismo").val(data[43])
+
+    });
+        
+}
+
+
+var seguimiento__insertarEstado_Ajustado_Planificacion_Documentos=function(parametro1){
+
+	$(parametro1).click(function(){
+
+		var trimestre = $("#trimestre").val();
+		var estado = $("#estado").val();
+		var idOrganismo = $("#idOrganismo").val();
+		
+
+		var confirm= alertify.confirm('','¿Está seguro de determinar valor '+estado +' al organismos seleccionados?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+		
+
+		confirm.set({transition:'slide'});    
+
+		confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','guarda__seguimientos__estado__ajustado__planificacion_documentos');	
+
+			paqueteDeDatos.append("idOrganismo",idOrganismo);
+
+			paqueteDeDatos.append('estado',estado);	
+
+			paqueteDeDatos.append('trimestre',trimestre);	
+
+			paqueteDeDatos.append('nombreDocumentoactividad1', $("#archivoPlazosPersonal")[0].files[0]);
+
+			$.ajax({
+
+				type:"POST",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+					 var elementos=JSON.parse(response);
+
+					 var mensaje=elementos['mensaje'];
+
+					if(mensaje==1){
+
+						alertify.set("notifier","position", "top-center");
+						alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+						window.setTimeout(function(){ 
+
+							location.reload();
+
+						} ,5000); 
+
+					 }		    
+
+				},
+				error:function(){
+
+				}
+						
+			});					
+
+		});
+
+		confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Canceló el envío", "error", 5, function(){}); 
+				
+		}); 
+
+		
+
+	});
+
+
+}
+
+
 /*=====  End of Insertar seguimiento definitivos  ======*/
