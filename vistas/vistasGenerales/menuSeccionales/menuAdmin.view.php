@@ -538,6 +538,8 @@
 
 				</li>
 
+
+
 				<li class="nav-item">
 
 					<a href="reporteriaFinalIncrementos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaFinalIncrementos'); ?>">
@@ -554,7 +556,8 @@
 						<i class="fa fa-tasks"></i>
 						&nbsp;
 						<p>Revisión</p>
-					</a>
+            
+            </a>
 
 				</li>
 
@@ -564,3 +567,36 @@
 
 	</ul>
 </li>
+
+    
+    
+    
+    
+    <?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+	
+	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("seguimientoAjuste")); ?>">
+
+		<a href="#" class="nav-link">
+			<p>
+				SEGUIMIENTO
+				<i class="fas fa-angle-left right"></i>
+				<span class="badge badge-info right"></span>
+			</p>
+		</a>
+
+		<ul class="nav nav-treeview">
+
+
+				<li class="nav-item">
+
+					<a href="seguimientoAjuste" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoAjuste'); ?>">
+						<p>Ajuste POA</p>
+          </a>
+
+				</li>
+      
+      </ul>
+
+	</li>
+
+<?php endif ?>

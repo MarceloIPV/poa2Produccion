@@ -185,7 +185,7 @@
 
 
 
-	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("seguimientosAltosRen", "seguimientosAcFisicasRen", "seguimientosAltosRecomen", "seguimientosAcFisicasRecomen", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoReporOrganismos", "documentosSustentacion", "seguimientosrecibidosIn", "seguimientosSeguimientoRIn")); ?>">
+	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("seguimientosAltosRen", "seguimientosAcFisicasRen", "seguimientosAltosRecomen", "seguimientosAcFisicasRecomen", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoReporOrganismos", "documentosSustentacion", "seguimientosrecibidosIn", "seguimientosSeguimientoRIn","seguimientoSuspencionRe")); ?>">
 
 		<a href="#" class="nav-link">
 			<p>
@@ -288,6 +288,28 @@
 					</li>
 
 				<?php endif ?>
+
+				<?php if (intval($_SESSION["selectorAniosA"])>=2023): ?>
+
+
+					<?php if ($informacionObjeto[1] == 4) : ?>
+
+						<li class="nav-item">
+
+						<a href="seguimientoSuspencionRe" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoSuspencionRe'); ?>">
+							<p>Suspensiones</p>
+						</a>
+
+						</li>
+
+					<?php endif ?>
+
+
+				<?php endif ?>
+
+
+
+				
 
 			<?php endif ?>
 
@@ -605,7 +627,7 @@
 
 	<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 20) : ?>
 
-		<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("seguimientosrecibidos", "seguimientosSeguimientoR", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoBloqueo", "seguimientoControlAdmin", "seguimientoReporOrganismos", "documentosSustentacion", "remananentesRepors", "bloqueador2","seguimientoAnexos")); ?>">
+		<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("seguimientosrecibidos", "seguimientosSeguimientoR", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoBloqueo", "seguimientoControlAdmin", "seguimientoReporOrganismos", "documentosSustentacion", "remananentesRepors", "bloqueador2","seguimientoAnexos","seguimientoResumenSuspenciones","seguimientoSuspencionReactivacion")); ?>">
 
 			<a href="#" class="nav-link">
 				<p>
@@ -767,6 +789,14 @@
 								<p>Suspensiones y Reactivación de Transferencias</p>
 							</a>
 						</li>
+
+						<li class="nav-item">
+							<a href="seguimientoResumenSuspenciones" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoResumenSuspenciones'); ?>">
+								<p>Resumen Suspensiones</p>
+							</a>
+						</li>
+
+
 					<?php endif ?>
 					
 					<li class="nav-item">
@@ -1332,7 +1362,7 @@
 	<?php if (($informacionFuncionario[0][fisicamenteEstructura] == 2 || $informacionFuncionario[0][fisicamenteEstructura] == 23 || $informacionFuncionario[0][fisicamenteEstructura] == 5) && (intval($_SESSION["selectorAniosA"])>=2023)) : ?>
 
 
-			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("segumientosProgramacionRen", "seguimientosFinancieroRecomen", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoReporOrganismos", "documentosSustentacion","transferencias","resumenTransferencias")); ?>">
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("segumientosProgramacionRen", "seguimientosFinancieroRecomen", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoReporOrganismos", "documentosSustentacion","transferencias","resumenTransferencias","seguimientoSuspencionRe")); ?>">
 
 				<a href="#" class="nav-link">
 					<p>
@@ -1420,6 +1450,14 @@
 
 						<a href="resumenTransferencias" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'resumenTransferencias'); ?>">
 							<p>Resumen de Transferencias</p>
+						</a>
+
+						</li>
+
+						<li class="nav-item">
+
+						<a href="seguimientoSuspencionRe" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'seguimientoSuspencionRe'); ?>">
+							<p>Suspensiones</p>
 						</a>
 
 						</li>

@@ -1189,7 +1189,7 @@
 
 			$emailArray = array($correoResponsable);
 				
-			$correosEnviados=$objeto->getEnviarCorreoDosParametros($emailArray,$bodyMensaje,$emailOrganismo);		
+			$correosEnviados=$objeto->getEnviarCorreoDosParametros($emailArray,$bodyMensaje,"");		
 
 
 			$mensaje=1;

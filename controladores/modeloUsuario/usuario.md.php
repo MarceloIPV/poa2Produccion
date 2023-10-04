@@ -531,7 +531,6 @@ class usuarioAcciones{
 
 	}
 
-
 	public function getEnviarCorreoDosParametros($parametro1,$parametro2,$parametro3){
 
 
@@ -573,6 +572,7 @@ class usuarioAcciones{
 		}
 
 	}
+
 
 
 	public function getEnviarCorreo__atachmen($parametro1,$parametro2,$parametro3,$parametro4){
@@ -1785,6 +1785,50 @@ class usuarioAcciones{
 		}
 
 	
+	}
+
+
+	public function getEnviarCorreoDosParametros2023($parametro1,$parametro2,$asunto){
+
+
+		// Instantiation and passing `true` enables exceptions
+		$mail = new PHPMailer(true);
+
+		try {
+
+			//Server settings
+				$mail->isSMTP();                                            // Send using SMTP
+				$mail->Host       = 'smtp.office365.com';                    // Set the SMTP server to send through
+				$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+				$mail->Username   = 'distribucion@deporte.gob.ec';                     // SMTP username
+				$mail->Password   =  'Pr0t3cc10NM1nD3p1811$$';                            // SMTP password
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+				$mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+
+				$mail->CharSet = 'UTF-8';
+				//Recipients
+				$mail->setFrom('distribucion@deporte.gob.ec', 'Ministerio del Deporte');
+
+			for ($i=0; $i < count($parametro1); $i++) { 
+				
+				$mail->addAddress($parametro1[$i]); 
+
+			}
+
+			// Content
+			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->Subject = $asunto;
+			$mail->Body = $parametro2; 
+
+			return $mail->send();
+
+		} catch (Exception $e) {
+			
+			return "no";
+
+		}
+
 	}
 
 }
