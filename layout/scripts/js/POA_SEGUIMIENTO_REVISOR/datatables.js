@@ -4582,7 +4582,6 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
         /*=============================================
         =            Creación de elementos            =
         =============================================*/
-        
 
         if (parametro1[0]!="" && parametro1[0]!=" ") {
 
@@ -6138,8 +6137,6 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
         }
 
-
-
         if (parametro1[6]!="" && parametro1[6]!=" ") {
 
             objeto.push({ 
@@ -6391,9 +6388,6 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
         }
 
-
-
-
         if (parametro1[7]!="" && parametro1[7]!=" ") {
 
             objeto.push({ 
@@ -6626,7 +6620,6 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
         }
 
-
         if (parametro1[8]!="" && parametro1[8]!=" ") {
 
             objeto.push({ 
@@ -6787,9 +6780,51 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }
 
+                    }else if(parametro2[8]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[8]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[8]]+"' target='_blank'>"+row[parametro1[8]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[8]]+".pdf' target='_blank'></a>";
+                        }
+
                     }else if(parametro2[8]=="chekeds__2"){
 
                         return "<input type='checkbox' class='checkeds__seleccionables' idOrganismos='"+row[parametro3[8]]+"' attr='cuartoTrimestre'/>";
+
+                    }else if(parametro2[8]=="estado_plazo_suspenciones") {
+
+                        //parametro 3 fecha de envio de poa
+                        //parametro 4 fecha de registro plazo
+
+                        const today = new Date();
+                        
+                        const fecha= new Date(row[parametro4[4]])
+
+                        const timeDifference = fecha - today;
+
+                        const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+
+                        if (row[parametro1[8]]!=null) {
+
+                            return row[parametro1[8]];
+
+                        }else if ((row[parametro3[4]]==null) && (row[parametro4[4]]!=null) && (daysDifference < 0)) {
+
+                            return "SUSPENSION";
+
+                        }else if ((row[parametro3[4]]!=null) && (row[parametro4[4]]!=null) && (row[parametro3[4]] > row[parametro4[4]])){
+
+                            return "SUSPENSION";
+
+                        }else if ((row[parametro3[4]]!=null) && (row[parametro4[4]]!=null) && (row[parametro3[4]] < row[parametro4[4]])){
+
+                            return "------";
+
+                        }else{
+                            return "N/A";
+                        }
 
                     }else{
                         return row[parametro3[8]];
@@ -6800,8 +6835,6 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
             });
 
         }
-
-
 
         if (parametro1[9]!="" && parametro1[9]!=" ") {
 
@@ -6938,6 +6971,48 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         
 
+                    }else if(parametro2[9]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[9]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[9]]+"' target='_blank'>"+row[parametro1[9]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[9]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else if(parametro2[9]=="estado_plazo_suspenciones") {
+
+                        //parametro 3 fecha de envio de poa
+                        //parametro 4 fecha de registro plazo
+
+                        const today = new Date();
+                        
+                        const fecha= new Date(row[parametro4[5]])
+
+                        const timeDifference = fecha - today;
+
+                        const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+                        if (row[parametro1[9]]!=null) {
+
+                            return row[parametro1[9]];
+
+                        }else if ((row[parametro3[5]]==null) && (row[parametro4[5]]!=null) && (daysDifference < 0)) {
+
+                            return "SUSPENSION";
+
+                        
+                        }else if ((row[parametro3[5]]!=null) && (row[parametro4[5]]!=null) && (row[parametro3[5]] > row[parametro4[5]])) {
+
+                            return "SUSPENSION";
+
+                        }else if ((row[parametro3[5]]!=null) && (row[parametro4[5]]!=null) && (row[parametro3[5]] < row[parametro4[5]])){
+
+                            return "------";
+
+                        }else{
+                            return "N/A";
+                        }
+
                     }else{
                         return row[parametro3[5]];
                     }
@@ -6947,8 +7022,6 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
             });
 
         }
-
-
 
         if (parametro1[10]!="" && parametro1[10]!=" ") {
 
@@ -7085,6 +7158,48 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         
 
+                    }else if(parametro2[10]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[10]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[10]]+"' target='_blank'>"+row[parametro1[10]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[10]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else if(parametro2[10]=="estado_plazo_suspenciones") {
+
+                        //parametro 3 fecha de envio de poa
+                        //parametro 4 fecha de registro plazo
+
+                        const today = new Date();
+                        
+                        const fecha= new Date(row[parametro4[6]])
+
+                        const timeDifference = fecha - today;
+
+                        const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+                        if (row[parametro1[10]]!=null) {
+
+                            return row[parametro1[10]];
+
+                        }else if ((row[parametro3[6]]==null) && (row[parametro4[6]]!=null) && (daysDifference < 0)) {
+
+                            return "SUSPENSION";
+
+                        
+                        }else if ((row[parametro3[6]]!=null) && (row[parametro4[6]]!=null) && (row[parametro3[6]] > row[parametro4[6]])) {
+
+                            return "SUSPENSION";
+
+                        }else if ((row[parametro3[6]]!=null) && (row[parametro4[6]]!=null) && (row[parametro3[6]] < row[parametro4[6]])){
+
+                            return "------";
+
+                        }else{
+                            return "N/A";
+                        }
+
                     }else{
                         return row[parametro3[5]];
                     }
@@ -7103,23 +7218,46 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                 "mData": null,
                 "mRender": (function (data, type, row) {
 
-                    if (parametro2[8]=="estado_plazo_suspenciones") {
+                    if (parametro2[11]=="estado_plazo_suspenciones") {
 
                         //parametro 3 fecha de envio de poa
                         //parametro 4 fecha de registro plazo
+
+                        const today = new Date();
+                        
+                        const fecha= new Date(row[parametro4[7]])
+
+                        const timeDifference = fecha - today;
+
+                        const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
                         if (row[parametro1[11]]!=null) {
 
                             return row[parametro1[11]];
 
+                        }else if ((row[parametro3[7]]==null) && (row[parametro4[7]]!=null) && (daysDifference < 0)) {
+
+                            return "SUSPENSION";
+
+                        
                         }else if ((row[parametro3[7]]!=null) && (row[parametro4[7]]!=null) && (row[parametro3[7]] > row[parametro4[7]])) {
 
-                            return "Suspención";
+                            return "SUSPENSION";
 
                         }else if ((row[parametro3[7]]!=null) && (row[parametro4[7]]!=null) && (row[parametro3[7]] < row[parametro4[7]])){
 
                             return "------";
 
+                        }else{
+                            return "N/A";
+                        }
+
+                    }else if(parametro2[11]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[11]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[11]]+"' target='_blank'>"+row[parametro1[11]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[11]]+".pdf' target='_blank'></a>";
                         }
 
                     }else if(parametro2[5]=="boton"){
@@ -7136,6 +7274,405 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
         }
 
+        if (parametro1[12]!="" && parametro1[12]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[12]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[12]=="chekeds__2__plazos"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables__estado__plazos' idOrganismos='"+row[parametro1[16]]+"' attr='primerTrimestre'/>";
+            
+                    }else if(parametro2[12]=="boton_plazos_suspenciones"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[5]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[5]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
+                        }else if(row[parametro3[5]] =='AJUSTE'){
+                            nombre="AJUSTADO"
+                        }else if(row[parametro3[5]] =='AJUSTADO'){
+                            nombre="AJUSTADO"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='primerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[12]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[12]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[12]]+"' target='_blank'>"+row[parametro1[12]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[12]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[13]!="" && parametro1[13]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[13]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[13]=="chekeds__2__plazos"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables__estado__plazos' idOrganismos='"+row[parametro1[16]]+"' attr='segundoTrimestre'/>";
+            
+                    }else if(parametro2[13]=="boton_plazos_suspenciones"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[6]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[6]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
+                        }else if(row[parametro3[6]] =='AJUSTE'){
+                            nombre="AJUSTADO"
+                        }else if(row[parametro3[6]] =='AJUSTADO'){
+                            nombre="AJUSTADO"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='segundoTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[13]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[13]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[13]]+"' target='_blank'>"+row[parametro1[13]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[13]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[14]!="" && parametro1[14]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[14]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[14]=="chekeds__2__plazos"){
+
+                        return "<input type='checkbox' class='checkeds__seleccionables__estado__plazos' idOrganismos='"+row[parametro1[16]]+"' attr='tercerTrimestre'/>";
+            
+                    }else if(parametro2[14]=="boton_plazos_suspenciones"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[7]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[7]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
+                        }else if(row[parametro3[7]] =='AJUSTE'){
+                            nombre="AJUSTADO"
+                        }else if(row[parametro3[7]] =='AJUSTADO'){
+                            nombre="AJUSTADO"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='tercerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[14]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[14]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[14]]+"' target='_blank'>"+row[parametro1[14]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[14]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[15]!="" && parametro1[15]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[15]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[15]=="chekeds__2__plazos"){
+
+                        return "<input type='checkbox'  class='checkeds__seleccionables__estado__plazos' idOrganismos='"+row[parametro1[16]]+"' attr='cuartoTrimestre'/>";
+            
+                    }else if(parametro2[15]=="boton_plazos_suspenciones"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[8]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[8]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
+                        }else if(row[parametro3[8]] =='AJUSTE'){
+                            nombre="AJUSTADO"
+                        }else if(row[parametro3[8]] =='AJUSTADO'){
+                            nombre="AJUSTADO"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='cuartoTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[15]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[15]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[15]]+"' target='_blank'>"+row[parametro1[15]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[15]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[16]!="" && parametro1[16]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[16]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[16]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[16]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[16]]+"' target='_blank'>"+row[parametro1[16]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[16]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[17]!="" && parametro1[17]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[17]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[17]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[17]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[17]]+"' target='_blank'>"+row[parametro1[17]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[17]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[18]!="" && parametro1[18]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[18]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[18]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[18]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[18]]+"' target='_blank'>"+row[parametro1[18]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[18]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[19]!="" && parametro1[19]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[19]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[19]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[19]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[19]]+"' target='_blank'>"+row[parametro1[19]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[19]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[20]!="" && parametro1[20]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[20]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                     if(parametro2[20]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[20]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[20]]+"' target='_blank'>"+row[parametro1[20]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[20]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[21]!="" && parametro1[21]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[21]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                     if(parametro2[21]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[21]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[21]]+"' target='_blank'>"+row[parametro1[21]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[21]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[22]!="" && parametro1[22]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[22]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                     if(parametro2[22]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[22]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[22]]+"' target='_blank'>"+row[parametro1[22]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[22]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[23]!="" && parametro1[23]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[23]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[23]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[23]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[23]]+"' target='_blank'>"+row[parametro1[23]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[23]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
 
         /*=====  End of Creación de elementos  ======*/
 

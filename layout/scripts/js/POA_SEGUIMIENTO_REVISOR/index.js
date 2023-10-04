@@ -23,6 +23,7 @@ $(document).ready(function () {
 
 
     $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/inserciones.js",function(){
+
         guardar_archivos_trasferencias("#guardarBancos","#archivoBancoCSV","Bancos");
         guardar_archivos_trasferencias("#guardarTransferencias","#archivoTransferenciaCSV","Transferencias");
         informacion__seguimiento__recomendadas_Contratacion_Publica($("#recomendarcontratacionPublica"));	
@@ -34,7 +35,34 @@ $(document).ready(function () {
         seguimiento__insertarFechaPlazosTodos("#guardarFecha4toTrimestre","#fecha4toTrimestre");
 
         funcion__editar_fecha_plazos_individuales("#seguimiento__PlazosTablaTrimestres tbody",$("#seguimiento__PlazosTablaTrimestres"));
+
+        funcion__notificar_plazos_planificacion_financiero("#resumen_revisores_reactivaciones_suspenciones_plazos tbody",$("#resumen_revisores_reactivaciones_suspenciones_plazos"));
+
         seguimiento__insertarPlazosPersonal("#guardarPlazosPersonal")
+
+        seguimiento__insertarPlazosEstados("#guardarSuspencion1erTrimestre");
+        seguimiento__insertarPlazosEstados("#guardarSuspencion2doTrimestre");
+        seguimiento__insertarPlazosEstados("#guardarSuspencion3erTrimestre");
+        seguimiento__insertarPlazosEstados("#guardarSuspencion4toTrimestre");
+
+        funcion__insertar_estado_plazos_modal("#guardarAjuste1erTrimestre");
+        funcion__insertar_estado_plazos_modal("#guardarAjuste2doTrimestre");
+        funcion__insertar_estado_plazos_modal("#guardarAjuste3erTrimestre");
+        funcion__insertar_estado_plazos_modal("#guardarAjuste4toTrimestre");
+
+         funcion__insertar_estado_plazos_modal("#guardarReactivacion1erTrimestre");
+         funcion__insertar_estado_plazos_modal("#guardarReactivacion2doTrimestre");
+         funcion__insertar_estado_plazos_modal("#guardarReactivacion3erTrimestre");
+         funcion__insertar_estado_plazos_modal("#guardarReactivacion4toTrimestre");
+
+         seguimiento__insertarPlazosEstados_Documentos("#guardarPlazosEstadosDocumentos");
+
+         seguimiento__insertarPlazosSuspension("#actualizarBaseSuspension");
+         seguimiento__notificarFechasPlazos("#envioCorreoNotificacionOD");
+
+         funcion__ajustado_planificacion_financiero("#resumen_revisores_ajuste_planificacion_plazos tbody",$("#resumen_revisores_ajuste_planificacion_plazos"));
+         seguimiento__insertarEstado_Ajustado_Planificacion_Documentos("#guardarPlazosEstadosPlanificacion");
+
     });
 
 
@@ -205,6 +233,9 @@ $(document).ready(function () {
 
         buscarFiltradoDataTable("#selectMesInicio","#selectMesFin",$("#tablaResumenTransferencias"));
  
+        enviarCorreosPlazos("#actualizarBaseSuspensionCorreo","ddadads");
+
+        
     });
 
     

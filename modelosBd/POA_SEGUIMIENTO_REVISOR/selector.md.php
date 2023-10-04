@@ -6,9 +6,9 @@
 	
 	session_start();
 	  $aniosPeriodos__ingesos=$_SESSION["selectorAniosA"];
-	  if(isset($_SESSION["idOrganismoSession"])){
+	 
 		$idOrganismoSession=$_SESSION["idOrganismoSession"];
-	  }
+	  
 	  
 
     switch ($tipo) {
@@ -910,16 +910,60 @@
 
 		break;
 
-			//*********************************************** Documentos ACTIVIDAD 5 competencia formativo INFORMACION TECNICA***************************************** //
+		//*********************************************** Documentos ACTIVIDAD 5 competencia formativo INFORMACION TECNICA***************************************** //
 
-			case "competencias__competencias__altos__altos__implementacion__tablas__2__formativos":
+		case "competencias__competencias__altos__altos__implementacion__tablas__2__formativos":
 
-				$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT a.idOtrosCompetenciasTecnicas,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(e.nombreEvento, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') as nombreEvento,a.documento,a.mes,a.trimestre,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actdeportivas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idPda=a.idActividadAc)  AS nombreItem,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.itemPreesupuestario, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actdeportivas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idPda=a.idActividadAc)  AS itemPreesupuestario FROM poa_seguimiento_otros_competencia_formativos AS a INNER JOIN poa_actdeportivas AS e ON a.idActividadAc=e.idPda WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
-	
-	
-				$jason['indicadorInformacion3']=$indicadorInformacion3;
-	
-			break;
+			$indicadorInformacion3=$objeto->getObtenerInformacionGeneral("SELECT a.idOtrosCompetenciasTecnicas,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(e.nombreEvento, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') as nombreEvento,a.documento,a.mes,a.trimestre,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actdeportivas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idPda=a.idActividadAc)  AS nombreItem,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a3.itemPreesupuestario, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actdeportivas AS a1 INNER JOIN poa_programacion_financiera AS a2 ON a2.idProgramacionFinanciera=a1.idProgramacionFinanciera INNER JOIN poa_item AS a3 ON a3.idItem=a2.idItem WHERE a1.idPda=a.idActividadAc)  AS itemPreesupuestario FROM poa_seguimiento_otros_competencia_formativos AS a INNER JOIN poa_actdeportivas AS e ON a.idActividadAc=e.idPda WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestres' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+
+			$jason['indicadorInformacion3']=$indicadorInformacion3;
+
+		break;
+
+		case "correoPlazosNotificacionFinanciero":
+
+
+			$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación de '.$estado.'</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<span style="font-weight:bold;">DIRECCION FINANCIERA, </span><br><br>Se procede a comunicar que el organismo deportivo '.$organizacionD.' posee un estado de '.$estado.' en las transferencias económicas corrrespondientes al '.$trimestre.' del año '.$aniosPeriodos__ingesos.'<br><br>'.'</body></html>';
+
+			//$emailArray = array($correoEnviar);
+			$emailArray = array("miperez@deporte.gob.ec");
+				
+			$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"");		
+
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;
+
+
+		break;
+
+
+		//******************************* selector SUSPENSIONES POP UP OD ********************************//
+
+
+		case  "seguimiento__pop_up_suspensiones":
+
+			$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$idOrganismoSession' AND (estadoTrimestre1 = 'SUSPENSION' OR estadoTrimestre2 = 'SUSPENSION' OR estadoTrimestre3 = 'SUSPENSION' OR estadoTrimestre4 = 'SUSPENSION')  AND perioIngreso='$aniosPeriodos__ingesos';");
+
+			
+
+		
+			if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+				$mensaje=1;
+
+			}else{
+
+				$mensaje=0;
+				
+			}
+			
+			
+			
+			$jason['mensaje']=$mensaje;
+
+		break;
 
     }
     echo json_encode($jason);

@@ -12,7 +12,16 @@ class seleccion
 
             $_SESSION["seleccionPaidPoa"] = $valor;
 
-            echo '<script>window.location="datosGenerales"</script>';
+            echo '<script>
+
+            $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/selector.js",function(){
+                verificarSuspensionesOD();
+                
+              
+            });
+            window.location="datosGenerales"
+            
+            </script>';
         } elseif (isset($_POST["btnPaid"])) {
 
             $valor = $_POST["btnPaid"];
@@ -24,3 +33,4 @@ class seleccion
         }
     }
 }
+

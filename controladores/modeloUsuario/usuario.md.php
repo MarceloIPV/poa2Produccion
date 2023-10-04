@@ -18,6 +18,58 @@ class usuarioAcciones{
 
 	private static $baseInsercion="`ezonshar_mdepsaddb`";
 
+	public function insertSingleRow($tabla,$campos,$task) {
+
+		$conexionRecuperada= new Conexion();
+	 	$conexionEstablecida=$conexionRecuperada->cConexion();
+
+	 	try{
+
+			$sql = "INSERT INTO $tabla (";
+			$contador1=0;
+
+		    foreach ($campos as $key => $valor) {
+
+		    	$contador1++;
+
+		    	if ($contador1==count($campos)) {
+		       		$sql.=" `".$valor."`";
+		    	}else{
+		       		$sql.=" `".$valor."`, ";
+		    	}
+
+		    }
+
+		    $sql.=") VALUES (";
+
+		    $contador2=0;
+
+		    foreach ($campos as $key => $valor) {
+
+		    	$contador2++;
+
+		    	if ($contador2==count($campos)) {
+		       		$sql.=" :".$valor."";
+		    	}else{
+		       		$sql.=" :".$valor.", ";
+		    	}
+		        	
+		    }
+
+		    $sql.=");";
+
+		    $resultado = $conexionEstablecida->prepare($sql);
+
+		    return $resultado->execute($task);
+
+		}catch(PDOException $e){
+
+		    echo "ERROR: " . $e->getMessage();
+
+		}
+
+    }
+	
 	public function getInserta($parametro1,$parametro2,$parametro3,$parametro4,$parametro5){
 
 		$conexionRecuperada= new conexion();
@@ -479,7 +531,6 @@ class usuarioAcciones{
 
 	}
 
-
 	public function getEnviarCorreoDosParametros($parametro1,$parametro2,$parametro3){
 
 
@@ -521,6 +572,7 @@ class usuarioAcciones{
 		}
 
 	}
+
 
 
 	public function getEnviarCorreo__atachmen($parametro1,$parametro2,$parametro3,$parametro4){
@@ -1733,6 +1785,50 @@ class usuarioAcciones{
 		}
 
 	
+	}
+
+
+	public function getEnviarCorreoDosParametros2023($parametro1,$parametro2,$asunto){
+
+
+		// Instantiation and passing `true` enables exceptions
+		$mail = new PHPMailer(true);
+
+		try {
+
+			//Server settings
+				$mail->isSMTP();                                            // Send using SMTP
+				$mail->Host       = 'smtp.office365.com';                    // Set the SMTP server to send through
+				$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+				$mail->Username   = 'distribucion@deporte.gob.ec';                     // SMTP username
+				$mail->Password   =  'Pr0t3cc10NM1nD3p1811$$';                            // SMTP password
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+				$mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+
+				$mail->CharSet = 'UTF-8';
+				//Recipients
+				$mail->setFrom('distribucion@deporte.gob.ec', 'Ministerio del Deporte');
+
+			for ($i=0; $i < count($parametro1); $i++) { 
+				
+				$mail->addAddress($parametro1[$i]); 
+
+			}
+
+			// Content
+			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->Subject = $asunto;
+			$mail->Body = $parametro2; 
+
+			return $mail->send();
+
+		} catch (Exception $e) {
+			
+			return "no";
+
+		}
+
 	}
 
 }

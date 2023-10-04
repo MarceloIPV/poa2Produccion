@@ -983,7 +983,45 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 	}
 
+  /*=======================================
+=            verificarSuspensionesOD             =
+=======================================*/
 
+var verificarSuspensionesOD=function(){
+
+  		var paqueteDeDatos = new FormData();
+  
+        paqueteDeDatos.append('tipo',"seguimiento__pop_up_suspensiones");		
+  
+        
+        $.ajax({
+  
+          type:"POST",
+          url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+          contentType: false,
+          data:paqueteDeDatos,
+          processData: false,
+          cache: false, 
+		  async: false,
+          success:function(response){
+  
+                  var elementos=JSON.parse(response);
+  
+                  var mensaje=elementos['mensaje'];
+  
+            if(mensaje==1){
+				alert("TRANSFERENCIA TEMPORALMENTE SUSPENDIDA")
+            }
+  
+          },
+          error:function(){
+  
+          }
+          
+        });	
+  
+}
+  
 
 
 	

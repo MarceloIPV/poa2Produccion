@@ -15953,10 +15953,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 						if ($auxiliar==$variableAr) {
 
 
-							$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
-
-							
-
+							if($seguimiento__en2[$clave][ejecutadoPrimer] >= 0 && $seguimiento__en2[$clave][Trimestre] == 0 ){
+								$totalPorcentajeAvance3_22 = 0;
+							}else{
+								$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
+							}
+						
 							if ($seguimiento__en2[$clave][ejecutadoPrimer] == 0 && $seguimiento__en2[$clave][Trimestre] == 0) {
 								$coloresPorcentaje3='';
 							}else{
@@ -15969,19 +15971,32 @@ internacional, organizaciones no gubernamentales, entre otros.
 								}
 							}
 
-							if($totalPorcentajeAvance3_22 >= 0 && $totalPorcentajeAvance3_22 != INF){
+							if($totalPorcentajeAvance3_22 >= 0){
 								$signoPorcentaje = "%";
 							}else{
 								$signoPorcentaje = "";
 							}
 
-							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22, 2).'' .$signoPorcentaje.'</center></td></tr>';
+							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td>';
+
+							if($seguimiento__en2[$clave][ejecutadoPrimer] == 0 && $seguimiento__en2[$clave][Trimestre] == 0 ){
+								$totalPorcentajeAvance3_22 ="----";
+								$signoPorcentaje ="";
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.$totalPorcentajeAvance3_22.'' .$signoPorcentaje.'</center></td></tr>';
+							}else{
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22,2).'' .$signoPorcentaje.'</center></td></tr>';
+							}
 							$auxiliar=$variableAr;
 
 						}else{
 
-							$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
 							
+							
+							if($seguimiento__en2[$clave][ejecutadoPrimer] >= 0 && $seguimiento__en2[$clave][Trimestre] == 0 ){
+								$totalPorcentajeAvance3_2 = 0;
+							}else{
+								$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
+							}
 
 							if ($seguimiento__en2[$clave][ejecutadoPrimer] == 0 && $seguimiento__en2[$clave][Trimestre] == 0) {
 								$coloresPorcentaje3='';
@@ -15995,7 +16010,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 								}
 							}
 
-							if($totalPorcentajeAvance3_2 >= 0 && $totalPorcentajeAvance3_2 != INF){
+							if($totalPorcentajeAvance3_2 >= 0){
 								$signoPorcentaje = "%";
 							}else{
 								$signoPorcentaje = "";
@@ -16004,7 +16019,16 @@ internacional, organizaciones no gubernamentales, entre otros.
 							$sumaTotalPlanificado1BP = $seguimiento__en2[$i][Trimestre];
 							$sumaTotalEjecutado1BE = $seguimiento__en2[$i][ejecutadoPrimer];
 
-							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'' .$signoPorcentaje.'</center></td></tr>';
+							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td>';
+
+							if($seguimiento__en2[$clave][ejecutadoPrimer] == 0 && $seguimiento__en2[$clave][Trimestre] == 0 ){
+								$totalPorcentajeAvance3_2 ="----";
+								$signoPorcentaje ="";
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.$totalPorcentajeAvance3_2.'' .$signoPorcentaje.'</center></td></tr>';
+							}else{
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'' .$signoPorcentaje.'</center></td></tr>';
+							}
+
 							$auxiliar=$variableAr;
 
 						}
@@ -16015,21 +16039,37 @@ internacional, organizaciones no gubernamentales, entre otros.
 					
 					$totalPorcentajeAvance1 = ($sumaTotalEjecutado1/$sumaTotalPlanificado1)*100;
 						
-					if($totalPorcentajeAvance1>= 85){
-						$coloresPorcentaje3='green';
-					}else if ($totalPorcentajeAvance1>= 70 && $totalPorcentajeAvance1 < 85) {
-						$coloresPorcentaje3='orange';
-					}else if ($totalPorcentajeAvance1 < 70) {
-						$coloresPorcentaje3='red';
+					
+
+
+					if ($sumaTotalEjecutado1 == 0 && $sumaTotalPlanificado1 == 0) {
+						$coloresPorcentaje3='';
+					}else{
+						if($totalPorcentajeAvance1>= 85){
+							$coloresPorcentaje3='green';
+						}else if ($totalPorcentajeAvance1>= 70 && $totalPorcentajeAvance1 < 85) {
+							$coloresPorcentaje3='orange';
+						}else if ($totalPorcentajeAvance1 < 70) {
+							$coloresPorcentaje3='red';
+						}
 					}
 
-					if($totalPorcentajeAvance1 >= 0 && $totalPorcentajeAvance1 != INF){
+					if($totalPorcentajeAvance1 >= 0){
 						$signoPorcentaje = "%";
 					}else{
 						$signoPorcentaje = "";
 					}
 
-					$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado1,2).'</sapn></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado1, 2).'</span></center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance1, 2).''.$signoPorcentaje.'</span></center></td></tr>';
+					$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado1,2).'</sapn></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado1, 2).'</span></center></td>';
+
+
+					if($sumaTotalEjecutado1 == 0 && $sumaTotalPlanificado1 == 0 ){
+						$totalPorcentajeAvance1 ="----";
+						$signoPorcentaje ="";
+						$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.$totalPorcentajeAvance1.'' .$signoPorcentaje.'</center></td></tr>';
+					}else{
+						$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance1, 2).''.$signoPorcentaje.'</span></center></td></tr>';
+					}
 				}
 				
 				$documentoCuerpo.='
