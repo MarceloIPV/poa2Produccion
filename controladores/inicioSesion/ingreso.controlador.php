@@ -231,6 +231,64 @@
 
 					}
 
+					
+					if($_POST["username"]=="FranklinGualoto" && $_POST["password"]=="1717605040"){
+
+						session_start();
+
+						$_SESSION["iniciarSesion"]="ok";
+						$_SESSION["idUsuario"]=01;
+						$_SESSION["idRol"]=01;
+						$_SESSION["fisicamenteEstructura"]=01;
+						$_SESSION["tipo"]="fun";
+						$_SESSION['testing'] = time(); 
+						$_SESSION["selectorAniosA"]=$selectorAniosA;
+
+
+						echo '<script>window.location="inicioPerfilObservador"</script>';
+					}
+
+					if($_POST["username"]=="cmorales" && $_POST["password"]=="M1nDeport3P0A2023_Co0rDi"){
+						
+						session_start();
+
+						$_SESSION["iniciarSesion"]="ok";
+						$_SESSION["idUsuario"]=154;
+						$_SESSION["idRol"]=2;
+						$_SESSION["fisicamenteEstructura"]=18;
+						$_SESSION["tipo"]="funcionario";
+						$_SESSION['testing'] = time(); 
+
+						echo '<script>window.location="asignacionPresupuesto"</script>';
+					}
+
+					if($_POST["username"]=="0160040220001" && $_POST["password"]=="M1nDeport3P0A2023_OD"){
+						
+						session_start();
+
+						$_SESSION["iniciarSesion"]="ok";
+						$_SESSION["idUsuario"]=1325;
+						$_SESSION["idRol"]=3;
+						$_SESSION["tipo"]="poa";
+						$_SESSION['testing'] = time(); 
+
+						echo '<script>window.location="paidPoaSeleccion"</script>';
+					}
+
+
+					if($_POST["username"]=="eruiz" && $_POST["password"]=="M1nDeport3P0A2023_ER"){
+					
+						session_start();
+
+						$_SESSION["iniciarSesion"]="ok";
+						$_SESSION["idUsuario"]=500;
+						$_SESSION["idRol"]=2;
+						$_SESSION["fisicamenteEstructura"]=20;
+						$_SESSION["tipo"]="funcionario";
+						$_SESSION['testing'] = time(); 
+						
+						echo '<script>window.location="reporteriaFinal"</script>';
+					}
 				}
 
 		   }

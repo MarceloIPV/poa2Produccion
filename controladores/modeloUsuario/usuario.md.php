@@ -18,6 +18,58 @@ class usuarioAcciones{
 
 	private static $baseInsercion="`ezonshar_mdepsaddb`";
 
+	public function insertSingleRow($tabla,$campos,$task) {
+
+		$conexionRecuperada= new Conexion();
+	 	$conexionEstablecida=$conexionRecuperada->cConexion();
+
+	 	try{
+
+			$sql = "INSERT INTO $tabla (";
+			$contador1=0;
+
+		    foreach ($campos as $key => $valor) {
+
+		    	$contador1++;
+
+		    	if ($contador1==count($campos)) {
+		       		$sql.=" `".$valor."`";
+		    	}else{
+		       		$sql.=" `".$valor."`, ";
+		    	}
+
+		    }
+
+		    $sql.=") VALUES (";
+
+		    $contador2=0;
+
+		    foreach ($campos as $key => $valor) {
+
+		    	$contador2++;
+
+		    	if ($contador2==count($campos)) {
+		       		$sql.=" :".$valor."";
+		    	}else{
+		       		$sql.=" :".$valor.", ";
+		    	}
+		        	
+		    }
+
+		    $sql.=");";
+
+		    $resultado = $conexionEstablecida->prepare($sql);
+
+		    return $resultado->execute($task);
+
+		}catch(PDOException $e){
+
+		    echo "ERROR: " . $e->getMessage();
+
+		}
+
+    }
+	
 	public function getInserta($parametro1,$parametro2,$parametro3,$parametro4,$parametro5){
 
 		$conexionRecuperada= new conexion();

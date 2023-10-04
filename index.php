@@ -31,6 +31,8 @@
 
     require_once CONTROLADORINDEX.CONTROLADORCONTROLA.'componentes.controlador.php';
 
+    require_once CONTROLADORINDEX.CONTROLADORCONTROLA.'indicador.controlador.php';
+
     require_once CONTROLADORINDEX.CONTROLADORCONTROLA.'componentesTablas.controlador.php';
 
     require_once CONTROLADORINDEX.CONTROLADORCONTROLA.'modificaciones.controlador.php';
