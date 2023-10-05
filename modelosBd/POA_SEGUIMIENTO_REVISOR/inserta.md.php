@@ -1074,22 +1074,45 @@
 					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estadoHistorico','$documentoHistorico','$trimestre','$idOrganismo','$aniosPeriodos__ingesos' )  ;";
 
 					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estado','$nombre__archivo1','$trimestre','$idOrganismo','$aniosPeriodos__ingesos' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
 					
 
 				}else{
 					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso`, `$columnaDocumento` ) VALUES('$fecha_actual','$estado','$fecha_actual','$idOrganismo','$aniosPeriodos__ingesos','$nombre__archivo1' )  ;";
 
 					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estado','$nombre__archivo1','$trimestre','$idOrganismo','$aniosPeriodos__ingesos' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
 					
 				}
 
-						$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio al ajuste de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+						if($estado=="AJUSTADO"){
+							$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio al ajuste de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+
+							$asunto="Ajuste de recursos financieros correspondientes al POA $aniosPeriodos__ingesos";
+
+						}else if($estado=="SUSPENDIDO"){
+							$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio a la suspensión de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+
+							$asunto="Suspensión de recursos financieros correspondientes al POA $aniosPeriodos__ingesos";
+
+						}else{
+							$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio a la reactivación de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+
+							$asunto="Reactivación de recursos financieros correspondientes al POA $aniosPeriodos__ingesos";
+						}
+						
 					
 	
 						//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
 						$emailArray = array("miperez@deporte.gob.ec");
 							
-						$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Ajuste de recursos financieros correspondientes al POA $aniosPeriodos__ingesos");	
+						$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,$asunto);	
 	
 					
 	

@@ -36,8 +36,6 @@ $(document).ready(function () {
 
         funcion__editar_fecha_plazos_individuales("#seguimiento__PlazosTablaTrimestres tbody",$("#seguimiento__PlazosTablaTrimestres"));
 
-        funcion__notificar_plazos_planificacion_financiero("#resumen_revisores_reactivaciones_suspenciones_plazos tbody",$("#resumen_revisores_reactivaciones_suspenciones_plazos"));
-
         seguimiento__insertarPlazosPersonal("#guardarPlazosPersonal")
 
         seguimiento__insertarPlazosEstados("#guardarSuspencion1erTrimestre");
@@ -61,6 +59,8 @@ $(document).ready(function () {
          seguimiento__notificarFechasPlazos("#envioCorreoNotificacionOD");
 
          funcion__ajustado_planificacion_financiero("#resumen_revisores_ajuste_planificacion_plazos tbody",$("#resumen_revisores_ajuste_planificacion_plazos"));
+         funcion__ajustado_planificacion_financiero("#resumen_revisores_reactivaciones_suspenciones_plazos tbody",$("#resumen_revisores_reactivaciones_suspenciones_plazos"));
+
          seguimiento__insertarEstado_Ajustado_Planificacion_Documentos("#guardarPlazosEstadosPlanificacion");
 
     });

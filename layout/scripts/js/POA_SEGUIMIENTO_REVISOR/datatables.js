@@ -7674,6 +7674,318 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
         }
 
+        if (parametro1[24]!="" && parametro1[24]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[24]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[24]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[24]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[24]]+"' target='_blank'>"+row[parametro1[24]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[24]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[25]!="" && parametro1[25]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[25]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[25]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[25]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[25]]+"' target='_blank'>"+row[parametro1[25]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[25]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[26]!="" && parametro1[26]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[26]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[26]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[26]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[26]]+"' target='_blank'>"+row[parametro1[26]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[26]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[27]!="" && parametro1[27]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[27]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[27]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[27]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[27]]+"' target='_blank'>"+row[parametro1[27]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[27]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[28]!="" && parametro1[28]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[28]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[28]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[28]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[28]]+"' target='_blank'>"+row[parametro1[28]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[28]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[29]!="" && parametro1[29]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[29]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[29]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[29]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[29]]+"' target='_blank'>"+row[parametro1[29]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[29]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[30]!="" && parametro1[30]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[30]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[30]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[30]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[30]]+"' target='_blank'>"+row[parametro1[30]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[30]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[31]!="" && parametro1[31]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[31]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[31]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[31]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[31]]+"' target='_blank'>"+row[parametro1[31]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[31]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+        if (parametro1[32]!="" && parametro1[31]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[32]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[32]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[32]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[32]]+"' target='_blank'>"+row[parametro1[32]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[32]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[33]!="" && parametro1[33]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[33]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[33]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[32]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[33]]+"' target='_blank'>"+row[parametro1[33]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[33]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[34]!="" && parametro1[34]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[34]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[34]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[32]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[34]]+"' target='_blank'>"+row[parametro1[34]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[34]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+        if (parametro1[35]!="" && parametro1[35]!=" ") {
+
+            objeto.push({ 
+
+                "aTargets":[parametro1[35]], 
+                "mData": null,
+                "mRender": (function (data, type, row) {
+
+                    if(parametro2[35]=="enlaces__documentos__simples"){
+
+                        if (row[parametro1[32]]!=null){
+                            return "<a href='"+parametro5[0]+row[parametro1[35]]+"' target='_blank'>"+row[parametro1[35]]+"</a>";
+                        }else{
+                            return "<a href='"+parametro5[0]+row[parametro1[35]]+".pdf' target='_blank'></a>";
+                        }
+
+                    }else{
+                        return row[parametro3[5]];
+                    }
+
+                })
+
+            });
+
+        }
+
+
         /*=====  End of Creación de elementos  ======*/
 
         return objeto;

@@ -921,22 +921,6 @@
 
 		break;
 
-		case "correoPlazosNotificacionFinanciero":
-
-
-			$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación de '.$estado.'</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<span style="font-weight:bold;">DIRECCION FINANCIERA, </span><br><br>Se procede a comunicar que el organismo deportivo '.$organizacionD.' posee un estado de '.$estado.' en las transferencias económicas corrrespondientes al '.$trimestre.' del año '.$aniosPeriodos__ingesos.'<br><br>'.'</body></html>';
-
-			//$emailArray = array($correoEnviar);
-			$emailArray = array("miperez@deporte.gob.ec");
-				
-			$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"");		
-
-
-			$mensaje=1;
-			$jason['mensaje']=$mensaje;
-
-
-		break;
 
 
 		//******************************* selector SUSPENSIONES POP UP OD ********************************//

@@ -159,6 +159,14 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 		  var tableHTML = table.outerHTML;
 		  var fileName = parametro4;
 
+		  //add more symbols if needed...
+		while (tableHTML.indexOf('á') != -1) tableHTML = tableHTML.replace('á', '&aacute;');
+		while (tableHTML.indexOf('é') != -1) tableHTML = tableHTML.replace('é', '&eacute;');
+		while (tableHTML.indexOf('í') != -1) tableHTML = tableHTML.replace('í', '&iacute;');
+		while (tableHTML.indexOf('ó') != -1) tableHTML = tableHTML.replace('ó', '&oacute;');
+		while (tableHTML.indexOf('ú') != -1) tableHTML = tableHTML.replace('ú', '&uacute;');
+		while (tableHTML.indexOf('º') != -1) tableHTML = tableHTML.replace('º', '&ordm;');
+
 		  var msie = window.navigator.userAgent.indexOf("MSIE ");
 
 		  // If Internet Explorer

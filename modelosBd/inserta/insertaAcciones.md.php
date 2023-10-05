@@ -5000,6 +5000,20 @@
 
 		break;
 
+		case  "editar__sueldos__salarios__visores":
+
+			$arrayInformacion = json_decode($parametros);
+
+			$valores=array("sueldoSalarioEjecutado='$arrayInformacion[1]',aporteIessEjecutado='$arrayInformacion[2]',decimoTerceroEjecutado='$arrayInformacion[3]',decimoCuartoEjecutado='$arrayInformacion[4]' ,fondosReservasEjecutado='$arrayInformacion[5]',compensacionDeshaucioEjecutado='$arrayInformacion[6]',despidoIntepestivoEjecutado='$arrayInformacion[7]',renunciaVoluntariaEjecutado='$arrayInformacion[8]',vacionesEjecutado='$arrayInformacion[9]'");
+
+			$actualiza=$objeto->getActualiza__confirmado("poa_seguimiento_sueldos_salarios",$valores,"idSueldosSeguimeintos",$arrayInformacion[0],"perioIngreso",$aniosPeriodos__ingesos);
+
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;
+
+		break;
+
 
 		case  "sueldos__salarios__seguimientos":
 
