@@ -7294,9 +7294,21 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                             nombre="SUSPENDIDO"
                         }else if(row[parametro3[5]] =='REACTIVACION'){
                             nombre="REACTIVADA"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='primerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[12]=="boton_plazos_ajuste"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[5]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[5]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
                         }else if(row[parametro3[5]] =='AJUSTE'){
-                            nombre="AJUSTADO"
-                        }else if(row[parametro3[5]] =='AJUSTADO'){
                             nombre="AJUSTADO"
                         }else{
                             return "";
@@ -7333,7 +7345,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                     if(parametro2[13]=="chekeds__2__plazos"){
 
                         return "<input type='checkbox' class='checkeds__seleccionables__estado__plazos' idOrganismos='"+row[parametro1[16]]+"' attr='segundoTrimestre'/>";
-            
+                        
                     }else if(parametro2[13]=="boton_plazos_suspenciones"){
 
                         var nombre ;
@@ -7342,9 +7354,21 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                             nombre="SUSPENDIDO"
                         }else if(row[parametro3[6]] =='REACTIVACION'){
                             nombre="REACTIVADA"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='segundoTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[13]=="boton_plazos_ajuste"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[6]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[6]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
                         }else if(row[parametro3[6]] =='AJUSTE'){
-                            nombre="AJUSTADO"
-                        }else if(row[parametro3[6]] =='AJUSTADO'){
                             nombre="AJUSTADO"
                         }else{
                             return "";
@@ -7381,8 +7405,22 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                     if(parametro2[14]=="chekeds__2__plazos"){
 
                         return "<input type='checkbox' class='checkeds__seleccionables__estado__plazos' idOrganismos='"+row[parametro1[16]]+"' attr='tercerTrimestre'/>";
-            
+                        
                     }else if(parametro2[14]=="boton_plazos_suspenciones"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[7]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[7]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='tercerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[14]=="boton_plazos_ajuste"){
 
                         var nombre ;
                         
@@ -7398,7 +7436,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                             return "";
                         }
 
-                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='tercerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='tercerTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
 
                     }else if(parametro2[14]=="enlaces__documentos__simples"){
 
@@ -7431,6 +7469,20 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
                         return "<input type='checkbox'  class='checkeds__seleccionables__estado__plazos' idOrganismos='"+row[parametro1[16]]+"' attr='cuartoTrimestre'/>";
             
                     }else if(parametro2[15]=="boton_plazos_suspenciones"){
+
+                        var nombre ;
+                        
+                        if(row[parametro3[8]] =='SUSPENSION'){
+                            nombre="SUSPENDIDO"
+                        }else if(row[parametro3[8]] =='REACTIVACION'){
+                            nombre="REACTIVADA"
+                        }else{
+                            return "";
+                        }
+
+                        return "<center><button idOrganismos='"+row[parametro3[4]]+"' estado='"+nombre+"' trimestre='cuartoTrimestre' data-bs-toggle='modal' data-bs-target='#modalSubirEstadoPlazos' class='seguimiento_notificar_plazos_planificacion_financiero estilo__botonDatatablets btn btn-warning pointer__botones'>"+nombre+"</button></center>";
+
+                    }else if(parametro2[15]=="boton_plazos_ajuste"){
 
                         var nombre ;
                         

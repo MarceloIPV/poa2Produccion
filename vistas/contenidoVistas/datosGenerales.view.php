@@ -414,3 +414,10 @@ require 'PHPMailer/src/SMTP.php';
 
 </div>
 
+<script>
+	window.onload = (event)=>{
+		$.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/selector.js",function(){
+                verificarSuspensionesOD();
+            });
+	};
+</script>

@@ -59,7 +59,7 @@ $(document).ready(function () {
          seguimiento__notificarFechasPlazos("#envioCorreoNotificacionOD");
 
          funcion__ajustado_planificacion_financiero("#resumen_revisores_ajuste_planificacion_plazos tbody",$("#resumen_revisores_ajuste_planificacion_plazos"));
-         funcion__ajustado_planificacion_financiero("#resumen_revisores_reactivaciones_suspenciones_plazos tbody",$("#resumen_revisores_reactivaciones_suspenciones_plazos"));
+         funcion__reactivado__suspendido_planificacion_financiero("#resumen_revisores_reactivaciones_suspenciones_plazos tbody",$("#resumen_revisores_reactivaciones_suspenciones_plazos"));
 
          seguimiento__insertarEstado_Ajustado_Planificacion_Documentos("#guardarPlazosEstadosPlanificacion");
 

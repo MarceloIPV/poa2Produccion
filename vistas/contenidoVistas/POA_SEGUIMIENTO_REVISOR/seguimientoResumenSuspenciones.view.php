@@ -21,14 +21,14 @@
 
 				<tr>
 
-					<th ><center >IV</center></th>
+					<th ><center >I</center></th>
 					<th><center>FECHA ENVIO</center></th>
 					<th><center>ESTADO PLAZO</center></th>
 					<th><center>FECHA PLAZO</center></th>
 					<th><center>DOCUMENTO PLAZO</center></th>
-					<th><center>ESTADO TRANSFERENCIA</center></th>
-					<th><center>FECHA TRANSFERENCIA</center></th>
-					<th><center>DOCUMENTO TRANSFERENCIA</center></th>
+					<th><center>ESTADO ACTUAL</center></th>
+					<th><center>FECHA ACTUAL</center></th>
+					<th><center>DOCUMENTO ACTUAL</center></th>
 					<th><center>HISTORIAL ESTADO SUSPENSIONES</center></th>
 					<th><center>HISTORIAL FECHA SUSPENSIONES</center></th>
 					<th><center>HISTORIAL DOCUMENTO SUSPENSIONES</center></th>
@@ -54,9 +54,9 @@
 					<th style="background-color: #B03A2E;"><center>ESTADO PLAZO</center></th>
 					<th style="background-color: #B03A2E;"><center>FECHA PLAZO</center></th>
 					<th style="background-color: #B03A2E;"><center>DOCUMENTO PLAZO</center></th>
-					<th style="background-color: #B03A2E;"><center>ESTADO TRANSFERENCIA</center></th>
-					<th style="background-color: #B03A2E;"><center>FECHA TRANSFERENCIA</center></th>
-					<th style="background-color: #B03A2E;"><center>DOCUMENTO TRANSFERENCIA</center></th>
+					<th style="background-color: #B03A2E;"><center>ESTADO ACTUAL</center></th>
+					<th style="background-color: #B03A2E;"><center>FECHA ACTUAL</center></th>
+					<th style="background-color: #B03A2E;"><center>DOCUMENTO ACTUAL</center></th>
 					<th style="background-color: #B03A2E;"><center>HISTORIAL ESTADO SUSPENSIONES</center></th>
 					<th style="background-color: #B03A2E;"><center>HISTORIAL FECHA SUSPENSIONES</center></th>
 					<th style="background-color: #B03A2E;"><center>HISTORIAL DOCUMENTO SUSPENSIONES</center></th>
@@ -83,9 +83,9 @@
 					<th style="background-color: #1D8348;"><center>ESTADO PLAZO</center></th>
 					<th style="background-color: #1D8348;"><center>FECHA PLAZO</center></th>
 					<th style="background-color: #1D8348;"><center>DOCUMENTO PLAZO</center></th>
-					<th style="background-color: #1D8348;"><center>ESTADO TRANSFERENCIA</center></th>
-					<th style="background-color: #1D8348;"><center>FECHA TRANSFERENCIA</center></th>
-					<th style="background-color: #1D8348;"><center>DOCUMENTO TRANSFERENCIA</center></th>
+					<th style="background-color: #1D8348;"><center>ESTADO ACTUAL</center></th>
+					<th style="background-color: #1D8348;"><center>FECHA ACTUAL</center></th>
+					<th style="background-color: #1D8348;"><center>DOCUMENTO ACTUAL</center></th>
 					<th style="background-color: #1D8348;"><center>HISTORIAL ESTADO SUSPENSIONES</center></th>
 					<th style="background-color: #1D8348;"><center>HISTORIAL FECHA SUSPENSIONES</center></th>
 					<th style="background-color: #1D8348;"><center>HISTORIAL DOCUMENTO SUSPENSIONES</center></th>
@@ -110,9 +110,9 @@
 					<th style="background-color: goldenrod;"><center>ESTADO PLAZO</center></th>
 					<th style="background-color: goldenrod;"><center>FECHA PLAZO</center></th>
 					<th style="background-color: goldenrod;"><center>DOCUMENTO PLAZO</center></th>
-					<th style="background-color: goldenrod;"><center>ESTADO TRANSFERENCIA</center></th>
-					<th style="background-color: goldenrod;"><center>FECHA TRANSFERENCIA</center></th>
-					<th style="background-color: goldenrod;"><center>DOCUMENTO TRANSFERENCIA</center></th>
+					<th style="background-color: goldenrod;"><center>ESTADO ACTUAL</center></th>
+					<th style="background-color: goldenrod;"><center>FECHA ACTUAL</center></th>
+					<th style="background-color: goldenrod;"><center>DOCUMENTO ACTUAL</center></th>
 					<th style="background-color: goldenrod;"><center>HISTORIAL ESTADO SUSPENSIONES</center></th>
 					<th style="background-color: goldenrod;"><center>HISTORIAL FECHA SUSPENSIONES</center></th>
 					<th style="background-color: goldenrod;"><center>HISTORIAL DOCUMENTO SUSPENSIONES</center></th>

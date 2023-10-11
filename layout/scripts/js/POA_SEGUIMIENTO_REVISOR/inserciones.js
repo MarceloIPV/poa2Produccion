@@ -1238,6 +1238,89 @@ var funcion__ajustado_planificacion_financiero=function(tbody,tabla){
         
 }
 
+/*====================================
+=           notificar_plazos_planificacion_financiero          =
+====================================*/
+    
+var funcion__reactivado__suspendido_planificacion_financiero=function(tbody,tabla){
+
+    
+    $(tbody).on("click","button.seguimiento_notificar_plazos_planificacion_financiero",function(e){
+
+        e.preventDefault();
+
+        var trimestre = $(this).attr("trimestre")
+		var estado = $(this).attr("estado")
+
+        let data=tabla.DataTable().row($(this).parents("tr")).data();
+
+		var idOrganismo = data[43]
+
+		var confirm= alertify.confirm('','¿Está seguro de determinar valor '+estado +' al organismos seleccionados?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+		
+
+		confirm.set({transition:'slide'});    
+
+		confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append('tipo','guarda__seguimientos__estado__reactivado__suspendido__planificacion_documentos');	
+
+			paqueteDeDatos.append("idOrganismo",idOrganismo);
+
+			paqueteDeDatos.append('estado',estado);	
+
+			paqueteDeDatos.append('trimestre',trimestre);	
+
+
+			$.ajax({
+
+				type:"POST",
+				url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+				contentType: false,
+				data:paqueteDeDatos,
+				processData: false,
+				cache: false, 
+				success:function(response){
+
+					 var elementos=JSON.parse(response);
+
+					 var mensaje=elementos['mensaje'];
+
+					if(mensaje==1){
+
+						alertify.set("notifier","position", "top-center");
+						alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+						window.setTimeout(function(){ 
+
+							location.reload();
+
+						} ,5000); 
+
+					 }		    
+
+				},
+				error:function(){
+
+				}
+						
+			});					
+
+		});
+
+		confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			alertify.set("notifier","position", "top-center");
+			alertify.notify("Canceló el envío", "error", 5, function(){}); 
+				
+		}); 
+
+
+    });
+        
+}
+
 
 var seguimiento__insertarEstado_Ajustado_Planificacion_Documentos=function(parametro1){
 

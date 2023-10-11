@@ -1304,7 +1304,198 @@ function crear_DataTable2(idDatatable){
             
           /*=====  End of Filas Agregadas  ======*/
   
+          $("#agregarFacturas"+parametro8[0]).click(function(event) {
+
+            let idContador=$(this).attr('idContador');
+            let rotulo=$(this).attr('rotulo');
+            let maximo=$(this).attr('maximo');
           
+            contado++;
+          
+            funcion__agregarFilas($(".bodyFacturero__"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas'+contado+'" name="facturas'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura'+contado+'" class="ancho__total__input solo__numeros" placeholder="Ingrese número de factura obligatorio__'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados'+rotulos[0]+' obligatorio__'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros");
+          
+          
+              funcion__solo__numero__montos($(".solo__numeros__montos"));	
+              funcion__solo__numero($(".solo__numeros"));
+              limitarFechaActualInputDate($("#fechaDocumento"+contado))
+          
+              var longitudCaracteres=function(parametro1,parametro2,counter){
+          
+              $(parametro1).keyup(function(e){
+          
+                 if($(this).val().length > parametro2){
+          
+                      $(this).val($(this).val().substr(0, parametro2));
+          
+                      counter.html("Son máximo <strong>"+parametro2+" caracteres</strong>");
+          
+                      counter.css("color","red");
+          
+                  }else{
+          
+                    // counter.html("<strong>"+$(this).val().length +"</strong>");
+          
+                    counter.css("color","black");
+          
+                    counter.css("font-size","10px");
+          
+                  }
+          
+          
+               });
+          
+              }				
+          
+              longitudCaracteres($("#numeroRuc"+contado),13,$(".counter__Cedula"));
+          
+          
+              $("#eliminarInfor"+contado).click(function(event) {
+          
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+          
+                funcion__eliminarFilas($(".fila__factureros"+idPrincipal+idContador));
+          
+              });	
+          
+          
+              $("#guardarFac__agregado"+contado).click(function(event) {
+          
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                let idContador2=$(this).attr('idContador2');
+          
+          
+                let contador__n=$("#autorizacion"+idContador).val();
+                let contador__n2=$("#numeroRuc"+idContador).val();
+          
+                if (contador__n.length>=10 && contador__n2.length>=13) {
+          
+          
+                  funcion__guardar__Factura__2023($("#guardarFac__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura"+idContador).val(),$("#fechaDocumento"+idContador).val(),$("#numeroRuc"+idContador).val(),$("#autorizacion"+idContador).val(),$("#monto"+idContador).val(),$("#organismoIdPrin").val(),parametro8[8],parametro8[9]],$(".obligatorio__"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas"+idContador));
+
+             
+                }else{
+          
+                  alertify.set("notifier","position", "top-center");
+                  alertify.notify("El campo autorización debe ser mayor o igual a 10 y ruc debe ser mayor o igual a 13 caracteres", "error", 5, function(){});
+          
+                  $(this).show();
+          
+          
+                }
+          
+          
+              });	
+          
+              $("#monto"+contado).on('input', function () {
+          
+                funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+          
+              });					
+              
+          
+          
+              funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+          
+              funcion__solo__numero__montos($(".solo__numeros__montos"));	
+              funcion__cambio__de__numero($("#monto"+contado));
+          
+          });	
+
+          $("#agregarFacturas__2"+parametro8[0]).click(function(event) {
+
+            let idContador=$(this).attr('idContador');
+            let rotulo=$(this).attr('rotulo');
+            let maximo=$(this).attr('maximo');
+  
+            contado++;
+  
+            funcion__agregarFilas($(".bodyFacturero__2"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__2'+contado+'" name="facturas__2'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__2'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__2'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__2'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__2'+rotulos[1]+' obligatorio__2'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__2'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__2'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__2");
+  
+            limitarFechaActualInputDate($("#fechaDocumento__2"+contado))
+
+              $("#eliminarInfor__2"+contado).click(function(event) {
+  
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+  
+                funcion__eliminarFilas($(".fila__factureros__2"+idPrincipal+idContador));
+  
+              });	
+  
+  
+              $("#guardarFac__agregado__2"+contado).click(function(event) {
+  
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                let idContador2=$(this).attr('idContador2');
+  
+                funcion__guardar__Factura__2023($("#guardarFac__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__2"+idContador).val(),$("#fechaDocumento__2"+idContador).val(),$("#numeroRuc__2"+idContador).val(),$("#autorizacion__2"+idContador).val(),$("#monto__2"+idContador).val(),$("#organismoIdPrin").val(),parametro8[8],parametro8[9]],$(".obligatorio__2"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__2"+idContador));
+
+
+              });	
+  
+  
+              $("#monto__2"+contado).on('input', function () {
+  
+                funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+  
+              });	
+  
+              funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+  
+              funcion__solo__numero__montos($(".solo__numeros__montos"));	
+              funcion__cambio__de__numero($("#monto__2"+contado));
+  
+          });	
+  
+          $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
+  
+            let idContador=$(this).attr('idContador');
+            let rotulo=$(this).attr('rotulo');
+            let maximo=$(this).attr('maximo');
+  
+            contado++;
+  
+            funcion__agregarFilas($(".bodyFacturero__3"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__3'+contado+'" name="facturas__3'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__3'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__3'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__3'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__3'+rotulos[2]+' obligatorio__3'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__3'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__3'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__3");
+  
+            limitarFechaActualInputDate($("#fechaDocumento__3"+contado))
+
+              $("#eliminarInfor__3"+contado).click(function(event) {
+  
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+  
+                funcion__eliminarFilas($(".fila__factureros__3"+idPrincipal+idContador));
+  
+              });	
+  
+  
+              $("#guardarFac__agregado__3"+contado).click(function(event) {
+  
+                let idContador=$(this).attr('idContador');
+                let idPrincipal=$(this).attr('idPrincipal');
+                let idContador2=$(this).attr('idContador2');
+  
+                funcion__guardar__Factura__2023($("#guardarFac__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__3"+idContador).val(),$("#fechaDocumento__3"+idContador).val(),$("#numeroRuc__3"+idContador).val(),$("#autorizacion__3"+idContador).val(),$("#monto__3"+idContador).val(),$("#organismoIdPrin").val(),parametro8[8],parametro8[9]],$(".obligatorio__3"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__3"+idContador));
+
+                
+              });	
+  
+              $("#monto__3"+contado).on('input', function () {
+  
+                funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+  
+              });	
+  
+  
+              funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+  
+              funcion__solo__numero__montos($(".solo__numeros__montos"));	
+              funcion__cambio__de__numero($("#monto__3"+contado));
+  
+          });	
           
           /*===================================
           =            Guardadores            =
@@ -5065,7 +5256,201 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
         /*=====  End of Filas Agregadas  ======*/
 
         
+        $("#agregarFacturas"+parametro8[0]).click(function(event) {
+
+          let idContador=$(this).attr('idContador');
+          let rotulo=$(this).attr('rotulo');
+          let maximo=$(this).attr('maximo');
         
+          contado++;
+        
+          funcion__agregarFilas($(".bodyFacturero__"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas'+contado+'" name="facturas'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura'+contado+'" class="ancho__total__input solo__numeros" placeholder="Ingrese número de factura obligatorio__'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados'+rotulos[0]+' obligatorio__'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros");
+        
+          limitarFechaActualInputDate($("#fechaDocumento"+contado))
+            funcion__solo__numero__montos($(".solo__numeros__montos"));	
+            funcion__solo__numero($(".solo__numeros"));
+        
+        
+            var longitudCaracteres=function(parametro1,parametro2,counter){
+        
+            $(parametro1).keyup(function(e){
+        
+               if($(this).val().length > parametro2){
+        
+                    $(this).val($(this).val().substr(0, parametro2));
+        
+                    counter.html("Son máximo <strong>"+parametro2+" caracteres</strong>");
+        
+                    counter.css("color","red");
+        
+                }else{
+        
+                  // counter.html("<strong>"+$(this).val().length +"</strong>");
+        
+                  counter.css("color","black");
+        
+                  counter.css("font-size","10px");
+        
+                }
+        
+        
+             });
+        
+            }				
+        
+            longitudCaracteres($("#numeroRuc"+contado),13,$(".counter__Cedula"));
+        
+        
+            $("#eliminarInfor"+contado).click(function(event) {
+        
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+        
+              funcion__eliminarFilas($(".fila__factureros"+idPrincipal+idContador));
+        
+            });	
+        
+        
+            $("#guardarFac__agregado"+contado).click(function(event) {
+        
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+              let idContador2=$(this).attr('idContador2');
+        
+        
+              let contador__n=$("#autorizacion"+idContador).val();
+              let contador__n2=$("#numeroRuc"+idContador).val();
+        
+              if (contador__n.length>=10 && contador__n2.length>=13) {
+        
+        
+                funcion__guardar__Factura__2023($("#guardarFac__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura"+idContador).val(),$("#fechaDocumento"+idContador).val(),$("#numeroRuc"+idContador).val(),$("#autorizacion"+idContador).val(),$("#monto"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas"+idContador));
+        
+        
+              
+              }else{
+        
+                alertify.set("notifier","position", "top-center");
+                alertify.notify("El campo autorización debe ser mayor o igual a 10 y ruc debe ser mayor o igual a 13 caracteres", "error", 5, function(){});
+        
+                $(this).show();
+        
+        
+              }
+        
+        
+            });	
+        
+            $("#monto"+contado).on('input', function () {
+        
+              funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+        
+            });					
+            
+        
+        
+            funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+        
+            funcion__solo__numero__montos($(".solo__numeros__montos"));	
+            funcion__cambio__de__numero($("#monto"+contado));
+        
+        });	
+        
+        
+        $("#agregarFacturas__2"+parametro8[0]).click(function(event) {
+        
+          let idContador=$(this).attr('idContador');
+          let rotulo=$(this).attr('rotulo');
+          let maximo=$(this).attr('maximo');
+        
+          contado++;
+        
+          funcion__agregarFilas($(".bodyFacturero__2"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__2'+contado+'" name="facturas__2'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__2'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__2'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__2'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__2'+rotulos[1]+' obligatorio__2'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__2'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__2'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__2");
+        
+          limitarFechaActualInputDate($("#fechaDocumento__2"+contado))
+
+            $("#eliminarInfor__2"+contado).click(function(event) {
+        
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+        
+              funcion__eliminarFilas($(".fila__factureros__2"+idPrincipal+idContador));
+        
+            });	
+        
+        
+            $("#guardarFac__agregado__2"+contado).click(function(event) {
+        
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+              let idContador2=$(this).attr('idContador2');
+        
+              funcion__guardar__Factura__2023($("#guardarFac__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__2"+idContador).val(),$("#fechaDocumento__2"+idContador).val(),$("#numeroRuc__2"+idContador).val(),$("#autorizacion__2"+idContador).val(),$("#monto__2"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__2"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__2"+idContador));
+        
+        
+            });	
+        
+        
+            $("#monto__2"+contado).on('input', function () {
+        
+              funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+        
+            });	
+        
+            funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+        
+            funcion__solo__numero__montos($(".solo__numeros__montos"));	
+            funcion__cambio__de__numero($("#monto__2"+contado));
+        
+        });	
+        
+        $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
+        
+          let idContador=$(this).attr('idContador');
+          let rotulo=$(this).attr('rotulo');
+          let maximo=$(this).attr('maximo');
+        
+          contado++;
+        
+          funcion__agregarFilas($(".bodyFacturero__3"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__3'+contado+'" name="facturas__3'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__3'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__3'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__3'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__3'+rotulos[2]+' obligatorio__3'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__3'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__3'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__3");
+          
+          limitarFechaActualInputDate($("#fechaDocumento__3"+contado))
+
+            $("#eliminarInfor__3"+contado).click(function(event) {
+        
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+        
+              funcion__eliminarFilas($(".fila__factureros__3"+idPrincipal+idContador));
+        
+            });	
+        
+        
+            $("#guardarFac__agregado__3"+contado).click(function(event) {
+        
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+              let idContador2=$(this).attr('idContador2');
+        
+              funcion__guardar__Factura__2023($("#guardarFac__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__3"+idContador).val(),$("#fechaDocumento__3"+idContador).val(),$("#numeroRuc__3"+idContador).val(),$("#autorizacion__3"+idContador).val(),$("#monto__3"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__3"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__3"+idContador));
+        
+             
+            });	
+        
+            $("#monto__3"+contado).on('input', function () {
+        
+              funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+        
+            });	
+        
+        
+            funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+        
+            funcion__solo__numero__montos($(".solo__numeros__montos"));	
+            funcion__cambio__de__numero($("#monto__3"+contado));
+        
+        });	
+
         /*===================================
         =            Guardadores            =
         ===================================*/
@@ -6770,6 +7155,202 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
 
 /*=====  End of Filas Agregadas  ======*/
 
+$("#agregarFacturas"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas'+contado+'" name="facturas'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura'+contado+'" class="ancho__total__input solo__numeros" placeholder="Ingrese número de factura obligatorio__'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados'+rotulos[0]+' obligatorio__'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros");
+
+    limitarFechaActualInputDate($("#fechaDocumento"+contado))
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__solo__numero($(".solo__numeros"));
+
+
+    var longitudCaracteres=function(parametro1,parametro2,counter){
+
+    $(parametro1).keyup(function(e){
+
+       if($(this).val().length > parametro2){
+
+            $(this).val($(this).val().substr(0, parametro2));
+
+            counter.html("Son máximo <strong>"+parametro2+" caracteres</strong>");
+
+            counter.css("color","red");
+
+        }else{
+
+          // counter.html("<strong>"+$(this).val().length +"</strong>");
+
+          counter.css("color","black");
+
+          counter.css("font-size","10px");
+
+        }
+
+
+     });
+
+    }				
+
+    longitudCaracteres($("#numeroRuc"+contado),13,$(".counter__Cedula"));
+
+
+    $("#eliminarInfor"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+
+      let contador__n=$("#autorizacion"+idContador).val();
+      let contador__n2=$("#numeroRuc"+idContador).val();
+
+      if (contador__n.length>=10 && contador__n2.length>=13) {
+
+
+        funcion__guardar__Factura__2023($("#guardarFac__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura"+idContador).val(),$("#fechaDocumento"+idContador).val(),$("#numeroRuc"+idContador).val(),$("#autorizacion"+idContador).val(),$("#monto"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas"+idContador));
+
+
+      
+      }else{
+
+        alertify.set("notifier","position", "top-center");
+        alertify.notify("El campo autorización debe ser mayor o igual a 10 y ruc debe ser mayor o igual a 13 caracteres", "error", 5, function(){});
+
+        $(this).show();
+
+
+      }
+
+
+    });	
+
+    $("#monto"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });					
+    
+
+
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto"+contado));
+
+});	
+
+
+$("#agregarFacturas__2"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__2"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__2'+contado+'" name="facturas__2'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__2'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__2'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__2'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__2'+rotulos[1]+' obligatorio__2'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__2'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__2'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__2");
+
+  limitarFechaActualInputDate($("#fechaDocumento__2"+contado))
+
+    $("#eliminarInfor__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__2"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__2"+idContador).val(),$("#fechaDocumento__2"+idContador).val(),$("#numeroRuc__2"+idContador).val(),$("#autorizacion__2"+idContador).val(),$("#monto__2"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__2"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__2"+idContador));
+
+
+    });	
+
+
+    $("#monto__2"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__2"+contado));
+
+});	
+
+$("#agregarFacturas__3"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__3"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__3'+contado+'" name="facturas__3'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__3'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__3'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__3'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__3'+rotulos[2]+' obligatorio__3'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__3'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__3'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__3");
+  
+  limitarFechaActualInputDate($("#fechaDocumento__3"+contado))
+
+    $("#eliminarInfor__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__3"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__3"+idContador).val(),$("#fechaDocumento__3"+idContador).val(),$("#numeroRuc__3"+idContador).val(),$("#autorizacion__3"+idContador).val(),$("#monto__3"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__3"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__3"+idContador));
+
+     
+    });	
+
+    $("#monto__3"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__3"+contado));
+
+});	
+
+
 /*===================================
 =            Guardadores            =
 ===================================*/
@@ -8346,6 +8927,200 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
 
 /*=====  End of Filas Agregadas  ======*/
 
+$("#agregarFacturas"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas'+contado+'" name="facturas'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura'+contado+'" class="ancho__total__input solo__numeros" placeholder="Ingrese número de factura obligatorio__'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados'+rotulos[0]+' obligatorio__'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros");
+
+    limitarFechaActualInputDate($("#fechaDocumento"+contado))
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__solo__numero($(".solo__numeros"));
+
+
+    var longitudCaracteres=function(parametro1,parametro2,counter){
+
+    $(parametro1).keyup(function(e){
+
+       if($(this).val().length > parametro2){
+
+            $(this).val($(this).val().substr(0, parametro2));
+
+            counter.html("Son máximo <strong>"+parametro2+" caracteres</strong>");
+
+            counter.css("color","red");
+
+        }else{
+
+          // counter.html("<strong>"+$(this).val().length +"</strong>");
+
+          counter.css("color","black");
+
+          counter.css("font-size","10px");
+
+        }
+
+
+     });
+
+    }				
+
+    longitudCaracteres($("#numeroRuc"+contado),13,$(".counter__Cedula"));
+
+
+    $("#eliminarInfor"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+
+      let contador__n=$("#autorizacion"+idContador).val();
+      let contador__n2=$("#numeroRuc"+idContador).val();
+
+      if (contador__n.length>=10 && contador__n2.length>=13) {
+
+
+        funcion__guardar__Factura__2023($("#guardarFac__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura"+idContador).val(),$("#fechaDocumento"+idContador).val(),$("#numeroRuc"+idContador).val(),$("#autorizacion"+idContador).val(),$("#monto"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas"+idContador));
+
+
+      
+      }else{
+
+        alertify.set("notifier","position", "top-center");
+        alertify.notify("El campo autorización debe ser mayor o igual a 10 y ruc debe ser mayor o igual a 13 caracteres", "error", 5, function(){});
+
+        $(this).show();
+
+
+      }
+
+
+    });	
+
+    $("#monto"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });					
+    
+
+
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto"+contado));
+
+});	
+
+
+$("#agregarFacturas__2"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__2"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__2'+contado+'" name="facturas__2'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__2'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__2'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__2'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__2'+rotulos[1]+' obligatorio__2'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__2'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__2'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__2");
+
+  limitarFechaActualInputDate($("#fechaDocumento__2"+contado))
+
+    $("#eliminarInfor__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__2"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__2"+idContador).val(),$("#fechaDocumento__2"+idContador).val(),$("#numeroRuc__2"+idContador).val(),$("#autorizacion__2"+idContador).val(),$("#monto__2"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__2"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__2"+idContador));
+
+
+    });	
+
+
+    $("#monto__2"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__2"+contado));
+
+});	
+
+$("#agregarFacturas__3"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__3"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__3'+contado+'" name="facturas__3'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__3'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__3'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__3'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__3'+rotulos[2]+' obligatorio__3'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__3'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__3'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__3");
+
+    limitarFechaActualInputDate($("#fechaDocumento__3"+contado))
+
+    $("#eliminarInfor__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__3"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__3"+idContador).val(),$("#fechaDocumento__3"+idContador).val(),$("#numeroRuc__3"+idContador).val(),$("#autorizacion__3"+idContador).val(),$("#monto__3"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__3"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__3"+idContador));
+
+     
+    });	
+
+    $("#monto__3"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__3"+contado));
+
+});	
 
 
 /*===================================
@@ -10073,6 +10848,200 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
 /*=====  End of Filas Agregadas  ======*/
 
 
+$("#agregarFacturas"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas'+contado+'" name="facturas'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura'+contado+'" class="ancho__total__input solo__numeros" placeholder="Ingrese número de factura obligatorio__'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados'+rotulos[0]+' obligatorio__'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros");
+
+    limitarFechaActualInputDate($("#fechaDocumento"+contado))
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__solo__numero($(".solo__numeros"));
+
+
+    var longitudCaracteres=function(parametro1,parametro2,counter){
+
+    $(parametro1).keyup(function(e){
+
+       if($(this).val().length > parametro2){
+
+            $(this).val($(this).val().substr(0, parametro2));
+
+            counter.html("Son máximo <strong>"+parametro2+" caracteres</strong>");
+
+            counter.css("color","red");
+
+        }else{
+
+          // counter.html("<strong>"+$(this).val().length +"</strong>");
+
+          counter.css("color","black");
+
+          counter.css("font-size","10px");
+
+        }
+
+
+     });
+
+    }				
+
+    longitudCaracteres($("#numeroRuc"+contado),13,$(".counter__Cedula"));
+
+
+    $("#eliminarInfor"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+
+      let contador__n=$("#autorizacion"+idContador).val();
+      let contador__n2=$("#numeroRuc"+idContador).val();
+
+      if (contador__n.length>=10 && contador__n2.length>=13) {
+
+
+        funcion__guardar__Factura__2023($("#guardarFac__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura"+idContador).val(),$("#fechaDocumento"+idContador).val(),$("#numeroRuc"+idContador).val(),$("#autorizacion"+idContador).val(),$("#monto"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas"+idContador));
+
+
+      
+      }else{
+
+        alertify.set("notifier","position", "top-center");
+        alertify.notify("El campo autorización debe ser mayor o igual a 10 y ruc debe ser mayor o igual a 13 caracteres", "error", 5, function(){});
+
+        $(this).show();
+
+
+      }
+
+
+    });	
+
+    $("#monto"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });					
+    
+
+
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto"+contado));
+
+});	
+
+
+$("#agregarFacturas__2"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__2"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__2'+contado+'" name="facturas__2'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__2'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__2'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__2'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__2'+rotulos[1]+' obligatorio__2'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__2'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__2'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__2");
+
+    limitarFechaActualInputDate($("#fechaDocumento__2"+contado))
+
+    $("#eliminarInfor__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__2"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__2"+idContador).val(),$("#fechaDocumento__2"+idContador).val(),$("#numeroRuc__2"+idContador).val(),$("#autorizacion__2"+idContador).val(),$("#monto__2"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__2"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__2"+idContador));
+
+
+    });	
+
+
+    $("#monto__2"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__2"+contado));
+
+});	
+
+$("#agregarFacturas__3"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__3"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__3'+contado+'" name="facturas__3'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__3'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__3'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__3'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__3'+rotulos[2]+' obligatorio__3'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__3'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__3'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__3");
+
+  limitarFechaActualInputDate($("#fechaDocumento__3"+contado))
+
+    $("#eliminarInfor__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__3"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__3"+idContador).val(),$("#fechaDocumento__3"+idContador).val(),$("#numeroRuc__3"+idContador).val(),$("#autorizacion__3"+idContador).val(),$("#monto__3"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__3"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__3"+idContador));
+
+     
+    });	
+
+    $("#monto__3"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__3"+contado));
+
+});	
 
 /*===================================
 =            Guardadores            =
@@ -11696,6 +12665,200 @@ $("#guardarOtros__agregado__3"+contado2).click(function(event) {
 /*=====  End of Filas Agregadas  ======*/
 
 
+$("#agregarFacturas"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas'+contado+'" name="facturas'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura'+contado+'" class="ancho__total__input solo__numeros" placeholder="Ingrese número de factura obligatorio__'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados'+rotulos[0]+' obligatorio__'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros");
+
+    limitarFechaActualInputDate($("#fechaDocumento"+contado))
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__solo__numero($(".solo__numeros"));
+
+
+    var longitudCaracteres=function(parametro1,parametro2,counter){
+
+    $(parametro1).keyup(function(e){
+
+       if($(this).val().length > parametro2){
+
+            $(this).val($(this).val().substr(0, parametro2));
+
+            counter.html("Son máximo <strong>"+parametro2+" caracteres</strong>");
+
+            counter.css("color","red");
+
+        }else{
+
+          // counter.html("<strong>"+$(this).val().length +"</strong>");
+
+          counter.css("color","black");
+
+          counter.css("font-size","10px");
+
+        }
+
+
+     });
+
+    }				
+
+    longitudCaracteres($("#numeroRuc"+contado),13,$(".counter__Cedula"));
+
+
+    $("#eliminarInfor"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+
+      let contador__n=$("#autorizacion"+idContador).val();
+      let contador__n2=$("#numeroRuc"+idContador).val();
+
+      if (contador__n.length>=10 && contador__n2.length>=13) {
+
+
+        funcion__guardar__Factura__2023($("#guardarFac__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura"+idContador).val(),$("#fechaDocumento"+idContador).val(),$("#numeroRuc"+idContador).val(),$("#autorizacion"+idContador).val(),$("#monto"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas"+idContador));
+
+
+      
+      }else{
+
+        alertify.set("notifier","position", "top-center");
+        alertify.notify("El campo autorización debe ser mayor o igual a 10 y ruc debe ser mayor o igual a 13 caracteres", "error", 5, function(){});
+
+        $(this).show();
+
+
+      }
+
+
+    });	
+
+    $("#monto"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });					
+    
+
+
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto"+contado));
+
+});	
+
+
+$("#agregarFacturas__2"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__2"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__2'+contado+'" name="facturas__2'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__2'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__2'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__2'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__2'+rotulos[1]+' obligatorio__2'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__2'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__2'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__2");
+
+  limitarFechaActualInputDate($("#fechaDocumento__2"+contado))
+
+    $("#eliminarInfor__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__2"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__2"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__2"+idContador).val(),$("#fechaDocumento__2"+idContador).val(),$("#numeroRuc__2"+idContador).val(),$("#autorizacion__2"+idContador).val(),$("#monto__2"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__2"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__2"+idContador));
+
+
+    });	
+
+
+    $("#monto__2"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__2"+contado));
+
+});	
+
+$("#agregarFacturas__3"+parametro8[0]).click(function(event) {
+
+  let idContador=$(this).attr('idContador');
+  let rotulo=$(this).attr('rotulo');
+  let maximo=$(this).attr('maximo');
+
+  contado++;
+
+  funcion__agregarFilas($(".bodyFacturero__3"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__3'+contado+'" name="facturas__3'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__3'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__3'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__3'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__3'+rotulos[2]+' obligatorio__3'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__3'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__3'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__3");
+
+  limitarFechaActualInputDate($("#fechaDocumento__3"+contado))
+
+    $("#eliminarInfor__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+
+      funcion__eliminarFilas($(".fila__factureros__3"+idPrincipal+idContador));
+
+    });	
+
+
+    $("#guardarFac__agregado__3"+contado).click(function(event) {
+
+      let idContador=$(this).attr('idContador');
+      let idPrincipal=$(this).attr('idPrincipal');
+      let idContador2=$(this).attr('idContador2');
+
+      funcion__guardar__Factura__2023($("#guardarFac__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__3"+idContador).val(),$("#fechaDocumento__3"+idContador).val(),$("#numeroRuc__3"+idContador).val(),$("#autorizacion__3"+idContador).val(),$("#monto__3"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__3"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__3"+idContador));
+
+     
+    });	
+
+    $("#monto__3"+contado).on('input', function () {
+
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+    });	
+
+
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+    funcion__solo__numero__montos($(".solo__numeros__montos"));	
+    funcion__cambio__de__numero($("#monto__3"+contado));
+
+});	
 
 /*===================================
 =            Guardadores            =
@@ -12461,6 +13624,202 @@ let contado2=0;
 /*============================================
 =            Filas Agregadas Honorarios    =
 ============================================*/
+
+/*===================================
+				=            Agregadores            =
+				===================================*/
+				
+				$("#agregarFacturas"+parametro8[0]).click(function(event) {
+
+					let idContador=$(this).attr('idContador');
+					let rotulo=$(this).attr('rotulo');
+					let maximo=$(this).attr('maximo');
+
+					contado++;
+
+					funcion__agregarFilas($(".bodyFacturero__"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas'+contado+'" name="facturas'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura'+contado+'" class="ancho__total__input solo__numeros" placeholder="Ingrese número de factura obligatorio__'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input  obligatorio__'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion'+contado+'" class="ancho__total__input solo__numeros obligatorio__'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados'+rotulos[0]+' obligatorio__'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros");
+
+						funcion__solo__numero__montos($(".solo__numeros__montos"));	
+						funcion__solo__numero($(".solo__numeros"));
+
+            limitarFechaActualInputDate($("#fechaDocumento"+contado))
+
+						var longitudCaracteres=function(parametro1,parametro2,counter){
+
+						$(parametro1).keyup(function(e){
+
+						   if($(this).val().length > parametro2){
+
+						        $(this).val($(this).val().substr(0, parametro2));
+
+						        counter.html("Son máximo <strong>"+parametro2+" caracteres</strong>");
+
+						        counter.css("color","red");
+
+						    }else{
+
+						      // counter.html("<strong>"+$(this).val().length +"</strong>");
+
+						      counter.css("color","black");
+
+						      counter.css("font-size","10px");
+
+						    }
+
+
+						 });
+
+						}				
+
+						longitudCaracteres($("#numeroRuc"+contado),13,$(".counter__Cedula"));
+
+
+						$("#eliminarInfor"+contado).click(function(event) {
+
+							let idContador=$(this).attr('idContador');
+							let idPrincipal=$(this).attr('idPrincipal');
+
+							funcion__eliminarFilas($(".fila__factureros"+idPrincipal+idContador));
+
+						});	
+
+
+						$("#guardarFac__agregado"+contado).click(function(event) {
+
+							let idContador=$(this).attr('idContador');
+							let idPrincipal=$(this).attr('idPrincipal');
+							let idContador2=$(this).attr('idContador2');
+
+
+							let contador__n=$("#autorizacion"+idContador).val();
+							let contador__n2=$("#numeroRuc"+idContador).val();
+
+							if (contador__n.length>=10 && contador__n2.length>=13) {
+
+
+								funcion__guardar__Factura__2023($("#guardarFac__agregado"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura"+idContador).val(),$("#fechaDocumento"+idContador).val(),$("#numeroRuc"+idContador).val(),$("#autorizacion"+idContador).val(),$("#monto"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas"+idContador));
+
+							}else{
+
+								alertify.set("notifier","position", "top-center");
+								alertify.notify("El campo autorización debe ser mayor o igual a 10 y ruc debe ser mayor o igual a 13 caracteres", "error", 5, function(){});
+
+								$(this).show();
+
+
+							}
+
+
+						});	
+
+						$("#monto"+contado).on('input', function () {
+
+							funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+						});					
+						
+
+
+						funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+						funcion__solo__numero__montos($(".solo__numeros__montos"));	
+						funcion__cambio__de__numero($("#monto"+contado));
+
+				});	
+
+        $("#agregarFacturas__2"+parametro8[0]).click(function(event) {
+
+          let idContador=$(this).attr('idContador');
+          let rotulo=$(this).attr('rotulo');
+          let maximo=$(this).attr('maximo');
+
+          contado++;
+
+          funcion__agregarFilas($(".bodyFacturero__2"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__2'+contado+'" name="facturas__2'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__2'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__2'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__2'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__2'+contado+'" class="ancho__total__input solo__numeros obligatorio__2'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__2'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__2'+rotulos[1]+' obligatorio__2'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__2'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__2'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__2");
+
+          limitarFechaActualInputDate($("#fechaDocumento__2"+contado))
+
+            $("#eliminarInfor__2"+contado).click(function(event) {
+
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+
+              funcion__eliminarFilas($(".fila__factureros__2"+idPrincipal+idContador));
+
+            });	
+
+
+            $("#guardarFac__agregado__2"+contado).click(function(event) {
+
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+              let idContador2=$(this).attr('idContador2');
+
+              funcion__guardar__Factura__2023($("#guardarFac__agregado__2"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__2"+idContador).val(),$("#fechaDocumento__2"+idContador).val(),$("#numeroRuc__2"+idContador).val(),$("#autorizacion__2"+idContador).val(),$("#monto__2"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__2"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__2"+idContador));
+
+
+            });	
+
+
+            $("#monto__2"+contado).on('input', function () {
+
+              funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+            });	
+
+            funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+            funcion__solo__numero__montos($(".solo__numeros__montos"));	
+            funcion__cambio__de__numero($("#monto__2"+contado));
+
+        });	
+
+        $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
+
+          let idContador=$(this).attr('idContador');
+          let rotulo=$(this).attr('rotulo');
+          let maximo=$(this).attr('maximo');
+
+          contado++;
+
+          funcion__agregarFilas($(".bodyFacturero__3"+parametro8[0]),['<td colspan="2"><div class="row"><div class="col col-2"><input type="file" accept="application/pdf" id="facturas__3'+contado+'" name="facturas__3'+contado+'" class="ancho__total__input text-center facturas'+contado+' obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroFactura__3'+contado+'" class="ancho__total__input" placeholder="Ingrese número de factura obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="date" id="fechaDocumento__3'+contado+'" placeholder="Ingrese fecha del documento" class="ancho__total__input obligatorio__3'+contado+'"/></div><div class="col col-2"><input type="text" id="numeroRuc__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número ruc"/></div><div class="col col-2"><input type="text" id="autorizacion__3'+contado+'" class="ancho__total__input solo__numeros obligatorio__3'+contado+'" placeholder="Ingrese número de autorización"></div><div class="col col col-1"><input type="text" id="monto__3'+contado+'" class="ancho__total__input solo__numeros__montos elementos__sumados__3'+rotulos[2]+' obligatorio__3'+contado+'" value="0"></div><div class="col col-1"><nav class="btn-pluss-wrapper acciones__factureros'+contado+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarFac__agregado__3'+contado+'" name="guardarFac__agregado'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" idContador2="'+idContador+'" class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li><li><a style="cursor:pointer;" id="eliminarInfor__3'+contado+'" name="eliminarInfor'+contado+'" idPrincipal="'+parametro8[0]+'" idContador="'+contado+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></div></div></td>'],parametro8[0],contado,"factureros__3");
+
+          limitarFechaActualInputDate($("#fechaDocumento__3"+contado))
+
+            $("#eliminarInfor__3"+contado).click(function(event) {
+
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+
+              funcion__eliminarFilas($(".fila__factureros__3"+idPrincipal+idContador));
+
+            });	
+
+
+            $("#guardarFac__agregado__3"+contado).click(function(event) {
+
+              let idContador=$(this).attr('idContador');
+              let idPrincipal=$(this).attr('idPrincipal');
+              let idContador2=$(this).attr('idContador2');
+
+              funcion__guardar__Factura__2023($("#guardarFac__agregado__3"+idContador),[idContador2,rotulo,$("#trimestreEvaluador").val(),$("#numeroFactura__3"+idContador).val(),$("#fechaDocumento__3"+idContador).val(),$("#numeroRuc__3"+idContador).val(),$("#autorizacion__3"+idContador).val(),$("#monto__3"+idContador).val(),$("#organismoIdPrin").val(),item,parametro8[9]],$(".obligatorio__3"+idContador),parametro10,"acciones__factureros",idContador,$("#facturas__3"+idContador));
+
+             
+            });	
+
+            $("#monto__3"+contado).on('input', function () {
+
+              funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+
+            });	
+
+
+            funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+
+            funcion__solo__numero__montos($(".solo__numeros__montos"));	
+            funcion__cambio__de__numero($("#monto__3"+contado));
+
+        });	
 
 
 $("#Febrero-tab").on('click', function () {

@@ -1010,7 +1010,9 @@ var verificarSuspensionesOD=function(){
                   var mensaje=elementos['mensaje'];
   
             if(mensaje==1){
-				alert("TRANSFERENCIA TEMPORALMENTE SUSPENDIDA")
+				
+				var confirm= alertify.confirm('','TRANSFERENCIA TEMPORALMENTE SUSPENDIDA',null,null).set('labels', {ok:'Confirmar'});   
+				confirm.set({transition:'slide'});    
             }
   
           },

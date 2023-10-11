@@ -73,57 +73,6 @@
 
 </div>
 
-<!-- Small modal -->
-
-<div class='modal fade modal__ItemsGrup' id='modalSubirEstadoPlazos' aria-hidden='true' data-backdrop='static' data-keyboard='false' tabindex='-1'>
-
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Subir Archivo Plazos</h5>
-				<button type="button" id="btnCerrarSubirPlazos" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></button>
-			</div>
-
-			<div class="modal-body">
-
-				<input type="hidden" id='trimestre'>
-				<input type="hidden" id='estado'>
-				<input type="hidden" id='idOrganismo'>
-				
-				<div class="cardSubirArchivo">
-					<h3>Subir Archivo PDF</h3>
-					<div id="drop_boxSubirArchivoTransferenciasCSV" class="drop_box drop_boxSubirArchivoTransferenciasCSV">
-						<header>
-					<h4>Seleccionar Un Archivo</h4>
-					</header>
-					<p>Tipo de Archivo: PDF </p>
-						<input type="file" hidden accept=".pdf" id="archivoPlazosPersonal">
-						<h3 id="plazosTexto"></h3>
-						<p id="previewTransferenciaCSV"  data-bs-toggle="modal" data-bs-target="#previewTransferencias" type="button" class="btn btn-primary" style="color:white ;display: none;" >PREVIEW</p>
-						<button class="btn" id="seleccionarArchivoPlazosPersonal">Elegir Archivo</button>
-					</div>
-				
-				</div>
-				
-				
-			</div>
-
-			<div class="modal-footer">
-
-
-				<div class='col col-12 d d-flex justify-content-center flex-wrap'>
-				
-					<a id='guardarPlazosEstadosPlanificacion' type='button' class='btn btn-primary  left__margen' >Subir</a>
-
-					&nbsp;&nbsp;&nbsp;&nbsp;
-
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-</div>
 
 
 <script>

@@ -1129,6 +1129,102 @@
 	 		
 
 		break;
+
+		case  "guarda__seguimientos__estado__reactivado__suspendido__planificacion_documentos":
+
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
+
+			
+
+			if ($trimestre=="primerTrimestre") {
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre1";
+				$columnaEstado="estadoTrimestre1";
+				$columnaDocumento="documentoTrimestre1";
+			}else if($trimestre=="segundoTrimestre"){
+				$semestre="I Semestre";
+				$columnaFecha="fechaTrimestre2";
+				$columnaEstado="estadoTrimestre2";	
+				$columnaDocumento="documentoTrimestre2";	
+			}else if($trimestre=="tercerTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre3";
+				$columnaEstado="estadoTrimestre3";	
+				$columnaDocumento="documentoTrimestre3";	
+			}else if($trimestre=="cuartoTrimestre"){
+				$semestre="II Semestre";
+				$columnaFecha="fechaTrimestre4";
+				$columnaEstado="estadoTrimestre4";	
+				$columnaDocumento="documentoTrimestre4";	
+			}
+
+			
+				$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT idPlazos_estado__seguimientos, $columnaEstado, $columnaDocumento FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+				$select_ifExist1=$objeto->getObtenerInformacionGeneral("SELECT $columnaFecha FROM poa_seguimiento_plazos_estado_transferencia WHERE idOrganismo = '$idOrganismo' AND $columnaEstado='SUSPENSION' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+	
+				$select_nombre=$objeto->getObtenerInformacionGeneral("SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreOrganismo, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') as nombreOrganismo FROM poa_organismo WHERE idOrganismo = '$idOrganismo'");
+
+				$valor1=$select_nombre[0][nombreOrganismo];
+				$fechaSuspension=$select_ifExist1[0][$columnaFecha];
+
+				$odSuspendidas = "<span style='font-weight:bold;'>$valor1</span><br>";
+				
+				if (!empty($select_ifExist[0][idPlazos_estado__seguimientos])) {
+					
+					$documentoHistorico = $select_ifExist[0][$columnaDocumento];
+					$estadoHistorico = $select_ifExist[0][$columnaEstado];
+
+					$query="UPDATE `poa_seguimiento_plazos_estado_transferencia` SET  `$columnaFecha` = '$fecha_actual' , `$columnaEstado` = '$estado', `$columnaDocumento` = '', `fecha`='$fecha_actual' WHERE idOrganismo = '$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos'  ;";
+					
+					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fechaSuspension','$estadoHistorico','$documentoHistorico','$trimestre','$idOrganismo','$aniosPeriodos__ingesos' );";
+
+					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estado','$trimestre','$idOrganismo','$aniosPeriodos__ingesos' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+
+				}else{
+					$query="INSERT INTO `poa_seguimiento_plazos_estado_transferencia` ( `$columnaFecha`, `$columnaEstado`, `fecha`, `idOrganismo`, `perioIngreso`, `$columnaDocumento` ) VALUES('$fecha_actual','$estado','$fecha_actual','$idOrganismo','$aniosPeriodos__ingesos', null );";
+
+					$resultado= $conexionEstablecida->exec($query);
+
+					$query="INSERT INTO `poa_seguimiento_plazos_historico` ( `fechaRegistro`, `estado`, `documento`, `trimestre`, `idOrganismo`, `perioIngreso` ) VALUES('$fecha_actual','$estado', null ,'$trimestre','$idOrganismo','$aniosPeriodos__ingesos' )  ;";
+
+					$resultado= $conexionEstablecida->exec($query);
+					
+				}
+
+						 if($estado=="SUSPENDIDO"){
+							$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio a la suspensión de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+
+							$asunto="Suspensión de recursos financieros correspondientes al POA $aniosPeriodos__ingesos";
+
+						}else{
+							$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio a la reactivación de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+
+							$asunto="Reactivación de recursos financieros correspondientes al POA $aniosPeriodos__ingesos";
+						}
+						
+					
+	
+						//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+						$emailArray = array("miperez@deporte.gob.ec");
+							
+						$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,$asunto);	
+	
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
 				
 
   } 
