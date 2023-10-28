@@ -7092,4 +7092,97 @@
 
 		}
 
+		public function getModalConfiguracion__reporteria__organismos2023($parametro1,$parametro2,$parametro3,$parametro4){
+
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true'>
+
+				<div class='modal-dialog' style='min-width:100%!important;'>
+
+					<form class='modal-content formularioConfiguracion'>
+
+					<div class='modal-header row'>
+
+					    <div class='col col-11 text-center'>
+
+					    	<h5 class='modal-title $parametro2'>$parametro2</h5>
+
+					    </div>
+
+					    <div class='col col-1'>
+
+					    	<button type='button' class='btn-close cerrar__modalRegistros' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+					    </div>
+
+					</div>
+
+					<div class='modal-body row'>
+
+						<div style='width:100%;'>
+
+						<table id='$parametro3'>
+
+							<thead>
+
+								<tr>
+
+						";
+
+
+				foreach ($parametro4 as $clave => $valor) {
+
+							$modal.="<th><center>$valor</center></th>";
+					
+				}
+
+				if ($parametro2!="Suministros" && $parametro2!="POA" && $parametro2!="INDICADORES") {
+					
+				$modal.="
+									<th><center>Enero</center></th>
+									<th><center>Febrero</center></th>
+									<th><center>Marzo</center></th>
+									<th><center>Abril</center></th>
+									<th><center>Mayo</center></th>
+									<th><center>Junio</center></th>
+									<th><center>Julio</center></th>
+									<th><center>Agosto</center></th>
+									<th><center>Septiembre</center></th>
+									<th><center>Octubre</center></th>
+									<th><center>Noviembre</center></th>
+									<th><center>Diciembre</center></th>
+									<th><center>Total</center></th>";
+
+
+				}
+
+
+					$modal.="
+
+								</tr>
+
+							</thead>
+
+						</table>
+
+						</div>
+
+
+					</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
+
 	}

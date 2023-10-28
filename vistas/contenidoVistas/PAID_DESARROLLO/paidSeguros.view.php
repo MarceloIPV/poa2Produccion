@@ -110,8 +110,8 @@ $objeto= new usuarioAcciones();?>
 </div>
 
 
-<?= $componentesPaid->getModal_matrices_seguros_paid("modalSeguroDeporte","Seguro Por Deporte",'cerrarSeguroDeporte',"itemSeguroDeporte","(530204) - Edición, Impresión, Reproducción, Publicaciones, Suscripciones, Fotocopiado, Traducción, Empastado, Enmarcación, Serigrafía, Fotografía, Carnetización, Filmación e Imágenes Satelitales.","191","Deporte","selectorSeguroDeporte","valorUnitarioSeguroDeporte","cantidadSeguroDeporte","nroCuposSeguroDeporte","valorTotalSeguroDeporte","guardarSeguroDeporte"); ?>
-<?= $componentesPaid->getModal_matrices_seguros_paid("modalSeguroProvincia","Seguro Por Provincia",'cerrarSeguroProvincia',"itemSeguroProvincia","(530204) - Edición, Impresión, Reproducción, Publicaciones, Suscripciones, Fotocopiado, Traducción, Empastado, Enmarcación, Serigrafía, Fotografía, Carnetización, Filmación e Imágenes Satelitales.","191","Provincia","selectorSeguroProvincia","valorUnitarioSeguroProvincia","cantidadSeguroProvincia","nroCuposSeguroProvincia","valorTotalSeguroProvincia","guardarSeguroProvincia"); ?>
+<?= $componentesPaid->getModal_matrices_seguros_paid("modalSeguroDeporte","Seguro Por Deporte",'cerrarSeguroDeporte',"itemSeguroDeporte","(530204) - Edición, Impresión, Reproducción, Publicaciones, Suscripciones, Fotocopiado, Traducción, Empastado, Enmarcación, Serigrafía, Fotografía, Carnetización, Filmación e Imágenes Satelitales.","191","Deporte","selectorSeguroDeporte","valorUnitarioSeguroDeporte","cantidadSeguroDeporte","nroCuposSeguroDeporte","valorTotalSeguroDeporte","guardarSeguroDeporte","eventoSeguroDeporte"); ?>
+<?= $componentesPaid->getModal_matrices_seguros_paid("modalSeguroProvincia","Seguro Por Provincia",'cerrarSeguroProvincia',"itemSeguroProvincia","(530204) - Edición, Impresión, Reproducción, Publicaciones, Suscripciones, Fotocopiado, Traducción, Empastado, Enmarcación, Serigrafía, Fotografía, Carnetización, Filmación e Imágenes Satelitales.","191","Provincia","selectorSeguroProvincia","valorUnitarioSeguroProvincia","cantidadSeguroProvincia","nroCuposSeguroProvincia","valorTotalSeguroProvincia","guardarSeguroProvincia","eventoSeguroProvincia"); ?>
 
 
 

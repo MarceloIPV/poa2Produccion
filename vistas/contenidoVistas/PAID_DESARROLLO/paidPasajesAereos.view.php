@@ -165,6 +165,9 @@ $objeto = new usuarioAcciones(); ?>
                         <th COLSPAN=1>
                             <center>Total</center>
                         </th>
+                        <th COLSPAN=1>
+                            <center>Evento</center>
+                        </th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -288,6 +291,19 @@ $objeto = new usuarioAcciones(); ?>
                             </div>
                         </div>
                     </div>
+
+                    <div class="row"> 
+                                 
+                        <div class="col-sm-8">
+                                        
+                            <label>Evento</label>
+                                        
+                            <select id="eventoPasajesAereosJN"  class="form-control" >
+                                            
+                            </select>
+                                    
+                        </div>
+					</div>
                 </div>
 
             </div>

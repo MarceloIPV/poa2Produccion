@@ -384,10 +384,10 @@ if($trimestreEvaluadorDos!="") {
 	
 		 $query1 = "SELECT IFNULL(SUM(a2.mensualEjecutado),0) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem INNER JOIN poa_actividades as d ON d.idActividades=b.idActividad WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND d.idActividades='$valorNActividad' AND c.itemPreesupuestario='$valorNItem';";
 
-		$query2 = "SELECT IFNULL(SUM(bss.aporteIessEjecutado),0) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;";
+		$query2 = "SELECT IFNULL(SUM(bss.aporteIessEjecutado),0) AS menEjecutado, dss.idItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;";
 
 	
-		$query3="SELECT IFNULL(SUM(b.mensualEjecutado), 0) AS menEjecutado FROM poa_seguimiento_honorarios as b INNER JOIN poa_honorarios2022 as a ON a.idHonorarios = b.idHonorarios INNER JOIN poa_programacion_financiera as c ON a.idActividad=c.idActividad AND b.idOrganismo=c.idOrganismo AND b.perioIngreso=c.perioIngreso INNER JOIN poa_item as d ON c.idItem = d.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE b.idOrganismo='$idOrganismo' AND b.trimestre='$trimestreEvaluadorDos' AND b.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';";
+		$query3="SELECT IFNULL(SUM(b.mensualEjecutado), 0) AS menEjecutado,e.idActividades FROM poa_seguimiento_honorarios as b INNER JOIN poa_honorarios2022 as a ON a.idHonorarios = b.idHonorarios INNER JOIN poa_programacion_financiera as c ON a.idActividad=c.idActividad AND b.idOrganismo=c.idOrganismo AND b.perioIngreso=c.perioIngreso INNER JOIN poa_item as d ON c.idItem = d.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE b.idOrganismo='$idOrganismo' AND b.trimestre='$trimestreEvaluadorDos' AND b.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';";
 
 		$query4 = "SELECT IFNULL(SUM(a.mensualEjecutado), 0) AS menEjecutado FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';";
 
@@ -415,71 +415,83 @@ if($trimestreEvaluadorDos!="") {
 			$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a2.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_administrativo AS a2 INNER JOIN poa_actividadesadministrativas AS a1 ON a2.idAdministrativo=a1.idActividadAd INNER JOIN poa_programacion_financiera AS b ON a1.idProgramacionFinanciera = b.idProgramacionFinanciera INNER JOIN poa_item AS c ON b.idItem=c.idItem INNER JOIN poa_actividades as d ON d.idActividades=b.idActividad WHERE a2.idOrganismo = '$idOrganismo' AND a2.trimestre='$trimestreEvaluadorDos' AND a2.perioIngreso = '$aniosPeriodos__ingesos' AND d.idActividades='$valorNActividad' AND c.itemPreesupuestario='$valorNItem';");
 			$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 		}else{	
-			if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Aporte Patronal"){
+			if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 38){
 				$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.aporteIessEjecutado) AS menEjecutado FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 				$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 			}else {
-				if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimocuarto Sueldo"){
+				if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 52){
 					$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoCuartoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 					$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 				}else{
-					if ($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Decimotercer Sueldo"){
+					if ($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 53){
 						$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.decimoTerceroEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso; 
 						");
 						$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 					}else{
-						if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Fondos de Reserva"){
+						if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 65){
 							$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.fondosReservasEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 							$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 						}else{
-							if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Salarios Unificados"){
+							if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 97){
 								$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.sueldosalarioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 								$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 							}else{
-								if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Desahucio"){
+								if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 49){
 									$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.compensacionDeshaucioEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;");
 									$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 								}else{
-									if($b[0]["menEjecutado"]>0 && $b[0]["nombreItem"] == "Compensación por Vacaciones no Gozadas por Cesación de Funciones"){
+									if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 50){
 										$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.vacionesEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;
 										");
 										$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 									}else{
-										if($e[0]["menEjecutado"]>0){
-											$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
+										if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 94){
+											$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.renunciaVoluntariaEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;"); 
 											$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+
 										}else{
-											if($f[0]["menEjecutado"]>0){
-												$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem INNER JOIN poa_actividades as f ON f.idActividades=c.idActividad WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND f.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
+											if($b[0]["menEjecutado"]>0 && $b[0]["idItem"] == 156){
+												$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(bss.despidoIntepestivoEjecutado) AS menEjecutado, dss.nombreItem FROM poa_sueldossalarios2022 AS ass INNER JOIN poa_seguimiento_sueldos_salarios AS bss ON ass.idSueldos = bss.idSueldosSalarios INNER JOIN poa_programacion_financiera AS css ON bss.idOrganismo = css.idOrganismo INNER JOIN poa_item AS dss ON css.idItem = dss.idItem INNER JOIN poa_actividades as e ON e.idActividades=css.idActividad WHERE bss.idOrganismo = '$idOrganismo' AND bss.periodo = '$trimestreEvaluadorDos' AND  bss.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND dss.itemPreesupuestario='$valorNItem' AND ass.idActividad = css.idActividad AND css.perioIngreso = bss.perioIngreso;"); 
 												$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 											}else{
-												if($g[0]["menEjecutado"]>0){
-													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.itemPreesupuestario='$valorNItem' AND e.idActividades='$valorNActividad';");
+												if($e[0]["menEjecutado"]>0){
+													$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_recreativos AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
 													$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 												}else{
-													if($h[0]["menEjecutado"]>0){
-														$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
+													if($f[0]["menEjecutado"]>0){
+														$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado  FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_registro_contratacion as e on e.trimestre = a.trimestre and e.idItemCatalogo=c.idItem INNER JOIN poa_actividades as f ON f.idActividades=c.idActividad WHERE c.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND f.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
 														$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 													}else{
-														if($c[0]["menEjecutado"]>0 || $c[0]["nombreActividades"] == "OPERACIÓN DEPORTIVA"){
-															//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
-															$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(b.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_honorarios as b INNER JOIN poa_honorarios2022 as a ON a.idHonorarios = b.idHonorarios INNER JOIN poa_programacion_financiera as c ON a.idActividad=c.idActividad AND b.idOrganismo=c.idOrganismo AND b.perioIngreso=c.perioIngreso INNER JOIN poa_item as d ON c.idItem = d.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE b.idOrganismo='$idOrganismo' AND b.trimestre='$trimestreEvaluadorDos' AND b.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
+														if($g[0]["menEjecutado"]>0){
+															$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_capacitacion AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND d.itemPreesupuestario='$valorNItem' AND e.idActividades='$valorNActividad';");
 															$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 														}else{
-															if($d[0]["menEjecutado"]>0){
-																// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
-																// $jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
-																
-																$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
+															if($h[0]["menEjecutado"]>0){
+																$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_implementacion AS a   INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
 																$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
 															}else{
-																$jsonNuevo[$i]["ejecutadoPrimer"] = 0;
-															}	
-														}	
+																if($c[0]["menEjecutado"]>0 || $c[0]["idActividades"] == 4){
+																	//$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT IFNULL(SUM(h2.mensualEjecutado), 0) AS menEjecutado, h4.nombreItem FROM poa_honorarios2022 AS h1 INNER JOIN poa_seguimiento_honorarios AS h2 ON h1.idHonorarios = h2.idHonorarios INNER JOIN poa_programacion_financiera AS h3 ON h2.idOrganismo = h3.IdOrganismo INNER JOIN poa_item AS h4 ON h3.idItem = h4.idItem WHERE h2.idOrganismo = '$idOrganismo' AND h2.trimestre = '$trimestreEvaluadorDos' AND h2.perioIngreso = '$aniosPeriodos__ingesos' AND h4.nombreItem LIKE '%$valorDespuesDelGuion%' AND h1.idActividad = h3.idActividad");
+																	$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(b.mensualEjecutado) AS menEjecutado FROM poa_seguimiento_honorarios as b INNER JOIN poa_honorarios2022 as a ON a.idHonorarios = b.idHonorarios INNER JOIN poa_programacion_financiera as c ON a.idActividad=c.idActividad AND b.idOrganismo=c.idOrganismo AND b.perioIngreso=c.perioIngreso INNER JOIN poa_item as d ON c.idItem = d.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE b.idOrganismo='$idOrganismo' AND b.trimestre='$trimestreEvaluadorDos' AND b.perioIngreso='$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
+																	$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+																}else{
+																	if($d[0]["menEjecutado"]>0){
+																		// $Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(ev1.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS ev1 INNER JOIN poa_programacion_financiera AS ev2 ON ev1.idOrganismo = ev2.idOrganismo INNER JOIN poa_item AS ev4 ON ev2.idItem=ev4.idItem WHERE ev1.idOrganismo = '$idOrganismo' AND trimestre='$trimestreEvaluadorDos' AND ev1.perioIngreso = '$aniosPeriodos__ingesos' AND ev4.nombreItem LIKE '%$valorDespuesDelGuion%'");
+																		// $jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+																		
+																		$Actividad001=$objeto->getObtenerInformacionGeneral("SELECT SUM(a.mensualEjecutado) AS menEjecutado FROM poa_segimiento_competencias AS a INNER JOIN poa_actdeportivas AS b ON a.idAdministrativo=b.idPda INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_item AS d ON d.idItem=c.idItem INNER JOIN poa_actividades as e ON e.idActividades=c.idActividad WHERE a.idOrganismo='$idOrganismo' AND a.trimestre='$trimestreEvaluadorDos' AND a.perioIngreso = '$aniosPeriodos__ingesos' AND e.idActividades='$valorNActividad' AND d.itemPreesupuestario='$valorNItem';");
+																		$jsonNuevo[$i]["ejecutadoPrimer"] = $Actividad001[0]["menEjecutado"];
+																	}else{
+																		$jsonNuevo[$i]["ejecutadoPrimer"] = 0;
+																	}	
+																}	
+															}
+														}
 													}
 												}
 											}
 										}
+										
 									}
 								}
 							}
@@ -555,6 +567,11 @@ if($trimestreEvaluadorDos!="") {
 	
 
 		$indicadores__altos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad) AS nombreActividades,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 INNER JOIN poa_indicadores AS a2 ON a1.idLineaPolitica=a2.idIndicadores WHERE a1.idActividades=a.idActividad) AS nombreIndicador,a.totalProgramado,a.totalEjecutado FROM poa_indicadores_seguimiento AS a WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos';");
+
+		$indicadores__altos2023=$objeto->getObtenerInformacionGeneral("SELECT a.idActividad,  (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad) AS nombreActividades, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreIndicador,a.totalProgramado,a.totalEjecutado FROM poa_indicadores_seguimiento AS a INNER JOIN poa_actividades AS a1 INNER JOIN poa_indicadores AS a2 ON a1.idLineaPolitica=a2.idIndicadores ON a1.idActividades=a.idActividad  WHERE a.idOrganismo='$idOrganismo'AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a2.nombreIndicador ORDER BY a.idActividad; ");
+
+
+		
 
 		
 	/*=====  End of Seguimientos relativos  ======*/
@@ -9787,15 +9804,17 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 		case  "asignacion__paid__presupuestarias":
 
-			$contador__paid__asignaciones=$objeto->getObtenerInformacionGeneral("SELECT if(count(idAsignacion) IS NOT NULL,count(idAsignacion)+1,1) AS contadorDefinitivo FROM poa_paid_asignacion_dos WHERE valor__comparativo='$valorComparativo' AND perioIngreso='$aniosPeriodos__ingesos';");
+			$contador__paid__asignaciones=$objeto->getObtenerInformacionGeneral("SELECT if(count(idPaidInversion) IS NOT NULL,count(idPaidInversion)+1,1) AS contadorDefinitivo FROM poa_paid_asignacion WHERE valor__comparativo='$valorComparativo' AND perioIngreso='$aniosPeriodos__ingesos';");
 
-			$directorPlanificacion=$objeto->getObtenerInformacionGeneral("SELECT CONCAT_WS(' ',REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó'),REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) AS nombreUsuario,c.descripcionFisicamenteEstructura,d.nombre FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario INNER JOIN th_fisicamenteestructura AS c ON c.id_FisicamenteEstructura=a.fisicamenteEstructura INNER JOIN th_roles AS d ON d.id_rol=b.id_rol WHERE b.id_rol='2' AND a.fisicamenteEstructura='18' AND a.estadoUsuario='A' ORDER BY a.id_usuario DESC LIMIT 1;");			
+			$directorPlanificacion=$objeto->getObtenerInformacionGeneral("SELECT CONCAT_WS(' ',REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó'),REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) AS nombreUsuario,c.descripcionFisicamenteEstructura,d.nombre FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario INNER JOIN th_fisicamenteestructura AS c ON c.id_FisicamenteEstructura=a.fisicamenteEstructura INNER JOIN th_roles AS d ON d.id_rol=b.id_rol WHERE b.id_rol='2' AND a.fisicamenteEstructura='18' AND a.estadoUsuario='A' ORDER BY a.id_usuario DESC LIMIT 1;");		
+			
+			
 
 			/*===================================
 			=            Generar pdf            =
 			===================================*/
 
-			$parametro1="../../documentos/paid/asignacion/";
+			$parametro1=VARIABLE__BACKEND."paid/asignacion/";
 			$parametro2="paidAsignacionPresupuestaria";	
 			$parametro3=$idOrganismo."__".$fecha_actual;
 			
@@ -9805,11 +9824,13 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 			if ($valorComparativo==0){
 				$subse__adquiridas="Subsecretaría de Deporte para el Alto Rendimiento";
-			}else{
+			}else if($valorComparativo==1) {
 				$subse__adquiridas="Subsecretaría de Desarrollo de la Actividad Física";
+			}else{
+				$subse__adquiridas="Coordinación de Administración e Infraestructura Deportiva";
 			}
-
-			$formatterES = new NumberFormatter("es-ES", NumberFormatter::SPELLOUT);
+			
+			//$formatterES = new NumberFormatter("es-ES", NumberFormatter::SPELLOUT);
 			$n = $techo__presupuestario;
 			$izquierda = intval(floor($n));
 
@@ -9820,9 +9841,13 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 			if($derecha<1 && $pos === false){
 
-				$asignadorReal=$formatterES->format($izquierda) . " con " . $formatterES->format($derecha);
+				$asignadorReal=strtolower($formatter->toWords($techo__presupuestario));
+
+				//$asignadorReal=$formatterES->format($izquierda) . " dólares con " . $formatterES->format($derecha);
 
 			}else{
+
+				//$asignadorReal=$formatterES->format($izquierda) . " dólares con " . $formatterES->format($derecha);
 
 				$asignadorReal=strtolower($formatter->toWords($techo__presupuestario));
 
@@ -9831,7 +9856,236 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 			$inserta=$objeto->getInsertaNormal('poa_paid_documento_asignacion', array("`idDocumentosAsignacion`, ","`nombreDocumento`, ","`idOrganismo`, ","`fecha`, ","`perioIngreso`"),array("'$parametro3.pdf', ","'$idOrganismo', ","'$fecha_actual', ","'$aniosPeriodos__ingesos'"));
 
-			$documentoCuerpo="
+			if($valorComparativo==2) {
+
+				$documentoCuerpo="
+					<br>
+					<br>
+					<br>
+					<table>
+
+						<thead>
+
+							<tr>
+
+								<th>Código:</th>
+								<td>"."PAID-".$anio."-".$contador__paid__asignaciones[0][contadorDefinitivo]."</td>
+
+							</tr>
+
+
+							<tr>
+
+								<th>Para:</th>
+								<td>".$declaracionRepresentante[0][nombreResponsablePoa]." / ".strtoupper($informacionCompleto[0][nombreOrganismo])."</td>
+
+							</tr>
+
+
+							<tr>
+
+								<th>Asunto:</th>
+								<td>NOTIFICACIÓN DE ASIGNACIÓN PAID ".$anio." - PROCESO DE INGRESO DE PLANIFICACIÓN  – ".strtoupper($informacionCompleto[0][nombreOrganismo]). " - PROYECTO OPTIMIZACIÓN DE INFRAESTRUCTURA A NIVEL NACIONAL</td>
+
+							</tr>
+
+						</thead>
+
+					</table>
+
+					<br>
+					<br>
+
+
+					<table>
+
+						<thead>
+
+							<tr>
+
+								<th>De mi consideración:</th>
+
+							</tr>
+
+						</thead>
+
+					</table>
+
+					<br>
+
+
+					<table>
+
+						<tbody>
+
+							<tr>
+
+								<td style='text-align:justify;'>
+
+								Conforme a lo establecido en el artículo 26 del Acuerdo Ministerial Nro. 0456 de 30 de diciembre de 2021 y sus reformas “Notificación de asignaciones presupuestarias.-. <em>Una vez que el ente rector de la Economía y
+								Finanzas Públicas defina el presupuesto otorgado al Ministerio del Deporte para el correspondiente ejercicio fiscal, y
+								con base a la metodología establecida en el Modelo de Asignación Presupuestaria al que hace referencia el artículo 7
+								del presente Acuerdo Ministerial, se establecerá y notificará el techo presupuestario asignado a cada organización
+								deportiva. Dicho proceso estará a cargo de la Dirección de Planificación e Inversión del Ministerio del Deporte.
+								Los techos presupuestarios por organización deportiva serán publicados en la página institucional del Ministerio del
+								Deporte.</em>
+								
+
+								</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+
+					<br>
+					<table>
+
+						<tbody>
+
+							<tr>
+
+								<td style='text-align:justify;'>
+
+								Me permito comunicar que, mediante Memorando Nro. MD-CAID-".$inputAnio."-".$inputSerie."-MEM de ".$inputDia." de ".$inputMes." de ".$inputAnioMemo." la Coordinación de Administración de Infraestructura Deportiva, solicita se realice la notificación de la asignación correspondiente a la Planificación Anual de Inversión Deportiva del Proyecto de Inversión “Optimización de Infraestructura Deportiva a Nivel Nacional”.
+
+								</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+					<br>
+					<table>
+
+						<tbody>
+
+							<tr>
+
+								<td style='text-align:justify;'>
+
+
+									Con estos antecedentes, comunico el monto correspondiente a la primera asignación de la Planificación Anual de  Inversión Deportiva, para el presente ejercicio fiscal (".$anio."), conforme la aplicación  del modelo de asignación del proyecto <em>“PROYECTO OPTIMIZACIÓN DE INFRAESTRUCTURA A NIVEL NACIONAL”</em> remitido por la Coordinación de Administración e Infraestructura Deportiva, por $ ".number_format($techo__presupuestario,2)." (".$asignadorReal."), sin incluir el valor del cinco por mil.
+
+
+								</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+					<br>
+					<table>
+
+						<tbody>
+
+							<tr>
+
+								<td style='text-align:justify;'>
+
+
+									Se les recuerda que la Planificación Anual de Inversión Deportiva, deberá ser remitida mediante el aplicativo informático, registrando la información en los campos dispuestos para el efecto.
+
+
+								</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+					<br>
+					<table>
+
+						<tbody>
+
+							<tr>
+
+								<td style='text-align:justify;'>
+
+
+									Particular que informo para los fines pertinentes.
+
+
+								</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+
+					<br>
+					<br>
+					<br>
+					<br>
+
+					<table>
+
+						<tbody>
+
+							<tr>
+
+								<td style='text-align:justify; font-weight:bold!important;'>
+
+
+									Atentamente,
+
+
+								</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+					<br>
+					<br>
+
+					<table>
+
+						<tbody>
+
+							<tr>
+
+								<th style='text-align:justify; font-weight:bold!important;'>
+
+
+									".$directorPlanificacion[0][nombreUsuario]."
+
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th style='text-align:justify; font-weight:bold!important;'>
+
+
+									".$directorPlanificacion[0][nombre]." ".$directorPlanificacion[0][descripcionFisicamenteEstructura]."
+
+
+								</th>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+				";
+
+
+			}else{
+				$documentoCuerpo="
 				<br>
 				<br>
 				<br>
@@ -9858,7 +10112,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 						<tr>
 
 							<th>Asunto:</th>
-							<td>Notificación de Techo Presupuestario Planificación Anual de Inversión Deportiva ".$aniosPeriodos__ingesos." – ".strtoupper($informacionCompleto[0][nombreOrganismo])."</td>
+							<td>Notificación de Techo Presupuestario Planificación Anual de Inversión Deportiva ".$anio." – ".strtoupper($informacionCompleto[0][nombreOrganismo])."</td>
 
 						</tr>
 
@@ -9915,7 +10169,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							<td style='text-align:justify;'>
 
-								Mediante Acuerdo Ministerial No.0456 de 30 de diciembre de 2021 y sus reformas, el Ministerio del Deporte expidió el procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas, en el que establece el procedimiento para la elaboración y planificación de la Programación Operativa Anual, así como los techos presupuestarios para las organizaciones deportivas acorde al Modelo de Asignación Presupuestaria, la notificación de los techos estará a cargo de la Dirección de Planificación e Inversión del Ministerio y serán publicados en la página institucional.
+								Mediante Acuerdo Ministerial No.0456 de 30 de diciembre del 2021 el Ministerio del Deporte expidió el procedimiento que regula el Ciclo de la Planificación de las Organizaciones Deportivas, en el que establece el procedimiento para la elaboración y planificación de la Programación Operativa Anual, así como los techos presupuestarios para las organizaciones deportivas acorde al Modelo de Asignación Presupuestaria, la notificación de los techos estará a cargo de la Dirección de Planificación e Inversión del Ministerio y serán publicados en la página institucional.
 
 							</td>
 
@@ -9935,7 +10189,9 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							<td style='text-align:justify;'>
 
-								Adicionalmente, con Acuerdo Nro. 0041, se expidió el “Modelo de asignación presupuestaria de la Planificación Anual de Inversión Deportiva para las organizaciones pertenecientes a la Subsecretaría de Deporte para el Alto Rendimiento correspondiente al ejercicio fiscal ".$aniosPeriodos__ingesos.".
+
+								Adicionalmente, con Acuerdo Nro. 0051 de 20 de febrero de 2022, se expidió el “Modelo de asignación presupuestaria de la Planificación Anual de Inversión Deportiva para las organizaciones pertenecientes al ".$subse__adquiridas." correspondiente al ejercicio fiscal 2022”.
+
 
 							</td>
 
@@ -9944,7 +10200,6 @@ internacional, organizaciones no gubernamentales, entre otros.
 					</tbody>
 
 				</table>
-
 
 				<table>
 
@@ -9976,7 +10231,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td style='text-align:justify;'>
 
 
-								Con estos antecedentes, me permito notificar el monto correspondiente a la primera asignación de la Planificación Anual de Inversión Deportiva, para el presente ejercicio fiscal (".$aniosPeriodos__ingesos."), conforme el modelo de asignación de la ".$subse__adquiridas.", por $ ".number_format($techo__presupuestario,2)." (".strtoupper($asignadorReal)." CENTAVOS), sin incluir el valor del cinco por mil.
+								Con estos antecedentes, me permito notificar el monto correspondiente a la primera asignación de la Planificación Anual de Inversión Deportiva, para el presente ejercicio fiscal (".$aniosPeriodos__ingesos."), conforme el modelo de asignación de la ".$subse__adquiridas.", por $ ".number_format($techo__presupuestario,2)." (".$asignadorReal."), sin incluir el valor del cinco por mil.
 
 
 							</td>
@@ -10090,6 +10345,10 @@ internacional, organizaciones no gubernamentales, entre otros.
 				</table>
 
 			";
+
+			}
+
+			
 
 		break;
 
@@ -11436,7 +11695,9 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							<center>
 								
-								".$subsecretarias__escritas." -
+								".$subsecretarias__escritas." 
+								<br>
+								<br>
 								".$direccion__escritas."
 
 							</center>
@@ -11466,7 +11727,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							<div style='font-size:10px!important; padding:.5em; background:#1b5e20; color:white!important;'>
 
-							REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - ORGANIZACIONES DEPORTIVAS - RSET-<span class='siglas__dinamicas' style='font-weight:bold;'>".$siglas__dinamicas__inputs."</span>-<span class='numerico__dinamicas'>".$numerico__dinamicas__inputs."</span>)
+							REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - RSET - <span class='siglas__dinamicas' style='font-weight:bold;'>".$siglas__dinamicas__inputs."</span> - <span class='numerico__dinamicas'>".$numerico__dinamicas__inputs."</span>
 
 							</div>
 
@@ -11835,42 +12096,45 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 					<tbody>";
 
-					foreach ($indicadores__altos as $clave => $valor) {
+					foreach ($indicadores__altos2023 as $clave1 => $valor1) {
 
-						$percen=(floatval($valor[totalEjecutado])/floatval($valor[totalProgramado]))*100;
+						
 
-						if ($percen>=85) {
-							
-							$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+							$percen=(floatval($valor1[totalEjecutado])/floatval($valor1[totalProgramado]))*100;
 
-						}else if($percen>=70 && $percen<85){
+							if ($percen>=85) {
+								
+								$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
 
-							$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+							}else if($percen>=70 && $percen<85){
 
-
-						}else if($percen<70){
-
-							$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+								$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
 
 
-						}
+							}else if($percen<70){
 
-					$documentoCuerpo.="
+								$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
 
-						<tr>
 
-							<td><center>".$valor[nombreActividades]."</center></td>
-							<td><center>".$valor[nombreIndicador]."</center></td>
-							<td><center>".$valor[totalProgramado]."</center></td>
-							<td><center>".$valor[totalEjecutado]."</center></td>
-							<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."</center></td>
+							}
 
-						</tr>	
+							$documentoCuerpo.="
 
-					";
+								<tr>
+									<td><center>0".$valor1[idActividad]." - ".$valor1[nombreActividades]."</center></td>
+									<td><center>".$valor1[nombreIndicador]."</center></td>
+									<td><center>".$valor1[totalProgramado]."</center></td>
+									<td><center>".$valor1[totalEjecutado]."</center></td>
+									<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."</center></td>
 
-				}
+								</tr>	
 
+							";
+
+						
+					}
+
+			
 
 
 				if ($porcentaje__c__eje__alto>=85) {
@@ -11995,7 +12259,25 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 					<tfoot></tfoot>
 
-				</table>				
+				</table>	
+				
+				<table style='width:60%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div></th>
+
+							<th>100% - 85%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+							</th>
+
+							<th>84,99% - 70%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+							</th>
+							<th>69,99% - 0%</th>
+						</tr>
+
+				</table>
 
 
 				<table style='width:100%!important; margin-top:1em!important;'>
@@ -12038,151 +12320,124 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 						</thead>
 
-						<tbody class='cuerpo__indicadores__altos'>
+						<tbody class='cuerpo__indicadores__altos'>";
 
-							<tr>
+						$indicadores__act3_7_for_recreativo_alto=$objeto->getObtenerInformacionGeneral("select (select coalesce(SUM(totalT)+SUM(totalT18),0) FROM poa_seguimiento_recreativo_tecnico AS a1 WHERE a1.idOrganismo=a.idOrganismo      AND a1.perioIngreso=a.perioIngreso) as actividad6Registrado , (select coalesce(SUM(cantidadBienes),0) FROM poa_segimiento_capacitacion AS a1  WHERE a1.idOrganismo=a.idOrganismo      AND a1.perioIngreso=a.perioIngreso) as actividad3Registrado, (select coalesce(SUM(total),0)  FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso='$aniosPeriodos__ingesos' and c.idOrganismo='$idOrganismo' AND c.idActividad = '3') as actividad3, (select coalesce(SUM(b.canitdarBie),0) FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso=a.perioIngreso and c.idOrganismo=a.idOrganismo AND c.idActividad = '7') as actividad7,(select coalesce(SUM(b.canitdarBie),0) FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso=a.perioIngreso and c.idOrganismo=a.idOrganismo AND c.idActividad = '6') as actividad6,  coalesce(SUM(a.cantidadBienes),0) actividad7Registrado  FROM poa_segimiento_implementacion AS a  WHERE a.idOrganismo='$idOrganismo'   AND a.perioIngreso='$aniosPeriodos__ingesos'  GROUP BY a.idOrganismo;");
 
-								<td>Número de eventos ejecutados al trimestre:</td>
-								<td>".$eventos__eje__alto."</td>
-								<td>".$meta__eje__alto."</td>
-								<td>
+					
+					foreach ($indicadores__act3_7_for_recreativo_alto as $clave1 => $valor1) {
 
-									".$div1." ".$porcentaje__c__eje__alto."
-										
-								</td>
+						
+						
 
-							</tr>
-
-							<tr>
-
-								<td>Número de eventos en los que participa al trimestre:</td>
-								<td>".$eventos__eje__alto__parti."</td>
-								<td>".$meta__eje__alto__parti."</td>
-								<td>
-
-									".$div2." ".$porcentaje__c__eje__alto__parti."
-															
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td>Número de beneficiarios atendidos en las actividades del fomento deportivo:</td>
-								<td>".$implementacion__de__eje__alto__meta."</td>
-								<td>".$implementacion__de__eje__alto__resultado."</td>
-								<td>
-
-									".$div3." ".$porcentaje__c__implementacion__de__e__alto."
-
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td>Número de actividades del fomento deportivo a las que se destina el recurso de operación deportiva:</td>
-								<td>".$beneficiarios__de__eje__alto__meta."</td>
-								<td>".$beneficiarios__de__eje__alto__resultado."</td>
-								<td>
+						
+							$percen=(floatval($valor1[actividad3Registrado])/floatval($valor1[actividad3]))*100;
+							if (!is_nan($percen)) {
+								if ($percen>=85) {
 									
-															
-									".$div4." ".$porcentaje__c__beneficiarios__de__e__alto."
-		
-								</td>
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
 
-							</tr>
+								}else if($percen>=70 && $percen<85){
 
-
-							<tr>
-
-								<td>Cantidad de implementación deportiva al I trimestre:</td>
-								<td>".$preparacion__de__eje__alto__meta."</td>
-								<td>".$preparacion__de__eje__alto__resultado."</td>
-								<td>
-									
-									".$div5." ".$porcentaje__c__preparacion__de__e__alto."					
-
-								</td>
-
-							</tr>
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
 
 
-							<tr>
+								}else if($percen<70){
 
-								<td>Número de beneficiarios de capacitaciones deportivas:</td>
-								<td>".$beneficiarios__capa__de__eje__alto__meta."</td>
-								<td>".$beneficiarios__capa__de__eje__alto__resultado."</td>
-								<td>
-									
-									".$div6." ".$porcentaje__c__beneficiarios__capa__de__e__alto."					
-
-								</td>
-
-							</tr>
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
 
 
-							<tr>
+								}
+							}
 
-								<td>Número de beneficiarios de eventos de preparación y competencias:</td>
-								<td>".$beneficiarios__even__prepa__de__eje__alto__meta."</td>
-								<td>".$beneficiarios__even__prepa__de__eje__alto__resultado."</td>
-								<td>
-									
-									".$div7." ".$porcentaje__c__even__prepa__capa__de__e__alto."					
-
-								</td>
-
-							</tr>";
-
-
-						if (!empty($indicadorArray)) {
-									
-							$indicadorArray__1 = explode(",", $indicadorArray);
-							$metaProgramadaArray__1 = explode(",", $metaProgramadaArray);
-							$metaResultadoArray__1 = explode(",", $metaResultadoArray);
-							$porcentajeCumplimientoArray__1 = explode(",", $porcentajeCumplimientoArray);
-
-							foreach ($indicadorArray__1 as $key => $value) {
-								
-
-								if ($porcentajeCumplimientoArray__1[$key]>=85) {
+							$percen1=(floatval($valor1[actividad7Registrado])/floatval($valor1[actividad7]))*100;
+							if (!is_nan($percen1)) {
+								if ($percen1>=85) {
 									
 									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
 
-								}else if($porcentajeCumplimientoArray__1[$key]>=70 && $porcentajeCumplimientoArray__1[$key]<85){
+								}else if($percen1>=70 && $percen1<85){
 
 									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
 
 
-								}else if($porcentajeCumplimientoArray__1[$key]<70){
+								}else if($percen1<70){
 
 									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
 
 
 								}
-
-
-								$documentoCuerpo.="
-
-								<tr>
-
-									<td>".$indicadorArray__1[$key]."</td>
-									<td>".$metaProgramadaArray__1[$key]."</td>
-									<td>".$metaResultadoArray__1[$key]."</td>
-									<td>".$div1." ".$porcentajeCumplimientoArray__1[$key]."</td>
-
-								</tr>
-
-								";
-
 							}
 
-						}							
+							$percen2=(floatval($valor1[actividad6Registrado])/floatval($valor1[actividad6]))*100;
+
+							if (!is_nan($percen2)) {
+								if ($percen2>=85) {
+									
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+								}else if($percen2>=70 && $percen2<85){
+
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($percen2<70){
+
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+							}
+
+							$documentoCuerpo.="
+
+								<tr>
+									<td><center>Número de beneficiarios de capacitaciones deportivas:</center></td>
+									<td><center>".$valor1[actividad3]."</center></td>
+									<td><center>".$valor1[actividad3Registrado]."</center></td>
+									<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."</center></td>
+
+								</tr>	
+
+								<tr>
+										<td><center> Cantidad de implementación deportiva adquirida:</center></td>
+										<td><center>".$valor1[actividad7]."</center></td>
+										<td><center>".$valor1[actividad7Registrado]."</center></td>
+										<td><center><span>".$div1."</span>&nbsp;&nbsp;".$percen1."%</center></td>
+	
+								</tr>	
+
+							";
+
+						
+					}
+
+						
+
+							
 
 					$documentoCuerpo.="</tbody>
 
-					</table>";
+					</table>
+					
+					<table style='width:60%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div></th>
+
+							<th>100% - 85%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+							</th>
+
+							<th>84,99% - 70%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+							</th>
+							<th>69,99% - 0%</th>
+						</tr>
+
+					</table>
+					";
 
 				}else{
 
@@ -12214,123 +12469,128 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 						</thead>
 
-						<tbody class='cuerpo__indicadores__altos'>
+						<tbody class='cuerpo__indicadores__altos'>";
 
-							<tr>
+						$indicadores__act3_7_for_recreativo_alto=$objeto->getObtenerInformacionGeneral("select (select coalesce(SUM(totalT)+SUM(totalT18),0) FROM poa_seguimiento_recreativo_tecnico AS a1 WHERE a1.idOrganismo=a.idOrganismo      AND a1.perioIngreso=a.perioIngreso) as actividad6Registrado , (select coalesce(SUM(cantidadBienes),0) FROM poa_segimiento_capacitacion AS a1  WHERE a1.idOrganismo=a.idOrganismo      AND a1.perioIngreso=a.perioIngreso) as actividad3Registrado, (select coalesce(SUM(total),0)  FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso='$aniosPeriodos__ingesos' and c.idOrganismo='$idOrganismo' AND c.idActividad = '3') as actividad3, (select coalesce(SUM(b.canitdarBie),0) FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso=a.perioIngreso and c.idOrganismo=a.idOrganismo AND c.idActividad = '7') as actividad7,(select coalesce(SUM(b.canitdarBie),0) FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso=a.perioIngreso and c.idOrganismo=a.idOrganismo AND c.idActividad = '6') as actividad6,  coalesce(SUM(a.cantidadBienes),0) actividad7Registrado  FROM poa_segimiento_implementacion AS a  WHERE a.idOrganismo='$idOrganismo'   AND a.perioIngreso='$aniosPeriodos__ingesos'  GROUP BY a.idOrganismo;");
 
-								<td>Número de eventos ejecutados al trimestre:</td>
-								<td>".$eventos__eje__alto."</td>
-								<td>".$meta__eje__alto."</td>
-								<td>
+					
+						foreach ($indicadores__act3_7_for_recreativo_alto as $clave1 => $valor1) {
 
-									".$div1." ".$porcentaje__c__eje__alto."
-										
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td>Número de eventos en los que participa al trimestre:</td>
-								<td>".$eventos__eje__alto__parti."</td>
-								<td>".$meta__eje__alto__parti."</td>
-								<td>
-
-									".$div2." ".$porcentaje__c__eje__alto__parti."
-															
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td>Cantidad de implementación deportiva al I trimestre:</td>
-								<td>".$implementacion__de__eje__alto__meta."</td>
-								<td>".$implementacion__de__eje__alto__resultado."</td>
-								<td>
-
-									".$div3." ".$porcentaje__c__implementacion__de__e__alto."
-
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td>Número de beneficiarios de capacitaciones deportivas:</td>
-								<td>".$beneficiarios__de__eje__alto__meta."</td>
-								<td>".$beneficiarios__de__eje__alto__resultado."</td>
-								<td>
-									
-															
-									".$div4." ".$porcentaje__c__beneficiarios__de__e__alto."
-		
-								</td>
-
-							</tr>
-
-
-							<tr>
-
-								<td>Número de beneficiarios de eventos de recreación:</td>
-								<td>".$preparacion__de__eje__alto__meta."</td>
-								<td>".$preparacion__de__eje__alto__resultado."</td>
-								<td>
-									
-									".$div5." ".$porcentaje__c__preparacion__de__e__alto."					
-
-								</td>
-
-							</tr>";
-
-
-						if (!empty($indicadorArray)) {
 							
-							$indicadorArray__1 = explode(",", $indicadorArray);
-							$metaProgramadaArray__1 = explode(",", $metaProgramadaArray);
-							$metaResultadoArray__1 = explode(",", $metaResultadoArray);
-							$porcentajeCumplimientoArray__1 = explode(",", $porcentajeCumplimientoArray);
 
-							foreach ($indicadorArray__1 as $key => $value) {
-								
+							$percen=(floatval($valor1[actividad3Registrado])/floatval($valor1[actividad3]))*100;
+							if (!is_nan($percen)) {
+								if ($percen>=85) {
+									
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
 
-								if ($porcentajeCumplimientoArray__1[$key]>=85) {
+								}else if($percen>=70 && $percen<85){
+
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($percen<70){
+
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+							}
+
+							$percen1=(floatval($valor1[actividad7Registrado])/floatval($valor1[actividad7]))*100;
+							
+							if (!is_nan($percen1)) {
+								if ($percen1>=85) {
 									
 									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
 
-								}else if($porcentajeCumplimientoArray__1[$key]>=70 && $porcentajeCumplimientoArray__1[$key]<85){
+								}else if($percen1>=70 && $percen1<85){
 
 									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
 
 
-								}else if($porcentajeCumplimientoArray__1[$key]<70){
+								}else if($percen1<70){
 
 									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
 
 
 								}
+							}
 
+							$percen2=(floatval($valor1[actividad6Registrado])/floatval($valor1[actividad6]))*100;
+
+							if (!is_nan($percen2)) {
+								if ($percen2>=85) {
+									
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+								}else if($percen2>=70 && $percen2<85){
+
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($percen2<70){
+
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+							}
 
 								$documentoCuerpo.="
 
-								<tr>
+									<tr>
+										<td><center>Número de beneficiarios de capacitaciones deportivas:</center></td>
+										<td><center>".$valor1[actividad3]."</center></td>
+										<td><center>".$valor1[actividad3Registrado]."</center></td>
+										<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."%</center></td>
 
-									<td>".$indicadorArray__1[$key]."</td>
-									<td>".$metaProgramadaArray__1[$key]."</td>
-									<td>".$metaResultadoArray__1[$key]."</td>
-									<td>".$div1." ".$porcentajeCumplimientoArray__1[$key]."</td>
+									</tr>	
 
-								</tr>
+									<tr>
+											<td><center> Cantidad de implementación deportiva adquirida:</center></td>
+											<td><center>".$valor1[actividad7]."</center></td>
+											<td><center>".$valor1[actividad7Registrado]."</center></td>
+											<td><center><span>".$div1."</span>&nbsp;&nbsp;".$percen1."%</center></td>
+		
+									</tr>	
+
+									<tr>
+											<td><center> Cantidad de implementación deportiva adquirida:</center></td>
+											<td><center>".$valor1[actividad6]."</center></td>
+											<td><center>".$valor1[actividad6Registrado]."</center></td>
+											<td><center><span>".$div2."</span>&nbsp;&nbsp;".$percen2."%</center></td>
+		
+									</tr>	
 
 								";
 
-							}
+							
+						}
 
-						}							
 
 				$documentoCuerpo.="</tbody>
 
-					</table>";
+					</table>
+					
+					<table style='width:60%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div></th>
+
+							<th>100% - 85%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+							</th>
+
+							<th>84,99% - 70%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+							</th>
+							<th>69,99% - 0%</th>
+						</tr>
+
+					</table>
+					";
 
 
 				}
@@ -12768,6 +13028,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</th>
 
+							<th>
+
+								<center>OBSERVACIONES</center>
+
+							</th>
+
 						</tr>
 
 					</thead>
@@ -12786,6 +13052,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$listAsistCapForm__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -12797,6 +13069,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$fotCertifCapForm__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$fotCertifCapForm__observaciones__alto."
 
 							</td>
 
@@ -12815,6 +13093,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$regFotCapaFrom__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -12826,6 +13110,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$cvForm__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$cvForm__observaciones__alto."
 
 							</td>
 
@@ -12843,6 +13133,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$contratosForm__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -12854,6 +13150,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$registroFotEventoForm__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$registroFotEventoForm__observaciones__alto."
 
 							</td>
 
@@ -12871,6 +13173,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$listadoAsistenciaAtl__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -12882,6 +13190,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$ordenCompraForm__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$ordenCompraForm__observaciones__alto."
 
 							</td>
 
@@ -12899,6 +13213,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$actasForm__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -12910,6 +13230,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$facturaForm__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$facturaForm__observaciones__alto."
 
 							</td>
 
@@ -12944,6 +13270,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</th>
 
+							<th>
+
+								<center>OBSERVACIONES</center>
+
+							</th>
+
 						</tr>
 
 					</thead>
@@ -12962,6 +13294,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$listAsisCapRec__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -12973,6 +13311,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$fotCertCapRec__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$fotCertCapRec__observaciones__alto."
 
 							</td>
 
@@ -12991,6 +13335,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$regFotCapRec__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -13002,6 +13352,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$cvRec__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$cvRec__observaciones__alto."
 
 							</td>
 
@@ -13019,6 +13375,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$contratoRec__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -13030,6 +13392,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$regFotEvenRec__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$regFotEvenRec__observaciones__alto."
 
 							</td>
 
@@ -13047,6 +13415,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$listPartEven__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -13058,6 +13432,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$ordCompRec__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$ordCompRec__observaciones__alto."
 
 							</td>
 
@@ -13075,6 +13455,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</td>
 
+							<td>
+
+								".$actEntregaRec__observaciones__alto."
+
+							</td>
+
 						</tr>
 
 						<tr>
@@ -13086,6 +13472,12 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td>
 
 								".$facturaRec__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$facturaRec__observaciones__alto."
 
 							</td>
 
@@ -15952,34 +16344,97 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 						if ($auxiliar==$variableAr) {
 
-							$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
 
-							if($totalPorcentajeAvance3_22>= 85){
-								$coloresPorcentaje3='green';
-							}else if ($totalPorcentajeAvance3_22>= 70 && $totalPorcentajeAvance3_22 < 85) {
-								$coloresPorcentaje3='orange';
-							}else if ($totalPorcentajeAvance3_22 < 70) {
-								$coloresPorcentaje3='red';
+							// if($seguimiento__en2[$clave][ejecutadoPrimer] == 0 || ( $seguimiento__en2[$clave][ejecutadoPrimer] == 0 && $seguimiento__en2[$clave][Trimestre] >= 0) || ( $seguimiento__en2[$clave][ejecutadoPrimer] == 0 && $seguimiento__en2[$clave][Trimestre] == 0)){
+							// 	$totalPorcentajeAvance3_22 ="----";
+							// }else{
+							// 	$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
+							// }
+
+							if($seguimiento__en2[$clave][Trimestre] > 0){
+								
+								$totalPorcentajeAvance3_22 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
+							}else{
+								$totalPorcentajeAvance3_22 ="----";
+							}
+						
+							if ($seguimiento__en2[$clave][Trimestre] > 0) {
+								
+								if($totalPorcentajeAvance3_22>= 70){
+									$coloresPorcentaje3='green';
+								}else if ($totalPorcentajeAvance3_22>= 40 && $totalPorcentajeAvance3_22 < 70) {
+									$coloresPorcentaje3='orange';
+								}else if ($totalPorcentajeAvance3_22 < 40) {
+									$coloresPorcentaje3='red';
+								}
+							}else{
+								$coloresPorcentaje3='';
 							}
 
-							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22, 2).'</center></td></tr>';
+							if($totalPorcentajeAvance3_22 >= 0){
+								$signoPorcentaje = "%";
+							}else{
+								$signoPorcentaje = "";
+							}
+
+							$documentoCuerpo.='<tr><td style="font-size:10px;"> </td><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td>';
+
+							if($seguimiento__en2[$clave][Trimestre] > 0){
+								
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_22,2).'' .$signoPorcentaje.'</center></td></tr>';
+							}else{
+								$totalPorcentajeAvance3_22 ="----";
+								$signoPorcentaje ="";
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.$totalPorcentajeAvance3_22.'' .$signoPorcentaje.'</center></td></tr>';
+							}
 							$auxiliar=$variableAr;
 
 						}else{
 
-							$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
-							if($totalPorcentajeAvance3_2>= 85){
-								$coloresPorcentaje3='green';
-							}else if ($totalPorcentajeAvance3_2>= 70 && $totalPorcentajeAvance3_2 < 85) {
-								$coloresPorcentaje3='orange';
-							}else if ($totalPorcentajeAvance3_2 < 70) {
-								$coloresPorcentaje3='red';
+							
+							
+							if($seguimiento__en2[$clave][Trimestre] > 0){
+					
+								$totalPorcentajeAvance3_2 = ($seguimiento__en2[$clave][ejecutadoPrimer]/$seguimiento__en2[$clave][Trimestre])*100;
+
+							}else{
+								$totalPorcentajeAvance3_2 ="----";
+							}
+
+							if ($seguimiento__en2[$clave][Trimestre] > 0) {
+								
+								if($totalPorcentajeAvance3_2>= 70){
+									$coloresPorcentaje3='green';
+								}else if ($totalPorcentajeAvance3_2>= 40 && $totalPorcentajeAvance3_2 < 70) {
+									$coloresPorcentaje3='orange';
+								}else if ($totalPorcentajeAvance3_2 < 40) {
+									$coloresPorcentaje3='red';
+								}
+
+							}else{
+								$coloresPorcentaje3='';
+							}
+
+							if($totalPorcentajeAvance3_2 >= 0){
+								$signoPorcentaje = "%";
+							}else{
+								$signoPorcentaje = "";
 							}
 
 							$sumaTotalPlanificado1BP = $seguimiento__en2[$i][Trimestre];
 							$sumaTotalEjecutado1BE = $seguimiento__en2[$i][ejecutadoPrimer];
 
-							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'</center></td></tr>';
+							$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="1">'.$variableAr.'</th><td style="font-size:10px;"><center>'.$seguimiento__en2[$clave][nombreItem].'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][Trimestre],2).'</center></td><td style="font-size:10px;"><center>'.number_format($seguimiento__en2[$clave][ejecutadoPrimer], 2).'</center></td>';
+
+							if($seguimiento__en2[$clave][Trimestre] > 0){
+								
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.number_format($totalPorcentajeAvance3_2, 2).'' .$signoPorcentaje.'</center></td></tr>';
+							}else{
+								$totalPorcentajeAvance3_2 ="----";
+								$signoPorcentaje ="";
+								$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.$totalPorcentajeAvance3_2.'' .$signoPorcentaje.'</center></td></tr>';
+							}
+
 							$auxiliar=$variableAr;
 
 						}
@@ -15990,15 +16445,39 @@ internacional, organizaciones no gubernamentales, entre otros.
 					
 					$totalPorcentajeAvance1 = ($sumaTotalEjecutado1/$sumaTotalPlanificado1)*100;
 						
-					if($totalPorcentajeAvance1>= 85){
-						$coloresPorcentaje3='green';
-					}else if ($totalPorcentajeAvance1>= 70 && $totalPorcentajeAvance1 < 85) {
-						$coloresPorcentaje3='orange';
-					}else if ($totalPorcentajeAvance1 < 70) {
-						$coloresPorcentaje3='red';
+					
+
+
+					if ($sumaTotalPlanificado1 > 0) {
+						
+						if($totalPorcentajeAvance1>= 70){
+							$coloresPorcentaje3='green';
+						}else if ($totalPorcentajeAvance1>= 40 && $totalPorcentajeAvance1 < 70) {
+							$coloresPorcentaje3='orange';
+						}else if ($totalPorcentajeAvance1 < 40) {
+							$coloresPorcentaje3='red';
+						}
+					}else{
+						$coloresPorcentaje3='';
 					}
 
-					$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado1,2).'</sapn></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado1, 2).'</span></center></td><td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance1, 2).'</span></center></td></tr>';
+					if($totalPorcentajeAvance1 >= 0){
+						$signoPorcentaje = "%";
+					}else{
+						$signoPorcentaje = "";
+					}
+
+					$documentoCuerpo.='<tr><th style="font-size:10px;" colspan="2"><span style="font-weight:bold!important;">'."TOTAL".'</span></th><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalPlanificado1,2).'</sapn></center></td><td style="font-size:10px;"><center><span style="font-weight:bold!important;">'.number_format($sumaTotalEjecutado1, 2).'</span></center></td>';
+
+
+					if($sumaTotalPlanificado1 > 0){
+						
+						$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'"><span style="font-weight:bold!important;">'.number_format($totalPorcentajeAvance1, 2).''.$signoPorcentaje.'</span></center></td></tr>';
+					}else{
+						$totalPorcentajeAvance1 ="----";
+						$signoPorcentaje ="";
+						$documentoCuerpo.='<td style="font-size:10px;"><center><input type="text" class="input-circulo" readonly style="width: 1px; height: 1px; border-radius: 50%; border: none;padding: 8px;text-align: center; background:'.$coloresPorcentaje3.'">'.$totalPorcentajeAvance1.'' .$signoPorcentaje.'</center></td></tr>';
+					}
 				}
 				
 				$documentoCuerpo.='
@@ -17030,13 +17509,13 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 		case "informeTecnico__planifiacion":
 
-		$usuario__planificacion=$objeto->getObtenerInformacionGeneral("SELECT CONCAT_WS(' ',REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó'),REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) AS nombreInsta FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario WHERE a.id_usuario='$idUsuarioEn' ORDER BY a.id_usuario DESC LIMIT 1;");
+			$usuario__planificacion=$objeto->getObtenerInformacionGeneral("SELECT CONCAT_WS(' ',REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó'),REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')) AS nombreInsta FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario WHERE a.id_usuario='$idUsuarioEn' ORDER BY a.id_usuario DESC LIMIT 1;");
 
-		$inverion__ancladas=$objeto->getObtenerInformacionGeneral("SELECT b.fecha,b.nombreInversion FROM poa_inversion_usuario AS a INNER JOIN poa_inversion AS b ON a.idInversion=b.idInversion WHERE a.idOrganismo='$idOrganismo' AND b.perioIngreso='$aniosPeriodos__ingesos';");
+			$inverion__ancladas=$objeto->getObtenerInformacionGeneral("SELECT b.fecha,b.nombreInversion FROM poa_inversion_usuario AS a INNER JOIN poa_inversion AS b ON a.idInversion=b.idInversion WHERE a.idOrganismo='$idOrganismo' AND b.perioIngreso='$aniosPeriodos__ingesos';");
 
-		$inverion__ancladas__dos=$objeto->getObtenerInformacionGeneral("SELECT a.fecha FROM poa_preliminar_envio AS a WHERE a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo';");
+			$inverion__ancladas__dos=$objeto->getObtenerInformacionGeneral("SELECT a.fecha FROM poa_preliminar_envio AS a WHERE a.perioIngreso='$aniosPeriodos__ingesos' AND a.idOrganismo='$idOrganismo';");
 
-		$documentoCuerpo='
+			$documentoCuerpo='
 
 			<table class="tabla__bordadaTresCD">
 
@@ -20004,14 +20483,15 @@ internacional, organizaciones no gubernamentales, entre otros.
 				
 
 
-						<th colspan='4'>
+						<th colspan='5'>
 
 							<center>";
 
 							if(substr($siglas__dinamicas__inputs,0, 2)=="DA"){
 								$documentoCuerpo.="
-									
-								".$subsecretarias__escritas." -
+								".$subsecretarias__escritas."
+								 <br>
+								 <br>
 								".$direccion__escritas."";
 							}else{
 								$documentoCuerpo.="
@@ -20240,19 +20720,6 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 							</tr>
 
-							<tr>
-
-								<th>
-
-									BARRIO
-
-								</th>
-
-								<td style = 'background:#e8edff'>
-									".$barrio__organizacion__deportivas."
-								</td>
-
-							</tr>
 
 						</table>
 
@@ -20433,6 +20900,8 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 						<tbody>";
 
+						$indicadores__administrativos=$objeto->getObtenerInformacionGeneral("SELECT (SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombreActividades, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 WHERE a1.idActividades=a.idActividad) AS nombreActividades,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.nombreIndicador, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') FROM poa_actividades AS a1 INNER JOIN poa_indicadores AS a2 ON a1.idLineaPolitica=a2.idIndicadores WHERE a1.idActividades=a.idActividad) AS nombreIndicador,a.totalProgramado,a.totalEjecutado FROM poa_indicadores_seguimiento AS a INNER JOIN poa_actividades AS a1 INNER JOIN poa_indicadores AS a2 ON a1.idLineaPolitica=a2.idIndicadores ON a1.idActividades=a.idActividad  WHERE a.idOrganismo='$idOrganismo' AND a.perioIngreso='$aniosPeriodos__ingesos' and a.idActividad='1' GROUP BY a2.nombreIndicador ORDER BY a.idActividad;");
+
 						foreach ($indicadores__administrativos as $clave => $valor) {
 
 							$percen=(floatval($valor[totalEjecutado])/floatval($valor[totalProgramado]))*100;
@@ -20461,7 +20930,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 							<td><center>".$valor[nombreIndicador]."</center></td>
 							<td><center>".$valor[totalProgramado]."</center></td>
 							<td><center>".$valor[totalEjecutado]."</center></td>
-							<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."</center></td>
+							<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen." %</center></td>
 
 							</tr>	
 
@@ -20560,6 +21029,24 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 
 					$documentoCuerpo.=" 
+
+					<table style='width:60%!important; margin-top:1em!important;'>
+
+						<tr>
+
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div></th>
+
+							<th>100% - 85%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+							</th>
+
+							<th>84,99% - 70%;</th>
+							<th><div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+							</th>
+							<th>69,99% - 0%</th>
+						</tr>
+
+					</table>
 
 					<table style='width:100%!important; margin-top:1em!important;'>
 
@@ -20829,11 +21316,11 @@ internacional, organizaciones no gubernamentales, entre otros.
 							if($trimestre__evaluados__al=="I SEMESTRE"){
 
 
-								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anuales1'");
+								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' AND (b.itemPreesupuestario!='530101' AND b.itemPreesupuestario!='530102' AND b.itemPreesupuestario!='530104' AND b.itemPreesupuestario!='530105') and a.perioIngreso='$periodo__evaluados__anuales1'");
 
 							}else if($trimestre__evaluados__al=="II SEMESTRE"){
 
-								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anuales1'");
+								$indicadores__sinContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'no' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' AND (b.itemPreesupuestario!='530101' AND b.itemPreesupuestario!='530102' AND b.itemPreesupuestario!='530104' AND b.itemPreesupuestario!='530105') and a.perioIngreso='$periodo__evaluados__anuales1'");
 
 							}
 
@@ -20925,11 +21412,11 @@ internacional, organizaciones no gubernamentales, entre otros.
 							if($trimestre__evaluados__al=="I SEMESTRE"){
 
 
-								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='primerTrimestre' or trimestre='segundoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anualesContratacion1'");
+								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='primerTrimestre'  or trimestre='segundoTrimestre') AND (b.itemPreesupuestario!='530101' AND b.itemPreesupuestario!='530102' AND b.itemPreesupuestario!='530104' AND b.itemPreesupuestario!='530105') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anualesContratacion1'");
 
 							}else if($trimestre__evaluados__al=="II SEMESTRE"){
 
-								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anualesContratacion1'");
+								$indicadores__conContratacionPublica=$objeto->getObtenerInformacionGeneral("select b.itemPreesupuestario, b.nombreItem, a.registra_Contratacion from poa_registro_contratacion as a INNER JOIN poa_item as b on b.idItem = a.idItemCatalogo where a.registra_Contratacion = 'si' and (trimestre='tercerTrimestre' or trimestre='cuartoTrimestre') AND (b.itemPreesupuestario!='530101' AND b.itemPreesupuestario!='530102' AND b.itemPreesupuestario!='530104' AND b.itemPreesupuestario!='530105') and idActividad='1' and a.idOrganismo='$idOrganismo' and a.perioIngreso='$periodo__evaluados__anualesContratacion1'");
 
 							}
 
@@ -21822,7 +22309,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 	
 								<center>
 	
-									<div>APROBADO POR:$idUSeguimientos </div>
+									<div>APROBADO POR: </div>
 									<br>
 									<div>".$usuarioUsados__seguimientos2[0][nombreSuperior]." ".$usuarioUsados__seguimientos2[0][apellidoSuperior]."</div>
 									<div>".$usuarioUsados__seguimientos2[0][cargoSuperior]."</div>
@@ -21852,6 +22339,2208 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 
 		break;
+
+		case  "pdf__seguimientos__altos__2023":
+
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/seguimiento/informeTecnico__seguimiento/";
+			$parametro2="seguimientoInformesTecnicos";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+
+
+			$documentoCuerpo="
+
+			
+				<table style='width:100%'>
+
+					<tr>
+						<th colspan='1'>
+
+							<img  src='../../images/titulo__ministerio__deporte.png'/>
+
+						</th>
+				
+
+
+						<th colspan='7'>
+
+							<center>
+									
+							".$subsecretarias__escritas." -
+							".$direccion__escritas."
+
+							</center>
+
+						</th>
+
+		
+
+						<th colspan='1'>
+
+							<img  src='../../images/titulo__principis__ministerios.png'/>
+
+						</th>
+					</tr>
+
+							
+
+				</table>
+
+				<table style='width:100%!important;'>
+
+					<tr>
+
+						<th>
+
+							<center> <h1 style='font-weight:900;'>
+
+							<div style='font-size:10px!important; padding:.5em; background:#1b5e20; color:white!important;'>
+
+							REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - RSET - <span class='siglas__dinamicas' style='font-weight:bold;'>".$siglas__dinamicas__inputs."</span> - <span class='numerico__dinamicas'>".$numerico__dinamicas__inputs."</span>
+
+							</div>
+
+							</h1></center>
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th>
+
+							I. EJERCICIO FISCAL
+
+						</th>
+
+						<th>
+
+						AÑO
+
+						</th>
+
+						<td>
+
+							".$periodo__evaluados__anuales."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:.5em!important;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							NOMBRE DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$nombre__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							RUC DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$ruc__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							PRESIDENTE O REPRESENTANTE LEGAL:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$informacionCompletoDosI[0][nombreResponsablePoa]."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$correo__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							DIRECCIÓN COMPLETA:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$direccion__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							III. UBICACIÓN GEOGRÁFICA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							PROVINCIA
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$provincia__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							CANTÓN
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$canton__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+
+					<tr>
+
+						<th>
+
+							PARROQUIA
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$parroquia__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					
+
+				</table>
+
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							IV. ALINEACIÓN A LA PLANIFICACIÓN
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							ÁREA DE ACCIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+
+						".$areaAccion."
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							OBJETIVO ESTRATÉGICO INSTITUCIONAL
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+
+						".$objetivoS."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							 V. SEGUIMIENTO Y EVALUACIÓN TÉCNICA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>	
+							V.I. PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+						</th>
+
+					</tr>";
+					$semestre;
+					if($trimestre__evaluados__al == "I SEMESTRE"){
+						$semestre = "Enero - Junio";
+					}elseif($trimestre__evaluados__al == "II SEMESTRE"){
+						$semestre = "Julio - Diciembre";
+					}
+
+
+					$documentoCuerpo.="
+
+					
+					<tr>
+						
+						<td style='width:40%!important;'>	
+							<br>
+							PERÍODO EVALUADO:
+						</td>
+
+						<td style = 'background:#e8edff'>	
+							<br>
+							".$periodo__evaluado."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td style='width:40%!important;'>	
+							PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+						</td>
+
+						<td style = 'background:#e8edff'>	
+							".$presupuesto__asignado__pais__altos."
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!important;'>
+
+					<tr>
+
+						<th>
+
+							V.II. RESUMEN DE CUMPLIMIENTO TÉCNICO DEL POA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!important;'>
+
+					<tr>
+
+						<th>
+
+							<center> <h1 style='font-weight:900;'>AVANCE DE METAS</center>
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:1em!important;' border='1'>
+
+					<thead>
+
+						<tr>
+
+							<th>
+								<center>ACTIVIDADES</center>
+							</th>
+
+							<th>
+								<center>INDICADOR</center>
+							</th>
+
+							<th>
+								<center>META PLANIFICADA AL SEMESTRE (A)</center>
+							</th>
+
+							<th>
+								<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+							</th>
+
+							<th>
+								<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+							</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>";
+
+					foreach ($indicadores__altos2023 as $clave => $valor) {
+
+						$percen=(floatval($valor[totalEjecutado])/floatval($valor[totalProgramado]))*100;
+
+						if ($percen>=85) {
+							
+							$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+						}else if($percen>=70 && $percen<85){
+
+							$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+						}else if($percen<70){
+
+							$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+						}
+
+					$documentoCuerpo.="
+
+						<tr>
+
+							<td><center>0".$valor[idActividad]." - ".$valor[nombreActividades]."</center></td>
+							<td><center>".$valor[nombreIndicador]."</center></td>
+							<td><center>".$valor[totalProgramado]."</center></td>
+							<td><center>".$valor[totalEjecutado]."</center></td>
+							<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."</center></td>
+
+						</tr>	
+
+					";
+
+				}
+
+				
+
+
+
+				if ($porcentaje__c__eje__alto>=85) {
+					
+					$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__eje__alto>=70 && $porcentaje__c__eje__alto<85){
+
+					$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__eje__alto<70){
+
+					$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+				}
+
+				if ($porcentaje__c__eje__alto__parti>=85) {
+					
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__eje__alto__parti>=70 && $porcentaje__c__eje__alto__parti<85){
+
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__eje__alto__parti<70){
+
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+				}
+
+
+				if ($porcentaje__c__implementacion__de__e__alto>=85) {
+					
+					$div3="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__implementacion__de__e__alto>=70 && $porcentaje__c__implementacion__de__e__alto<85){
+
+					$div3="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__implementacion__de__e__alto<70){
+
+					$div3="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+				}
+
+
+
+				if ($porcentaje__c__beneficiarios__de__e__alto>=85) {
+					
+					$div4="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__beneficiarios__de__e__alto>=70 && $porcentaje__c__beneficiarios__de__e__alto<85){
+
+					$div4="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__beneficiarios__de__e__alto<70){
+
+					$div4="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+				}
+
+				if ($porcentaje__c__preparacion__de__e__alto>=85) {
+					
+					$div5="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($porcentaje__c__preparacion__de__e__alto>=70 && $porcentaje__c__preparacion__de__e__alto<85){
+
+					$div5="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($porcentaje__c__preparacion__de__e__alto<70){
+
+					$div5="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+				}
+
+
+				$documentoCuerpo.="</tbody>
+
+					<tfoot></tfoot>
+
+				</table>
+
+				<table style='width:60%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<th><div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div></th>
+
+						<th>100% - 85%;</th>
+						<th><div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+						</th>
+
+						<th>84,99% - 70%;</th>
+						<th><div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+						</th>
+						<th>69,99% - 0%</th>
+					</tr>
+
+				</table>
+							
+				";				
+
+
+				$documentoCuerpo.="<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<th>V.III. OTROS ASPECTOS TÉCNICOS</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+					<thead>
+
+						<tr>
+
+							<th>
+								<center>INDICADOR</center>
+							</th>
+
+							<th>
+								<center>META PLANIFICADA AL SEMESTRE (A)</center>
+							</th>
+
+
+							<th>
+								<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+							</th>
+
+
+							<th>
+								<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+							</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>";
+
+					$indicadores__act3_7_for_recreativo_alto=$objeto->getObtenerInformacionGeneral("select (select coalesce(SUM(totalT)+SUM(totalT18),0) FROM poa_seguimiento_recreativo_tecnico AS a1 WHERE a1.idOrganismo=a.idOrganismo      AND a1.perioIngreso=a.perioIngreso) as actividad6Registrado , (select coalesce(SUM(cantidadBienes),0) FROM poa_segimiento_capacitacion AS a1  WHERE a1.idOrganismo=a.idOrganismo      AND a1.perioIngreso=a.perioIngreso) as actividad3Registrado, (select coalesce(SUM(total),0)  FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso='$aniosPeriodos__ingesos' and c.idOrganismo='$idOrganismo' AND c.idActividad = '3') as actividad3, (select coalesce(SUM(b.canitdarBie),0) FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso=a.perioIngreso and c.idOrganismo=a.idOrganismo AND c.idActividad = '7') as actividad7,(select coalesce(SUM(b.canitdarBie),0) FROM poa_actdeportivas AS b INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE  b.perioIngreso=a.perioIngreso and c.idOrganismo=a.idOrganismo AND c.idActividad = '6') as actividad6,  coalesce(SUM(a.cantidadBienes),0) actividad7Registrado  FROM poa_segimiento_implementacion AS a  WHERE a.idOrganismo='$idOrganismo'   AND a.perioIngreso='$aniosPeriodos__ingesos'  GROUP BY a.idOrganismo;");
+
+					
+						foreach ($indicadores__act3_7_for_recreativo_alto as $clave1 => $valor1) {
+
+							
+
+							$percen=(floatval($valor1[actividad3Registrado])/floatval($valor1[actividad3]))*100;
+							if (!is_nan($percen)) {
+								if ($percen>=85) {
+									
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+								}else if($percen>=70 && $percen<85){
+
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($percen<70){
+
+									$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+							}
+
+							$percen1=(floatval($valor1[actividad7Registrado])/floatval($valor1[actividad7]))*100;
+							
+							if (!is_nan($percen1)) {
+								if ($percen1>=85) {
+									
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+								}else if($percen1>=70 && $percen1<85){
+
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($percen1<70){
+
+									$div1="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+							}
+
+							$percen2=(floatval($valor1[actividad6Registrado])/floatval($valor1[actividad6]))*100;
+
+							if (!is_nan($percen2)) {
+								if ($percen2>=85) {
+									
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+								}else if($percen2>=70 && $percen2<85){
+
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+								}else if($percen2<70){
+
+									$div2="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+								}
+							}
+
+								$documentoCuerpo.="
+
+									<tr>
+										<td><center>Número de beneficiarios de capacitaciones deportivas:</center></td>
+										<td><center>".$valor1[actividad3]."</center></td>
+										<td><center>".$valor1[actividad3Registrado]."</center></td>
+										<td><center><span>".$div."</span>&nbsp;&nbsp;".$percen."%</center></td>
+
+									</tr>	
+
+									<tr>
+											<td><center> Cantidad de implementación deportiva adquirida:</center></td>
+											<td><center>".$valor1[actividad7]."</center></td>
+											<td><center>".$valor1[actividad7Registrado]."</center></td>
+											<td><center><span>".$div1."</span>&nbsp;&nbsp;".$percen1."%</center></td>
+		
+									</tr>	
+								";
+
+							
+						}
+
+
+					
+				$documentoCuerpo.="</tbody>
+
+				</table>
+
+
+				<table style='width:60%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<th><div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div></th>
+
+						<th>100% - 85%;</th>
+						<th><div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+						</th>
+
+						<th>84,99% - 70%;</th>
+						<th><div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+						</th>
+						<th>69,99% - 0%</th>
+					</tr>
+
+				</table>
+				
+
+				<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+						
+						<td style='width:40%!important;'>	
+							
+							NÚMERO DE CAPACITADORES:
+						</td>
+
+						<td style = 'background:#e8edff'>	
+							
+							".$capacitadores."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td style='width:40%!important;'>	
+							MONTO DE AUTOGESTIÓN REPORTADO AL SEMESTRE (USD):
+						</td>
+
+						<td style = 'background:#e8edff'>	
+							".$autogestion."
+						</td>
+
+					</tr>";
+
+					$porcentaje = ($autogestion * 100) / $presupuesto__asignado__pais__altos;
+
+					$documentoCuerpo.="<tr>
+
+						<td style='width:40%!important;'>	
+						% DE AUTOGESTIÓN EN RELACIÓN AL PRESUPUESTO POA ASIGNADO:
+						</td>
+
+						<td style = 'background:#e8edff'>	
+							". number_format((float)$porcentaje, 2, '.', '')." %
+						</td>
+
+					</tr>
+				</table>
+
+				<table style='margin-top:.5em!important; width:30%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr >
+
+								<th colspan='2'  style = 'background:#e8edff'>
+
+									<center>NÚMERO DE MEDALLAS ALCANZAS EN EL TRIMESTRE:</center>
+
+								</th>
+			
+							</tr>
+
+							<tr>
+
+								<th>
+
+									<center>Oro</center>
+
+								</th>
+								<td>
+
+									<center>".$oro__alto."</center>
+								
+								</td>
+
+							</tr>
+
+						</thead>
+
+						<tbody>
+
+							<tr>
+
+						
+								<th>
+
+									<center>Plata</center>
+
+								</th>
+
+
+								<td>
+
+									<center>".$plata__alto."</center>
+
+								</td>
+
+							
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									<center>Bronce</center>
+
+								</th>
+								<td>
+
+									<center>".$bronce__alto."</center>
+								
+								</td>
+
+							</tr>
+
+							
+
+
+						</tbody>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:50%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+						<thead>
+
+							<tr >
+
+								<th colspan='2'  style = 'background:#e8edff'>
+
+									<center>NÚMERO DE  BENEFICIARIOS DE EVENTOS</center>
+
+								</th>
+			
+							</tr>
+
+							<tr>
+
+								<th>
+
+									<center>HOMBRES</center>
+
+								</th>
+								<td>
+
+									<center>".$hombresB."</center>
+								
+								</td>
+
+							</tr>
+
+						</thead>
+
+						<tbody>
+
+							<tr>
+
+						
+								<th>
+
+									<center>MUJERES</center>
+
+								</th>
+
+
+								<td>
+
+									<center>".$mujeresB."</center>
+
+								</td>
+
+							
+
+							</tr>
+
+							
+
+
+						</tbody>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<th>
+							V.IV. VERIFICACIÓN DE PRESENTACIÓN DE INFORMACIÓN:
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='margin-top:.5em!important; width:100%!important; border-collapse: collapse; margin-top:.5em!important;' border='1'>
+
+					<thead>
+
+						<tr>
+
+							<th>
+
+								<center>DETALLE</center>
+
+							</th>
+
+
+							<th>
+
+								<center>CUMPLE</center>
+
+							</th>
+
+							<th>
+
+								<center>OBSERVACIONES</center>
+
+							</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<tr>
+
+							<td>
+								Listado de asistentes de capacitaciones:
+							</td>
+
+							<td>
+
+								".$lisAsisCap__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$lisAsisCap__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Fotocopias de certificados de capacitaciones:	
+							</td>
+
+							<td>
+
+								".$fotCerCap__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$fotCerCap__observ__alto."
+
+							</td>
+
+						</tr>
+
+
+						<tr>
+
+							<td>
+							Registro fotográfico de capacitaciones:	
+							</td>
+
+							<td>
+
+								".$regFotCap__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$regFotCap__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Hojas de vida de profesionales:	
+							</td>
+
+							<td>
+
+								".$cvProf__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$cvProf__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Contrato de profesionales:	
+							</td>
+
+							<td>
+
+								".$contProf__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$contProf__observ__alto."
+
+							</td>
+
+						</tr>
+
+
+						<tr>
+
+							<td>
+							Listados de asistencia de atletas suscrito por los entrenadores o coordinador técnico: 	
+							</td>
+
+							<td>
+
+								".$listAsisAtlSusEnt__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$listAsisAtlSusEnt__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Informe médico y disciplinario de atletas:	
+							</td>
+
+							<td>
+
+								".$infMedico__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$infMedico__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Registro fotográfico de los eventos deportivos:	
+							</td>
+
+							<td>
+
+								".$regFotEvenDep__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$regFotEvenDep__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Reporte de resultados deportivo obtenidos en los eventos en los que participaron:		
+							</td>
+
+							<td>
+
+								".$repResDepObt__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$repResDepObt__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Orden de compra o de servicio de implementación deportiva:		
+							</td>
+
+							<td>
+
+								".$ordCompImpl__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$ordCompImpl__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Actas de entrega recepción de la implementación deportiva adquirida:		
+							</td>
+
+							<td>
+
+								".$actEntRecImp__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$actEntRecImp__observ__alto."
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+							Factura de implementación deportiva:	
+							</td>
+
+							<td>
+
+								".$factImpDep__tabla__alto."
+
+							</td>
+
+							<td>
+
+								".$factImpDep__observ__alto."
+
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:.5em!important;'>
+
+					<tr>
+
+						<th>
+							Observaciones:
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<td>
+							".nl2br($observaciones__alto__seguis)."
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:.5em!important;'>
+
+					<tr>
+
+						<th>
+							Recomendaciones:
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em!important;'>
+
+					<tr>
+
+						<td>
+							".nl2br($recomendaciones__alto__seguis)."
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<td style='width:100%!important; text-align:right;'>
+
+							Fecha de emisión&nbsp;&nbsp; ".$dia."/ ".$mes."/ ".$anio."
+									
+						</td>
+
+					</tr>
+
+
+				</table>
+
+
+				<table border='1' style='border-collapse: collapse; margin-top:2em!important; margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+							<center>
+
+								<div>ELABORADO POR:</div>
+								<br>
+								<div>".$usuarioUsados__seguimientos[0][nombre]." ".$usuarioUsados__seguimientos[0][apellido]."</div>
+								<div>".$usuarioUsados__seguimientos[0][descripcionPuestoInstitucional]."</div>
+							
+							</center>		
+
+						</th>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+							<center>
+
+								<div>REVISADO POR:</div>
+								<br>
+								<div>".$usuarioUsados__seguimientos[0][nombreSuperior]." ".$usuarioUsados__seguimientos[0][apellidoSuperior]."</div>
+								<div>".$usuarioUsados__seguimientos[0][cargoSuperior]."</div>
+							
+							</center>		
+
+						</th>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+
+						</th>
+
+					</tr>";
+
+					$sup = $usuarioUsados__seguimientos[0][PersonaACargo];
+
+					$usuarioUsados__seguimientos2=$objeto->getObtenerInformacionGeneral("SELECT b.descripcionPuestoInstitucional,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS nombreSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a1.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 WHERE a1.id_usuario=a.PersonaACargo) AS apellidoSuperior,(SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a2.descripcionPuestoInstitucional, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó')  FROM th_usuario AS a1 INNER JOIN th_puestoinstitucional AS a2 ON a1.puestoInstitucional=a2.id_PuestoInstitucional WHERE a1.id_usuario=a.PersonaACargo) AS cargoSuperior FROM th_usuario AS a INNER JOIN th_puestoinstitucional AS b ON a.puestoInstitucional=b.id_PuestoInstitucional WHERE a.id_usuario='$sup';");
+					
+					$documentoCuerpo.="
+
+					<tr>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+							<center>
+
+								<div>APROBADO POR:</div>
+								<br>
+								<div>".$usuarioUsados__seguimientos2[0][nombreSuperior]." ".$usuarioUsados__seguimientos2[0][apellidoSuperior]."</div>
+								<div>".$usuarioUsados__seguimientos2[0][cargoSuperior]."</div>
+							
+							</center>		
+							
+							
+	
+
+						</th>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+
+						</th>
+
+					</tr>
+
+					
+
+				</table>
+
+				";
+
+
+		break;
+
+
+		case  "pdf__seguimientos2023":
+
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/seguimiento/informeTecnico__seguimiento/";
+			$parametro2="seguimientoInformesTecnicos";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+
+
+			$documentoCuerpo="
+
+				<table style='width:100%!important;'>
+
+					<thead>
+
+						<tr>
+
+
+
+							<th >
+
+									<center> 
+									<h1 style='font-weight:900; text-align:center!important;'>
+										COORDINACIÓN GENERAL DE PLANIFICACIÓN Y GESTIÓN ESTRATÉGICA <br>
+										DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS
+									</h1>
+									</center>
+
+							</th>
+
+					
+
+						</tr>
+
+					</thead>
+
+				</table>
+
+				<table style='width:100%!important;'>
+
+					<tr>
+
+						<th>
+
+							<center> <h1 style='font-weight:900;'>
+
+							<div style='font-size:10px!important; padding:.5em; background:#0d47a1; color:white!important;'>
+
+							REPORTE DE SEGUIMIENTO Y EVALUACIÓN PRESUPUESTARIA - RSEP - DSPPP - <span class='siglas__dinamicas' style='font-weight:bold;'>".$siglas__dinamicas__inputs."</span> - <span class='numerico__dinamicas'>".$numerico__dinamicas__inputs."</span>
+
+							</div>
+
+							</h1></center>
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th>
+
+							I PERÍODO EVALUADO
+
+						</th>
+
+						<th>
+
+						AÑO
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+
+							".$periodo__evaluados__anuales."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:.5em!important;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							NOMBRE DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style='width:60%!important; background:#e8edff'>
+							".$nombre__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							RUC DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$ruc__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							PRESIDENTE O REPRESENTANTE LEGAL:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$informacionCompletoDosI[0][nombreResponsablePoa]."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$correo__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							DIRECCIÓN COMPLETA:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$direccion__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							III. UBICACIÓN GEOGRÁFICA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							PROVINCIA
+
+						</th>
+
+						<td style='width:60%!important; background:#e8edff'>
+							".$provincia__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							CANTÓN
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$canton__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+
+					<tr>
+
+						<th>
+
+							PARROQUIA
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$parroquia__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							BARRIO
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+							".$barrio__organizacion__deportivas."
+						</td>
+
+					</tr>
+
+
+				</table>
+
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							IV. ALINEACIÓN A LA PLANIFICACIÓN 
+
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='width:40%!important;'>
+
+							ÁREA DE ACCIÓN:
+
+						</th>
+
+						<td style='width:60%!important; background:#e8edff'>
+
+							".$area__de__accion__llamados."
+
+						</td>
+
+					</tr>
+
+
+					<tr>
+
+						<th>
+
+							OBJETIVO ESTRATÉGICO INSTITUCIONAL:
+
+						</th>
+
+						<td style = 'background:#e8edff'>
+
+							".$objetivo__institucional__estrategicos."
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							V. SEGUIMIENTO Y EVALUACIÓN PRESUPUESTARIA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+						</th>
+
+					</tr>
+
+				</table>
+
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							V.I PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th >
+
+							PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+
+						</th>
+
+						<td style = 'background:#e8edff'>".$presupuesto__segun__poas."</td>
+
+						<th>
+
+							PERÍODO EVALUADO:
+
+						</th >
+
+						<td style = 'background:#e8edff'>".$periodo__evaluado."</td>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							MONTO TRANSFERIDO + REMANENTE:
+
+						</th>
+
+						<td style = 'background:#e8edff'>".$monto__transferido__rema."</td>
+
+						<th>
+
+							MONTO DE EJECUCIÓN REPORTADO AL SEMESTRE:
+
+						</th>
+
+						<td style = 'background:#e8edff'>".$monto__reportado__tri."</td>
+
+					</tr>
+
+
+					<tr>
+
+						<th>
+
+							PRESUPUESTO PLANIFICADO A EJECUTARSE AL SEMESTRE (USD):
+
+						</th>
+
+						<td style = 'background:#e8edff'>".$monto__ejecutado__trimestre."</td>
+
+						<th>
+
+							% DE AVANCE AL SEMESTRE:
+
+						</th>
+
+						<td style = 'background:#e8edff'>".$avance__trimestre__porcentaje." </td>
+
+					</tr>
+
+					<tr>
+
+						<th >
+
+							% de ejecución esperada al semestre en relación al presupuesto anual:
+
+						</th>
+
+						";
+						
+					
+						if (!empty($segundo__esperado)) {
+							
+							$documentoCuerpo.="
+
+								<td style = 'background:#e8edff'>
+
+									".$segundo__esperado."
+
+								</td>
+
+							
+
+							";
+						}else{
+
+							$documentoCuerpo.="
+
+								<td style = 'background:#e8edff'>
+									".$cuarto__esperado."
+								</td>
+
+						}
+
+							";
+
+						}
+
+
+					$documentoCuerpo.="
+						<th>
+
+							% de ejecución obtenida al semestre en relación al presupuesto anual:
+
+						</th>";
+
+						if (!empty($segundo__ejecucion)) {
+					
+							$documentoCuerpo.="
+		
+								<td style = 'background:#e8edff'>
+		
+									".$segundo__ejecucion."
+		
+								</td>
+		
+							
+		
+							";
+		
+						}else{
+		
+							$documentoCuerpo.="
+		
+								<td style = 'background:#e8edff'> 
+									".$cuarto__ejecucion."
+								</td>
+		
+							
+		
+							";
+		
+						}
+
+					
+
+
+				$documentoCuerpo.="</tr>
+				";
+			
+
+				
+
+				
+
+
+				$esigetfetes=$objeto->getObtenerInformacionGeneral("SELECT esigeft FROM poa_trimestrales WHERE idOrganismo='$idOrganismo' AND tipoTrimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos';");
+
+				$documentoCuerpo.="</table>
+
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							V.II. RESUMEN DE EJECUCIÓN PRESUPUESTARIA DEL POA
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:.5em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th>
+
+							<center> <h1 style='font-weight:900;'>
+
+								EJECUCIÓN PRESUPUESTARIA DEL POA 
+
+							</center>
+							
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table class='col col-12' border='1' style='border-collapse: collapse; margin-top:2em!important;'>
+
+					<thead>
+
+						<tr>
+
+							<th><center>ACTIVIDADES</center></th>
+							<th style='display:none!important;'><center>MONTO PLANIFICADO POA</center></th>
+							<th><center>MONTO PLANIFICADO AL SEMESTRE (A)</center></th>
+							<th><center>MONTO DE EJECUCIÓN REPORTADO AL SEMESTRE (B)</center></th>
+							<th><center>% DE AVANCE<br>AL SEMESTRE (B/A)</center></th>";
+
+				if ($esigetfetes[0][esigeft]=="si") {
+					$documentoCuerpo.="<th><center>MONTO DE<br>EJECUCIÓN EN<br>e-SIGEF2</center></th>
+					<th><center>% DE AVANCE<br>AL SEMESTRE<br>EN e-SIGEF2 (C/A)</center></th>";
+				}
+
+			
+
+
+
+			$documentoCuerpo.="
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+
+
+			";
+
+			$array = explode (',',$arrayPorcen);
+			$array1 = explode (',',$arrayEsigefts);
+			$array2 = explode (',',$arrayPorcenEsigefts);
+			$arrayPorcen__inicializados__array = explode (',',$arrayPorcen__inicializados);
+
+			$arrayPorcenEsigefts__programados__array = explode (',',$arrayPorcenEsigefts__programados);
+
+
+			foreach ($seguimiento__objetos__dimencionales as $clave => $valor) {
+
+				if (!empty($arrayPorcen__inicializados)) {
+					
+					if ($arrayPorcen__inicializados__array[$clave]>=85) {
+						
+						$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($arrayPorcen__inicializados__array[$clave]>=70 && $arrayPorcen__inicializados__array[$clave]<85){
+
+						$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($arrayPorcen__inicializados__array[$clave]<70){
+
+						$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+					}
+				
+
+				}else{
+
+					if ($array[$clave]>=85) {
+						
+						$div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+					}else if($array[$clave]>=70 && $array[$clave]<85){
+
+						$div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+					}else if($array[$clave]<70){
+
+						$div="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+					}	
+
+				}
+
+
+
+				if ($array2[$clave]>=85) {
+					
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+				}else if($array2[$clave]>=70 && $array2[$clave]<85){
+
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+
+				}else if($array2[$clave]<70){
+
+					$div2="<div style='border-radius: 50%!important; margin-right:1em; background:red; height:15px!important; width:15px!important;'></div>";
+
+
+				}
+
+				$documentoCuerpo.="
+
+					<tr>";
+
+					if ($valor[actividades]=="OPERACIÓN Y FUNCIONAMIENTO DE ORGANIZACIONES DEPORTIVAS Y ESCENARIOS DEPORTIVOS" && $aniosPeriodos__ingesos=='2022') {
+						$documentoCuerpo.=	"<td><center>GESTIÓN ADMINISTRATIVA Y FUNCIONAMIENTO DE ESCENARIOS DEPORTIVOS</center></td>";
+					}else if($valor[actividades]=="CAPACITACIÃ“N DEPORTIVA O DE RECREACIÓN" && $aniosPeriodos__ingesos=='2022'){
+
+						$documentoCuerpo.=	"<td><center>CAPACITACIÓN DEPORTIVA O RECREATIVA</center></td>";
+
+					}else{
+						$documentoCuerpo.=	"<td><center>".$valor[actividades]."</center></td>";
+					}
+
+				
+
+				$documentoCuerpo.=	"	<td style='display:none!important;'><center>".$valor[sumaPlanificacion]."</center></td>";
+
+				if (empty($arrayPorcenEsigefts__programados)) {
+					$documentoCuerpo.="<td ><center>".$valor[programado]."</center></td>";
+				}else{
+					$documentoCuerpo.="<td ><center>".$arrayPorcenEsigefts__programados__array[$clave]."</center></td>";
+				}
+
+				
+
+
+				$documentoCuerpo.="	<td><center>".$valor[ejecutado]."</center></td>";
+
+						if (!empty($arrayPorcen__inicializados)) {
+
+							if ($arrayPorcen__inicializados__array[$clave]=="NaN") {
+								$documentoCuerpo.="<td><center>-</center></td>";
+							}else{
+								$documentoCuerpo.="<td><center><span>".$div."</span>&nbsp;&nbsp;".$arrayPorcen__inicializados__array[$clave]."</center></td>";
+							}
+
+
+						}else{
+
+							if ($array[$clave]=="NaN") {
+								$documentoCuerpo.="<td><center>-</center></td>";
+							}else{
+								$documentoCuerpo.="<td><center><span>".$div."</span>&nbsp;&nbsp;".$array[$clave]."</center></td>";
+							}
+
+
+						}
+
+						if ($esigetfetes[0][esigeft]=="si") {
+
+						$documentoCuerpo.="<td><center>".$array1[$clave]."</center></td><td><center><span>".$div2."</span>&nbsp;&nbsp;".$array2[$clave]."</center></td>";
+
+						}
+
+						$documentoCuerpo.="
+					</tr>	
+
+				";
+
+			}
+
+
+			$documentoCuerpo.="
+
+					</tbody>
+
+					<tfoot>
+
+						<tr>
+
+							<th><center>Total</center></th>
+							<th style='display:none!important;'><center>".round($planificadoSas,2)."</center></th>
+							<th><center>".number_format($programadoSas,2)."</center></th>
+							<th><center>".number_format($ejecutadoSas,2)."</center></th>";
+
+							if ($procentajeSas=="NaN") {
+
+								$documentoCuerpo.="<th><center>-</center></th>";
+
+							}else{
+
+								$documentoCuerpo.="<th><center>".number_format($procentajeSas,2)."</center></th>";
+
+							}
+						
+
+			if ($esigetfetes[0][esigeft]=="si") {
+
+				$documentoCuerpo.=	"<th><center>".number_format($montosExig,2)."</center></th>
+								<th><center>".number_format($procentajeExigefSas,2)."</center></th>";
+
+			}					
+
+			$documentoCuerpo.=	"</tr>
+
+					</tfoot>
+
+
+				</table>
+
+			";
+
+			$documentoCuerpo.="
+
+				
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='width:10%!important;'>
+
+							OBSERVACIONES
+									
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<td style='width:90%!important; text-align:justify!important;'>
+
+							".nl2br($observaciones__seguimientos__cuadros__pdf)."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='width:10%!important;'>
+
+							RECOMENDACIONES
+									
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<td style='width:90%!important; text-align:justify!important;'>
+
+							".nl2br($recomendaciones__seguimientos__cuadros__pdf)."
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<td style='width:100%!important; text-align:right;'>
+
+							Fecha de emisión&nbsp;&nbsp; ".$dia."/ ".$mes."/ 2023
+									
+						</td>
+
+					</tr>
+
+
+				</table>
+
+
+				<table border='1' style='border-collapse: collapse; margin-top:2em!important; margin-top:1em!important; width:100%!importan;'>
+
+					<tr>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+							<center>
+
+								<div>ELABORADO POR:</div>
+								<br>
+								<div>".$usuarioUsados__seguimientos[0][nombre]." ".$usuarioUsados__seguimientos[0][apellido]."</div>
+								<div>".$usuarioUsados__seguimientos[0][descripcionPuestoInstitucional]."</div>
+							
+							</center>		
+
+						</th>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+							<center>
+
+								<div>REVISADO Y APROBADO POR:</div>
+								<br>
+								<div>".$usuarioUsados__seguimientos[0][nombreSuperior]." ".$usuarioUsados__seguimientos[0][apellidoSuperior]."</div>
+								<div>".$usuarioUsados__seguimientos[0][cargoSuperior]."</div>
+							
+							</center>		
+
+						</th>
+
+						<th style='height:50px!important; width:50%!important;'>
+
+
+						</th>
+
+					</tr>
+
+				</table>
+
+			";
+
+
+
+		break;
+
 
 
 	}

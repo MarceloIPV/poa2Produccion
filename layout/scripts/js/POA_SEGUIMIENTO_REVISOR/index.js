@@ -63,6 +63,9 @@ $(document).ready(function () {
 
          seguimiento__insertarEstado_Ajustado_Planificacion_Documentos("#guardarPlazosEstadosPlanificacion");
 
+         informacion__analistas__reasignar__regresar__alto__recomendar__recomendados2023($("#recomendar__altosRe__recomendados2023"));
+         informacion__analistas__reasignar__regresar__formRec__recomendar__recomendados2023($("#recomendar__form__recomendados2023"));	
+
     });
 
 
@@ -134,9 +137,9 @@ $(document).ready(function () {
     seleccionTabsRecorrido("#altoRen-tab","#idOrganismo","#periodo")
     seleccionTabsRecorrido("#infra-tab","#idOrganismo","#periodo")
     
+    funcion_Poas_Segumiento_Infra("#poaInfraSeguimiento","divPOAInfra","#idTituloModalPOAInfra","Reporte POA")
 
-  
-
+   
     });
 
 

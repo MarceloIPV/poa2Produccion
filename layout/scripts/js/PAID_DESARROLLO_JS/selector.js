@@ -1,4 +1,4 @@
- var obtenerRubrosItemsVer_Desarrollo = function (tipo,boton1,boton) {
+var obtenerRubrosItemsVer_Desarrollo = function (tipo,boton1,boton) {
 
     $(boton).click(function (e){
 
@@ -2153,5 +2153,56 @@ var AsignarMontoPlanificadosGENERALTOTALDesarrollo = function (tipo,valoren0, id
 
     });
 
+
+}
+
+//selector eventos
+
+var CargarSelector_eventos_DesarrolloJN = function (boton,tipo,idSelector) {
+
+    $(boton).click(function (e){
+
+        let paqueteDeDatos = new FormData();
+
+        
+
+        paqueteDeDatos.append("tipo", tipo);
+        paqueteDeDatos.append("idComponentes", $("#JuegosNacionalesIDCOMPONENTE").val());
+        paqueteDeDatos.append("idRubros", $("#JuegosNacionalesIDRUBRO").val());     
+
+        axios({
+            method: "post",
+            url: "modelosBd/PAID_DESARROLLO/selector.md.php",
+            data: paqueteDeDatos,
+            headers: { "Content-Type": "multipart/form-data" },
+        }).then((response) => {
+
+            var selector = document.getElementById(idSelector);
+
+            var opcion = document.createElement("option");
+            opcion.text='--Seleccione Una Opción--';
+            opcion.value=0;
+            opcion.selected;
+            selector.appendChild(opcion);
+            
+            for (z of response.data.informacion) {
+            
+                var opcion = document.createElement("option");
+            
+                opcion.value=z.idEvento;
+
+                opcion.text = z.nombre;
+            
+                selector.appendChild(opcion);
+            
+            }
+
+        }).catch((error) => {
+
+
+
+        });
+
+    });
 
 }

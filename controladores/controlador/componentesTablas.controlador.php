@@ -7861,9 +7861,25 @@
 
 									</table>
 
+									<div class='row g-2'>
+										
+											<div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div>
+													
+											100% - 85%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+											
+											84,99% - 70%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+											
+											69,99% - 0%
+									
+                					</div>
+
 									<div class='oculto_directivos'>
 									
-									<div class='col col-12 textos__titulos'>
+									<div class='col col-12 textos__titulos' style='margin:1em 0;'>
 
 										V.III. VERIFICACIÓN DE INFORMACIÓN: ACTIVIDAD 001
 
@@ -8742,7 +8758,7 @@
 								<select class='ancho__total__input__selects regresar__superior__con selects__superiores__regresar' id='selects__superiores__regresar__coors'>
 								</select>
 
-								<div class='direccion__seguimientos__ocultos'>Dirección de seguimiento</div>
+								<div class='direccion__seguimientos__ocultos'>Dirección de Seguimiento, Planes, Programas y Proyectos</div>
 
 							</div>
 
@@ -8858,7 +8874,7 @@
 
 							<div class='col col-12 text-center' style='background:#1b5e20; color:white;padding-top:1.5em;padding-bottom:1.5em;'>
 
-								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - ORGANIZACIONES DEPORTIVAS - <span class='siglas__dinamicas' style='font-weight:bold;'></span> ( RSEP-<span class='siglas__dinamicas' style='font-weight:bold;'></span>-<span class='numerico__dinamicas'></span>)
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA -  RSET - <span class='siglas__dinamicas' style='font-weight:bold;'></span> - <span class='numerico__dinamicas'></span>
 
 								<input type='hidden' id='siglas__dinamicas__inputs' name='siglas__dinamicas__inputs'/>
 								<input type='hidden' id='numerico__dinamicas__inputs' name='numerico__dinamicas__inputs'/>
@@ -9229,6 +9245,22 @@
 
 									</table>
 
+									<div class='row g-2'>
+										
+											<div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div>
+													
+											100% - 85%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+											
+											84,99% - 70%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+											
+											69,99% - 0%
+									
+									</div>
+
 									<div class='col col-12 textos__titulos'>
 
 										V.III. OTROS ASPECTOS TÉCNICOS
@@ -9242,16 +9274,6 @@
 
 											<tr>
 
-												<th colspan='4'>
-
-													<center><a class='btn btn-warning' id='agregar__indicadoresOtros'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;&nbsp;AGREGAR</a></center>
-
-												</th>
-
-											</tr>
-
-											<tr>
-
 												<th>
 													<center>INDICADOR</center>
 												</th>
@@ -9274,79 +9296,9 @@
 
 										</thead>
 
-										<tbody class='cuerpo__indicadores__altos'>
+										<tbody class='cuerpo__recreativo__1'>
 
-											<tr>
-
-												<td>Número de eventos ejecutados al trimestre:</td>
-												<td><input type='text' id='eventos__eje__alto' name='eventos__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='meta__eje__alto' name='meta__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__eventos__e'></div>
-														<input type='text' id='porcentaje__c__eje__alto' name='porcentaje__c__eje__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-											<tr>
-
-												<td>Número de eventos en los que participa al trimestre:</td>
-												<td><input type='text' id='eventos__eje__alto__parti' name='eventos__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='meta__eje__alto__parti' name='meta__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__eventos__e__parti'></div>
-														<input type='text' id='porcentaje__c__eje__alto__parti' name='porcentaje__c__eje__alto__parti' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-											<tr>
-
-												<td>Cantidad de implementación deportiva al I trimestre:</td>
-												<td><input type='text' id='implementacion__de__eje__alto__meta' name='implementacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='implementacion__de__eje__alto__resultado' name='implementacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__implementacion__de__e'></div>
-														<input type='text' id='porcentaje__c__implementacion__de__e__alto' name='porcentaje__c__implementacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Número de beneficiarios de capacitaciones deportivas:</td>
-												<td><input type='text' id='beneficiarios__de__eje__alto__meta' name='beneficiarios__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='beneficiarios__de__eje__alto__resultado' name='beneficiarios__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__beneficiarios__de__e'></div>
-														<input type='text' id='porcentaje__c__beneficiarios__de__e__alto' name='porcentaje__c__beneficiarios__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Número de beneficiarios de eventos de recreación:</td>
-												<td><input type='text' id='preparacion__de__eje__alto__meta' name='preparacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='preparacion__de__eje__alto__resultado' name='preparacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__preparacion__de__e'></div>
-														<input type='text' id='porcentaje__c__preparacion__de__e__alto' name='porcentaje__c__preparacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
+											
 
 										</tbody>
 
@@ -9358,17 +9310,6 @@
 
 											<tr>
 
-												<th colspan='4'>
-
-													<center><a class='btn btn-warning' id='agregar__indicadoresOtros__formativos'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;&nbsp;AGREGAR</a></center>
-
-												</th>
-
-											</tr>
-
-
-											<tr>
-
 												<th>
 													<center>INDICADOR</center>
 												</th>
@@ -9391,114 +9332,27 @@
 
 										</thead>
 
-										<tbody class='cuerpo__indicadores__altos'>
-
-											<tr>
-
-												<td>Número de eventos ejecutados al trimestre:</td>
-												<td><input type='text' id='eventos__eje__alto' name='eventos__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f eventos__eje__alto' value='0'/></td>
-												<td><input type='text' id='meta__eje__alto' name='meta__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f meta__eje__alto' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__eventos__e'></div>
-														<input type='text' id='porcentaje__c__eje__alto' name='porcentaje__c__eje__alto' class='ancho__total__input solo__numero__montos porcentaje__c__eje__alto' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-											<tr>
-
-												<td>Número de eventos en los que participa al trimestre:</td>
-												<td><input type='text' id='eventos__eje__alto__parti' name='eventos__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f eventos__eje__alto__parti' value='0'/></td>
-												<td><input type='text' id='meta__eje__alto__parti' name='meta__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f meta__eje__alto__parti' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__eventos__e__parti'></div>
-														<input type='text' id='porcentaje__c__eje__alto__parti' name='porcentaje__c__eje__alto__parti' class='ancho__total__input solo__numero__montos porcentaje__c__eje__alto__parti' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-											<tr>
-
-												<td>Número de beneficiarios atendidos en las actividades del fomento deportivo:</td>
-												<td><input type='text' id='implementacion__de__eje__alto__meta' name='implementacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f implementacion__de__eje__alto__meta' value='0'/></td>
-												<td><input type='text' id='implementacion__de__eje__alto__resultado' name='implementacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f implementacion__de__eje__alto__resultado' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__implementacion__de__e'></div>
-														<input type='text' id='porcentaje__c__implementacion__de__e__alto' name='porcentaje__c__implementacion__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__implementacion__de__e__alto' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Número de actividades del fomento deportivo a las que se destina el recurso de operación deportiva:</td>
-												<td><input type='text' id='beneficiarios__de__eje__alto__meta' name='beneficiarios__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__de__eje__alto__meta' value='0'/></td>
-												<td><input type='text' id='beneficiarios__de__eje__alto__resultado' name='beneficiarios__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__de__eje__alto__resultado' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__beneficiarios__de__e'></div>
-														<input type='text' id='porcentaje__c__beneficiarios__de__e__alto' name='porcentaje__c__beneficiarios__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__beneficiarios__de__e__alto' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Cantidad de implementación deportiva al I trimestre:</td>
-												<td><input type='text' id='preparacion__de__eje__alto__meta' name='preparacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f preparacion__de__eje__alto__meta' value='0'/></td>
-												<td><input type='text' id='preparacion__de__eje__alto__resultado' name='preparacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f preparacion__de__eje__alto__resultado' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__preparacion__de__e'></div>
-														<input type='text' id='porcentaje__c__preparacion__de__e__alto' name='porcentaje__c__preparacion__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__preparacion__de__e__alto' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Número de beneficiarios de capacitaciones deportivas:</td>
-												<td><input type='text' id='beneficiarios__capa__de__eje__alto__meta' name='beneficiarios__capa__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__capa__de__eje__alto__meta' value='0'/></td>
-												<td><input type='text' id='beneficiarios__capa__de__eje__alto__resultado' name='beneficiarios__capa__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__capa__de__eje__alto__resultado' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__beneficiarios__capa__de__e'></div>
-														<input type='text' id='porcentaje__c__beneficiarios__capa__de__e__alto' name='porcentaje__c__beneficiarios__capa__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__beneficiarios__capa__de__e__alto' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Número de beneficiarios de eventos de preparación y competencias:</td>
-												<td><input type='text' id='beneficiarios__even__prepa__de__eje__alto__meta' name='beneficiarios__even__prepa__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__even__prepa__de__eje__alto__meta' value='0'/></td>
-												<td><input type='text' id='beneficiarios__even__prepa__de__eje__alto__resultado' name='beneficiarios__even__prepa__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f beneficiarios__even__prepa__de__eje__alto__resultado' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__beneficiarios__even__prepa__de__e'></div>
-														<input type='text' id='porcentaje__c__even__prepa__capa__de__e__alto' name='porcentaje__c__even__prepa__capa__de__e__alto' class='ancho__total__input solo__numero__montos porcentaje__c__even__prepa__capa__de__e__alto' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
+										<tbody class='cuerpo__formativo__1'>
 
 										</tbody>
 
 									</table>
+
+									<div class='row g-2'>
+										
+										<div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div>
+												
+										100% - 85%;
+
+										<div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+										
+										84,99% - 70%;
+
+										<div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+										
+										69,99% - 0%
+							
+									</div>
 
 									
 
@@ -9874,6 +9728,12 @@
 
 												</th>
 
+												<th>
+
+													<center>OBSERVACIONES</center>
+
+												</th>
+
 											</tr>
 
 										</thead>
@@ -9896,6 +9756,12 @@
 													</select>
 												</td>
 
+
+												<td>
+													<textarea id='listAsistCapForm__observaciones__alto' name='listAsistCapForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -9912,6 +9778,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='fotCertifCapForm__observaciones__alto' name='fotCertifCapForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -9933,6 +9804,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='regFotCapaFrom__observaciones__alto' name='regFotCapaFrom__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -9951,6 +9827,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='cvForm__observaciones__alto' name='cvForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -9967,6 +9848,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='contratosForm__observaciones__alto' name='contratosForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -9988,6 +9874,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='registroFotEventoForm__observaciones__alto' name='registroFotEventoForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -10004,6 +9895,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='listadoAsistenciaAtl__observaciones__alto' name='listadoAsistenciaAtl__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -10024,6 +9920,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='ordenCompraForm__observaciones__alto' name='ordenCompraForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -10042,6 +9943,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='actasForm__observaciones__alto' name='actasForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -10058,6 +9964,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='facturaForm__observaciones__alto' name='facturaForm__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -10086,6 +9997,12 @@
 
 												</th>
 
+												<th>
+
+													<center>OBSERVACIONES</center>
+
+												</th>
+
 											</tr>
 
 										</thead>
@@ -10108,6 +10025,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='listAsisCapRec__observaciones__alto' name='listAsisCapRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -10124,6 +10046,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='fotCertCapRec__observaciones__alto' name='fotCertCapRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -10145,6 +10072,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='regFotCapRec__observaciones__alto' name='regFotCapRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -10161,6 +10093,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='cvRec__observaciones__alto' name='cvRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -10181,6 +10118,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='contratoRec__observaciones__alto' name='contratoRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -10197,6 +10139,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='regFotEvenRec__observaciones__alto' name='regFotEvenRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -10217,6 +10164,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='listPartEven__observaciones__alto' name='listPartEven__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -10233,6 +10185,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='ordCompRec__observaciones__alto' name='ordCompRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -10253,6 +10210,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='actEntregaRec__observaciones__alto' name='actEntregaRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											
@@ -10271,6 +10233,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='facturaRec__observaciones__alto' name='facturaRec__observaciones__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -10343,169 +10310,243 @@
 			session_start();
 
 			$idUsuario=$_SESSION["idUsuario"];
-
+		
 			$conexionRecuperada= new conexion();
-		 	$conexionEstablecida=$conexionRecuperada->cConexion();	
-
-		 	$query="SELECT a.id_usuario FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario WHERE a.id_usuario='$idUsuario' AND a.fisicamenteEstructura='1' AND b.id_rol='4'; ";
+			 $conexionEstablecida=$conexionRecuperada->cConexion();	
+		
+			 $query="SELECT a.id_usuario FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario WHERE a.id_usuario='$idUsuario' AND a.fisicamenteEstructura='1' AND b.id_rol='4'; ";
 			$resultado = $conexionEstablecida->query($query);
-
-
+		
+		
 			while($registro = $resultado->fetch()) {
-
+		
 				$id_usuarioUsuarios=$registro['id_usuario'];
-
+		
 			}
-
+		
 			$modal="
-
+		
 			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
-
-				<div class='modal-dialog' style='min-width:75%!important;'>
-
+		
+				<div class='modal-dialog' style='min-width:95%!important;'>
+		
 					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
-
+		
 						<input type='hidden' id='idOrganismo' name='idOrganismo' />
 						<input type='hidden' id='periodo' name='periodo' />
 						<input type='hidden' id='idUSeguimientos' name='idUSeguimientos' />
 						<input type='hidden' id='tipoAct' name='tipoAct' />
-
-
+		
+		
 						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
-
+		
 							<div class='col col-2 text-right'>
-
+		
 								<image src='images/titulo__ministerio__deporte.png'/>
-
+		
 							</div>
 							
-
+		
 							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
-
-
-
+		
+							<center>COORDINACION DE ADMINISTRACION E INFRAESTRUCTURA DEPORTIVA</center>
+		
 							</div>
-
-
+		
+		
 							<div class='col col-2 text-left'>
-
+		
 								<image src='images/titulo__principis__ministerios.png'/>
-
+		
 							</div>
-
-					        <div class='col col-1'>
-
-					          <span class='button pointer__botones' style='color:black!important; background:black!important;' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
-
-					        </div>
-
-
+		
+							<div class='col col-1'>
+		
+							  <span class='button pointer__botones modales__reload' style='color:black!important; background:black!important;' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
+		
+							</div>
+		
+		
 						</div>
 
 						<div class='modal-body row $parametro3'>
-
+		
 							<div class='fila__reasignar col col-2' style='font-weight:bold;'>
-
+		
 								Reasignar a
-
+		
 							</div>
-
+		
 							<div class='fila__reasignar col col-8'>";
-							if (empty($id_usuarioUsuarios)) {
-								$modal.=	"<select class='ancho__total__input__selects selects__superiores1 superior__sin' id='selects__superiores1'></select>";
-							} else {
-								$modal.=	"<select class='ancho__total__input__selects selects__superiores1 superior__sin' multiple='multiple' style='height:80px!important;' id='selects__superiores1'></select>";
-							}
+								if (empty($id_usuarioUsuarios)) {
+									$modal.=	"<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>";
+								} else {
+									$modal.=	"<select class='ancho__total__input__selects selects__superiores superior__sin' multiple='multiple' style='height:80px!important;' id='selects__superiores'></select>";
+								}
 							
-
-			$modal.=	"</div>
-
-
+		
+				$modal.=	"</div>
+		
+		
 							<div class='fila__reasignar col col-2 reasignar__solo text-center'>
-
-								<a class='btn btn-primary' id='reasignarSeguimientos__a__actividad__fisicas__in2023'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
-
+		
+								<a class='btn btn-primary' id='reasignarSeguimientos__a__actividad__fisicas__in'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
+		
 							</div>
-
-
+		
+		
 							<div class='fila__regresar__a col col-2' style='font-weight:bold;'>
-
+		
 								Regresar a
-
+		
 							</div>
-
+		
 							<div class='fila__regresar__a col col-8'>
-
+		
 								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
-
+		
 							</div>
-
+		
 							<div class='fila__regresar__a col col-2'>
-
-								<a class='btn btn-warning' id='regresarSeguimientos__a__actividad__fisicas__in2023'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Regresar</a>
-
+		
+								<a class='btn btn-warning' id='regresarSeguimientos__a__actividad__fisicas__in'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Regresar</a>
+		
 							</div>
-
-
-
-							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
-
-								No corresponde
-
-							</div>		
-
-
-							<div class='fila__regresar__a__informe__recomendacion col col-8 oculto__file__recomendaciones text-left d d-flex justify-content-right'>
-
-								<a class='btn btn-danger' id='no__correspondeA'>No corresponde</a>
-
-							</div>
-
-
-
-							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
-
+		
+		
+		
+							<div 		
+		
+							<div class='fila__regresar__a__informe__recomendacion col col-4 mt-4 oculto__file__recomendaciones'>
+		
 								Subir informe de recomendación
-
+		
 							</div>		
-
+		
 							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
-
+		
 								<input type='file' id='informe__recomendado' accept='application/pdf'/>
-
+		
 							</div>					
-
+		
 							<div class='fila__regresar__a__informe__recomendacion col col-4 oculto__file__recomendaciones'>
-
+		
 								<a class='btn btn-primary' id='recomendar__infraes'>Recomendar</a>
-
+		
 							</div>
-
+		
 							<div class='row'>
-
+		
 								<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
-
+		
 									Observaciones
-
+		
 								</div>
-
+		
 								<div class='col col-10 observacionesReasignaciones'>
-
+		
 									<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+		
+								</div>
+		
+							</div>
+		
+						</div>
+		
+						<div class='modal-body row indicadores__seguimiento__infra'>
+							<div class='col col-4  mt-4 insfraestructuras__re'>
+								POA Y Auxiliares
+							</div>
+							
+							<div class='col col-8 d d-flex justify-content-center d d-flex justify-content-center insfraestructuras__re'>
+								<a id='poaInfraSeguimiento' idOrganismo='' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#reasignarTra' >Visualizar</a>
+							</div>
+						</div>
+						
+		
+		
+						<div class='modal-body row indicadores__seguimiento__infra'>
+
+								<div class='col col-12 textos__titulos' style='margin:1em 0;'>
+
+										Indicadores Reportados:
 
 								</div>
 
-							</div>
+								<table>
 
+									<thead>
+
+
+										<tr>
+
+											<th>
+												<center>INDICADOR</center>
+											</th>
+
+											<th>
+												<center>META PLANIFICADA AL SEMESTRE (A)</center>
+											</th>
+
+
+											<th>
+												<center>RESULTADO ALCANZADO AL SEMESTRE (B)</center>
+											</th>
+
+
+											<th>
+												<center>% DE CUMPLIMIENTO AL SEMESTRE (B/A)</center>
+											</th>
+
+										</tr>
+
+									</thead>
+
+									<tbody class='cuerpo__items__indicadores__infraestructura'>
+
+										
+
+
+									</tbody>
+
+								</table>
+		
+						
 						</div>
-
+		
+		
+						<div class='modal-body row indicadores__seguimiento__infra'>													
+		
+						
+		
+								<table id='infraestructura__intervenciones'>
+									<thead>
+											<tr>												
+											<th><center>NOMBRE DE INFRAESTRUCTURA</center></th>
+											<th><center>TIPO INTERVENCIÓN</center></th>
+											<th><center>FECHA EJECUTADO</center></th>
+											<th><center>MONTO EJECUTADO</center></th>
+											<th><center>INFORME EJECUCION DE REHABILITACIÓN Y-O MANTENIMIENTOS PLANIFICADOS</center></th>
+											<th><center>RESPALDOS DEL INFORME</center></th>
+											<th><center>OTROS DOCUMENTOS</center></th>
+											<th><center>REPORTE SEMESTRAL</center></th>
+											<th><center>GUARDAR</center></th>
+											</tr>
+									</thead>
+								</table>
+						</div>
+		
+		
+		
+						
+		
 					</form>
-
+		
 				</div>
-
+		
 			</div>
 			";
-
+		
 			return $modal;
 
 		}	
@@ -10520,7 +10561,7 @@
 
 					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
 
-						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos__altos'/>
+						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos__altos__2023'/>
 
 						<input type='hidden' id='idOrganismo' name='idOrganismo' />
 						<input type='hidden' id='periodo' name='periodo' />
@@ -10566,7 +10607,7 @@
 
 							<div class='col col-12 text-center' style='background:#1b5e20; color:white;padding-top:1.5em;padding-bottom:1.5em;'>
 
-								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - ORGANIZACIONES DEPORTIVAS - <span class='siglas__dinamicas' style='font-weight:bold;'></span> ( RSEP-<span class='siglas__dinamicas' style='font-weight:bold;'></span>-<span class='numerico__dinamicas'></span>)
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN TÉCNICA - RSET - <span class='siglas__dinamicas' style='font-weight:bold;'></span> - <span class='numerico__dinamicas'></span>
 
 								<input type='hidden' id='siglas__dinamicas__inputs' name='siglas__dinamicas__inputs'/>
 								<input type='hidden' id='numerico__dinamicas__inputs' name='numerico__dinamicas__inputs'/>
@@ -10930,11 +10971,30 @@
 
 										<tbody class='cuerpo__items__alto__rendimientos'></tbody>
 
-										<tfoot class='footer__altos__indicadores'></tfoot>
+										<tfoot class='footer__altos__indicadores'> </tfoot>
 
 									</table>
 
-									<div class='col col-12 textos__titulos'>
+									  
+									<div class='row g-2'>
+										
+											<div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div>
+													
+											100% - 85%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+											
+											84,99% - 70%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+											
+											69,99% - 0%
+									
+                					</div>
+									
+									
+
+									<div class='col col-12 textos__titulos' style='margin:1em 0;'>
 
 										V.III. OTROS ASPECTOS TÉCNICOS
 
@@ -10944,15 +11004,6 @@
 
 										<thead>
 
-											<tr>
-
-												<th colspan='4'>
-
-													<center><a class='btn btn-warning' id='agregar__indicadoresOtros'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;&nbsp;AGREGAR</a></center>
-
-												</th>
-
-											</tr>
 
 											<tr>
 
@@ -10978,87 +11029,32 @@
 
 										</thead>
 
-										<tbody class='cuerpo__indicadores__altos'>
+										<tbody class='cuerpo__items__alto__rendimientos__indicadores'>
 
-											<tr>
-
-												<td>Número de eventos ejecutados al trimestre:</td>
-												<td><input type='text' id='eventos__eje__alto' name='eventos__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='meta__eje__alto' name='meta__eje__alto' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__eventos__e'></div>
-														<input type='text' id='porcentaje__c__eje__alto' name='porcentaje__c__eje__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-											<tr>
-
-												<td>Número de eventos en los que participa al trimestre:</td>
-												<td><input type='text' id='eventos__eje__alto__parti' name='eventos__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='meta__eje__alto__parti' name='meta__eje__alto__parti' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__eventos__e__parti'></div>
-														<input type='text' id='porcentaje__c__eje__alto__parti' name='porcentaje__c__eje__alto__parti' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-											<tr>
-
-												<td>Cantidad de implementación deportiva al I trimestre:</td>
-												<td><input type='text' id='implementacion__de__eje__alto__meta' name='implementacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='implementacion__de__eje__alto__resultado' name='implementacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__implementacion__de__e'></div>
-														<input type='text' id='porcentaje__c__implementacion__de__e__alto' name='porcentaje__c__implementacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Número de beneficiarios de capacitaciones deportivas:</td>
-												<td><input type='text' id='beneficiarios__de__eje__alto__meta' name='beneficiarios__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='beneficiarios__de__eje__alto__resultado' name='beneficiarios__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__beneficiarios__de__e'></div>
-														<input type='text' id='porcentaje__c__beneficiarios__de__e__alto' name='porcentaje__c__beneficiarios__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
-
-											<tr>
-
-												<td>Número de beneficiarios de eventos de preparación y competencias:</td>
-												<td><input type='text' id='preparacion__de__eje__alto__meta' name='preparacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td><input type='text' id='preparacion__de__eje__alto__resultado' name='preparacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
-												<td>
-													<div style='display:flex;'>
-														<div class='porcentaje__preparacion__de__e'></div>
-														<input type='text' id='porcentaje__c__preparacion__de__e__alto' name='porcentaje__c__preparacion__de__e__alto' class='ancho__total__input solo__numero__montos' readonly='' value='0'/>
-													</div>
-												</td>
-
-											</tr>
-
+											
 
 
 										</tbody>
 
 									</table>
 
-									<div class='col col-4' style='font-weight:bold;'>
+									<div class='row g-2' style='margin: 1rem 0'>
+										
+											<div style='border-radius: 50%!important; margin:0 1em; background:green; height:15px!important; width:15px!important;'></div>
+													
+											100% - 85%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:gold; height:15px!important; width:15px!important;'></div>
+											
+											84,99% - 70%;
+
+											<div style='border-radius: 50%!important; margin:0 1em; background:red; height:15px!important; width:15px!important;'></div>
+											
+											69,99% - 0%
+									
+                					</div>
+
+									<div class='col col-4' style='font-weight:bold; margin:1em 0;'>
 
 										NÚMERO DE CAPACITADORES:
 
@@ -11106,7 +11102,7 @@
 
 									<div class='col col-2'>
 
-										<input type='text' id='oro__alto' name='oro__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+										<input type='text' readonly id='oro__alto' name='oro__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
 
 									</div>
 
@@ -11118,7 +11114,7 @@
 
 									<div class='col col-2'>
 
-										<input type='text' id='plata__alto' name='plata__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+										<input type='text' readonly id='plata__alto' name='plata__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
 
 									</div>
 
@@ -11130,7 +11126,7 @@
 
 									<div class='col col-2'>
 
-										<input type='text' id='bronce__alto' name='bronce__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
+										<input type='text' readonly id='bronce__alto' name='bronce__alto' class='ancho__total__input solo__numero cambio__de__numero__f' value='0'/>
 
 									</div>	
 									
@@ -11225,6 +11221,12 @@
 
 												</th>
 
+												<th>
+
+													<center>OBSERVACIONES</center>
+
+												</th>
+
 											</tr>
 
 										</thead>
@@ -11247,6 +11249,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='lisAsisCap__observ__alto' name='lisAsisCap__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -11263,6 +11270,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='fotCerCap__observ__alto' name='fotCerCap__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -11284,6 +11296,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='regFotCap__observ__alto' name='regFotCap__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -11302,6 +11319,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='cvProf__observ__alto' name='cvProf__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -11318,6 +11340,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='contProf__observ__alto' name='contProf__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -11339,6 +11366,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='listAsisAtlSusEnt__observ__alto' name='listAsisAtlSusEnt__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -11355,6 +11387,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='infMedico__observ__alto' name='infMedico__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -11375,6 +11412,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='regFotEvenDep__observ__alto' name='regFotEvenDep__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -11391,6 +11433,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='repResDepObt__observ__alto' name='repResDepObt__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -11411,6 +11458,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='ordCompImpl__observ__alto' name='ordCompImpl__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -11429,6 +11481,11 @@
 													</select>
 												</td>
 
+												<td>
+													<textarea id='actEntRecImp__observ__alto' name='actEntRecImp__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
+												</td>
+
 											</tr>
 
 											<tr>
@@ -11445,6 +11502,11 @@
 														<option value='Parcialmente'>Parcialmente</option>
 														<option value='N/A'>N/A</option>
 													</select>
+												</td>
+
+												<td>
+													<textarea id='factImpDep__observ__alto' name='factImpDep__observ__alto' class='ancho__total__input__selects'>
+													</textarea>
 												</td>
 
 											</tr>
@@ -11513,6 +11575,1387 @@
 
 		}
 
+
+		public function get__modal__plantilla__inicios__seguimientos__alto__recomendados2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<input type='hidden' id='organismoOculto__modal' name='organismoOculto__modal' />
+							<input type='hidden' id='periodo' name='periodo' />
+							<input type='hidden' id='nombreDocumento' name='nombreDocumento' />
+
+
+							<div class='col col-4'>
+
+								<a id='informe__recomendados' target='_blank'>Descargar Informe recomendado</a>
+
+							</div>
+
+							<div class='col col-4 oculto__subsess__deseados' style='font-weight:bold!important;'>
+
+								Subir archivo firmado
+
+							</div>
+
+							<div class='col col-4 oculto__subsess__deseados'>
+
+								<input type='file' accept='application/pdf' id='informe__recomendado' name='informe__recomendado' class='ancho__total__input'/>
+
+							</div>
+
+							<div class='col col-2 mt-2' style='font-weight:bold;'>
+
+								Recomendar a
+
+							</div>
+
+							<div class='col col-8 mt-2'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+								<select class='ancho__total__input__selects regresar__superior__con selects__superiores__regresar' id='selects__superiores__regresar__coors'>
+								</select>
+
+								<div class='direccion__seguimientos__ocultos'>Dirección de Seguimiento, Planes, Programas y Proyectos</div>
+
+							</div>
+
+							<div class='col col-2 mt-2'>
+
+								<a class='btn btn-warning' id='recomendar__altosRe__recomendados2023'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;RECOMENDAR</a>
+
+							</div>
+
+							<div class='col col-2' style='font-weight:bold;'>
+
+								Devolver a
+
+							</div>
+
+							<div class='col col-8'>
+
+								<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>
+
+								<select class='ancho__total__input__selects selects__superiores superior__con' id='selects__superiores__subsess'></select>
+
+							</div>
+
+							<div class='col col-2'>
+
+								<a class='btn btn-danger' id='devolver__altosReComendados'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;DEVOLVER</a>
+
+							</div>
+
+							<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}	
+
+		public function get__modal__plantilla__inicios__seguimientos2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:95%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<input type='hidden' id='tipoPdf' name='tipoPdf' value='pdf__seguimientos2023'/>
+
+						<input type='hidden' id='idOrganismo' name='idOrganismo' />
+						<input type='hidden' id='periodo' name='periodo' />
+						<input type='hidden' id='arrayPorcen' name='arrayPorcen' />
+
+						<input type='hidden' id='arrayPorcen__inicializados' name='arrayPorcen__inicializados' />
+
+						<input type='hidden' id='arrayPorcenEsigefts__programados' name='arrayPorcenEsigefts__programados' />
+						
+
+						<input type='hidden' id='arrayEsigefts' name='arrayEsigefts' />
+						<input type='hidden' id='arrayPorcenEsigefts' name='arrayPorcenEsigefts' />
+
+						<input type='hidden' id='idUSeguimientos' name='idUSeguimientos' />
+
+						<input type='hidden' id='tipos__nomenclaturas' name='tipos__nomenclaturas' />
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos'>
+
+								COORDINACIÓN GENERAL DE PLANIFICACIÓN Y GESTIÓN ESTRATÉGICA<br>
+								DIRECCIÓN DE SEGUIMIENTO DE PLANES, PROGRAMAS Y PROYECTOS
+
+							</div>
+
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+							<div class='col col-12 text-center' style='background:#0d47a1; color:white;padding-top:1.5em;padding-bottom:1.5em;'>
+
+								REPORTE DE SEGUIMIENTO Y EVALUACIÓN PRESUPUESTARIA - RSEP - DSPPP - <span class='siglas__dinamicas' style='font-weight:bold;'></span> - <span class='numerico__dinamicas'></span>
+
+								<input type='hidden' id='siglas__dinamicas__inputs' name='siglas__dinamicas__inputs'/>
+								<input type='hidden' id='numerico__dinamicas__inputs' name='numerico__dinamicas__inputs'/>
+
+							</div>
+
+							<div class='col col-12 text-center con__sin__e' style='color:black;padding-top:1.5em;padding-bottom:1.5em;font-weight:bold;'>
+
+
+							</div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+						<div class='fila__reasignar col col-2' style='font-weight:bold;'>
+
+							Reasignar a
+
+						</div>
+
+						<div class='fila__reasignar col col-4'>
+
+							<select class='ancho__total__input__selects' id='selects__superiores'></select>
+
+						</div>
+
+						<div class='fila__reasignar col col-2'>
+
+							<a class='btn btn-primary' id='reasignarSeguimientos__a'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
+
+						</div>
+
+
+						<div class='fila__regresar__a col col-2' style='font-weight:bold;'>
+
+							Regresar a
+
+						</div>
+
+						<div class='fila__regresar__a col col-4'>
+
+							<select class='ancho__total__input__selects' id='selects__superiores__regresar'></select>
+
+						</div>
+
+						<div class='fila__regresar__a col col-2'>
+
+							<a class='btn btn-warning' id='regresarSeguimientos__a'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Regresar</a>
+
+						</div>
+
+
+						<div class='col col-3'>
+
+							Click para ver reporte
+
+						</div>
+
+						<div class='col col-1'>
+
+							<input type='checkbox' id='seguimiento__tables' class='checkeds' />
+
+						</div>
+
+
+						<div class='col col-12 elemento__refutables__corregidos text-center' style='font-weight:bold;'>
+
+
+						</div>
+
+						<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+							Observaciones
+
+						</div>
+
+						<div class='col col-10 observacionesReasignaciones'>
+
+							<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+						</div>
+
+
+						<div class='row oculto__informacion'>
+
+						<input type='hidden' id='organismoOculto__modal' />
+
+							<div class='col col-2 textos__titulos'>
+
+								I PERÍODO EVALUADO
+
+							</div>
+
+							<div class='col col-1' style='font-weight:bold;'>
+
+								AÑO 
+
+							</div>
+
+							<div class='col col-9 text-left periodo__evaluados__anuales'></div>
+							<input type='hidden' id='periodo__evaluados__anuales' name='periodo__evaluados__anuales' />
+
+
+							<div class='col col-12 row d-flex mt-4'>
+
+								<div class='col col-7 row'>
+
+									<div class='col col-12 text-left textos__titulos'>
+
+										II. DATOS GENERALES DE LA ORGANIZACIÓN DEPORTIVA
+
+									</div>
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										NOMBRE DE LA ORGANIZACIÓN:
+
+									</div>
+
+									<div class='nombre__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='nombre__organizacion__deportivas' name='nombre__organizacion__deportivas' />
+
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										RUC DE LA ORGANIZACIÓN:
+
+									</div>
+
+									<div class='ruc__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='ruc__organizacion__deportivas' name='ruc__organizacion__deportivas' />
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										PRESIDENTE O REPRESENTANTE LEGAL:
+
+									</div>
+
+									<div class='presidente__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='presidente__organizacion__deportivas' name='presidente__organizacion__deportivas' />
+
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										CORREO ELECTRÓNICO DE LA ORGANIZACIÓN:
+
+									</div>
+
+									<div class='correo__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='correo__organizacion__deportivas' name='correo__organizacion__deportivas' />
+
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										DIRECCIÓN COMPLETA:
+
+									</div>
+
+									<div class='direccion__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='direccion__organizacion__deportivas' name='direccion__organizacion__deportivas' />
+
+
+								</div>
+
+								<div class='col col-5 row'>
+
+									<div class='col col-12 text-left textos__titulos'>
+
+										III. UBICACIÓN GEOGRÁFICA
+
+									</div>
+
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										PROVINCIA:
+
+									</div>
+
+									<div class='provincia__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='provincia__organizacion__deportivas' name='provincia__organizacion__deportivas' />
+
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										CANTÓN:
+
+									</div>
+
+									<div class='canton__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='canton__organizacion__deportivas' name='canton__organizacion__deportivas' />
+
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										PARROQUIA:
+
+									</div>
+
+									<div class='parroquia__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='parroquia__organizacion__deportivas' name='parroquia__organizacion__deportivas' />
+
+									<div class='col col-6 mt-2' style='font-weight:bold;'>
+
+										BARRIO:
+
+									</div>
+
+									<div class='barrio__organizacion__deportivas col col-6 mt-2'></div>
+
+									<input type='hidden' id='barrio__organizacion__deportivas' name='barrio__organizacion__deportivas' />
+
+								</div>
+
+							</div>
+
+							<div class='col col-12 row d-flex mt-4 textos__titulos'>
+
+								IV. ALINEACIÓN A LA PLANIFICACIÓN 
+
+							</div>
+
+							<div class='col col-2' style='font-weight:bold;'>
+
+								ÁREA DE ACCIÓN:
+
+							</div>
+
+							<div class='area__de__accion__llamados col col-1'></div>
+
+							<input type='hidden' id='area__de__accion__llamados' name='area__de__accion__llamados' />
+
+							<div class='col col-4' style='font-weight:bold;'>
+
+								OBJETIVO ESTRATÉGICO INSTITUCIONAL:
+
+							</div>
+
+							<div class='objetivo__institucional__estrategicos col col-5 text-left'></div>
+
+							<input type='hidden' id='objetivo__institucional__estrategicos' name='objetivo__institucional__estrategicos' />
+
+							<div class='col col-12 row d-flex mt-4 textos__titulos'>
+
+								V. SEGUIMIENTO Y EVALUACIÓN PRESUPUESTARIA DE LA PLANIFICACIÓN OPERATIVA ANUAL (POA)
+
+							</div>
+
+
+							<div class='col col-12 row d-flex mt-4 textos__titulos'>
+
+								V.I PRESUPUESTO DE LA PLANIFICACIÓN OPERATIVA ANUAL
+
+							</div>
+
+							
+							<div class='col col-4 row d-flex mt-4' style='font-weight:bold;'>
+
+								PRESUPUESTO ANUAL ASIGNADO SEGÚN POA (USD):
+
+							</div>
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<input type='text' id='presupuesto__segun__poas' name='presupuesto__segun__poas' style='border:none!important;' readonly='' />	
+
+							</div>
+
+							
+							<div class='col col-4 row d-flex mt-4' style='font-weight:bold;'>
+
+								PERÍODO EVALUADO:
+
+							</div>
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<input type='text' id='periodo__evaluado' name='periodo__evaluado' style='border:none!important;' readonly='' />
+
+							</div>
+
+							<div class='col col-4 row d-flex mt-4' style='font-weight:bold;'>
+
+								MONTO TRANSFERIDO + REMANENTE:
+
+							</div>
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<input type='text' id='monto__transferido__rema' name='monto__transferido__rema' class='solo__numero__montos' style='width:85%!important;' placeholder='Ingrese remanente'/>
+
+							</div>
+
+							<div class='col col-4 row d-flex mt-4' style='font-weight:bold;'>
+
+								MONTO DE EJECUCIÓN REPORTADO AL SEMESTRE:
+
+							</div>
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<input type='text' id='monto__reportado__tri' name='monto__reportado__tri' style='border:none!important;' readonly='' />
+
+							</div>
+
+
+							<div class='col col-4 row d-flex mt-4' style='font-weight:bold;'>
+
+								PRESUPUESTO PLANIFICADO A EJECUTARSE AL SEMESTRE (USD):
+
+							</div>
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<div class='col col-6 ' >
+
+									<input type='text' readonly id='monto__ejecutado__trimestre' name='monto__ejecutado__trimestre' />
+
+								</div>
+								
+							</div>
+
+
+							<div class='col col-4 row d-flex mt-4' style='font-weight:bold;'>
+
+								% DE AVANCE AL SEMESTRE:
+
+							</div>
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<div class='col col-6 ' >
+
+									<input type='text' readonly id='avance__trimestre__porcentaje' name='avance__trimestre__porcentaje' />
+
+								</div>
+								
+							</div>
+
+							<div class='col col-4 row d-flex mt-4 text-left' style='font-weight:bold;'>
+
+								% de ejecución esperada al semestre en relación al presupuesto anual:
+
+							</div>
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<div class='col col-6 segundo__esperado__div' >
+
+									<input type='text' readonly id='segundo__esperado' name='segundo__esperado' />
+
+								</div>
+
+
+								<div class='col col-6 cuarto__esperado__div' >
+
+									<input type='text' readonly id='cuarto__esperado' name='cuarto__esperado' readonly='' class='ancho__total__input' style='border:none!important'/>
+
+								</div>
+
+
+							</div>
+
+							<div class='col col-4 row d-flex mt-4 text-left' style='font-weight:bold;'>
+
+								% de ejecución obtenida al semestre en relación al presupuesto anual:
+
+							</div>
+
+						
+
+							<div class='col col-2 row d-flex mt-4'>
+
+								<div class='col col-6 ejecutados__al__segundo'>
+
+									<input type='text' readonly id='segundo__ejecucion' name='segundo__ejecucion' class='ancho__total__input' />
+
+								</div>
+
+								<div class='col col-6 ejecutados__al__cuarto'>
+
+									<input type='text' readonly id='cuarto__ejecucion' name='cuarto__ejecucion' readonly='' class='ancho__total__input' style='border:none!important'/>
+
+								</div>
+
+							</div>
+
+
+
+							<div class='col col-12 row d-flex mt-4' style='font-weight:bold;'>
+
+								V.II. RESUMEN DE EJECUCIÓN PRESUPUESTARIA DEL POA
+
+							</div>
+
+							<table class='col col-12'>
+
+								<thead>
+
+									<tr>
+
+										<th><center>ACTIVIDADES</center></th>
+										<th style='display:none!important;'><center>MONTO PLANIFICADO POA</center></th>
+										<th><center>MONTO PLANIFICADO AL SEMESTRE (A)</center></th>
+										<th><center>MONTO DE EJECUCIÓN REPORTADO AL SEMESTRE (B)</center></th>
+										<th><center>% DE AVANCE<br>AL SEMESTRE (B/A)</center></th>
+										<th class='oculto__sin__esiguefts'><center>MONTO DE<br>EJECUCIÓN EN<br>e-SIGEF2 (C)</center></th>
+										<th class='oculto__sin__esiguefts'><center>% DE AVANCE<br>AL SEMESTRE<br>EN e-SIGEF2 (C/A)</center></th>
+
+									</tr>
+
+								</thead>
+
+								<tbody class='cuerpo__matricez__seguimientos'></tbody>
+
+								<tfoot class='footer__matricez__seguimientos'></tfoot>
+
+							</table>
+
+							<div class='fila__regresar__a col col-2 mt-2'>
+
+								Observaciones:
+
+							</div>
+
+							<div class='fila__regresar__a col col-10 mt-2'>
+
+								<textarea id='observaciones__seguimientos__cuadros__pdf' name='observaciones__seguimientos__cuadros__pdf' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+
+							<div class='fila__regresar__a col col-2 mt-2'>
+
+								Recomendaciones:
+
+							</div>
+
+							<div class='fila__regresar__a col col-10 mt-2'>
+
+								<textarea id='recomendaciones__seguimientos__cuadros__pdf' name='recomendaciones__seguimientos__cuadros__pdf' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+							<div class='col col-12 d d-flex justify-content-center'>
+
+								<a target='_blank' class='btn btn-primary' href='reporteAnexosSe'>REPORTES Y ANEXOS</a>
+
+							</div>
+
+
+							<div class='fila__regresar__a col col-2 mt-4 text-center'>
+
+								<button type='submit' class='btn btn-warning'><i class='fa fa-file-pdf-o' aria-hidden='true'></i>&nbsp;&nbsp;Generar pdf</button>
+
+							</div>
+
+							<div class='fila__regresar__a col col-2 mt-4 text-center textos__titulos'>
+
+								Subir reporte generado en pdf
+
+							</div>
+
+							<div class='fila__regresar__a col col-4 mt-4 text-center'>
+
+								<input type='file' accept='application/pdf' id='archivoSubido__seguimientos' name='archivoSubido__seguimientos'>
+
+							</div>
+
+							<div class='fila__regresar__a col col-4 mt-4 text-center'>
+
+								<a class='btn btn-primary' id='recomendar__seguimientos'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;RECOMENDAR</a>
+
+							</div>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}	
+
+
+
+
+		//******************************  DSPPP RECOMENDADOS  *********************************** */
+		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<input type='hidden' id='organismoOculto__modal' name='organismoOculto__modal' />
+							<input type='hidden' id='periodo' name='periodo' />
+							<input type='hidden' id='nombreDocumento' name='nombreDocumento' />
+
+							<div class='col col-12 mt-4'>
+
+									<h4 class='faltantes_documentos_financieros'><center> Faltan informes Administrativos</center></h4>
+									<h4 class='faltantes_documentos_tecnicos'><center> Faltan informes TECNICOS</center></h4>
+									<h4 class='faltantes_documentos_infraestructura'><center> Faltan informes INFRAESTRUCTURA</center></h4>
+							</div>
+
+							<div class='col col-12 textos__titulos mt-4'>
+
+								DOCUMENTOS DE RECOMENDACIÓN 
+
+							</div>
+
+							<div class='col col-2 oculto__subsess__deseados d d-flex justify-content-center'>
+
+								<a id='informe__recomendados' class='btn btn-info' target='_blank'>INFORME PRESUPUESTARIO RECOMENDADO</a>
+
+							</div>
+
+							<div class='col col-2 d d-flex justify-content-center d d-flex justify-content-center'>
+
+								<a id='documentos__tecnicos__t' class='boton__pdfs__tecnicas btn btn-success's target='_blank'>Informe técnico</a>
+
+							</div>
+
+
+							<div class='col col-2 d d-flex justify-content-center d d-flex justify-content-center'>
+
+								<a id='documentos__tecnicos__i' class='boton__pdfs__infraestructuras btn btn-warning' target='_blank'>Informe infraestructuras</a>
+
+							</div>
+
+
+							<div class='col col-2 d d-flex justify-content-center d d-flex justify-content-center'>
+
+								<a id='documentos__tecnicos__actividad1_financiero' class='boton__pdfs__financiero btn btn-primary' target='_blank' >Informe Actividad 1</a>
+
+							</div>
+
+							<div class='col col-2 d d-flex justify-content-center d d-flex justify-content-center'>
+
+								<a id='documentos__tecnicos__contratacion_financiero' class='boton__pdfs__financiero btn btn-primary' target='_blank' >Informe Contratación Pública</a>
+
+							</div>
+							
+
+							<div class='col col-12 textos__titulos mt-4'>
+
+								ACCIONES DE RECOMENDACIÓN
+
+							</div>
+
+						
+
+							<div class='col col-4 oculto__subsess__deseados' style='font-weight:bold!important;'>
+
+								Subir archivo firmado
+
+							</div>
+
+							<div class='col col-8 oculto__subsess__deseados'>
+
+								<input type='file' accept='application/pdf' id='informe__recomendado' name='informe__recomendado' class='ancho__total__input'/>
+
+							</div>
+
+							<div class='col col-4 mt-2' style='font-weight:bold;'>
+
+								Enviar al organismo deportivo
+
+							</div>
+
+							<div class='col col-6 mt-2 clases__puedes__recomendares' style='font-weight:bold; color:#4a148c;'>
+
+
+							</div>
+
+
+							<div class='col col-2 mt-2'>
+
+								<a class='btn btn-success' id='enviar__orgnaismosDeportivos'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;ENVIAR</a>
+
+							</div>
+
+							<div class='col col-2' style='font-weight:bold;'>
+
+								Devolver a
+
+							</div>
+
+							<div class='col col-8'>
+
+								<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>
+
+							</div>
+
+							<div class='col col-2'>
+
+								<a class='btn btn-danger' id='devolver__altosReComendados__f__r__s'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;DEVOLVER</a>
+
+							</div>
+
+							<div class='fila__reasignar col col-6 d d-flex justify-content-center' style='font-weight:bold;'>
+
+								<a class='btn btn-warning boton__pdfs__tecnicas' id='regresar__areas__tecnicas__seguimientos' target='_blank'>REGRESAR AL ÁREA TÉCNICA</a>
+
+							</div>
+
+
+							<div class='fila__reasignar col col-6 d d-flex justify-content-center' style='font-weight:bold;'>
+
+								<a class='btn btn-info boton__pdfs__infraestructuras' id='regresar__areas__tecnicas__seguimientos__infraens__2' target='_blank'>REGRESAR AL ÁREA DE INFRAESTRUCTURA</a>
+
+							</div>
+							
+							<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}		
+
+
+		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados__zonales2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+			<div class='modal-dialog' style='min-width:75%!important;'>
+
+				<form class='modal-content formularioConfiguracion'>
+
+
+					<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+						<div class='col col-2 text-right'>
+
+							<image src='images/titulo__ministerio__deporte.png'/>
+
+						</div>
+						
+
+						<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+						</div>
+
+
+						<div class='col col-2 text-left'>
+
+							<image src='images/titulo__principis__ministerios.png'/>
+
+						</div>
+
+						<div class='col col-1'>
+
+						  <span id='cerrarRecorridoSeguimeintoModal' class='button pointer__botones' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+						</div>
+
+
+					</div>
+
+				<div class='modal-body row $parametro3'>
+
+				<input type='hidden' name='tabChange' id='tabChange'/>
+
+				
+
+
+				<ul class='nav nav-underline' id='myTab' role='tablist'>
+				<li class='nav-item'><a class='nav-link active' id='general-tab' data-bs-toggle='tab' href='#tab-General' role='tab' aria-controls='tab-General' aria-selected='true' area='general'>Presupuestario</a></li>
+
+				<li class='nav-item'><a class='nav-link' id='seguimiento-tab' data-bs-toggle='tab' href='#tab-Seguimiento' role='tab' aria-controls='tab-Seguimiento' aria-selected='false' area='seguimiento'>Infraestructura</a></li>
+
+				<li class='nav-item'><a class='nav-link' id='adFin-tab' data-bs-toggle='tab' href='#tab-adFin' role='tab' aria-controls='tab-adFin' aria-selected='false'area='adFin'>Técnico</a></li>
+
+				<li class='nav-item'><a class='nav-link' id='infra-tab' data-bs-toggle='tab' href='#tab-infra' role='tab' aria-controls='tab-infra' aria-selected='false'area='infra'>Contratación Pública</a></li>
+				</ul>
+				
+				<div class='tab-content mt-3' id='myTabContent' style='border: 1px solid gray;'>
+
+					<div class='tab-pane fade show active col col-12' id='tab-General' role='tabpanel' aria-labelledby='general-tab'>
+					<input type='text' id='organismoOculto__modal' name='organismoOculto__modal' />
+					<input type='text' id='periodo' name='periodo' />
+					<input type='text' id='nombreDocumento' name='nombreDocumento' />
+
+					<div class='col col-12 textos__titulos mt-4'>
+
+						DOCUMENTOS DE RECOMENDACIÓN 
+
+					</div>
+
+					<div class='col col-4 oculto__subsess__deseados d d-flex justify-content-center'>
+
+						<a id='informe__recomendados' class='btn btn-info' target='_blank'>INFORME PRESUPUESTARIO RECOMENDADO</a>
+
+					</div>
+
+					<div class='col col-4 d d-flex justify-content-center d d-flex justify-content-center'>
+
+						<a id='documentos__tecnicos__t' class='boton__pdfs__tecnicas btn btn-success's target='_blank'>Informe técnico</a>
+
+					</div>
+
+
+					<div class='col col-4 d d-flex justify-content-center d d-flex justify-content-center'>
+
+						<a id='documentos__tecnicos__i' class='boton__pdfs__infraestructuras btn btn-warning' target='_blank'>Informe infraestructuras</a>
+
+					</div>
+
+					<div class='col col-12 textos__titulos mt-4'>
+
+						ACCIONES DE RECOMENDACIÓN
+
+					</div>
+
+					<div class='col col-4 oculto__subsess__deseados' style='font-weight:bold!important;'>
+
+						Subir archivo firmado
+
+					</div>
+
+					<div class='col col-8 oculto__subsess__deseados'>
+
+						<input type='file' accept='application/pdf' id='informe__recomendado' name='informe__recomendado' class='ancho__total__input'/>
+
+					</div>
+
+					<div class='col col-4 mt-2' style='font-weight:bold;'>
+
+						Enviar al organismo deportivo
+
+					</div>
+
+					<div class='col col-6 mt-2 clases__puedes__recomendares' style='font-weight:bold; color:#4a148c;'>
+
+
+					</div>
+
+
+					<div class='col col-2 mt-2'>
+
+						<a class='btn btn-success' id='enviar__orgnaismosDeportivos'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;ENVIAR</a>
+
+					</div>
+
+					<div class='col col-2' style='font-weight:bold;'>
+
+						Devolver a
+
+					</div>
+
+					<div class='col col-8'>
+
+						<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>
+
+					</div>
+
+					<div class='col col-2'>
+
+						<a class='btn btn-danger' id='devolver__altosReComendados__f__r__s'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;DEVOLVER</a>
+
+					</div>
+
+					<div class='fila__reasignar col col-6 d d-flex justify-content-center' style='font-weight:bold;'>
+
+						<a class='btn btn-warning boton__pdfs__tecnicas' id='regresar__areas__tecnicas__seguimientos' target='_blank'>REGRESAR AL ÁREA TÉCNICA</a>
+
+					</div>
+
+
+					<div class='fila__reasignar col col-6 d d-flex justify-content-center' style='font-weight:bold;'>
+
+						<a class='btn btn-info boton__pdfs__infraestructuras' id='regresar__areas__tecnicas__seguimientos__infraens__2' target='_blank'>REGRESAR AL ÁREA DE INFRAESTRUCTURA</a>
+
+					</div>
+				
+					<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+						Observaciones
+
+					</div>
+
+					<div class='col col-10 observacionesReasignaciones'>
+
+						<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+					</div>
+				</div>
+
+				<div class='tab-pane fade' id='tab-Seguimiento' role='tabpanel' aria-labelledby='seguimiento-tab'>
+					<div class='col col-12 text-center mt-2 titulo__enfasis'>
+						Recorrido Dirección de Seguimiento de Planes, Programas y Proyectos
+					</div>
+					<table style='margin-top:.5em!important; width:100%!important;'>
+
+						<thead>
+
+							<tr>
+
+								<th colspan='5'>
+
+									<center>RECORRIDO</center>
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th>FECHA</th>
+								<th>ESTADO</th>
+								<th>ÁREA</th>
+								<th>USUARIO ACTUAL</th>
+								<th>OBSERVACIONES</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+					</table>
+				</div>
+
+				<div class='tab-pane fade' id='tab-adFin' role='tabpanel' aria-labelledby='adFin-tab'>
+					<div class='col col-12 text-center mt-2 titulo__enfasis'>
+						Recorrido Coordinación General Administrativa Financiera
+					</div>
+					<table style='margin-top:.5em!important; width:100%!important;'>
+
+						<thead>
+
+							<tr>
+
+								<th colspan='5'>
+
+									<center>RECORRIDO</center>
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th>FECHA</th>
+								<th>ESTADO</th>
+								<th>ÁREA</th>
+								<th>USUARIO ACTUAL</th>
+								<th>OBSERVACIONES</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+					</table>
+				</div>
+
+				<div class='tab-pane fade' id='tab-actFis' role='tabpanel' aria-labelledby='actFis-tab'>
+					<div class='col col-12 text-center mt-2 titulo__enfasis'>
+						Recorrido Subsecretaría de Desarrollo de la Actividad Física
+					</div>
+					<table style='margin-top:.5em!important; width:100%!important;'>
+
+						<thead>
+
+							<tr>
+
+								<th colspan='5'>
+
+									<center>RECORRIDO</center>
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th>FECHA</th>
+								<th>ESTADO</th>
+								<th>ÁREA</th>
+								<th>USUARIO ACTUAL</th>
+								<th>OBSERVACIONES</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+					</table>
+				</div>
+
+				<div class='tab-pane fade' id='tab-altoRen' role='tabpanel' aria-labelledby='altoRen-tab'>
+					<div class='col col-12 text-center mt-2 titulo__enfasis'>
+						Recorrido Subsecretaría de Deporte de Alto Rendimiento
+					</div>
+					<table style='margin-top:.5em!important; width:100%!important;'>
+
+						<thead>
+
+							<tr>
+
+								<th colspan='5'>
+
+									<center>RECORRIDO</center>
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th>FECHA</th>
+								<th>ESTADO</th>
+								<th>ÁREA</th>
+								<th>USUARIO ACTUAL</th>
+								<th>OBSERVACIONES</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+					</table>
+				</div>
+
+				<div class='tab-pane fade' id='tab-infra' role='tabpanel' aria-labelledby='infra-tab'>
+					<div class='col col-12 text-center mt-2 titulo__enfasis'>
+						Recorrido Coordinación de Administración e Infraestructura Deportiva
+					</div>
+					<table style='margin-top:.5em!important; width:100%!important;'>
+
+						<thead>
+
+							<tr>
+
+								<th colspan='5'>
+
+									<center>RECORRIDO</center>
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th>FECHA</th>
+								<th>ESTADO</th>
+								<th>ÁREA</th>
+								<th>USUARIO ACTUAL</th>
+								<th>OBSERVACIONES</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class='cuerpo__contenedor__recorridos'></tbody>
+
+					</table>
+				</div>
+
+				
+				</div>
+				
+				</div>
+
+				
+
+				</form>
+
+			</div>
+
+		</div>
+			";
+
+			return $modal;
+
+		}	
+
+			
+		public function get__modal__plantilla__inicios__seguimientos__fisicicos__f__r__recomendados2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<input type='hidden' id='organismoOculto__modal' name='organismoOculto__modal' />
+							<input type='hidden' id='periodo' name='periodo' />
+							<input type='hidden' id='nombreDocumento' name='nombreDocumento' />
+							<input type='hidden' id='tipo' name='nombreDocumento' />
+
+
+							<div class='col col-4'>
+
+								<a id='informe__recomendados' target='_blank'>Descargar Informe recomendado</a>
+
+							</div>
+
+							<div class='col col-4 oculto__subsess__deseados' style='font-weight:bold!important;'>
+
+								Subir archivo firmado
+
+							</div>
+
+							<div class='col col-4 oculto__subsess__deseados'>
+
+								<input type='file' accept='application/pdf' id='informe__recomendado' name='informe__recomendado' class='ancho__total__input'/>
+
+							</div>
+
+							<div class='col col-2 mt-2' style='font-weight:bold;'>
+
+								Recomendar a
+
+							</div>
+
+							<div class='col col-8 mt-2'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+								<select class='ancho__total__input__selects regresar__superior__con selects__superiores__regresar' id='selects__superiores__regresar__coors'>
+								</select>
+
+								<div class='direccion__seguimientos__ocultos'>Dirección de Seguimiento, Planes, Programas y Proyectos</div>
+
+							</div>
+
+							<div class='col col-2 mt-2'>
+
+								<a class='btn btn-warning' id='recomendar__form__recomendados2023'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;RECOMENDAR</a>
+
+							</div>
+
+							<div class='col col-2' style='font-weight:bold;'>
+
+								Devolver a
+
+							</div>
+
+							<div class='col col-8'>
+
+								<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>
+
+								<select class='ancho__total__input__selects selects__superiores superior__con' id='selects__superiores__subsess'></select>
+
+							</div>
+
+							<div class='col col-2'>
+
+								<a class='btn btn-danger' id='devolver__altosReComendados__f__r'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;DEVOLVER</a>
+
+							</div>
+
+							<div class='col col-2 observacionesReasignaciones' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}	
 
 
 	}

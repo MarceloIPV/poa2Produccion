@@ -43,7 +43,7 @@
 =            Modales            =
 ==============================-->
 
-<?=$componentesTablas->get__modal__plantilla__inicios__seguimientos("reasignarSeguimientos","SECCIÓN DE REPORTERÍA","principal__seguimiento__reportes");?>
+<?=$componentesTablas->get__modal__plantilla__inicios__seguimientos2023("reasignarSeguimientos","SECCIÓN DE REPORTERÍA","principal__seguimiento__reportes");?>
 
 <!--====  End of Modales  ====-->
 

@@ -131,7 +131,7 @@ $objeto= new usuarioAcciones();?>
 					        </div>
 
 					        <div class='col col-1' style='z-index: 2;'>
-							<button type='button' id='btnCerrarNuevoBonoDeportivoJN' class='btn-close modales_reload pointer_botones' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+							<button type='button' id='btnCerrarNuevoEventoDesarrollo' class='btn-close modales_reload pointer_botones' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
 					        </div>
 
 						</div>
@@ -140,9 +140,9 @@ $objeto= new usuarioAcciones();?>
 								<div class="row"> 
                                     <div class="col-sm-12">
                                         
-                                        <label>Item</label>
+                                        <label>Nombre del Evento</label>
 
-										<input id='itemBonoDeportivoJN' type='text' readonly required class='form-control' value='(530310) - Bono deportivo a deportistas, entrenadores y delegados' idItem='182'>  
+										<input id='nombreEventoDesarrollo' type='text' required class='form-control' value=''>  
                                     
                                     </div>
 							
@@ -151,47 +151,91 @@ $objeto= new usuarioAcciones();?>
 
                                 <div class="row"> 
                                  
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4">
                                         
-                                        <label>Deporte</label>
+                                        <label>Sede</label>
                                         
-                                        <select id="DeporteBonoDeportivoJN"  class="form-control" >
-                                            
-                                        </select>
+                                        <input id='nombreSede' type='text' required class='form-control' value=''> 
                                     
                                     </div>
-								</div>
 
-                                
-
-								<div class="row">
+									<div class="col-sm-4">
+                                        
+                                        <label>SubSede</label>
+                                        
+                                        <input id='nombreSubsede' type='text' required class='form-control' value=''> 
+                                    
+                                    </div>
+								
 									<div class="col-sm-4">
                                        
-                                            <label>Nro. Días</label>
-                                             <input id="nroDiasBonoDeportivo" type="text" required class="form-control solo__numero__montos multiplicar_valor_Bono" value="0"> 
+                                            <label>Participantes</label>
+                                             <input id="nroParticipantes" type="text" class="form-control solo__numero__montos multiplicar_valor_Bono" value="0"> 
 										
                                     </div>
-                                    <div class="col-sm-4">
-            
-											<label>Total Personal Deporte</label>
-                                             <input id="totalPersonalDeporteBonoDeportivo" type="text" required class="form-control solo__numero__montos multiplicar_valor_Bono" value="0"> 
-										
+                                    
+                                </div>
+
+								<div class="row">
+                                    <div class="col-sm-12">
+											<label>Objetivo General</label>
+                                            
+											<textarea id='obj_General' class="form-control" style='width: 100%;'></textarea>
                                     </div>
-                                    <div class="col-sm-4">
-            
-                                            <label>Valor Bono Diario (2% DE LA RMU)</label>
-                                             <input id="valorBonoDiarioBonoDeportivo" readonly type="text" required class="form-control solo__numero__montos multiplicar_valor_Bono" value="9"> 
+                                </div>
+
+								<div class="row">
+                                    <div class="col-sm-12">
+											<label>Objetivos Específicos</label>
+                                            
+											<textarea id='obj_Especificos' class="form-control" style='width: 100%;'></textarea>
 										
                                     </div>
                                 </div>
 
 								<div class="row">
-                                    <div class="col-sm-6">
-											<label>Valor Total</label>
-                                            <input id="valorTotalBonoDeportivo" readonly type="text" required class="form-control solo__numero__montos" value="0"> 
+                                    <div class="col-sm-12">
+											<label>Meta</label>
+                                            
+											<textarea id='meta' class="form-control" style='width: 100%;'></textarea>
 										
                                     </div>
                                 </div>
+
+								
+								<div class="row">
+									<div class="col-md-6">
+										<label>Deporte</label>
+									
+										<select class="form-select" id="idSelectDeporteEventos" aria-label="Default select example">
+
+										</select>
+									</div>
+									<div class="col-md-6">
+										<label>Modalidad</label>
+									
+										<select class="form-select" id="idSelectModalidadEventos" aria-label="Default select example">
+
+										</select>
+									</div>
+                                </div>
+
+								<div class="row">
+									<div class="col-md-6">
+										<label>Fecha Inicio</label>
+									
+										<input type="date" id="fechaInicioEvento" class="form-control">
+									</div>
+								
+									<div class="col-md-6">
+										<label>Fecha Fin</label>
+									
+										<input type="date" id="fechaFinEvento" class="form-control">
+									</div>
+                                </div>
+
+
+								
 
 						</div>
 						
@@ -200,7 +244,7 @@ $objeto= new usuarioAcciones();?>
 
 							<div class='col col-12 d d-flex justify-content-center flex-wrap' >
 
-								<a id='guardarBonoDeportivoJN' type='button' class='btn btn-primary  '  data-bs-dismiss='modal'>Guardar</a>
+								<a id='guardarEventoDesarrollo' type='button' class='btn btn-primary  '  data-bs-dismiss='modal'>Guardar</a>
 
 								&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -232,7 +276,7 @@ $objeto= new usuarioAcciones();?>
 
 	$.getScript("layout/scripts/js/PAID_DESARROLLO_JS/datatablets.js",function(){
 
-		datatabletsNormalDesarollo($("#paidEventosDesarrollo"), "paidEventosDesarrollo");
+		datatabletsDesarollo($("#paidEventosDesarrollo"), "paidEventosDesarrollo");
 
 	});	
 

@@ -268,9 +268,13 @@
 
       $jason['informacion']=$informacion;
     break;
+    //------------------------------ selector Evento --------------------
+    case "listar_evento_desarrollo":
+      $informacion=$objeto->getObtenerInformacionGeneral("SELECT idEvento, nombre from poa_paid_eventos_desarrollo WHERE idOrganismo = '$idOrganismoSession' AND perioIngreso = '$aniosPeriodos__ingesos' AND id_componente = '$idComponentes' AND id_rubro = '$idRubros';");
+      $jason['informacion']=$informacion;
+    break;
 
-
-   
+    
 
 
    

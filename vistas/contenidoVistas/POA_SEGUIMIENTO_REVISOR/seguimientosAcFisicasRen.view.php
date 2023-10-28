@@ -47,7 +47,7 @@
 <script>
 	 $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/datatables.js",function(){
 
-		datatabletsSeguimientoRevisorVacio($("#seguimiento__tablas__acFisica__rendimientos"),"seguimiento__tablas__acFisica__rendimientos","s",objetos([6,9],["texto","boton"],[21,"<center><button class='reasignarTramites__seguimientosActividad estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarSeguimientos__actividad__fisica'><i class='fas fa-user-edit'></i></button><center>"],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__reasignar__seguimientos__unidos__actividad__fisica1"]);
+		datatabletsSeguimientoRevisorVacio($("#seguimiento__tablas__acFisica__rendimientos"),"seguimiento__tablas__acFisica__rendimientos","s",objetos([6,9],["texto","boton"],[21,"<center><button class='reasignarTramites__seguimientosActividad2023 estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarSeguimientos__actividad__fisica'><i class='fas fa-user-edit'></i></button><center>"],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__reasignar__seguimientos__unidos__actividad__fisica1"]);
 	
 	});
 

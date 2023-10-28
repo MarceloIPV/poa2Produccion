@@ -16,6 +16,12 @@
 
 <input type="hidden" id="zonalC" name="zonalC" value="<?= $informacionFuncionario[0][zonal] ?>" />
 
+<?php
+$perfilObservador = $_SESSION["perfilObservador"];
+?>
+
+<?php if(empty($perfilObservador)){?>
+	
 <?php if ($informacionFuncionario[0][fisicamenteEstructura] == "27" || $informacionFuncionario[0][fisicamenteEstructura] == "28" || $informacionFuncionario[0][fisicamenteEstructura] == "29" || $informacionFuncionario[0][fisicamenteEstructura] == "30" || $informacionFuncionario[0][fisicamenteEstructura] == "31" || $informacionFuncionario[0][fisicamenteEstructura] == "32" || $informacionFuncionario[0][fisicamenteEstructura] == "33") : ?>
 
 	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("subsecretario", "recomendadoZonalesSubses", "subecretariaFinanciero", "recomendadoZonalesF", "subsecretarioCoordina", "recomendadosSV", "reporteriaFinal", "asignacionPoasRelativos", "organismosRegistrados", "poaResolucionFinal", "poasGlobalesRecibidos")); ?>">
@@ -1487,6 +1493,8 @@
 
 	<?php endif ?>
 
+	
+
 	<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 12 || $informacionFuncionario[0][fisicamenteEstructura] == 24 || $informacionFuncionario[0][fisicamenteEstructura] == 14) : ?>
 
 
@@ -1709,12 +1717,94 @@
 
 	<?php endif ?>
 
-	<li class="nav-item">
+<?php } else{ ?>
+	
+	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("reporteriaFinal", "asignacionPoasRelativos", "organismosRegistrados", "poaResolucionFinal", "poasGlobalesRecibidos")); ?>">
 
-		<a href="poaResolucionFinal" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'poaResolucionFinal'); ?>">
-
-			<p>Poas gestionados</p>
-
+		<a href="#" class="nav-link">
+			<p>
+				REPORTERÍA
+				<i class="fas fa-angle-left right"></i>
+				<span class="badge badge-info right"></span>
+			</p>
 		</a>
 
+		<ul class="nav nav-treeview">
+
+			<?php if ($informacionFuncionario[0][fisicamenteEstructura] != 9 && $informacionFuncionario[0][fisicamenteEstructura] != 23) : ?>
+
+				<li class="nav-item">
+
+					<a href="reporteriaFinal" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaFinal'); ?>">
+
+						<p>Trámites POA</p>
+
+					</a>
+
+				</li>
+
+			<?php endif ?>
+
+
+
+
+
+			<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 9) : ?>
+
+				<li class="nav-item">
+
+					<a href="asignacionPoasRelativos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'asignacionPoasRelativos'); ?>">
+
+						<p>Organismos intervenidos</p>
+
+					</a>
+
+				</li>
+
+
+
+				<li class="nav-item">
+
+					<a href="organismosRegistrados" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'organismosRegistrados'); ?>">
+
+						<p>Organismos registrados</p>
+
+					</a>
+
+				</li>
+
+			<?php endif ?>
+
+			<?php if ($informacionFuncionario[0][fisicamenteEstructura] != "27" && $informacionFuncionario[0][fisicamenteEstructura] != "28" && $informacionFuncionario[0][fisicamenteEstructura] != "29" && $informacionFuncionario[0][fisicamenteEstructura] != "30" &&  $informacionFuncionario[0][fisicamenteEstructura] != "31" && $informacionFuncionario[0][fisicamenteEstructura] != "32" &&  $informacionFuncionario[0][fisicamenteEstructura] != "33") : ?>
+
+
+				<li class="nav-item">
+
+					<a href="poaResolucionFinal" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'poaResolucionFinal'); ?>">
+
+						<p>Poas gestionados</p>
+
+					</a>
+
+				</li>
+
+			<?php endif ?>
+
+			<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 20 || $informacionFuncionario[0][fisicamenteEstructura] == 16) : ?>
+
+				<li class="nav-item">
+
+					<a href="poasGlobalesRecibidos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'poasGlobalesRecibidos'); ?>">
+
+						<p>Poas enviados</p>
+
+					</a>
+
+				</li>
+
+			<?php endif ?>
+
+		</ul>
+
 	</li>
+<?php } ?>

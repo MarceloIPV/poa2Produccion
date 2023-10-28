@@ -415,4 +415,159 @@ var insertar__contrataciones__publicas_seguimiento=function(boton){
 }
 
 
+/*==============================================
+=            Funciones de ediciones            =
+==============================================*/
+
+var funcion__editar__general__seguimiento__2023 = function (parametro1, parametro2, parametro3, parametro4, parametro5, parametro6, parametro7, parametro8) {
+
+
+	var validador = validacionRegistro(parametro2);
+	validacionRegistroMostrarErrores(parametro2);
+
+
+	if (validador == false) {
+
+		alertify.set("notifier", "position", "top-center");
+		alertify.notify("Campos obligatorios", "error", 5, function () { });
+
+		$(parametro1).show();
+
+	} else {
+
+		var confirm = alertify.confirm('¿Está seguro de guardar la información ingresada?', '¿Está seguro de guardar la información ingresada?', null, null).set('labels', { ok: 'Confirmar', cancel: 'Cancelar' });
+
+		confirm.set({ transition: 'slide' });
+
+		confirm.set('onok', function () {
+
+			var paqueteDeDatos = new FormData();
+
+			paqueteDeDatos.append("tipo", parametro3);
+
+			paqueteDeDatos.append("parametros", JSON.stringify(parametro4));
+
+			if (parametro3 == "editar__indicadores") {
+
+				if ($(parametro5).val() != "" && $(parametro5).val() != undefined) {
+					paqueteDeDatos.append('archivo', $(parametro5)[0].files[0]);
+					paqueteDeDatos.append('archivo2', 'si');
+				} else {
+					paqueteDeDatos.append('archivo2', 'no');
+				}
+
+			}
+
+
+			if (parametro3 == "editar__honorarios") {
+
+
+				if ($(parametro5).val() != "" && $(parametro5).val() != undefined) {
+					paqueteDeDatos.append('archivo', $(parametro5)[0].files[0]);
+					paqueteDeDatos.append('archivo2', 'si');
+				} else {
+					paqueteDeDatos.append('archivo2', 'no');
+				}
+
+
+
+				if ($(parametro6).val() != "" && $(parametro6).val() != undefined) {
+					paqueteDeDatos.append('archivo3', $(parametro6)[0].files[0]);
+					paqueteDeDatos.append('archivo4', 'si');
+				} else {
+					paqueteDeDatos.append('archivo4', 'no');
+				}
+
+
+				if ($(parametro7).val() != "" && $(parametro7).val() != undefined) {
+					paqueteDeDatos.append('archivo5', $(parametro7)[0].files[0]);
+					paqueteDeDatos.append('archivo6', 'si');
+				} else {
+					paqueteDeDatos.append('archivo6', 'no');
+				}
+
+
+				if ($(parametro8).val() != "" && $(parametro8).val() != undefined) {
+					paqueteDeDatos.append('archivo7', $(parametro8)[0].files[0]);
+					paqueteDeDatos.append('archivo8', 'si');
+				} else {
+					paqueteDeDatos.append('archivo8', 'no');
+				}
+
+			}
+
+
+
+			if (parametro3 == "editar__indicadores") {
+
+
+				if ($(parametro5).val() != "" && $(parametro5).val() != undefined) {
+					paqueteDeDatos.append('archivo', $(parametro5)[0].files[0]);
+					paqueteDeDatos.append('archivo2', 'si');
+				} else {
+					paqueteDeDatos.append('archivo2', 'no');
+				}
+
+
+
+				if ($(parametro6).val() != "" && $(parametro6).val() != undefined) {
+					paqueteDeDatos.append('archivo3', $(parametro6)[0].files[0]);
+					paqueteDeDatos.append('archivo4', 'si');
+				} else {
+					paqueteDeDatos.append('archivo4', 'no');
+				}
+
+
+			}
+
+
+			$.ajax({
+
+				type: "POST",
+				url: "modelosBd/POA_SEGUIMIENTO/actualizacion.md.php",
+				contentType: false,
+				data: paqueteDeDatos,
+				processData: false,
+				cache: false,
+				success: function (response) {
+
+					var elementos = JSON.parse(response);
+
+					var mensaje = elementos['mensaje'];
+
+					if (mensaje == 1) {
+
+						alertify.set("notifier", "position", "top-center");
+						alertify.notify("Registro actualizado correctamente", "success", 5, function () { });
+
+					}
+
+				},
+				error: function () {
+
+				}
+
+			});
+
+		});
+
+
+		confirm.set('oncancel', function () { //callbak al pulsar botón negativo
+			alertify.set("notifier", "position", "top-center");
+			alertify.notify("Acción cancelada", "error", 1, function () {
+
+				$(parametro1).show();
+
+			});
+		});
+
+	}
+
+
+}
+
+
+/*=====  End of Funciones de ediciones  ======*/
+
+
 

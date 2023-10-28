@@ -95,6 +95,9 @@ $seleccionPoaPaid = $_SESSION["seleccionPaidPoa"];?>
 
               <input type="hidden" id="idOrganismoPrincipal" name="idOrganismoPrincipal" />
 
+              <input type="hidden" name="perfilODws__A" id="perfilODws__A" value="<?= $perfilObservador ?>">
+
+
               <?php $nombreFuncionario=$objetoInformacion->getInformacionUsuarioPerfil($informacionObjeto[0]);?>
 
               <?php $nombreFisicamente__estructuras=$objetoInformacion->getInformacionGeneralFun($informacionObjeto[0]);?>

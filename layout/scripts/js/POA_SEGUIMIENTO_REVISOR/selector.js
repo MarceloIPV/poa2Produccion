@@ -1025,7 +1025,270 @@ var verificarSuspensionesOD=function(){
 }
   
 
+var funcion_Poas_Segumiento_Infra1=function(boton){
 
+$(boton).on("click",function(e){
+
+	e.preventDefault();
+
+	$("#enviarTramite").hide();
+	
+	var idOrganismo=$(".idOrganismoM").val();
+
+	var fisicamenteE=$("#fisicamenteE").val();
+
+	var idRolAd=$("#idRolAd").val();
+
+	var paqueteDeDatos = new FormData();
+
+	paqueteDeDatos.append('tipo','informacioSubsess');
+
+	paqueteDeDatos.append('idOrganismo',idOrganismo);
+
+	paqueteDeDatos.append('fisicamenteE',fisicamenteE);
+
+	paqueteDeDatos.append('idRolAd',idRolAd);
+
+
+	$.ajax({
+
+		type:"POST",
+		url:"modelosBd/inserta/seleccionaAcciones.md.php",
+		contentType: false,
+		data:paqueteDeDatos,
+		processData: false,
+		cache: false, 
+		success:function(response){
+
+			$.getScript("layout/scripts/js/validaGlobal.js",function(){
+
+				var elementos=JSON.parse(response);
+
+				var obtenerInformacion=elementos['obtenerInformacion'];
+				var obtenerAcCa=elementos['obtenerAcCa'];
+				var indicadorInformacion=elementos['indicadorInformacion'];
+
+				$(".titulo__mS").text("Reporte POA");
+
+				$(".contenedor__bodyCMatriz").append(' ');
+
+				$(".elementosCreados__M").remove();
+
+				$(".creados__letter").remove();
+
+
+				$(".contenedor__bodyCMatriz").append('<div class="col col-6 letras__ver__poa__na text-center creados__letter" style="font-weight:bold; font-size:15px;">Ver POA</div><div class="col col-6"><button class="ver__Tabla btn btn-primary creados__letter" style="cursor:pointer;"><i class="fas fa-eye icono__boton"></i></button></div>');
+
+
+
+				$(".contenedor__bodyCMatriz").append('<button type="button" class="btn btn-success excelProyectos col col-1 elementosCreados__M"><i class="fas fa-file-excel"></i>&nbsp;&nbsp;EXCEL</button><table class="tabla__itemsM elementosCreados__M" style="margin-top:2em;" id="tablaPoaPrincipal"><thead><tr><th align="center">Actividad</th><th align="center">Item</th><th align="center">Enero</th><th align="center">Febrero</th><th align="center">Marzo</th><th align="center">Abril</th><th align="center">Mayo</th><th align="center">Junio</th><th align="center">Julio</th><th align="center">Agosto</th><th align="center">Septiembre</th><th align="center">Octubre</th><th align="center">Noviembre</th><th align="center">Diciembre</th><th align="center">Total</th></tr></thead></table><br><br>');
+
+				$(".elementosCreados__M").hide();
+
+				for (c of obtenerInformacion) {
+
+					$(".tabla__itemsM").append('<tr><td>'+c.idActividades+"-"+c.nombreActividades+'</td><td>'+c.itemPreesupuestario+"-"+c.nombreItem+'</td><td><center>'+parseFloat(c.enero).toFixed(2)+'</center></td><td><center>'+parseFloat(c.febrero).toFixed(2)+'</center></td><td><center>'+parseFloat(c.marzo).toFixed(2)+'</center></td><td><center>'+parseFloat(c.abril).toFixed(2)+'</center></td><td><center>'+parseFloat(c.mayo).toFixed(2)+'</center></td><td><center>'+parseFloat(c.junio).toFixed(2)+'</center></td><td><center>'+parseFloat(c.julio).toFixed(2)+'</center></td><td><center>'+parseFloat(c.agosto).toFixed(2)+'</center></td><td><center>'+parseFloat(c.septiembre).toFixed(2)+'</center></td><td><center>'+parseFloat(c.octubre).toFixed(2)+'</center></td><td><center>'+parseFloat(c.noviembre).toFixed(2)+'</center></td><td><center>'+parseFloat(c.diciembre).toFixed(2)+'</center></td><td><center>'+parseFloat(c.totalSumaItem).toFixed(2)+'</center></td></tr>');
+
+
+				}
+
+				execelGenerados($(".excelProyectos"),"tablaPoaPrincipal","poa");
+
+				verOjoContrasenas2($(".ver__Tabla"),$(".icono__boton"),$(".elementosCreados__M"),$(".letras__ver__poa"));
+
+				if (!$(".sumado__indicadores").length > 0 ) {
+
+					$(".contenedor__bodyCMatriz").append('<div class="col col-12 text-center sumado__indicadores" style="font-size:14px; font-weight:bold;">Indicadores</div><br><br>');
+
+					$(".contenedor__bodyCMatriz").append('<div class="col col-4 text-center" style="font-weight:bold;">Actividad - indicador</div><div class="col col-2 text-center" style="font-weight:bold;">Primer trimestre</div><div class="col col-1 text-center" style="font-weight:bold;">Segundo Trimestre</div><div class="col col-1 text-center" style="font-weight:bold;">Tercer trimestre</div><div class="col col-2 text-center" style="font-weight:bold;">Cuarto trimestre</div><div class="col col-2 text-center" style="font-weight:bold;">Meta indicador</div>');
+
+
+					for (z of indicadorInformacion) {
+
+						$(".contenedor__bodyCMatriz").append('<div class="col col-4 text-center">'+z.indicador+'</div><div class="col col-2 text-center">'+z.primertrimestre+'</div><div class="col col-1 text-center">'+z.segundotrimestre+'</div><div class="col col-1 text-center">'+z.tercertrimestre+'</div><div class="col col-2 text-center">'+z.cuartotrimestre+'</div><div class="col col-2 text-center">'+z.metaindicador+'</div>');
+
+
+					}               
+
+
+					if (data[9]!=null && data[9]!="") {
+
+						$(".contenedor__bodyCMatriz").append('<div class="col col-12 text-center" style="font-size:14px; font-weight:bold;">Documentos anexos</div><br><br>');
+
+						var arreglo = data[9].split("_________");
+
+						for (var i = 0 ; i<arreglo.length; i++) {
+							
+
+							$(".contenedor__bodyCMatriz").append('<div class="col col-4 text-center"><a href="'+$("#filesFrontend").val()+'anexosPoa/'+arreglo[i]+'" target="_blank">'+arreglo[i]+'</a></div>');
+
+						}
+
+
+					}
+
+				}
+
+				if (obtenerAcCa!="") {
+
+					if (!$("#rotulo__ac").length > 0 ) {
+
+
+						$(".contenedor__bodyCMatriz").append('<div class="col col-12 text-center" style="font-size:14px; font-weight:bold;" id="rotulo__ac">ACTIVIDADES A ANALIZAR</div><br><br>');
+
+					}
+
+					for (d of obtenerAcCa) {
+
+						if (!$(".ver__matrices"+d.idActividades).length > 0 ) {
+
+							$(".contenedor__bodyCMatriz").append('<div class="col col-6 letras__ver__poa text-center" style="font-weight:bold; font-size:12px; ; margin-bottom:2em;">'+d.idActividades+"-"+d.nombreActividades+'</div><div class="col col-6"><button class="ver__matrices'+d.idActividades+' btn btn-info" attr="'+d.idActividades+'" style="cursor:pointer;"><i class="fas fa-eye icono__'+d.idActividades+'"></i></button></div><br><div class="col col-12 matrices__'+d.idActividades+' row"></div>');
+
+							verOjoAjaxMatrices($(".ver__matrices"+d.idActividades),$(".icono__"+d.idActividades),$(".matrices__"+d.idActividades),d.idActividades,d.idOrganismo,$("#idRolAd").val(),$("#fisicamenteE").val());
+
+						}
+
+					}
+
+
+				}
+
+				
+
+
+			});
+
+		},
+		error:function(){
+
+		}
+				
+	});     
+
+
+
+});
+
+}
+
+
+	/*=====  End of Indicadores - Estado de cuenta ======*/
+
+  
+	var funcion_Poas_Segumiento_Infra=function(boton,idDivModal,idtituloModal,titulo){
+
+		$(boton).click(function(e) {
+	
+		  e.preventDefault();
+	
+		  $(idtituloModal).text(titulo);
+	
+		  var cuerpo = document.getElementById(idDivModal);
+	
+		  $("#"+idDivModal + " div").remove();
+		 
+	
+		  cuerpo.insertAdjacentHTML('beforeend','<div><div id="poaInicialSeguimientoInfra" class="row d d-flex flex-column justify-content-center card mt-4"><div class="card-body row"><a class="card-title text-center titulo__enfasis pointer__botones" data-bs-toggle="modal" data-bs-target="#poa__indi" >POA</a></div></div><div class="row d d-flex flex-column justify-content-center card mt-4"><div id="mantenimientoSeguimientoInfra" class="card-body row"><a class="card-title text-center titulo__enfasis pointer__botones" data-bs-toggle="modal" data-bs-target="#mantenimiento__ll" >MANTENIMIENTO</a></div></div></div>');
+
+		  agregarDatatablets__poa__seguimiento__infra__2023($("#poaInicialSeguimientoInfra"),"poa__inicial__poa__seguimiento__infra","POA","")
+		  agregarDatatablets__poa__seguimiento__infra__2023($("#mantenimientoSeguimientoInfra"),"reporteria__mantenimiento__seguimiento__infra","MANTENIMOENTO","")
+		});
+	  }
+
+	var agregarDatatablets__poa__seguimiento__infra__2023=function(parametro1,parametro3,parametro5,objetos){
+  
+		$(parametro1).click(function (e){
+	
+			$("#"+parametro3).DataTable().destroy();
+	
+			datatabletsSeguimientoRevisorVacio($("#"+parametro3),parametro3,parametro5,objetos,[$("#poaInfraSeguimiento").attr("idOrganismo"),$("#trimestreN").val(),parametro5],false);
+
+		});
+	
+	}
+
+
+	var funcion_click_boton_modal_docs_datatable_Infra=function(boton,idDivModal,idtituloModal,titulo,idTabla,idTbody,titulos, tipo,rutaDocumento ){
+
+		$(boton).click(function (e){
+	
+			var idOrganismo = $("#idOrganismo").val();
+
+			e.preventDefault();
+	
+			$(idtituloModal).text(titulo);
+	
+			var cuerpo = document.getElementById(idDivModal);
+	
+			$("#"+idDivModal + " div").remove();
+	
+			cuerpo.insertAdjacentHTML('beforeend','<div><centre><table id="'+idTabla+'"><thead><tr id="theadTabla"></tr></thead><tbody id="'+idTbody+'"></tbody></table></centre></div>');
+		  
+			var cuerpo1 = document.getElementById("theadTabla");
+			for(let i=0;i<titulos.length;i++){
+			  cuerpo1.insertAdjacentHTML('beforeend','<th><center>'+titulos[i]+'</center></th>');
+			}
+	
+			var paqueteDeDatos = new FormData();
+	
+				paqueteDeDatos.append('tipo',tipo);
+				paqueteDeDatos.append('idOrganismos',idOrganismo);
+				
+	
+				$.ajax({
+	
+					type:"POST",
+					url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+					contentType: false,
+					data:paqueteDeDatos,
+					processData: false,
+					cache: false, 
+					async: false,
+					success:function(response){
+			 
+	
+				var elementos=JSON.parse(response);
+	
+					var getDocumentosinforme_ejecucion=elementos['getDocumentosinforme_ejecucion'];
+					var getDocumentosRespaldo_Informe=elementos['getDocumentosRespaldo_Informe'];
+					var getDocumentosOtros=elementos['getDocumentosOtros'];
+					
+					
+					
+				  
+			   if(titulo=="Documentos Informe Ejecución"){
+				for (l of getDocumentosinforme_ejecucion) {
+					
+					$("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__"><td><a href="'+rutaDocumento+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.trimestre+'</td></tr>');
+				}
+			   }else if(titulo=="Documentos Respaldo Informe"){
+				for (m of getDocumentosRespaldo_Informe) {
+					
+					$("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__"><td><a href="'+rutaDocumento+m.documento+'" target="_blank">'+m.documento+'</a></td><td>'+m.trimestre+'</td></tr>');
+				}
+			   }else if(titulo=="Documentos Otros"){
+				for (n of getDocumentosOtros) {
+					
+					$("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__"><td><a href="'+rutaDocumento+n.documento+'" target="_blank">'+n.documento+'</a></td><td>'+n.trimestre+'</td></tr>');
+				}
+			   }
+				
+			  
+			},
+					error:function(){
+	
+			 
+	
+					}
+						
+				});
+	
+	
+	
+		   
+	
+		});
+	}
 	
 	
   

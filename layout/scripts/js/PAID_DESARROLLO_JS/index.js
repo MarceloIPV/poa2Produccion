@@ -76,34 +76,36 @@ $(document).ready(function () {
 
         insertar_bono_deportivo_JN("#guardarBonoDeportivoJN",$("#identificador").val());
 
+        insertar_eventos_desarrollo("#guardarEventoDesarrollo");
         
-        insertar_matrices_generales_juegos_nacionales($("#guardarBienes"),$("#identificador").val(),"itemBienes",$("#descripcionBienes"),null,null, $("#valorTotalBienes"),$("#paidBienesJN"));
-        insertar_matrices_generales_juegos_nacionales($("#guardarAdecentamiento"),$("#identificador").val(),"itemAdecentamiento",$("#descripcionAdecentamiento"),null,null, $("#valorTotalAdecentamiento"),$("#paidAdecentameintoJN"));
-        insertar_matrices_generales_juegos_nacionales($("#guardarMedicinas"),$("#identificador").val(),"itemMedicinas",$("#descripcionMedicinas"),null,null, $("#valorTotalMedicinas"),$("#paidMedicinasJN"));
-        insertar_matrices_generales_juegos_nacionales($("#guardarAlqEquipos"),$("#identificador").val(),"itemAlqEquipos",$("#descripcionAlqEquipos"),null,null, $("#valorTotalAlqEquipos"),$("#paidAlqEquiposJN"));
-        insertar_matrices_generales_juegos_nacionales($("#guardarComEquipos"),$("#identificador").val(),"itemComEquipos",$("#descripcionComEquipos"),null,null, $("#valorTotalComEquipos"),$("#paidComEquiposJN"));
-        insertar_matrices_generales_juegos_nacionales($("#guardarLogEventos"),$("#identificador").val(),"itemLogEventos",$("#descripcionLogEventos"),null,null, $("#valorTotalLogEventos"),$("#paidLogEventosJN"));
-        insertar_matrices_generales_juegos_nacionales($("#guardarPublicidad"),$("#identificador").val(),"itemPublicidad",$("#descripcionPublicidad"),null,null, $("#valorTotalPublicidad"),$("#paidPublicidadJN"));
-        insertar_matrices_generales_juegos_nacionales($("#guardarAcreditaciones"),$("#identificador").val(),"itemAcreditaciones",$("#descripcionAcreditaciones"),$("#cantidadAcreditaciones"),$("#valorUnitarioAcreditaciones"), $("#valorTotalAcreditaciones"),$("#paidAcreditacionesJN"));   
+        insertar_matrices_generales_juegos_nacionales($("#guardarBienes"),$("#identificador").val(),"itemBienes",$("#descripcionBienes"),null,null, $("#valorTotalBienes"),$("#paidBienesJN"),"selectEventoBienes");
+        insertar_matrices_generales_juegos_nacionales($("#guardarAdecentamiento"),$("#identificador").val(),"itemAdecentamiento",$("#descripcionAdecentamiento"),null,null, $("#valorTotalAdecentamiento"),$("#paidAdecentameintoJN"),"selectEventoAdecentamiento");
+        insertar_matrices_generales_juegos_nacionales($("#guardarMedicinas"),$("#identificador").val(),"itemMedicinas",$("#descripcionMedicinas"),null,null, $("#valorTotalMedicinas"),$("#paidMedicinasJN"),"selectEventoMedicinas");
+        insertar_matrices_generales_juegos_nacionales($("#guardarAlqEquipos"),$("#identificador").val(),"itemAlqEquipos",$("#descripcionAlqEquipos"),null,null, $("#valorTotalAlqEquipos"),$("#paidAlqEquiposJN"),"selectEventoAlqEquipos");
+        insertar_matrices_generales_juegos_nacionales($("#guardarComEquipos"),$("#identificador").val(),"itemComEquipos",$("#descripcionComEquipos"),null,null, $("#valorTotalComEquipos"),$("#paidComEquiposJN"),"selectEventoComEquipos");
+        insertar_matrices_generales_juegos_nacionales($("#guardarLogEventos"),$("#identificador").val(),"itemLogEventos",$("#descripcionLogEventos"),null,null, $("#valorTotalLogEventos"),$("#paidLogEventosJN"),"selectEventoLogEvento");
+        insertar_matrices_generales_juegos_nacionales($("#guardarPublicidad"),$("#identificador").val(),"itemPublicidad",$("#descripcionPublicidad"),null,null, $("#valorTotalPublicidad"),$("#paidPublicidadJN"),"selectEventoPublicidad");
+        insertar_matrices_generales_juegos_nacionales($("#guardarAcreditaciones"),$("#identificador").val(),"itemAcreditaciones",$("#descripcionAcreditaciones"),$("#cantidadAcreditaciones"),$("#valorUnitarioAcreditaciones"), $("#valorTotalAcreditaciones"),$("#paidAcreditacionesJN"),"selectEventoAcreditaciones");   
         
-        insertar_matrices_hops_alim($("#guardarHospAlimDI"),$("#identificador").val(),$("#deporteHospAlimDI"),null,$("#nroCuposHospAlimDI"),$("#HospAlimDI"),$("#diasHospAlimDI"), $("#valorTotalHospAlimDI"),$("#paidHospAlimDI"));   
-        insertar_matrices_hops_alimDC($("#guardarHospAlimDC"),$("#identificador").val(),null,$("#deporteHospAlimDC"),$("#nroCuposHospAlimDC"),$("#HospAlimDC"),$("#diasHospAlimDC"), $("#valorTotalHospAlimDC"),$("#paidHospAlimDC"));   
-        insertar_matrices_hops_alimDC($("#guardarHospAlimJA"),$("#identificador").val(),null,$("#deporteHospAlimJA"),$("#nroCuposHospAlimJA"),$("#HospAlimJA"),$("#diasHospAlimJA"), $("#valorTotalHospAlimJA"),$("#paidDeporteDelegacionHospAlimJA"));   
-        insertar_matrices_HidDI($("#guardarHidratacionDI"),$("#identificador").val(),$("#deporteHidratacionDI"),null,$("#nroCuposHidratacionDI"),$("#HidratacionDI"),$("#diasHidratacionDI"), $("#valorTotalHidratacionDI"),$("#paidHidratacionDI"));   
-        insertar_matrices_HidDC($("#guardarHidratacionDC"),$("#identificador").val(),null,$("#deporteHidratacionDC"),$("#nroCuposHidratacionDC"),$("#HidratacionDC"),$("#diasHidratacionDC"), $("#valorTotalHidratacionDC"),$("#paidHidratacionDC"));   
-        insertar_matrices_HidDC($("#guardarHidratacionJA"),$("#identificador").val(),null,$("#deporteHidratacionJA"),$("#nroCuposHidratacionJA"),$("#HidratacionJA"),$("#diasHidratacionJA"), $("#valorTotalHidratacionJA"),$("#paidDeporteDelegacionHidrJA"));   
+        insertar_matrices_hops_alim($("#guardarHospAlimDI"),$("#identificador").val(),$("#deporteHospAlimDI"),null,$("#nroCuposHospAlimDI"),$("#HospAlimDI"),$("#diasHospAlimDI"), $("#valorTotalHospAlimDI"),$("#paidHospAlimDI"),"eventoHospAlimDI");   
+        insertar_matrices_hops_alimDC($("#guardarHospAlimDC"),$("#identificador").val(),null,$("#deporteHospAlimDC"),$("#nroCuposHospAlimDC"),$("#HospAlimDC"),$("#diasHospAlimDC"), $("#valorTotalHospAlimDC"),$("#paidHospAlimDC"),"eventoHospAlimDC");   
+        insertar_matrices_hops_alimDC($("#guardarHospAlimJA"),$("#identificador").val(),null,$("#deporteHospAlimJA"),$("#nroCuposHospAlimJA"),$("#HospAlimJA"),$("#diasHospAlimJA"), $("#valorTotalHospAlimJA"),$("#paidDeporteDelegacionHospAlimJA"),"eventoHospAlimJA");   
+        insertar_matrices_HidDI($("#guardarHidratacionDI"),$("#identificador").val(),$("#deporteHidratacionDI"),null,$("#nroCuposHidratacionDI"),$("#HidratacionDI"),$("#diasHidratacionDI"), $("#valorTotalHidratacionDI"),$("#paidHidratacionDI"),"eventoHidratacionDI");   
+        insertar_matrices_HidDC($("#guardarHidratacionDC"),$("#identificador").val(),null,$("#deporteHidratacionDC"),$("#nroCuposHidratacionDC"),$("#HidratacionDC"),$("#diasHidratacionDC"), $("#valorTotalHidratacionDC"),$("#paidHidratacionDC"),"eventoHidratacionDC");   
+        insertar_matrices_HidDC($("#guardarHidratacionJA"),$("#identificador").val(),null,$("#deporteHidratacionJA"),$("#nroCuposHidratacionJA"),$("#HidratacionJA"),$("#diasHidratacionJA"), $("#valorTotalHidratacionJA"),$("#paidDeporteDelegacionHidrJA"),"eventoHidratacionJA");   
         
         
-        insertar_datos_uniformes($("#guardarUniformes"),$("#identificador").val(),$("#deporteUniformes"),$("#delegacionesUniformes"),null,$("#vUnitarioUniformes"), $("#valorTotalUniformes"),$("#paidUniformes"));   
-        insertar_datos_indumentario_pApoyo($("#guardarIndumentariaPApoyo"),$("#identificador").val(),$("#deporteIndumentariaPApoyo"),null,$("#pApoyoIndumentariaPApoyo"),$("#vUnitarioIndumentariaPApoyo"),$("#valorTotalIndumentariaPApoyo"),$("#paidIndumentariaPApoyo"));   
+        insertar_datos_uniformes($("#guardarUniformes"),$("#identificador").val(),$("#deporteUniformes"),$("#delegacionesUniformes"),null,$("#vUnitarioUniformes"), $("#valorTotalUniformes"),$("#paidUniformes"),"eventoUniformes");   
+        insertar_datos_indumentario_pApoyo($("#guardarIndumentariaPApoyo"),$("#identificador").val(),$("#deporteIndumentariaPApoyo"),null,$("#pApoyoIndumentariaPApoyo"),$("#vUnitarioIndumentariaPApoyo"),$("#valorTotalIndumentariaPApoyo"),$("#paidIndumentariaPApoyo"),"eventoIndumentaria");   
 
                 
-        insertar_matrices_seguro_desarollo($("#guardarSeguroDeporte"),$("#identificador").val(),"#itemSeguroDeporte","selectorSeguroDeporte",null, "#cantidadSeguroDeporte","#nroCuposSeguroDeporte","#valorUnitarioSeguroDeporte","#valorTotalSeguroDeporte","#paidSeguroDeporte");
-        insertar_matrices_seguro_desarollo($("#guardarSeguroProvincia"),$("#identificador").val(),"#itemSeguroProvincia",null,"selectorSeguroProvincia", "#cantidadSeguroProvincia","#nroCuposSeguroProvincia","#valorUnitarioSeguroProvincia","#valorTotalSeguroProvincia","#paidSeguroProvincia");
+        insertar_matrices_seguro_desarollo($("#guardarSeguroDeporte"),$("#identificador").val(),"#itemSeguroDeporte","selectorSeguroDeporte",null, "#cantidadSeguroDeporte","#nroCuposSeguroDeporte","#valorUnitarioSeguroDeporte","#valorTotalSeguroDeporte","#paidSeguroDeporte","eventoSeguroDeporte");
+        insertar_matrices_seguro_desarollo($("#guardarSeguroProvincia"),$("#identificador").val(),"#itemSeguroProvincia",null,"selectorSeguroProvincia", "#cantidadSeguroProvincia","#nroCuposSeguroProvincia","#valorUnitarioSeguroProvincia","#valorTotalSeguroProvincia","#paidSeguroProvincia","eventoSeguroProvincia");
         
-        insertar_matrices_transporte_desarollo($("#guardarTransporteDeporte"),$("#identificador").val(),"#itemTransporteDeporte","selectorTransporteDeporte",null, "#cantidadTransporteDeporte","#nroCuposTransporteDeporte","#valorUnitarioTransporteDeporte","#valorTotalTransporteDeporte","#paidTransporteDeporte");
-        insertar_matrices_transporte_desarollo($("#guardarTransporteProvincia"),$("#identificador").val(),"#itemTransporteProvincia",null,"selectorTransporteProvincia", "#cantidadTransporteProvincia","#nroCuposTransporteProvincia","#valorUnitarioTransporteProvincia","#valorTotalTransporteProvincia","#paidTransporteProvincia");
+        insertar_matrices_transporte_desarollo($("#guardarTransporteDeporte"),$("#identificador").val(),"#itemTransporteDeporte","selectorTransporteDeporte",null, "#cantidadTransporteDeporte","#nroCuposTransporteDeporte","#valorUnitarioTransporteDeporte","#valorTotalTransporteDeporte","#paidTransporteDeporte","eventoTransporteDeporte");
+        insertar_matrices_transporte_desarollo($("#guardarTransporteProvincia"),$("#identificador").val(),"#itemTransporteProvincia",null,"selectorTransporteProvincia", "#cantidadTransporteProvincia","#nroCuposTransporteProvincia","#valorUnitarioTransporteProvincia","#valorTotalTransporteProvincia","#paidTransporteProvincia","eventoTransporteProvincia");
   
+        
     });
     
     $.getScript("layout/scripts/js/PAID_DESARROLLO_JS/eliminaciones.js",function(){
@@ -181,8 +183,33 @@ $(document).ready(function () {
         CargarSelector_Deportes_Paid_DesarrolloJN($("#btnNuevoTransporteDeporte"),"listar_Deportes_PTC",'selectorTransporteDeporte');
         CargarSelector_Deportes_Paid_DesarrolloJN($("#btnNuevoUniformes"),"listar_Deportes_PTC",'deporteUniformes');
         CargarSelector_Deportes_Paid_DesarrolloJN($("#btnNuevoIndumentariaPApoyo"),"listar_Deportes_PTC",'deporteIndumentariaPApoyo');
-        CargarSelector_Deportes_Paid_DesarrolloJN($("#btnNuevoPasajesAereos"),"listar_Deportes_PTC",'idSelectDeportePasajesAereos');
+        CargarSelector_Deportes_Paid_DesarrolloJN($("#btnNuevoEventoJN"),"listar_Deportes_PTC",'idSelectDeporteEventos');
+        CargarSelector_Deportes_Paid_DesarrolloJN($("#btnNuevoEventoJN"),"listar_Deportes_PTC",'idSelectModalidadEventos');
 
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoBonoDeportivoJN"),"listar_evento_desarrollo",'eventoBonoDeportivoJN');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoAdecentamiento"),"listar_evento_desarrollo",'selectEventoAdecentamiento');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoBienes"),"listar_evento_desarrollo",'selectEventoBienes');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoMedicinas"),"listar_evento_desarrollo",'selectEventoMedicinas');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoAlqEquipos"),"listar_evento_desarrollo",'selectEventoAlqEquipos');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoCompEquipos"),"listar_evento_desarrollo",'selectEventoComEquipos');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoLogEventos"),"listar_evento_desarrollo",'selectEventoLogEvento');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoPublicidad"),"listar_evento_desarrollo",'selectEventoPublicidad');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoAcreiditaciones"),"listar_evento_desarrollo",'selectEventoAcreditaciones');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoMedallasJN"),"listar_evento_desarrollo",'eventoMedallasJN');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoPasajesAereos"),"listar_evento_desarrollo",'eventoPasajesAereosJN');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoPTC"),"listar_evento_desarrollo",'eventoPTCJN');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoSeguroDeporte"),"listar_evento_desarrollo",'eventoSeguroDeporte');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoSeguroProvincia"),"listar_evento_desarrollo",'eventoSeguroProvincia');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoHospAlimDI"),"listar_evento_desarrollo",'eventoHospAlimDI');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoHospAlimDC"),"listar_evento_desarrollo",'eventoHospAlimDC');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoDeporteDelegacionHospAlimJA"),"listar_evento_desarrollo",'eventoHospAlimJA');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoHidratacionDI"),"listar_evento_desarrollo",'eventoHidratacionDI');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoHidratacionDC"),"listar_evento_desarrollo",'eventoHidratacionDC');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoDeporteDelegacionHidrJA"),"listar_evento_desarrollo",'eventoHidratacionJA');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoTransporteDeporte"),"listar_evento_desarrollo",'eventoTransporteDeporte');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoTransporteProvincia"),"listar_evento_desarrollo",'eventoTransporteProvincia');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoUniformes"),"listar_evento_desarrollo",'eventoUniformes');
+        CargarSelector_eventos_DesarrolloJN($("#btnNuevoIndumentariaPApoyo"),"listar_evento_desarrollo",'eventoIndumentaria');
 
         CargarSelector_items_Paid_DesarrolloJN($("#btnNuevoAdecentamiento"),"obtener_items","itemAdecentamiento",$("#identificador").val());
         CargarSelector_items_Paid_DesarrolloJN($("#btnNuevoBienes"),"obtener_items",'itemBienes',$("#identificador").val());
@@ -198,8 +225,6 @@ $(document).ready(function () {
         CargarSelector_deporte_provincias_Paid_DesarrolloJN($("#btnNuevoHidratacionDI"),"obtener_deporte_Hosp_Alim","deporteHidratacionDI",$("#identificador").val());
         CargarSelector_deporte_provincias_Paid_DesarrolloJN($("#btnNuevoSeguroProvincia"),"obtener_deporte_Hosp_Alim","selectorSeguroProvincia",$("#identificador").val());
         CargarSelector_deporte_provincias_Paid_DesarrolloJN($("#btnNuevoTransporteProvincia"),"obtener_deporte_Hosp_Alim","selectorTransporteProvincia",$("#identificador").val());
-
-        
 
     });
 
@@ -279,6 +304,56 @@ $(document).ready(function () {
         actualizaDatabletPorIDBoton($("#verReportePaidGeneral"),$("#paidReporteGeneralDesarrollo"));
         
         
+        cerrarSelectorDesarrollo("#guardarEventoDesarrollo","#idSelectDeporteEventos");
+        cerrarSelectorDesarrollo("#guardarEventoDesarrollo","#idSelectModalidadEventos");
+        cerrarSelectorDesarrollo("#btnCerrarNuevoEventoDesarrollo","#idSelectDeporteEventos");
+        cerrarSelectorDesarrollo("#btnCerrarNuevoEventoDesarrollo","#idSelectModalidadEventos");
+
+        cerrarSelectorDesarrollo("#guardarUniformes","#eventoUniformes");
+        cerrarSelectorDesarrollo("#cerrarUniformes","#eventoUniformes");
+        cerrarSelectorDesarrollo("#guardarIndumentariaPApoyo","#eventoIndumentaria");
+        cerrarSelectorDesarrollo("#cerrarIndumentariaPApoyo","#eventoIndumentaria");
+
+        cerrarSelectorDesarrollo("#cerrarTransporteDeporte","#eventoTransporteDeporte");
+        cerrarSelectorDesarrollo("#guardarTransporteDeporte","#eventoTransporteDeporte");
+        cerrarSelectorDesarrollo("#cerrarTransporteProvincia","#eventoTransporteProvincia");
+        cerrarSelectorDesarrollo("#guardarTransporteProvincia","#eventoTransporteProvincia");
+
+        cerrarSelectorDesarrollo("#guardarBonoDeportivoJN","#eventoBonoDeportivoJN");
+        cerrarSelectorDesarrollo("#btnCerrarNuevoBonoDeportivoJN","#eventoBonoDeportivoJN");
+
+        cerrarSelectorDesarrollo("#cerrarAdecentamiento","#selectEventoAdecentamiento");
+        cerrarSelectorDesarrollo("#guardarAdecentamiento","#selectEventoAdecentamiento");
+        cerrarSelectorDesarrollo("#cerrarBienes","#selectEventoBienes");
+        cerrarSelectorDesarrollo("#guardarBienes","#selectEventoBienes");
+        cerrarSelectorDesarrollo("#cerrarMedicinas","#selectEventoMedicinas");
+        cerrarSelectorDesarrollo("#guardarMedicinas","#selectEventoMedicinas");
+        cerrarSelectorDesarrollo("#cerrarAlqEquipos","#selectEventoAlqEquipos");
+        cerrarSelectorDesarrollo("#guardarAlqEquipos","#selectEventoAlqEquipos");
+        cerrarSelectorDesarrollo("#cerrarComEquipos","#selectEventoComEquipos");
+        cerrarSelectorDesarrollo("#guardarComEquipos","#selectEventoComEquipos");
+        cerrarSelectorDesarrollo("#cerrarLogEventos","#selectEventoLogEvento");
+        cerrarSelectorDesarrollo("#guardarLogEventos","#selectEventoLogEvento");
+        cerrarSelectorDesarrollo("#cerrarPublicidad","#selectEventoPublicidad");
+        cerrarSelectorDesarrollo("#guardarPublicidad","#selectEventoPublicidad");
+        cerrarSelectorDesarrollo("#cerrarAcreditaciones","#selectEventoAcreditaciones");
+        cerrarSelectorDesarrollo("#guardarAcreditaciones","#selectEventoAcreditaciones");
+
+        cerrarSelectorDesarrollo("#guardarMedallasJN","#eventoMedallasJN");
+        cerrarSelectorDesarrollo("#btnCerrarNuevoDesarrolloJN","#eventoMedallasJN");
+      
+        cerrarSelectorDesarrollo("#btnCerrarPasajesAereos","#eventoPasajesAereosJN");
+        cerrarSelectorDesarrollo("#guardarDatosPasajesAereos","#eventoPasajesAereosJN");
+
+        cerrarSelectorDesarrollo("#guardarDatosPTC","#eventoPTCJN");
+        cerrarSelectorDesarrollo("#btnCerrarPTC","#eventoPTCJN");
+
+        cerrarSelectorDesarrollo("#guardarSeguroDeporte","#eventoSeguroDeporte");
+        cerrarSelectorDesarrollo("#cerrarSeguroDeporte","#eventoSeguroDeporte");
+        cerrarSelectorDesarrollo("#guardarSeguroProvincia","#eventoSeguroProvincia");
+        cerrarSelectorDesarrollo("#cerrarSeguroProvincia","#eventoSeguroProvincia");
+
+
         cerrarSelectorDesarrollo("#btnCerrarNuevoDesarrolloJN","#categoriaDesarrolloJN");
         cerrarSelectorDesarrollo("#guardarEventosNacionales","#categoriaDesarrolloJN");
         cerrarSelectorDesarrollo("#btnCerrarNuevoDesarrolloJN","#DeporteMedallaJN");
@@ -286,6 +361,19 @@ $(document).ready(function () {
         
         cerrarSelectorDesarrollo("#guardarMedallasJN","#DeporteMedallaJN");
         cerrarSelectorDesarrollo("#guardarBonoDeportivoJN","#DeporteBonoDeportivoJN");
+
+        cerrarSelectorDesarrollo("#cerrarHospAlimDI","#eventoHospAlimDI");
+        cerrarSelectorDesarrollo("#guardarHospAlimDI","#eventoHospAlimDI");
+        cerrarSelectorDesarrollo("#cerrarHospAlimDC","#eventoHospAlimDC");
+        cerrarSelectorDesarrollo("#guardarHospAlimDC","#eventoHospAlimDC");
+        cerrarSelectorDesarrollo("#cerrarHospAlimJA","#eventoHospAlimJA");
+        cerrarSelectorDesarrollo("#guardarHospAlimJA","#eventoHospAlimJA");
+        cerrarSelectorDesarrollo("#cerrarHidratacionDI","#eventoHidratacionDI");
+        cerrarSelectorDesarrollo("#guardarHidratacionDI","#eventoHidratacionDI");
+        cerrarSelectorDesarrollo("#cerrarHidratacionDC","#eventoHidratacionDC");
+        cerrarSelectorDesarrollo("#guardarHidratacionDC","#eventoHidratacionDC");
+        cerrarSelectorDesarrollo("#cerrarHidratacionJA","#eventoHidratacionJA");
+        cerrarSelectorDesarrollo("#guardarHidratacionJA","#eventoHidratacionJA");
 
 
         cerrarSelectorDesarrollo("#cerrarAdecentamiento","#itemAdecentamiento");

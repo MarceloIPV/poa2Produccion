@@ -21,7 +21,7 @@
 					<th><center>CANTÓN</center></th>
 					<th><center>PARROQUIA</center></th> 
 					<th><center>SEMESTRE<br>REPORTADO</center></th>
-					<<th><center>FECHA ENVÍO<br>DE INFORMACIÓN</center></th>
+					<th><center>FECHA ENVÍO<br>DE INFORMACIÓN</center></th>
 					<th><center>E-SIGEF2</center></th> 
 					<th><center>TIPO DE<br>ORGANIZACIÓN</center></th> 
 					<th><center>REVISAR</center></th>

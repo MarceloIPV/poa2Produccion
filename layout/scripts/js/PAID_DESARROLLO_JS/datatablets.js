@@ -344,8 +344,8 @@ var datatabletsDesarollo=function(tabla,tipo){
           "url":"modelosBd/PAID_DESARROLLO/datatablets.PD.md.php", 
           "data": { 
             "tipo": tipo,
-            "idcomponentePAID": $("#JuegosNacionalesIDComponentes").val(),
-            "idrubroPAID": $("#JuegosNacionalesIDRubro").val()
+            "idcomponentePAID": $("#JuegosNacionalesIDCOMPONENTE").val(),
+            "idrubroPAID": $("#JuegosNacionalesIDRUBRO").val()
           }  
       
         },

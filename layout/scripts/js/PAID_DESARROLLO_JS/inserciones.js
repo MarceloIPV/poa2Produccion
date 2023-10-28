@@ -315,7 +315,13 @@ var insertar_medallas_convencionalesJN = function (boton,identificador) {
         paqueteDeDatos.append("idComponente", $("#JuegosNacionalesIDCOMPONENTE").val());
         paqueteDeDatos.append("idRubro", $("#JuegosNacionalesIDRUBRO").val());
     
+        let selectElementE = document.getElementById('eventoMedallasJN');
 
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+          
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+        if(selectedOptionValueE !=0){
         
         
         axios({
@@ -343,6 +349,12 @@ var insertar_medallas_convencionalesJN = function (boton,identificador) {
         }).catch((error) => {
         
         });
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe Seleccionar un Evento', function() {
+                },function(){} );
+
+            }
 
         }else{
 
@@ -367,7 +379,7 @@ var insertar_medallas_convencionalesJN = function (boton,identificador) {
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ------------------------------ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Matrices Generales>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_matrices_generales_juegos_nacionales = function (boton,identificador,item,descripcion,cantidad,valorUnitario, valorTotal,nombreTabla) {
+var insertar_matrices_generales_juegos_nacionales = function (boton,identificador,item,descripcion,cantidad,valorUnitario, valorTotal,nombreTabla,evento) {
 
     $(boton).click(function (e) {
 
@@ -408,6 +420,17 @@ var insertar_matrices_generales_juegos_nacionales = function (boton,identificado
         paqueteDeDatos.append("identificador", identificador);
         paqueteDeDatos.append("nombreMatriz",$("#selectPersonalizado").val());
 
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+          
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+        if(selectedOptionValueE !=0){
+
+        
+       
+
         paqueteDeDatos.append("idComponente", $("#JuegosNacionalesIDCOMPONENTE").val());
         paqueteDeDatos.append("idRubro", $("#JuegosNacionalesIDRUBRO").val());
     
@@ -441,6 +464,13 @@ var insertar_matrices_generales_juegos_nacionales = function (boton,identificado
         
         });
 
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe Seleccionar un Evento', function() {
+                },function(){} );
+
+            }
+
         }else{
 
             alertify.confirm('Eliminar', 'No puede Exceder el Monto Asignado', function() {
@@ -457,7 +487,7 @@ var insertar_matrices_generales_juegos_nacionales = function (boton,identificado
 }
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Hosp Alim DI >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_matrices_hops_alim = function (boton,identificador, deporte,deporte2, nroCupos,hospAlim, dias, valorTotal, nombreTabla) {
+var insertar_matrices_hops_alim = function (boton,identificador, deporte,deporte2, nroCupos,hospAlim, dias, valorTotal, nombreTabla,evento) {
 
     $(boton).click(function (e) {
        
@@ -485,6 +515,14 @@ var insertar_matrices_hops_alim = function (boton,identificador, deporte,deporte
         paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecDIDC").val());
+
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+        if(selectedOptionValueE !=0){
         
         axios({
             method: "post",
@@ -513,6 +551,13 @@ var insertar_matrices_hops_alim = function (boton,identificador, deporte,deporte
         
         });
 
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe Seleccionar un Evento', function() {
+                },function(){} );
+
+            }
+
         }else{
 
             alertify.confirm('Eliminar', 'No puede Exceder el Monto Asignado', function() {
@@ -534,7 +579,7 @@ var insertar_matrices_hops_alim = function (boton,identificador, deporte,deporte
 }
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Hosp Alim DC >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_matrices_hops_alimDC = function (boton,identificador, deporte, deporte2, nroCupos,hospAlim, dias, valorTotal, nombreTabla) {
+var insertar_matrices_hops_alimDC = function (boton,identificador, deporte, deporte2, nroCupos,hospAlim, dias, valorTotal, nombreTabla,evento) {
 
     $(boton).click(function (e) {
        
@@ -563,6 +608,17 @@ var insertar_matrices_hops_alimDC = function (boton,identificador, deporte, depo
         paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecDIDC").val());
+
+       
+
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+      
+        if(selectedOptionValueE !=0){
         
         axios({
             method: "post",
@@ -590,6 +646,13 @@ var insertar_matrices_hops_alimDC = function (boton,identificador, deporte, depo
         
         });
 
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe seleccionar un Evento', function() {
+                },function(){} );
+
+            }
+
         }else{
 
             alertify.confirm('Eliminar', 'No puede Exceder el Monto Asignado', function() {
@@ -610,7 +673,7 @@ var insertar_matrices_hops_alimDC = function (boton,identificador, deporte, depo
 }
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Hidr DI >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_matrices_HidDI = function (boton,identificador, deporte, deporte2,nroCupos,hidr, dias, valorTotal, nombreTabla) {
+var insertar_matrices_HidDI = function (boton,identificador, deporte, deporte2,nroCupos,hidr, dias, valorTotal, nombreTabla,evento) {
 
     $(boton).click(function (e) {
        
@@ -636,7 +699,15 @@ var insertar_matrices_HidDI = function (boton,identificador, deporte, deporte2,n
         paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecDIDCHI").val());
+
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
         
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+        if(selectedOptionValueE !=0){
+
         axios({
             method: "post",
             url: "modelosBd/PAID_DESARROLLO/inserta.md.php",
@@ -664,6 +735,11 @@ var insertar_matrices_HidDI = function (boton,identificador, deporte, deporte2,n
 
         }else{
 
+            alertify.confirm('Eliminar', 'Debe Seleccionar un Evento', function() {
+            },function(){} );
+        }
+        }else{
+
             alertify.confirm('Eliminar', 'No puede Exceder el Monto Asignado', function() {
             },function(){} );
         }
@@ -678,7 +754,7 @@ var insertar_matrices_HidDI = function (boton,identificador, deporte, deporte2,n
 }
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Hidr DC >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_matrices_HidDC = function (boton,identificador, deporte, deporte2, nroCupos,hidr, dias, valorTotal, nombreTabla) {
+var insertar_matrices_HidDC = function (boton,identificador, deporte, deporte2, nroCupos,hidr, dias, valorTotal, nombreTabla,evento) {
 
     $(boton).click(function (e) {
        
@@ -704,6 +780,14 @@ var insertar_matrices_HidDC = function (boton,identificador, deporte, deporte2, 
         paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecDIDCHI").val());
+
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+        if(selectedOptionValueE !=0){
         
         axios({
             method: "post",
@@ -729,6 +813,11 @@ var insertar_matrices_HidDC = function (boton,identificador, deporte, deporte2, 
         }).catch((error) => {
         
         });
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe seleccionar un evento', function() {
+                },function(){} );
+            }
 
         }else{
 
@@ -788,7 +877,14 @@ var insertar_personal_tecnico_convensional = function (boton,identificador) {
             paqueteDeDatos.append("identificador", identificador);
             paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
             paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
-          
+            
+            let selectElementE = document.getElementById('eventoPTCJN');
+
+            let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+            
+            paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+            if(selectedOptionValueE !=0){
 
         axios({
             method: "post",
@@ -819,6 +915,12 @@ var insertar_personal_tecnico_convensional = function (boton,identificador) {
         }).catch((error) => {
         
         });
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe seleccionar un evento', function() {
+                },function(){} );
+
+            }
 
         }else{
 
@@ -849,7 +951,7 @@ var insertar_personal_tecnico_convensional = function (boton,identificador) {
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Uniformes Adaptado >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_datos_uniformes = function (boton,identificador, deporte, delegaciones, pApoyo, vUnitario, valorTotal, nombreTabla) {
+var insertar_datos_uniformes = function (boton,identificador, deporte, delegaciones, pApoyo, vUnitario, valorTotal, nombreTabla,evento) {
 
     $(boton).click(function (e) {
        
@@ -875,6 +977,15 @@ var insertar_datos_uniformes = function (boton,identificador, deporte, delegacio
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecUnifAdaptados").val());
 
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+      
+        if(selectedOptionValueE !=0){
+ 
         
         axios({
             method: "post",
@@ -901,6 +1012,11 @@ var insertar_datos_uniformes = function (boton,identificador, deporte, delegacio
         
         });
 
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe seleccionar un Evento', function() {
+                },function(){} );
+            }
         }else{
 
             alertify.confirm('Eliminar', 'No puede Exceder el Monto Asignado', function() {
@@ -932,6 +1048,9 @@ var insertar_bono_deportivo_JN = function (boton,identificador) {
         let selectElement = document.getElementById("DeporteBonoDeportivoJN");
         let deporte = selectElement.options[selectElement.selectedIndex].value;
        
+        let selectElementE = document.getElementById("eventoBonoDeportivoJN");
+        let evento = selectElementE.options[selectElementE.selectedIndex].value;
+
 
         let nroDias = $("#nroDiasBonoDeportivo").val();
         let totalPersonal = $("#totalPersonalDeporteBonoDeportivo").val();
@@ -950,10 +1069,14 @@ var insertar_bono_deportivo_JN = function (boton,identificador) {
         paqueteDeDatos.append("valorBono", valorBono);
         paqueteDeDatos.append("valorTotal", valorTotal);
         paqueteDeDatos.append("identificador", identificador);
+        paqueteDeDatos.append("idEvento", evento);
 
         paqueteDeDatos.append("idComponente", $("#JuegosNacionalesIDCOMPONENTE").val());
         paqueteDeDatos.append("idRubro", $("#JuegosNacionalesIDRUBRO").val());
     
+        if(evento != 0){
+
+        
         
         axios({
             method: "post",
@@ -981,7 +1104,13 @@ var insertar_bono_deportivo_JN = function (boton,identificador) {
         }).catch((error) => {
         
         });
+       
+        }else{
 
+            alertify.confirm('Eliminar', 'Debe Seleccionar un Evento', function() {
+            },function(){} );
+
+        }
         }else{
 
             alertify.confirm('Eliminar', 'No puede Exceder el Monto Asignado', function() {
@@ -1000,7 +1129,7 @@ var insertar_bono_deportivo_JN = function (boton,identificador) {
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Hosp Alim JA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_matrices_hops_alim_JA = function (boton,identificador, deporte,nroCupos,hospAlim, dias, valorTotal, nombreTabla) {
+var insertar_matrices_hops_alim_JA = function (boton,identificador, deporte,nroCupos,hospAlim, dias, valorTotal, nombreTabla,evento) {
 
     $(boton).click(function (e) {
        
@@ -1026,6 +1155,15 @@ var insertar_matrices_hops_alim_JA = function (boton,identificador, deporte,nroC
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecDIDC").val());
         
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+        if(selectedOptionValueE !=0){
+    
+
         axios({
             method: "post",
             url: "modelosBd/PAID_DESARROLLO/inserta.md.php",
@@ -1050,6 +1188,12 @@ var insertar_matrices_hops_alim_JA = function (boton,identificador, deporte,nroC
         }).catch((error) => {
         
         });
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe seleccionar un evento', function() {
+                },function(){} );
+
+            }
 
         }else{
 
@@ -1094,6 +1238,7 @@ var insertar_matrices_HidDC_JA = function (boton,identificador, deporte,nroCupos
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecDIDCHI").val());
         
+        
         axios({
             method: "post",
             url: "modelosBd/PAID_DESARROLLO/inserta.md.php",
@@ -1136,7 +1281,7 @@ var insertar_matrices_HidDC_JA = function (boton,identificador, deporte,nroCupos
 
 
 /*********************************INSERCION SEGUROS******************************************************+ */
-var insertar_matrices_seguro_desarollo = function (boton,identificador,item,deporte,provincia,cantidad,nroCupos,valorUnitario, valorTotal,nombreTabla) {
+var insertar_matrices_seguro_desarollo = function (boton,identificador,item,deporte,provincia,cantidad,nroCupos,valorUnitario, valorTotal,nombreTabla,evento) {
 
     $(boton).click(function (e) {
 
@@ -1186,6 +1331,14 @@ var insertar_matrices_seguro_desarollo = function (boton,identificador,item,depo
 
         paqueteDeDatos.append("idComponente", $("#JuegosNacionalesIDCOMPONENTE").val());
         paqueteDeDatos.append("idRubro", $("#JuegosNacionalesIDRUBRO").val());
+
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+        if(selectedOptionValueE !=0){
     
 
         axios({
@@ -1218,6 +1371,12 @@ var insertar_matrices_seguro_desarollo = function (boton,identificador,item,depo
         }).catch((error) => {
         
         });
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe Seleccionar un Evento', function() {
+                },function(){} );
+
+            }
 
         }else{
 
@@ -1236,7 +1395,7 @@ var insertar_matrices_seguro_desarollo = function (boton,identificador,item,depo
 }
 
 /*********************************INSERCION Transporte******************************************************+ */
-var insertar_matrices_transporte_desarollo = function (boton,identificador,item,deporte,provincia,cantidad,nroCupos,valorUnitario, valorTotal,nombreTabla) {
+var insertar_matrices_transporte_desarollo = function (boton,identificador,item,deporte,provincia,cantidad,nroCupos,valorUnitario, valorTotal,nombreTabla,evento) {
 
     $(boton).click(function (e) {
 
@@ -1274,6 +1433,7 @@ var insertar_matrices_transporte_desarollo = function (boton,identificador,item,
             paqueteDeDatos.append("provincia", provinciaSelect);
             
         }
+
         
 
         paqueteDeDatos.append("cantidad", $(cantidad).val());
@@ -1286,7 +1446,15 @@ var insertar_matrices_transporte_desarollo = function (boton,identificador,item,
         paqueteDeDatos.append("idComponente", $("#JuegosNacionalesIDCOMPONENTE").val());
         paqueteDeDatos.append("idRubro", $("#JuegosNacionalesIDRUBRO").val());
     
-   
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+      
+        if(selectedOptionValueE !=0){
+
         axios({
             method: "post",
             url: "modelosBd/PAID_DESARROLLO/inserta.md.php",
@@ -1315,6 +1483,12 @@ var insertar_matrices_transporte_desarollo = function (boton,identificador,item,
         }).catch((error) => {
         
         });
+        }else{
+
+            alertify.confirm('Eliminar', 'Seleccione un Evento', function() {
+            },function(){} );
+
+        }
 
         }else{
 
@@ -1334,7 +1508,7 @@ var insertar_matrices_transporte_desarollo = function (boton,identificador,item,
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion Indumentaria P Apoyo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-var insertar_datos_indumentario_pApoyo = function (boton,identificador, deporte, delegaciones, pApoyo, vUnitario, valorTotal, nombreTabla) {
+var insertar_datos_indumentario_pApoyo = function (boton,identificador, deporte, delegaciones, pApoyo, vUnitario, valorTotal, nombreTabla, evento) {
 
     $(boton).click(function (e) {
        
@@ -1359,6 +1533,15 @@ var insertar_datos_indumentario_pApoyo = function (boton,identificador, deporte,
         paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
         paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
         paqueteDeDatos.append("nombreMatriz",$("#idSelecUnifAdaptados").val());
+
+        let selectElementE = document.getElementById(evento);
+
+        let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+        
+        paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+      
+        if(selectedOptionValueE !=0){
  
         axios({
             method: "post",
@@ -1385,6 +1568,11 @@ var insertar_datos_indumentario_pApoyo = function (boton,identificador, deporte,
         }).catch((error) => {
         
         });
+        }else{
+
+            alertify.confirm('Eliminar', 'Debe seleccionar un Evento', function() {
+            },function(){} );
+        }
 
         }else{
 
@@ -1405,6 +1593,9 @@ var insertar_datos_indumentario_pApoyo = function (boton,identificador, deporte,
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insercion PASAJES AEREOS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+
+
+
 var insertar_pasajes_aereos = function (boton,identificador) {
 
     $(boton).click(function (e) {
@@ -1438,6 +1629,14 @@ var insertar_pasajes_aereos = function (boton,identificador) {
             paqueteDeDatos.append("identificador", identificador);
             paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
             paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
+
+            let selectElementE = document.getElementById('eventoPasajesAereosJN');
+
+            let selectedOptionValueE = selectElementE.options[selectElementE.selectedIndex].value;
+            
+            paqueteDeDatos.append("evento",  selectedOptionValueE);
+
+            if(selectedOptionValueE !=0){
         
         axios({
             method: "post",
@@ -1469,6 +1668,12 @@ var insertar_pasajes_aereos = function (boton,identificador) {
         }).catch((error) => {
         
         });
+            }else{
+
+                alertify.confirm('Eliminar', 'Debe Seleccionar Un Evento', function() {
+                },function(){} );
+
+            }
 
         }else{
 
@@ -1485,6 +1690,98 @@ var insertar_pasajes_aereos = function (boton,identificador) {
         $("#numTotalPersonasPasajesAereos").val("0");
         $("#nDiasPasajesAereos").val("0");
         $("#valorTotalPasajesAereos").val("0");
+
+    });
+}
+
+
+
+var insertar_eventos_desarrollo = function (boton) {
+
+    $(boton).click(function (e) {
+
+        
+            let nombre = $("#nombreEventoDesarrollo").val();
+            let nombreSede = $("#nombreSede").val();
+            let nombreSubsede = $("#nombreSubsede").val();
+            let nroParticipantes = $("#nroParticipantes").val();
+            let obj_General = $("#obj_General").val();
+            let obj_Especificos =$("#obj_Especificos").val();
+            let meta =$("#meta").val();
+            
+            let fechaInicioEvento = $("#fechaInicioEvento").val();
+            let fechaFinEvento = $("#fechaFinEvento").val();
+        
+            let selectElementD = document.getElementById('idSelectDeporteEventos');
+            let deporteSelect = selectElementD.options[selectElementD.selectedIndex].value;
+            
+            
+
+
+            let selectElementM = document.getElementById('idSelectDeporteEventos');
+            let modalidadSelect = selectElementM.options[selectElementM.selectedIndex].value;
+            
+           
+
+            let JuegosNacionalesIDComponentes =$("#JuegosNacionalesIDCOMPONENTE").val();    
+            let JuegosNacionalesIDRubro =$("#JuegosNacionalesIDRUBRO").val();
+            
+    
+            let paqueteDeDatos = new FormData();
+            
+            paqueteDeDatos.append("tipo","insertar_datos_evento_desarrollo");
+            paqueteDeDatos.append("nombre", nombre);            
+            paqueteDeDatos.append("nombreSede", nombreSede);
+            paqueteDeDatos.append("nombreSubsede", nombreSubsede);
+            paqueteDeDatos.append("nroParticipantes", nroParticipantes);
+            paqueteDeDatos.append("obj_General", obj_General);
+            paqueteDeDatos.append("obj_Especificos", obj_Especificos);
+            paqueteDeDatos.append("meta", meta);;
+            paqueteDeDatos.append("fechaInicioEvento", fechaInicioEvento);
+            paqueteDeDatos.append("fechaFinEvento", fechaFinEvento);
+            paqueteDeDatos.append("JuegosNacionalesIDComponentes", JuegosNacionalesIDComponentes);
+            paqueteDeDatos.append("JuegosNacionalesIDRubro", JuegosNacionalesIDRubro);
+            paqueteDeDatos.append("deporte", deporteSelect);
+            paqueteDeDatos.append("modalidad", modalidadSelect);
+            
+        axios({
+            method: "post",
+            url: "modelosBd/PAID_DESARROLLO/inserta.md.php",
+            data: paqueteDeDatos,
+            headers: { "Content-Type": "multipart/form-data" },
+        }).then((response) => {
+            
+            
+            mensaje =response.data.mensaje;
+
+            if (mensaje==1) {
+
+                alertify.set("notifier","position", "top-center");
+                alertify.notify("Registro realizado correctamente", "success", 3, function(){});
+
+                actualizaDatabletPorID($("#paidEventosDesarrollo"));
+
+            }
+
+        }).catch((error) => {
+        
+        });
+
+        $("#nombreEventoDesarrollo").val("");
+        $("#nombreSede").val("");
+        $("#nombreSubsede").val("");
+        $("#nroParticipantes").val("0");
+        $("#obj_General").val("");
+        $("#obj_Especificos").val("");
+        $("#meta").val("");
+
+        $("#fechaInicioEvento").val("");
+        $("#fechaFinEvento").val("");
+
+        
+        $("#idSelectDeporteEventos").val("0");
+        $("#idSelectModalidadEventos").val("0");
+       
 
     });
 }

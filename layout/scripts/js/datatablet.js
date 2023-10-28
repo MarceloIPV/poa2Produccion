@@ -3692,7 +3692,7 @@ var funcion__datatabletsEliminar2=function(tbody,table,parametro3,parametro4,par
 
 var funcion__ReasingarTraReInstala=function(tbody,table,parametro3,parametro4,parametro5){
 
-  $(tbody).on("click","button.reasignarTramites",function(e){
+  $(tbody).on("click","button.reasignarTramites ",function(e){
 
   	e.preventDefault();
 

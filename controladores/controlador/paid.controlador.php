@@ -1785,6 +1785,47 @@ class componentesPaid
 
 					  <div class='modal-body row'>
 
+					  <div class='container-fluid pt-2 px-2 divIngresoIndormacionMemoInfra' style='display:none'>
+					  <div style='margin: 1em 0' >		
+						  <label>Información Memo </label>
+					  </div>
+
+					  <div class='row g-2'>
+
+						  <div class='form-group row'>
+							  <label class='col-sm-2 col-form-label col-form-label-sm'>MD-CAID- </label>
+							  <div class='col-sm-2'>
+							  <input type='text'  id='inputAnio' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Año'>
+							  </div>
+							  <label class='col-sm-1 col-form-label col-form-label-sm'>-</label>
+							  <div class='col-sm-2'>
+							  <input type='text' id='inputSerie' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Número'>
+							  </div>
+							  <label class='col-sm-2 col-form-label col-form-label-sm'>-MEM </label>
+							  
+
+						  </div>
+
+						  <div class='form-group row'>
+							  <label class='col-sm-1 col-form-label col-form-label-sm'>de</label>
+							  <div class='col-sm-2'>
+							  <input type='text' id='inputDia' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Día'>
+							  </div>
+							  <label class='col-sm-1 col-form-label col-form-label-sm'>de</label>
+							  <div class='col-sm-2'>
+							  <input type='text' id='inputMes' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Mes'>
+							  </div>
+							  <label class='col-sm-1 col-form-label col-form-label-sm'>de</label>
+							  <div class='col-sm-2'>
+							  <input type='text' id='inputAnioMemo' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Año'>
+							  </div>
+
+						  </div>
+						  
+	  
+					  </div>
+				   </div>
+
 						  <table class='col col-12'>
 
 
@@ -4092,4 +4133,91 @@ class componentesPaid
 
 		return $modal;
 	}
+
+	public function getModalEditargetModal2($parametro1, $parametro2, $parametro3, $parametro4, $parametro5, $parametro6,$parametro7,$idInput)
+	{
+
+		$modal = "
+
+			<div class='modal fade' id='$parametro1' aria-hidden='true'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog'>
+
+					<form id='$parametro2' class='modal-content'>
+
+					<input type='hidden' class='enviado' name='enviado'/>
+
+					<div class='modal-header row'>
+
+						<div class='col col-11 text-center'>
+
+						<h5 class='modal-title'>$parametro3</h5>
+
+						</div>
+
+					
+						<div class='col col-1' style='z-index: 2;'>
+							<button type='button' id='$parametro7' class='btn-close modales_reload pointer_botones' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+						</div>
+
+					</div>
+
+					<div class='modal-body row'>
+
+					";
+
+
+
+		foreach ($parametro4 as $clavePrincipal => $valorPrincipal) {
+
+			if ($valorPrincipal == "select__1" || $valorPrincipal == "select__2" || $valorPrincipal == "select__3" || $valorPrincipal == "select__grupoG" || $valorPrincipal == "select__2Objetivos" || $valorPrincipal == "select__indiCadores"  ||  $valorPrincipal == "input__2__tipoPaid"  ||  $valorPrincipal == "input__3__tipoPaid" ||  $valorPrincipal == "input__2__rubroPaid" ||  $valorPrincipal == "input__3__rubroPaid") {
+
+				$modal .= "
+					<div class='col col-4 titulo__enfasis'>$parametro5[$clavePrincipal]</div>
+					<select type='text' class='$parametro4[$clavePrincipal]' name='$parametro4[$clavePrincipal]' class='col col-8 text-left'></select>
+				";
+			} else if ($parametro5[$clavePrincipal] == "escondido") {
+
+				$modal .= "
+					<input type='hidden' class='$parametro4[$clavePrincipal]' name='$parametro4[$clavePrincipal]' class='col col-8 text-left' />
+				";
+			} else {
+
+				$modal .= "
+					<div class='col col-4 titulo__enfasis'>$parametro5[$clavePrincipal]</div>
+					<input type='text' id='$idInput' class='$parametro4[$clavePrincipal]' name='$parametro4[$clavePrincipal]'/>
+				";
+			}
+		}
+
+
+		$modal .= "
+						</div>
+
+						<div class='modal-footer d d-flex justify-content-center row'>
+
+							<div class='col col-12 d d-flex justify-content-center flex-wrap'>
+
+								<a type='button' class='btn btn-primary  left__margen' id='$parametro6' name='$parametro6'>Editar</a>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		";
+
+		return $modal;
+	}
+
+
+	
 }
+
+
+

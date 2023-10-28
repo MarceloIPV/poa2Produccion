@@ -1424,7 +1424,7 @@
 
  			}else if($indicador==57){
 
- 				$query="SELECT c.nombre AS rol,a.id_usuario,a.zonal,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario INNER JOIN th_roles AS c ON c.id_rol=b.id_rol WHERE a.PersonaACargo='$idUsuarioC'  OR (a.fisicamenteEstructura=27 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=28 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=29 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=30 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=31 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=32 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=33 AND b.id_rol=4 AND a.estadoUsuario='A') AND a.estadoUsuario='A' AND b.estado='A' ORDER BY b.id_rol;";
+ 				$query="SELECT c.nombre AS rol,a.id_usuario,a.zonal,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario INNER JOIN th_roles AS c ON c.id_rol=b.id_rol WHERE a.PersonaACargo='$idUsuarioC' OR (a.fisicamenteEstructura=26 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=27 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=28 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=29 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=30 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=31 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=32 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=33 AND b.id_rol=4 AND a.estadoUsuario='A') AND a.estadoUsuario='A' AND b.estado='A' ORDER BY b.id_rol;";
 			 	$resultado = $conexionEstablecida->query($query);
 
 			 	while($registro = $resultado->fetch()) {
@@ -2844,9 +2844,9 @@
 			}else if($idActividad==3 || $idActividad==5 || $idActividad==6 || $idActividad==7){
 
 				if ($idActividad==1 && $modificaExe=="E") {
-					$query="SELECT ROUND(b.enero,2) AS enero,ROUND(b.febrero,2) AS febrero,ROUND(b.marzo,2) AS marzo,ROUND(b.abril,2) AS abril,ROUND(b.mayo,2) AS mayo,ROUND(b.junio,2) AS junio,ROUND(b.julio,2) AS julio,ROUND(b.agosto,2) AS agosto,ROUND(b.septiembre,2) AS septiembre,ROUND(b.octubre,2) AS octubre,ROUND(b.noviembre,2) AS noviembre,ROUND(b.diciembre,2) AS diciembre,a.idProgramacionFinanciera FROM poa_programacion_financiera AS a INNER JOIN poa_actdeportivas AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE a.idItem='$item' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idActividad='$idActividad' AND a.idOrganismo='$idOrganismo' AND b.nombreEvento='$eventos_intervencion_o' LIMIT 1;";
+					$query="SELECT ROUND(b.enero,2) AS enero,ROUND(b.febrero,2) AS febrero,ROUND(b.marzo,2) AS marzo,ROUND(b.abril,2) AS abril,ROUND(b.mayo,2) AS mayo,ROUND(b.junio,2) AS junio,ROUND(b.julio,2) AS julio,ROUND(b.agosto,2) AS agosto,ROUND(b.septiembre,2) AS septiembre,ROUND(b.octubre,2) AS octubre,ROUND(b.noviembre,2) AS noviembre,ROUND(b.diciembre,2) AS diciembre,a.idProgramacionFinanciera FROM poa_programacion_financiera AS a INNER JOIN poa_actdeportivas AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE a.idItem='$item' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idActividad='$idActividad' AND a.idOrganismo='$idOrganismo' AND b.nombreEvento='$eventos_intervencion_o' AND a.idProgramacionFinanciera='$item__modificaciones__destino__modificaciones2__seleccion: ' LIMIT 1;";
 				}else{
-					$query="SELECT ROUND(b.enero,2) AS enero,ROUND(b.febrero,2) AS febrero,ROUND(b.marzo,2) AS marzo,ROUND(b.abril,2) AS abril,ROUND(b.mayo,2) AS mayo,ROUND(b.junio,2) AS junio,ROUND(b.julio,2) AS julio,ROUND(b.agosto,2) AS agosto,ROUND(b.septiembre,2) AS septiembre,ROUND(b.octubre,2) AS octubre,ROUND(b.noviembre,2) AS noviembre,ROUND(b.diciembre,2) AS diciembre,a.idProgramacionFinanciera FROM poa_programacion_financiera AS a INNER JOIN poa_actdeportivas AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE a.idProgramacionFinanciera='$item' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.idActividad='$idActividad' AND a.idOrganismo='$idOrganismo' AND b.nombreEvento='$eventos_intervencion_o' LIMIT 1;";
+					$query="SELECT ROUND(b.enero,2) AS enero,ROUND(b.febrero,2) AS febrero,ROUND(b.marzo,2) AS marzo,ROUND(b.abril,2) AS abril,ROUND(b.mayo,2) AS mayo,ROUND(b.junio,2) AS junio,ROUND(b.julio,2) AS julio,ROUND(b.agosto,2) AS agosto,ROUND(b.septiembre,2) AS septiembre,ROUND(b.octubre,2) AS octubre,ROUND(b.noviembre,2) AS noviembre,ROUND(b.diciembre,2) AS diciembre,a.idProgramacionFinanciera FROM poa_programacion_financiera AS a INNER JOIN poa_actdeportivas AS b ON a.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE a.perioIngreso='$aniosPeriodos__ingesos' AND a.idActividad='$idActividad' AND a.idOrganismo='$idOrganismo' AND b.nombreEvento='$eventos_intervencion_o' AND a.idProgramacionFinanciera='$item__modificaciones__destino__modificaciones2__seleccion: ' LIMIT 1;";
 				}
 
 			}else{
@@ -2879,7 +2879,7 @@
 
 			while($registro = $resultado->fetch()) {
 
-				if ($mesEntero==2) {
+				if ($mesEntero==2 || 6==6) {
 					$listas.="<tr><td align='center'>Enero</td><td align='center'><input type='text' id='eneroItemMesDestinoInicial' style='widdth:100%!important; border:none!important;text-align:center!important;' value='".round($registro["enero"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='eneroItemMesDestinoSuma' value='".round($registro["enero"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='eneroItemMesDestino' value='0' style='widdth:100%!important;' attr='enero'/></td></tr>";
 					$sumaTotal=floatval($registro["enero"])+$sumaTotal;
 				}else{
@@ -3197,20 +3197,11 @@
 
 								let resta=0;
 
-								if(parseFloat(sum2).toFixed(2)>parseFloat($(parametro2).val()).toFixed(2)){
+								resta=parseFloat($(this).val()) + parseFloat($(parametro4).val());
 
-									alertify.set("notifier", "position", "top-center");
-									alertify.notify("Valor supera al monto total asignado del orígen"+$(parametro2).val()+"__"+sum2, "error", 5, function () { });
-									$(this).val(0);
-									$(parametro3).val($(parametro4).val());
-								}else{
+								$(parametro3).val(parseFloat(resta).toFixed(2));
+								$(parametro5).val(resta);
 
-									resta=parseFloat($(this).val()) + parseFloat($(parametro4).val());
-
-									$(parametro3).val(parseFloat(resta).toFixed(2));
-									$(parametro5).val(resta);
-
-								}
 
 							});
 
@@ -3419,11 +3410,11 @@
 		
 			$listas="<option value='0' class='text-center'>--Seleccione personal Honorarios--</option>";
 
-			if($actividadOrigen!="honorariosD" && $identificadorPaginaReal!="diferentes"){
+			if($actividadOrigen!="honorariosD" && $identificadorPaginaReal!="diferentes" && $identificadorPaginaReal!="origenDesvinculacion"){
 				$listas.="<option value='eventoCrear' class='text-center'>".strtoupper("Crear personal (Honorarios)</option>");
 			}
 
-			if ($idActividad=="honorariosD" && $identificadorPaginaReal!="diferentes") {
+			if ($idActividad=="honorariosD" && $identificadorPaginaReal!="diferentes" && $identificadorPaginaReal!="origenDesvinculacion") {
 				$listas.="<option value='eventoCrear' class='text-center'>".strtoupper("Crear personal (Honorarios)</option>");
 			}
 			
@@ -3451,7 +3442,7 @@
 			$resultado = $conexionEstablecida->query($query);
 		
 			$listas="<option value='0' class='text-center'>--Seleccione personal Sueldos y Salarios--</option>";
-			if($identificadorPaginaReal!="diferentes"){
+			if($identificadorPaginaReal!="diferentes" && $identificadorPaginaReal!="origenDesvinculacion"){
 				$listas.="<option value='eventoCrear' class='text-center'>".strtoupper("Crear personal (Sueldos y Salarios)</option>");
 			}
 
@@ -3547,10 +3538,10 @@
 
 			while($registro = $resultado->fetch()) {
 
-				if ($mesEntero==2) {
+				// if ($mesEntero==2) {
 					$listas.="<tr><td align='center'>Enero</td><td align='center'><input type='text' id='eneroItemMesDestinoInicial' style='widdth:100%!important; border:none!important;text-align:center!important;' value='".round($registro["enero"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='eneroItemMesDestinoSuma' value='".round($registro["enero"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='eneroItemMesDestino' value='0' style='widdth:100%!important;' attr='enero'/></td></tr>";
 					$sumaTotal=floatval($registro["enero"])+$sumaTotal;
-				}
+				// }
 
 				
 				// if ($mesEntero==2 || $mesEntero==3) {
@@ -3591,48 +3582,48 @@
 
 				// }
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8) {
 
 					$listas.="<tr><td align='center'>Julio</td><td align='center'><input type='text' id='julioItemMesDestinoInicial' style='widdth:100%!important;border:none!important;text-align:center!important;' value='".round($registro["julio"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='julioItemMesDestinoSuma' value='".round($registro["julio"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='julioItemMesDestino' value='0' style='widdth:100%!important;' attr='julio'/></td></tr>";
 					$sumaTotal=floatval($registro["julio"])+$sumaTotal;
 
-				}
+				// }
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9) {
 
 					$listas.="<tr><td align='center'>Agosto</td><td align='center'><input type='text' id='agostoItemMesDestinoInicial' style='widdth:100%!important;border:none!important;text-align:center!important;' value='".round($registro["agosto"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='agostoItemMesDestinoSuma' value='".round($registro["agosto"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='agostoItemMesDestino' value='0' style='widdth:100%!important;' attr='agosto'/></td></tr>";
 					$sumaTotal=floatval($registro["agosto"])+$sumaTotal;
 
-				}
+				// }
 
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10) {
 
 					$listas.="<tr><td align='center'>Septiembre</td><td align='center'><input type='text' id='septiembreItemMesDestinoInicial' style='widdth:100%!important;border:none!important;text-align:center!important;' value='".round($registro["septiembre"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='septiembreItemMesDestinoSuma' value='".round($registro["septiembre"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='septiembreItemMesDestino' value='0' style='widdth:100%!important;' attr='septiembre'/></td></tr>";
 					$sumaTotal=floatval($registro["septiembre"])+$sumaTotal;
 
-				}
+				// }
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11) {
 
 					$listas.="<tr><td align='center'>Octubre</td><td align='center'><input type='text' id='octubreItemMesDestinoInicial' style='widdth:100%!important;border:none!important;text-align:center!important;' value='".round($registro["octubre"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='octubreItemMesDestinoSuma' value='".round($registro["octubre"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='octubreItemMesDestino' value='0' style='widdth:100%!important;' attr='octubre'/></td></tr>";
 					$sumaTotal=floatval($registro["octubre"])+$sumaTotal;
 
-				}
+				// }
 				
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
 
 					$listas.="<tr><td align='center'>Noviembre</td><td align='center'><input type='text' id='noviembreItemMesDestinoInicial' style='widdth:100%!important;border:none!important;text-align:center!important;' value='".round($registro["noviembre"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='noviembreItemMesDestinoSuma' value='".round($registro["noviembre"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='noviembreItemMesDestino' value='0' style='widdth:100%!important;' attr='noviembre'/></td></tr>";
 					$sumaTotal=floatval($registro["noviembre"])+$sumaTotal;
 
-				}
+				// }
 					
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
 
 					$listas.="<tr><td align='center'>Diciembre</td><td align='center'><input type='text' id='diciembreItemMesDestinoInicial' style='widdth:100%!important;border:none!important;text-align:center!important;' value='".round($registro["diciembre"],2)."' readonly='readonly' style='border:none!important'/></td><td align='center'><input type='text' id='diciembreItemMesDestinoSuma' value='".round($registro["diciembre"],2)."' style='widdth:100%!important;'  disabled='disabled'/></td><td align='center'><input type='text' class='enlazados__numeros__items solo__numero__montos__destino cambio__de__numero__f__destino' id='diciembreItemMesDestino' value='0' style='widdth:100%!important;' attr='diciembre' /></td></tr>";
 					$sumaTotal=floatval($registro["diciembre"])+$sumaTotal;
 
-				}
+				// }
 				
 
 			}
@@ -3847,36 +3838,36 @@
 				// }
 
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9) {
 
 					$listas.='<tr> <td class="vertical__aign" style="font-weight:bold;"> <center>Agosto (Monto inicial)</center> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__aporte__patronal__destino" class="ancho__total__input form-control origen__aporte__patronal__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__decimo__tercero__destino" class="ancho__total__input form-control origen__decimo__tercero__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__decimo__cuarto__destino" class="ancho__total__input form-control origen__decimo__cuarto__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__fondos__de__reserva__destino" class="ancho__total__input form-control origen__fondos__de__reserva__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__salarios__destino" class="ancho__total__input form-control origen__salarios__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__destino" class="ancho__total__input obligatorios__2 form-control origen__clase__destino" readonly=""/> </td> </tr> <tr> <td>Agosto (Monto restante)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__aporte__patronal__restante__destino" class="ancho__total__input form-control origen__aporte__patronal__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__decimo__tercero__restante__destino" class="ancho__total__input form-control origen__decimo__tercero__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__decimo__cuarto__restante__destino" class="ancho__total__input form-control origen__decimo__cuarto__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__fondos__de__reserva__restante__destino" class="ancho__total__input form-control origen__fondos__de__reserva__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__salarios__restante__destino" class="ancho__total__input form-control origen__salarios__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__restante__destino" class="ancho__total__input obligatorios__2 form-control origen__restante__clase__destino" readonly=""/> </td> </tr> <tr> <td>Agosto (Monto modificado)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__aporte__patronal__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__aporte__patronal__ingresar__clase__destino enlace__agosto__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__decimo__tercero__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__tercero__ingresar__clase__destino enlace__agosto__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__decimo__cuarto__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__cuarto__ingresar__clase__destino enlace__agosto__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__fondos__de__reserva__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__fondos__de__reserva__ingresar__clase__destino enlace__agosto__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="agosto__origen__salarios__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__salarios__ingresar__clase__destino enlace__agosto__destino" value="0" /> </td> <td style="font-weight:bold;"></td> </tr>';
 
-				}
+				// }
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10) {
 
 					$listas.=' <tr> <td class="vertical__aign" style="font-weight:bold;"> <center>Septiembre (Monto inicial)</center> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__aporte__patronal__destino" class="ancho__total__input form-control origen__aporte__patronal__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__decimo__tercero__destino" class="ancho__total__input form-control origen__decimo__tercero__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__decimo__cuarto__destino" class="ancho__total__input form-control origen__decimo__cuarto__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__fondos__de__reserva__destino" class="ancho__total__input form-control origen__fondos__de__reserva__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__salarios__destino" class="ancho__total__input form-control origen__salarios__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__destino" class="ancho__total__input obligatorios__2 form-control origen__clase__destino" readonly=""/> </td> </tr> <tr> <td>Septiembre (Monto restante)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__aporte__patronal__restante__destino" class="ancho__total__input form-control origen__aporte__patronal__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__decimo__tercero__restante__destino" class="ancho__total__input form-control origen__decimo__tercero__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__decimo__cuarto__restante__destino" class="ancho__total__input form-control origen__decimo__cuarto__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__fondos__de__reserva__restante__destino" class="ancho__total__input form-control origen__fondos__de__reserva__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__salarios__restante__destino" class="ancho__total__input form-control origen__salarios__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__restante__destino" class="ancho__total__input obligatorios__2 form-control origen__restante__clase__destino" readonly=""/> </td> </tr> <tr> <td>Septiembre (Monto modificado)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__aporte__patronal__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__aporte__patronal__ingresar__clase__destino enlace__septiembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__decimo__tercero__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__tercero__ingresar__clase__destino enlace__septiembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__decimo__cuarto__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__cuarto__ingresar__clase__destino enlace__septiembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__fondos__de__reserva__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__fondos__de__reserva__ingresar__clase__destino enlace__septiembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="septiembre__origen__salarios__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__salarios__ingresar__clase__destino enlace__septiembre__destino" value="0" /> </td> <td style="font-weight:bold;"></td> </tr>';
 
-				}
+				// }
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11) {
 
 
 					$listas.=' <tr> <td class="vertical__aign" style="font-weight:bold;"> <center>Octubre (Monto inicial)</center> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__aporte__patronal__destino" class="ancho__total__input form-control origen__aporte__patronal__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__decimo__tercero__destino" class="ancho__total__input form-control origen__decimo__tercero__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__decimo__cuarto__destino" class="ancho__total__input form-control origen__decimo__cuarto__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__fondos__de__reserva__destino" class="ancho__total__input form-control origen__fondos__de__reserva__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__salarios__destino" class="ancho__total__input form-control origen__salarios__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__destino" class="ancho__total__input obligatorios__2 form-control origen__clase__destino" readonly=""/> </td> </tr> <tr> <td>Octubre (Monto restante)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__aporte__patronal__restante__destino" class="ancho__total__input form-control origen__aporte__patronal__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__decimo__tercero__restante__destino" class="ancho__total__input form-control origen__decimo__tercero__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__decimo__cuarto__restante__destino" class="ancho__total__input form-control origen__decimo__cuarto__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__fondos__de__reserva__restante__destino" class="ancho__total__input form-control origen__fondos__de__reserva__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__salarios__restante__destino" class="ancho__total__input form-control origen__salarios__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__restante__destino" class="ancho__total__input obligatorios__2 form-control origen__restante__clase__destino" readonly=""/> </td> </tr> <tr> <td>Octubre (Monto modificado)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__aporte__patronal__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__aporte__patronal__ingresar__clase__destino enlace__octubre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__decimo__tercero__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__tercero__ingresar__clase__destino enlace__octubre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__decimo__cuarto__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__cuarto__ingresar__clase__destino enlace__octubre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__fondos__de__reserva__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__fondos__de__reserva__ingresar__clase__destino enlace__octubre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="octubre__origen__salarios__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__salarios__ingresar__clase__destino enlace__octubre__destino" value="0" /> </td> <td style="font-weight:bold;"></td> </tr>';
 
-				}
+				// }
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
 
 					$listas.=' <tr> <td class="vertical__aign" style="font-weight:bold;"> <center>Noviembre (Monto inicial)</center> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__aporte__patronal__destino" class="ancho__total__input form-control origen__aporte__patronal__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__decimo__tercero__destino" class="ancho__total__input form-control origen__decimo__tercero__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__decimo__cuarto__destino" class="ancho__total__input form-control origen__decimo__cuarto__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__fondos__de__reserva__destino" class="ancho__total__input form-control origen__fondos__de__reserva__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__salarios__destino" class="ancho__total__input form-control origen__salarios__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__destino" class="ancho__total__input obligatorios__2 form-control origen__clase__destino" readonly=""/> </td> </tr> <tr> <td>Noviembre (Monto restante)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__aporte__patronal__restante__destino" class="ancho__total__input form-control origen__aporte__patronal__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__decimo__tercero__restante__destino" class="ancho__total__input form-control origen__decimo__tercero__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__decimo__cuarto__restante__destino" class="ancho__total__input form-control origen__decimo__cuarto__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__fondos__de__reserva__restante__destino" class="ancho__total__input form-control origen__fondos__de__reserva__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__salarios__restante__destino" class="ancho__total__input form-control origen__salarios__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__restante__destino" class="ancho__total__input obligatorios__2 form-control origen__restante__clase__destino" readonly=""/> </td> </tr> <tr> <td>Noviembre (Monto modificado)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__aporte__patronal__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__aporte__patronal__ingresar__clase__destino enlace__noviembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__decimo__tercero__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__tercero__ingresar__clase__destino enlace__noviembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__decimo__cuarto__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__cuarto__ingresar__clase__destino enlace__noviembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__fondos__de__reserva__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__fondos__de__reserva__ingresar__clase__destino enlace__noviembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="noviembre__origen__salarios__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__salarios__ingresar__clase__destino enlace__noviembre__destino" value="0" /> </td> <td style="font-weight:bold;"></td> </tr>';
 
-				}
+				// }
 
-				if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
+				// if ($mesEntero==2 || $mesEntero==3 || $mesEntero==4 || $mesEntero==5 || $mesEntero==6 || $mesEntero==7 || $mesEntero==8 || $mesEntero==9 || $mesEntero==10 || $mesEntero==11 || $mesEntero==12) {
 
 					$listas.=' <tr> <td class="vertical__aign" style="font-weight:bold;"> <center>Diciembre (Monto inicial)</center> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__aporte__patronal__destino" class="ancho__total__input form-control origen__aporte__patronal__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__decimo__tercero__destino" class="ancho__total__input form-control origen__decimo__tercero__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__decimo__cuarto__destino" class="ancho__total__input form-control origen__decimo__cuarto__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__fondos__de__reserva__destino" class="ancho__total__input form-control origen__fondos__de__reserva__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__salarios__destino" class="ancho__total__input form-control origen__salarios__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__destino" class="ancho__total__input obligatorios__2 form-control origen__clase__destino" readonly=""/> </td> </tr> <tr> <td>Diciembre (Monto restante)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__aporte__patronal__restante__destino" class="ancho__total__input form-control origen__aporte__patronal__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__decimo__tercero__restante__destino" class="ancho__total__input form-control origen__decimo__tercero__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__decimo__cuarto__restante__destino" class="ancho__total__input form-control origen__decimo__cuarto__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__fondos__de__reserva__restante__destino" class="ancho__total__input form-control origen__fondos__de__reserva__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__salarios__restante__destino" class="ancho__total__input form-control origen__salarios__restante__clase__destino" readonly=""/> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__restante__destino" class="ancho__total__input obligatorios__2 form-control origen__restante__clase__destino" readonly=""/> </td> </tr> <tr> <td>Diciembre (Monto modificado)</td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__aporte__patronal__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__aporte__patronal__ingresar__clase__destino enlace__diciembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__decimo__tercero__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__tercero__ingresar__clase__destino enlace__diciembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__decimo__cuarto__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__decimo__cuarto__ingresar__clase__destino enlace__diciembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__fondos__de__reserva__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__fondos__de__reserva__ingresar__clase__destino enlace__diciembre__destino" value="0" /> </td> <td style="font-weight:bold;"> <input style="font-size:10px!important;" id="diciembre__origen__salarios__ingresar__destino" class="ancho__total__input form-control solo__numero__montos origen__salarios__ingresar__clase__destino enlace__diciembre__destino" value="0" /> </td> <td style="font-weight:bold;"></td> </tr>';
 
-				}
+				// }
 
 				$listas.=' <tr> <th></th> <th>Aporte patronal</th> <th>Décimo tercero</th> <th>Décimo cuarto</th> <th>Fondos de reserva</th> <th>Sueldo</th> <th>Total Modificación</th> </tr> <tr> <td class="vertical__aign" style="font-weight: bold;"> <center>Total Modificación</center> </td> <td> <input style="font-size:10px!important;" id="total__origen__patronal__totales__ingresados__destino" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0" /> </td> <td> <input style="font-size:10px!important;" id="total__origen__decimo__tercero__totales__ingresados__destino" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/> </td> <td> <input style="font-size:10px!important;" id="total__origen__decimo__cuarto__totales__ingresados__destino" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/> </td> <td> <input style="font-size:10px!important;" id="total__origen__fondos__de__reserva__totales__ingresados__destino" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/> </td> <td> <input style="font-size:10px!important;" id="total__origen__salarios__totales__ingresados__destino" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/> </td> <td> <div style="display:flex; flex-direction: column;"> <input style="font-size:10px!important;" id="totalMesAsignados__destinos" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/> <button type="button" id="calcularTotales__destino" name="calcularTotales__destino" class="btn btn-primary">Calcular</button> </div> </td> <td> </td> </tr>';
 
@@ -4081,34 +4072,63 @@
 								
 								let sumatores=0;
 
+
+								let sumatoreEnero=0;
+								let sumatoreFebrero=0;
+								let sumatoreMarzo=0;
+								let sumatoreAbril=0;
+								let sumatoreMayo=0;
+								let sumatoreJunio=0;
+								let sumatoreJulio=0;
+								let sumatoreAgosto=0;
+								let sumatoreSeptiembre=0;
+								let sumatoreOctubre=0;
+								let sumatoreNoviembre=0;
+								let sumatoreDiciembre=0;
+
+							sumatoreEnero=parseFloat($("#enero__origen__aporte__patronal__destino").val()) +  parseFloat($("#enero__origen__decimo__tercero__destino").val())  +  parseFloat($("#enero__origen__decimo__cuarto__destino").val()) +  parseFloat($("#enero__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#enero__origen__salarios__destino").val());
+							sumatoreFebrero=parseFloat($("#febrero__origen__aporte__patronal__destino").val()) +  parseFloat($("#febrero__origen__decimo__tercero__destino").val())  +  parseFloat($("#febrero__origen__decimo__cuarto__destino").val()) +  parseFloat($("#febrero__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#febrero__origen__salarios__destino").val());
+							sumatoreMarzo=parseFloat($("#marzo__origen__aporte__patronal__destino").val()) +  parseFloat($("#marzo__origen__decimo__tercero__destino").val())  +  parseFloat($("#marzo__origen__decimo__cuarto__destino").val()) +  parseFloat($("#marzo__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#marzo__origen__salarios__destino").val());
+							sumatoreAbril=parseFloat($("#abril__origen__aporte__patronal__destino").val()) +  parseFloat($("#abril__origen__decimo__tercero__destino").val())  +  parseFloat($("#abril__origen__decimo__cuarto__destino").val()) +  parseFloat($("#abril__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#abril__origen__salarios__destino").val());
+							sumatoreMayo=parseFloat($("#mayo__origen__aporte__patronal__destino").val()) +  parseFloat($("#mayo__origen__decimo__tercero__destino").val())  +  parseFloat($("#mayo__origen__decimo__cuarto__destino").val()) +  parseFloat($("#mayo__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#mayo__origen__salarios__destino").val());
+							sumatoreJunio=parseFloat($("#junio__origen__aporte__patronal__destino").val()) +  parseFloat($("#junio__origen__decimo__tercero__destino").val())  +  parseFloat($("#junio__origen__decimo__cuarto__destino").val()) +  parseFloat($("#junio__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#junio__origen__salarios__destino").val());
+							sumatoreJulio=parseFloat($("#julio__origen__aporte__patronal__destino").val()) +  parseFloat($("#julio__origen__decimo__tercero__destino").val())  +  parseFloat($("#julio__origen__decimo__cuarto__destino").val()) +  parseFloat($("#julio__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#julio__origen__salarios__destino").val());
+							sumatoreAgosto=parseFloat($("#agosto__origen__aporte__patronal__destino").val()) +  parseFloat($("#agosto__origen__decimo__tercero__destino").val())  +  parseFloat($("#agosto__origen__decimo__cuarto__destino").val()) +  parseFloat($("#agosto__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#agosto__origen__salarios__destino").val());
+							sumatoreSeptiembre=parseFloat($("#septiembre__origen__aporte__patronal__destino").val()) +  parseFloat($("#septiembre__origen__decimo__tercero__destino").val())  +  parseFloat($("#septiembre__origen__decimo__cuarto__destino").val()) +  parseFloat($("#septiembre__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#septiembre__origen__salarios__destino").val());
+							sumatoreOctubre=parseFloat($("#octubre__origen__aporte__patronal__destino").val()) +  parseFloat($("#octubre__origen__decimo__tercero__destino").val())  +  parseFloat($("#octubre__origen__decimo__cuarto__destino").val()) +  parseFloat($("#octubre__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#octubre__origen__salarios__destino").val());
+							sumatoreNoviembre=parseFloat($("#noviembre__origen__aporte__patronal__destino").val()) +  parseFloat($("#noviembre__origen__decimo__tercero__destino").val())  +  parseFloat($("#noviembre__origen__decimo__cuarto__destino").val()) +  parseFloat($("#noviembre__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#noviembre__origen__salarios__destino").val());
+							sumatoreDiciembre=parseFloat($("#diciembre__origen__aporte__patronal__destino").val()) +  parseFloat($("#diciembre__origen__decimo__tercero__destino").val())  +  parseFloat($("#diciembre__origen__decimo__cuarto__destino").val()) +  parseFloat($("#diciembre__origen__fondos__de__reserva__destino").val()) +  parseFloat($("#diciembre__origen__salarios__destino").val());
+
+
+
 				
-								$("#enero__origen__destino").val(parseFloat(z.enero).toFixed(2));
-								$("#febrero__origen__destino").val(parseFloat(z.febrero).toFixed(2));
-								$("#marzo__origen__destino").val(parseFloat(z.marzo).toFixed(2));
-								$("#abril__origen__destino").val(parseFloat(z.abril).toFixed(2));
-								$("#mayo__origen__destino").val(parseFloat(z.mayo).toFixed(2));
-								$("#junio__origen__destino").val(parseFloat(z.junio).toFixed(2));
-								$("#julio__origen__destino").val(parseFloat(z.julio).toFixed(2));
-								$("#agosto__origen__destino").val(parseFloat(z.agosto).toFixed(2));
-								$("#septiembre__origen__destino").val(parseFloat(z.septiembre).toFixed(2));
-								$("#octubre__origen__destino").val(parseFloat(z.octubre).toFixed(2));
-								$("#noviembre__origen__destino").val(parseFloat(z.noviembre).toFixed(2));
-								$("#diciembre__origen__destino").val(parseFloat(z.diciembre).toFixed(2));
+								$("#enero__origen__destino").val(parseFloat(sumatoreEnero).toFixed(2));
+								$("#febrero__origen__destino").val(parseFloat(sumatoreFebrero).toFixed(2));
+								$("#marzo__origen__destino").val(parseFloat(sumatoreMarzo).toFixed(2));
+								$("#abril__origen__destino").val(parseFloat(sumatoreAbril).toFixed(2));
+								$("#mayo__origen__destino").val(parseFloat(sumatoreMayo).toFixed(2));
+								$("#junio__origen__destino").val(parseFloat(sumatoreJunio).toFixed(2));
+								$("#julio__origen__destino").val(parseFloat(sumatoreJulio).toFixed(2));
+								$("#agosto__origen__destino").val(parseFloat(sumatoreAgosto).toFixed(2));
+								$("#septiembre__origen__destino").val(parseFloat(sumatoreSeptiembre).toFixed(2));
+								$("#octubre__origen__destino").val(parseFloat(sumatoreOctubre).toFixed(2));
+								$("#noviembre__origen__destino").val(parseFloat(sumatoreNoviembre).toFixed(2));
+								$("#diciembre__origen__destino").val(parseFloat(sumatoreDiciembre).toFixed(2));
 								$("#total__origen__destino").val(parseFloat(z.total).toFixed(2));
 
 								
-								$("#enero__origen__restante__destino").val(parseFloat(z.enero).toFixed(2));
-								$("#febrero__origen__restante__destino").val(parseFloat(z.febrero).toFixed(2));
-								$("#marzo__origen__restante__destino").val(parseFloat(z.marzo).toFixed(2));
-								$("#abril__origen__restante__destino").val(parseFloat(z.abril).toFixed(2));
-								$("#mayo__origen__restante__destino").val(parseFloat(z.mayo).toFixed(2));
-								$("#junio__origen__restante__destino").val(parseFloat(z.junio).toFixed(2));
-								$("#julio__origen__restante__destino").val(parseFloat(z.julio).toFixed(2));
-								$("#agosto__origen__restante__destino").val(parseFloat(z.agosto).toFixed(2));
-								$("#septiembre__origen__restante__destino").val(parseFloat(z.septiembre).toFixed(2));
-								$("#octubre__origen__restante__destino").val(parseFloat(z.octubre).toFixed(2));
-								$("#noviembre__origen__restante__destino").val(parseFloat(z.noviembre).toFixed(2));
-								$("#diciembre__origen__restante__destino").val(parseFloat(z.diciembre).toFixed(2));
+								$("#enero__origen__restante__destino").val(parseFloat(sumatoreEnero).toFixed(2));
+								$("#febrero__origen__restante__destino").val(parseFloat(sumatoreFebrero).toFixed(2));
+								$("#marzo__origen__restante__destino").val(parseFloat(sumatoreMarzo).toFixed(2));
+								$("#abril__origen__restante__destino").val(parseFloat(sumatoreAbril).toFixed(2));
+								$("#mayo__origen__restante__destino").val(parseFloat(sumatoreMayo).toFixed(2));
+								$("#junio__origen__restante__destino").val(parseFloat(sumatoreJunio).toFixed(2));
+								$("#julio__origen__restante__destino").val(parseFloat(sumatoreJulio).toFixed(2));
+								$("#agosto__origen__restante__destino").val(parseFloat(sumatoreAgosto).toFixed(2));
+								$("#septiembre__origen__restante__destino").val(parseFloat(sumatoreSeptiembre).toFixed(2));
+								$("#octubre__origen__restante__destino").val(parseFloat(sumatoreOctubre).toFixed(2));
+								$("#noviembre__origen__restante__destino").val(parseFloat(sumatoreNoviembre).toFixed(2));
+								$("#diciembre__origen__restante__destino").val(parseFloat(sumatoreDiciembre).toFixed(2));
 								
 								
 							}
@@ -4384,7 +4404,3120 @@
 
 				return $listas; 
 
+		}else if($indicador==1036){
+
+
+				$desaucio__query="SELECT idDesvinculacion,opcion,enero,febreo AS febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre FROM poa_desvinculacion WHERE idSueldos='$idHonorariosS' AND opcion='desahucio';";
+				$desaucio__resultado = $conexionEstablecida->query($desaucio__query);
+
+
+				$despido__query="SELECT idDesvinculacion,opcion,enero,febreo AS febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre FROM poa_desvinculacion WHERE idSueldos='$idHonorariosS' AND opcion='despido';";
+				$despido__resultado = $conexionEstablecida->query($despido__query);
+
+				$renuncia__query="SELECT idDesvinculacion,opcion,enero,febreo AS febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre FROM poa_desvinculacion WHERE idSueldos='$idHonorariosS' AND opcion='renuncia';";
+				$renuncia__resultado = $conexionEstablecida->query($renuncia__query);
+
+
+				$compensacion__query="SELECT idDesvinculacion,opcion,enero,febreo AS febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre FROM poa_desvinculacion WHERE idSueldos='$idHonorariosS' AND opcion LIKE 'compensa%';";
+				$compensacion__resultado = $conexionEstablecida->query($compensacion__query);
+
+
+				while($compensacion__registro = $compensacion__resultado->fetch()) {
+
+					$enero__compensacion__query=$compensacion__registro["enero"];
+					$febrero__compensacion__query=$compensacion__registro["febrero"];
+					$marzo__compensacion__query=$compensacion__registro["marzo"];
+					$abril__compensacion__query=$compensacion__registro["abril"];
+					$mayo__compensacion__query=$compensacion__registro["mayo"];
+					$junio__compensacion__query=$compensacion__registro["junio"];
+					$julio__compensacion__query=$compensacion__registro["julio"];
+					$agosto__compensacion__query=$compensacion__registro["agosto"];
+					$septiembre__compensacion__query=$compensacion__registro["septiembre"];
+					$octubre__compensacion__query=$compensacion__registro["octubre"];
+					$noviembre__compensacion__query=$compensacion__registro["noviembre"];
+					$diciembre__compensacion__query=$compensacion__registro["diciembre"];
+
+				}
+
+
+				while($desaucio__registro = $desaucio__resultado->fetch()) {
+
+					$enero__desaucio__query=$desaucio__registro["enero"];
+					$febrero__desaucio__query=$desaucio__registro["febrero"];
+					$marzo__desaucio__query=$desaucio__registro["marzo"];
+					$abril__desaucio__query=$desaucio__registro["abril"];
+					$mayo__desaucio__query=$desaucio__registro["mayo"];
+					$junio__desaucio__query=$desaucio__registro["junio"];
+					$julio__desaucio__query=$desaucio__registro["julio"];
+					$agosto__desaucio__query=$desaucio__registro["agosto"];
+					$septiembre__desaucio__query=$desaucio__registro["septiembre"];
+					$octubre__desaucio__query=$desaucio__registro["octubre"];
+					$noviembre__desaucio__query=$desaucio__registro["noviembre"];
+					$diciembre__desaucio__query=$desaucio__registro["diciembre"];
+
+				}
+
+
+				while($despido__registro = $despido__resultado->fetch()) {
+
+					$enero__despido__query=$despido__registro["enero"];
+					$febrero__despido__query=$despido__registro["febrero"];
+					$marzo__despido__query=$despido__registro["marzo"];
+					$abril__despido__query=$despido__registro["abril"];
+					$mayo__despido__query=$despido__registro["mayo"];
+					$junio__despido__query=$despido__registro["junio"];
+					$julio__despido__query=$despido__registro["julio"];
+					$agosto__despido__query=$despido__registro["agosto"];
+					$septiembre__despido__query=$despido__registro["septiembre"];
+					$octubre__despido__query=$despido__registro["octubre"];
+					$noviembre__despido__query=$despido__registro["noviembre"];
+					$diciembre__despido__query=$despido__registro["diciembre"];
+
+				}
+
+
+				while($renuncia__registro = $renuncia__resultado->fetch()) {
+
+					$enero__renuncia__query=$renuncia__registro["enero"];
+					$febrero__renuncia__query=$renuncia__registro["febrero"];
+					$marzo__renuncia__query=$renuncia__registro["marzo"];
+					$abril__renuncia__query=$renuncia__registro["abril"];
+					$mayo__renuncia__query=$renuncia__registro["mayo"];
+					$junio__renuncia__query=$renuncia__registro["junio"];
+					$julio__renuncia__query=$renuncia__registro["julio"];
+					$agosto__renuncia__query=$renuncia__registro["agosto"];
+					$septiembre__renuncia__query=$renuncia__registro["septiembre"];
+					$octubre__renuncia__query=$renuncia__registro["octubre"];
+					$noviembre__renuncia__query=$renuncia__registro["noviembre"];
+					$diciembre__renuncia__query=$renuncia__registro["diciembre"];
+
+				}
+
+
+				$listas.='<table class="col col-12 tabla__sueldos__anadidos">';
+
+				$listas.='
+
+							<thead>
+
+				                <tr>
+
+				                  <th align="center">Mes</th>
+				                  <th align="center">Compensación</br>por</br>desahucio</th>
+				                  <th align="center">Despido</br>Intempestivo</th>
+				                  <th align="center">Por</br>renuncia<br>voluntaria</th>
+				                  <th align="center">Compensación por<br>Vacaciones no Gozadas<br>por Cesación de Funciones</th>
+
+
+				                </tr>
+
+				              </thead>
+
+				              <tbody>
+
+				';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Enero (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($enero__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$enero__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($enero__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$enero__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($enero__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$enero__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($enero__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$enero__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Enero (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($enero__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$enero__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($enero__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$enero__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($enero__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$enero__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($enero__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="enero__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$enero__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Enero (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="enero__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__enero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="enero__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__enero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="enero__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__enero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="enero__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__enero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Febrero (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($febrero__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$febrero__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($febrero__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$febrero__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($febrero__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$febrero__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($febrero__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$febrero__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Febrero (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($febrero__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$febrero__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($febrero__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$febrero__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($febrero__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$febrero__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($febrero__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="febrero__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$febrero__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Febrero (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="febrero__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__febrero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="febrero__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__febrero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="febrero__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__febrero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="febrero__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__febrero__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Marzo (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($marzo__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$marzo__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($marzo__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$marzo__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($marzo__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$marzo__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($marzo__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$marzo__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Marzo (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($marzo__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$marzo__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($marzo__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$marzo__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($marzo__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$marzo__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($marzo__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="marzo__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$marzo__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Marzo (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="marzo__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__marzo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="marzo__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__marzo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="marzo__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__marzo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="marzo__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__marzo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Abril (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($abril__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$abril__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($abril__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$abril__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($abril__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$abril__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($abril__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$abril__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Abril (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($abril__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$abril__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($abril__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$abril__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($abril__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$abril__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($abril__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="abril__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$abril__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Abril (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="abril__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__abril__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="abril__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__abril__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="abril__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__abril__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="abril__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__abril__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Mayo (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($mayo__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$mayo__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($mayo__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$mayo__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($mayo__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$mayo__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($mayo__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$mayo__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Mayo (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($mayo__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$mayo__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($mayo__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$mayo__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($mayo__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$mayo__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($mayo__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="mayo__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$mayo__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Mayo (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="mayo__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__mayo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="mayo__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__mayo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="mayo__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__mayo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="mayo__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__mayo__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';               	
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Junio (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($junio__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$junio__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($junio__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$junio__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($junio__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$junio__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($junio__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$junio__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Junio (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($junio__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$junio__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($junio__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$junio__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($junio__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$junio__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($junio__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="junio__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$junio__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Junio (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="junio__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__junio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="junio__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__junio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="junio__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__junio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="junio__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__junio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Julio (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($julio__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$julio__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($julio__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$julio__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($julio__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$julio__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($julio__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$julio__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Julio (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($julio__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$julio__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($julio__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$julio__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($julio__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$julio__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($julio__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="julio__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$julio__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Julio (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="julio__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__julio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="julio__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__julio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="julio__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__julio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="julio__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__julio__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Agosto (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($agosto__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$agosto__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($agosto__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$agosto__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($agosto__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$agosto__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($agosto__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$agosto__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Agosto (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($agosto__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$agosto__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($agosto__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$agosto__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($agosto__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$agosto__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($agosto__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="agosto__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$agosto__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Agosto (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="agosto__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__agosto__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="agosto__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__agosto__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="agosto__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__agosto__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="agosto__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__agosto__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Septiembre (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($septiembre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$septiembre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($septiembre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$septiembre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($septiembre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$septiembre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($septiembre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$septiembre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Septiembre (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($septiembre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$septiembre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($septiembre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$septiembre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($septiembre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$septiembre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($septiembre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="septiembre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$septiembre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Septiembre (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="septiembre__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__septiembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="septiembre__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__septiembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="septiembre__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__septiembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="septiembre__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__septiembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';               	
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Octubre (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($octubre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$octubre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($octubre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$octubre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($octubre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$octubre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($octubre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$octubre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Octubre (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($octubre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$octubre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($octubre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$octubre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($octubre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$octubre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($octubre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="octubre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$octubre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Octubre (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="octubre__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__octubre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="octubre__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__octubre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="octubre__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__octubre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="octubre__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__octubre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Noviembre (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($noviembre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$noviembre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($noviembre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$noviembre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($noviembre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$noviembre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($noviembre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$noviembre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Noviembre (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($noviembre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$noviembre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($noviembre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$noviembre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($noviembre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$noviembre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($noviembre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="noviembre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$noviembre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Noviembre (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="noviembre__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__noviembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="noviembre__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__noviembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="noviembre__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__noviembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="noviembre__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__noviembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+
+               					$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Diciembre (Monto inicial)</center>
+			                </td>
+
+				';
+
+				if (empty($diciembre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__desahucio" class="ancho__total__input form-control destino__desahucio__clase" readonly="" value="'.$diciembre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($diciembre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__despido__intenpestivo" class="ancho__total__input form-control destino__despido__intenpestivo__clase" readonly="" value="'.$diciembre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($diciembre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__renunia__voluntaria" class="ancho__total__input form-control destino__renunia__voluntaria__clase" readonly="" value="'.$diciembre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($diciembre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__vacaciones__no__gozadas" class="ancho__total__input form-control destino__vacaciones__no__gozadas__clase" readonly="" value="'.$diciembre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+				$listas.='
+
+			          	<tr>
+
+			                <td class="vertical__aign" style="font-weight:bold;">
+			                  <center>Diciembre (Monto restante)</center>
+			                </td>
+
+				';
+
+				if (empty($diciembre__desaucio__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__desahucio__restante" class="ancho__total__input form-control destino__desahucio__restante__clase" readonly="" value="'.$diciembre__desaucio__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+				if (empty($diciembre__despido__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__despido__intenpestivo__restante" class="ancho__total__input form-control destino__despido__intenpestivo__restante__clase" readonly="" value="'.$diciembre__despido__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+
+				if (empty($diciembre__renuncia__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__renunia__voluntaria__restante" class="ancho__total__input form-control destino__renunia__voluntaria__restante__clase" readonly="" value="'.$diciembre__renuncia__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+				if (empty($diciembre__compensacion__query)) {
+					
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="0"/>
+               				 </td>
+               		';
+
+				}else{
+
+					$listas.='
+
+							<td style="font-weight:bold;">
+                  				<input style="font-size:10px!important;" id="diciembre__destino__vacaciones__no__gozadas__restante" class="ancho__total__input form-control destino__vacaciones__no__gozadas__restante__clase" readonly="" value="'.$diciembre__compensacion__query.'"/>
+               				 </td>
+               		';
+
+				}
+
+
+               	$listas.='</tr>';
+
+
+               	$listas.='
+
+               		    <tr>
+
+			                <td>Diciembre (Monto modificado)</td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="diciembre__destino__desahucio__ingresar" class="ancho__total__input form-control solo__numero__montos destino__desahucio__ingresar__clase enlace__diciembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="diciembre__destino__despido__intenpestivo__ingresar" class="ancho__total__input form-control solo__numero__montos destino__despido__intenpestivo__ingresar__clase enlace__diciembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="diciembre__destino__renunia__voluntaria__ingresar" class="ancho__total__input form-control solo__numero__montos destino__renunia__voluntaria__ingresar__clase enlace__diciembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+			                <td style="font-weight:bold;">
+			                  <input style="font-size:10px!important;" id="diciembre__destino__vacaciones__no__gozadas__ingresar" class="ancho__total__input form-control solo__numero__montos destino__vacaciones__no__gozadas__ingresar__clase enlace__diciembre__destino sumador__global__montos__desvinculacion__destino" value="0"/>
+			                </td>
+
+
+             			</tr>
+
+               	';
+
+               	$listas.='
+
+
+	               <tr>
+
+	                <th>Compensación</br>por</br>desahucio</th>
+	                <th>Despido</br>Intempestivo</th>
+	                <th>Por</br>renuncia<br>voluntaria</th>
+	                <th>Compensación por<br>Vacaciones no Gozadas<br>por Cesación de Funciones</th>
+	                <th>Total</th>
+
+	              </tr>
+
+	              <tr>
+
+	                <td>
+	                  <input style="font-size:10px!important;" id="total__destino__compensacion" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0" />
+	                </td>
+	                <td>
+	                  <input style="font-size:10px!important;" id="total__destino__despido__intempestivo" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/>
+	                </td>
+	                <td>
+	                  <input style="font-size:10px!important;" id="total__destino__renuncia__voluntaria" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/>
+	                </td>
+	                <td>
+	                   <input style="font-size:10px!important;" id="total__destino__vacaciones__no__gozadas" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/>
+	                </td>
+	   
+	                <td>
+	                  <div style="display:flex; flex-direction: column;">
+	                    <input style="font-size:10px!important;" id="totalDestino__destinoD" class="ancho__total__input obligatorios__2 form-control" readonly="" value="0"/>
+	                    <button type="button" id="calcularTotalesDestino__desvinculacion" name="calcularTotalesDestino__desvinculacion" class="btn btn-primary">Calcular</button>
+	                  </div>
+	                </td>
+
+	                <td>
+	                    
+	                </td>
+
+
+	              </tr>
+
+
+               	';
+
+				$listas.='
+
+							 <tbody>
+
+					</table>';
+
+				$listas.='
+
+					<script>
+
+						var funcion__solo__numero__montos=function(parametro1){
+											
+						$(parametro1).keypress(function(event) {
+
+						var $this = $(this);
+																    
+						if ((event.which != 46 || $this.val().indexOf(".") != -1) && ((event.which < 48 || event.which > 57) && (event.which != 0 && event.which != 8))) {
+							event.preventDefault();
+						}
+
+						var text = $(this).val();
+
+						if ((event.which == 46) && (text.indexOf(".") == -1)) {
+
+							setTimeout(function() {
+								
+								if ($this.val().substring($this.val().indexOf(".")).length > 3) {
+
+									$this.val($this.val().substring(0, $this.val().indexOf(".") + 3));
+								}
+
+							}, 1);
+						}
+
+						if ((text.indexOf(".") != -1) && (text.substring(text.indexOf(".")).length > 2) && (event.which != 0 && event.which != 8) && ($(this)[0].selectionStart >= text.length - 2)) {
+							event.preventDefault();
+						}
+																          
+						});
+
+
+
+						$(parametro1).on("input", function () {
+
+							this.value = this.value.replace(/[^0-9,.]/g, "").replace(",",".");
+
+						});
+
+						}
+
+						funcion__solo__numero__montos($(".solo__numero__montos"));
+
+
+						var funcion__cambio__de__numero=function(parametro1){
+
+						$(parametro1).on("click", function () {
+
+							if ($(this).val()=="0") {
+
+								$(this).val(" ");
+
+							}
+
+						});
+
+						$(parametro1).on("blur", function () {
+
+							if ($(this).val()==" " || $(this).val()=="") {
+
+								$(this).val("0");
+
+							}
+
+						});
+
+						}
+
+						funcion__cambio__de__numero($(".solo__numero__montos"));
+
+						var funcion__sumador__desvinculacion__destino=function(parametro1,parametro2,parametro3){
+					
+						$(parametro1).on("click", function () {
+
+							let sumadorDesaucio=0;
+							let sumadorDespido=0;
+							let sumadorRenuncia=0;
+							let sumadorVacaciones=0;
+
+							$(".destino__desahucio__ingresar__clase").each(function(index) {
+								sumadorDesaucio=parseFloat(sumadorDesaucio)+parseFloat($(this).val());
+							});
+
+
+							$(".destino__despido__intenpestivo__ingresar__clase").each(function(index) {
+								sumadorDespido=parseFloat(sumadorDespido)+parseFloat($(this).val());
+							});
+
+
+
+							$(".destino__renunia__voluntaria__ingresar__clase").each(function(index) {
+								sumadorRenuncia=parseFloat(sumadorRenuncia)+parseFloat($(this).val());
+							});
+
+
+							$(".destino__vacaciones__no__gozadas__ingresar__clase").each(function(index) {
+								sumadorVacaciones=parseFloat(sumadorVacaciones)+parseFloat($(this).val());
+							});
+
+							$("#total__destino__compensacion").val(parseFloat(sumadorDesaucio).toFixed(2));
+							$("#total__destino__despido__intempestivo").val(parseFloat(sumadorDespido).toFixed(2));
+							$("#total__destino__renuncia__voluntaria").val(parseFloat(sumadorRenuncia).toFixed(2));
+							$("#total__destino__vacaciones__no__gozadas").val(parseFloat(sumadorVacaciones).toFixed(2));
+
+							let sumadorDeTotales=sumadorDesaucio+sumadorDespido+sumadorRenuncia+sumadorVacaciones;
+
+							$("#totalDestino__destinoD").val(parseFloat(sumadorDeTotales).toFixed(2));
+
+
+						});
+
+					}
+
+					funcion__sumador__desvinculacion__destino($("#calcularTotalesDestino__desvinculacion"));
+
+
+
+					var funcion__actualizador__desvinculaciones=function(parametro1,parametro2,parametro3){
+										
+						$(parametro1).on("input", function () {
+
+							restadores=parseFloat($(parametro2).val()) + parseFloat($(this).val());
+
+							if ($(this).val()>$("#totalOrigen").val()) {
+
+								$(parametro3).val(0);
+
+								alertify.set("notifier","position", "top-center");
+								alertify.notify("El valor ingresado supera al valor total asignado en el orígen", "error", 10, function(){}); 
+
+								$(this).val(0);
+
+								$(parametro3).val(parseFloat($(parametro2).val()).toFixed(2));
+
+							}else{
+
+								$(parametro3).val(parseFloat(restadores).toFixed(2));
+
+							}
+
+						});
+
+					}
+
+					funcion__actualizador__desvinculaciones($("#enero__destino__desahucio__ingresar"),$("#enero__destino__desahucio"),$("#enero__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#febrero__destino__desahucio__ingresar"),$("#febrero__destino__desahucio"),$("#febrero__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#marzo__destino__desahucio__ingresar"),$("#marzo__destino__desahucio"),$("#marzo__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#abril__destino__desahucio__ingresar"),$("#abril__destino__desahucio"),$("#abril__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#mayo__destino__desahucio__ingresar"),$("#mayo__destino__desahucio"),$("#mayo__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#junio__destino__desahucio__ingresar"),$("#junio__destino__desahucio"),$("#junio__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#julio__destino__desahucio__ingresar"),$("#julio__destino__desahucio"),$("#julio__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#agosto__destino__desahucio__ingresar"),$("#agosto__destino__desahucio"),$("#agosto__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#septiembre__destino__desahucio__ingresar"),$("#septiembre__destino__desahucio"),$("#septiembre__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#octubre__destino__desahucio__ingresar"),$("#octubre__destino__desahucio"),$("#octubre__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#noviembre__destino__desahucio__ingresar"),$("#noviembre__destino__desahucio"),$("#noviembre__destino__desahucio__restante"));
+					funcion__actualizador__desvinculaciones($("#diciembre__destino__desahucio__ingresar"),$("#diciembre__destino__desahucio"),$("#diciembre__destino__desahucio__restante"));
+
+					funcion__actualizador__desvinculaciones($("#enero__destino__despido__intenpestivo__ingresar"),$("#enero__destino__despido__intenpestivo"),$("#enero__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#febrero__destino__despido__intenpestivo__ingresar"),$("#febrero__destino__despido__intenpestivo"),$("#febrero__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#marzo__destino__despido__intenpestivo__ingresar"),$("#marzo__destino__despido__intenpestivo"),$("#marzo__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#abril__destino__despido__intenpestivo__ingresar"),$("#abril__destino__despido__intenpestivo"),$("#abril__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#mayo__destino__despido__intenpestivo__ingresar"),$("#mayo__destino__despido__intenpestivo"),$("#mayo__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#junio__destino__despido__intenpestivo__ingresar"),$("#junio__destino__despido__intenpestivo"),$("#junio__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#julio__destino__despido__intenpestivo__ingresar"),$("#julio__destino__despido__intenpestivo"),$("#julio__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#agosto__destino__despido__intenpestivo__ingresar"),$("#agosto__destino__despido__intenpestivo"),$("#agosto__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#septiembre__destino__despido__intenpestivo__ingresar"),$("#septiembre__destino__despido__intenpestivo"),$("#septiembre__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#octubre__destino__despido__intenpestivo__ingresar"),$("#octubre__destino__despido__intenpestivo"),$("#octubre__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#noviembre__destino__despido__intenpestivo__ingresar"),$("#noviembre__destino__despido__intenpestivo"),$("#noviembre__destino__despido__intenpestivo__restante"));
+					funcion__actualizador__desvinculaciones($("#diciembre__destino__despido__intenpestivo__ingresar"),$("#diciembre__destino__despido__intenpestivo"),$("#diciembre__destino__despido__intenpestivo__restante"));
+
+
+					funcion__actualizador__desvinculaciones($("#enero__destino__renunia__voluntaria__ingresar"),$("#enero__destino__renunia__voluntaria"),$("#enero__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#febrero__destino__renunia__voluntaria__ingresar"),$("#febrero__destino__renunia__voluntaria"),$("#febrero__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#marzo__destino__renunia__voluntaria__ingresar"),$("#marzo__destino__renunia__voluntaria"),$("#marzo__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#abril__destino__renunia__voluntaria__ingresar"),$("#abril__destino__renunia__voluntaria"),$("#abril__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#mayo__destino__renunia__voluntaria__ingresar"),$("#mayo__destino__renunia__voluntaria"),$("#mayo__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#junio__destino__renunia__voluntaria__ingresar"),$("#junio__destino__renunia__voluntaria"),$("#junio__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#julio__destino__renunia__voluntaria__ingresar"),$("#julio__destino__renunia__voluntaria"),$("#julio__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#agosto__destino__renunia__voluntaria__ingresar"),$("#agosto__destino__renunia__voluntaria"),$("#agosto__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#septiembre__destino__renunia__voluntaria__ingresar"),$("#septiembre__destino__renunia__voluntaria"),$("#septiembre__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#octubre__destino__renunia__voluntaria__ingresar"),$("#octubre__destino__renunia__voluntaria"),$("#octubre__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#noviembre__destino__renunia__voluntaria__ingresar"),$("#noviembre__destino__renunia__voluntaria"),$("#noviembre__destino__renunia__voluntaria__restante"));
+					funcion__actualizador__desvinculaciones($("#diciembre__destino__renunia__voluntaria__ingresar"),$("#diciembre__destino__renunia__voluntaria"),$("#diciembre__destino__renunia__voluntaria__restante"));
+					
+
+					funcion__actualizador__desvinculaciones($("#enero__destino__vacaciones__no__gozadas__ingresar"),$("#enero__destino__vacaciones__no__gozadas"),$("#enero__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#febrero__destino__vacaciones__no__gozadas__ingresar"),$("#febrero__destino__vacaciones__no__gozadas"),$("#febrero__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#marzo__destino__vacaciones__no__gozadas__ingresar"),$("#marzo__destino__vacaciones__no__gozadas"),$("#marzo__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#abril__destino__vacaciones__no__gozadas__ingresar"),$("#abril__destino__vacaciones__no__gozadas"),$("#abril__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#mayo__destino__vacaciones__no__gozadas__ingresar"),$("#mayo__destino__vacaciones__no__gozadas"),$("#mayo__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#junio__destino__vacaciones__no__gozadas__ingresar"),$("#junio__destino__vacaciones__no__gozadas"),$("#junio__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#julio__destino__vacaciones__no__gozadas__ingresar"),$("#julio__destino__vacaciones__no__gozadas"),$("#julio__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#agosto__destino__vacaciones__no__gozadas__ingresar"),$("#agosto__destino__vacaciones__no__gozadas"),$("#agosto__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#septiembre__destino__vacaciones__no__gozadas__ingresar"),$("#septiembre__destino__vacaciones__no__gozadas"),$("#septiembre__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#octubre__destino__vacaciones__no__gozadas__ingresar"),$("#octubre__destino__vacaciones__no__gozadas"),$("#octubre__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#noviembre__destino__vacaciones__no__gozadas__ingresar"),$("#noviembre__destino__vacaciones__no__gozadas"),$("#noviembre__destino__vacaciones__no__gozadas__restante"));
+					funcion__actualizador__desvinculaciones($("#diciembre__destino__vacaciones__no__gozadas__ingresar"),$("#diciembre__destino__vacaciones__no__gozadas"),$("#diciembre__destino__vacaciones__no__gozadas__restante"));
+
+
+					</script>
+
+				';
+
+				return $listas;
+
+
 		}
+
 
 		}
 

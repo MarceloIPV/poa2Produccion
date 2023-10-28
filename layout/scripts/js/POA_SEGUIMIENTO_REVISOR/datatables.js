@@ -19,7 +19,7 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
     /*==============================================
     =            Establecer datatablets            =
     ==============================================*/
-    
+   
     var table =$(tabla).DataTable({
     
       "language":{
@@ -124,7 +124,7 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
     });
 
 
-    
+   
    //=====  End of Establecer datatablets  ======//
  
     
@@ -142,6 +142,15 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
         funcion__reasignar__contratacion_publica__unidos__altos__recomendados2023("#"+tipo+" tbody",table);
 
     }
+    if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe2023") {
+
+         
+ 
+        funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe2023("#"+tipo+" tbody",table);
+
+    }
+
+    
 
     if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__actividad__fisica1") {
 
@@ -153,6 +162,8 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
     if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins") {
 
         funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins2023("#"+tipo+" tbody",table);
+
+       
 
     }
 
@@ -218,6 +229,22 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
         funcion__reasignar__seguimientos__unidos2023("#"+tipo+" tbody",table);
 
        }
+
+    if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__altos__recomendados2023") {
+
+		funcion__reasignar__seguimientos__unidos__altos__recomendados2023("#"+tipo+" tbody",table);
+
+	}
+    
+
+    if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe2023") {
+
+		funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe2023("#"+tipo+" tbody",table);
+
+	}
+
+
+    
 
     
 
@@ -1138,7 +1165,7 @@ var funcion__reasignar__contratacion_publica__unidos__altos__recomendados2023=fu
 
 var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbody,table){
 
-    $(tbody).on("click","button.reasignarTramites__seguimientosActividad",function(e){
+    $(tbody).on("click","button.reasignarTramites__seguimientosActividad2023",function(e){
   
         e.preventDefault();
   
@@ -1184,6 +1211,8 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
               var benficiarios__altos__formativos=elementos['benficiarios__altos__formativos'];
 
               var medallas__altos__formativos=elementos['medallas__altos__formativos'];
+
+              var indicadores__act3_7_for_recreativo_alto=elementos['indicadores__act3_7_for_recreativo_alto'];
 
               
   
@@ -1280,10 +1309,10 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
               =            Sacar siglas            =
               ====================================*/
               
-                let palabras = data[2];
-              let array = palabras.split(" ");
-              let total = array.length;
-              let resultado = "";
+            let palabras = $("#direccion__escritas").val();
+            let array = palabras.split(" ");
+            let total = array.length;
+            let resultado = "";
                
               for (var i = 0; i < total; i++){
   
@@ -1295,9 +1324,9 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
   
               }
               
-              $(".siglas__dinamicas").text(resultado);	
+              $(".siglas__dinamicas").text(resultado+" - " +data[11]);	
   
-              $("#siglas__dinamicas__inputs").val(resultado);	
+              $("#siglas__dinamicas__inputs").val(resultado+" - " +data[11]);	
               
               /*=====  End of Sacar siglas  ======*/
   
@@ -1465,11 +1494,76 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
               let porcentajesCumplimientos=0;
   
               let div="";
+              let div2="";
+              let div3="";
   
               let sumaProgramado=0;
               let sumaAlcanzado=0;
   
               let porcentajeFinalAl=0;
+
+              
+
+              for (w of indicadores__act3_7_for_recreativo_alto) {
+  
+
+                porcentajesCumplimientos=(parseFloat(w.actividad3Registrado) / parseFloat(w.actividad3))*100;
+
+                if (parseFloat(porcentajesCumplimientos).toFixed(2)>=85) {
+
+                     div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos).toFixed(2)<85) {
+
+                     div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos).toFixed(2)<70) {
+
+                     div="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+
+                }
+
+                porcentajesCumplimientos2=(parseFloat(w.actividad7Registrado) / parseFloat(w.actividad7))*100;
+
+                if (parseFloat(porcentajesCumplimientos2).toFixed(2)>=85) {
+
+                     div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos2).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos2).toFixed(2)<85) {
+
+                     div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos2).toFixed(2)<70) {
+
+                     div2="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+
+                }
+
+                porcentajesCumplimientos3=(parseFloat(w.actividad6Registrado) / parseFloat(w.actividad6))*100;
+
+                if (parseFloat(porcentajesCumplimientos3).toFixed(2)>=85) {
+
+                     div3="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos3).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos3).toFixed(2)<85) {
+
+                     div3="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos3).toFixed(2)<70) {
+
+                     div3="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+
+                }
+
+
+
+                
+                  $(".cuerpo__formativo__1").append('<tr><td> Número de beneficiarios de capacitaciones deportivas:</td><td>'+w.actividad3+'</td><td>'+w.actividad3Registrado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>           <tr><td>Cantidad de implementación deportiva adquirida:</td><td>'+w.actividad7+'</td><td>'+w.actividad7Registrado+'</td><td><center><div style="display:flex!important;">'+div2+" "+porcentajesCumplimientos2+'%</div></center></td></tr>');
+                
+                  $(".cuerpo__recreativo__1").append('<tr><td> Número de beneficiarios de capacitaciones deportivas:</td><td>'+w.actividad3+'</td><td>'+w.actividad3Registrado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>           <tr><td> Cantidad de implementación deportiva adquirida:</td><td>'+w.actividad7+'</td><td>'+w.actividad7Registrado+'</td><td><center><div style="display:flex!important;">'+div2+" "+porcentajesCumplimientos2+'%</div></center></td></tr>          <tr><td> Número de beneficiarios atendidos en eventos recreativos:</td><td>'+w.actividad6+'</td><td>'+w.actividad6Registrado+'</td><td><center><div style="display:flex!important;">'+div3+" "+porcentajesCumplimientos3+'%</div></center></td></tr>');
+                
+
+            }
   
               for (w of indicadores__altos) {
   
@@ -1494,8 +1588,8 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
   
   
   
-                  $(".cuerpo__items__alto__rendimientos").append('<tr><td>'+w.nombreActividades+'</td><td>'+w.nombreIndicador+'</td><td>'+w.totalProgramado+'</td><td>'+w.totalEjecutado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>');
-  
+                  $(".cuerpo__items__alto__rendimientos").append('<tr><td> 0'+w.idActividad+' - '+w.nombreIndicador+'</td><td>'+w.nombreIndicador+'</td><td>'+w.totalProgramado+'</td><td>'+w.totalEjecutado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>');
+
               }
   
 
@@ -1597,237 +1691,204 @@ var funcion__reasignar__seguimientos__unidos__actividad__fisica2023=function(tbo
 ===============================================================*/
 
 
-var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins2023=function(tbody,table){
+var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__ins=function(tbody,table){
   
-        $(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados__insta",function(e){
-    
-                  
-            e.preventDefault();
-            var rol_usuario = $("#idRolAd").val();
-            
-            var data=table.row($(this).parents("tr")).data();
-            
-            var paqueteDeDatos = new FormData();
-      
-            paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos__infraestructura');
-      
-            paqueteDeDatos.append("idOrganismos",data[17]);
-      
-            console.log(data);
+    $(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados__insta",function(e){
 
-            $.ajax({
-      
-                type:"POST",
-                url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
-                contentType: false,
-                data:paqueteDeDatos,
-                processData: false,
-                cache: false, 
-                success:function(response){
-                               
-                       var elementos=JSON.parse(response);
-                       
-                        var indicadorInformacion1=elementos['indicadorInformacion1'];
-                        var indicadorInformacion2=elementos['indicadorInformacion2'];
-                      //  var indicadorInformacion3=elementos['indicadorInformacion3'];
-                     //   var indicadorInformacion4=elementos['indicadorInformacion4'];    
+              
+        e.preventDefault();
+        var rol_usuario = $("#idRolAd").val();
+        
+        var data=table.row($(this).parents("tr")).data();
+        
+        var paqueteDeDatos = new FormData();
+  
+        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos__infraestructura');
+  
+        paqueteDeDatos.append("idOrganismos",data[17]);
+        paqueteDeDatos.append("periodo",data[6]);
+  
+        console.log(data);
+
+        $.ajax({
+  
+            type:"POST",
+            url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+            contentType: false,
+            data:paqueteDeDatos,
+            processData: false,
+            cache: false, 
+            success:function(response){
+                           
+                   var elementos=JSON.parse(response);
+                   
+                    var indicadorInformacion1=elementos['indicadorInformacion1'];
+                    var indicadorInformacion2=elementos['indicadorInformacion2'];
+                    var indicadores__infraestructura_existe=elementos['indicadores__infraestructura_existe'];
+                    var indicadores__mantenimiento__monto=elementos['indicadores__mantenimiento__monto']; 
                     
-                        if(indicadorInformacion1!="" && indicadorInformacion1!=" " && indicadorInformacion1!=undefined && indicadorInformacion1!=null){  
-                            for (z of indicadorInformacion1) {         
-                                $("#valor_1Programado").text("I: "+z.totalProgramado);
-                                $("#valor_1Ejecutado").text("I: "+z.totalEjecutado);
-                            }
-                            $(".primerTrimestreIndicadores").show();
-                        }else{
-                            $(".primerTrimestreIndicadores").hide();
-                        }                        
-        
-                        if(indicadorInformacion2!="" && indicadorInformacion2!=" " && indicadorInformacion2!=undefined && indicadorInformacion2!=null){  
-                            for (z of indicadorInformacion2) {         
-                                $("#valor_2Programado").text("II: "+z.totalProgramado);
-                                $("#valor_2Ejecutado").text("II: "+z.totalEjecutado);
-                            }
-                            $(".segundoTrimestreIndicadores").show();
-                        }else{
-                            $(".segundoTrimestreIndicadores").hide();
+                    console.log(indicadores__infraestructura_existe)
+                
+                    if(indicadorInformacion1!="" && indicadorInformacion1!=" " && indicadorInformacion1!=undefined && indicadorInformacion1!=null){  
+                        for (z of indicadorInformacion1) {         
+                            $("#valor_1Programado").text("I: "+z.totalProgramado);
+                            $("#valor_1Ejecutado").text("I: "+z.totalEjecutado);
                         }
-                            
-                        // if(indicadorInformacion3!="" && indicadorInformacion3!=" " && indicadorInformacion3!=undefined && indicadorInformacion3!=null){  
-                        //     for (z of indicadorInformacion3) {         
-                        //         $("#valor_3Programado").text("III: "+z.totalProgramado);
-                        //         $("#valor_3Ejecutado").text("III: "+z.totalEjecutado);
-                        //     }
-                        //     $(".tercerTrimestreIndicadores").show();
-                        // }else{
-                        //     $(".tercerTrimestreIndicadores").hide();
-                        // }                        
-        
-                        // if(indicadorInformacion4!="" && indicadorInformacion4!=" " && indicadorInformacion4!=undefined && indicadorInformacion4!=null){  
-                        //     for (z of indicadorInformacion4) {         
-                        //         $("#valor_4Programado").text("IV: "+z.totalProgramado);
-                        //         $("#valor_4Ejecutado").text("IV: "+z.totalEjecutado);
-                        //     }
-                        //     $(".cuartoTrimestreIndicadores").show();
-                        // }else{
-                        //     $(".cuartoTrimestreIndicadores").hide();
-                        // }
+                        $(".primerTrimestreIndicadores").show();
+                    }else{
+                        $(".primerTrimestreIndicadores").hide();
+                    }                        
     
-   
-        
-                $("#idOrganismo").val(data[17]);
-                $("#periodo").val(data[6]);
-                $("#idUSeguimientos").val($("#idUsuarioC").val());
-                $("#tipoAct").val(data[19]);
-                console.log("QUIERO OCULTAR BOTONES");
-                console.log(data[16],data[5],data[18]);
-                console.log(data[17],data[6],data[19]);
-        
-                if ($("#idRolAd").val()==4) {
-                    $(".ocultar_boton_no_corresponde").hide();
-                    $(".ocultar_boton_no_corresponde_letras").hide();
-                    $(".oculto__file__recomendaciones").hide();
-                    $(".fila__reasignar").show();
-                    $(".fila__regresar__a").remove();
-        
-                }else if($("#idRolAd").val()==2){
-                    $(".ocultar_boton_no_corresponde").hide();
-                    $(".ocultar_boton_no_corresponde_letras").hide();
-                    $(".fila__regresar__a").show();
-                    $(".fila__reasignar").show();
-                    $(".oculto__file__recomendaciones").hide();
-        
-                }else if($("#idRolAd").val()==3){
-        
-                    $(".fila__regresar__a").show();               
-                    $(".ocultar_boton_no_corresponde").hide();
-                    $(".ocultar_boton_no_corresponde_letras").hide();
-                    $(".observacionesReasignaciones").show();
-                    $(".fila__reasignar").remove();
-        
-                }
-               // $("#documentos__tecnicos__t__infras").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
-   
-                $("#documentos__tecnicos__t__infras").text(" INFORME POA");
-               
-               // $("#documentos__tecnicos__t__infras2").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
-   
-                $("#documentos__tecnicos__t__infras2").text(" INFORME AUXILIAR MANTENIMIENTO");
+                    if(indicadorInformacion2!="" && indicadorInformacion2!=" " && indicadorInformacion2!=undefined && indicadorInformacion2!=null){  
+                        for (z of indicadorInformacion2) {         
+                            $("#valor_2Programado").text("II: "+z.totalProgramado);
+                            $("#valor_2Ejecutado").text("II: "+z.totalEjecutado);
+                        }
+                        $(".segundoTrimestreIndicadores").show();
+                    }else{
+                        $(".segundoTrimestreIndicadores").hide();
+                    }
 
+                    var sumaProgramado=0;
+                    var sumaAlcanzado=0;
+
+                    for (w of indicadores__infraestructura_existe) {
+  
+                        sumaProgramado=parseFloat(sumaProgramado) + parseFloat(w.totalProgramado);
+                        sumaAlcanzado=parseFloat(sumaAlcanzado) + parseFloat(w.totalEjecutado);
+        
+                        porcentajesCumplimientos=(parseFloat(w.totalEjecutado) / parseFloat(w.totalProgramado))*100;
+        
+                        if (parseFloat(porcentajesCumplimientos).toFixed(2)>=85) {
+        
+                             div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+        
+                        }else if (parseFloat(porcentajesCumplimientos).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos).toFixed(2)<85) {
+        
+                             div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+        
+                        }else if (parseFloat(porcentajesCumplimientos).toFixed(2)<70) {
+        
+                             div="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+        
+                        }
+        
+        
+        
+                        $(".cuerpo__items__indicadores__infraestructura").append('<tr><td>0'+w.idActividad+' - '+w.nombreIndicador+'</td><td>'+w.totalProgramado+'</td><td>'+w.totalEjecutado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>');
+      
+                       
+                       
+                       
+        
+                    }
+
+                   
+                    
+            $("#poaInfraSeguimiento").attr("idOrganismo",data[17]);
+            $("#idOrganismo").val(data[17]);
+            $("#periodo").val(data[6]);
+            $("#idUSeguimientos").val($("#idUsuarioC").val());
+            $("#tipoAct").val(data[19]);
+            console.log("QUIERO OCULTAR BOTONES");
+            console.log(data[16],data[5],data[18]);
+            console.log(data[17],data[6],data[19]);
+    
+            if ($("#idRolAd").val()==4) {
+                $(".ocultar_boton_no_corresponde").hide();
+                $(".ocultar_boton_no_corresponde_letras").hide();
+                $(".oculto__file__recomendaciones").hide();
+                $(".fila__reasignar").show();
+                $(".fila__regresar__a").remove();
+    
+            }else if($("#idRolAd").val()==2){
+                $(".ocultar_boton_no_corresponde").hide();
+                $(".ocultar_boton_no_corresponde_letras").hide();
+                $(".fila__regresar__a").show();
+                $(".fila__reasignar").show();
+                $(".oculto__file__recomendaciones").hide();
+    
+            }else if($("#idRolAd").val()==3){
+    
+                $(".fila__regresar__a").show();               
+                $(".ocultar_boton_no_corresponde").hide();
+                $(".ocultar_boton_no_corresponde_letras").hide();
+                $(".observacionesReasignaciones").show();
+                $(".fila__reasignar").remove();
+    
+            }
+            $("#documentos__tecnicos__t__infras").text(" INFORME POA");
+
+            $("#documentos__tecnicos__t__infras2").text(" INFORME AUXILIAR MANTENIMIENTO");
+
+
+        },
+        error:function(){
+
+    }
+    });
+    
+   // if(rol_usuario == 3){
+        paqueteDeDatos.append('tipo','mostrar__infraestructura_indicadores');
+        $.ajax({
+    
+            type:"POST",
+            url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+            contentType: false,
+            data:paqueteDeDatos,
+            processData: false,
+            cache: false, 
+            success:function(response){
+                var elementos=JSON.parse(response);
+            console.log("RESPONSE")            
+            console.log(response)     
+            var indicadorInformacion=elementos['indicadorInformacion'];       
+            var tabla = document.getElementById('infraestructura__intervenciones');   
+            var datos = elementos.indicadorInformacion
+            var contador = 1;
+            var contadorIdOrganismo = data[17];
+
+                for (z of indicadorInformacion) {
+                    
+                    
+                        tabla.insertAdjacentHTML('beforeend','<tr><td>'+z.nombreInfras+'</td><td><center>'+z.tipoIntervencion+'</center></td><td><center>'+z.fecha+'</center></td><td><center>'+z.mensualEjecutado+'</center></td><td><center><a id="btn_doc_informe_ejecucion" class=" estilo__botonDatatablets btn btn-warning pointer__botones" data-bs-toggle="modal" data-bs-target="#doc_informe_ejecucion"><i class="fas fa-file"></i></a><center></td><td><center><a  id="btn_doc_res_infor" class=" estilo__botonDatatablets btn btn-warning pointer__botones" data-bs-toggle="modal" data-bs-target="#doc_res_infor"><i class="fas fa-file"></i></a><center></td><td><center><a id="btn_doc_Otros" class="  estilo__botonDatatablets btn btn-warning pointer__botones" data-bs-toggle="modal" data-bs-target="#doc_Otros"><i class="fas fa-file"></i></a><center></td><td><center><select id="selectInfra'+z.idMantenimiento+'" name="selectInfra'+z.idMantenimiento+'" class="ancho__total__input__selects"><option value="Cumple">Cumple</option><option value="Hallazgo">Hallazgo</option><option value="No Presenta">No Presenta</option><option value="Información">Información</option><option value="No Aplica">No Aplica</option></select></center></td><td><a id="guardarinfra'+z.idMantenimiento+'" name="guardarinfra'+z.idMantenimiento+'" idContador="'+z.idMantenimiento+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');
+
+                        funcion_click_boton_modal_docs_datatable_Infra("#btn_doc_informe_ejecucion","divInformeEjecucion","#idTituloModalInformeEjecucion","Documentos Informe Ejecución","tablaDocumentosInformeEjecucion","tbodyDocumentosInformeEjecucion",["Documento","Trimestre"], "mostrar__infraestructura_documentos",$("#filesFrontend").val()+"seguimiento/otrosMantenimiento__tecnicos/" );
+                        funcion_click_boton_modal_docs_datatable_Infra("#btn_doc_res_infor","divRespaldoInforme","#idTituloModalRespaldoInforme","Documentos Respaldo Informe","tablaDocumentosRespaldoInforme","tbodyDocumentosRespaldoInforme",["Documento","Trimestre"], "mostrar__infraestructura_documentos",$("#filesFrontend").val()+"seguimiento/otrosMantenimiento__tecnicos/" );
+                        funcion_click_boton_modal_docs_datatable_Infra("#btn_doc_Otros","divOtrosDoc","#idTituloModalOtrosDoc","Documentos Otros","tablaDocumentosOtros","tbodyDocumentosOtros",["Documento","Trimestre"], "mostrar__infraestructura_documentos",$("#filesFrontend").val()+"seguimiento/otrosMantenimiento__tecnicos/" );
+                        
+                    
+                  
+                        var selectElement = document.getElementById('selectInfra' + z.idMantenimiento);
+                    
+                        
+                        console.log("DATOS ID ORGANISMOsss");  
+                        console.log(contadorIdOrganismo);  
+
+                
+
+                        $("#guardarinfra"+z.idMantenimiento).click(function(e) {
+
+                            let idContador=$(this).attr('idContador');
+                
+                            let selectInfra= "selectInfra"+idContador;                    
+                        
+                            // funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),$(".obligatorios"+idContador),[$("#selectInfra"+idContador).val(),contadorIdOrganismo],"seguimiento__infraestructura_reporte",$(".filaIndicadora"+idContador),$(".oculto__trimestrales"));
+                            funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),[$("#selectInfra"+idContador).val(),contadorIdOrganismo,idContador],"seguimiento__infraestructura_reporte");
+
+                            });
+                            contador++;
+                }           
     
             },
-            error:function(){
+                error:function(){
     
-        }
-        });
-        
-       // if(rol_usuario == 3){
-            paqueteDeDatos.append('tipo','mostrar__infraestructura_indicadores');
-            $.ajax({
-        
-                type:"POST",
-                url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
-                contentType: false,
-                data:paqueteDeDatos,
-                processData: false,
-                cache: false, 
-                success:function(response){
-                    var elementos=JSON.parse(response);
-                console.log("RESPONSE")            
-                console.log(response)     
-                var indicadorInformacion=elementos['indicadorInformacion'];       
-                var tabla = document.getElementById('infraestructura__intervenciones');   
-                var datos = elementos.indicadorInformacion
-                var contador = 1;
-                var contadorIdOrganismo = data[17];
+            }
+        }); /* fin ajax insercion */  
+   
 
-                    for (z of indicadorInformacion) {
-                        
-                        
-                            tabla.insertAdjacentHTML('beforeend','<tr><td>'+z.nombreInfras+'</td><td><center>'+z.tipoIntervencion+'</center></td><td><center>'+z.fecha+'</center></td><td><center>'+z.mensualEjecutado+'</center></td><td><div class="text-center"><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">ruc</a></div></td><td><div class=" text-center"><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">Acta de entrega recepecióm</a></div></td><td><div class=" text-center"><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">Acta recepeción ódenes compras</a></div></td><td><div class=" text-center"><a href="'+$("#filesFrontend").val()+'seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">otros</a></div></td><td><center><select id="selectInfra'+z.idMantenimiento+'" name="selectInfra'+z.idMantenimiento+'" class="ancho__total__input__selects"><option value="Cumple">Cumple</option><option value="Hallazgo">Hallazgo</option><option value="No Presenta">No Presenta</option><option value="Información">Información</option><option value="No Aplica">No Aplica</option></select></center></td><td><a id="guardarinfra'+z.idMantenimiento+'" name="guardarinfra'+z.idMantenimiento+'" idContador="'+z.idMantenimiento+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');
-                        
-                        // tabla.insertAdjacentHTML('beforeend','<tr><td>'+z.nombreInfras+'</td><td><center>'+z.tipoIntervencion+'</center></td><td><center>'+z.fecha+'</center></td><td><center>'+z.mensualEjecutado+'</center></td><td><div class="text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">ruc</a></div></td><td><div class=" text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">Acta de entrega recepecióm</a></div></td><td><div class=" text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">Acta recepeción ódenes compras</a></div></td><td><div class=" text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">otros</a></div></td><td><center><input type="text" id="selectInfra'+z.idMantenimiento+'" name="selectInfra'+z.idMantenimiento+'" class="ancho__total__input__selects"  value="0" style="border:none!important;text-align:center" disabled="disabled" /></center></td><td><a id="guardarinfra'+z.idMantenimiento+'" name="guardarinfra'+z.idMantenimiento+'" idContador="'+z.idMantenimiento+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');
-                    // }
-                            var selectElement = document.getElementById('selectInfra' + z.idMantenimiento);
-                        
-                            
-                            console.log("DATOS ID ORGANISMOsss");  
-                            console.log(contadorIdOrganismo);  
-
-                    
-
-                            $("#guardarinfra"+z.idMantenimiento).click(function(e) {
-
-                                let idContador=$(this).attr('idContador');
-                    
-                                let selectInfra= "selectInfra"+idContador;                    
-                            
-                                // funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),$(".obligatorios"+idContador),[$("#selectInfra"+idContador).val(),contadorIdOrganismo],"seguimiento__infraestructura_reporte",$(".filaIndicadora"+idContador),$(".oculto__trimestrales"));
-                                funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),[$("#selectInfra"+idContador).val(),contadorIdOrganismo,idContador],"seguimiento__infraestructura_reporte");
-
-                                });
-                                contador++;
-                    }           
-        
-                },
-                    error:function(){
-        
-                }
-            }); /* fin ajax insercion */  
-        // }else{
-        //     paqueteDeDatos.append('tipo','mostrar__infraestructura_indicadores_admin');
-        //     $.ajax({
-        
-        //         type:"POST",
-        //         url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
-        //         contentType: false,
-        //         data:paqueteDeDatos,
-        //         processData: false,
-        //         cache: false, 
-        //         success:function(response){
-        //             var elementos=JSON.parse(response);
-        //         console.log("RESPONSE")            
-        //         console.log(response)     
-        //         var indicadorInformacion=elementos['indicadorInformacion'];       
-        //         var tabla = document.getElementById('infraestructura__intervenciones');   
-        //         var datos = elementos.indicadorInformacion
-        //         var contador = 1;
-        //         var contadorIdOrganismo = data[17];
-
-        //             for (z of indicadorInformacion) {
-                        
- 
-        //              tabla.insertAdjacentHTML('beforeend','<tr><td>'+z.nombreInfras+'</td><td><center>'+z.tipoIntervencion+'</center></td><td><center>'+z.fecha+'</center></td><td><center>'+z.mensualEjecutado+'</center></td><td><div class="text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">ruc</a></div></td><td><div class=" text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">Acta de entrega recepecióm</a></div></td><td><div class=" text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">Acta recepeción ódenes compras</a></div></td><td><div class=" text-center"><a href="../../../documentos/seguimiento/otrosMantenimiento/'+z.documento+'" target="_blank">otros</a></div></td><td><center><input type="text" id="selectInfra'+z.idMantenimiento+'" name="selectInfra'+z.idMantenimiento+'" class="ancho__total__input__selects"  value="'+z.detalle+'" style="border:none!important;text-align:center" disabled="disabled" /></center></td><td><a id="guardarinfra'+z.idMantenimiento+'" name="guardarinfra'+z.idMantenimiento+'" idContador="'+z.idMantenimiento+'" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></td></tr>');
-                    
-        //                     var selectElement = document.getElementById('selectInfra' + z.idMantenimiento);
-                        
-                            
-        //                     console.log("DATOS ID ORGANISMOsss");  
-        //                     console.log(contadorIdOrganismo);  
-
-                    
-
-        //                     $("#guardarinfra"+z.idMantenimiento).click(function(e) {
-
-        //                         let idContador=$(this).attr('idContador');
-                    
-        //                         let selectInfra= "selectInfra"+idContador;                    
-                            
-        //                         // funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),$(".obligatorios"+idContador),[$("#selectInfra"+idContador).val(),contadorIdOrganismo],"seguimiento__infraestructura_reporte",$(".filaIndicadora"+idContador),$(".oculto__trimestrales"));
-        //                         funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),[$("#selectInfra"+idContador).val(),contadorIdOrganismo,idContador],"seguimiento__infraestructura_reporte");
-
-        //                         });
-        //                         contador++;
-        //             }           
-        
-        //         },
-        //             error:function(){
-        
-        //         }
-        //     }); /* fin ajax insercion */  
-        // }    
-    
-    });
-      
+});
+  
 }
 
 
@@ -2307,10 +2368,12 @@ var funcion__reasignar__seguimiento__presupuestario_recibidos2023=function(tbody
                   ============================================*/
               
                   programado1=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+                  
                   $("#primer__esperado").val(parseFloat(programado1).toFixed(2)+" %");
   
   
                   programado2=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
+
                   $("#segundo__esperado").val(parseFloat(programado2).toFixed(2)+" %");
   
                   $("#tercero__esperado").val("-");
@@ -2477,18 +2540,19 @@ var funcion__reasignar__seguimientos__unidos__altos2023=function(tbody,table){
               var capacitadores__altos__sumas=elementos['capacitadores__altos__sumas'];
               var sumas__altos__beneficiarios=elementos['sumas__altos__beneficiarios'];
               var autogestionesV=elementos['autogestionesV'];
+              var indicadores__act3_7_for_recreativo_alto=elementos['indicadores__act3_7_for_recreativo_alto'];
               
               
               /*==================================================
               =            Registrar datos necesarios            =
               ==================================================*/
               
-              $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center'>SUBSECRETARÍA DE ALTO RENDIMIENTO</div><input type='hidden' id='subsecretarias__escritas' name='subsecretarias__escritas' value='SUBSECRETARÍA DE ALTO RENDIMIENTO'/>");
+              $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center'>SUBSECRETARÍA DE DEPORTE DE ALTO RENDIMIENTO</div><input type='hidden' id='subsecretarias__escritas' name='subsecretarias__escritas' value='SUBSECRETARÍA DE ALTO RENDIMIENTO'/>");
   
   
               if ($("#fisicamenteE").val()=="12" || $("#fisicamenteE").val()=="24") {
   
-                  $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center mt-2'>DIRECCIÓN DE DE ALTO RENDIMIENTO</div><input type='hidden' id='direccion__escritas' name='direccion__escritas' value='DIRECCIÓN DE DE ALTO RENDIMIENTO'/>");
+                  $(".titulo__alto__rendimientos").append("<div class='col col-12 text-center mt-2'>DIRECCION DE DEPORTE CONVENCIONAL PARA EL ALTO RENDIMIENTO</div><input type='hidden' id='direccion__escritas' name='direccion__escritas' value='DIRECCION DE DEPORTE CONVENCIONAL PARA EL ALTO RENDIMIENTO'/>");
   
               }else{
   
@@ -2512,7 +2576,7 @@ var funcion__reasignar__seguimientos__unidos__altos2023=function(tbody,table){
               =            Sacar siglas            =
               ====================================*/
               
-                let palabras = data[2];
+                let palabras = $("#direccion__escritas").val();
               let array = palabras.split(" ");
               let total = array.length;
               let resultado = "";
@@ -2533,12 +2597,12 @@ var funcion__reasignar__seguimientos__unidos__altos2023=function(tbody,table){
               
               /*=====  End of Sacar siglas  ======*/
   
-              
+         
               if (parseInt(data[9], 10)<10) {
   
-                  $(".numerico__dinamicas").text("0"+data[9]);
+                  $(".numerico__dinamicas").text(data[10]+" - 0"+data[9]);
   
-                  $("#numerico__dinamicas__inputs").val("0"+data[9]);
+                  $("#numerico__dinamicas__inputs").val(data[10]+" - 0"+data[9]);
   
               }else{
   
@@ -2799,9 +2863,71 @@ var funcion__reasignar__seguimientos__unidos__altos2023=function(tbody,table){
   
   
   
-                  $(".cuerpo__items__alto__rendimientos").append('<tr><td>'+w.nombreActividades+'</td><td>'+w.nombreIndicador+'</td><td>'+w.totalProgramado+'</td><td>'+w.totalEjecutado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>');
+                  $(".cuerpo__items__alto__rendimientos").append('<tr><td>0'+w.idActividad+' - '+w.nombreIndicador+'</td><td>'+w.nombreIndicador+'</td><td>'+w.totalProgramado+'</td><td>'+w.totalEjecutado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>');
+
+                 
+                 
+                 
   
               }
+
+              for (w of indicadores__act3_7_for_recreativo_alto) {
+  
+
+                porcentajesCumplimientos=(parseFloat(w.actividad3Registrado) / parseFloat(w.actividad3))*100;
+
+                if (parseFloat(porcentajesCumplimientos).toFixed(2)>=85) {
+
+                     div="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos).toFixed(2)<85) {
+
+                     div="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos).toFixed(2)<70) {
+
+                     div="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+
+                }
+
+                porcentajesCumplimientos2=(parseFloat(w.actividad7Registrado) / parseFloat(w.actividad7))*100;
+
+                if (parseFloat(porcentajesCumplimientos2).toFixed(2)>=85) {
+
+                     div2="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos2).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos2).toFixed(2)<85) {
+
+                     div2="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos2).toFixed(2)<70) {
+
+                     div2="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+
+                }
+
+                porcentajesCumplimientos3=(parseFloat(w.actividad6Registrado) / parseFloat(w.actividad6))*100;
+
+                if (parseFloat(porcentajesCumplimientos3).toFixed(2)>=85) {
+
+                     div3="<div style='border-radius: 50%!important; margin-right:1em; background:green; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos3).toFixed(2)>=70 && parseFloat(porcentajesCumplimientos3).toFixed(2)<85) {
+
+                     div3="<div style='border-radius: 50%!important; margin-right:1em; background:yellow; height:15px!important; width:15px!important;'></div>";
+
+                }else if (parseFloat(porcentajesCumplimientos3).toFixed(2)<70) {
+
+                     div3="<div style='border-radius: 50%!important; margin-right:1em;  background:red; height:15px!important; width:15px!important;'></div>";
+
+                }
+
+                
+                    $(".cuerpo__items__alto__rendimientos__indicadores").append('<tr><td> Número de beneficiarios de capacitaciones deportivas:</td><td>'+w.actividad3+'</td><td>'+w.actividad3Registrado+'</td><td><center><div style="display:flex!important;">'+div+" "+porcentajesCumplimientos+'%</div></center></td></tr>           <tr><td>Cantidad de implementación deportiva adquirida:</td><td>'+w.actividad7+'</td><td>'+w.actividad7Registrado+'</td><td><center><div style="display:flex!important;">'+div2+" "+porcentajesCumplimientos2+'%</div></center></td></tr>');
+                
+                
+
+                }
   
               porcentajeFinalAl=(parseFloat(sumaAlcanzado)/parseFloat(sumaProgramado))*100;
   
@@ -3935,7 +4061,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 	  $.ajax({
   
 		  type:"POST",
-          url:"modelosBd/inserta/seleccionaAcciones.md.php",
+          url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
 		  contentType: false,
 		  data:paqueteDeDatos,
 		  processData: false,
@@ -4017,20 +4143,13 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 			  =            Sacar siglas            =
 			  ====================================*/
 			  
-				let palabras = data[2];
-			  let array = palabras.split(" ");
-			  let total = array.length;
-			  let resultado = "";
-			   
-			  for (var i = 0; i < total; i++){
+                if (data[20] == "I SEMESTRE") {
   
-				  if (array[i].length>2) {
-  
-					  resultado += array[i][0];
-  
-				  }
-  
-			  }
+                    resultado ="1SEM - "+data[10];
+
+                }else{
+                    resultado ="2SEM - "+data[10];
+                }
 			  
 			  $(".siglas__dinamicas").text(resultado);	
   
@@ -4225,11 +4344,11 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 				  $contador=0;
 				  if (data[18]=="si") {
   
-					  $(".cuerpo__matricez__seguimientos").append('<tr><td><center>'+z.actividades+'</center></td><td style="display:none!important;"><center>'+parseFloat(z.sumaPlanificacion).toFixed(2)+'</center></td><td><center><input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos__programados" name="porcentajes__esigefts__nomenclaturas__programados[]" id="porcentajes__esigefts__nomenclaturas__programados'+z.idActividad+'"  value="'+parseFloat(z.programado).toFixed(2)+'"></center></td><td><center>'+parseFloat(z.ejecutado).toFixed(2)+'</center></td><td><center><div style="display:flex!important;">'+div+" "+'<input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos" id="porcentajes__esigefts__nomenclaturas'+z.idActividad+'"  value="'+parseFloat(porcentajes).toFixed(2)+'"><span>%</span></div></center></td><td><center><input type="text" class="ancho__total__input solo__numero__montos sumadores__exigets__ex" id="input__esigets'+z.idActividad+'" idEjecutados="'+parseFloat(z.programado).toFixed(2)+'" idContador="'+z.idActividad+'" value="0"/></center></td><td><center><div style="display:flex!important;"><span class="circulos__'+z.idActividad+'"></span><input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes" id="porcentajes__esigefts'+z.idActividad+'"  value="0"><span>%</span></div></center></td></tr>');
+					  $(".cuerpo__matricez__seguimientos").append('<tr><td><center>'+z.actividades+'</center></td><td style="display:none!important;"><center>'+parseFloat(z.sumaPlanificacion).toFixed(2)+'</center></td><td><center><input readonly type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos__programados" name="porcentajes__esigefts__nomenclaturas__programados[]" id="porcentajes__esigefts__nomenclaturas__programados'+z.idActividad+'"  value="'+parseFloat(z.programado).toFixed(2)+'"></center></td><td><center>'+parseFloat(z.ejecutado).toFixed(2)+'</center></td><td><center><div style="display:flex!important;">'+div+" "+'<input type="text" readonly class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos" id="porcentajes__esigefts__nomenclaturas'+z.idActividad+'"  value="'+parseFloat(porcentajes).toFixed(2)+'"><span>%</span></div></center></td><td><center><input type="text" class="ancho__total__input solo__numero__montos sumadores__exigets__ex" id="input__esigets'+z.idActividad+'" idEjecutados="'+parseFloat(z.programado).toFixed(2)+'" idContador="'+z.idActividad+'" value="0"/></center></td><td><center><div style="display:flex!important;"><span class="circulos__'+z.idActividad+'"></span><input readonly type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes" id="porcentajes__esigefts'+z.idActividad+'"  value="0"><span>%</span></div></center></td></tr>');
 					  $contador++;
 				  }else{
   
-					  $(".cuerpo__matricez__seguimientos").append('<tr><td><center>'+z.actividades+'</center></td><td style="display:none!important;"><center>'+parseFloat(z.sumaPlanificacion).toFixed(2)+'</center></td><td><center><input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos__programados" id="porcentajes__esigefts__nomenclaturas__programados'+z.idActividad+'"  value="'+parseFloat(z.programado).toFixed(2)+'"></center></td><td><center>'+parseFloat(z.ejecutado).toFixed(2)+'</center></td><td><center><div style="display:flex!important;">'+div+" "+'<input type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos" id="porcentajes__esigefts__nomenclaturas'+z.idActividad+'"  value="'+parseFloat(porcentajes).toFixed(2)+'"><span>%</span></div></center></td></tr>');
+					  $(".cuerpo__matricez__seguimientos").append('<tr><td><center>'+z.actividades+'</center></td><td style="display:none!important;"><center>'+parseFloat(z.sumaPlanificacion).toFixed(2)+'</center></td><td><center><input readonly type="text" class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos__programados" id="porcentajes__esigefts__nomenclaturas__programados'+z.idActividad+'"  value="'+parseFloat(z.programado).toFixed(2)+'"></center></td><td><center>'+parseFloat(z.ejecutado).toFixed(2)+'</center></td><td><center><div style="display:flex!important;">'+div+" "+'<input type="text" readonly class="ancho__total__input solo__numero__montos porcs__esigeftes__iniciales__montos" id="porcentajes__esigefts__nomenclaturas'+z.idActividad+'"  value="'+parseFloat(porcentajes).toFixed(2)+'"><span>%</span></div></center></td></tr>');
   
 					  $(".oculto__sin__esiguefts").hide();
   
@@ -4413,10 +4532,10 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
   
 			  if (data[18]=="si") {
   
-				  $(".footer__matricez__seguimientos").append('<tr><th><center>Total</center></th><th style="display:none!important;"><center><input type="text" class="ancho__planificadoss" id="planificadoSas" name="planificadoSas" value="'+parseFloat(planificadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th ><center><input type="text" id="programadoSas" name="programadoSas" value="'+parseFloat(programadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th><center><input type="text" id="ejecutadoSas" name="ejecutadoSas" value="'+parseFloat(ejecuadoA)+'" style="border:none!important;color:black!important;" /></center></th><th><center><input type="text" id="procentajeSas" name="procentajeSas" value="'+parseFloat(porcentajesAdminRealizados).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th class="exigeft__fila__holguras"><center><input type="text" id="montosExig" name="montosExig" style="border:none!important; color:black!important;" value="0"  /><center></center></th><th class="exigeft__fila__holguras__porcentajes"><input type="text" id="procentajeExigefSas" name="procentajeExigefSas"  reandoly="" style="border:none!important; color:black!important;" value="0"/><center></th></tr>');
+				  $(".footer__matricez__seguimientos").append('<tr><th><center>Total</center></th><th style="display:none!important;"><center><input readonly type="text" class="ancho__planificadoss" id="planificadoSas" name="planificadoSas" value="'+parseFloat(planificadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th ><center><input readonly type="text" id="programadoSas" name="programadoSas" value="'+parseFloat(programadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th><center><input readonly type="text" id="ejecutadoSas" name="ejecutadoSas" value="'+parseFloat(ejecuadoA)+'" style="border:none!important;color:black!important;" /></center></th><th><center><input readonly type="text" id="procentajeSas" name="procentajeSas" value="'+parseFloat(porcentajesAdminRealizados).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th class="exigeft__fila__holguras"><center><input readonly type="text" id="montosExig" name="montosExig" style="border:none!important; color:black!important;" value="0"  /><center></center></th><th class="exigeft__fila__holguras__porcentajes"><input readonly type="text" id="procentajeExigefSas" name="procentajeExigefSas"  reandoly="" style="border:none!important; color:black!important;" value="0"/><center></th></tr>');
 			  }else{
   
-				  $(".footer__matricez__seguimientos").append('<tr><th><center>Total</center></th><th style="display:none!important;"><center><input type="text" id="planificadoSas" class="planificadoSas" name="planificadoSas" value="'+parseFloat(planificadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th ><th><center><input type="text" id="programadoSas" name="programadoSas" value="'+parseFloat(programadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th><center><input type="text" id="ejecutadoSas" name="ejecutadoSas" value="'+parseFloat(ejecuadoA).toFixed(2)+'" style="border:none!important;color:black!important;"/></center></th><th><center><input type="text" id="procentajeSas" name="procentajeSas" value="'+parseFloat(porcentajesAdminRealizados).toFixed(2)+'" style="border:none!important; color:black!important;"/></center></th></tr>');
+				  $(".footer__matricez__seguimientos").append('<tr><th><center>Total</center></th><th style="display:none!important;"><center><input readonly type="text" id="planificadoSas" class="planificadoSas" name="planificadoSas" value="'+parseFloat(planificadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th ><th><center><input readonly type="text" id="programadoSas" name="programadoSas" value="'+parseFloat(programadoA).toFixed(2)+'" style="border:none!important; color:black!important;" /></center></th><th><center><input readonly type="text" id="ejecutadoSas" name="ejecutadoSas" value="'+parseFloat(ejecuadoA).toFixed(2)+'" style="border:none!important;color:black!important;"/></center></th><th><center><input readonly type="text" id="procentajeSas" name="procentajeSas" value="'+parseFloat(porcentajesAdminRealizados).toFixed(2)+'" style="border:none!important; color:black!important;"/></center></th></tr>');
   
   
 			  }
@@ -4454,6 +4573,10 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 				  /*============================================
 				  =            Calculos programados            =
 				  ============================================*/
+                  
+                  $('.cuarto__esperado__div').hide();
+                  $('.segundo__esperado__div').show();
+                  
 			  
 				  programado1=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
 				  $("#primer__esperado").val(parseFloat(programado1).toFixed(2)+" %");
@@ -4461,10 +4584,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
   
 				  programado2=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
 				  $("#segundo__esperado").val(parseFloat(programado2).toFixed(2)+" %");
-  
-				  $("#tercero__esperado").val("-");
-  
-				  $("#cuarto__esperado").val("-");
+
 				  
 				  /*=====  End of Calculos programados  ======*/
 			  
@@ -4474,13 +4594,8 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 				  /*============================================
 				  =            Calculos programados            =
 				  ============================================*/
-			  
-				  programado1=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
-				  $("#primer__esperado").val(parseFloat(programado1).toFixed(2)+" %");
-  
-  
-				  programado2=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
-				  $("#segundo__esperado").val(parseFloat(programado2).toFixed(2)+" %");
+                  $('.segundo__esperado__div').hide();
+                  $('.cuarto__esperado__div').show();
   
 				  programado3=(parseFloat($("#programadoSas").val())/parseFloat($("#presupuesto__segun__poas").val())) * 100;
 				  $("#tercero__esperado").val(parseFloat(programado3).toFixed(2)+" %");
@@ -4503,40 +4618,23 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 			  if (data[6]=="primerTrimestre" || data[6]=="segundoTrimestre") {
   
   
-				  /*===========================================
-				  =            Calculos ejecutados            =
-				  ===========================================*/
-				  
-				  ejecutado1=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
-				  $("#primer__ejecucion").val(parseFloat(ejecutado1).toFixed(2)+" %");
-  
-				  /*=====  End of Calculos ejecutados  ======*/
-  
 				  ejecutado2=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
 				  $("#segundo__ejecucion").val(parseFloat(ejecutado2).toFixed(2)+" %");
   
-				  $("#cuarto__ejecucion").val("-");
-  
-				  $(".ejecutados__al__segundo").show();
+                  $(".ejecutados__al__segundo").show();
+                  $(".ejecutados__al__cuarto").hide();
+				  
   
 			  }else{
   
 				  /*===========================================
 				  =            Calculos ejecutados            =
 				  ===========================================*/
-				  
-				  ejecutado1=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
-				  $("#primer__ejecucion").val(parseFloat(ejecutado1).toFixed(2)+" %");
-  
-				  /*=====  End of Calculos ejecutados  ======*/
-  
-				  ejecutado2=(parseFloat(ejecutadoSasU)/parseFloat(montoEjecutadoU)) * 100;
-				  $("#segundo__ejecucion").val(parseFloat(ejecutado2).toFixed(2)+" %");
   
 				  $("#cuarto__ejecucion").val(parseFloat(ejecutado2).toFixed(2)+" %");
   
 				  $(".ejecutados__al__cuarto").show();
-				  $(".ejecutados__al__segundo").show();
+				  $(".ejecutados__al__segundo").hide();
   
 			  }
   
@@ -4967,7 +5065,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                             
                         }
 
@@ -4979,15 +5077,15 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                             if (row[parametro6]=="FORMATIVO") {
 
-                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else if(row[parametro6]=="RECREACION"){
 
-                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else{
 
-                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }
                             
@@ -4999,7 +5097,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                             
                         }
 
@@ -5479,7 +5577,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                             
                         }
 
@@ -5491,15 +5589,15 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                             if (row[parametro6]=="FORMATIVO") {
 
-                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else if(row[parametro6]=="RECREACION"){
 
-                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else{
 
-                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }
                             
@@ -5511,7 +5609,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                             
                         }
 
@@ -5778,7 +5876,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                             
                         }
 
@@ -5790,15 +5888,15 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                             if (row[parametro6]=="FORMATIVO") {
 
-                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else if(row[parametro6]=="RECREACION"){
 
-                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else{
 
-                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }
                             
@@ -5810,7 +5908,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                             
                         }
 
@@ -6040,7 +6138,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                             
                         }
 
@@ -6052,15 +6150,15 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                             if (row[parametro6]=="FORMATIVO") {
 
-                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else if(row[parametro6]=="RECREACION"){
 
-                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else{
 
-                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }
                             
@@ -6072,7 +6170,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                             
                         }
 
@@ -6294,7 +6392,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                             
                         }
 
@@ -6306,15 +6404,15 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                             if (row[parametro6]=="FORMATIVO") {
 
-                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else if(row[parametro6]=="RECREACION"){
 
-                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else{
 
-                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }
                             
@@ -6326,7 +6424,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                             
                         }
 
@@ -6531,7 +6629,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            primero="<div><a href='documentos/seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
+                            primero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesSeguimientos/"+arr[0]+"' target='_blank'>Presupuestario</a></div><hr>";
                             
                         }
 
@@ -6543,15 +6641,15 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                             if (row[parametro6]=="FORMATIVO") {
 
-                                segundo="<div><a href='documentos/seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__formativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else if(row[parametro6]=="RECREACION"){
 
-                                segundo="<div><a href='documentos/seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informe__recreativos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }else{
 
-                                segundo="<div><a href='documentos/seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
+                                segundo="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informes__altos/"+arr[1]+"' target='_blank'>Técnico</a></div><hr>";
 
                             }
                             
@@ -6563,7 +6661,7 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
 
                         }else{
 
-                            tercero="<div><a href='documentos/seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
+                            tercero="<div><a href='"+$("#filesFrontend").val()+"seguimiento/informesInfraestructuras/"+arr[2]+"' target='_blank'>Infraestructura y/o mantenimiento</a></div><hr>";
                             
                         }
 
@@ -8045,3 +8143,500 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
     }
 
 /*=====  End of Función de seguimientos  ======*/
+
+
+/*=============================
+=            Función recomendar altos            =
+=============================*/
+
+var funcion__reasignar__seguimientos__unidos__altos__recomendados2023=function(tbody,table){
+
+	$(tbody).on("click","button.reasignarTramites__seguimientosAltos__recomendados",function(e){
+	  console.log("FUNCION 000000000000002 ALTO RENDIMIENTO");
+		e.preventDefault();
+  
+		var data=table.row($(this).parents("tr")).data();
+  
+  
+		var paqueteDeDatos = new FormData();
+  
+		paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
+  
+		paqueteDeDatos.append("idOrganismo",data[8]);
+  
+		paqueteDeDatos.append("periodo",data[6]);
+  
+		paqueteDeDatos.append("tipo__dos",data[9]);
+  
+		let idUsuarioC=$("#idUsuarioC").val();
+  
+		paqueteDeDatos.append("idUsuarioC",idUsuarioC);
+	  console.log("3 , 2 , 4");
+	  console.log(data[3],data[2],data[4]);
+		console.log(data);
+  
+	  $.ajax({
+  
+		  type:"POST",
+		  url:"modelosBd/inserta/seleccionaAcciones.md.php",
+		  contentType: false,
+		  data:paqueteDeDatos,
+		  processData: false,
+		  cache: false, 
+		  success:function(response){
+  
+		  $.getScript("layout/scripts/js/validacionBasica.js",function(){
+  
+			  let elementos=JSON.parse(response);
+  
+			  let envio__tecnicos=elementos['envio__tecnicos'];
+			  let zonal__eu=elementos['zonal__eu'];
+			  let documentos__tecnicos=elementos['documentos__tecnicos'];
+				console.log("zonal__eu");
+				console.log(zonal__eu);
+			  $("#organismoOculto__modal").val(data[8]);
+  
+			  if ($("#idRolAd").val()==3) {
+  
+				  $(".observacionesReasignaciones").hide();
+  
+			  }else{
+  
+				  $(".observacionesReasignaciones").show();
+  
+			  }
+  
+  
+			  if($("#idRolAd").val()==7){
+  
+				  $(".direccion__seguimientos__ocultos").show();
+  
+				  $("#selects__superiores__regresar").remove();
+				  $("#selects__superiores").show();
+  
+				  $("#selects__superiores__regresar__coors").remove();
+				  $("#selects__superiores__subsess").remove();
+  
+  
+			  }else if (zonal__eu==1 || zonal__eu=="1") {
+  
+				  $("#selects__superiores__regresar").show();
+				  $("#selects__superiores").show();
+  
+				  $("#selects__superiores__regresar__coors").remove();
+				  $("#selects__superiores__subsess").remove();
+  
+			  }else{
+  
+				  $("#selects__superiores__regresar").remove();
+				  $("#selects__superiores__regresar__coors").show();
+  
+				  $("#selects__superiores").remove();
+				  $("#selects__superiores__subsess").show();
+  
+			  }
+  
+			  for (w of envio__tecnicos) {
+  
+				  $(".funcionario__recomendaste").text(w.nombreCompleto);
+				  $(".fecha__recomendaste").text(w.fecha);
+  
+			  }
+  
+			  for (z of documentos__tecnicos) {
+  
+				  $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informes__altos/'+z.archivo);
+  
+				  $(".observaciones__recomendaste").text(z.observacion);
+				  $("#nombreDocumento").val(z.archivo);
+				  $(".recomendaciones__recomendaste").text(z.recomendacion);
+  
+			  }
+  
+			  if ($("#idRolAd").val()==7) {
+  
+				//  $(".oculto__subsess__deseados").attr('style','visibility: hidden!important;');
+				  $(".oculto__subsess__deseados").show();
+			
+  
+			  }
+  
+			  $("#periodo").val(data[6]);
+  
+		  });	
+  
+		  },
+		  error:function(){
+  
+		  }
+				  
+	  });	  	
+  
+	});
+  
+  }
+
+  
+  
+  /*=====  End of Función recomendar altos  ======*/
+  
+
+
+ /*==================================================================
+=            Funcion reasignar seguimientos segimientos            =
+==================================================================*/
+
+var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe2023=function(tbody,table){
+
+    $(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados",function(e){
+      //console.log("FUNACION 0000002  DSPPP");
+        e.preventDefault();
+
+        $(".boton__pdfs__financiero").hide();
+        $(".faltantes_documentos_financieros").hide();
+        $(".faltantes_documentos_tecnicos").hide();
+        $(".faltantes_documentos_infraestructura").hide();
+        
+        
+  
+        var data=table.row($(this).parents("tr")).data();
+  
+  
+        var paqueteDeDatos = new FormData();
+  
+        paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
+  
+        paqueteDeDatos.append("idOrganismo",data[9]);
+  
+        paqueteDeDatos.append("periodo",data[6]);
+  
+        paqueteDeDatos.append("tipo__dos",data[8]);
+  
+        let idUsuarioC=$("#idUsuarioC").val();
+  
+        paqueteDeDatos.append("idUsuarioC",idUsuarioC);
+  
+      console.log("DATA 4 2 3")
+      console.log(data[4],data[2],data[3])
+      console.log("DATA 5 3 4")
+      console.log(data[8],data[6],data[7])
+  
+        console.log(data);
+  
+      $.ajax({
+  
+          type:"POST",
+          url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+          contentType: false,
+          data:paqueteDeDatos,
+          processData: false,
+          cache: false, 
+          success:function(response){
+  
+          $.getScript("layout/scripts/js/validacionBasica.js",function(){
+  
+              let elementos=JSON.parse(response);
+  
+              let documentos__tecnico__2__seguimientos=elementos['documentos__tecnico__2__seguimientos'];
+              let envio__tecnicos__seguimientos=elementos['envio__tecnicos__seguimientos'];
+              let varaible__culminados=elementos['varaible__culminados'];
+              let documentos__tecnicos__2=elementos['documentos__tecnicos__2'];
+              let var_n_se_in=elementos['var_n_se_in'];
+              let var_n_se_financiero=elementos['var_n_se_financiero'];
+              let documentos__tecnicos_Contratacion=elementos['documentos__tecnicos_Contratacion'];
+              let documentos__tecnicos_actividad1=elementos['documentos__tecnicos_actividad1'];
+              let nuevo__infras__seguimientos=elementos['nuevo__infras__seguimientos'];
+
+              let indicadores__infraestructura_existe=elementos['indicadores__infraestructura_existe'];
+              
+              
+              
+              let envio__tecnicos__seguimientos__infraestructuras=elementos['envio__tecnicos__seguimientos__infraestructuras'];
+  
+              let var_n_se_in__45=elementos['var_n_se_in__45'];
+  
+              $("#organismoOculto__modal").val(data[9]);
+  
+              $("#periodo").val(data[6]);
+
+              if(var_n_se_financiero==0){
+                
+                $(".faltantes_documentos_financieros").show();
+            }
+            if(varaible__culminados=="" && varaible__culminados==" " && varaible__culminados==undefined && varaible__culminados==null){
+                
+                $(".faltantes_documentos_tecnicos").show();
+            }
+           
+  
+              for (z of envio__tecnicos__seguimientos) {
+  
+                  $(".funcionario__recomendaste").text(z.nombreCompleto);
+                  $(".fecha__recomendaste").text(z.fecha);
+  
+              }
+  
+              for (z of documentos__tecnico__2__seguimientos) {
+  
+                  $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informesSeguimientos/'+z.documentos);
+  
+                  $(".observaciones__recomendaste").text(z.observaciones);
+                  $("#nombreDocumento").val(z.documentos);
+                  $(".recomendaciones__recomendaste").text(z.recomendaciones);
+  
+              }
+  
+  
+              if (var_n_se_in==1 && envio__tecnicos__seguimientos__infraestructuras!="" && envio__tecnicos__seguimientos__infraestructuras!=undefined && envio__tecnicos__seguimientos__infraestructuras!=" " && envio__tecnicos__seguimientos__infraestructuras!=null && var_n_se_in__45==1) {
+  
+                  for (z of envio__tecnicos__seguimientos__infraestructuras) {
+  
+                      $(".boton__pdfs__infraestructuras").show();
+  
+                      $("#documentos__tecnicos__i").attr('href',$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
+  
+                  }
+  
+              }
+
+           
+
+            if (var_n_se_financiero==1 && documentos__tecnicos_Contratacion!="" && documentos__tecnicos_Contratacion!=undefined && documentos__tecnicos_Contratacion!=" " && documentos__tecnicos_Contratacion!=null ) {
+  
+                for (z of documentos__tecnicos_Contratacion) {
+
+                    $(".boton__pdfs__financiero").show();
+
+                    $("#documentos__tecnicos__contratacion_financiero").attr('href',$("#filesFrontend").val()+'seguimiento/informes__contratacion/'+z.archivo);
+
+                }
+
+            }
+
+            if (var_n_se_financiero==1 && documentos__tecnicos_actividad1!="" && documentos__tecnicos_actividad1!=undefined && documentos__tecnicos_actividad1!=" " && documentos__tecnicos_actividad1!=null ) {
+  
+                for (z of documentos__tecnicos_actividad1) {
+
+                    $(".boton__pdfs__financiero").show();
+
+                    $("#documentos__tecnicos__actividad1_financiero").attr('href',$("#filesFrontend").val()+'seguimiento/informes__contratacion/'+z.archivo);
+
+                }
+
+            }
+  
+  
+  
+              if (varaible__culminados!="" && varaible__culminados!=" " && varaible__culminados!=undefined && varaible__culminados!=null) {
+  
+                  for (zC of documentos__tecnicos__2) {
+  
+                      if (data[8]=="FORMATIVO") {
+  
+                          $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+zC.archivo);
+  
+                      }else if (data[8]=="RECREACION" || data[8]=="RECREACIÓN") {
+  
+                          $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+zC.archivo);
+  
+                      }else{
+  
+                          $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informes__altos/'+zC.archivo);
+  
+                      }
+  
+                  }
+  
+                  $(".boton__pdfs__tecnicas").show();
+  
+  
+              }else{
+  
+                  $(".oculto__subsess__deseados").hide();
+  
+                  $(".clases__puedes__recomendares").text("FALTA EL INFORME DEL ÁREA TÉCNICA");
+  
+  
+              }
+  
+              if (var_n_se_in==1 && (envio__tecnicos__seguimientos__infraestructuras=="" || envio__tecnicos__seguimientos__infraestructuras==undefined && envio__tecnicos__seguimientos__infraestructuras==" " || envio__tecnicos__seguimientos__infraestructuras==null || var_n_se_in__45==0)) {
+  
+                 
+                  $(".faltantes_documentos_infraestructura").show();
+  
+              }
+  
+              if (var_n_se_in==1 && envio__tecnicos__seguimientos__infraestructuras!="" && envio__tecnicos__seguimientos__infraestructuras!=undefined && envio__tecnicos__seguimientos__infraestructuras!=" " && envio__tecnicos__seguimientos__infraestructuras!=null && varaible__culminados!="" && varaible__culminados!=" " && varaible__culminados!=undefined && varaible__culminados!=null && var_n_se_in__45==1 && var_n_se_financiero==1) {
+  
+                  $("#enviar__orgnaismosDeportivos").show();
+  
+              }else if(var_n_se_in==0 && varaible__culminados!="" && varaible__culminados!=" " && varaible__culminados!=undefined && varaible__culminados!=null && var_n_se_financiero==1){
+  
+                  $("#enviar__orgnaismosDeportivos").show();                        
+  
+              }
+  
+  
+  
+          });	
+  
+          },
+          error:function(){
+  
+          }
+                  
+      });	  	
+  
+    });
+
+
+    
+  
+}
+  
+  /*=====  End of Funcion reasignar seguimientos segimientos  ======*/
+
+
+
+  /*=============================================
+=            Recomendar formativos            =
+=============================================*/
+
+var funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe2023=function(tbody,table){
+
+
+    $(tbody).on("click","button.reasignarTramites__seguimientosAltos__recomendados",function(e){
+        console.log("FUNCION 000000000000002 ALTO RENDIMIENTO");
+          e.preventDefault();
+    
+          var data=table.row($(this).parents("tr")).data();
+
+          $("#tipo").val(data[12]);
+    
+    
+          var paqueteDeDatos = new FormData();
+    
+          paqueteDeDatos.append('tipo','enviar__infor__data__seguimientos');
+    
+          paqueteDeDatos.append("idOrganismo",data[8]);
+    
+          paqueteDeDatos.append("periodo",data[6]);
+    
+          paqueteDeDatos.append("tipo__dos",data[12]);
+    
+          let idUsuarioC=$("#idUsuarioC").val();
+    
+          paqueteDeDatos.append("idUsuarioC",idUsuarioC);
+        console.log("3 , 2 , 4");
+        console.log(data[3],data[2],data[4]);
+          console.log(data);
+    
+        $.ajax({
+    
+            type:"POST",
+            url:"modelosBd/POA_SEGUIMIENTO_REVISOR/selector.md.php",
+            contentType: false,
+            data:paqueteDeDatos,
+            processData: false,
+            cache: false, 
+            success:function(response){
+    
+            $.getScript("layout/scripts/js/validacionBasica.js",function(){
+    
+                let elementos=JSON.parse(response);
+    
+                let envio__tecnicos=elementos['envio__tecnicos'];
+                let zonal__eu=elementos['zonal__eu'];
+                let documentos__tecnicos__2=elementos['documentos__tecnicos__2'];
+                
+                  console.log("zonal__eu");
+                  console.log(zonal__eu);
+                $("#organismoOculto__modal").val(data[8]);
+    
+                if ($("#idRolAd").val()==3) {
+    
+                    $(".observacionesReasignaciones").hide();
+    
+                }else{
+    
+                    $(".observacionesReasignaciones").show();
+    
+                }
+    
+    
+                if($("#idRolAd").val()==7){
+    
+                    $(".direccion__seguimientos__ocultos").show();
+    
+                    $("#selects__superiores__regresar").remove();
+                    $("#selects__superiores").show();
+    
+                    $("#selects__superiores__regresar__coors").remove();
+                    $("#selects__superiores__subsess").remove();
+    
+    
+                }else if (zonal__eu==1 || zonal__eu=="1") {
+    
+                    $("#selects__superiores__regresar").show();
+                    $("#selects__superiores").show();
+    
+                    $("#selects__superiores__regresar__coors").remove();
+                    $("#selects__superiores__subsess").remove();
+    
+                }else{
+    
+                    $("#selects__superiores__regresar").remove();
+                    $("#selects__superiores__regresar__coors").show();
+    
+                    $("#selects__superiores").remove();
+                    $("#selects__superiores__subsess").show();
+    
+                }
+    
+                for (w of envio__tecnicos) {
+    
+                    $(".funcionario__recomendaste").text(w.nombreCompleto);
+                    $(".fecha__recomendaste").text(w.fecha);
+    
+                }
+    
+                for (z of documentos__tecnicos__2) {
+  
+                    if (data[12]=="FORMATIVO") {
+                        $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+z.archivo);
+                    }else{
+                        $("#informe__recomendados").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+z.archivo);
+                    }
+    
+                    
+    
+                    $(".observaciones__recomendaste").text(z.observacion);
+                    $("#nombreDocumento").val(z.archivo);
+                    $(".recomendaciones__recomendaste").text(z.recomendacion);
+    
+                }
+    
+                if ($("#idRolAd").val()==7) {
+    
+                  //  $(".oculto__subsess__deseados").attr('style','visibility: hidden!important;');
+                    $(".oculto__subsess__deseados").show();
+              
+    
+                }
+    
+                $("#periodo").val(data[6]);
+    
+            });	
+    
+            },
+            error:function(){
+    
+            }
+                    
+        });	  	
+    
+      });
+  
+}
+  
+  /*=====  End of Recomendar formativos  ======*/

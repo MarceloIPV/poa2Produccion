@@ -146,6 +146,7 @@ $objeto= new usuarioAcciones();?>
 						<th COLSPAN=1><center>Total Medallas</center></th>
 						<th COLSPAN=1 style='width:5%!important;'><center>Valor Unitario</center></th>
 						<th COLSPAN=1 style='width:5%!important;'><center>Valor Total</center></th>
+						<th COLSPAN=1 style='width:5%!important;'><center>Evento</center></th>
 					</tr>
 				</thead>
 				<tbody></tbody>
@@ -243,6 +244,19 @@ $objeto= new usuarioAcciones();?>
 										
                                     </div>
                                 </div>
+
+								<div class="row"> 
+                                 
+                                    <div class="col-sm-8">
+                                        
+                                        <label>Evento</label>
+                                        
+                                        <select id="eventoMedallasJN"  class="form-control" >
+                                            
+                                        </select>
+                                    
+                                    </div>
+								</div>
 
 						</div>
 						

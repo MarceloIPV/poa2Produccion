@@ -371,6 +371,17 @@
 		    $mensaje=1;
 			$jason['mensaje']=$mensaje;		
 		break;
+
+		case  "paidEventosDesarrollo":		
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();	
+		
+		    $query=" DELETE FROM poa_paid_eventos_desarrollo WHERE `idEvento` = '$id';";
+		    $resultado= $conexionEstablecida->exec($query);
+
+		    $mensaje=1;
+			$jason['mensaje']=$mensaje;		
+		break;
 	   
     }
 

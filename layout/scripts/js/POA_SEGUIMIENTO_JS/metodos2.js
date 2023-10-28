@@ -1390,13 +1390,13 @@ function crear_DataTable2(idDatatable){
           
               $("#monto"+contado).on('input', function () {
           
-                funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+                funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
           
               });					
               
           
           
-              funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+              funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,"");
           
               funcion__solo__numero__montos($(".solo__numeros__montos"));	
               funcion__cambio__de__numero($("#monto"+contado));
@@ -1439,14 +1439,17 @@ function crear_DataTable2(idDatatable){
   
               $("#monto__2"+contado).on('input', function () {
   
-                funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+                funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
   
               });	
   
-              funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+              funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,"");
   
               funcion__solo__numero__montos($(".solo__numeros__montos"));	
               funcion__cambio__de__numero($("#monto__2"+contado));
+
+              longitudCaracteres($("#numeroRuc__2"+contado),13,$(".counter__Cedula"));
+          
   
           });	
   
@@ -1485,16 +1488,16 @@ function crear_DataTable2(idDatatable){
   
               $("#monto__3"+contado).on('input', function () {
   
-                funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+                funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
   
               });	
   
   
-              funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+              funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,"");
   
               funcion__solo__numero__montos($(".solo__numeros__montos"));	
               funcion__cambio__de__numero($("#monto__3"+contado));
-  
+              longitudCaracteres($("#numeroRuc__3"+contado),13,$(".counter__Cedula"));
           });	
           
           /*===================================
@@ -5343,13 +5346,13 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
         
             $("#monto"+contado).on('input', function () {
         
-              funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+              funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
         
             });					
             
         
         
-            funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+            funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,"");
         
             funcion__solo__numero__montos($(".solo__numeros__montos"));	
             funcion__cambio__de__numero($("#monto"+contado));
@@ -5393,15 +5396,15 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
         
             $("#monto__2"+contado).on('input', function () {
         
-              funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+              funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
         
             });	
         
-            funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+            funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,"");
         
             funcion__solo__numero__montos($(".solo__numeros__montos"));	
             funcion__cambio__de__numero($("#monto__2"+contado));
-        
+            longitudCaracteres($("#numeroRuc__2"+contado),13,$(".counter__Cedula"));
         });	
         
         $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
@@ -5439,16 +5442,16 @@ var checkeds__recorridos__general__capacitacion_presupuestaria=function(parametr
         
             $("#monto__3"+contado).on('input', function () {
         
-              funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+              funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
         
             });	
         
         
-            funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+            funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,"");
         
             funcion__solo__numero__montos($(".solo__numeros__montos"));	
             funcion__cambio__de__numero($("#monto__3"+contado));
-        
+            longitudCaracteres($("#numeroRuc__3"+contado),13,$(".counter__Cedula"));
         });	
 
         /*===================================
@@ -7242,13 +7245,13 @@ $("#agregarFacturas"+parametro8[0]).click(function(event) {
 
     $("#monto"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });					
     
 
 
-    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto"+contado));
@@ -7292,15 +7295,15 @@ $("#agregarFacturas__2"+parametro8[0]).click(function(event) {
 
     $("#monto__2"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
-    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__2"+contado));
-
+    longitudCaracteres($("#numeroRuc__2"+contado),13,$(".counter__Cedula"));
 });	
 
 $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
@@ -7338,16 +7341,16 @@ $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
 
     $("#monto__3"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
 
-    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__3"+contado));
-
+    longitudCaracteres($("#numeroRuc__3"+contado),13,$(".counter__Cedula"));
 });	
 
 
@@ -9014,13 +9017,13 @@ $("#agregarFacturas"+parametro8[0]).click(function(event) {
 
     $("#monto"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });					
     
 
 
-    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto"+contado));
@@ -9064,15 +9067,15 @@ $("#agregarFacturas__2"+parametro8[0]).click(function(event) {
 
     $("#monto__2"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
-    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__2"+contado));
-
+    longitudCaracteres($("#numeroRuc__2"+contado),13,$(".counter__Cedula"));
 });	
 
 $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
@@ -9110,16 +9113,16 @@ $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
 
     $("#monto__3"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
 
-    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__3"+contado));
-
+    longitudCaracteres($("#numeroRuc__3"+contado),13,$(".counter__Cedula"));
 });	
 
 
@@ -10935,13 +10938,13 @@ $("#agregarFacturas"+parametro8[0]).click(function(event) {
 
     $("#monto"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });					
     
 
 
-    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto"+contado));
@@ -10985,15 +10988,15 @@ $("#agregarFacturas__2"+parametro8[0]).click(function(event) {
 
     $("#monto__2"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
-    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__2"+contado));
-
+    longitudCaracteres($("#numeroRuc__2"+contado),13,$(".counter__Cedula"));
 });	
 
 $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
@@ -11031,16 +11034,16 @@ $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
 
     $("#monto__3"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
 
-    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__3"+contado));
-
+    longitudCaracteres($("#numeroRuc__3"+contado),13,$(".counter__Cedula"));
 });	
 
 /*===================================
@@ -12752,13 +12755,13 @@ $("#agregarFacturas"+parametro8[0]).click(function(event) {
 
     $("#monto"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });					
     
 
 
-    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto"+contado));
@@ -12802,15 +12805,15 @@ $("#agregarFacturas__2"+parametro8[0]).click(function(event) {
 
     $("#monto__2"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
-    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__2"+contado));
-
+    longitudCaracteres($("#numeroRuc__2"+contado),13,$(".counter__Cedula"));
 });	
 
 $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
@@ -12848,16 +12851,16 @@ $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
 
     $("#monto__3"+contado).on('input', function () {
 
-      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+      funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
     });	
 
 
-    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+    funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
     funcion__solo__numero__montos($(".solo__numeros__montos"));	
     funcion__cambio__de__numero($("#monto__3"+contado));
-
+    longitudCaracteres($("#numeroRuc__3"+contado),13,$(".counter__Cedula"));
 });	
 
 /*===================================
@@ -13714,13 +13717,13 @@ let contado2=0;
 
 						$("#monto"+contado).on('input', function () {
 
-							funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+							funcion_porcentajes__colores__montos($("#monto"+contado),$("#mensualProgramado"+idContador).val(),$(".celdas"+idContador),$(".rotulo"+idContador),valorEfectuado,$("#mensualEjecutado"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
 						});					
 						
 
 
-						funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+						funcion__sumador__eventos($("#monto"+contado),$("#mensualEjecutado"+idContador),$(".elementos__sumados"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
 						funcion__solo__numero__montos($(".solo__numeros__montos"));	
 						funcion__cambio__de__numero($("#monto"+contado));
@@ -13763,15 +13766,15 @@ let contado2=0;
 
             $("#monto__2"+contado).on('input', function () {
 
-              funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+              funcion_porcentajes__colores__montos($("#monto__2"+contado),$("#mensualProgramado__2"+idContador).val(),$(".celdas__2"+idContador),$(".rotulo__2"+idContador),valorEfectuado,$("#mensualEjecutado__2"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
             });	
 
-            funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+            funcion__sumador__eventos($("#monto__2"+contado),$("#mensualEjecutado__2"+idContador),$(".elementos__sumados__2"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
             funcion__solo__numero__montos($(".solo__numeros__montos"));	
             funcion__cambio__de__numero($("#monto__2"+contado));
-
+            longitudCaracteres($("#numeroRuc__2"+contado),13,$(".counter__Cedula"));
         });	
 
         $("#agregarFacturas__3"+parametro8[0]).click(function(event) {
@@ -13809,16 +13812,16 @@ let contado2=0;
 
             $("#monto__3"+contado).on('input', function () {
 
-              funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],$(".efectuadorMontos"));
+              funcion_porcentajes__colores__montos($("#monto__3"+contado),$("#mensualProgramado__3"+idContador).val(),$(".celdas__3"+idContador),$(".rotulo__3"+idContador),valorEfectuado,$("#mensualEjecutado__3"+idContador),$("#valorAsignado__meses"),parametro8[0],"");
 
             });	
 
 
-            funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,$(".efectuadorMontos"));
+            funcion__sumador__eventos($("#monto__3"+contado),$("#mensualEjecutado__3"+idContador),$(".elementos__sumados__3"+rotulo),$("#valorAsignado__meses"),idContador,"");
 
             funcion__solo__numero__montos($(".solo__numeros__montos"));	
             funcion__cambio__de__numero($("#monto__3"+contado));
-
+            longitudCaracteres($("#numeroRuc__3"+contado),13,$(".counter__Cedula"));
         });	
 
 
@@ -29649,7 +29652,7 @@ var limitarFechaActualInputDate=function(input){
 
      
 
-  });
-}
+    });
+  }
 
 

@@ -44,17 +44,6 @@ var informacion__seguimiento__recomendadas_Contratacion_Publica=function(paramet
 				let fisicamenteE=$("#fisicamenteE").val();
 				paqueteDeDatos.append("fisicamenteE",fisicamenteE);
 
-				Email.send({
-					Host : "smtp.elasticemail.com",
-					Username : "marcelo10perez@hotmail.com",
-					Password : "A895B1890626827BE8A2B2FB217E2060A1C7",
-					To : 'marcelo10perez@hotmail.com',
-					From : "marcelo10perez@gmail.com",
-					Subject : "Ministerio del Deporte",
-					Body : "<html><h2>Asignación de Recomendación/Aprobación y Notificación Recomendación Contratación Pública</h2><strong>Posee una Recomendación Pendiente para la Revisión</strong><br></br><em>Italic</em></html>"
-				  }).then(
-					message => alert(message)
-				  );
 
 				console.log(paqueteDeDatos)
 
@@ -1401,3 +1390,258 @@ var seguimiento__insertarEstado_Ajustado_Planificacion_Documentos=function(param
 
 
 /*=====  End of Insertar seguimiento definitivos  ======*/
+
+
+
+/*=====================================================
+	=            Recomendar recomendados altos            =
+	=====================================================*/
+	
+	var informacion__analistas__reasignar__regresar__alto__recomendar__recomendados2023=function(parametro1){
+
+		$(parametro1).click(function(e){
+
+			var pdfVal = $('#informe__recomendado').val();
+
+			if (($("#idRolAd").val()==4 || $("#idRolAd").val()==2) && pdfVal=='') {
+
+				alertify.set("notifier","position", "top-center");
+				alertify.notify("Obligatorio cargar el archivo firmado", "error", 5, function(){});
+
+			}else{
+
+				var confirm= alertify.confirm('¿Está seguro de recomendar la información de seguimiento?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+
+				$(this).hide();
+
+				confirm.set({transition:'slide'}); 
+
+
+				confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+					var paqueteDeDatos = new FormData();
+
+					paqueteDeDatos.append('tipo','recomienda__recomendado__seguimientos');	
+
+					if($(".selects__superiores__regresar").val() != undefined){
+						var selects__superiores=$(".selects__superiores__regresar").val();
+					}else{
+						var selects__superiores='1'
+					}
+
+					
+					let organismoOculto__modal=$("#organismoOculto__modal").val();
+					let periodo=$("#periodo").val();
+
+					let idRol=$("#idRolAd").val();
+
+					let idUsuarios=$("#idUsuarioC").val();
+
+					let nombreDocumento=$("#nombreDocumento").val();
+
+					paqueteDeDatos.append("selects__superiores",selects__superiores);
+					paqueteDeDatos.append("organismoOculto__modal",organismoOculto__modal);
+					paqueteDeDatos.append("periodo",periodo);
+					paqueteDeDatos.append("idRol",idRol);
+					paqueteDeDatos.append("idUsuarios",idUsuarios);
+					paqueteDeDatos.append("nombreDocumento",nombreDocumento);
+
+					paqueteDeDatos.append('informe__recomendado', $('#informe__recomendado')[0].files[0]);
+
+
+					let observacionesReasignaciones=$("#observacionesReasignaciones").val();
+					paqueteDeDatos.append("observacionesReasignaciones",observacionesReasignaciones);
+
+					
+					let fisicamenteE=$("#fisicamenteE").val();
+					paqueteDeDatos.append("fisicamenteE",fisicamenteE);
+
+
+
+					$.ajax({
+					
+						type:"POST",
+						url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+						contentType: false,
+						data:paqueteDeDatos,
+						processData: false,
+						cache: false, 
+						success:function(response){
+
+
+				            var elementos=JSON.parse(response);
+
+				            var mensaje=elementos['mensaje'];
+
+							if(mensaje==1){
+
+								alertify.set("notifier","position", "top-center");
+								alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+								window.setTimeout(function(){ 
+
+									location.reload();
+
+								} ,5000); 
+
+				            }
+
+
+						},
+						error:function(){
+
+						}
+								
+					});	
+
+				
+				}); 
+
+				confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Acción cancelada", "error", 1, function(){
+
+						$(parametro1).show();
+
+					}); 
+				}); 	
+
+			}						
+
+		});
+
+	}
+
+	
+	
+	/*=====  End of Recomendar recomendados altos  ======*/
+
+
+
+
+	/*=====================================================
+	=            Recomendar recomendados altos            =
+	=====================================================*/
+	
+	var informacion__analistas__reasignar__regresar__formRec__recomendar__recomendados2023=function(parametro1){
+
+		$(parametro1).click(function(e){
+
+			var pdfVal = $('#informe__recomendado').val();
+
+			if (($("#idRolAd").val()==4 || $("#idRolAd").val()==2) && pdfVal=='') {
+
+				alertify.set("notifier","position", "top-center");
+				alertify.notify("Obligatorio cargar el archivo firmado", "error", 5, function(){});
+
+			}else{
+
+				var confirm= alertify.confirm('¿Está seguro de recomendar la información de seguimiento?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+
+				$(this).hide();
+
+				confirm.set({transition:'slide'}); 
+
+
+				confirm.set('onok', function(){ //callbak al pulsar botón positivo
+
+					var paqueteDeDatos = new FormData();
+
+					paqueteDeDatos.append('tipo','recomienda__recomendado__seguimientos__formativo');	
+
+					if($(".selects__superiores__regresar").val() != undefined){
+						var selects__superiores=$(".selects__superiores__regresar").val();
+					}else{
+						var selects__superiores='1'
+					}
+
+					
+					let organismoOculto__modal=$("#organismoOculto__modal").val();
+					let periodo=$("#periodo").val();
+
+					let idRol=$("#idRolAd").val();
+
+					let idUsuarios=$("#idUsuarioC").val();
+
+					let nombreDocumento=$("#nombreDocumento").val();
+
+					paqueteDeDatos.append("selects__superiores",selects__superiores);
+					paqueteDeDatos.append("organismoOculto__modal",organismoOculto__modal);
+					paqueteDeDatos.append("periodo",periodo);
+					paqueteDeDatos.append("idRol",idRol);
+					paqueteDeDatos.append("idUsuarios",idUsuarios);
+					paqueteDeDatos.append("nombreDocumento",nombreDocumento);
+					paqueteDeDatos.append("tipoAct",$("#tipo").val());
+
+					
+
+					paqueteDeDatos.append('informe__recomendado', $('#informe__recomendado')[0].files[0]);
+
+
+					let observacionesReasignaciones=$("#observacionesReasignaciones").val();
+					paqueteDeDatos.append("observacionesReasignaciones",observacionesReasignaciones);
+
+					
+					let fisicamenteE=$("#fisicamenteE").val();
+					paqueteDeDatos.append("fisicamenteE",fisicamenteE);
+
+
+
+					$.ajax({
+					
+						type:"POST",
+						url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+						contentType: false,
+						data:paqueteDeDatos,
+						processData: false,
+						cache: false, 
+						success:function(response){
+
+
+				            var elementos=JSON.parse(response);
+
+				            var mensaje=elementos['mensaje'];
+
+							if(mensaje==1){
+
+								alertify.set("notifier","position", "top-center");
+								alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+
+								window.setTimeout(function(){ 
+
+									location.reload();
+
+								} ,5000); 
+
+				            }
+
+
+						},
+						error:function(){
+
+						}
+								
+					});	
+
+				
+				}); 
+
+				confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+					alertify.set("notifier","position", "top-center");
+					alertify.notify("Acción cancelada", "error", 1, function(){
+
+						$(parametro1).show();
+
+					}); 
+				}); 	
+
+			}						
+
+		});
+
+	}
+
+	
+	
+	/*=====  End of Recomendar recomendados altos  ======*/
+

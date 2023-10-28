@@ -1996,7 +1996,7 @@ var visores_actividades_seguimiento2023=function(parametro1,parametro2,parametro
 										let idContador=$(this).attr('idContador');
 										let idPrincipal=$(this).attr('idPrincipal');
 
-										funcion__editar__general($("#editarInfor"+idContador),$(".obligatorios__nos"+idContador),"editar__sueldos__salarios__visores",[idPrincipal,$("#sueldoEjecutado"+idContador).val(),$("#aporteEjecutado"+idContador).val(),$("#decimoTercerEjecutado"+idContador).val(),$("#decimoCuartoEjecutado"+idContador).val(),$("#fondosReservaEjecutado"+idContador).val(),$("#compensacionDeshaucioEjecutado"+idContador).val(),$("#despidoIntepestivoEjecutado"+idContador).val(),$("#renunciaVoluntariaEjecutado"+idContador).val(),$("#vacionesEjecutado"+idContador).val(),idContador,$("#organismoIdPrin").val()],false,false,false);
+										funcion__editar__general__seguimiento__2023($("#editarInfor"+idContador),$(".obligatorios__nos"+idContador),"editar__sueldos__salarios__visores",[idPrincipal,$("#sueldoEjecutado"+idContador).val(),$("#aporteEjecutado"+idContador).val(),$("#decimoTercerEjecutado"+idContador).val(),$("#decimoCuartoEjecutado"+idContador).val(),$("#fondosReservaEjecutado"+idContador).val(),$("#compensacionDeshaucioEjecutado"+idContador).val(),$("#despidoIntepestivoEjecutado"+idContador).val(),$("#renunciaVoluntariaEjecutado"+idContador).val(),$("#vacionesEjecutado"+idContador).val(),idContador,$("#organismoIdPrin").val()],false,false,false);
 
 									}); 
 

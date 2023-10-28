@@ -325,7 +325,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divPublicidad").hide();
       $("#divAcreditaciones").hide();
 
-      crear_DataTable("paidAdecentameintoJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total"])
+      crear_DataTable("paidAdecentameintoJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total","Evento"])
 
       funcion__editar_Matrices_Generales("#paidAdecentameintoJN tbody",$("#paidAdecentameintoJN"),"#modalMatricesGeneralesAdecentamiento","tablaMatrizGeneralAdecentamiento","#idTituloModalGeneralesAdecentamiento","#guardarEditorMatricesGeneralesAdecentamiento");
   
@@ -345,7 +345,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divAcreditaciones").hide();
 
 
-      crear_DataTable("paidBienesJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total"])
+      crear_DataTable("paidBienesJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total","Evento"])
 
       funcion__editar_Matrices_Generales("#paidBienesJN tbody",$("#paidBienesJN"),"#modalMatricesGeneralesBienes","tablaMatrizGeneralBienes","#idTituloModalGeneralesBienes","#guardarEditorMatricesGeneralesBienes");
      
@@ -363,7 +363,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divPublicidad").hide();
       $("#divAcreditaciones").hide();
 
-      crear_DataTable("paidMedicinasJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total"])
+      crear_DataTable("paidMedicinasJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total","Evento"])
 
       funcion__editar_Matrices_Generales("#paidMedicinasJN tbody",$("#paidMedicinasJN"),"#modalMatricesGeneralesMedicinas","tablaMatrizGeneralMedicinas","#idTituloModalGeneralesMedicinas","#guardarEditorMatricesGeneralesMedicinas");
       
@@ -380,7 +380,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divPublicidad").hide();
       $("#divAcreditaciones").hide();
 
-      crear_DataTable("paidAlqEquiposJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total"])
+      crear_DataTable("paidAlqEquiposJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total","Evento"])
 
       funcion__editar_Matrices_Generales("#paidAlqEquiposJN tbody",$("#paidAlqEquiposJN"),"#modalMatricesGeneralesAlqEquipos","tablaMatrizGeneralAlqEquipos","#idTituloModalGeneralesAlqEquipos","#guardarEditorMatricesGeneralesAlqEquipos");
       
@@ -400,7 +400,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divPublicidad").hide();
       $("#divAcreditaciones").hide();
 
-      crear_DataTable("paidComEquiposJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total"])
+      crear_DataTable("paidComEquiposJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total","Evento"])
 
 
       funcion__editar_Matrices_Generales("#paidComEquiposJN tbody",$("#paidComEquiposJN"),"#modalMatricesGeneralesComEquipos","tablaMatrizGeneralComEquipos","#idTituloModalGeneralesComEquipos","#guardarEditorMatricesGeneralesComEquipos");
@@ -419,7 +419,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divPublicidad").hide();
       $("#divAcreditaciones").hide();
 
-      crear_DataTable("paidLogEventosJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total"])
+      crear_DataTable("paidLogEventosJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total","Evento"])
 
       funcion__editar_Matrices_Generales("#paidLogEventosJN tbody",$("#paidLogEventosJN"),"#modalMatricesGeneralesLogEventos","tablaMatrizGeneralLogEventos","#idTituloModalGeneralesLogEventos","#guardarEditorMatricesGeneralesLogEventos");
       
@@ -437,7 +437,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divPublicidad").show();
       $("#divAcreditaciones").hide();
 
-      crear_DataTable("paidPublicidadJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total"])
+      crear_DataTable("paidPublicidadJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Valor Total","Evento"])
 
       funcion__editar_Matrices_Generales("#paidPublicidadJN tbody",$("#paidPublicidadJN"),"#modalMatricesGeneralesPublicidad","tablaMatrizGeneralPublicidad","#idTituloModalGeneralesPublicidad","#guardarEditorMatricesGeneralesPublicidad");
 
@@ -454,7 +454,7 @@ function mostrar_divs_por_selector(parametro1){
       $("#divPublicidad").hide();
       $("#divAcreditaciones").show();
 
-      crear_DataTable("paidAcreditacionesJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Cantidad","Valor Unitario","Valor Total"])
+      crear_DataTable("paidAcreditacionesJN",datatabletsDesarolloCompleto, ["Nro","Item","Nombre item","Descripción/Justificación","Cantidad","Valor Unitario","Valor Total","Evento"])
 
       funcion__editar_Matrices_Generales_Acreditaciones("#paidAcreditacionesJN tbody",$("#paidAcreditacionesJN"),"#modalMatricesGeneralesAcreditaciones","tablaMatrizGeneralAcreditaciones","#idTituloModalGeneralesAcreditacionesAcreditaciones","#guardarEditorMatricesGeneralesAcreditaciones");
       
@@ -475,6 +475,8 @@ function mostrar_divs_por_selector(parametro1){
 	
 
 }
+
+
 
 function mostrar_divs_por_selector_Hosp_Alim_Hid(parametro1){
 
@@ -526,17 +528,17 @@ function mostrar_matrices_DI_DC_HOSP_ALIM(parametro1){
       $("#divHospAlimDI").show();
       $("#divHospAlimDC").hide();  
       $("#divDeporteDelegacionHospAlimJA").hide(); 
-      crear_DataTable("paidHospAlimDI",datatabletsDesarollo, ["Nro", "Item 1", "Item 2", "Provincia", "Nro. Cupos", "HOSP-ALIM", "Días", "Total HOSP- ALIM"])
+      crear_DataTable("paidHospAlimDI",datatabletsDesarollo, ["Nro", "Item 1", "Item 2", "Provincia", "Nro. Cupos", "HOSP-ALIM", "Días", "Total HOSP- ALIM","Evento"])
     }else if (valor == "Deporte en Conjunto") {
       $("#divHospAlimDI").hide();
       $("#divHospAlimDC").show();
       $("#divDeporteDelegacionHospAlimJA").hide();
-      crear_DataTable("paidHospAlimDC",datatabletsDesarollo, ["Nro", "Item 1", "Item 2", "Deporte En Conjunto", "Nro. Cupos", "HOSP-ALIM", "Días", "Total HOSP- ALIM"])
+      crear_DataTable("paidHospAlimDC",datatabletsDesarollo, ["Nro", "Item 1", "Item 2", "Deporte En Conjunto", "Nro. Cupos", "HOSP-ALIM", "Días", "Total HOSP- ALIM","Evento"])
     }else if (valor == "Deporte-Delegacion-Hosp-Alim-JA") {
       $("#divHospAlimDI").hide();
       $("#divHospAlimDC").hide();
       $("#divDeporteDelegacionHospAlimJA").show();
-      crear_DataTable("paidDeporteDelegacionHospAlimJA",datatabletsDesarollo, ["NroDelegacion", "Item 1", "Item 2", "Deporte-Delegación", "Nro. Cupos", "HOSP-ALIM", "Días", "Total HOSP- ALIM"])
+      crear_DataTable("paidDeporteDelegacionHospAlimJA",datatabletsDesarollo, ["NroDelegacion", "Item 1", "Item 2", "Deporte-Delegación", "Nro. Cupos", "HOSP-ALIM", "Días", "Total HOSP- ALIM","Evento"])
     }else{
       $("#divHospAlimDI").hide();
       $("#divHospAlimDC").hide();
@@ -555,19 +557,19 @@ function mostrar_matrices_DI_DC_HIDR(parametro1){
       $("#divHidratacionDI").show();
       $("#divHidratacionDC").hide();  
       $("#divDeporteDelegacionHidrJA").hide();       
-      crear_DataTable("paidHidratacionDI",datatabletsDesarollo, ["Nro", "Item", "Provincia", "Nro. Cupos", "HIDRATACION", "Días", "Total HIDRATACION"])
+      crear_DataTable("paidHidratacionDI",datatabletsDesarollo, ["Nro", "Item", "Provincia", "Nro. Cupos", "HIDRATACION", "Días", "Total HIDRATACION","Evento"])
 
     }else if (valor == "Deportes en Conjunto") {
       $("#divHidratacionDI").hide();
       $("#divHidratacionDC").show();
       $("#divDeporteDelegacionHidrJA").hide();
-      crear_DataTable("paidHidratacionDC",datatabletsDesarollo, ["Nro", "Item", "Deporte En Conjunto", "Nro. Cupos", "HIDRATACION", "Días", "Total HIDRATACION"])
+      crear_DataTable("paidHidratacionDC",datatabletsDesarollo, ["Nro", "Item", "Deporte En Conjunto", "Nro. Cupos", "HIDRATACION", "Días", "Total HIDRATACION","Evento"])
 
     }else if (valor == "Deporte-Delegacion-Hidratacion-JA") {
       $("#divHidratacionDI").hide();
       $("#divHidratacionDC").hide();
       $("#divDeporteDelegacionHidrJA").show();
-      crear_DataTable("paidDeporteDelegacionHidrJA",datatabletsDesarollo, ["Nro", "Item", "Deporte-Delegación", "Nro. Cupos", "HIDRATACION", "Días", "Total HIDRATACION"])
+      crear_DataTable("paidDeporteDelegacionHidrJA",datatabletsDesarollo, ["Nro", "Item", "Deporte-Delegación", "Nro. Cupos", "HIDRATACION", "Días", "Total HIDRATACION","Evento"])
 
     }else{
       $("#divHidratacionDI").hide();
@@ -589,7 +591,7 @@ function mostrar_divs_por_selector_Seguros(parametro1){
 
     if (valor == "1") {
 
-      crear_DataTable("paidSeguroDeporte",datatabletsDesarollo,["Nro","Item","Nombre Item","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total"])
+      crear_DataTable("paidSeguroDeporte",datatabletsDesarollo,["Nro","Item","Nombre Item","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Evento"])
 
       $("#divSeguroDeporte").show();
       $("#divSeguroProvincia").hide();
@@ -599,7 +601,7 @@ function mostrar_divs_por_selector_Seguros(parametro1){
       $("#divSeguroDeporte").hide();
       $("#divSeguroProvincia").show();
 
-      crear_DataTable("paidSeguroProvincia",datatabletsDesarollo,["Nro","Item","Nombre Item","Provincia","Cantidad","Nro. Cupos","Valor Unitario","Valor Total"])
+      crear_DataTable("paidSeguroProvincia",datatabletsDesarollo,["Nro","Item","Nombre Item","Provincia","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Evento"])
 
   
     }else{
@@ -626,7 +628,7 @@ function mostrar_divs_por_selector_Transporte(parametro1){
 
     if (valor == "1") {
 
-      crear_DataTable("paidTransporteDeporte",datatabletsDesarollo,["Nro","Item","Nombre Item","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total"])
+      crear_DataTable("paidTransporteDeporte",datatabletsDesarollo,["Nro","Item","Nombre Item","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Evento"])
 
       $("#divTransporteDeporte").show();
       $("#divTransporteProvincia").hide();
@@ -636,7 +638,7 @@ function mostrar_divs_por_selector_Transporte(parametro1){
       $("#divTransporteDeporte").hide();
       $("#divTransporteProvincia").show();
 
-      crear_DataTable("paidTransporteProvincia",datatabletsDesarollo,["Nro","Item","Nombre Item","Provincia","Cantidad","Nro. Cupos","Valor Unitario","Valor Total"])
+      crear_DataTable("paidTransporteProvincia",datatabletsDesarollo,["Nro","Item","Nombre Item","Provincia","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Evento"])
 
  
     }else{
@@ -721,14 +723,14 @@ function mostrar_divs_por_selector_unifomres_adaptados(parametro1){
       $("#iddivUniformes").show();
       $("#divIndumentariaPApoyo").hide();
       $("#iddivIndumentariaPApoyo").hide();
-      crear_DataTable("paidUniformes",datatabletsDesarollo, ["Nro","Item","Deporte","Delegación","Valor Unitario", "Valor Total"]);
+      crear_DataTable("paidUniformes",datatabletsDesarollo, ["Nro","Item","Deporte","Delegación","Valor Unitario", "Valor Total","Evento"]);
   
     }else if (valor == "Indumentaria Personal Apoyo") {
       $("#divUniformes").hide();
       $("#iddivUniformes").hide();
       $("#divIndumentariaPApoyo").show();
       $("#iddivIndumentariaPApoyo").show();
-      crear_DataTable("paidIndumentariaPApoyo",datatabletsDesarollo, ["Nro","Item","Deporte","P. Apoyo","Valor Unitario", "Valor Total"]);
+      crear_DataTable("paidIndumentariaPApoyo",datatabletsDesarollo, ["Nro","Item","Deporte","P. Apoyo","Valor Unitario", "Valor Total","Evento"]);
   
     }else{
       $("#divUniformes").hide();

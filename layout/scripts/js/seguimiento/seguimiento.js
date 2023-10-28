@@ -6976,7 +6976,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 			$.ajax({
 
 				type:"POST",
-				url:"modelosBd/inserta/seleccionaAcciones.md.php",
+				url:"modelosBd/POA_SEGUIMIENTO/selector.md.php",
 				contentType: false,
 				data:paqueteDeDatos,
 				processData: false,

@@ -139,17 +139,7 @@
 				let fisicamenteE=$("#fisicamenteE").val();
 				paqueteDeDatos.append("fisicamenteE",fisicamenteE);
 
-				Email.send({
-					Host : "smtp.elasticemail.com",
-					Username : "marcelo10perez@hotmail.com",
-					Password : "A895B1890626827BE8A2B2FB217E2060A1C7",
-					To : 'marcelo10perez@hotmail.com',
-					From : "marcelo10perez@gmail.com",
-					Subject : "Ministerio del Deporte",
-					Body : "<html><h2>Asignación de Revisón/Aprobación Seguimiento Contratación Pública</h2><strong>Posee una Asignacion Pendiente para la Revisión</strong><br></br><em>Italic</em></html>"
-				  }).then(
-					message => alert(message)
-				  );
+				
 
 				$.ajax({
 

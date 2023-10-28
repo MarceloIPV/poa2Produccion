@@ -147,8 +147,8 @@ $objeto = new usuarioAcciones(); ?>
         </section>
     </div>
 
-    <?= $componentesPaid->getModal_matrices_uniformes("modalUniformes", "Uniformes", "cerrarUniformes", "itemUniformes", "deporteUniformes", "delegacionesUniformes", "vUnitarioUniformes", "valorTotalUniformes", "guardarUniformes"); ?>
-    <?= $componentesPaid->getModal_matrices_indumentaria_p_apoyo("modalIndumentariaPApoyo", "Indumentaria Personal Apoyo", "cerrarIndumentariaPApoyo", "itemIndumentariaPApoyo", "deporteIndumentariaPApoyo", "pApoyoIndumentariaPApoyo", "vUnitarioIndumentariaPApoyo", "valorTotalIndumentariaPApoyo", "guardarIndumentariaPApoyo"); ?>
+    <?= $componentesPaid->getModal_matrices_uniformes("modalUniformes", "Uniformes", "cerrarUniformes", "itemUniformes", "deporteUniformes", "delegacionesUniformes", "vUnitarioUniformes", "valorTotalUniformes", "guardarUniformes","eventoUniformes"); ?>
+    <?= $componentesPaid->getModal_matrices_indumentaria_p_apoyo("modalIndumentariaPApoyo", "Indumentaria Personal Apoyo", "cerrarIndumentariaPApoyo", "itemIndumentariaPApoyo", "deporteIndumentariaPApoyo", "pApoyoIndumentariaPApoyo", "vUnitarioIndumentariaPApoyo", "valorTotalIndumentariaPApoyo", "guardarIndumentariaPApoyo","eventoIndumentaria"); ?>
 
     <script>
         $("#JuegosNacionalesIDRUBRO").val(localStorage.getItem('idrubro'));

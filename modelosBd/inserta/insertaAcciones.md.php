@@ -28,8 +28,9 @@
 	
 	session_start();
 
-		
-	$idOrganismoSession=$_SESSION["idOrganismoSession"];
+	if (isset($_SESSION["idOrganismoSession"])) {
+		$idOrganismoSession=$_SESSION["idOrganismoSession"];
+	}
 	$aniosPeriodos__ingesos=$_SESSION["selectorAniosA"];
 
 	if (isset($_SESSION["fisicamenteEstructura"])) {
@@ -2743,6 +2744,19 @@
 
 
 			$inserta2=$objeto->getInsertaNormal('poa_seguimiento_recomienda_tecnicos', array("`idRecomendacionFuncionario`, ","`idFuncionario`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`trimestre`, ","`observacionesTecnicas`, ",'`tipo`, ','`fisicamente`, ',"`tipoE`, ","`perioIngreso`"),array("'$idDirector__Seguis', ","'$idOrganismo', ","'$fecha_actual', ","'$hora_actual', ","'$periodo', ","'$observacionesReasignaciones', ",'"Reporte enviado", ',"'$fisicamenteE', ","'SEGUIMIENTO', ","'$aniosPeriodos__ingesos'"));
+
+
+			$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA Notificación</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'De mi consideración:<br><br> Mediante notificación por correo electrónico emitido se procedio a la reactivación de recursos financieros correspondientes al POA '.$aniosPeriodos__ingesos.' de  la <span style="font-weight:bold;">'.$odSuspendidas.' </span><br><span style="font-weight:bold;">MINISTERIO DEL DEPORTE</span></body></html>';
+
+			$asunto="Reactivación de recursos financieros correspondientes al POA $aniosPeriodos__ingesos";
+						
+						
+					
+	
+			//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+			$emailArray = array("miperez@deporte.gob.ec");
+				
+			$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,$asunto);	
 
 
 			$mensaje=1;

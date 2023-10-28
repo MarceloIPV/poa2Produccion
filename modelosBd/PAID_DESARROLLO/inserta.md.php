@@ -118,7 +118,7 @@
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 
 		
-			$query="INSERT INTO `poa_paid_medallas_convencional` ( `item`, `Deporte`, `cantidadMedallasOro`, `cantidadMedallasPlata`, `cantidadMedallasBronce`, `totalMedallas`, `valorUnitario`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`idComponente`,`idRubro`) VALUES ( $item, '$deporte', $medallasOro, $medallasPlata, $medallasBronce, $cantMedallas, $valorUnitario, $valorTotal, '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$idComponente','$idRubro');";
+			$query="INSERT INTO `poa_paid_medallas_convencional` ( `item`, `Deporte`, `cantidadMedallasOro`, `cantidadMedallasPlata`, `cantidadMedallasBronce`, `totalMedallas`, `valorUnitario`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`idComponente`,`idRubro`,`idEvento`) VALUES ( $item, '$deporte', $medallasOro, $medallasPlata, $medallasBronce, $cantMedallas, $valorUnitario, $valorTotal, '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$idComponente','$idRubro','$evento');";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
@@ -132,7 +132,7 @@
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 
 		
-			$query="INSERT INTO `poa_paid_matrices_juegos_nacionales` ( `item`, `descripcion`, `cantidad`, `valorUnitario`, `valorTotal`, `nombreMatriz`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`idComponente`,`idRubro`) VALUES ( $item, '$descripcion', $cantidad, $valorUnitario, $valorTotal, '$nombreMatriz','$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$idComponente','$idRubro');";
+			$query="INSERT INTO `poa_paid_matrices_juegos_nacionales` ( `item`, `descripcion`, `cantidad`, `valorUnitario`, `valorTotal`, `nombreMatriz`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`idComponente`,`idRubro`,`idEvento`) VALUES ( $item, '$descripcion', $cantidad, $valorUnitario, $valorTotal, '$nombreMatriz','$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$idComponente','$idRubro','$evento');";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
@@ -144,7 +144,7 @@
 		case  "insertar_matrices_Hospe_alim":		
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();			
-			$query="INSERT INTO `poa_paid_juegos_nacionales_hosp_alim_hidr` (`id_item1`, `id_item2`, `provincia`, `nombre_deporte`, `nro_cupos`, `hosp_alim_hidr`, `dias`, `nombreMatriz`, `valor_total`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`) VALUES ('$item1', '$item2', '$deporte', '$deporte2', '$nroCupos', '$hospAlim', '$dias', '$nombreMatriz', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual', '$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro');";
+			$query="INSERT INTO `poa_paid_juegos_nacionales_hosp_alim_hidr` (`id_item1`, `id_item2`, `provincia`, `nombre_deporte`, `nro_cupos`, `hosp_alim_hidr`, `dias`, `nombreMatriz`, `valor_total`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`,`idEvento`) VALUES ('$item1', '$item2', '$deporte', '$deporte2', '$nroCupos', '$hospAlim', '$dias', '$nombreMatriz', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual', '$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro','$evento');";
 			$resultado= $conexionEstablecida->exec($query);
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
@@ -155,7 +155,7 @@
 		case  "insertar_matriz_Hid_DI":		
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();			
-			$query="INSERT INTO `poa_paid_juegos_nacionales_hosp_alim_hidr` (`id_item1`, `provincia`, `nombre_deporte`, `nro_cupos`, `hosp_alim_hidr`, `dias`, `nombreMatriz`, `valor_total`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`) VALUES ('$item1', '$deporte', '$deporte2', '$nroCupos', '$hospAlim', '$dias', '$nombreMatriz', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual', '$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro');";
+			$query="INSERT INTO `poa_paid_juegos_nacionales_hosp_alim_hidr` (`id_item1`, `provincia`, `nombre_deporte`, `nro_cupos`, `hosp_alim_hidr`, `dias`, `nombreMatriz`, `valor_total`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`,`idEvento`) VALUES ('$item1', '$deporte', '$deporte2', '$nroCupos', '$hospAlim', '$dias', '$nombreMatriz', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual', '$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro','$evento');";
 			$resultado= $conexionEstablecida->exec($query);
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
@@ -166,19 +166,7 @@
 		case  "insertar_datos_PTC":		
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();			
-			$query="//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Interdisciplinario >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-			case  "paidRubrosInterdisciplinario":
-			
-				 $conexionRecuperada= new conexion();
-				 $conexionEstablecida=$conexionRecuperada->cConexion();	
-				
-				$query=" DELETE FROM `poa_paid_interdisciplinario` WHERE `idIterdisciplinario` = '$id';";
-				$resultado= $conexionEstablecida->exec($query);
-	
-				$mensaje=1;
-				$jason['mensaje']=$mensaje;
-				
-			break;;";
+			$query="INSERT INTO `poa_paid_personal_tecnico_convensional` ( `id_item`, `deporte`, `jueces`, `nro_dias_jueces`, `comisionados`, `nro_dias_comisionados`, `p_apoyo`, `nro_dias_p_apoyo`, `valor_jueces`, `valor_comisionados`, `valor_p_apoyo`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`id_componente`, `id_rubro`,`idEvento`) VALUES ( '$item', '$deporte', '$jueces', '$nJueces', '$comision', '$nComision', '$pApoyo', '$nPApoyo', '$vJueces', '$vComision', '$vPApoyo', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro','$evento');";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
@@ -189,7 +177,7 @@
 		case  "insertar_datos_deporte_adaptado":		
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();			
-			$query="INSERT INTO `poa_paid_uniformes_adaptado` (`id_item`, `deporte`, `delegaciones`, `p_apoyo`, `v_unitario`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `id_componente`, `id_rubro`, `tipo`, `fecha`) VALUES ('$item1','$deporte','$delegaciones','$pApoyo','$vUnitario','$valorTotal','$idOrganismoSession','$aniosPeriodos__ingesos','$identificador','$JuegosNacionalesIDComponentes','$JuegosNacionalesIDRubro','$nombreMatriz','$fecha_actual')";
+			$query="INSERT INTO `poa_paid_uniformes_adaptado` (`id_item`, `deporte`, `delegaciones`, `p_apoyo`, `v_unitario`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `id_componente`, `id_rubro`, `tipo`, `fecha`,`idEvento`) VALUES ('$item1','$deporte','$delegaciones','$pApoyo','$vUnitario','$valorTotal','$idOrganismoSession','$aniosPeriodos__ingesos','$identificador','$JuegosNacionalesIDComponentes','$JuegosNacionalesIDRubro','$nombreMatriz','$fecha_actual','$evento')";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
@@ -203,7 +191,7 @@
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 
 		
-			$query="INSERT INTO poa_paid_bono_deportivo ( `IdItem`, `Deporte`, `nroDias`, `totalPersonas`, `valorBonoDiario`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`idComponente`,`idRubro`) VALUES ('$item', '$deporte','$nroDias','$totalPersonal', '$valorBono', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$idComponente','$idRubro');";
+			$query="INSERT INTO poa_paid_bono_deportivo ( `IdItem`, `Deporte`, `nroDias`, `totalPersonas`, `valorBonoDiario`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`,`idComponente`,`idRubro`,`idEvento`) VALUES ('$item', '$deporte','$nroDias','$totalPersonal', '$valorBono', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$idComponente','$idRubro','$idEvento');";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
@@ -216,7 +204,7 @@
 		case  "insertar_matrices_Hospe_alim_JA":		
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();			
-			$query="INSERT INTO `poa_paid_juegos_nacionales_hosp_alim_hidr` (`id_item1`, `id_item2`, `nombre_deporte`, `nro_cupos`, `hosp_alim_hidr`, `dias`, `nombreMatriz`, `valor_total`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`) VALUES ('$item1', '$item2', '$deporte', '$nroCupos', '$hospAlim', '$dias', '$nombreMatriz', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual', '$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro');";
+			$query="INSERT INTO `poa_paid_juegos_nacionales_hosp_alim_hidr` (`id_item1`, `id_item2`, `nombre_deporte`, `nro_cupos`, `hosp_alim_hidr`, `dias`, `nombreMatriz`, `valor_total`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`,`idEvento`) VALUES ('$item1', '$item2', '$deporte', '$nroCupos', '$hospAlim', '$dias', '$nombreMatriz', '$valorTotal', '$idOrganismoSession', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual', '$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro','$evento');";
 			$resultado= $conexionEstablecida->exec($query);
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
@@ -229,7 +217,7 @@
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 
-			$query="INSERT INTO `poa_paid_seguros` (`item`, `Provincia`, `Deporte`, `cantidad`,`nroCupos`, `valorUnitario`, `valorTotal`, `idOrganismo`, `idComponente`, `idRubro`, `perioIngreso`, `identificador`, `fecha`) VALUES ($item,  '$provincia','$deporte', $cantidad,$nroCupos, $valorUnitario, $valorTotal, '$idOrganismoSession','$idComponente','$idRubro', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual');			";
+			$query="INSERT INTO `poa_paid_seguros` (`item`, `Provincia`, `Deporte`, `cantidad`,`nroCupos`, `valorUnitario`, `valorTotal`, `idOrganismo`, `idComponente`, `idRubro`, `perioIngreso`, `identificador`, `fecha`,`idEvento`) VALUES ($item,  '$provincia','$deporte', $cantidad,$nroCupos, $valorUnitario, $valorTotal, '$idOrganismoSession','$idComponente','$idRubro', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$evento');			";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
@@ -242,7 +230,7 @@
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 
-			$query="INSERT INTO `poa_paid_transporte` ( `item`, `Provincia`, `Deporte`, `cantidad`,`nroCupos`, `valorUnitario`, `valorTotal`, `idOrganismo`, `idComponente`, `idRubro`, `perioIngreso`, `identificador`, `fecha`) VALUES ( $item,  '$provincia','$deporte',$cantidad,$nroCupos, $valorUnitario, $valorTotal, '$idOrganismoSession','$idComponente','$idRubro', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual');";
+			$query="INSERT INTO `poa_paid_transporte` ( `item`, `Provincia`, `Deporte`, `cantidad`,`nroCupos`, `valorUnitario`, `valorTotal`, `idOrganismo`, `idComponente`, `idRubro`, `perioIngreso`, `identificador`, `fecha`,`idEvento`) VALUES ( $item,  '$provincia','$deporte',$cantidad,$nroCupos, $valorUnitario, $valorTotal, '$idOrganismoSession','$idComponente','$idRubro', '$aniosPeriodos__ingesos', '$identificador', '$fecha_actual','$evento');";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;
@@ -255,7 +243,19 @@
 			$conexionRecuperada= new conexion();
 			$conexionEstablecida=$conexionRecuperada->cConexion();	
 
-			$query="INSERT INTO `poa_paid_pasajes_aereos`(`id_item`, `deporte`, `pasajes`, `n_deportistas`, `n_entrenadores`, `tota_personas`, `n_dias`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`) VALUES ('$item','$deporte','$pasajesaereos','$nDeportistas','$nEntrenadores','$numTotalPersonas','$nDias','$valorTotal','$idOrganismoSession','$aniosPeriodos__ingesos','$identificador','$fecha_actual','$JuegosNacionalesIDComponentes','$JuegosNacionalesIDRubro');";
+			$query="INSERT INTO `poa_paid_pasajes_aereos`(`id_item`, `deporte`, `pasajes`, `n_deportistas`, `n_entrenadores`, `tota_personas`, `n_dias`, `valorTotal`, `idOrganismo`, `perioIngreso`, `identificador`, `fecha`, `id_componente`, `id_rubro`,`idEvento`) VALUES ('$item','$deporte','$pasajesaereos','$nDeportistas','$nEntrenadores','$numTotalPersonas','$nDias','$valorTotal','$idOrganismoSession','$aniosPeriodos__ingesos','$identificador','$fecha_actual','$JuegosNacionalesIDComponentes','$JuegosNacionalesIDRubro','$evento');";
+			$resultado= $conexionEstablecida->exec($query);
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;
+
+   		break;
+
+		case  "insertar_datos_evento_desarrollo":		
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();	
+
+			$query="INSERT INTO `poa_paid_eventos_desarrollo` ( `nombre`, `sede`, `subsede`, `participantes`, `obj_general`, `obj_especificos`, `meta`, `deporte`, `modalidad`, `fecha_inicio`, `fecha_fin`, `idOrganismo`, `fecha`, `perioIngreso`, `id_componente`, `id_rubro`) VALUES ('$nombre', '$nombreSede', '$nombreSubsede', $nroParticipantes, '$obj_General', '$obj_Especificos', '$meta', '$deporte', '$modalidad', '$fechaInicioEvento', '$fechaFinEvento', '$idOrganismoSession', '$fecha_actual', '$aniosPeriodos__ingesos', '$JuegosNacionalesIDComponentes', '$JuegosNacionalesIDRubro');";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$mensaje=1;

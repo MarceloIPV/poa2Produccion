@@ -50,7 +50,7 @@
 <script>
 	 $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/datatables.js",function(){
 
-		datatabletsSeguimientoRevisorVacio($("#seguimiento__tablas__programacion__financiera"),"seguimiento__tablas__programacion__financiera","s",objetos([9],["boton"],["<center><button class='reasignarTramites__seguimientosAltos estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarSeguimientos__altos'><i class='fas fa-user-edit'></i></button><center>"],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__reasignar__contratacion_publica__unidos__altos"]);
+		datatabletsSeguimientoRevisorVacio($("#seguimiento__tablas__programacion__financiera"),"seguimiento__tablas__programacion__financiera","s",objetos([9,6],["boton","texto"],["<center><button class='reasignarTramites__seguimientosAltos estilo__botonDatatablets btn btn-info pointer__botones' data-toggle='modal' data-target='#reasignarSeguimientos__altos'><i class='fas fa-user-edit'></i></button><center>",20],[false],[false]),[$("#idUsuarioC").val(),$("#idRolAd").val(),$("#fisicamenteE").val()],["funcion__reasignar__contratacion_publica__unidos__altos"]);
 	
 	});
 
