@@ -140,11 +140,11 @@
 
 			if (isset($_GET["ruta"])) {
 				
-				if($_GET["ruta"]=="generalDeporteEA" || $_GET["ruta"]=="paidRubrosEncuentroActivo"){
+				if($_GET["ruta"]=="generalDeporteEA" || $_GET["ruta"]=="paidRubrosEncuentroActivo" || $_GET["ruta"]=="paidMedallasEncuentroActivo" || $_GET["ruta"]=="paidMatrizGeneralEncuentroActivo"|| $_GET["ruta"]=="paidSeleccionJuegosNacionales" || $_GET["ruta"]=="paidPersonaTecnicoConvencional" || $_GET["ruta"]=="paidUniformesAdaptado" ||  $_GET["ruta"]=="paidBonoDeportivo"||  $_GET["ruta"]=="paidSeguros"||  $_GET["ruta"]=="paidTransporte" ||  $_GET["ruta"]=="paidPasajesAereos" ||  $_GET["ruta"]=="paidEventosDesarrollo"){
 					require_once self::$vista.self::$contenidoVistas."PAID_DESARROLLO/".$_GET["ruta"].self::$nomenclatura;
 				}else if($_GET["ruta"]=="generalDeporteAR" || $_GET["ruta"]=="paidRubrosEventos" || $_GET["ruta"]=="paidRubrosInterdisciplinario" || $_GET["ruta"]=="paidRubrosNecesidadesGenerales" || $_GET["ruta"]=="paidRubrosNecesidadesIndividuales"){
 					require_once self::$vista.self::$contenidoVistas."paid-alto-rendimiento/".$_GET["ruta"].self::$nomenclatura;
-				}else if($_GET["ruta"]=="paidencuentroactivo" || $_GET["ruta"]=="paidAsignacion" || $_GET["ruta"]=="paidAsignacionDesarrollo" || $_GET["ruta"]=="paidfortalecimiento" || $_GET["ruta"]=="reporteriaAsignacion" || $_GET["ruta"]=="reporteriaAsignacionDesarrollo"		|| $_GET["ruta"]=="paidAsignacionInfraestructura"|| $_GET["ruta"]=="paidInfraestructura"|| $_GET["ruta"]=="reporteriaAsignacionInfraestructura"){
+				}else if($_GET["ruta"]=="paidencuentroactivo" || $_GET["ruta"]=="paidAsignacion" || $_GET["ruta"]=="paidAsignacionDesarrollo" || $_GET["ruta"]=="paidfortalecimiento" || $_GET["ruta"]=="reporteriaAsignacion" || $_GET["ruta"]=="reporteriaAsignacionDesarrollo"|| $_GET["ruta"]=="paidAsignacionInfraestructura"|| $_GET["ruta"]=="paidInfraestructura"|| $_GET["ruta"]=="reporteriaAsignacionInfraestructura"){
 					require_once self::$vista.self::$contenidoVistas."PAID-ADMINISTRACION/".$_GET["ruta"].self::$nomenclatura;
 				}else if($_GET["ruta"]=="modificacionesOrganismo" || $_GET["ruta"]=="dashboard" || $_GET["ruta"]=="infraestructuraOrganismo" || $_GET["ruta"]=="modificacionesMontos" || $_GET["ruta"]=="modificacionesSueldosSalarios" || $_GET["ruta"]=="modificacionesDesvinculacion" || $_GET["ruta"]=="modificacionesInformes" || $_GET["ruta"]=="modificacionesCuadroAvances" || $_GET["ruta"]=="modificarInformacion" || $_GET["ruta"]=="crearInformacion" || $_GET["ruta"]=="estadoTramitesModificaciones" || $_GET["ruta"]=="reporteriaModi"){
 					require_once self::$vista.self::$contenidoVistas."POA_MODIFICACIONES/".$_GET["ruta"].self::$nomenclatura;
@@ -170,7 +170,7 @@
 						require_once self::$vista.self::$contenidoVistas.$_GET["ruta"].self::$nomenclatura;
 					}
 					
-				}else if($_GET["ruta"]=="segumientosProgramacionRen" || $_GET["ruta"]=="seguimientoRecibidos" || $_GET["ruta"]=="seguimientosAcFisicasRen" || $_GET["ruta"]=="seguimientosrecibidosIn" || $_GET["ruta"]=="seguimientosAltosRen" || $_GET["ruta"]=="seguimientoRecorrido" || $_GET["ruta"]=="remananentesRepors" || $_GET["ruta"]=="seguimientoBloqueo" || $_GET["ruta"]=="seguimientoReporOrganismos" || $_GET["ruta"]=="reporteAnexosSe" || $_GET["ruta"]=="seguimientoReporContratacionPublica" || $_GET["ruta"]=="reporteAnualSeRe" || $_GET["ruta"]=="seguimientosFinancieroRecomen"  || $_GET["ruta"]=="documentosSustentacion" || $_GET["ruta"]=="registroRemanentesA" || $_GET["ruta"]=="poaResolucionFinal"|| $_GET["ruta"]=="transferencias"|| $_GET["ruta"]=="resumenTransferencias" || $_GET["ruta"]=="seguimientosrecibidos" || $_GET["ruta"]=="seguimientoPlazos"|| $_GET["ruta"]=="seguimientoSuspencionReactivacion" || $_GET["ruta"]=="seguimientoResumenSuspenciones"|| $_GET["ruta"]=="seguimientoSuspencionRe" || $_GET["ruta"]=="seguimientoAjuste"|| $_GET["ruta"]=="seguimientosAltosRecomen"  || $_GET["ruta"]=="seguimientosSeguimientoR" || $_GET["ruta"]=="seguimientosAcFisicasRecomen" ){
+				}else if($_GET["ruta"]=="segumientosProgramacionRen" || $_GET["ruta"]=="seguimientoRecibidos" || $_GET["ruta"]=="seguimientosAcFisicasRen" || $_GET["ruta"]=="seguimientosrecibidosIn" || $_GET["ruta"]=="seguimientosAltosRen" || $_GET["ruta"]=="seguimientoRecorrido" || $_GET["ruta"]=="remananentesRepors" || $_GET["ruta"]=="seguimientoBloqueo" || $_GET["ruta"]=="seguimientoReporOrganismos" || $_GET["ruta"]=="reporteAnexosSe" || $_GET["ruta"]=="seguimientoReporContratacionPublica" || $_GET["ruta"]=="reporteAnualSeRe" || $_GET["ruta"]=="seguimientosFinancieroRecomen"  || $_GET["ruta"]=="documentosSustentacion" || $_GET["ruta"]=="registroRemanentesA" || $_GET["ruta"]=="poaResolucionFinal"|| $_GET["ruta"]=="transferencias"|| $_GET["ruta"]=="resumenTransferencias" || $_GET["ruta"]=="seguimientosrecibidos" || $_GET["ruta"]=="seguimientoPlazos"|| $_GET["ruta"]=="seguimientoSuspencionReactivacion" || $_GET["ruta"]=="seguimientoResumenSuspenciones"|| $_GET["ruta"]=="seguimientoSuspencionRe" || $_GET["ruta"]=="seguimientoAjuste"|| $_GET["ruta"]=="seguimientosAltosRecomen"  || $_GET["ruta"]=="seguimientosSeguimientoR" || $_GET["ruta"]=="seguimientosAcFisicasRecomen" || $_GET["ruta"]=="seguimientoControlAdmin"  || $_GET["ruta"]=="seguimientosSeguimientoRIn"){
 
 					if(isset($_SESSION["selectorAniosA"])){
 						if(intval($_SESSION["selectorAniosA"])>=2023){
@@ -187,6 +187,10 @@
 				}else if($_GET["ruta"]=="decrementos" || $_GET["ruta"]=="incrementos" || $_GET["ruta"]=="revision" || $_GET["ruta"]=="reporteriaFinalIncrementos" ){
 
 					require_once self::$vista.self::$contenidoVistas."INCREMENTOS_V1/".$_GET["ruta"].self::$nomenclatura;
+				
+				}else if($_GET["ruta"]=="paidEjecucionObraInfraestructura"  || $_GET["ruta"]=="paidFiscalizacionInfraestructura" || $_GET["ruta"]=="generalDeporteInfra"){
+
+					require_once self::$vista.self::$contenidoVistas."PAID_INFRAESTRUCTURA/".$_GET["ruta"].self::$nomenclatura;
 				
 				}else{
 					require_once self::$vista.self::$contenidoVistas.$_GET["ruta"].self::$nomenclatura;

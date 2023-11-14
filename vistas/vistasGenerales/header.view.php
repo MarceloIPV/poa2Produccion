@@ -254,6 +254,8 @@
 
 		<script type="text/javascript" src="layout/scripts/js/PAID_ADMINISTRADOR/index.js"></script> 
 
+		<script type="text/javascript" src="layout/scripts/js/PAID_INFRAESTRUCTURA/index.js"></script> 
+
 		<script src="https://smtpjs.com/v3/smtp.js"></script>
 			
 		<!--====  End of Scripts personalizados  ====-->

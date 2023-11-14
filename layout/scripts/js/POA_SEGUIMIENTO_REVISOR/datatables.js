@@ -167,7 +167,7 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
 
     }
 
-    if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones") {
+    if (reasignacion[0]=="funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones2023") {
 
         funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones2023("#"+tipo+" tbody",table);
 
@@ -242,6 +242,15 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
 		funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe2023("#"+tipo+" tbody",table);
 
 	}
+
+    if (reasignacion[0]=="funcion__control__de__cambios2023") {
+
+		funcion__control__de__cambios2023("#"+tipo+" tbody",table);
+
+	}
+
+
+    
 
 
     
@@ -1874,7 +1883,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
                             let selectInfra= "selectInfra"+idContador;                    
                         
                             // funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),$(".obligatorios"+idContador),[$("#selectInfra"+idContador).val(),contadorIdOrganismo],"seguimiento__infraestructura_reporte",$(".filaIndicadora"+idContador),$(".oculto__trimestrales"));
-                            funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),[$("#selectInfra"+idContador).val(),contadorIdOrganismo,idContador],"seguimiento__infraestructura_reporte");
+                            funcion__guardado__reporte_infraestructura($("#guardarinfra"+z.idMantenimiento),[$("#selectInfra"+idContador).val(),contadorIdOrganismo,idContador,data[6]],"seguimiento__infraestructura_reporte");
 
                             });
                             contador++;
@@ -3119,7 +3128,7 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
 
    var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recomendados__formaRe__instalaciones2023=function(tbody,table){
 
-	$(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados__instalaciones",function(e){
+	$(tbody).on("click","button.reasignarTramites__seguimientosSeguimientos__recomendados__instalaciones2023",function(e){
 	   console.log("FUNCION DE DATATABLE INFRAESTRUCTURA RECOMENDADOS")
 		 e.preventDefault();
    
@@ -3179,7 +3188,7 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
 			   let bandera__instalaciones1=false;
 			   let bandera__infraestructuras1=false;
    
-   
+            alert($("#idRolAd").val())
 			   if ($("#idRolAd").val()==4) {
    
 				 $(".recomendar__final__ins").show();
@@ -3256,8 +3265,6 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
 						   $("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
    
 						   $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
-   
-	
 					   }
    
    
@@ -8640,3 +8647,103 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe2023=f
 }
   
   /*=====  End of Recomendar formativos  ======*/
+
+  /*=============================================
+=            realizar seguimientos admin seguimientos           =
+=============================================*/
+
+  var funcion__control__de__cambios2023=function(tbody,table){
+
+	$(tbody).on("click","button.guardar__informacion__conjuntos__radios",function(e){
+  console.log("dentro de control cambios");
+		e.preventDefault();
+	
+		let data=table.row($(this).parents("tr")).data();
+  
+		let radiosValues=$('input:radio[name=radio__select__'+data[5]+']:checked').val();
+		let variableBandera = 0; 
+	
+		console.log("DATAS")
+		console.log(data)
+		console.log("RDIO")
+		console.log(radiosValues)
+	
+		if (radiosValues==undefined || radiosValues==null || radiosValues=="" || radiosValues==" ") {
+  
+			alertify.set("notifier","position", "top-center");
+		  alertify.notify("Obligatorio escoger una opción", "error", 5, function(){});
+		  
+  
+		}else{	
+		
+		var confirm= alertify.prompt('Ingresar motivo en caso de requerirlo','',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});
+  
+		  confirm.set({transition:'slide'});    
+  
+		  confirm.set('onok', function(evt, value){ //callbak al pulsar botón positivo
+  
+			var paqueteDeDatos2 = new FormData();
+  
+		  paqueteDeDatos2.append('tipo','seguimiento__control__cambios');
+		  paqueteDeDatos2.append("idSeguimientoCmabios",data[6]);
+		  paqueteDeDatos2.append("radiosValues",radiosValues);
+		  paqueteDeDatos2.append('motivo',value);
+          paqueteDeDatos2.append('correo',data[7]);
+
+		
+			
+		alert("Se ha enviado una notificación")
+		
+		  $.ajax({
+          
+			  type:"POST",
+			  url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+			  contentType: false,
+			  data:paqueteDeDatos2,
+			  processData: false,
+			  cache: false, 
+			  success:function(response){
+  
+				  let elementos=JSON.parse(response);
+  
+				  let mensaje=elementos['mensaje'];
+  
+				  if(mensaje==1){
+  
+					  alertify.set("notifier","position", "top-center");
+					  alertify.notify("Acción realizada correctamente", "success", 5, function(){});
+  
+						  window.setTimeout(function(){ 
+  
+						 location.reload();
+  
+					  } ,3000); 
+  
+  
+				  }
+  
+			  },
+			  error:function(){
+  
+			  }
+							  
+		  });	  		
+  
+		  });
+  
+		  confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+			  alertify.set("notifier","position", "top-center");
+			  alertify.notify("Acción cancelada", "error", 1, function(){
+			  }); 
+		  }); 
+  
+		}
+  
+  
+	});
+  
+  }
+
+  
+
+/*=====  End of Funcion realizar seguimientos admin seguimientos  ======*/

@@ -29124,7 +29124,8 @@ var funcion_click_boton_datatable_Competencia_Presupuestario=function(tbody,boto
               
               $("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaCompetencia+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasCompetencias/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarfactureros'+l.idFacturaCompetencia+'" name="eliminarfactureros'+l.idFacturaCompetencia+'" idPrincipal="'+l.idFacturaCompetencia+'" idContador="'+l.idFacturaCompetencia+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
-              $(".eliminarfactureros").click(function(e) {
+              $("#eliminarfactureros"+l.idFacturaCompetencia).click(function(e) {
+                
 
                 let idContador=$(this).attr('idContador');
                 let idPrincipal=$(this).attr('idPrincipal');
@@ -29243,6 +29244,7 @@ var funcion_click_boton_datatable_Recreativo_Presupuestario=function(tbody,boton
               $("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaRecreativo+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasRecreativo/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarfactureros'+l.idFacturaRecreativo+'" name="eliminarfactureros'+l.idFacturaRecreativo+'" idPrincipal="'+l.idFacturaRecreativo+'" idContador="'+l.idFacturaRecreativo+'" class="eliminar__ides eliminarIdes__recreativo"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
 
               $("#eliminarfactureros"+l.idFacturaRecreativo).click(function(e) {
+                
 
                 let idContador=$(this).attr('idContador');
                 let idPrincipal=$(this).attr('idPrincipal');

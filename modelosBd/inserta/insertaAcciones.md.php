@@ -6548,7 +6548,7 @@
 		case  "accionActualiza__paid":
 
 			$valores2=array("accion='$input__1'");
-			$actualiza2=$objeto->getActualiza("poa_area_accion",$valores2,"idAreaAccion",$enviado);
+			$actualiza2=$objeto->getActualiza("poa_paid_area_accion",$valores2,"idAreaAccion",$enviado);
 
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
@@ -6559,7 +6559,7 @@
 		case  "encargadaActualiza__paid":
 
 			$valores2=array("nombreArea='$input__1'");
-			$actualiza2=$objeto->getActualiza("poa_areaencargada",$valores2,"idAreaEncargada",$enviado);
+			$actualiza2=$objeto->getActualiza("poa_paid_areaencargada",$valores2,"idAreaEncargada",$enviado);
 
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
@@ -6580,7 +6580,7 @@
 		case  "itemActualiza__paid":
 
 			$valores2=array("nombreItem='$input__1',itemPreesupuestario='$input__2Items__paid'");
-			$actualiza2=$objeto->getActualiza("poa_item",$valores2,"idItem",$idPaid);
+			$actualiza2=$objeto->getActualiza("poa_paid_item",$valores2,"idItem",$idPaid);
 
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;

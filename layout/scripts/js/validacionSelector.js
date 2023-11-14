@@ -811,7 +811,7 @@ subsess__subses__act__fisica($("#selects__superiores__regresar__coors__acFisicas
 var area__encargada__paid__s=function(parametro1){
 
 
-	indicador=104;
+	indicador=100;
 	let variables=$("#valorComparativo").val();
 
 	$.ajax({

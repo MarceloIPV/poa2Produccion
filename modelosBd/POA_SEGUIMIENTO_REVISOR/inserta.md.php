@@ -333,13 +333,30 @@
 
 
 		case  "seguimiento__infraestructura_reporte":
-
+			
+			$conexionRecuperada= new conexion();
+			$conexionEstablecida=$conexionRecuperada->cConexion();
 
 			$arrayInformacion = json_decode($prametros);
 			
 			$direccion=VARIABLE__BACKEND."seguimiento/indicadoresDocumento/";
 
-			$inserta=$objeto->getInsertaNormal('poa_seguimiento_reporte_infraestructura', array("`id_reporte_infraestructura`, ","`detalle`, ","`idOrganismo`, ","`idMantenimiento`, ","`fecha`, ","`perioIngreso`"),array("'$arrayInformacion[0]', ","'$arrayInformacion[1]', ","'$arrayInformacion[2]', ","'$fecha_actual', ","'$aniosPeriodos__ingesos'"));
+			$select_ifExist=$objeto->getObtenerInformacionGeneral("SELECT detalle FROM poa_seguimiento_reporte_infraestructura WHERE idOrganismo = '$arrayInformacion[1]' AND perioIngreso='$aniosPeriodos__ingesos' AND idMantenimiento='$arrayInformacion[2]' AND trimestre='$arrayInformacion[3]';");
+				
+			if (!empty($select_ifExist[0][detalle])) {
+				
+				$query="UPDATE `poa_seguimiento_reporte_infraestructura` SET  `detalle` = '$arrayInformacion[0]' WHERE idOrganismo = '$arrayInformacion[1]' AND perioIngreso='$aniosPeriodos__ingesos' AND idMantenimiento='$arrayInformacion[2]' AND trimestre='$arrayInformacion[3]';";
+				
+				$resultado= $conexionEstablecida->exec($query);
+				
+
+			}else{
+
+				$objeto->insertSingleRow('poa_seguimiento_reporte_infraestructura',['detalle','idOrganismo','idMantenimiento','fecha','perioIngreso','trimestre'],array(':detalle' => $arrayInformacion[0],':idOrganismo' => $arrayInformacion[1],':idMantenimiento' => $arrayInformacion[2],':fecha' => $fecha_actual,':perioIngreso' => $aniosPeriodos__ingesos,':trimestre' => $arrayInformacion[3]));
+				
+			}
+
+			
 
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;
@@ -1356,6 +1373,33 @@
 			$mensaje=1;
 			$jason['mensaje']=$mensaje;		
 			 
+			
+		break;
+
+		case  "seguimiento__control__cambios":
+			
+			$conexionRecuperada= new conexion();
+	 		$conexionEstablecida=$conexionRecuperada->cConexion();	
+
+
+	 		$query="UPDATE poa_seguimiento_control_cambios SET estado='$radiosValues',horas='0', observaciones='$motivo' WHERE idSeguimientoCambio='$idSeguimientoCmabios' AND perioIngreso='$aniosPeriodos__ingesos';";
+			$resultado= $conexionEstablecida->exec($query);		
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;		
+
+		
+			$informacion__usuarios=$objeto->getObtenerInformacionGeneral("SELECT correo,nombreOrganismo FROM poa_organismo WHERE idOrganismo='$idOrganismo';");	
+
+			
+			$bodyMensaje='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>POA SEGUIMIENTO</title><style type="text/css">body {background:#EEE; padding:30px; font-size:16px;}'.'</style>'.'</head>'.'<span style="font-weight:bold;">DSPPP,</span><br><br>Revisa POA Seguimiento: Control de cambios referente a tu solicitud de habilitación de trimestres se encuentra Habilitado</body></html>';
+
+			//$emailArray = array($arrayCorreoCuartoTrimestreD[$l]);
+			$emailArray = array($correo);
+					
+			$correosEnviados=$objeto->getEnviarCorreoDosParametros2023($emailArray,$bodyMensaje,"Solicitud de habilitación de trimestres POA SEGUIMIENTO $aniosPeriodos__ingesos");	
+
+	 		
 			
 		break;
 				

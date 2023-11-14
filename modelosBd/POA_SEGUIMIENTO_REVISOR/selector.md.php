@@ -70,7 +70,7 @@
 
 			//$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT b.nombreInfras,b.tipoIntervencion,a.fecha,a.mensualEjecutado FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera WHERE c.idOrganismo='$idOrganismos' AND a.perioIngreso='$aniosPeriodos__ingesos';");
 
-			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idMantenimiento, b.nombreInfras,b.tipoIntervencion,a.fecha,a.mensualEjecutado,d.documento FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_seguimiento_otros_mantenimiento AS d ON d.idOrganismo=a.idOrganismo WHERE c.idOrganismo='$idOrganismos' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.mensualEjecutado;	");	
+			$indicadorInformacion=$objeto->getObtenerInformacionGeneral("SELECT a.idMantenimiento, b.nombreInfras,b.tipoIntervencion,a.fecha,a.mensualEjecutado,d.documento FROM poa_segimiento_mantenimiento AS a INNER JOIN poa_mantenimiento AS b ON a.idAdministrativo=b.idMantenimiento INNER JOIN poa_programacion_financiera AS c ON c.idProgramacionFinanciera=b.idProgramacionFinanciera INNER JOIN poa_seguimiento_otros_mantenimiento AS d ON d.idOrganismo=a.idOrganismo WHERE c.idOrganismo='$idOrganismos' AND a.perioIngreso='$aniosPeriodos__ingesos' GROUP BY a.mensualEjecutado;");	
 
 			
 			$jason['indicadorInformacion']=$indicadorInformacion;

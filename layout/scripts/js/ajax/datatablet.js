@@ -4940,7 +4940,7 @@ var datatablets=function(parametro1,parametro2,parametro3,parametro4,parametro5,
         "pagingType": "full_numbers",
          "retrieve": true, 
          "paging": parametro12, 
-         "pageLength":4,
+         "pageLength":10,
         //"scrollX": true,
 
         "ajax":{
@@ -6737,11 +6737,11 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
 
                 for (zC of documentos__tecnicos__2) {
 
-                    if (data[2]=="FORMATIVO") {
+                    if (data[3]=="FORMATIVO") {
 
                         $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__formativos/'+zC.archivo);
 
-                    }else if (data[2]=="RECREACION") {
+                    }else if (data[3]=="RECREACION") {
 
                         $("#documentos__tecnicos__t").attr('href',$("#filesFrontend").val()+'seguimiento/informe__recreativos/'+zC.archivo);
 
@@ -12876,7 +12876,7 @@ var funcion__datatabletsEliminar=function(tbody,table,parametro3,parametro4,para
     $(boton).hide();
 
     var data=table.row($(this).parents("tr")).data();
-
+    var size=table.rows().count();
 
     // if (parametro3=="eliminarPrograma" || parametro3=="eliminarComponente" || parametro3=="eliminarItem" || parametro3=="estrategicosElimina" || parametro3=="encargadaElimina" || parametro3=="eliminarAccion" || parametro3=="eliminarTipoOr" || parametro3=="eliminarIndicador" || parametro3=="rubrosElimina" || parametro3=="deportePaidElimina" || parametro3=="modalidadElimina" || parametro3=="pruebaElimina" || parametro3=="eliminarCategoria") {
 
@@ -12921,7 +12921,12 @@ var funcion__datatabletsEliminar=function(tbody,table,parametro3,parametro4,para
                     alertify.set("notifier","position", "top-center");
                     alertify.notify("Registro eliminado", "success", 4, function(){});
 
-                    table.ajax.reload();
+                    if(size >  1){
+                        table.ajax.reload(); 
+                    }else{
+                        table.clear();
+                        table.draw();
+                    }
 
                 }
 
@@ -16009,35 +16014,43 @@ var funcion__reasignar__seguimientos__unidos__altos=function(tbody,table){
 
             $("#idOrganismo").val(data[16]);
 
-            $(".periodo__evaluados__anuales").text(data[9]);
+            $(".periodo__evaluados__anuales").text(data[20]);
 
-            $("#periodo__evaluados__anuales").val(data[9]);
+            $("#periodo__evaluados__anuales").val(data[20]);
 
             if (data[5]=="primerTrimestre") {
 
                 $(".trimestre__evaluados__al").text("I TRIMESTRE");
                 $("#trimestre__evaluados__al").val("I TRIMESTRE");
+                $(".implementacionNombreTrimestre").text("I TRIMESTRE");
 
             }else if (data[5]=="segundoTrimestre") {
 
 
                 $(".trimestre__evaluados__al").text("II TRIMESTRE");
                 $("#trimestre__evaluados__al").val("II TRIMESTRE");
+                $(".implementacionNombreTrimestre").text("II TRIMESTRE (I SEMESTRE):");
+                $("#implementacionNombreTrimestre").val("II TRIMESTRE (I SEMESTRE):");
 
             }else if (data[5]=="tercerTrimestre") {
 
                 $(".trimestre__evaluados__al").text("III TRIMESTRE");
                 $("#trimestre__evaluados__al").val("III TRIMESTRE");
+                $(".implementacionNombreTrimestre").text("III TRIMESTRE (II SEMESTRE):");
 
             }else if (data[5]=="cuartoTrimestre") {
 
                 $(".trimestre__evaluados__al").text("IV TRIMESTRE");
                 $("#trimestre__evaluados__al").val("IV TRIMESTRE");
+                $(".implementacionNombreTrimestre").text("IV TRIMESTRE (II SEMESTRE):");
+                $("#implementacionNombreTrimestre").val("IV TRIMESTRE (II SEMESTRE):");
             }
+           
+            
 
-            $(".periodo__evaluados__anuales").text(data[9]);
+            $(".periodo__evaluados__anuales").text(data[20]);
 
-            $("#periodo__evaluados__anuales").val(data[9]);
+            $("#periodo__evaluados__anuales").val(data[20]);
 
             $("#organismoOculto__modal").val(data[16]);
 

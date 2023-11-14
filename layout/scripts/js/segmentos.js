@@ -627,6 +627,10 @@ $(parametro1).click(function(e){
 
 			contenedor+="<div class='col col-"+parametro5+" row fila__agregado"+contadorGeneral+"'><input id='agregado"+generador+"' name='agregado"+generador+"' placeholder='"+parametro4[i]+"' class='col col-10 ancho__total__input mt-2 obligatorios__campos"+contadorGeneral+"' /></div>";
 
+		}else if (parametro3[i]=="inputSoloNumeros") {
+
+			contenedor+="<div class='col col-"+parametro5+" row fila__agregado"+contadorGeneral+"'><input id='agregado"+generador+"' name='agregado"+generador+"' type='number' placeholder='"+parametro4[i]+"' class='solo_numeros_items col-10 ancho__total__input mt-2 obligatorios__campos"+contadorGeneral+"' /></div>";
+
 		}else if(parametro3[i]=="select"){
 
 			if (parametro6=="agregarItesOrganismosPre") {
@@ -1011,7 +1015,7 @@ $(parametro1).click(function(e){
 						for (x of obtenerInformacion) {
 
 
-						 	$(".contenedor__checkeds").append("<div  class='col col-4 d-flex row justify-content-center align-items-center'><input type='checkbox' id='agregado"+generador+"' name='agregado"+generador+"'  attr='"+x.idItem+"' class='col col-2 conjunto__checkeds'/>&nbsp;&nbsp;<span class='col col-8'>"+x.nombreItem+"</div></div>");
+						 	$(".contenedor__checkeds").append("<div  class='col col-4 d-flex row justify-content-center align-items-center'><input type='checkbox' id='agregado"+generador+"' name='agregado"+generador+"'  attr='"+x.idItem+"' class='col col-2 conjunto__checkeds'/>&nbsp;&nbsp;<span class='col col-8'>"+x.itemPreesupuestario+" - "+x.nombreItem+"</div></div>");
 
 						}
 
@@ -1321,7 +1325,7 @@ segmentosJs($("#agregarItems"),$(".itemsContent"),["input","input"],["Ingrese el
 
 segmentosJs($("#agregarProgramas"),$(".programaContent"),["input"],["Ingrese programa"],10,"programaPaid");
 
-segmentosJs($("#agregarItem"),$(".itemContent"),["input","input"],["Ingrese nombre del Ítem","Ingrese código del Ítem"],5,"itemPaid");
+segmentosJs($("#agregarItem"),$(".itemContent"),["input","inputSoloNumeros"],["Ingrese nombre del Ítem","Ingrese código del Ítem"],5,"itemPaid");
 
 segmentosJs($("#agregarEstrategicos"),$(".estrategicosContent"),["input"],["Ingrese Objetivo Estratégico"],10,"estrategicoPaid");
 

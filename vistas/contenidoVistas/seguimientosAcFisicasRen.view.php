@@ -9,6 +9,18 @@
 
 	<section class="content row d d-flex justify-content-center">
 
+	<div class="input-group mb-3 ">
+		
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Ingrese Número de Página</span>
+			</div>
+			<div class="col-md-5">
+			<input type="text" class="form-control" id="buscarPaginasFormativo" aria-describedby="basic-addon3">
+			</div>
+			
+		
+	</div>
+
 		<table id="seguimiento__tablas__acFisica__rendimientos" class="col col-12 cell-border">
 
 			<thead>

@@ -689,7 +689,7 @@ var mostrarinfoBotones = function(){
 
   
 
-	$('a').click(function() {
+	$('.paid a').click(function() {
 
     localStorage.clear();
     localStorage.removeItem('idcomponentepaid');

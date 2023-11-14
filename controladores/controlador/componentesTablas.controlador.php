@@ -902,42 +902,19 @@
 
 							</div>
 
-							<div class='fila__regresar__a col col-12 recomendar__ins__ins'>
+							<div class='fila__regresar__a col col-6 recomendar__ins__ins'>
 
 								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
 
 							</div>
 
-
-							<div class='fila__regresar__a col col-4 recomendar__ins__ins'>
-
-								Subir informe infraestructura
-
-							</div>
-
-							<div class='fila__regresar__a col col-8 recomendar__ins__ins'>
+							<div class='fila__regresar__a col col-2 recomendar__ins__ins'>
 
 								<input type='file' accept='application/pdf' id='informe__recomendado' name='informe__recomendado' class='ancho__total__input'/>
 
 							</div>
 
-
-
-							<div class='fila__regresar__a col col-4 recomendar__ins__ins fila__insta__recomendaciones__zonales'>
-
-								Subir informe instalaciones
-
-							</div>
-
-							<div class='fila__regresar__a col col-8 recomendar__ins__ins fila__insta__recomendaciones__zonales'>
-
-								<input type='file' accept='application/pdf' id='informe__recomendado__instalaciones' name='informe__recomendado__instalaciones' class='ancho__total__input'/>
-
-							</div>
-
-
-
-							<div class='fila__regresar__a col col-12 recomendar__ins__ins'>
+							<div class='fila__regresar__a col col-2 recomendar__ins__ins'>
 
 								<a class='btn btn-warning' id='recomienda__coordinai__directores'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Recomendar</a>
 
@@ -1010,7 +987,7 @@
 
 			return $modal;
 
-		}		
+		}			
 
 
 		public function get__modal__plantilla__inicios__seguimientos__actividad__fisica__ins($parametro1,$parametro2,$parametro3){
@@ -3175,7 +3152,9 @@
 
 											<tr>
 
-												<td>Cantidad de implementación deportiva al I trimestre:</td>
+												<td>Cantidad de implementación deportiva al <div class='implementacionNombreTrimestre'></div></td>
+												<input type='hidden' id='implementacionNombreTrimestre' name='implementacionNombreTrimestre'/>
+
 												<td><input type='text' id='implementacion__de__eje__alto__meta' name='implementacion__de__eje__alto__meta' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
 												<td><input type='text' id='implementacion__de__eje__alto__resultado' name='implementacion__de__eje__alto__resultado' class='ancho__total__input solo__numero__montos cambio__de__numero__f' value='0'/></td>
 												<td>
@@ -10390,7 +10369,7 @@
 		
 							<div class='fila__reasignar col col-2 reasignar__solo text-center'>
 		
-								<a class='btn btn-primary' id='reasignarSeguimientos__a__actividad__fisicas__in'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
+								<a class='btn btn-primary' id='reasignarSeguimientos__a__actividad__fisicas__in2023'><i class='fa fa-floppy-o' aria-hidden='true'></i>&nbsp;&nbsp;Reasignar</a>
 		
 							</div>
 		
@@ -12957,5 +12936,171 @@
 
 		}	
 
+
+		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados__instalaciones__2023($parametro1,$parametro2,$parametro3){
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formulario__intervencion__eliminar $parametro4' method='post' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulo__alto__rendimientos row'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+
+							<input type='hidden' id='organismoOculto__modal' name='organismoOculto__modal' />
+							<input type='hidden' id='periodo' name='periodo' />
+							<input type='hidden' id='nombre__archivo' name='nombre__archivo' />
+							<input type='hidden' id='evaluador__movimientos' name='evaluador__movimientos' />
+
+							<div class='col col-4  mt-4 insfraestructuras__re'>
+
+								Informe de recomendación Infraestructura
+
+							</div>
+
+							<div class='col col-8 d d-flex justify-content-center d d-flex justify-content-center insfraestructuras__re'>
+
+								<a id='documentos__tecnicos__t__infras' class='btn btn-warning' target='_blank'></a>
+
+							</div>
+
+							<div class='col col-4  mt-4 instalaciones__re'>
+
+								Informe de recomendación Instalaciones
+
+							</div>
+
+							<div class='col col-8 d d-flex justify-content-center d d-flex justify-content-center instalaciones__re'>
+
+								<a id='documentos__tecnicos__t__infras__instalaciones' class='btn btn-primary' target='_blank'></a>
+
+							</div>
+
+
+
+							<div class='fila__regresar__a col col-2 recomendar__ins__ins' style='font-weight:bold;'>
+
+								Recomendar a
+
+							</div>
+
+							<div class='fila__regresar__a col col-6 recomendar__ins__ins'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
+
+							</div>
+
+							<div class='fila__regresar__a col col-2 recomendar__ins__ins'>
+
+								<input type='file' accept='application/pdf' id='informe__recomendado' name='informe__recomendado' class='ancho__total__input'/>
+
+							</div>
+
+							<div class='fila__regresar__a col col-2 recomendar__ins__ins'>
+
+								<a class='btn btn-warning' id='recomienda__coordinai__directores'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Recomendar</a>
+
+							</div>
+
+
+							<div class='col col-12 textos__titulos mt-4 recomendar__final__ins acciones__recomendaciones__finales'>
+
+								ACCIONES DE RECOMENDACIÓN
+
+							</div>
+
+							<div class='col col-4 oculto__subsess__deseados recomendar__final__ins acciones__recomendaciones__finales' style='font-weight:bold!important;'>
+
+								Subir archivo firmado
+
+							</div>
+
+							<div class='col col-4 oculto__subsess__deseados recomendar__final__ins acciones__recomendaciones__finales'>
+
+								<input type='file' accept='application/pdf' id='informe__recomendado' name='informe__recomendado' class='ancho__total__input'/>
+
+							</div>
+
+							<div class='col col-4 mt-2 recomendar__final__ins acciones__recomendaciones__finales'>
+
+								<a class='btn btn-success' id='enviar__orgnaismosDeportivos__infraestructuras'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;ENVIAR</a>
+
+							</div>
+
+							<div class='col col-2 eliminados__al__de' style='font-weight:bold;'>
+
+								Devolver a
+
+							</div>
+
+							<div class='col col-8 eliminados__al__de'>
+
+								<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores'></select>
+
+							</div>
+
+							<div class='col col-2 eliminados__al__de'>
+
+								<a class='btn btn-danger' id='devolver__altosReComendados__f__r__s__infraestructuras'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;DEVOLVER</a>
+
+							</div>
+
+
+							<div class='col col-2 observacionesReasignaciones eliminados__al__de' style='font-weight:bold;'>
+
+								Observaciones
+
+							</div>
+
+							<div class='col col-10 observacionesReasignaciones eliminados__al__de'>
+
+								<textarea id='observacionesReasignaciones' class='ancho__total__textareas'></textarea>
+
+							</div>							
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+			";
+
+			return $modal;
+
+		}	
 
 	}

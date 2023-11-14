@@ -14332,7 +14332,7 @@ internacional, organizaciones no gubernamentales, entre otros.
 
 						<tr>
 
-							<td>Cantidad de implementación deportiva al I trimestre:</td>
+							<td>Cantidad de implementación deportiva al $implementacionNombreTrimestre</td>
 							<td>".$implementacion__de__eje__alto__meta."</td>
 							<td>".$implementacion__de__eje__alto__resultado."</td>
 							<td>

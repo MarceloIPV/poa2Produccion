@@ -4,8 +4,8 @@ $(document).ready(function () {
     
     $.getScript("layout/scripts/js/validacionBasica.js",function(){
 
-
-
+          
+      
     });
 
 

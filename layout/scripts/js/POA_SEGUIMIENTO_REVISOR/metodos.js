@@ -290,3 +290,15 @@ var enviarCorreosPlazos=function(boton,parametro2){
   }
 
 
+  var buscarPaginaDataTable = function(input2,datatable){
+    $(input2).on('change', function() {
+      var dataTable =  datatable.DataTable()
+        if($(input2).val()==""){
+          dataTable.page(0).draw(false);
+        }else{
+          dataTable.page($(input2).val()-1).draw(false);
+        }
+      });
+
+  };
+

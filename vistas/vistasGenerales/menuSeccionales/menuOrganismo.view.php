@@ -198,7 +198,8 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 		<?php endif ?>
 
-		<?php if ($aniosPeriodos__ingesos>=2022 &&($idOrganismoSession =='1586' ||  $idOrganismoSession =='1421' ||  $idOrganismoSession =='1166' ||  $idOrganismoSession =='1440' ||  $idOrganismoSession =='1428' ||  $idOrganismoSession =='1057' ||  $idOrganismoSession =='1635' ||  $idOrganismoSession =='1407' ||  $idOrganismoSession =='1360' ||  $idOrganismoSession =='1641' ||  $idOrganismoSession =='1194' ||  $idOrganismoSession =='1486' ||  $idOrganismoSession =='1225' ||  $idOrganismoSession =='1379' ||  $idOrganismoSession =='1317'||  $idOrganismoSession =='1473'  ||  $idOrganismoSession =='1146' ||  $idOrganismoSession =='1619' ||  $idOrganismoSession =='1062' ||  $idOrganismoSession =='1173' ||  $idOrganismoSession =='1246' ||  $idOrganismoSession =='1393' ||  $idOrganismoSession =='1385' ||  $idOrganismoSession =='1093' ||  $idOrganismoSession =='1106' ||  $idOrganismoSession =='1188' ||  $idOrganismoSession =='1158' ||  $idOrganismoSession =='1368' ||  $idOrganismoSession =='1071' ||  $idOrganismoSession =='1084' ||  $idOrganismoSession =='1148' ||  $idOrganismoSession =='1137' ||  $idOrganismoSession =='1053' ||  $idOrganismoSession =='1367' ||  $idOrganismoSession =='1147' ||  $idOrganismoSession =='1111' ||  $idOrganismoSession =='1344' ||  $idOrganismoSession =='1069' ||  $idOrganismoSession =='1079' ||  $idOrganismoSession =='1169' ||  $idOrganismoSession =='1372' ||  $idOrganismoSession =='1588' ||  $idOrganismoSession =='1622' ||  $idOrganismoSession =='1559' ||  $idOrganismoSession =='1536' ||  $idOrganismoSession =='1322' ||  $idOrganismoSession =='1627' ||  $idOrganismoSession =='1446' ||  $idOrganismoSession =='1410' ||  $idOrganismoSession =='1475' ||  $idOrganismoSession =='1458' ||  $idOrganismoSession =='1577' ||  $idOrganismoSession =='1523' ||  $idOrganismoSession =='1438' ||  $idOrganismoSession =='1255' ||  $idOrganismoSession =='1082' ||  $idOrganismoSession =='1542' ||  $idOrganismoSession =='1319' ||  $idOrganismoSession =='1725' ||  $idOrganismoSession =='1195' ||  $idOrganismoSession =='1226' ||  $idOrganismoSession =='1196' ||  $idOrganismoSession =='1595' ||  $idOrganismoSession =='1192' ||  $idOrganismoSession =='1384' ||  $idOrganismoSession =='1268' ||  $idOrganismoSession =='1278' ||  $idOrganismoSession =='1396' ||  $idOrganismoSession =='1422' ||  $idOrganismoSession =='1174' ||  $idOrganismoSession =='1503' ||  $idOrganismoSession =='1240' ||  $idOrganismoSession =='1221' ||  $idOrganismoSession =='1073' ||  $idOrganismoSession =='1662' ||  $idOrganismoSession =='1235' ||  $idOrganismoSession =='1296' ||  $idOrganismoSession =='1280' ||  $idOrganismoSession =='1274' ||  $idOrganismoSession =='1250' ||  $idOrganismoSession =='1293' ||  $idOrganismoSession =='1684' ||  $idOrganismoSession =='1247' ||  $idOrganismoSession =='1213' ||  $idOrganismoSession =='1324' ||  $idOrganismoSession =='1655' ||  $idOrganismoSession =='1241' ||  $idOrganismoSession =='1314' ||  $idOrganismoSession =='1335' ||  $idOrganismoSession =='1294' ||  $idOrganismoSession =='1217' ||  $idOrganismoSession =='1181' ||  $idOrganismoSession =='1321' ||  $idOrganismoSession =='1355' ||  $idOrganismoSession =='1386' ||  $idOrganismoSession =='1233' ||  $idOrganismoSession =='1556' ||  $idOrganismoSession =='1412' ||  $idOrganismoSession =='1331' ||  $idOrganismoSession =='1320' ||  $idOrganismoSession =='1354' ||  $idOrganismoSession =='1680' ||  $idOrganismoSession =='1343' ||  $idOrganismoSession =='1569' ||  $idOrganismoSession =='1433' ||  $idOrganismoSession =='1301' ||  $idOrganismoSession =='1573' ||  $idOrganismoSession =='1399' ||  $idOrganismoSession =='1351' ||  $idOrganismoSession =='1427' ||  $idOrganismoSession =='1480' ||  $idOrganismoSession =='1562' ||  $idOrganismoSession =='1471' ||  $idOrganismoSession =='1459' ||  $idOrganismoSession =='1347' ||  $idOrganismoSession =='1403' ||  $idOrganismoSession =='1424')): ?>
+		<?php if ($aniosPeriodos__ingesos==2022 || ($aniosPeriodos__ingesos==2023 &&($idOrganismoSession =='1586' ||  $idOrganismoSession =='1421' ||  $idOrganismoSession =='1166' ||  $idOrganismoSession =='1440' ||  $idOrganismoSession =='1428' ||  $idOrganismoSession =='1057' ||  $idOrganismoSession =='1635' ||  $idOrganismoSession =='1407' ||  $idOrganismoSession =='1360' ||  $idOrganismoSession =='1641' ||  $idOrganismoSession =='1194' ||  $idOrganismoSession =='1486' ||  $idOrganismoSession =='1225' ||  $idOrganismoSession =='1379' ||  $idOrganismoSession =='1317'||  $idOrganismoSession =='1473'  ||  $idOrganismoSession =='1146' ||  $idOrganismoSession =='1619' ||  $idOrganismoSession =='1062' ||  $idOrganismoSession =='1173' ||  $idOrganismoSession =='1246' ||  $idOrganismoSession =='1393' ||  $idOrganismoSession =='1385' ||  $idOrganismoSession =='1093' ||  $idOrganismoSession =='1106' ||  $idOrganismoSession =='1188' ||  $idOrganismoSession =='1158' ||  $idOrganismoSession =='1368' ||  $idOrganismoSession =='1071' ||  $idOrganismoSession =='1084' ||  $idOrganismoSession =='1148' ||  $idOrganismoSession =='1137' ||  $idOrganismoSession =='1053' ||  $idOrganismoSession =='1367' ||  $idOrganismoSession =='1147' ||  $idOrganismoSession =='1111' ||  $idOrganismoSession =='1344' ||  $idOrganismoSession =='1069' ||  $idOrganismoSession =='1079' ||  $idOrganismoSession =='1169' ||  $idOrganismoSession =='1372' ||  $idOrganismoSession =='1588' ||  $idOrganismoSession =='1622' ||  $idOrganismoSession =='1559' ||  $idOrganismoSession =='1536' ||  $idOrganismoSession =='1322' ||  $idOrganismoSession =='1627' ||  $idOrganismoSession =='1446' ||  $idOrganismoSession =='1410' ||  $idOrganismoSession =='1475' ||  $idOrganismoSession =='1458' ||  $idOrganismoSession =='1577' ||  $idOrganismoSession =='1523' ||  $idOrganismoSession =='1438' ||  $idOrganismoSession =='1255' ||  $idOrganismoSession =='1082' ||  $idOrganismoSession =='1542' ||  $idOrganismoSession =='1319' ||  $idOrganismoSession =='1725' ||  $idOrganismoSession =='1195' ||  $idOrganismoSession =='1226' ||  $idOrganismoSession =='1196' ||  $idOrganismoSession =='1595' ||  $idOrganismoSession =='1192' ||  $idOrganismoSession =='1384' ||  $idOrganismoSession =='1268' ||  $idOrganismoSession =='1278' ||  $idOrganismoSession =='1396' ||  $idOrganismoSession =='1422' ||  $idOrganismoSession =='1174' ||  $idOrganismoSession =='1503' ||  $idOrganismoSession =='1240' ||  $idOrganismoSession =='1221' ||  $idOrganismoSession =='1073' ||  $idOrganismoSession =='1662' ||  $idOrganismoSession =='1235' ||  $idOrganismoSession =='1296' ||  $idOrganismoSession =='1280' ||  $idOrganismoSession =='1274' ||  $idOrganismoSession =='1250' ||  $idOrganismoSession =='1293' ||  $idOrganismoSession =='1684' ||  $idOrganismoSession =='1247' ||  $idOrganismoSession =='1213' ||  $idOrganismoSession =='1324' ||  $idOrganismoSession =='1655' ||  $idOrganismoSession =='1241' ||  $idOrganismoSession =='1314' ||  $idOrganismoSession =='1335' ||  $idOrganismoSession =='1294' ||  $idOrganismoSession =='1217' ||  $idOrganismoSession =='1181' ||  $idOrganismoSession =='1321' ||  $idOrganismoSession =='1355' ||  $idOrganismoSession =='1386' ||  $idOrganismoSession =='1233' ||  $idOrganismoSession =='1556' ||  $idOrganismoSession =='1412' ||  $idOrganismoSession =='1331' ||  $idOrganismoSession =='1320' ||  $idOrganismoSession =='1354' ||  $idOrganismoSession =='1680' ||  $idOrganismoSession =='1343' ||  $idOrganismoSession =='1569' ||  $idOrganismoSession =='1433' ||  $idOrganismoSession =='1301' ||  $idOrganismoSession =='1573' ||  $idOrganismoSession =='1399' ||  $idOrganismoSession =='1351' ||  $idOrganismoSession =='1427' ||  $idOrganismoSession =='1480' ||  $idOrganismoSession =='1562' ||  $idOrganismoSession =='1471' ||  $idOrganismoSession =='1459' ||  $idOrganismoSession =='1347' ||  $idOrganismoSession =='1403' ||  $idOrganismoSession =='1424'))): ?>
+
 			
 		<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/',$_SERVER['REQUEST_URI'],array("seguimiento","seguimientoRe","seguimientoControlC","reportesSeguimientos","reporteAnexosOD"));?>">
 
@@ -630,10 +631,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 <?php if ($estadoPAID[0][existe] > 0) : ?>
 
-
 	<?php if ($seleccionPoaPaid == 2) : ?>
-
-
 
 		<?php if ($estadoPAIDTipo[0][valor__comparativo] == 0) : ?>
 
@@ -704,7 +702,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 
 										<?php if (strpos(strtolower($rubroPAID), "eventos") !== false && $ObtenerNombreRubrosPAID[$i][montos] > 0) { ?>
-											<li class="nav-item">
+											<li class="nav-item paid">
 
 												<a href="paidRubrosEventos" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidRubrosEventos'); ?>">
 													<i class="far fa-calendar"></i>
@@ -717,7 +715,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 										<?php } else if (strpos(strtolower($rubroPAID), "interdisciplinario") !== false  && $ObtenerNombreRubrosPAID[$i][montos] > 0) { ?>
 
-											<li class="nav-item">
+											<li class="nav-item paid">
 
 												<a href="paidRubrosInterdisciplinario" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidRubrosInterdisciplinario'); ?>">
 													<i class="fa fa-sitemap"></i>
@@ -730,7 +728,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 										<?php } else if (strpos(strtolower($rubroPAID), "individuales") !== false  && $ObtenerNombreRubrosPAID[$i][montos] > 0) { ?>
 
-											<li class="nav-item">
+											<li class="nav-item paid">
 
 												<a href="paidRubrosNecesidadesIndividuales" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidRubrosNecesidadesIndividuales'); ?>">
 													<i class="fa fa-user"></i>
@@ -743,7 +741,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 										<?php } else if (strpos(strtolower($rubroPAID), "generales") !== false && $ObtenerNombreRubrosPAID[$i][montos] > 0) { ?>
 
-											<li class="nav-item">
+											<li class="nav-item paid">
 
 												<a href="paidRubrosNecesidadesGenerales" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidRubrosNecesidadesGenerales'); ?>">
 													<i class="fa fa-users"></i>
@@ -771,9 +769,6 @@ $perfilObservador = $_SESSION["perfilObservador"];
 			</li>
 
 		<?php endif ?>
-
-
-
 
 		<?php if ($estadoPAIDTipo[0][valor__comparativo] == 1) : ?>
 
@@ -859,7 +854,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 											<ul class="nav nav-treeview">
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidEventosDesarrollo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidEventosDesarrollo'); ?>">
 														<i class="fa fa-volleyball-ball"></i>
@@ -871,7 +866,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidSeleccionJuegosNacionales" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidSeleccionJuegosNacionales'); ?>">
 														<i class="fa fa-volleyball-ball"></i>
@@ -883,7 +878,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidMedallasEncuentroActivo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidMedallasEncuentroActivo'); ?>">
 														<i class="fa fa-medal"></i>
@@ -894,7 +889,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidMatrizGeneralEncuentroActivo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidMatrizGeneralEncuentroActivo'); ?>">
 														<i class="fa fa-file-signature"></i>
@@ -905,7 +900,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidPersonaTecnicoConvencional" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidPersonaTecnicoConvencional'); ?>">
 														<i class="fa fa-user-tie"></i>
@@ -916,7 +911,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidBonoDeportivo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidBonoDeportivo'); ?>">
 														<i class="fa fa-money-check-alt"></i>
@@ -928,7 +923,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidUniformesAdaptado" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidUniformesAdaptado'); ?>">
 														<i class="fa fa-tshirt"></i>
@@ -940,7 +935,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidSeguros" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidSeguros'); ?>">
 														<i class="fa fa-shield-alt"></i>
@@ -952,7 +947,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidTransporte" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidTransporte'); ?>">
 														<i class="fa fa-shuttle-van"></i>
@@ -963,7 +958,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 
 												</li>
-												<li class="nav-item">
+												<li class="nav-item paid">
 
 													<a href="paidPasajesAereos" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidPasajesAereos'); ?>">
 														<i class="fas fa-plane" style="color: #C2C7D0;"></i>
@@ -1007,17 +1002,15 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 		<?php endif ?>
 
-		<?php if ($estadoPAIDTipo[0][valor__comparativo] == 2) : ?>
+		<?php if ($estadoPAIDTipo[1][valor__comparativo] == 2 || $estadoPAIDTipo[0][valor__comparativo] == 2) : ?>
 
 			<li class="nav-item">
 
-
-
-			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("planificacion", "ventanaObservaciones", "reporteriaOrganismos", 'generalDeporteEA', 'paidRubrosEncuentroActivo', 'paidMedallasEncuentroActivo', 'paidMatrizGeneralEncuentroActivo', 'paidSeleccionJuegosNacionales', 'paidPersonaTecnicoConvencional', 'paidBonoDeportivo', 'paidUniformesAdaptado', 'paidSeguros', 'paidTransporte', 'paidPasajesAereos', 'paidEventosDesarrollo')); ?>">
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("planificacion", "ventanaObservaciones", "reporteriaOrganismos", 'generalDeporteInfra', 'paidRubrosEncuentroActivo','paidEjecucionObraInfraestructura', 'paidFiscalizacionInfraestructura' )); ?>" >
 
 
 				<a href="#" class="nav-link">
-					<i class="fa fa-futbol"></i>
+					<i class="fas fa-gopuram" style="color: #cbcdd9;"></i>
 					&nbsp;
 					<p>Optimización de Infraestructura Deportiva a Nivel Nacional
 						<i class="fas fa-angle-left right"></i>
@@ -1029,7 +1022,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 					<li class="nav-item">
 
-						<a href="generalDeporteEA" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'generalDeporteEA'); ?>">
+						<a href="generalDeporteInfra" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'generalDeporteInfra'); ?>">
 							<i class="fa fa-globe"></i>
 							&nbsp;
 							<p>General</p>
@@ -1043,7 +1036,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 						
 						<?php if($ObtenernombreComponetesPAIDInfraestructura[$j][montos]>0 ) { ?>
 
-						<li class="nav-item  <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array('paidSeleccionJuegosNacionales', 'paidMedallasEncuentroActivo', 'paidMatrizGeneralEncuentroActivo', 'paidSeleccionJuegosNacionales', 'paidPersonaTecnicoConvencional', 'paidBonoDeportivo', 'paidUniformesAdaptado', 'paidSeguros', 'paidTransporte', 'paidPasajesAereos', 'paidEventosDesarrollo')); ?>">
+						<li class="nav-item  <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array('paidEjecucionObraInfraestructura', 'paidFiscalizacionInfraestructura')); ?>" >
 
 
 							<?php $componentePAID = $ObtenernombreComponetesPAIDInfraestructura[$j][nombreComponentes]; ?>
@@ -1052,7 +1045,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 
 							<a href="#" class="nav-link">
-								<i class="fa fa-money"></i>
+								<i class="fas fa-wrench" style="color: #cbcdd9;"></i>
 								&nbsp;
 								<p nombre="<?php echo "$componentePAID"; ?>"> <?php echo "$componentePAID"; ?>
 
@@ -1064,7 +1057,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 							<ul class="nav nav-treeview">
 
 
-								<?php $ObtenerNombreRubrosPAIDInfraestructura = $objetoInformacion->getObtenerInformacionGeneral("select c.idRubros, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreRubros, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreRubros, a.montos FROM poa_paid_asignacion AS a INNER JOIN poa_paid_componentes AS b ON a.idComponentes=b.idComponentes INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros where a.idOrganismo='" . $informacionObjeto[0][idOrganismo] . "'  and a.perioIngreso='$aniosPeriodos__ingesos' and a.valor__comparativo='1' and a.estado='A'  AND b.idcomponentes='" . $IDcomponentePAID . "' ;"); ?>
+								<?php $ObtenerNombreRubrosPAIDInfraestructura = $objetoInformacion->getObtenerInformacionGeneral("select c.idRubros, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreRubros, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreRubros, a.montos FROM poa_paid_asignacion AS a INNER JOIN poa_paid_componentes AS b ON a.idComponentes=b.idComponentes INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros where a.idOrganismo='" . $informacionObjeto[0][idOrganismo] . "'  and a.perioIngreso='$aniosPeriodos__ingesos' and a.valor__comparativo='2' and a.estado='A'  AND b.idcomponentes='" . $IDcomponentePAID . "' ;"); ?>
 
 								<?php for ($i = 0; $i < count($ObtenerNombreRubrosPAIDInfraestructura); $i++) { ?>
 									
@@ -1073,14 +1066,14 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 
 									<?php if ($ObtenerNombreRubrosPAIDInfraestructura[$i][montos] > 0) {  ?>
-										<li class="nav-item  <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array('paidSeleccionJuegosNacionales', 'paidMedallasEncuentroActivo', 'paidMatrizGeneralEncuentroActivo', 'paidSeleccionJuegosNacionales', 'paidPersonaTecnicoConvencional', 'paidBonoDeportivo', 'paidUniformesAdaptado', 'paidSeguros', 'paidTransporte', 'paidPasajesAereos', 'paidEventosDesarrollo')); ?>">
+										<li class="nav-item  <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array('paidSeleccionJuegosNacionales', 'paidEjecucionObraInfraestructura', 'paidFiscalizacionInfraestructura')); ?>">
 
 
 											<?php $rubroPAID = $ObtenerNombreRubrosPAIDInfraestructura[$i][nombreRubros]; ?>
 											<?php $IDrubroPAID = $ObtenerNombreRubrosPAIDInfraestructura[$i][idRubros]; ?>
 
 											<a href="#" class="nav-link">
-												<i class="fa fa-money"></i>
+												<i class="fas fa-ring" style="color: #cbcdd9;"></i>
 												&nbsp;
 												<p> <?php echo "$rubroPAID"; ?>
 
@@ -1091,126 +1084,31 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 											<ul class="nav nav-treeview">
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
-													<a href="paidEventosDesarrollo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidEventosDesarrollo'); ?>">
-														<i class="fa fa-volleyball-ball"></i>
+													<a href="paidEjecucionObraInfraestructura" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidEjecucionObraInfraestructura'); ?>">
+														
 														&nbsp;
-														<p Style="margin-left:20px">Eventos</p>
+														<i class="fas fa-hard-hat" style="color: #cbcdd9;"></i>
+														<p Style="margin-left:20px">Ejecución de Obra</p>
 
 													</a>
 
 
 												</li>
 
-												<li class="nav-item">
+												<li class="nav-item paid">
 
-													<a href="paidSeleccionJuegosNacionales" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidSeleccionJuegosNacionales'); ?>">
-														<i class="fa fa-volleyball-ball"></i>
+													<a href="paidFiscalizacionInfraestructura" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidFiscalizacionInfraestructura'); ?>">
+														
 														&nbsp;
-														<p Style="margin-left:20px">Hospedaje/AlimentaciónHidratación</p>
+														<i class="fas fa-briefcase" style="color: #cbcdd9;"></i>
+														<p Style="margin-left:20px">Fiscalización</p>
 
 													</a>
 
 
 												</li>
-
-												<li class="nav-item">
-
-													<a href="paidMedallasEncuentroActivo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidMedallasEncuentroActivo'); ?>">
-														<i class="fa fa-medal"></i>
-														&nbsp;
-														<p class="nombrerubroPaidDesarrollo" Style="margin-left:20px" nombrerubropaid="<?php echo "$rubroPAID"; ?>">Medallas</p>
-
-													</a>
-
-												</li>
-
-												<li class="nav-item">
-
-													<a href="paidMatrizGeneralEncuentroActivo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidMatrizGeneralEncuentroActivo'); ?>">
-														<i class="fa fa-file-signature"></i>
-														&nbsp;
-														<p Style="margin-left:20px">Matrices Auxiliares</p>
-
-													</a>
-
-												</li>
-
-												<li class="nav-item">
-
-													<a href="paidPersonaTecnicoConvencional" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidPersonaTecnicoConvencional'); ?>">
-														<i class="fa fa-user-tie"></i>
-														&nbsp;
-														<p Style="margin-left:20px">Personal Técnico</p>
-
-													</a>
-
-												</li>
-
-												<li class="nav-item">
-
-													<a href="paidBonoDeportivo" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidBonoDeportivo'); ?>">
-														<i class="fa fa-money-check-alt"></i>
-														&nbsp;
-														<p Style="margin-left:20px">Bono Deportivo </p>
-
-
-													</a>
-
-												</li>
-
-												<li class="nav-item">
-
-													<a href="paidUniformesAdaptado" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidUniformesAdaptado'); ?>">
-														<i class="fa fa-tshirt"></i>
-														&nbsp;
-														<p Style="margin-left:20px">Uniformes</p>
-
-													</a>
-
-
-												</li>
-
-												<li class="nav-item">
-
-													<a href="paidSeguros" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidSeguros'); ?>">
-														<i class="fa fa-shield-alt"></i>
-														&nbsp;
-														<p Style="margin-left:20px">Seguros</p>
-
-													</a>
-
-
-												</li>
-
-												<li class="nav-item">
-
-													<a href="paidTransporte" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidTransporte'); ?>">
-														<i class="fa fa-shuttle-van"></i>
-														&nbsp;
-														<p Style="margin-left:20px">Transporte</p>
-
-													</a>
-
-
-												</li>
-												<li class="nav-item">
-
-													<a href="paidPasajesAereos" idcomponentepaid="<?php echo "$IDcomponentePAID"; ?>" idrubropaid="<?php echo "$IDrubroPAID"; ?>" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidPasajesAereos'); ?>">
-														<i class="fas fa-plane" style="color: #C2C7D0;"></i>
-														&nbsp;
-														<p Style="margin-left:20px">Pasajes Aereos</p>
-
-													</a>
-
-
-												</li>
-
-
-
-
-
 
 											</ul>
 
@@ -1238,8 +1136,6 @@ $perfilObservador = $_SESSION["perfilObservador"];
 			</li>
 
 		<?php endif ?>
-
-
 
 	<?php endif ?>
 

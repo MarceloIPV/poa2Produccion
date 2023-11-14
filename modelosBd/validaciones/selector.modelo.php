@@ -1562,8 +1562,8 @@
 
  			}else if($indicador==100){
 
- 				$query="SELECT idAreaEncargada,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreArea, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreArea FROM poa_paid_areaencargada WHERE identificador IS NULL OR identificador='$evaluador';";
-			 	$resultado = $conexionEstablecida->query($query);
+				$query="SELECT idAreaEncargada,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreArea, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreArea FROM poa_paid_areaencargada WHERE identificador='$variables' OR identificador IS NULL;";
+				$resultado = $conexionEstablecida->query($query);
 
 			 	$listas="<option value='0' class='text-center'>--Área encargada--</option>";
 
@@ -7515,6 +7515,69 @@
 
 				return $listas;
 
+
+		}else if($indicador==1037){
+
+			$query="SELECT id,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(paisnombre , 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Í'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó'),'','') AS paisnombre  FROM poa_pais ORDER BY paisnombre;";
+
+			$resultado = $conexionEstablecida->query($query);
+
+			$listas="<option value=''>--Elige un país-</option>";
+
+			while($registro = $resultado->fetch()) {
+			
+				$listas.="<option value='".$registro["paisnombre"]."'>".utf8_decode(utf8_encode($registro["paisnombre"]))."</option>";
+
+			}
+
+			return $listas;
+
+		}else if ($indicador==1038) {
+
+			$query="SELECT DISTINCT idProvincia,nombreProvincia FROM in_md_provincias ORDER BY nombreProvincia;";
+			$resultado = $conexionEstablecida->query($query);
+
+			$listas="<option value=''>--Elige una provincia--</option>";
+
+			while($registro = $resultado->fetch()) {
+			
+				$listas.="<option value='".$registro["nombreProvincia"]."'>".utf8_decode(utf8_encode($registro["nombreProvincia"]))."</option>";
+
+			}
+
+			return $listas;
+
+		}else if($indicador==1039){
+
+
+			$query="SELECT DISTINCT idCanton,nombreCanton FROM in_md_canton  ORDER BY nombreCanton;";
+			$resultado = $conexionEstablecida->query($query);
+
+			$listas="<option value=''>--Elige un cantón-</option>";
+
+			while($registro = $resultado->fetch()) {
+			
+				$listas.="<option value='".$registro["nombreCanton"]."'>".utf8_decode(utf8_encode($registro["nombreCanton"]))."</option>";
+
+			}
+
+			return $listas;
+
+		}else if($indicador==1040){
+
+			$query="SELECT DISTINCT idParroquia,nombreParroquia FROM in_md_parroquia ORDER BY nombreParroquia;";
+
+			$resultado = $conexionEstablecida->query($query);
+
+			$listas="<option value=''>--Elige una parroquia-</option>";
+
+			while($registro = $resultado->fetch()) {
+			
+				$listas.="<option value='".$registro["nombreParroquia"]."'>".utf8_decode(utf8_encode($registro["nombreParroquia"]))."</option>";
+
+			}
+
+			return $listas;
 
 		}
 

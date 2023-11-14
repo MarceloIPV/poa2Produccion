@@ -1586,14 +1586,31 @@
 
 
 	 		if ($idRol==4 || $idRol==2) {
+
+				if($fisicamenteE == 19){
+					$direccion1=VARIABLE__BACKEND."seguimiento/informe__recreativos/";
+
+					unlink($direccion1.$nombreDocumento);
+					
+					rename($_FILES["informe__recomendado"]['tmp_name'],$direccion1.$nombreDocumento);
+						
+					$query="UPDATE poa_trimestrales SET estadoFR='$selects__superiores' WHERE idOrganismo='$organismoOculto__modal' AND tipoTrimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos';";
+
+					$inserta2=$objeto->getInsertaNormal('poa_seguimiento_recomienda_tecnicos', array("`idRecomendacionFuncionario`, ","`idFuncionario`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`trimestre`, ","`observacionesTecnicas`, ",'`tipo`, ','`fisicamente`, ','`perioIngreso`'),array("'$selects__superiores', ","'$organismoOculto__modal', ","'$fecha_actual', ","'$hora_actual', ","'$periodo', ","'$observacionesReasignaciones', ",'"Recomendado", ',"'$fisicamenteE', ","'$aniosPeriodos__ingesos'"));
+
+				}else{
+					$direccion1=VARIABLE__BACKEND."seguimiento/informe__formativos/";
+
+					unlink($direccion1.$nombreDocumento);
+					
+					rename($_FILES["informe__recomendado"]['tmp_name'],$direccion1.$nombreDocumento);
+						
+					 $query="UPDATE poa_trimestrales SET estadoFR='$selects__superiores' WHERE idOrganismo='$organismoOculto__modal' AND tipoTrimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos';";
+	
+					 $inserta2=$objeto->getInsertaNormal('poa_seguimiento_recomienda_tecnicos', array("`idRecomendacionFuncionario`, ","`idFuncionario`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`trimestre`, ","`observacionesTecnicas`, ",'`tipo`, ','`fisicamente`, ','`perioIngreso`'),array("'$selects__superiores', ","'$organismoOculto__modal', ","'$fecha_actual', ","'$hora_actual', ","'$periodo', ","'$observacionesReasignaciones', ",'"Recomendado", ',"'$fisicamenteE', ","'$aniosPeriodos__ingesos'"));
+				}
 	 				
-				$direccion1=VARIABLE__BACKEND."seguimiento/informes__altos/";
-
-				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombreDocumento);
-
-	 			$query="UPDATE poa_trimestrales SET estadoFR='$selects__superiores' WHERE idOrganismo='$organismoOculto__modal' AND tipoTrimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos';";
-
-	 			$inserta2=$objeto->getInsertaNormal('poa_seguimiento_recomienda_tecnicos', array("`idRecomendacionFuncionario`, ","`idFuncionario`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`trimestre`, ","`observacionesTecnicas`, ",'`tipo`, ','`fisicamente`, ','`perioIngreso`'),array("'$selects__superiores', ","'$organismoOculto__modal', ","'$fecha_actual', ","'$hora_actual', ","'$periodo', ","'$observacionesReasignaciones', ",'"Recomendado", ',"'$fisicamenteE', ","'$aniosPeriodos__ingesos'"));
+				
 
 	 		}else{
 

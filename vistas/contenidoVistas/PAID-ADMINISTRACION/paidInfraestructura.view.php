@@ -16,7 +16,7 @@
 
 		<!-- <?=$componentes->getLinksConfiguracion(["programaCargado"],["Programa"]);?> -->
 
-		<?=$componentes->getLinksConfiguracion(["itemsCargados"],["Items"]);?>
+		<?=$componentes->getLinksConfiguracion(["itemsCargados"],["Item Presupuestario"]);?>
 
 		<?=$componentes->getLinksConfiguracion(["objetivosEstrategicosCargados"],["Objetivos estratégicos"]);?>
 
@@ -34,7 +34,7 @@
 
 		<?=$componentes->getLinksConfiguracion(["tipoIntervencion"],["Tipo Intervención"]);?>
 
-		<?=$componentes->getLinksConfiguracion(["estadoPropiedad"],["Estado Propiedad"]);?>
+		<?=$componentes->getLinksConfiguracion(["estadoPropiedad"],["Estado de la Propiedad"]);?>
 
 	</section>
 
@@ -51,7 +51,7 @@
 
 <?=$componentesPaid->getModalConfiguracion("componentesCargado","Componente","componenteContent","agregarComponente","verComponente","tablaComponente",["Componente","Rubros","Indicadores"],"contenedorComponenteTabla");?>
 
-<?=$componentesPaid->getModalConfiguracion("itemsCargados","Ítem","itemContent","agregarItem","verItem","tablaItem__paid",["Item","Ítem presupuestario"],"contenedorItemTabla");?>
+<?=$componentesPaid->getModalConfiguracion("itemsCargados","Item Presupuestario ","itemContent","agregarItem","verItem","tablaItem__paid",["Item","Ítem presupuestario"],"contenedorItemTabla");?>
 
 <?=$componentesPaid->getModalConfiguracion("objetivosEstrategicosCargados","Objetivos Estratégicos","estrategicosContent","agregarEstrategicos","verEstrategicos","tablaEstrategicos",["Objetivo Estrategico"],"contenedorObjetivosEsTabla");?>
 
@@ -68,8 +68,11 @@
 <?=$componentesPaid->getModalConfiguracion("tipoIntervencion","Tipo Intervención","deporteContent","agregarTipoIntervencion","verTipoInfraestructura","tablatipoInfraestructura__paid",["Tipo"],"contenedorDeporteTabla");?>
 
 
-<?=$componentesPaid->getModalConfiguracion("estadoPropiedad","Estado Propiedad","modalidadContent","agregarEstPropiedad","verEstPropiedad","tablaEstadoPropiedad",["Estado Propiedad"],"contenedorModalidadTabla");?>
+<?=$componentesPaid->getModalConfiguracion("estadoPropiedad","Estado de la Propiedad","modalidadContent","agregarEstPropiedad","verEstPropiedad","tablaEstadoPropiedad",["Estado Propiedad"],"contenedorModalidadTabla");?>
 
+<?=$componentesPaid->getModalConfiguracion("rubrosEditaModalAc","Items Rubros","itemsRubrosContent","agregarItemsRubros","verItemsRubros","tablaItemsRubros",["Ítem"],"contenedorItemsTabla");?>
+
+<?=$componentesPaid->getModalConfiguracion("rubrosEditaModalComponentes","Rubros","rubrosContentPrincipal","agregarItemsRubrosContentPrincipal","verItemsRubrosContentPrincipal","tablaItemsRubrosContentPrincipal",["Ítem"],"contenedorRubosItemsPrincipalTabla");?>
 
 
 

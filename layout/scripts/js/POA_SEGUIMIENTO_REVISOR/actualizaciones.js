@@ -500,7 +500,7 @@
 
 				paqueteDeDatos.append('tipo','informacion__analistas__reasignar__seguimientos__ac__fisicas__in');	
 
-				let selects__superiores=$(".selects__superiores1").val();
+				let selects__superiores=$(".selects__superiores").val();
 				let organismoOculto__modal=$("#idOrganismo").val();
 				let periodo=$("#periodo").val();
 

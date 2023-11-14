@@ -47,4 +47,3 @@
 
 </div>
 
-<?=$componentesPaid->getModalAsignacion__paid("modalAsignarPre__paid","formAsignacion__paid");?>

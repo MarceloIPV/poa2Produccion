@@ -237,7 +237,7 @@ $(document).ready(function () {
         buscarFiltradoDataTable("#selectMesInicio","#selectMesFin",$("#tablaResumenTransferencias"));
  
         enviarCorreosPlazos("#actualizarBaseSuspensionCorreo","ddadads");
-
+        buscarPaginaDataTable( "#buscarPaginasFormativo",$("#seguimiento__tablas__acFisica__rendimientos"));
         
     });
 

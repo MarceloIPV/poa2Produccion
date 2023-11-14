@@ -61,7 +61,7 @@
 
 		case "paidReporteGeneralAR":
 
-			$query="SELECT b.nombreComponentes,d.nombreIndicadores,c.nombreRubros,f.itemPreesupuestario , f.nombreItem,e.enero,e.febrero,e.marzo,e.abril,e.mayo,e.junio,e.julio,e.agosto,e.septiembre,e.octubre,e.noviembre,e.diciembre,e.totalSumaItem FROM poa_paid_asignacion AS a INNER JOIN poa_paid_componentes AS b ON a.idComponentes=b.idComponentes INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros INNER JOIN poa_paid_indicadores AS d ON d.idIndicadores=b.idIndicador  INNER JOIN poa_paid_programacion_financiera as e on e.idRubro = c.idRubros INNER JOIN poa_paid_item as f on e.idItemSelector=f.idItem INNER JOIN poa_paid_catalogo_contraloria as g on g.idItem = f.idItem  WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.valor__comparativo='0'  ";
+			$query="SELECT b.nombreComponentes,d.nombreIndicadores,c.nombreRubros,f.itemPreesupuestario , f.nombreItem,e.enero,e.febrero,e.marzo,e.abril,e.mayo,e.junio,e.julio,e.agosto,e.septiembre,e.octubre,e.noviembre,e.diciembre,e.totalSumaItem FROM poa_paid_asignacion AS a INNER JOIN poa_paid_componentes AS b ON a.idComponentes=b.idComponentes  INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros INNER JOIN poa_paid_indicadores AS d ON d.idIndicadores=b.idIndicador  INNER JOIN poa_paid_programacion_financiera as e on e.idRubro = c.idRubros and a.idOrganismo = e.idOrganismo and a.perioIngreso = e.perioIngreso  INNER JOIN poa_paid_item as f on e.idItemSelector=f.idItem INNER JOIN poa_paid_catalogo_contraloria as g on g.idItem = f.idItem  WHERE a.idOrganismo='$idOrganismoSession' AND a.perioIngreso='$aniosPeriodos__ingesos' AND a.valor__comparativo='0'  ";
 
 			$dataTablets=$objeto->getDatatablets2($query);
 

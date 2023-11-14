@@ -1787,7 +1787,7 @@ class componentesPaid
 
 					  <div class='container-fluid pt-2 px-2 divIngresoIndormacionMemoInfra' style='display:none'>
 					  <div style='margin: 1em 0' >		
-						  <label>Información Memo </label>
+						  <label>Información Memorando</label>
 					  </div>
 
 					  <div class='row g-2'>
@@ -1795,11 +1795,11 @@ class componentesPaid
 						  <div class='form-group row'>
 							  <label class='col-sm-2 col-form-label col-form-label-sm'>MD-CAID- </label>
 							  <div class='col-sm-2'>
-							  <input type='text'  id='inputAnio' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Año'>
+							  <input type='number'  id='inputAnio' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Año'>
 							  </div>
 							  <label class='col-sm-1 col-form-label col-form-label-sm'>-</label>
 							  <div class='col-sm-2'>
-							  <input type='text' id='inputSerie' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Número'>
+							  <input type='number' id='inputSerie' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Número'>
 							  </div>
 							  <label class='col-sm-2 col-form-label col-form-label-sm'>-MEM </label>
 							  
@@ -1813,7 +1813,7 @@ class componentesPaid
 							  </div>
 							  <label class='col-sm-1 col-form-label col-form-label-sm'>de</label>
 							  <div class='col-sm-2'>
-							  <input type='text' id='inputMes' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Mes'>
+							  <input type='text' onkeydown='return /[a-z]/i.test(event.key)' id='inputMes' class='form-control form-control-sm' id='colFormLabelSm' placeholder='Mes'>
 							  </div>
 							  <label class='col-sm-1 col-form-label col-form-label-sm'>de</label>
 							  <div class='col-sm-2'>

@@ -1800,15 +1800,15 @@ class usuarioAcciones{
 				$mail->isSMTP();                                            // Send using SMTP
 				$mail->Host       = 'smtp.office365.com';                    // Set the SMTP server to send through
 				$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-				$mail->Username   = 'distribucion@deporte.gob.ec';                     // SMTP username
-				$mail->Password   =  'Pr0t3cc10NM1nD3p1811$$';                            // SMTP password
+				$mail->Username   = 'notificacion@deporte.gob.ec';                     // SMTP username
+				$mail->Password   =  'M$i$n$i$s$t$e$r$i$o2024';                            // SMTP password
 				$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 				$mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
 
 				$mail->CharSet = 'UTF-8';
 				//Recipients
-				$mail->setFrom('distribucion@deporte.gob.ec', 'Ministerio del Deporte');
+				$mail->setFrom('notificacion@deporte.gob.ec', 'Ministerio del Deporte');
 
 			for ($i=0; $i < count($parametro1); $i++) { 
 				

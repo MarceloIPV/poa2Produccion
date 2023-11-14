@@ -541,7 +541,6 @@
 
 		}
 
-
 		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados__instalaciones__2($parametro1,$parametro2,$parametro3){
 
 			$modal="
@@ -706,7 +705,8 @@
 
 			return $modal;
 
-		}		
+		}	
+	
 
 
 		public function get__modal__plantilla__inicios__seguimientos__actividad__fisica__ins($parametro1,$parametro2,$parametro3){
