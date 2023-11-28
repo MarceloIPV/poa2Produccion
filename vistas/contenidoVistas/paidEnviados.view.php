@@ -58,3 +58,4 @@
 <?=$componentes->modalReenvioPaid__datatablets__inicial("necesidadesGeneralesModal","form__necesidadesGenerales__eventosM","paidNecesidadesGenerales__revisor",["Modalidad","Articulo","Cantidad","Valor unitario","Valor total"]);?>
 
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoModal","form__ecnuentro__eventosM","paidEncuentroAc__revisor",["Nombre","Sede","Institución","Fecha inicio","Fecha fin","Deporte","Categoría","Mujeres","Hombres","Entrenadores","Valor total","Observaciones"]);?>
+

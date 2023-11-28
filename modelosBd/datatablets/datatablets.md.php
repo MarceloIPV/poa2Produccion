@@ -401,7 +401,7 @@
 
 		case "tablaItemsRubros":
 
-			$query="SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.idRubrosItems FROM poa_paid_rubros_items AS a INNER JOIN poa_item AS b ON a.idItem=b.idItem INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros WHERE c.identificador='$datos[1]';";
+			$query="SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.nombreItem, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreItem,a.idRubrosItems FROM poa_paid_rubros_items AS a INNER JOIN poa_item AS b ON a.idItem=b.idItem INNER JOIN poa_paid_rubros AS c ON c.idRubros=a.idRubros WHERE c.identificador='$datos[1]' and a.idRubros='$datos[0]';";
 
 			$dataTablets=$objeto->getDatatablets2($query);
 

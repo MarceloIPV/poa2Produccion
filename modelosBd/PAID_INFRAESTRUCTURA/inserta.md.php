@@ -93,15 +93,14 @@
 			$conexionRecuperada= new conexion();
 	 		$conexionEstablecida=$conexionRecuperada->cConexion();	
 
-				$nombreDocumento=$nombreArchivo."__".$idOrganismoSession."__".$fecha_actual."__".$hora_actual2.".pdf";
+				$nombreDocumentoGuardar=$nombreArchivo."__".$idOrganismoSession."__".$fecha_actual."__".$hora_actual2.".pdf";
 
 				$direccion1=VARIABLE__BACKEND."paid/informes__infraestructura/";
-
-
-				if(rename($_FILES["nombreDocumento"]['tmp_name'],$direccion1.$nombreDocumento)){
+				
+				if(rename($_FILES["nombreDocumento"]['tmp_name'],$direccion1.$nombreDocumentoGuardar)){
 					$mensaje=1;
 
-					$inserta= $objeto->insertSingleRow('poa_paid_informes_infraestructura',['documento','valorTotal','idOrganismo','idComponente','idRubro','perioIngreso','identificador','fecha','tipo'],array(':documento' => $nombreDocumento,':valorTotal' => $valorTotal,':idOrganismo' => $idOrganismoSession,':idComponente' => $idComponente,':idRubro' => $idRubro,':perioIngreso' => $aniosPeriodos__ingesos,':fecha' => $fecha_actual,':identificador' => '2',':tipo' => 'obra'));
+					$inserta= $objeto->insertSingleRow('poa_paid_informes_infraestructura',['documento','valorTotal','idOrganismo','idComponente','idRubro','perioIngreso','identificador','fecha','tipo'],array(':documento' => $nombreDocumentoGuardar,':valorTotal' => $valorTotal,':idOrganismo' => $idOrganismoSession,':idComponente' => $idComponente,':idRubro' => $idRubro,':perioIngreso' => $aniosPeriodos__ingesos,':fecha' => $fecha_actual,':identificador' => '2',':tipo' => 'obra'));
 
 				}else{
 					$mensaje=0;
@@ -120,15 +119,15 @@
 			$conexionRecuperada= new conexion();
 	 		$conexionEstablecida=$conexionRecuperada->cConexion();	
 
-				$nombreDocumento=$nombreArchivo."__".$idOrganismoSession."__".$fecha_actual."__".$hora_actual2.".pdf";
+				$nombreDocumento1=$nombreArchivo."__".$idOrganismoSession."__".$fecha_actual."__".$hora_actual2.".pdf";
 
 				$direccion1=VARIABLE__BACKEND."paid/informes__infraestructura/";
 
 
-				if(rename($_FILES["nombreDocumento"]['tmp_name'],$direccion1.$nombreDocumento)){
+				if(rename($_FILES["nombreDocumento"]['tmp_name'],$direccion1.$nombreDocumento1)){
 					$mensaje=1;
 
-					$inserta= $objeto->insertSingleRow('poa_paid_informes_infraestructura',['documento','valorTotal','idOrganismo','idComponente','idRubro','perioIngreso','identificador','fecha','tipo'],array(':documento' => $nombreDocumento,':valorTotal' => $valorTotal,':idOrganismo' => $idOrganismoSession,':idComponente' => $idComponente,':idRubro' => $idRubro,':perioIngreso' => $aniosPeriodos__ingesos,':fecha' => $fecha_actual,':identificador' => '2',':tipo' => 'fiscalizacion'));
+					$inserta= $objeto->insertSingleRow('poa_paid_informes_infraestructura',['documento','valorTotal','idOrganismo','idComponente','idRubro','perioIngreso','identificador','fecha','tipo'],array(':documento' => $nombreDocumento1,':valorTotal' => $valorTotal,':idOrganismo' => $idOrganismoSession,':idComponente' => $idComponente,':idRubro' => $idRubro,':perioIngreso' => $aniosPeriodos__ingesos,':fecha' => $fecha_actual,':identificador' => '2',':tipo' => 'fiscalizacion'));
 
 				}else{
 					$mensaje=0;
@@ -137,6 +136,39 @@
 			
 
 			
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
+
+		case  "guardar__beneficiarios__infraestructura":
+
+			$conexionRecuperada= new conexion();
+	 		$conexionEstablecida=$conexionRecuperada->cConexion();	
+		
+		
+			$inserta= $objeto->insertSingleRow('poa_paid_beneficiarios_infraestructura',['rangoDesde','rangoHasta','masculino','femenino','mestizo','montubio','indigena','blanco','afro','totalBeneficiarios','idOrganismo','idComponente','idRubro','perioIngreso','identificador','fecha','tipo'],array(':rangoDesde' => $rangoDesde,':rangoHasta' => $rangoHasta,':masculino' => $masculino,':femenino' => $femenino,':mestizo' => $mestizo,':montubio' => $montubio,':indigena' => $indigena,':blanco' => $blanco,':afro' => $afro,':totalBeneficiarios' => $beneficiariosTotal,':idOrganismo' => $idOrganismoSession,':idComponente' => $idComponente,':idRubro' => $idRubro,':perioIngreso' => $aniosPeriodos__ingesos,':fecha' => $fecha_actual,':identificador' => '2',':tipo' => $tipoInforme));
+
+			$mensaje=1;
+				
+
+			$jason['mensaje']=$mensaje;		
+	 		
+
+		break;
+
+		case  "guardar__beneficiarios__adaptado__infraestructura":
+
+			$conexionRecuperada= new conexion();
+	 		$conexionEstablecida=$conexionRecuperada->cConexion();	
+		
+		
+			$inserta= $objeto->insertSingleRow('poa_paid_beneficiariosAdaptado_infraestructura',['rangoDesde','rangoHasta','masculino','femenino','mestizo','montubio','indigena','blanco','afro','visual','auditivo','multisensorial','intelectual','fisica','psiquica','totalBeneficiarios','idOrganismo','idComponente','idRubro','perioIngreso','identificador','fecha','tipo'],array(':rangoDesde' => $rangoDesde,':rangoHasta' => $rangoHasta,':masculino' => $masculino,':femenino' => $femenino,':mestizo' => $mestizo,':montubio' => $montubio,':indigena' => $indigena,':blanco' => $blanco,':afro' => $afro,':visual' => $visual,':auditivo' => $auditivo,':multisensorial' => $multisensorial,':intelectual' => $intelectual,':fisica' => $fisico,':psiquica' => $psiquico,':totalBeneficiarios' => $beneficiariosTotal,':idOrganismo' => $idOrganismoSession,':idComponente' => $idComponente,':idRubro' => $idRubro,':perioIngreso' => $aniosPeriodos__ingesos,':fecha' => $fecha_actual,':identificador' => '2',':tipo' => $tipoInforme));
+
+			$mensaje=1;
+				
+
 			$jason['mensaje']=$mensaje;		
 	 		
 

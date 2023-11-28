@@ -30,6 +30,34 @@ var superioresSelectsContratacionPublica=function(parametro1){
 
 }
 
+
+var superioresSelects__regresar__2023=function(parametro1){
+
+	let idUsuarioC=$("#idUsuarioC").val();
+	let idRolAd=$("#idRolAd").val();
+
+	indicador=58;
+
+	$.ajax({
+
+	  data: {indicador:indicador,idUsuarioC:idUsuarioC,idRolAd:idRolAd},
+      dataType: 'html',
+      type:'POST',
+	  url:'modelosBd/validaciones/selector.modelo.php'
+
+	}).done(function(lista_tipo__organismos){
+
+	  $(parametro1).html(lista_tipo__organismos);
+
+
+	}).fail(function(){
+
+	  
+
+	});
+
+}
+
 /*=====  End of Selects superiores  ======*/
 
 

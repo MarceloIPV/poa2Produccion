@@ -88,13 +88,22 @@ $(document).ready(function () {
 
         informacion__analistas__reasignar__altos__infra__in2023($("#reasignarSeguimientos__a__actividad__fisicas__in2023"));	
 		informacion__analistas__reasignar__altos__infra__in__regresa2023($("#regresarSeguimientos__a__actividad__fisicas__in2023"));
-        
+
+        informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__real__infra__2023($("#devolver__altosReComendados__f__r__s__infraestructurasCoor"));	
+        informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__real__infra__24__recomiendas__directores__i2023($("#recomienda__coordinai__directores__2023"));	
+        informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__59__in2023($("#regresar__areas__tecnicas__seguimientos__infraens__2023"));	
+        informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos2023($("#regresar__areas__tecnicas__seguimientos2023"));	
+        informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__59__financiero2023($("#regresar__areas__tecnicas__seguimientos__financiero__2023"));	
+	
+		
+
     });
 
 
    $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/selector.js",function(){
 
     superioresSelectsContratacionPublica($("#selects__superiores1"));
+    superioresSelects__regresar__2023($("#selects__superiores__regresar1"));
 
     agregarDatatablets__competencia__seguimientos2023($("#competencia__in__2"),$(".seguimiento__competencia__2"),"seguimiento__competencia__2"); 
 

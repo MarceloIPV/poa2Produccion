@@ -468,3 +468,145 @@ var AsignarMontoPlanificadosGENERAInfra = function (tipo,valoren0, idComponente,
 
 
 }
+
+
+var funcion__abrirDatatableAnexosDocumentos__paid_infraestructura=function(tbody,tabla,classBtn,titulo){
+
+    
+    $(tbody).on("click","a."+classBtn,function(e){
+
+        
+        e.preventDefault();
+
+        let data=tabla.DataTable().row($(this).parents("tr")).data();
+        var size=tabla.DataTable().rows().count();
+
+        $("#tituloModalDocumentosInfraestructura").text(titulo);
+
+        var cuerpo = document.getElementById('divDocumentosInfraestructura');
+  
+        $("#divDocumentosInfraestructura div").remove();
+       
+  
+         
+
+        if(titulo.includes("Obra")){
+    
+            cuerpo.insertAdjacentHTML('beforeend','<div><centre><table id="anexosInfraestructura"><thead><tr><th>Número</th><th>Documento</th><th>Tipo</th></tr></thead><tbody id="anexosInfraestructuraTbody"></tbody></table></centre></div>');
+
+            datatabletsPaidInfraestructuraVacio($("#anexosInfraestructura"),"anexosInfraestructura","s",objetosPaidInfraestructura2023([1],["enlace"],[1],[$("#filesFrontend").val()+"paid/documentos__infraestructura/"],[1]),[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
+        
+        }else if(titulo.includes("Directos")){
+
+            cuerpo.insertAdjacentHTML('beforeend','<div><centre><table id="beneficiarioDirectoInfraestructura"><thead><tr><th>Rango Desde</th><th>Rango Hasta</th><th>Masculino</th><th>Femenino</th><th>Mestizo</th><th>Montubio</th><th>Indigena</th><th>Blanco</th><th>Afro</th><th>Total Beneficiarios</th></tr></thead><tbody id="beneficiarioDirectoInfraestructuraTbody"></tbody></table></centre></div>');
+
+            datatabletsPaidInfraestructuraVacio($("#beneficiarioDirectoInfraestructura"),"beneficiarioDirectoInfraestructura","s",false,[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
+
+        }else if(titulo.includes("Adaptado")){
+
+            cuerpo.insertAdjacentHTML('beforeend','<div><centre><table id="beneficiarioAdaptadoInfraestructura"><thead><tr><th>Rango Desde</th><th>Rango Hasta</th><th>Masculino</th><th>Femenino</th><th>Mestizo</th><th>Montubio</th><th>Indigena</th><th>Blanco</th><th>Afro</th><th>Visual</th><th>Auditivo</th><th>Multisensorial</th><th>Intelectual</th><th>Física</th><th>Psiquico</th><th>Total Beneficiarios</th></tr></thead><tbody id="beneficiarioAdaptadoInfraestructuraTbody"></tbody></table></centre></div>');
+
+            datatabletsPaidInfraestructuraVacio($("#beneficiarioAdaptadoInfraestructura"),"beneficiarioAdaptadoInfraestructura","s",false,[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
+
+        }else if(titulo.includes("Fiscalización")){
+    
+            cuerpo.insertAdjacentHTML('beforeend','<div><centre><table id="anexosInfraestructuraFiscalizacion"><thead><tr><th>Número</th><th>Documento</th><th>Tipo</th></tr></thead><tbody id="anexosInfraestructuraTbody"></tbody></table></centre></div>');
+
+            datatabletsPaidInfraestructuraVacio($("#anexosInfraestructuraFiscalizacion"),"anexosInfraestructuraFiscalizacion","s",objetosPaidInfraestructura2023([1],["enlace"],[1],[$("#filesFrontend").val()+"paid/documentos__infraestructura/"],[1]),[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
+        
+        }
+      
+        // var cuerpo1 = document.getElementById("theadTabla");
+        // for(let i=0;i<titulos.length;i++){
+        //   cuerpo1.insertAdjacentHTML('beforeend','<th><center>'+titulos[i]+'</center></th>');
+        // }
+  
+        // var paqueteDeDatos = new FormData();
+  
+        // paqueteDeDatos.append('tipo',tipo);
+        // paqueteDeDatos.append('mes',mes);
+        // paqueteDeDatos.append('idOrganismos',idOrganismo);
+        // paqueteDeDatos.append('trimestres',trimestre);
+        // paqueteDeDatos.append('item',item);
+
+        // $.ajax({
+    
+        //     type:"POST",
+        //     url:"modelosBd/PAID_INFRAESTRUCTURA/selector.md.php",
+        //     contentType: false,
+        //     data:paqueteDeDatos,
+        //     processData: false,
+        //     cache: false, 
+        //     async: false,
+        //     success:function(response){
+
+        //     if(titulo.includes("Facturas")){
+    
+        //         var elementos=JSON.parse(response);
+    
+        //         var indicadorInformacionFacturasModal=elementos['indicadorInformacionFacturasModal'];
+                
+        //         console.log(indicadorInformacionFacturasModal)
+            
+        //         for (l of indicadorInformacionFacturasModal) {
+                    
+        //             $("#"+idTbody).append('<tr class="fila__corresponsal fila__fac__'+l.idFacturaInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/facturasImplementacion/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.numeroFactura+'</td><td>'+l.fechaFactura+'</td><td>'+l.ruc+'</td><td>'+l.autorizacion+'</td><td>'+l.monto+'</td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" name="eliminarInfor__factureros__competencias'+l.idFacturaInstalaciones+'" idPrincipal="'+l.idFacturaInstalaciones+'" idContador="'+l.idFacturaInstalaciones+'" class="eliminar__ides eliminarIdes__competencia"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');
+    
+        //             $(".eliminarIdes__competencia").click(function(e) {
+    
+        //             let idContador=$(this).attr('idContador');
+        //             let idPrincipal=$(this).attr('idPrincipal');
+                        
+        //             funcion__eliminar__general(idPrincipal,'eliminar__implementacion__seguimmientos__facturas');
+    
+        //             }); 
+    
+    
+    
+        //         }
+    
+            
+    
+    
+        //     }else if(titulo.includes("Documentos")){
+    
+        //         var elementos=JSON.parse(response);
+    
+        //         var indicadorInformacionDocumentosModal=elementos['indicadorInformacionDocumentosModal'];
+                
+        //         console.log(indicadorInformacionDocumentosModal)
+            
+        //         for (l of indicadorInformacionDocumentosModal) {
+                    
+        //             $("#"+idTbody).append('<tr class="fila__corresponsal fila__otros__administrativos__'+l.idOtrosInstalaciones+'"><td>'+l.itemPreesupuestario+'</td><td>'+l.nombreItem+'</td><td><a href="'+$("#filesFrontend").val()+'seguimiento/otrosInstalaciones/'+l.documento+'" target="_blank">'+l.documento+'</a></td><td>'+l.mes+'</td><td>'+l.trimestre+'</td><td><nav class="btn-pluss-wrapper"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="eliminarInfor__otros'+l.idOtrosInstalaciones+'" name="eliminarInfor__otros'+l.idOtrosInstalaciones+'" idPrincipal="'+l.idOtrosInstalaciones+'" idContador="'+l.idOtrosInstalaciones+'" class="eliminar__ides"><i class="fa fa-trash" aria-hidden="true"></i></a></li></ul></div></nav></td></tr>');			
+                                        
+    
+        //             $(".eliminar__ides").click(function(e) {
+    
+        //             let idContador=$(this).attr('idContador');
+        //             let idPrincipal=$(this).attr('idPrincipal');
+                    
+        //             funcion__eliminar__general(idPrincipal,'eliminar__otros__implementacion');
+    
+        //             }); 			
+    
+        //         }
+    
+    
+    
+        //     }
+
+        //     },
+        //     error:function(){
+    
+            
+    
+        //     }
+            
+        // });
+  
+
+        
+    });
+        
+}

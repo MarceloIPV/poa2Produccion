@@ -1096,6 +1096,16 @@ var funcion__reasignar__contratacion_publica__unidos__altos__recomendados2023=fu
   
                   $("#selects__superiores__regresar__coors").remove();
                   $("#selects__superiores__subsess").remove();
+
+                  
+
+                  if(parseInt(zonal__eu) > 1 && parseInt(zonal__eu) < 10){
+
+                    $(".direccion__seguimientos__ocultos").hide();
+
+                    $(".ocultosZonalesCoordinadorRecomendar").show();
+                    
+                  }
   
   
               }else if (zonal__eu==1 || zonal__eu=="1") {
@@ -3155,7 +3165,7 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
    
 	   if ($("#idRolAd").val()==4) {
    
-		   $(".recomendar__final__ins").show();
+		   $(".recomendar__final__ins").remove();
 		   // $(".recomendar__ins__ins").remove();
    
 		   $(".eliminados__al__de").remove();
@@ -3180,70 +3190,150 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
    
 			   let elementos=JSON.parse(response);
    
-			   let envio__tecnicos__seguimientos__infraestructuras=elementos['envio__tecnicos__seguimientos__infraestructuras'];			
-   
+			   let envio__tecnicos__seguimientos__infraestructuras=elementos['envio__tecnicos__seguimientos__infraestructuras'];
+               let envio__tecnicos__seguimientos__instalaciones=elementos['envio__tecnicos__seguimientos__instalaciones'];				
+               
 			   let estadoIR__estados=elementos['estadoIR__estados'];
 			   let estadoINR__estados=elementos['estadoINR__estados'];
+               let estadoI__estados=elementos['estadoI__estados'];
+			   let estadoIN__estados=elementos['estadoIN__estados'];
    
 			   let bandera__instalaciones1=false;
 			   let bandera__infraestructuras1=false;
    
-            alert($("#idRolAd").val())
-			   if ($("#idRolAd").val()==4) {
+                if ($("#idRolAd").val()==4) {
+                    
+                    $(".recomendar__ins__ins").remove();
+                    $(".eliminados__al__coordinador").show();
+                    $(".recomendar__ins__coordinador").show();
+
+                    if($("#fisicamenteE").val()>26 && $("#fisicamenteE").val()<34){
+                        
+                        $(".selects__superiores__regresar").hide();
+                        $(".ocultosZonalesCoordinadorRecomendar").show();
+                    }
+
+                    console.log(envio__tecnicos__seguimientos__instalaciones.length)
+
+                    if(envio__tecnicos__seguimientos__instalaciones.length <=0){
+                        if (estadoINR__estados==null && estadoIN__estados==null) {
+        
+                            $("#documentos__tecnicos__t__infras__instalaciones").text('NO CORRESPONDE');
+    
+                            bandera__instalaciones1=true;
+                            $(".documento__insta__coordinador").hide();
+
+                        }else if($("#idUsuarioC").val()==estadoINR__estados){
+    
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
+    
+                            bandera__instalaciones1=true;
+    
+                            
+                        }else{
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").text("NO PRESENTA");
+    
+                            bandera__infraestructuras1=false;
+                            $(".documento__insta__coordinador").hide();
+    
+                        }
+                    }
+
+                    if(envio__tecnicos__seguimientos__instalaciones.length <=0){
+                        if (estadoINR__estados==null && estadoIN__estados==null) {
+        
+                            $("#documentos__tecnicos__t__infras__instalaciones").text('NO CORRESPONDE');
+    
+                            bandera__instalaciones1=true;
+                            $(".documento__insta__coordinador").hide();
+
+                        }else if($("#idUsuarioC").val()==estadoINR__estados){
+    
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
+    
+                            bandera__instalaciones1=true;
+    
+                            
+                        }else{
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").text("NO PRESENTA");
+    
+                            bandera__infraestructuras1=false;
+                            $(".documento__insta__coordinador").hide();
+    
+                        }
+                    }
    
-				 $(".recomendar__final__ins").show();
-   
-				for (z of envio__tecnicos__seguimientos__infraestructuras) {
-   
-				   if (estadoIR__estados=="N/A") {
-   
-						$("#documentos__tecnicos__t__infras").text('NO CORRESPONDE');
-   
-						bandera__infraestructuras1=true;
-   
-				   }else if($("#idUsuarioC").val()==estadoIR__estados){
-   
-					   $("#documentos__tecnicos__t__infras").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
-   
-						$("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
-   
-					   bandera__infraestructuras1=true;
-   
-				   }else{
-   
-						$("#documentos__tecnicos__t__infras").text("NO PRESENTA");
-   
-						 bandera__infraestructuras1=false;
-   
-				   }
-   
-   
-				  if (estadoINR__estados=="N/A") {
-   
-						$("#documentos__tecnicos__t__infras__instalaciones").text('NO CORRESPONDE');
-   
-						 bandera__instalaciones1=true;
-   
-				   }else if($("#idUsuarioC").val()==estadoINR__estados){
-   
-   
-						$("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
-   
-						 $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
-   
-						 bandera__instalaciones1=true;
-   
-   
-				   }else{
-   
-						$("#documentos__tecnicos__t__infras__instalaciones").text("NO PRESENTA");
-   
-						 bandera__infraestructuras1=false;
-   
-   
-				   }
-   
-			   }
+                    for (z of envio__tecnicos__seguimientos__instalaciones) {
+
+                        if (estadoINR__estados==null && estadoIN__estados==null) {
+        
+                            $("#documentos__tecnicos__t__infras__instalaciones").text('NO CORRESPONDE');
+    
+                            bandera__instalaciones1=true;
+                            $(".documento__insta__coordinador").hide();
+
+                        }else if($("#idUsuarioC").val()==estadoINR__estados){
+    
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
+    
+                            bandera__instalaciones1=true;
+    
+                            
+                        }else{
+    
+                            $("#documentos__tecnicos__t__infras__instalaciones").text("NO PRESENTA");
+    
+                            bandera__infraestructuras1=false;
+                            $(".documento__insta__coordinador").hide();
+    
+                        }
+                    }
+
+                    for (z of envio__tecnicos__seguimientos__infraestructuras) {
+    
+                        if (estadoIR__estados==null && estadoI__estados==null) {
+        
+                                $("#documentos__tecnicos__t__infras").text('NO CORRESPONDE');
+        
+                                bandera__infraestructuras1=true;
+
+                               
+                                $(".documento__infra__coordinador").hide();
+
+                                
+
+        
+                        }else if($("#idUsuarioC").val()==estadoIR__estados){
+        
+                            $("#documentos__tecnicos__t__infras").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
+        
+                                $("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
+        
+                            bandera__infraestructuras1=true;
+        
+                        }else{
+        
+                                $("#documentos__tecnicos__t__infras").text("NO PRESENTA");
+        
+                                bandera__infraestructuras1=false;
+                                $(".documento__infra__coordinador").hide();
+                        }
+        
+        
+                       
+        
+                    }
    
 				   if (bandera__infraestructuras1==false) {
    
@@ -3253,54 +3343,82 @@ var funcion__reasignar__seguimientos__recorridos2023=function(tbody,table){
 						$(".acciones__recomendaciones__finales").show();
 				   }
    
-				   $(".eliminados__al__de").remove();
+				   
    
-				 }else if($("#idRolAd").val()==2){
-   
-   
-				   if ($("#fisicamenteE").val()==6) {
-   
-						for (z of envio__tecnicos__seguimientos__infraestructuras) {
-   
-						   $("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
-   
-						   $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
-					   }
+				}else if($("#idRolAd").val()==2){
    
    
-					   // $(".insfraestructuras__re").remove(); 
+                    if ($("#fisicamenteE").val()==6) {
+
+                        
+                        $(".insfraestructuras__re").remove();
+    
+                        for (z of envio__tecnicos__seguimientos__infraestructuras) {
+    
+    
+                            $("#documentos__tecnicos__t__infras").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
+    
+                            $("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
+    
+                        }
+
+                        for (z of envio__tecnicos__seguimientos__instalaciones) {
+
+                         
+        
+                                $("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+        
+                                $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
+        
+                                bandera__instalaciones1=true;
+        
+                          
+                        }
+    
+    
+                        // $(".insfraestructuras__re").remove(); 
+    
+                    }else{
+    
+                        $(".instalaciones__re").remove();
+    
+                        
+                        
+                        for (z of envio__tecnicos__seguimientos__infraestructuras) {
+    
+    
+                            $("#documentos__tecnicos__t__infras").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
+    
+                            $("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
+    
+                        }
+
+                        for (z of envio__tecnicos__seguimientos__instalaciones) {
+
+                         
+        
+                                $("#documentos__tecnicos__t__infras__instalaciones").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInstalaciones/'+z.documentoInstalaciones);
+        
+                                $("#documentos__tecnicos__t__infras__instalaciones").text('INFORME INSTALACIONES');
+        
+                                bandera__instalaciones1=true;
+        
+                          
+                        }
+    
+    
+    
+                    }
    
-				   }else{
+					$(".eliminados__al__de").show();
    
-					   $(".instalaciones__re").remove();
-   
-					 
-					  
-					  for (z of envio__tecnicos__seguimientos__infraestructuras) {
-   
-   
-                        $("#documentos__tecnicos__t__infras").attr('href',''+$("#filesFrontend").val()+'seguimiento/informesInfraestructuras/'+z.documentoInfras);
-   
-                        $("#documentos__tecnicos__t__infras").text("INFORME INFRAESTRUCTURA");
-   
-					  }
-   
-   
-				   }
-   
-					$(".eliminados__al__de").remove();
-   
-				   $(".recomendar__ins__ins").show();
+                    $(".recomendar__ins__ins").show();
    
    
    
-				 }
+				}
    
-			   if($("#fisicamenteE").val()=="27" || $("#fisicamenteE").val()=="28" || $("#fisicamenteE").val()=="29" || $("#fisicamenteE").val()=="30" || $("#fisicamenteE").val()=="31" || $("#fisicamenteE").val()=="32" || $("#fisicamenteE").val()=="33" || $("#fisicamenteE").val()=="34" || $("#fisicamenteE").val()=="35" || $("#fisicamenteE").val()=="36" || $("#fisicamenteE").val()=="37"){
-   
-					$(".recomendar__ins__ins").show();
-   
-			   }
+			
    
    
 			   $("#organismoOculto__modal").val(data[9]);
@@ -4482,13 +4600,18 @@ var funcion__reasignar__seguimientos__unidos2023=function(tbody,table){
   
 					  });
   
-  
+                      sumaPor=0;
+                      contaPorcentaje=0;
+                      $(".porcs__esigeftes").each(function () {
+                        sumaPor += parseFloat($(this).val());
+                        contaPorcentaje = contaPorcentaje+1
+                      });
   
 					  $("#montosExig").val(parseFloat(sum).toFixed(2));
   
 					  per2=(parseFloat(sum)/parseFloat(programadoAB)) * 100;
   
-					  $("#procentajeExigefSas").val(parseFloat(per2).toFixed(2));
+					  $("#procentajeExigefSas").val(parseFloat(sumaPor/contaPorcentaje).toFixed(2));
   
 					  $("#arrayEsigefts").val(esigefA1);
 					  $("#arrayPorcenEsigefts").val(porcentajeExigefA1);
@@ -8370,6 +8493,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
                 
                 $(".faltantes_documentos_financieros").show();
             }
+            
             if(varaible__culminados=="" && varaible__culminados==" " && varaible__culminados==undefined && varaible__culminados==null){
                 
                 $(".faltantes_documentos_tecnicos").show();
@@ -8460,7 +8584,7 @@ var funcion__reasignar__seguimientos__unidos__seguimientos__seguimientos__recome
               }else{
   
                   $(".oculto__subsess__deseados").hide();
-  
+                  $(".faltantes_documentos_tecnicos").show();
                   $(".clases__puedes__recomendares").text("FALTA EL INFORME DEL ÁREA TÉCNICA");
   
   
@@ -8571,7 +8695,7 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe2023=f
                 }
     
     
-                if($("#idRolAd").val()==7){
+                if($("#idRolAd").val()==7 || $("#idRolAd").val()==4){
     
                     $(".direccion__seguimientos__ocultos").show();
     
@@ -8580,6 +8704,11 @@ var funcion__reasignar__seguimientos__unidos__altos__recomendados__formaRe2023=f
     
                     $("#selects__superiores__regresar__coors").remove();
                     $("#selects__superiores__subsess").remove();
+
+                    if(parseInt(zonal__eu)>1 && parseInt(zonal__eu)<10){
+                        $(".direccion__seguimientos__ocultos").hide();
+                        $(".ocultosZonalesCoordinadorRecomendar").show();
+                    }
     
     
                 }else if (zonal__eu==1 || zonal__eu=="1") {

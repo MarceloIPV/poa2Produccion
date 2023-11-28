@@ -17,7 +17,7 @@
 					<th><center>JURISDICCIÓN</center></th>
 					<th><center>RUC</center></th>
 					<th><center>ORGANISMO DEPORTIVO</center></th>
-					<th><center>SEEMESTRE</center></th>
+					<th><center>SEMESTRE</center></th>
 					<th><center>ESIGEF</center></th>
 					<th><center>REVISAR</center></th>
 

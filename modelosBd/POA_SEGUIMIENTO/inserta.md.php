@@ -803,105 +803,124 @@
 
 
 		//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  COntratacion Recursos Publicos >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-		case  "consulta_datos_exite_pdf_contratacion_recursos_publicos":
+		case  "guardar_declaracion_recusos":
 		
 			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento, fecha, perioIngreso, trimestre as listaTrimestres FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY idDeclaracion DESC;");
 
-			
+			if($obtenerInformacion[0][documento] != null){
 
-			$jason['obtenerInformacion']=$obtenerInformacion;
+				$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY idDeclaracion DESC;");
+
+				$archivo = $obtenerInformacion[0][documento];
+
+				$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_recursos_publicos/";
+
+				unlink($direccion1.$archivo);
+
+					$conexionRecuperada= new conexion();
+					$conexionEstablecida=$conexionRecuperada->cConexion();	
+					$query="DELETE FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre'";		
+
+					$resultado= $conexionEstablecida->exec($query);
+			
+					$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
+					$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_recursos_publicos/";
+					$documento=$objeto->getEnviarPdf($_FILES["declaracion_rp"]['type'],$_FILES["declaracion_rp"]['size'],$_FILES["declaracion_rp"]['tmp_name'],$_FILES["declaracion_rp"]['name'],$direccion1,$nombre__archivo);
+				
+
+					$conexionRecuperada= new conexion();
+					$conexionEstablecida=$conexionRecuperada->cConexion();			
+				
+						$query="INSERT INTO `poa_seguimiento_declaracion`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`, `hora`) VALUES ('$nombre__archivo','$idOrganismo','$fecha_actual','$trimestre','$aniosPeriodos__ingesos','$hora_actual')";		
+					
+					$resultado= $conexionEstablecida->exec($query);
+				
+						
+			}else{
+
+					$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
+					$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_recursos_publicos/";
+					$documento=$objeto->getEnviarPdf($_FILES["declaracion_rp"]['type'],$_FILES["declaracion_rp"]['size'],$_FILES["declaracion_rp"]['tmp_name'],$_FILES["declaracion_rp"]['name'],$direccion1,$nombre__archivo);
+				
+
+					$conexionRecuperada= new conexion();
+					$conexionEstablecida=$conexionRecuperada->cConexion();			
+				
+						$query="INSERT INTO `poa_seguimiento_declaracion`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`, `hora`) VALUES ('$nombre__archivo','$idOrganismo','$fecha_actual','$trimestre','$aniosPeriodos__ingesos','$hora_actual')";		
+					
+					$resultado= $conexionEstablecida->exec($query);
+
+			}
+
+				$mensaje=1;
+				$jason['mensaje']=$mensaje;	
+
 
 		break;	
 
-		case  "eliminar_declaracion_recusos":
-
-			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY idDeclaracion DESC;");
-
-			$archivo = $obtenerInformacion[0][documento];
-
-			$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_recursos_publicos/";
-
-			unlink($direccion1.$archivo);
-
-			$conexionRecuperada= new conexion();
-			$conexionEstablecida=$conexionRecuperada->cConexion();	
-				$query="DELETE FROM poa_seguimiento_declaracion WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre'";		
-
-			$resultado= $conexionEstablecida->exec($query);
-		
-				$mensaje=1;
-				$jason['mensaje']=$mensaje;	
-		break;
+	
 
 		//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  COntratacion Publica >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-		case  "consulta_datos_exite_pdf_contratacion__publicaa":
+		case  "guardar_contratacion__publica":
 			//var_dump("INFO");
 			//var_dump($obtenerInformacion);
 			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento, fecha, perioIngreso, trimestre as listaTrimestres2 FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY id_declaracion_contratacion_publica DESC;
 			");
 
-			$jason['obtenerInformacion']=$obtenerInformacion;
+			if($obtenerInformacion[0][documento] != null){
+
+				$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY id_declaracion_contratacion_publica DESC;
+				");
+	
+	
+				$archivo = $obtenerInformacion[0][documento];
+				
+				$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_contratacion_publica/";
+	
+				unlink($direccion1.$archivo);
+	
+				$conexionRecuperada= new conexion();
+				$conexionEstablecida=$conexionRecuperada->cConexion();	
+					$query="DELETE FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre'";		
+	
+					$resultado= $conexionEstablecida->exec($query);
+			
+				
+					$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
+					$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_contratacion_publica/";
+					$documento=$objeto->getEnviarPdf($_FILES["declaracion_cp"]['type'],$_FILES["declaracion_cp"]['size'],$_FILES["declaracion_cp"]['tmp_name'],$_FILES["declaracion_cp"]['name'],$direccion1,$nombre__archivo);
+					
+					$conexionRecuperada= new conexion();
+					$conexionEstablecida=$conexionRecuperada->cConexion();	
+						
+						$query="INSERT INTO `poa_seguimiento_declaracion_contratacion_publica`(`documento`, `fecha`, `hora`, `trimestre`, `IdOrganismo`, `perioIngreso`) VALUES ('$nombre__archivo','$fecha_actual','$hora_actual','$trimestre','$idOrganismo','$aniosPeriodos__ingesos')";
+					
+						$resultado= $conexionEstablecida->exec($query);
+		
+					
+						
+			}else{
+
+					
+				$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
+				$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_contratacion_publica/";
+				$documento=$objeto->getEnviarPdf($_FILES["declaracion_cp"]['type'],$_FILES["declaracion_cp"]['size'],$_FILES["declaracion_cp"]['tmp_name'],$_FILES["declaracion_cp"]['name'],$direccion1,$nombre__archivo);
+				
+				$conexionRecuperada= new conexion();
+				$conexionEstablecida=$conexionRecuperada->cConexion();	
+					
+					$query="INSERT INTO `poa_seguimiento_declaracion_contratacion_publica`(`documento`, `fecha`, `hora`, `trimestre`, `IdOrganismo`, `perioIngreso`) VALUES ('$nombre__archivo','$fecha_actual','$hora_actual','$trimestre','$idOrganismo','$aniosPeriodos__ingesos')";
+				
+					$resultado= $conexionEstablecida->exec($query);
+
+			}
+
+			$mensaje=1;
+			$jason['mensaje']=$mensaje;	
 
 		break;	
 
-		case  "eliminar_declaracion_publica":
-
-			$obtenerInformacion=$objeto->getObtenerInformacionGeneral("SELECT documento FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre' ORDER BY id_declaracion_contratacion_publica DESC;
-			");
-
-
-			$archivo = $obtenerInformacion[0][documento];
-			
-			$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_contratacion_publica/";
-
-			unlink($direccion1.$archivo);
-
-			$conexionRecuperada= new conexion();
-			$conexionEstablecida=$conexionRecuperada->cConexion();	
-				$query="DELETE FROM poa_seguimiento_declaracion_contratacion_publica WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' AND trimestre = '$trimestre'";		
-
-				$resultado= $conexionEstablecida->exec($query);
 		
-				$mensaje=1;
-				$jason['mensaje']=$mensaje;	
-		break;
-
-			//*************************************************** DECLARACION DE RECURSOS PUBLICOS **************************************//
-		case  "guardar_declaracion_recusos":
-			$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
-			$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_recursos_publicos/";
-			$documento=$objeto->getEnviarPdf($_FILES["declaracion_rp"]['type'],$_FILES["declaracion_rp"]['size'],$_FILES["declaracion_rp"]['tmp_name'],$_FILES["declaracion_rp"]['name'],$direccion1,$nombre__archivo);
-		
-
-			$conexionRecuperada= new conexion();
-			$conexionEstablecida=$conexionRecuperada->cConexion();			
-		
-				$query="INSERT INTO `poa_seguimiento_declaracion`(`documento`, `idOrganismo`, `fecha`, `trimestre`, `perioIngreso`, `hora`) VALUES ('$nombre__archivo','$idOrganismo','$fecha_actual','$trimestre','$aniosPeriodos__ingesos','$hora_actual')";		
-			
-			$resultado= $conexionEstablecida->exec($query);
-		
-		
-			 $mensaje=1;
-			 $jason['mensaje']=$mensaje;	
-		break;
-
-		//*************************************************** DECLARACION DE CONTRATACION PUBLICA **************************************//
-		case  "guardar_contratacion__publica":
-			$nombre__archivo=$fecha_actual."__".$idOrganismo."__".$hora_actual2."__.pdf";
-			$direccion1=VARIABLE__BACKEND."seguimiento/declaracion_contratacion_publica/";
-			$documento=$objeto->getEnviarPdf($_FILES["declaracion_cp"]['type'],$_FILES["declaracion_cp"]['size'],$_FILES["declaracion_cp"]['tmp_name'],$_FILES["declaracion_cp"]['name'],$direccion1,$nombre__archivo);
-			
-			$conexionRecuperada= new conexion();
-			$conexionEstablecida=$conexionRecuperada->cConexion();	
-				
-				$query="INSERT INTO `poa_seguimiento_declaracion_contratacion_publica`(`documento`, `fecha`, `hora`, `trimestre`, `IdOrganismo`, `perioIngreso`) VALUES ('$nombre__archivo','$fecha_actual','$hora_actual','$trimestre','$idOrganismo','$aniosPeriodos__ingesos')";
-			
-				$resultado= $conexionEstablecida->exec($query);
-
-			 $mensaje=1;
-			 $jason['mensaje']=$mensaje;	
-		break;
-
 
 
 

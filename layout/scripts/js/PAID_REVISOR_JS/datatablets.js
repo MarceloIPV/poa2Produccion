@@ -2402,6 +2402,12 @@ var datatabletsPaidRevisor=function(parametro1,parametro2,parametro3,parametro4,
 
        }
 
+	   if (parametro6[i]=="funrion__reasignar__paid__recomiendas") {
+
+        funrion__reasignar__paid__recomiendas("#"+parametro2+" tbody",table);
+
+       }
+
    }
 
 
@@ -2428,6 +2434,139 @@ var datatabletsPaidRevisor=function(parametro1,parametro2,parametro3,parametro4,
 
 }
 
+var datatabletsPaidRevisorVacio=function(tabla,tipo,nombreDocumento,enlaceDocumento,datos,reasignacion){
+
+
+    /*==================================================
+    =            Obtener número de columnas            =
+    ==================================================*/
+    let contadorCol=$('#'+tipo+' > thead > tr > th').length;
+    let contadorRestar=contadorCol - 1;
+
+    //=====  End of Obtener número de columnas  ======/
+    
+    /*=================================================================
+    =            Construir columnas para editar y eliminar            =
+    =================================================================*/
+    //$('#'+tipo).find('th').eq(contadorRestar).after('<th COLSPAN=1><center>Editar</center></th>');
+    //$('#'+tipo).find('th').eq(contadorRestar).after('<th COLSPAN=1><center>Eliminar</center></th>');
+    //=====  End of Construir columnas para editar y eliminar  ======/
+    
+    /*==============================================
+    =            Establecer datatablets            =
+    ==============================================*/
+    
+    var table =$(tabla).DataTable({
+    
+      "language":{
+    
+        "sProcessing":     "Procesando...",
+        "sLengthMenu":     "Mostrar MENU registros",
+        "sZeroRecords":    "No se encontraron resultados",
+        "sEmptyTable":     "Ningún dato disponible en esta tabla",
+        "sInfo":           "Mostrando registros del START al END de un total de TOTAL",
+        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+        "sInfoFiltered":   "(filtrado de un total de MAX registros)",
+        "sInfoPostFix":    "",
+        "sSearch":         "Buscar:",
+        "sUrl":            "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "No existen datos",
+        "oPaginate":{
+          "sFirst":    "Primero",
+          "sLast":     "Último",
+          "sNext":     "Siguiente",
+          "sPrevious": "Anterior"
+        },
+        "oAria": {
+          "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        }
+      },
+
+      dom: 'Bfrtip',
+      buttons: [
+        {
+          
+          extend: 'excel',
+          className: 'btn-excel',
+          title:nombreDocumento,
+          text: '<button  class="buttonD" ><i class="fas fa-file-excel" style="color: #277c41; font-size: 36px;" ></i></button>',
+      },
+    
+      {
+        extend: 'pdf',
+        title:nombreDocumento,
+        text: '<button  class="buttonD" ><i class="fas fa-file-pdf " style="color: #BF0D0D; font-size: 36px;"></i></button>',
+      
+        orientation: 'landscape',
+        customize:function(doc) {
+
+            doc.defaultStyle.fontSize = 6;
+
+            doc.styles.title = {
+                color: 'black',
+                fontSize: '6',
+                alignment: 'center',
+                margin:'0'                                                
+            }
+            doc.styles.tableHeader = {
+
+              fillColor:'#311b92',
+              fontSize: '6',
+              color:'white',
+              alignment:'center',
+                              
+          }
+          
+
+          }
+
+        }
+    ],
+    
+      "bLengthChange": false,
+      "pagingType": "full_numbers",
+      "Paginate": true,
+      "pagingType": "full_numbers",
+      "retrieve": true, 
+      "paging": true, 
+      "pageLength":10,
+
+      fixedHeader: true,
+
+      "initComplete": function (settings, json) {  
+        $(tabla).wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
+      },
+    
+    
+      "ajax":{
+    
+        "method":"POST",
+		"url":"modelosBd/PAID_REVISOR/datatablets.PD.md.php", 
+      
+      "data": { 
+        "tipo": tipo,
+        "datos": datos
+        
+      }
+    
+      },
+    
+  
+        "aoColumnDefs":enlaceDocumento
+      
+    
+        
+    });
+
+
+
+
+    
+
+    
+}
 
 var funrion__reasignar__paid=function(tbody,table){
 
@@ -2445,10 +2584,10 @@ var funrion__reasignar__paid=function(tbody,table){
   	$("#idOrganismo").val(data[9]);
 
   	$("#idOrganismo__principalAsgnacion").val(data[9]);
+	
+	$("#identificador").val(data[10]);
 
   	let idRolAd=$("#idRolAd").val();
-
- 
 
   	$("#idUsuarioEn").val($("#idUsuarioPrincipal").val());
 
@@ -2461,7 +2600,7 @@ var funrion__reasignar__paid=function(tbody,table){
   		===========================================*/
   		
 
-  		var change__cambio__real=function(parametro1,parametro2){
+		var change__cambio__real=function(parametro1,parametro2){
 
 			$(parametro1).change(function(){
 			
@@ -2472,9 +2611,10 @@ var funrion__reasignar__paid=function(tbody,table){
 
 
 		}
+
 		change__cambio__real($(".conjunto__selects__desarrollo"));
 
-  		var calificar__botones=function(parametro1,parametro2){
+		var calificar__botones=function(parametro1,parametro2){
 
 			$(parametro1).click(function(){
 
@@ -2485,7 +2625,7 @@ var funrion__reasignar__paid=function(tbody,table){
 					$(parametro1).each(function(index) {
 
 						if($(this).val()==0){
-					     	sumadorErrores++;
+							sumadorErrores++;
 						}
 
 					});
@@ -2505,11 +2645,11 @@ var funrion__reasignar__paid=function(tbody,table){
 					$(parametro1).each(function(index) {
 
 						if($(this).val()==0){
-					    	$(this).addClass('error');
+							$(this).addClass('error');
 						}else{
-					    	$(this).removeClass('error');
+							$(this).removeClass('error');
 						}
-					  
+						
 					});
 
 				}
@@ -2520,11 +2660,11 @@ var funrion__reasignar__paid=function(tbody,table){
 				validacionRegistroMostrarErrores($(".conjunto__selects__desarrollo"));
 
 
-	
+
 				if (validador==false) {
 
 					alertify.set("notifier","position", "top-center");
-				    alertify.notify("Obligatorio calificar todos los criterios", "error", 5, function(){});
+					alertify.notify("Obligatorio calificar todos los criterios", "error", 5, function(){});
 
 				}else{
 
@@ -2535,7 +2675,7 @@ var funrion__reasignar__paid=function(tbody,table){
 						$(parametro1).each(function(index) {
 
 							if($(this).val()=="No"){
-						     	sumadoresDependencias++;
+								sumadoresDependencias++;
 							}
 
 						});
@@ -2574,131 +2714,143 @@ var funrion__reasignar__paid=function(tbody,table){
 
 
 		}
+
 		calificar__botones($("#calificar__secciones__alto")); 
-		calificar__botones($("#calificar__secciones__desarrollo")); 		
-  		
-  		/*=====  End of Calificar defaultas  ======*/
-  		
+		calificar__botones($("#calificar__secciones__desarrollo")); 	
+		calificar__botones($("#calificar__secciones__infra")); 	
+			
+		
+		/*=====  End of Calificar defaultas  ======*/
+			
 
-  		$(".ocultos__en__funcionarios").hide();
+		$(".ocultos__en__funcionarios").hide();
 
-  		$(".recomendacion__activo__funcionarios").append("<div class='col col-4' style='font-weight:bold!important;'>Regresar al director</div><div class='col col-8' style='text-align:left;'><input type='checkbox' id='regresarCheckeds' class='checkeds'></div>");
+		$(".recomendacion__activo__funcionarios").append("<div class='col col-4' style='font-weight:bold!important;'>Regresar al director</div><div class='col col-8' style='text-align:left;'><input type='checkbox' id='regresarCheckeds' class='checkeds'></div>");
 
 
-  		$(".contenedor__boton__generacion__pdf").show();
+		$(".contenedor__boton__generacion__pdf").show();
 
-  		var checkboxFunciones__3=function(parametro1,parametro2){
+		var checkboxFunciones__3VisualizarInformacion=function(parametro1,parametro2){
 
 			$(parametro1).click(function(){
 			
-			    var condicion = $(this).is(":checked");
+				var condicion = $(this).is(":checked");
 
-			    if (condicion) {
+				if (condicion) {
 
-			    	$(parametro2).hide();
+					$(parametro2).hide();
 
-			    	$(".oculto__paid__informacion").show();
+					$(".oculto__paid__informacion").show();
 
 					$(".oculto__calificaciones__altos").hide();
 					$(".oculto__calificaciones__desarrollos").hide();
 
 
-			    }else{
+				}else{
 
 					$(".oculto__calificaciones__altos").hide();
 					$(".oculto__calificaciones__desarrollos").hide();
 
 					$(".oculto__paid__informacion").hide();
 
-			    }
+				}
 
 
 			});
 
 
 		}
-		checkboxFunciones__3($("#informacion__checkeds"),$(".ocultos__en__funcionarios"));
+
+		checkboxFunciones__3VisualizarInformacion($("#informacion__checkeds"),$(".ocultos__en__funcionarios"));
 
 
-  		var checkboxFunciones__2=function(parametro1,parametro2){
+		var checkboxFunciones__2Calificar=function(parametro1,parametro2){
 
 			$(parametro1).click(function(){
 			
-			    var condicion = $(this).is(":checked");
+				var condicion = $(this).is(":checked");
 
-			    if (condicion) {
+				if (condicion) {
 
-			    	$(parametro2).hide();
+					$(parametro2).hide();
 
-			    	if (data[10]==1) {
+					if (data[10]==1) {
 
 						$(".oculto__calificaciones__altos").hide();
 						$(".oculto__calificaciones__desarrollos").show();
+						$(".oculto__calificaciones__infraestructura").hide();
 
-					}else{
+					}else if(data[10]==0){
 
 						$(".oculto__calificaciones__altos").show();
 						$(".oculto__calificaciones__desarrollos").hide();
+						$(".oculto__calificaciones__infraestructura").hide();
 
+					}else{
+						$(".oculto__calificaciones__altos").hide();
+						$(".oculto__calificaciones__desarrollos").hide();
+						$(".oculto__calificaciones__infraestructura").show();
+						
 					}
 
 					$(".oculto__paid__informacion").hide();
 
 
-			    }else{
+				}else{
 
-			    	$(".oculto__paid__informacion").hide();
+					$(".oculto__paid__informacion").hide();
 
 					$(".oculto__calificaciones__altos").hide();
 					$(".oculto__calificaciones__desarrollos").hide();
-
-			    }
+					$(".oculto__calificaciones__infraestructura").hide();
+				}
 
 
 			});
 
 
 		}
-		checkboxFunciones__2($("#calificar__checkeds"),$(".ocultos__en__funcionarios"));
+		
+		checkboxFunciones__2Calificar($("#calificar__checkeds"),$(".ocultos__en__funcionarios"));
 
 
-  		var checkboxFunciones=function(parametro1,parametro2){
+		var checkboxFuncionesRegresarDirector=function(parametro1,parametro2){
 
 			$(parametro1).click(function(){
-			
-			    var condicion = $(this).is(":checked");
 
-			    if (condicion) {
+				var condicion = $(this).is(":checked");
 
-			      $(parametro2).show();
+				if (condicion) {
 
-				  $("#guardarRecomendacion__paid").hide();	
-				  $("#observaciones__recomendaciones__recomiendas").hide();
-				  $(".oculto__archivos__recomendaciones").hide();
-				  $(".contenedor__boton__generacion__pdf__desarrollo").hide();			
-				  $(".contenedor__boton__generacion__pdf").hide();
-				  $(".contenedor__boton__generacion__pdf__alto").hide();		
+					$(parametro2).show();
 
-
-		      	  $(".oculto__paid__informacion").hide();
-
-				  $(".oculto__calificaciones__altos").hide();
-				  $(".oculto__calificaciones__desarrollos").hide();
+					$("#guardarRecomendacion__paid").hide();	
+					$("#observaciones__recomendaciones__recomiendas").hide();
+					$(".oculto__archivos__recomendaciones").hide();
+					$(".contenedor__boton__generacion__pdf__desarrollo").hide();			
+					$(".contenedor__boton__generacion__pdf").hide();
+					$(".contenedor__boton__generacion__pdf__alto").hide();		
 
 
-			    }else{
+					$(".oculto__paid__informacion").hide();
+
+					$(".oculto__calificaciones__altos").hide();
+					$(".oculto__calificaciones__desarrollos").hide();
 
 
-			      $(".oculto__paid__informacion").hide();
+				}else{
 
-				  $(".oculto__calificaciones__altos").hide();
-				  $(".oculto__calificaciones__desarrollos").hide();
 
-			      $(parametro2).hide();
+					$(".oculto__paid__informacion").hide();
 
-			      $("#guardarRecomendacion__paid").show();	
-			      $("#observaciones__recomendaciones__recomiendas").show();	
-			      $(".oculto__archivos__recomendaciones").show();
+					$(".oculto__calificaciones__altos").hide();
+					$(".oculto__calificaciones__desarrollos").hide();
+
+					$(parametro2).hide();
+
+					$("#guardarRecomendacion__paid").show();	
+					$("#observaciones__recomendaciones__recomiendas").show();	
+					$(".oculto__archivos__recomendaciones").show();
 
 				if (data[10]==1) {
 
@@ -2714,61 +2866,96 @@ var funrion__reasignar__paid=function(tbody,table){
 
 
 
-			   }
+				}
 
 
 			});
 
 
 		}
-		checkboxFunciones($("#regresarCheckeds"),$(".ocultos__en__funcionarios"));
 
-		if (data[10]==1) {
+		checkboxFuncionesRegresarDirector($("#regresarCheckeds"),$(".ocultos__en__funcionarios"));
 
-			$(".contenedor__boton__generacion__pdf__alto").remove();
-			$(".contenedor__boton__generacion__pdf__desarrollo").show();
+			if (data[10]==1) {
 
-			$("#tipoPdf").val('paid__informe__desarrollo__tecnico');
+				$(".contenedor__boton__generacion__pdf__alto").remove();
+				$(".contenedor__boton__generacion__pdf__desarrollo").show();
+				$(".contenedor__boton__generacion__pdf__infraestructura").remove();
 
-			$(".eventos__vinculacion__general").hide();
-			$(".interdisciplinario__vinculacion__general").hide();
-			$(".individuales__vinculacion__general").hide();
-			$(".generales__vinculacion__general").hide();
-			$(".encuentro__activo__vinculacion__general").show();
-			$(".encuentro__activo__Medallas__general").show();
-			$(".encuentro__activo__Hospedaje_Alimentacion__general").show();
-			$(".encuentro__activo__Matrices_Auxiliares__general").show();
-			$(".encuentro__activo__Matrices_Auxiliares__general").show();
-			$(".encuentro__activo__Personal_Tecnico__general").show();
-			$(".encuentro__activo__Bono_Deportivo__general").show();
-			$(".encuentro__activo__Uniformes__general").show();
-			$(".encuentro__activo__Seguros__general").show();
-			$(".encuentro__activo__Transporte__general").show();
-			$(".encuentro__activo__Pasajes_Aereos__general").show();
+				$("#tipoPdf").val('paid__informe__desarrollo__tecnico');
 
-		}else{
+				$(".eventos__vinculacion__general").hide();
+				$(".interdisciplinario__vinculacion__general").hide();
+				$(".individuales__vinculacion__general").hide();
+				$(".generales__vinculacion__general").hide();
+				$(".encuentro__activo__vinculacion__general").show();
+				$(".encuentro__activo__Medallas__general").show();
+				$(".encuentro__activo__Hospedaje_Alimentacion__general").show();
+				$(".encuentro__activo__Matrices_Auxiliares__general").show();
+				$(".encuentro__activo__Matrices_Auxiliares__general").show();
+				$(".encuentro__activo__Personal_Tecnico__general").show();
+				$(".encuentro__activo__Bono_Deportivo__general").show();
+				$(".encuentro__activo__Uniformes__general").show();
+				$(".encuentro__activo__Seguros__general").show();
+				$(".encuentro__activo__Transporte__general").show();
+				$(".encuentro__activo__Pasajes_Aereos__general").show();
 
-			$(".contenedor__boton__generacion__pdf__alto").show();
-			$(".contenedor__boton__generacion__pdf__desarrollo").remove();
+				$(".matrizEjecucionObra").hide();
+						$(".matrizFiscalizacion").hide();
 
-			$("#tipoPdf").val('paid__informe__alto__tecnico');
+			}else if(data[10]==0){
+
+				$(".contenedor__boton__generacion__pdf__alto").show();
+				$(".contenedor__boton__generacion__pdf__desarrollo").remove();
+				$(".contenedor__boton__generacion__pdf__infraestructura").remove();
+				
+				$("#tipoPdf").val('paid__informe__alto__tecnico');
 
 
-			$(".eventos__vinculacion__general").show();
-			$(".interdisciplinario__vinculacion__general").show();
-			$(".individuales__vinculacion__general").show();
-			$(".generales__vinculacion__general").show();
-			$(".encuentro__activo__Medallas__general").hide();
-			$(".encuentro__activo__Hospedaje_Alimentacion__general").hide();
-			$(".encuentro__activo__Matrices_Auxiliares__general").hide();
-			$(".encuentro__activo__Personal_Tecnico__general").hide();
-			$(".encuentro__activo__Bono_Deportivo__general").hide();
-			$(".encuentro__activo__Uniformes__general").hide();
-			$(".encuentro__activo__Seguros__general").hide();
-			$(".encuentro__activo__Transporte__general").hide();
-			$(".encuentro__activo__Pasajes_Aereos__general").hide();
+				$(".eventos__vinculacion__general").show();
+				$(".interdisciplinario__vinculacion__general").show();
+				$(".individuales__vinculacion__general").show();
+				$(".generales__vinculacion__general").show();
+				$(".encuentro__activo__Medallas__general").hide();
+				$(".encuentro__activo__Hospedaje_Alimentacion__general").hide();
+				$(".encuentro__activo__Matrices_Auxiliares__general").hide();
+				$(".encuentro__activo__Personal_Tecnico__general").hide();
+				$(".encuentro__activo__Bono_Deportivo__general").hide();
+				$(".encuentro__activo__Uniformes__general").hide();
+				$(".encuentro__activo__Seguros__general").hide();
+				$(".encuentro__activo__Transporte__general").hide();
+				$(".encuentro__activo__Pasajes_Aereos__general").hide();
 
-		}
+				$(".matrizEjecucionObra").hide();
+						$(".matrizFiscalizacion").hide();
+
+			}else{
+
+				$(".contenedor__boton__generacion__pdf__alto").remove();
+				$(".contenedor__boton__generacion__pdf__desarrollo").remove();
+				$(".contenedor__boton__generacion__pdf__infraestructura").show();
+
+				$("#tipoPdf").val('paid__informe__infraestructura__tecnico');
+
+
+				$(".eventos__vinculacion__general").hide();
+				$(".interdisciplinario__vinculacion__general").hide();
+				$(".individuales__vinculacion__general").hide();
+				$(".generales__vinculacion__general").hide();
+				$(".encuentro__activo__Medallas__general").hide();
+				$(".encuentro__activo__Hospedaje_Alimentacion__general").hide();
+				$(".encuentro__activo__Matrices_Auxiliares__general").hide();
+				$(".encuentro__activo__Personal_Tecnico__general").hide();
+				$(".encuentro__activo__Bono_Deportivo__general").hide();
+				$(".encuentro__activo__Uniformes__general").hide();
+				$(".encuentro__activo__Seguros__general").hide();
+				$(".encuentro__activo__Transporte__general").hide();
+				$(".encuentro__activo__Pasajes_Aereos__general").hide();
+
+				$(".matrizEjecucionObra").show();
+				$(".matrizFiscalizacion").show();
+
+			}
 
 
   	}else{
@@ -2822,7 +3009,11 @@ var funrion__reasignar__paid=function(tbody,table){
 						$(".encuentro__activo__Seguros__general").show();
 						$(".encuentro__activo__Transporte__general").show();
 						$(".encuentro__activo__Pasajes_Aereos__general").show();
-					}else{
+
+						$(".matrizEjecucionObra").hide();
+						$(".matrizFiscalizacion").hide();
+
+					}else if (data[10]==0){
 
 
 						$(".eventos__vinculacion__general").show();
@@ -2839,6 +3030,29 @@ var funrion__reasignar__paid=function(tbody,table){
 						$(".encuentro__activo__Seguros__general").hide();
 						$(".encuentro__activo__Transporte__general").hide();
 						$(".encuentro__activo__Pasajes_Aereos__general").hide();
+
+						$(".matrizEjecucionObra").hide();
+						$(".matrizFiscalizacion").hide();
+				
+					}else{
+
+						$(".eventos__vinculacion__general").hide();
+						$(".interdisciplinario__vinculacion__general").hide();
+						$(".individuales__vinculacion__general").hide();
+						$(".generales__vinculacion__general").hide();
+						$(".encuentro__activo__vinculacion__general").hide();
+						$(".encuentro__activo__Medallas__general").hide();
+						$(".encuentro__activo__Hospedaje_Alimentacion__general").hide();
+						$(".encuentro__activo__Matrices_Auxiliares__general").hide();
+						$(".encuentro__activo__Personal_Tecnico__general").hide();
+						$(".encuentro__activo__Bono_Deportivo__general").hide();
+						$(".encuentro__activo__Uniformes__general").hide();
+						$(".encuentro__activo__Seguros__general").hide();
+						$(".encuentro__activo__Transporte__general").hide();
+						$(".encuentro__activo__Pasajes_Aereos__general").hide();
+
+						$(".matrizEjecucionObra").show();
+						$(".matrizFiscalizacion").show();
 					}
 
 			    }else{
@@ -2860,6 +3074,8 @@ var funrion__reasignar__paid=function(tbody,table){
 					$(".encuentro__activo__Seguros__general").hide();
 					$(".encuentro__activo__Transporte__general").hide();
 					$(".encuentro__activo__Pasajes_Aereos__general").hide();
+
+				
 			    }
 
 
@@ -2880,6 +3096,363 @@ var funrion__reasignar__paid=function(tbody,table){
 }
 
 
+
+var funrion__reasignar__paid__recomiendas=function(tbody,table){
+
+	$(tbody).on("click","button.reasignarTramites__paid__recomiendas",function(e){
+  
+	  e.preventDefault();
+  
+	  let data=table.row($(this).parents("tr")).data();
+  
+	  $(".titulo__asignacion__paid").text(data[1]);
+  
+	  $("#idOrganismoPaid").val(data[9]);
+  
+	  $("#idOrganismo__principalAsgnacion").val(data[9]);
+  
+	  $("#informeEnlacesDescargar").attr('href',$("#filesFrontend").val()+'paid/informesTecnicos/'+data[10]);
+
+	  $("#identificador").val(data[11]);
+	  
+		var checkboxFunciones__3=function(parametro1,parametro2){
+
+			$(parametro1).click(function(){
+			
+				var condicion = $(this).is(":checked");
+
+				if (condicion) {
+
+					$(".oculto__paid__informacion").show();
+					$(".paid__vinculacion__general").show();
+					$(".indicadores__vinculacion__general").show();
+
+
+					if (data[11]==1) {
+
+						$(".eventos__vinculacion__general").hide();
+						$(".interdisciplinario__vinculacion__general").hide();
+						$(".individuales__vinculacion__general").hide();
+						$(".generales__vinculacion__general").hide();
+						$(".encuentro__activo__vinculacion__general").show();
+						$(".encuentro__activo__Medallas__general").show();
+						$(".encuentro__activo__Hospedaje_Alimentacion__general").show();
+						$(".encuentro__activo__Matrices_Auxiliares__general").show();
+						$(".encuentro__activo__Personal_Tecnico__general").show();
+						$(".encuentro__activo__Bono_Deportivo__general").show();
+						$(".encuentro__activo__Uniformes__general").show();
+						$(".encuentro__activo__Seguros__general").show();
+						$(".encuentro__activo__Transporte__general").show();
+						$(".encuentro__activo__Pasajes_Aereos__general").show();
+
+						$(".matrizEjecucionObra").hide();
+						$(".matrizFiscalizacion").hide();
+
+					}else if (data[11]==0){
+
+
+						$(".eventos__vinculacion__general").show();
+						$(".interdisciplinario__vinculacion__general").show();
+						$(".individuales__vinculacion__general").show();
+						$(".generales__vinculacion__general").show();
+						$(".encuentro__activo__vinculacion__general").hide();
+						$(".encuentro__activo__Medallas__general").hide();
+						$(".encuentro__activo__Hospedaje_Alimentacion__general").hide();
+						$(".encuentro__activo__Matrices_Auxiliares__general").hide();
+						$(".encuentro__activo__Personal_Tecnico__general").hide();
+						$(".encuentro__activo__Bono_Deportivo__general").hide();
+						$(".encuentro__activo__Uniformes__general").hide();
+						$(".encuentro__activo__Seguros__general").hide();
+						$(".encuentro__activo__Transporte__general").hide();
+						$(".encuentro__activo__Pasajes_Aereos__general").hide();
+
+						$(".matrizEjecucionObra").hide();
+						$(".matrizFiscalizacion").hide();
+				
+					}else{
+
+						$(".eventos__vinculacion__general").hide();
+						$(".interdisciplinario__vinculacion__general").hide();
+						$(".individuales__vinculacion__general").hide();
+						$(".generales__vinculacion__general").hide();
+						$(".encuentro__activo__vinculacion__general").hide();
+						$(".encuentro__activo__Medallas__general").hide();
+						$(".encuentro__activo__Hospedaje_Alimentacion__general").hide();
+						$(".encuentro__activo__Matrices_Auxiliares__general").hide();
+						$(".encuentro__activo__Personal_Tecnico__general").hide();
+						$(".encuentro__activo__Bono_Deportivo__general").hide();
+						$(".encuentro__activo__Uniformes__general").hide();
+						$(".encuentro__activo__Seguros__general").hide();
+						$(".encuentro__activo__Transporte__general").hide();
+						$(".encuentro__activo__Pasajes_Aereos__general").hide();
+
+						$(".matrizEjecucionObra").show();
+						$(".matrizFiscalizacion").show();
+					}
+
+				}else{
+
+					$(".oculto__paid__informacion").hide();
+					$(".paid__vinculacion__general").hide();
+					$(".indicadores__vinculacion__general").hide();
+					$(".eventos__vinculacion__general").hide();
+					$(".interdisciplinario__vinculacion__general").hide();
+					$(".individuales__vinculacion__general").hide();
+					$(".generales__vinculacion__general").hide();
+					$(".encuentro__activo__vinculacion__general").hide();
+
+
+				}
+
+
+			});
+
+
+		}
+		checkboxFunciones__3($("#informacion__checkeds"),$(".ocultos__en__funcionarios"));
+  
+  
+	  let idRolAd=$("#idRolAd").val();
+	  let fisicamenteE=$("#fisicamenteE").val();
+  
+	  console.log(data);
+  
+	  var asignacion__usuarios__re__contrarios__coordinadores=function(parametro1){
+  
+  
+		  indicador=502;
+		  let idUsuario=$("#idUsuarioPrincipal").val();
+		  let idOrganismoPaid=$("#idOrganismoPaid").val();
+  
+		  $.ajax({
+  
+			data: {indicador:indicador,idUsuario:idUsuario,idOrganismoPaid:idOrganismoPaid},
+			dataType: 'html',
+			type:'POST',
+			url:'modelosBd/validaciones/selector.modelo.php'
+  
+		  }).done(function(lista_tipo__organismos){
+  
+			$(parametro1).html(lista_tipo__organismos);
+  
+  
+		  }).fail(function(){
+  
+			
+  
+		  });
+  
+	  }
+  
+	  asignacion__usuarios__re__contrarios__coordinadores($("#selectorUsuarios__asignar__plani__coordinadores"));
+  
+  
+	  if (idRolAd==3 && fisicamenteE==18) {
+  
+		  $(".planificacion__director__variables").remove();
+  
+		  $(".ocultos__en__funcionarios__paids").hide();
+  
+		  $(".recomendacion__activo__funcionarios").append("<div class='col col-4' style='font-weight:bold!important;'>Regresar</div><div class='col col-8 text-left'><input type='checkbox' id='regresarCheckeds__paids' class='checkeds'></div>");
+  
+		  $("#guardarReasignacion__paid__recomendacion").text("REGRESAR");
+  
+		  var checkboxFunciones=function(parametro1,parametro2){
+  
+			  $(parametro1).click(function(){
+			  
+				  var condicion = $(this).is(":checked");
+  
+				  if (condicion) {
+  
+					$(parametro2).show();
+  
+					$("#guardarRecomendacion__final__paid").hide();   
+					$("#observaciones__recomendaciones__recomiendas__final").hide();  
+  
+					$(".file__final__paid").hide();             
+  
+				  }else{
+  
+					$(parametro2).hide();
+  
+					$("#guardarRecomendacion__final__paid").show();   
+					$("#observaciones__recomendaciones__recomiendas__final").show();  
+  
+					$(".file__final__paid").show();
+  
+				 }
+  
+  
+			  });
+  
+  
+		  }
+		  checkboxFunciones($("#regresarCheckeds__paids"),$(".ocultos__en__funcionarios__paids"));
+  
+		  $("#selectorUsuarios__asignar__contrarios").remove();
+		  $("#selectorUsuarios__asignar__contrarios__subsecretarias").remove();
+		  $("#selectorUsuarios__asignar__plani__coordinadores").remove();
+		  $("#selectorUsuarios__asignar__plani__directores").remove();
+  
+		  $(".oculto__archivos__recomendaciones__de__finales").remove();
+  
+		  $(".recomendaciones__directores").remove();
+  
+		  $(".ocultando__necesarios__directores").remove();
+  
+		  $("#observaciones__recomendaciones__recomiendas__final").remove();
+  
+		  $("#observaciones__recomendaciones__recomiendas__final").remove();
+  
+		  $(".contenido__asignaciones__directores__apruebas").remove();
+  
+  
+  
+	  }else if (idRolAd==2 && fisicamenteE==18) {
+  
+		  $("#selectorUsuarios__asignar__contrarios").remove();
+		  $("#selectorUsuarios__asignar__contrarios__subsecretarias").remove();
+		  $("#selectorUsuarios__asignar__plani__coordinadores").remove();
+		  $("#selectorUsuarios__asignar__plani__analistas").remove();
+  
+  
+		  $(".contenido__asignaciones__directores").hide();
+		  $(".contenido__asignaciones__directores__apruebas").hide();
+  
+		  $(".oculto__archivos__recomendaciones__de__finales").remove();
+  
+		  $(".encuentro__activo__vinculacion__general").show();
+  
+		  $(".recomendacion__analista__director__planificaciones").remove();
+  
+		  var checkboxFunciones__5=function(parametro1,parametro2){
+  
+			  $(parametro1).click(function(){
+			  
+				  var condicion = $(this).is(":checked");
+  
+				  if (condicion) {
+  
+					  $(".oculto__paid__informacion").hide();
+					  $(".paid__vinculacion__general").hide();
+					  $(".indicadores__vinculacion__general").hide();
+					  $(".oculto__paid__informacion").hide();
+					  $(".paid__vinculacion__general").hide();
+					  $(".indicadores__vinculacion__general").hide();
+					  $(".eventos__vinculacion__general").hide();
+					  $(".interdisciplinario__vinculacion__general").hide();
+					  $(".individuales__vinculacion__general").hide();
+					  $(".generales__vinculacion__general").hide();
+					  $(".encuentro__activo__vinculacion__general").hide();
+  
+					  $(".contenido__asignaciones__directores").hide();
+					  $(".contenido__asignaciones__directores__apruebas").hide();
+  
+					  $(parametro2).show();
+  
+  
+				  }else{
+  
+					  $(".oculto__paid__informacion").hide();
+					  $(".paid__vinculacion__general").hide();
+					  $(".indicadores__vinculacion__general").hide();
+					  $(".eventos__vinculacion__general").hide();
+					  $(".interdisciplinario__vinculacion__general").hide();
+					  $(".individuales__vinculacion__general").hide();
+					  $(".generales__vinculacion__general").hide();
+					  $(".encuentro__activo__vinculacion__general").hide();
+  
+					  $(".contenido__asignaciones__directores").hide();
+					  $(".contenido__asignaciones__directores__apruebas").hide();
+  
+					  $(parametro2).hide();
+  
+  
+				  }
+  
+  
+			  });
+  
+  
+		  }
+		  checkboxFunciones__5($("#asignar__directorPlanificacion"),$(".contenido__asignaciones__directores"));
+		  checkboxFunciones__5($("#aprobar__directorPlanificacion"),$(".contenido__asignaciones__directores__apruebas"));
+  
+		  $(".recomendaciones__directores").remove();
+  
+	  }else if (idRolAd==4 && fisicamenteE==3) {
+  
+		  $(".recomendacion__analista__director__planificaciones").remove();
+  
+		  $("#selectorUsuarios__asignar__contrarios").remove();
+		  $("#selectorUsuarios__asignar__contrarios__subsecretarias").remove();
+		  $("#selectorUsuarios__asignar__plani__directores").remove();
+		  $("#selectorUsuarios__asignar__plani__analistas").remove();
+  
+		  $("#guardarRecomendacion__final__paid").remove();   
+		  $("#observaciones__recomendaciones__recomiendas__final").remove();  
+  
+		  $(".oculto__archivos__recomendaciones__de__finales").remove();
+  
+		  $(".file__final__paid").remove();
+  
+		  $(".planificacion__director__variables").remove();
+  
+		  $(".recomendaciones__directores").remove();
+  
+		  $(".ocultando__necesarios__directores").remove();
+  
+  
+	  }else if (idRolAd==7) {
+  
+		  $(".recomendacion__analista__director__planificaciones").remove();
+  
+		  $("#selectorUsuarios__asignar__contrarios").remove();
+		  $("#selectorUsuarios__asignar__plani__coordinadores").remove();
+		  $("#selectorUsuarios__asignar__plani__directores").remove();
+		  $("#selectorUsuarios__asignar__plani__analistas").remove();
+  
+		  $("#guardarRecomendacion__final__paid").remove();   
+		  $("#observaciones__recomendaciones__recomiendas__final").remove();  
+  
+		  $(".file__final__paid").remove();
+  
+		  $(".planificacion__director__variables").remove();
+  
+		  $(".recomendaciones__directores").remove();
+  
+		  $(".ocultando__necesarios__directores").remove();
+  
+	  }else{
+  
+		  $(".recomendacion__analista__director__planificaciones").remove();
+  
+		  $("#selectorUsuarios__asignar__contrarios__subsecretarias").remove();
+		  $("#selectorUsuarios__asignar__plani__coordinadores").remove();
+		  $("#selectorUsuarios__asignar__plani__directores").remove();
+		  $("#selectorUsuarios__asignar__plani__analistas").remove();
+  
+		  $("#guardarRecomendacion__final__paid").remove();   
+		  $("#observaciones__recomendaciones__recomiendas__final").remove();  
+  
+		  $(".file__final__paid").remove();
+  
+		  $(".planificacion__director__variables").remove();
+  
+		  $(".recomendaciones__directores").remove();
+  
+		  $(".ocultando__necesarios__directores").remove();
+  
+	  }
+  
+	  console.log(data);
+  
+	});
+  
+  }
+
+
 var agregarDatatablets=function(parametro1,parametro2,parametro3){
 
 	$(parametro1).click(function (e){
@@ -2889,4 +3462,55 @@ var agregarDatatablets=function(parametro1,parametro2,parametro3){
 	});
 
 }
+
+
+var agregarDatatabletsObjetosPaid=function(parametro1,parametro2,parametro3){
+
+	$(parametro1).click(function (e){
+
+
+		$.getScript("layout/scripts/js/PAID_INFRAESTRUCTURA/datatables.js",function(){
+
+		
+				datatabletsPaidInfraestructuraVacio($(parametro2),parametro3,"s",objetosPaidInfraestructura2023([1,2,3,4],["enlace","boton","boton","boton"],[1,"<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='anexosObraInfra estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-folder'></i></a><center>","<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='beneficiariosDirectosObraInfra estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-users'></i></a><center>","<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='beneficiariosObraAdaptadoInfra estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-user-friends'></i></a><center>"],[$("#filesFrontend").val()+"paid/informes__infraestructura/"],[1]),[$("#idOrganismo__principalAsgnacion").val()],false);
+			
+			
+				funcion__abrirDatatableAnexosDocumentos__paid_infraestructura_revisor("#paidEjecucionObraInfraestructura__revisor tbody",$("#paidEjecucionObraInfraestructura__revisor"),"anexosObraInfra","Anexos Obra")
+				funcion__abrirDatatableAnexosDocumentos__paid_infraestructura_revisor("#paidEjecucionObraInfraestructura__revisor tbody",$("#paidEjecucionObraInfraestructura__revisor"),"beneficiariosDirectosObraInfra","Beneficiarios Directos")
+				funcion__abrirDatatableAnexosDocumentos__paid_infraestructura_revisor("#paidEjecucionObraInfraestructura__revisor tbody",$("#paidEjecucionObraInfraestructura__revisor"),"beneficiariosObraAdaptadoInfra","Beneficiarios Adaptado")
+			
+			
+		});
+
+	});
+
+}
+
+var agregarDatatabletsObjetosPaid2=function(parametro1,parametro2,parametro3){
+
+	$(parametro1).click(function (e){
+
+
+		$.getScript("layout/scripts/js/PAID_INFRAESTRUCTURA/datatables.js",function(){
+
+		
+			datatabletsPaidInfraestructuraVacio($(parametro2),parametro3,"s",objetosPaidInfraestructura2023([1,2],["enlace","boton"],[1,"<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='anexosObraInfraFiscalizacion estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-folder'></i></a><center>"],[$("#filesFrontend").val()+"paid/informes__infraestructura/"],[1]),[$("#idOrganismo__principalAsgnacion").val()],false);
+
+		
+			funcion__abrirDatatableAnexosDocumentos__paid_infraestructura_revisor("#paidFiscalizacionInfraestructura__revisor tbody",$("#paidFiscalizacionInfraestructura__revisor"),"anexosObraInfraFiscalizacion","Anexos Fiscalización")
+		
+			
+		
+			
+		});
+
+	});
+
+}
+
+
+
+
+
+
 

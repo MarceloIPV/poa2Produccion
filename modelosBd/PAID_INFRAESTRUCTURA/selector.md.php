@@ -44,6 +44,31 @@
 			$jason['informacion']=$informacion;
 		break;
 
+
+		case "obtener_datos_pais":
+			$informacion=$objeto->getObtenerInformacionGeneral("SELECT id, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(paisnombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre FROM poa_pais ORDER BY paisnombre ASC");
+			$jason['informacion']=$informacion;
+		break;
+
+		case "obtener_datos_provincia":
+			$informacion=$objeto->getObtenerInformacionGeneral("SELECT a.idProvincia as id, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombreProvincia, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre  FROM in_md_provincias AS a ORDER BY a.idProvincia ASC");
+			$jason['informacion']=$informacion;
+		break;
+
+		case "obtener_datos_ciudad":
+			$informacion=$objeto->getObtenerInformacionGeneral("SELECT a.idCanton as id, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombreCanton, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre FROM in_md_canton AS a 
+			INNER JOIN in_md_provincias AS b
+			WHERE b.idProvincia = a.idProvincia AND a.idProvincia = '$id' ORDER BY a.idCanton ASC");
+			$jason['informacion']=$informacion;
+		break;
+
+		case "obtener_datos_parroquia":
+			$informacion=$objeto->getObtenerInformacionGeneral("SELECT a.idParroquia as id, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombreParroquia, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre FROM in_md_parroquia AS a 
+			INNER JOIN in_md_canton AS b
+			WHERE a.idCanton = b.idCanton AND a.idCanton = '$id' ORDER BY a.idParroquia ASC");
+			$jason['informacion']=$informacion;
+		break;
+
 	
 
 

@@ -16,7 +16,7 @@
 				<tr>
 
 					<th><center>JURISDICCIÓN</center></th>
-					<th><center>RUC TABLA DE DAV  PACA</center></th>
+					<th><center>RUC</center></th>
 					<th><center>ORGANISMO DEPORTIVO</center></th>
 					<th><center>PROVINCIA</center></th>
 					<th><center>CANTÓN</center></th>

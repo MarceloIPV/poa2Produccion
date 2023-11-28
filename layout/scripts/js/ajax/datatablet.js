@@ -12391,50 +12391,6 @@ var funcion__datatabletsEliminar___849=function(tbody,table,parametro3){
 }
 
 
-var funcion__verItemsObtener__2=function(tbody,table,parametro3){
-
-  $(tbody).on("click","a.verItems",function(e){
-
-    e.preventDefault();
-
-    var data=table.row($(this).parents("tr")).data();
-
-    $("#tablaItemsRubros").dataTable().fnDestroy();
-
-    $(".titulo__modalItems").text("ITEMS DEL RUBRO "+data[0]);
-
-
-    datatablets($("#tablaItemsRubros"),"tablaItemsRubros",[data[1],$("#valorComparativo").val()],objetos([1],["boton"],["<button class='eliminarItemAc estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></button><center>"],[false],[false]),-1,["funcion__datatabletsEliminar"],["eliminarItemAc"],["itemAcEliminaRubros"],["elimina"],[1,0],['enviado','input__1']);
-
-    //$(".elemento__escondidoI").val(data[2]);
-
-    $("#idUsados__items").val(data[1]);
-
-
-     var nuevoNavs=function(parametro1,parametro2){
-
-        $(parametro1).click(function(e){
-
-            if (parametro2=="verItems,editarRubros,eliminarRubros") {
-
-                $("#rubrosCargados").attr('style','padding-right: 17px; display: block;');
-                $("#rubrosEditaModalAc").removeAttr('style');
-
-            }
-
-        });
-
-    }
-
-    nuevoNavs($(".botones__ideales"),parametro3);
-
-    $(".modal").attr('style','left: 0;z-index: 1050;width: 103%;height: 1200px; overflow-x: hidden; overflow-y: auto;');
-
-    
-  
-  });
-
-}
 
 var funcion__verItemsObtener=function(tbody,table,parametro3){
 
@@ -12877,7 +12833,7 @@ var funcion__datatabletsEliminar=function(tbody,table,parametro3,parametro4,para
 
     var data=table.row($(this).parents("tr")).data();
     var size=table.rows().count();
-
+    
     // if (parametro3=="eliminarPrograma" || parametro3=="eliminarComponente" || parametro3=="eliminarItem" || parametro3=="estrategicosElimina" || parametro3=="encargadaElimina" || parametro3=="eliminarAccion" || parametro3=="eliminarTipoOr" || parametro3=="eliminarIndicador" || parametro3=="rubrosElimina" || parametro3=="deportePaidElimina" || parametro3=="modalidadElimina" || parametro3=="pruebaElimina" || parametro3=="eliminarCategoria") {
 
         let idEnviado=data[1];
@@ -22609,6 +22565,7 @@ var funcion__verItemsObtener__2=function(tbody,table,parametro3){
 
     $(".titulo__modalItems").text("ITEMS DEL RUBRO "+data[0]);
 
+    $("#tablaItemsRubros").DataTable().destroy();
 
     datatablets($("#tablaItemsRubros"),"tablaItemsRubros",[data[1],$("#valorComparativo").val()],objetos([1],["boton"],["<button class='eliminarItemAc estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></button><center>"],[false],[false]),-1,["funcion__datatabletsEliminar"],["eliminarItemAc"],["itemAcEliminaRubros"],["elimina"],[1,0],['enviado','input__1']);
 

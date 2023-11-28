@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    $(".oculto__calificaciones__infraestructura").hide();
+
     
     $.getScript("layout/scripts/js/validacionBasica.js",function(){
 
@@ -33,6 +35,10 @@ $(document).ready(function () {
         agregarDatatablets($("#idEncuentroActivoTransporte__tablets"),$(".paidEncuentroTransporte__revisor"),"paidEncuentroTransporte__revisor");
         agregarDatatablets($("#idEncuentroActivoPasajesAereos__tablets"),$(".paidEncuentroPasajesAereos__revisor"),"paidEncuentroPasajesAereos__revisor");
         
+        
+        agregarDatatabletsObjetosPaid($("#matrizEjecucionObra__tablets"),$("#paidEjecucionObraInfraestructura__revisor"),"paidEjecucionObraInfraestructura__revisor");
+        agregarDatatabletsObjetosPaid2($("#matrizFiscalizacion__tablets"),$("#paidFiscalizacionInfraestructura__revisor"),"paidFiscalizacionInfraestructura__revisor");
+        
     });
 
 
@@ -64,6 +70,7 @@ $(document).ready(function () {
 
    $.getScript("layout/scripts/js/PAID_REVISOR_JS/selector.js",function(){
 
+   
         
     });
 

@@ -246,6 +246,46 @@
 		break;
 
 
+		case "anexosInfraestructura":
+
+			$query="SELECT ROW_NUMBER() OVER() AS num_row,documento, tipo FROM poa_paid_documentos_infraestructura WHERE idOrganismo='$datos[2]' AND idComponente='$datos[1]' AND idRubro='$datos[0]' AND perioIngreso='$aniosPeriodos__ingesos' and tipo ='Obra';";
+
+			$dataTablets=$objeto->getDatatablets2($query);
+
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "anexosInfraestructuraFiscalizacion":
+
+			$query="SELECT ROW_NUMBER() OVER() AS num_row,documento, tipo FROM poa_paid_documentos_infraestructura WHERE idOrganismo='$datos[2]' AND idComponente='$datos[1]' AND idRubro='$datos[0]' AND perioIngreso='$aniosPeriodos__ingesos' and tipo ='Fiscalizacion';";
+
+			$dataTablets=$objeto->getDatatablets2($query);
+
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "beneficiarioDirectoInfraestructura":
+
+			$query="SELECT rangoDesde, rangoHasta, masculino, femenino, mestizo, montubio,indigena, blanco, afro, totalBeneficiarios, tipo FROM poa_paid_beneficiarios_infraestructura WHERE idOrganismo='$datos[2]' AND perioIngreso='$aniosPeriodos__ingesos' AND idComponente='$datos[1]' AND idRubro='$datos[0]'";
+
+			$dataTablets=$objeto->getDatatablets2($query);
+
+			echo json_encode($dataTablets);
+
+		break;
+
+		case "beneficiarioAdaptadoInfraestructura":
+
+			$query="SELECT rangoDesde, rangoHasta, masculino, femenino, mestizo, montubio,indigena, blanco, afro, visual, auditivo, multisensorial, intelectual, fisica, psiquica, totalBeneficiarios, tipo FROM poa_paid_beneficiariosAdaptado_infraestructura WHERE idOrganismo='$datos[2]' AND perioIngreso='$aniosPeriodos__ingesos' AND idComponente='$datos[1]' AND idRubro='$datos[0]'";
+
+			$dataTablets=$objeto->getDatatablets2($query);
+
+			echo json_encode($dataTablets);
+
+		break;
+
 		
 		
 

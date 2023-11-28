@@ -1424,7 +1424,7 @@
 
  			}else if($indicador==57){
 
- 				$query="SELECT c.nombre AS rol,a.id_usuario,a.zonal,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario INNER JOIN th_roles AS c ON c.id_rol=b.id_rol WHERE a.PersonaACargo='$idUsuarioC' OR (a.fisicamenteEstructura=26 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=27 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=28 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=29 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=30 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=31 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=32 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=33 AND b.id_rol=4 AND a.estadoUsuario='A') AND a.estadoUsuario='A' AND b.estado='A' ORDER BY b.id_rol;";
+ 				$query="SELECT c.nombre AS rol,a.id_usuario,a.zonal,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.nombre, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombre,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(a.apellido, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS apellido, d.descripcionZonal FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario INNER JOIN th_roles AS c ON c.id_rol=b.id_rol  INNER JOIN th_zonal AS d on a.zonal=d.id_Zonal WHERE a.PersonaACargo='$idUsuarioC' OR (a.fisicamenteEstructura=26 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=27 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=28 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=29 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=30 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=31 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=32 AND b.id_rol=4 AND a.estadoUsuario='A') OR (a.fisicamenteEstructura=33 AND b.id_rol=4 AND a.estadoUsuario='A') AND a.estadoUsuario='A' AND b.estado='A' ORDER BY b.id_rol;";
 			 	$resultado = $conexionEstablecida->query($query);
 
 			 	while($registro = $resultado->fetch()) {
@@ -1432,7 +1432,7 @@
 			 		if ($registro["zonal"]==1) {
 			 			$listas.="<option value='".$registro["id_usuario"]."'>".$registro["nombre"]." ".$registro["apellido"]." Cargo: ".$registro["rol"]."</option>";
 			 		}else{
-			 			$listas.="<option value='".$registro["id_usuario"]."'>".$registro["nombre"]." ".$registro["apellido"]." Zonal: ".$registro["zonal"]." Cargo: ".$registro["rol"]."</option>";
+			 			$listas.="<option value='".$registro["id_usuario"]."'>".$registro["nombre"]." ".$registro["apellido"]." ".$registro["descripcionZonal"]." Cargo: ".$registro["rol"]."</option>";
 			 		}
 
 			 		
@@ -1562,9 +1562,17 @@
 
  			}else if($indicador==100){
 
-				$query="SELECT idAreaEncargada,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreArea, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreArea FROM poa_paid_areaencargada WHERE identificador='$variables' OR identificador IS NULL;";
-				$resultado = $conexionEstablecida->query($query);
+				if($variables != null){
+					$query="SELECT idAreaEncargada,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreArea, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreArea FROM poa_paid_areaencargada WHERE identificador='$variables' OR identificador IS NULL;";
+					$resultado = $conexionEstablecida->query($query);
+				}else{
+					$query="SELECT idAreaEncargada,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nombreArea, 'Ã¡', 'á'),'Ã©','é'),'Ã­','í'),'Ã³','ó'),'Ãº','ú'),'Ã‰','É'),'ÃŒ','Í'),'Ã“','Ó'),'Ãš','Ú'),'Ã±','ñ'),'Ã‘','Ñ'),'&#039;',' ` '),'Ã','Á'),'',' '),'Ã','Á'),'SI','SI'),'â€œ',''),'â€',''),'Á²','ó') AS nombreArea FROM poa_paid_areaencargada WHERE identificador='$evaluador' OR identificador IS NULL;";
+					$resultado = $conexionEstablecida->query($query);
+				}
 
+				
+
+			
 			 	$listas="<option value='0' class='text-center'>--Área encargada--</option>";
 
 			 	while($registro = $resultado->fetch()) {

@@ -9,7 +9,7 @@ var generador=0;
 var informacionGlobal="";
 
 
-var segmentosJs=function(parametro1,parametro2,parametro3,parametro4,parametro5,parametro6,tablaVerOcultar){
+var segmentosJsPaidInfraestructura=function(parametro1,parametro2,parametro3,parametro4,parametro5,parametro6,tablaVerOcultar){
 
 
     $(parametro1).click(function(e){

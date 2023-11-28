@@ -323,7 +323,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                 $("#beneficiariosDirectos").val(idContador__filares);
 
-                $(parametro2).append('<tr class="fila__indicadores'+idContador__filares+'"><td><input type="text" id="beneficiariosDirectos__'+idContador__filares+'" name="beneficiariosDirectos__'+idContador__filares+'" class="ancho__total__input solo__numero cambio__de__numero__f" value="0"></td> <td><input type="text" id="desdeEdad'+idContador__filares+'" name="desdeEdad'+idContador__filares+'" class="ancho__total__input metaProgramada__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="hastaEdad'+idContador__filares+'" name="hastaEdad'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="masculino'+idContador__filares+'" name="masculino'+idContador__filares+'" idContador="'+idContador__filares+'" class="ancho__total__input masculinoValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="femenino'+idContador__filares+'" name="femenino'+idContador__filares+'" class="ancho__total__input femeninoValor solo__numero cambio__de__numero__f" idContador="'+idContador__filares+'" value="0"/></td> <td><input type="text" id="mestizo'+idContador__filares+'" name="mestizo'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="montubio'+idContador__filares+'" name="montubio'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="indigena'+idContador__filares+'" name="indigena'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="blanco'+idContador__filares+'" name="blanco'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="afro'+idContador__filares+'" name="afro'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>  <td><input type="text" id="mulato'+idContador__filares+'" name="mulato'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="negro'+idContador__filares+'" name="negro'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>  <td><input type="text" id="total'+idContador__filares+'" name="total'+idContador__filares+'" class="ancho__total__input procentajesNan__conjunto solo__numero cambio__de__numero__f" value="0" readonly/><a class="btn btn-danger" id="eliminarIndicadores'+idContador__filares+'" idContador="'+idContador__filares+'"><i class="fa fa-trash" aria-hidden="true"></i></a></td><tr>');
+                $(parametro2).append('<tr class="fila__indicadores'+idContador__filares+'"> <td><input type="text" id="desdeEdad'+idContador__filares+'" name="desdeEdad'+idContador__filares+'" class="ancho__total__input metaProgramada__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="hastaEdad'+idContador__filares+'" name="hastaEdad'+idContador__filares+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="masculino'+idContador__filares+'" name="masculino'+idContador__filares+'" idContador="'+idContador__filares+'" class="ancho__total__input masculinoValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="femenino'+idContador__filares+'" name="femenino'+idContador__filares+'" class="ancho__total__input  solo__numero femeninoValor cambio__de__numero__f" idContador="'+idContador__filares+'" value="0"/></td>    <td><input type="text" id="mestizo'+idContador__filares+'" idContador="'+idContador__filares+'" name="mestizo'+idContador__filares+'" class="ancho__total__input sumaEtnias'+idContador__filares+'  metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="montubio'+idContador__filares+'" idContador="'+idContador__filares+'" name="montubio'+idContador__filares+'" class="ancho__total__input sumaEtnias'+idContador__filares+' metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="indigena'+idContador__filares+'" name="indigena'+idContador__filares+'" idContador="'+idContador__filares+'" class="ancho__total__input  metaResultado__conjunto sumaEtnias'+idContador__filares+' solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="blanco'+idContador__filares+'" idContador="'+idContador__filares+'" name="blanco'+idContador__filares+'" class="ancho__total__input  metaResultado__conjunto sumaEtnias'+idContador__filares+' solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="afro'+idContador__filares+'" idContador="'+idContador__filares+'" name="afro'+idContador__filares+'" class="ancho__total__input sumaEtnias'+idContador__filares+'   metaResultado__conjunto solo__numero cambio__de__numero__f" value="0" idContador="'+idContador__filares+'"/></td>  <td><input type="text" id="total'+idContador__filares+'" name="total'+idContador__filares+'" class="ancho__total__input procentajesNan__conjunto solo__numero cambio__de__numero__f" value="0" readonly/><a class="btn btn-danger" id="eliminarIndicadores'+idContador__filares+'" idContador="'+idContador__filares+'"><i class="fa fa-trash" aria-hidden="true"></i></a></td>   <td hidden><input type="hidden" id="totalOculto'+idContador__filares+'" idContador="'+idContador__filares+'" name="totalOculto'+idContador__filares+'" class="ancho__total__input   metaResultado__conjunto solo__numero cambio__de__numero__f" value="0" idContador="'+idContador__filares+'"/></td> <tr>');
 
                 if((idContador__filares-1) == 0){
 
@@ -341,7 +341,6 @@ var funcion__habilitar__memo__datable=function(tbody,table){
                    
                     $("#total"+idContador).val(suma1);
 
-
                 });
 
                 $(".masculinoValor").on('input', function () {
@@ -351,6 +350,21 @@ var funcion__habilitar__memo__datable=function(tbody,table){
                     var suma = parseInt($("#masculino"+idContador).val()) + parseInt($("#femenino"+idContador).val())
 
                     $("#total"+idContador).val(suma);
+
+                });
+
+
+                $(".sumaEtnias"+idContador__filares).on('input', function () {
+
+                    let idContador=$(this).attr('idContador');
+
+                    var sum = 0;
+                    $(".sumaEtnias"+idContador).each(function () {
+                      sum += parseFloat($(this).val());
+                      
+                    });
+
+                    $("#totalOculto"+idContador).val(sum);
 
                 });
 
@@ -386,7 +400,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                 $("#beneficiariosAdaptado").val(idContador__adaptado);
 
-                $(parametro2).append('<tr class="fila__indicadores'+idContador__adaptado+'"><td><input type="text" id="beneficiariosDirectosAdaptado__'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" name="beneficiariosDirectosAdaptado__'+idContador__adaptado+'" class=" beneficiariosAdaptadoValor ancho__total__input solo__numero cambio__de__numero__f" value="0"></td> <td><input idContador="'+idContador__adaptado+'" type="text" id="visual'+idContador__adaptado+'" name="visual'+idContador__adaptado+'" class="ancho__total__input metaProgramada__conjunto solo__numero visualValor cambio__de__numero__f" value="0"/></td> <td><input idContador="'+idContador__adaptado+'" type="text" id="auditiva'+idContador__adaptado+'" name="auditiva'+idContador__adaptado+'" class="ancho__total__input metaResultado__conjunto auditivaValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="multisensorial'+idContador__adaptado+'" name="multisensorial'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" class="ancho__total__input multisensorialValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="intelectual'+idContador__adaptado+'" name="intelectual'+idContador__adaptado+'" class="ancho__total__input intelectualValor solo__numero cambio__de__numero__f" idContador="'+idContador__adaptado+'" value="0"/></td> <td><input idContador="'+idContador__adaptado+'" type="text" id="fisica'+idContador__adaptado+'" name="fisica'+idContador__adaptado+'" class="ancho__total__input metaResultado__conjunto fisicaValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input idContador="'+idContador__adaptado+'" type="text" id="psiquica'+idContador__adaptado+'" name="psiquica'+idContador__adaptado+'" class="ancho__total__input psiquicaValor metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>  <td><input  type="text" id="totalAdaptado'+idContador__adaptado+'" name="totalAdaptado'+idContador__adaptado+'" class="ancho__total__input procentajesNan__conjunto solo__numero cambio__de__numero__f" value="0" readonly/><a class="btn btn-danger" id="eliminarIndicadores'+idContador__adaptado+'" idContador="'+idContador__adaptado+'"><i class="fa fa-trash" aria-hidden="true"></i></a></td><tr>');
+                $(parametro2).append('<tr class="fila__indicadores'+idContador__adaptado+'">  <td><input type="text" id="desdeEdadAdaptado'+idContador__adaptado+'" name="desdeEdadAdaptado'+idContador__adaptado+'" class="ancho__total__input metaProgramada__conjunto solo__numero cambio__de__numero__f" value="0"/></td>         <td><input type="text" id="hastaEdadAdaptado'+idContador__adaptado+'" name="hastaEdadAdaptado'+idContador__adaptado+'" class="ancho__total__input metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>    <td><input type="text" id="masculinoAdaptado'+idContador__adaptado+'" name="masculinoAdaptado'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" class="ancho__total__input masculinoValorAdaptado solo__numero cambio__de__numero__f" value="0"/></td>    <td><input type="text" id="femeninoAdaptado'+idContador__adaptado+'" name="femeninoAdaptado'+idContador__adaptado+'" class="ancho__total__input femeninoValorAdaptado solo__numero cambio__de__numero__f" idContador="'+idContador__adaptado+'" value="0"/></td>   <td><input type="text" id="mestizoAdaptado'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" name="mestizoAdaptado'+idContador__adaptado+'" class="ancho__total__input  sumaEtniasAdaptado'+idContador__adaptado+' metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>    <td><input type="text" id="montubioAdaptado'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" name="montubioAdaptado'+idContador__adaptado+'" class="ancho__total__input  sumaEtniasAdaptado'+idContador__adaptado+' metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>      <td><input type="text" id="indigenaAdaptado'+idContador__adaptado+'" name="indigenaAdaptado'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" class="ancho__total__input metaResultado__conjunto  sumaEtniasAdaptado'+idContador__adaptado+' solo__numero cambio__de__numero__f" value="0"/></td>      <td><input type="text" id="blancoAdaptado'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" name="blancoAdaptado'+idContador__adaptado+'" class="ancho__total__input  sumaEtniasAdaptado'+idContador__adaptado+' metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>      <td><input type="text" id="afroAdaptado'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" name="afroAdaptado'+idContador__adaptado+'" class="ancho__total__input  sumaEtniasAdaptado'+idContador__adaptado+' metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>              <td><input idContador="'+idContador__adaptado+'" type="text" id="visual'+idContador__adaptado+'" name="visual'+idContador__adaptado+'" class="ancho__total__input metaProgramada__conjunto solo__numero visualValor cambio__de__numero__f" value="0"/></td> <td><input idContador="'+idContador__adaptado+'" type="text" id="auditiva'+idContador__adaptado+'" name="auditiva'+idContador__adaptado+'" class="ancho__total__input metaResultado__conjunto auditivaValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="multisensorial'+idContador__adaptado+'" name="multisensorial'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" class="ancho__total__input multisensorialValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input type="text" id="intelectual'+idContador__adaptado+'" name="intelectual'+idContador__adaptado+'" class="ancho__total__input intelectualValor solo__numero cambio__de__numero__f" idContador="'+idContador__adaptado+'" value="0"/></td> <td><input idContador="'+idContador__adaptado+'" type="text" id="fisica'+idContador__adaptado+'" name="fisica'+idContador__adaptado+'" class="ancho__total__input metaResultado__conjunto fisicaValor solo__numero cambio__de__numero__f" value="0"/></td> <td><input idContador="'+idContador__adaptado+'" type="text" id="psiquica'+idContador__adaptado+'" name="psiquica'+idContador__adaptado+'" class="ancho__total__input psiquicaValor metaResultado__conjunto solo__numero cambio__de__numero__f" value="0"/></td>  <td><input  type="text" id="totalAdaptado'+idContador__adaptado+'" name="totalAdaptado'+idContador__adaptado+'" class="ancho__total__input procentajesNan__conjunto solo__numero cambio__de__numero__f" value="0" readonly/><a class="btn btn-danger" id="eliminarIndicadores'+idContador__adaptado+'" idContador="'+idContador__adaptado+'"><i class="fa fa-trash" aria-hidden="true"></i></a></td>       <td hidden><input type="hidden" id="totalOcultoAdaptado'+idContador__adaptado+'" totalOcultoAdaptado="'+idContador__adaptado+'" name="totalOculto'+idContador__adaptado+'" class="ancho__total__input   metaResultado__conjunto solo__numero cambio__de__numero__f" value="0" idContador="'+idContador__adaptado+'"/></td>   <td hidden><input type="hidden" id="totalAdaptadoOcultoDisca'+idContador__adaptado+'" idContador="'+idContador__adaptado+'" name="totalAdaptadoOcultoDisca'+idContador__adaptado+'" class="ancho__total__input   metaResultado__conjunto solo__numero cambio__de__numero__f" value="0" idContador="'+idContador__adaptado+'"/></td><tr>');
 
                 if((idContador__adaptado-1) == 0){
 
@@ -395,6 +409,41 @@ var funcion__habilitar__memo__datable=function(tbody,table){
                     $("#eliminarIndicadores"+idContaAnte).hide();
                 }
 
+                $(".femeninoValorAdaptado").on('input', function () {
+
+                    let idContador=$(this).attr('idContador');
+
+                    var suma1 = parseInt($("#masculinoAdaptado"+idContador).val()) + parseInt($("#femeninoAdaptado"+idContador).val())
+                   
+                    $("#totalAdaptado"+idContador).val(suma1);
+
+                });
+
+                $(".masculinoValorAdaptado").on('input', function () {
+
+                    let idContador=$(this).attr('idContador');
+
+                    var suma = parseInt($("#masculinoAdaptado"+idContador).val()) + parseInt($("#femeninoAdaptado"+idContador).val())
+
+                    $("#totalAdaptado"+idContador).val(suma);
+
+                });
+               
+
+                $(".sumaEtniasAdaptado"+idContador__adaptado).on('input', function () {
+
+                    let idContador=$(this).attr('idContador');
+
+                    var sum = 0;
+                    $(".sumaEtniasAdaptado"+idContador).each(function () {
+                      sum += parseFloat($(this).val());
+                      
+                    });
+
+                    $("#totalOcultoAdaptado"+idContador).val(sum);
+
+                });
+
 
                 $(".visualValor").on('input', function () {
 
@@ -402,7 +451,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                     var suma1 = parseInt($("#visual"+idContador).val()) + parseInt($("#auditiva"+idContador).val()) + parseInt($("#multisensorial"+idContador).val()) + parseInt($("#intelectual"+idContador).val()) + parseInt($("#fisica"+idContador).val()) + parseInt($("#psiquica"+idContador).val())
                    
-                    $("#totalAdaptado"+idContador).val(suma1);
+                    $("#totalAdaptadoOcultoDisca"+idContador).val(suma1);
 
 
                 });
@@ -413,7 +462,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                     var suma = parseInt($("#visual"+idContador).val()) + parseInt($("#auditiva"+idContador).val()) + parseInt($("#multisensorial"+idContador).val()) + parseInt($("#intelectual"+idContador).val()) + parseInt($("#fisica"+idContador).val()) + parseInt($("#psiquica"+idContador).val())
 
-                    $("#totalAdaptado"+idContador).val(suma);
+                    $("#totalAdaptadoOcultoDisca"+idContador).val(suma);
 
                 });
 
@@ -423,7 +472,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                     var suma1 = parseInt($("#visual"+idContador).val()) + parseInt($("#auditiva"+idContador).val()) + parseInt($("#multisensorial"+idContador).val()) + parseInt($("#intelectual"+idContador).val()) + parseInt($("#fisica"+idContador).val()) + parseInt($("#psiquica"+idContador).val())
                    
-                    $("#totalAdaptado"+idContador).val(suma1);
+                    $("#totalAdaptadoOcultoDisca"+idContador).val(suma1);
 
 
                 });
@@ -434,7 +483,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                     var suma = parseInt($("#visual"+idContador).val()) + parseInt($("#auditiva"+idContador).val()) + parseInt($("#multisensorial"+idContador).val()) + parseInt($("#intelectual"+idContador).val()) + parseInt($("#fisica"+idContador).val()) + parseInt($("#psiquica"+idContador).val())
 
-                    $("#totalAdaptado"+idContador).val(suma);
+                    $("#totalAdaptadoOcultoDisca"+idContador).val(suma);
 
                 });
 
@@ -444,7 +493,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                     var suma1 = parseInt($("#visual"+idContador).val()) + parseInt($("#auditiva"+idContador).val()) + parseInt($("#multisensorial"+idContador).val()) + parseInt($("#intelectual"+idContador).val()) + parseInt($("#fisica"+idContador).val()) + parseInt($("#psiquica"+idContador).val())
                    
-                    $("#totalAdaptado"+idContador).val(suma1);
+                    $("#totalAdaptadoOcultoDisca"+idContador).val(suma1);
 
 
                 });
@@ -455,7 +504,7 @@ var funcion__habilitar__memo__datable=function(tbody,table){
 
                     var suma = parseInt($("#visual"+idContador).val()) + parseInt($("#auditiva"+idContador).val()) + parseInt($("#multisensorial"+idContador).val()) + parseInt($("#intelectual"+idContador).val()) + parseInt($("#fisica"+idContador).val()) + parseInt($("#psiquica"+idContador).val())
 
-                    $("#totalAdaptado"+idContador).val(suma);
+                    $("#totalAdaptadoOcultoDisca"+idContador).val(suma);
 
                 });
 
@@ -575,5 +624,131 @@ var funcion__habilitar__memo__datable=function(tbody,table){
         
       };
 
+    var validadorSoloNumeros = function(input){
+        $(input).on('input', function() {
+
+            var input = $(this);
+            input.val(input.val().replace(/[^0-9]/g, ''));
+            
+          });
+    }
 
 
+    var AsignarPaisInfraestructura = function (boton,idSelector,tipo) {  
+        $(boton).on("click", function() {      
+            
+            $(idSelector+" option").remove();
+            
+            let paqueteDeDatos = new FormData();
+            paqueteDeDatos.append("tipo", tipo);
+            
+            $.ajax({
+        
+                type:"POST",
+                url:"modelosBd/PAID_INFRAESTRUCTURA/selector.md.php",
+                contentType: false,
+                data:paqueteDeDatos,
+                processData: false,
+                cache: false, 
+                success:function(response){
+        
+                    let elementos=JSON.parse(response);
+        
+                    let informacion=elementos['informacion'];
+
+                    var opcion = document.createElement("option");
+                        
+                        opcion.text = "---Selecione Opción---";
+                        $(idSelector).append(opcion); 
+                    
+                    
+        
+                    for (z of informacion) {
+        
+                        opcion = document.createElement("option");
+                        opcion.value = z.nombre;
+                        opcion.text = z.nombre;
+                        opcion.setAttribute('identificador', z.id);
+                        $(idSelector).append(opcion); 
+                    
+                    
+                    }
+        
+                
+        
+                },
+                error:function(){
+        
+                }
+                        
+            });	 
+          
+    
+            
+        });
+    }
+
+
+
+    var AsignarCantonProvinciaPaidInfra = function (idSelectoPadre,idSelectorHijo,tipo) {  
+        $(idSelectoPadre).on("change", function() {      
+            
+            let id=$(idSelectoPadre).find("option:selected").attr('identificador');
+
+            $(idSelectorHijo+" option").remove();
+            
+            let paqueteDeDatos = new FormData();
+            paqueteDeDatos.append("tipo", tipo);
+            paqueteDeDatos.append("id", id);  
+
+            $.ajax({
+        
+                type:"POST",
+                url:"modelosBd/PAID_INFRAESTRUCTURA/selector.md.php",
+                contentType: false,
+                data:paqueteDeDatos,
+                processData: false,
+                cache: false, 
+                success:function(response){
+        
+                    let elementos=JSON.parse(response);
+        
+                    let informacion=elementos['informacion'];
+
+                    var opcion = document.createElement("option");
+                    opcion.value = "0";
+                    opcion.text = "----Seleccione Opción----";
+                    $(idSelectorHijo).append(opcion); 
+                    
+                    if(id == 25 || id == 99999){
+                        opcion = document.createElement("option");
+                        opcion.value = 'internacional';
+                        opcion.text = 'Internacional';
+                        opcion.setAttribute('identificador', 99999);
+                        $(idSelectorHijo).append(opcion); 
+                    }
+
+                    for (z of informacion) {
+        
+                         opcion = document.createElement("option");
+                        opcion.value = z.nombre;
+                        opcion.text = z.nombre;
+                        opcion.setAttribute('identificador', z.id);
+                        $(idSelectorHijo).append(opcion); 
+                    
+                    
+                    }
+        
+                
+        
+                },
+                error:function(){
+        
+                }
+                        
+            });	 
+          
+    
+            
+        });
+    }

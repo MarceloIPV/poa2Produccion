@@ -29,14 +29,15 @@ $(document).ready(function () {
         guardar_archivos_infraestructura("#guardarCronogramaValorado","#cronogramaValoradoInput","Obra")
         guardar_archivos_infraestructura("#guardarCalculoVolumenes","#calculoVolumenesInput","Obra")
 
-        guardar_archivos_infraestructura("#guardarcertificadoNoTecnicos","#certificadoNoTecnicosInput","Fiscaliacion")
-        guardar_archivos_infraestructura("#guardardeclaracionRevisionValidacion","#declaracionRevisionValidacionInput","Fiscaliacion")
-        guardar_archivos_infraestructura("#guardardeclaracionAutorizacionIntervencion","#declaracionAutorizacionIntervencionInput","Fiscaliacion")
-        guardar_archivos_infraestructura("#guardarestudioMercado","#estudioMercadoInput","Fiscaliacion")
-        guardar_archivos_infraestructura("#guardarcopiaPredio","#copiaPredioInput","Fiscaliacion")
-        guardar_archivos_infraestructura("#guardaracuerdoMinisterial","#acuerdoMinisterialInput","Fiscaliacion")
-        guardar_archivos_infraestructura("#guardaregistroDirectorio","#registroDirectorioInput","Fiscaliacion")
-        guardar_archivos_infraestructura("#guardarresolucionIntervencion","#resolucionIntervencionInput","Fiscaliacion")
+        guardar_archivos_infraestructura("#guardarpresupuestoFiscalizacion","#presupuestoFiscalizacionInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardarcertificadoNoTecnicos","#certificadoNoTecnicosInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardardeclaracionRevisionValidacion","#declaracionRevisionValidacionInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardardeclaracionAutorizacionIntervencion","#declaracionAutorizacionIntervencionInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardarestudioMercado","#estudioMercadoInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardarcopiaPredio","#copiaPredioInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardaracuerdoMinisterial","#acuerdoMinisterialInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardaregistroDirectorio","#registroDirectorioInput","Fiscalizacion")
+        guardar_archivos_infraestructura("#guardarresolucionIntervencion","#resolucionIntervencionInput","Fiscalizacion")
 
         guardar_informe_Obra_infraestructura("#guardarArchivo__InfraObra","#archivoSubido__InfraObra",$("#paidInformeObraInfraestructura"))
         guardar_informe_fiscalizacion_infraestructura("#guardarArchivo__InfraFiscalizacion","#archivoSubido__InfraFiscalizacion",$("#paidInformeFiscalizacionInfraestructura"))
@@ -45,9 +46,9 @@ $(document).ready(function () {
 
     
     $.getScript("layout/scripts/js/PAID_INFRAESTRUCTURA/eliminaciones.js",function(){
-        funcion__eliminar_tabla_informes_paid_infraestructura("#paidInformeObraInfraestructura tbody","eliminarInformeObraInfra",$("#paidInformeObraInfraestructura"),"eliminarTipoInfraestructura")
+        funcion__eliminar_tabla_informes_paid_infraestructura("#paidInformeObraInfraestructura tbody","eliminarInformeObraInfra",$("#paidInformeObraInfraestructura"),"eliminarTipoInfraestructura","Obra")
         
-        funcion__eliminar_tabla_informes_paid_infraestructura("#paidInformeFiscalizacionInfraestructura tbody","eliminarInformeObraInfra",$("#paidInformeFiscalizacionInfraestructura"),"eliminarTipoInfraestructura")
+        funcion__eliminar_tabla_informes_paid_infraestructura("#paidInformeFiscalizacionInfraestructura tbody","eliminarInformeObraInfra",$("#paidInformeFiscalizacionInfraestructura"),"eliminarTipoInfraestructura","Fiscalizacion")
        
     });
 
@@ -64,6 +65,16 @@ $(document).ready(function () {
     
         
     tablaPrincipalInfraestructura("paid_general",$("#identificador").val()); 
+
+    funcion__abrirDatatableAnexosDocumentos__paid_infraestructura("#paidInformeObraInfraestructura tbody",$("#paidInformeObraInfraestructura"),"anexosObraInfra","Anexos Obra")
+    funcion__abrirDatatableAnexosDocumentos__paid_infraestructura("#paidInformeObraInfraestructura tbody",$("#paidInformeObraInfraestructura"),"beneficiariosDirectosObraInfra","Beneficiarios Directos")
+    funcion__abrirDatatableAnexosDocumentos__paid_infraestructura("#paidInformeObraInfraestructura tbody",$("#paidInformeObraInfraestructura"),"beneficiariosObraAdaptadoInfra","Beneficiarios Adaptado")
+
+    funcion__abrirDatatableAnexosDocumentos__paid_infraestructura("#paidInformeFiscalizacionInfraestructura tbody",$("#paidInformeFiscalizacionInfraestructura"),"anexosObraInfraFiscalizacion","Anexos Fiscalización")
+
+
+
+    
 
     });
 
@@ -89,6 +100,7 @@ $(document).ready(function () {
         controlArchivosInfra("#cronogramaValoradoInput");
         controlArchivosInfra("#calculoVolumenesInput");
 
+        controlArchivosInfra("#presupuestoFiscalizacionInput");
         controlArchivosInfra("#certificadoNoTecnicosInput");
         controlArchivosInfra("#declaracionRevisionValidacionInput");
         controlArchivosInfra("#declaracionAutorizacionIntervencionInput");
@@ -98,6 +110,11 @@ $(document).ready(function () {
         controlArchivosInfra("#registroDirectorioInput");
         controlArchivosInfra("#resolucionIntervencionInput");
 
+        AsignarPaisInfraestructura("#btnNuevoInformeObraInfra","#idSelectpais","obtener_datos_pais");
+        AsignarPaisInfraestructura("#btnNuevoInformeObraInfra","#idSelectprovincia","obtener_datos_provincia");
+
+        AsignarCantonProvinciaPaidInfra("#idSelectprovincia","#idSelectCanton","obtener_datos_ciudad");
+        AsignarCantonProvinciaPaidInfra("#idSelectCanton","#idSelectParroquia","obtener_datos_parroquia");
     });
     
    

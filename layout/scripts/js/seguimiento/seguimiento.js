@@ -934,7 +934,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 	
 	/*=====  End of Enviar al orgnaismo deportivos seguimientos 2  ======*/
 	
-		var informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__real__infra__24__recomiendas__directores__i=function(parametro1){
+	var informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__real__infra__24__recomiendas__directores__i=function(parametro1){
 
 		$(parametro1).click(function(e){
 
@@ -1178,7 +1178,7 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 	=            Devolver infraestructuras            =
 	=================================================*/
 	
-		var informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__real__infra__24=function(parametro1){
+	var informacion__analistas__reasignar__regresar__alto__recomendar__recomendados__seguimientos__segumientos__real__infra__24=function(parametro1){
 
 		$(parametro1).click(function(e){
 
@@ -8436,6 +8436,9 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 			console.log(validador);
 			console.log("VALIDADOR 1");
 			console.log(validador1);
+
+
+
 			if (validador==false || validador1==false) {
 
 				alertify.set("notifier","position", "top-center");
@@ -8443,6 +8446,9 @@ agregarDatatablets__enlaces__repor__funcionarios($("#documentacionGenerada__in")
 
 				$(parametro1).show();			
 
+			}else if($("#guardar_declaracion_rp").is(":visible") || $("#guardar_declaracion_cp").is(":visible")){
+				alertify.set("notifier","position", "top-center");
+				alertify.notify("Debe subir los archivos requeridos!", "error", 5, function(){});
 			}else{
 
 

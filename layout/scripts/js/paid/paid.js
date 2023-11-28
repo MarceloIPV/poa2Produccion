@@ -384,7 +384,7 @@ var reasignacion__paid__recomendacion__dos=function(parametro1,parametro2){
 
 		let atributo = $("#selectorUsuarios__asignar__contrarios option:selected").attr('attr');
 		let atributo2 = $("#selectorUsuarios__asignar__contrarios__subsecretarias option:selected").attr('attr');
-
+		let identificador=$("#identificador").val();
 
 		$("#selectorUsuarios__asignar__plani__analistas").removeClass('error');
 		$("#selectorUsuarios__asignar__plani__directores").removeClass('error');
@@ -506,6 +506,7 @@ var reasignacion__paid__recomendacion__dos=function(parametro1,parametro2){
 
 			paqueteDeDatos.append("idRolAd",idRolAd);
 			paqueteDeDatos.append("fisicamenteE",fisicamenteE);
+			paqueteDeDatos.append("identificador",identificador);
 			
 
 			$.ajax({
@@ -599,6 +600,7 @@ var reasignacion__paid__recomendacion=function(parametro1,parametro2){
 
 			let idOrganismo=$("#idOrganismoPaid").val();
 			let idUsuarioPrincipal=$("#idUsuarioPrincipal").val();
+			let identificador=$("#identificador").val();
 			let observaciones__recomendaciones__recomiendas=$("#observaciones__recomendaciones__recomiendas").val();
 
 			paqueteDeDatos.append('documentoFinal', $('#archivoRecomendacion')[0].files[0]);
@@ -606,6 +608,7 @@ var reasignacion__paid__recomendacion=function(parametro1,parametro2){
 			paqueteDeDatos.append("idOrganismo",idOrganismo);
 			paqueteDeDatos.append("etapa",1);
 			paqueteDeDatos.append("idUsuarioPrincipal",idUsuarioPrincipal);
+			paqueteDeDatos.append("identificador",identificador);
 			paqueteDeDatos.append("observaciones__recomendaciones__recomiendas",observaciones__recomendaciones__recomiendas);
 
 			 let other_data = $('#formReenvio__paid').serializeArray();
@@ -709,12 +712,15 @@ var reasignacion__paid=function(parametro1,parametro2){
 			let selectorUsuarios__asignar=$("#selectorUsuarios__asignar").val();
 			let observaciones=$("#observaciones").val();
 			let idUsuarioPrincipal=$("#idUsuarioPrincipal").val();
+			let identificador=$("#identificador").val();
 
 			paqueteDeDatos.append("idOrganismo",idOrganismo);
 			paqueteDeDatos.append("selectorUsuarios__asignar",selectorUsuarios__asignar);
 			paqueteDeDatos.append("observaciones",observaciones);
 			paqueteDeDatos.append("etapa",0);
 			paqueteDeDatos.append("idUsuarioPrincipal",idUsuarioPrincipal);
+
+			paqueteDeDatos.append("identificador",identificador);
 
 			$.ajax({
 

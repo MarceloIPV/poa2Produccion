@@ -44,7 +44,7 @@
 
 $.getScript("layout/scripts/js/POA_SEGUIMIENTO_REVISOR/datatables.js",function(){
   
-  datatabletsSeguimientoRevisorVacio($("#organismos__totalesVerificas"),"organismos__totalesVerificas","Reporte de Bloqueos",objetosSeguimiento2023([8,10,12,14],["enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2"],[8,10,12,14],[8,10,12,14],[false]),[$("#idUsuarioPrincipal").val(),$("#zonalUsuario").val(),$("#idRolAd").val()],["funcion__bloqueos__seguimientos2023"]);
+  datatabletsSeguimientoRevisorVacio($("#organismos__totalesVerificas"),"organismos__totalesVerificas","Reporte Estado Envió Información Trimestral",objetosSeguimiento2023([8,10,12,14],["enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2","enlaces__definidos__2"],[8,10,12,14],[8,10,12,14],[false]),[$("#idUsuarioPrincipal").val(),$("#zonalUsuario").val(),$("#idRolAd").val()],["funcion__bloqueos__seguimientos2023"]);
 
 
 });

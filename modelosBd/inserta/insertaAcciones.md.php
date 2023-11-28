@@ -2004,16 +2004,27 @@
 
 	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
-		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
 				$resultado= $conexionEstablecida->exec($query);
 
 				$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'2', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
 
-	 		}else if ($idRolAd==4 && $fisicamenteE==3 && $id_rolUsuarios==2) {
+	 		}else if (($idRolAd==2 || $idRolAd==3) && $fisicamenteE==15 && ($id_rolUsuarios!=3) ) {
+
+				$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
+
+				$query="UPDATE poa_paid_envioinicial SET idUsuarioR='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
+			   $resultado= $conexionEstablecida->exec($query);
+
+			   $inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'2', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
+
+			   $documento=$objeto->getEnviarPdf($_FILES["documentoFinal"]['type'],$_FILES["documentoFinal"]['size'],$_FILES["documentoFinal"]['tmp_name'],$_FILES["documentoFinal"]['name'],$direccion1,$nombreDocumentos__finales);
+
+			}else if ($idRolAd==4 && $fisicamenteE==3 && $id_rolUsuarios==2) {
 
 	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
-		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
 				$resultado= $conexionEstablecida->exec($query);
 
 				$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'2', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
@@ -2022,7 +2033,7 @@
 
 	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
-		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='$selectorUsuarios__asignar__contrarios',idUsuarioRP=NULL WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+		 		$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='$selectorUsuarios__asignar__contrarios',idUsuarioRP=NULL WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
 				$resultado= $conexionEstablecida->exec($query);
 
 				$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'2', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
@@ -2031,7 +2042,7 @@
 
 	 			$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
-	 			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='$selectorUsuarios__asignar__contrarios',idUsuarioR=NULL WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+	 			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='$selectorUsuarios__asignar__contrarios',idUsuarioR=NULL WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
 				$resultado= $conexionEstablecida->exec($query);
 
 				$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'0', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
@@ -2044,7 +2055,7 @@
 
 				$documento=$objeto->getEnviarPdf($_FILES["documentoFinal"]['type'],$_FILES["documentoFinal"]['size'],$_FILES["documentoFinal"]['tmp_name'],$_FILES["documentoFinal"]['name'],$direccion1,$nombreDocumentos__finales);
 
-	 			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+	 			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
 				$resultado= $conexionEstablecida->exec($query);
 
 				$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'1', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
@@ -2055,7 +2066,7 @@
 
 	 			$documento=$objeto->getEnviarPdf($_FILES["documentoFinal"]['type'],$_FILES["documentoFinal"]['size'],$_FILES["documentoFinal"]['tmp_name'],$_FILES["documentoFinal"]['name'],$direccion1,$nombreDocumentos__finales);
 
-	 			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+	 			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='0',idUsuarioRP='$selectorUsuarios__asignar__contrarios' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
 				$resultado= $conexionEstablecida->exec($query);
 
 				$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'2', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
@@ -2080,16 +2091,25 @@
 
 	 		$envioInicialIdenti=$objeto->getObtenerInformacionGeneral("SELECT identificador FROM poa_paid_envioinicial WHERE idOrganismo='$idOrganismo';");
 
+			if($identificador == 0){
+
+				$nombreProyecto='Desarrollo';
+			}else if($identificador == 1){
+				$nombreProyecto='AltoRendimiento';
+			}else{
+				$nombreProyecto='Infraestructura';
+			}
+
 	 		$direccion1=VARIABLE__BACKEND."paid/informesTecnicos/";
 
-	 		$nombre__archivo=$idOrganismo."__".$fecha_actual.".pdf";
+	 		$nombre__archivo=$nombreProyecto."__".$idOrganismo."__".$fecha_actual.".pdf";
 
 			$documento=$objeto->getEnviarPdf($_FILES["documentoFinal"]['type'],$_FILES["documentoFinal"]['size'],$_FILES["documentoFinal"]['tmp_name'],$_FILES["documentoFinal"]['name'],$direccion1,$nombre__archivo);
 
 
 	 		$observaciones=filter_var($observaciones__recomendaciones__recomiendas, FILTER_SANITIZE_MAGIC_QUOTES);
 
-			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='$responsablesUsuarios', documento='$nombre__archivo' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='0',idUsuarioR='$responsablesUsuarios', documento='$nombre__archivo' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador='$identificador';";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'$etapa', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
@@ -2098,11 +2118,16 @@
 				
 				$inserta=$objeto->getInsertaNormal('poa_paid_comentarios_observaciones', array("`idComentarios`, ","`idOrganismo`, ","`opcion1`, ","`opcion2`, ","`opcion3`, ","`opcion4`, ","`opcion5`, ","`opcion6`, ","`opcion7`, ","`opcion8`, ","`opcion9`, ","`opcion10`, ","`comentario1`, ","`comentario2`, ","`comentario3`, ","`comentario4`, ","`comentario5`, ","`comentario6`, ","`comentario7`, ","`comentario8`, ","`comentario9`, ","`comentario10`, ","`fecha`, ","`idTipo`, ","`perioIngreso`"),array("'$idOrganismo', ","'$puestos__alto', ","'$recursos__destinados__alto', ","'$campamento__alto', ","'$campamento__evaluaciones__alto', ","'$evaluaciones__campamento__alto', ","'$recursos__gastos__alto', ","'$deportiva__enmarcada__alto', ","'$cubrir__necesedidades__alto', ","'$planificacion__anual__alto', ","' ', ","'$puestos__alto__text', ","'$recursos__destinados__alto__text', ","'$campamento__alto__text', ","'$campamento__evaluaciones__alto__text', ","'$evaluaciones__campamento__alto__text', ","'$recursos__gastos__alto__text', ","'$deportiva__enmarcada__alto__text', ","'$cubrir__necesedidades__alto__text', ","'$planificacion__anual__alto__text', ","' ', ","'$fecha_actual', ","'0', ","'$aniosPeriodos__ingesos'"));
 
+			}else if ($envioInicialIdenti[0][identificador]==1){
+
+				$inserta=$objeto->getInsertaNormal('poa_paid_comentarios_observaciones', array("`idComentarios`, ","`idOrganismo`, ","`opcion1`, ","`opcion2`, ","`opcion3`, ","`opcion4`, ","`opcion5`, ","`opcion6`, ","`opcion7`, ","`opcion8`, ","`opcion9`, ","`opcion10`, ","`comentario1`, ","`comentario2`, ","`comentario3`, ","`comentario4`, ","`comentario5`, ","`comentario6`, ","`comentario7`, ","`comentario8`, ","`comentario9`, ","`comentario10`, ","`fecha`, ","`idTipo`, ","`perioIngreso`"),array("'$idOrganismo', ","'$deportivas__desarrollo', ","'$campamento__desarrollo', ","'$procesos__desarrollo', ","'$gastos__evento__desarrollo', ","'$operativa__anual__desarrollo', ","'$recursos__desarrollo', ","'$anual__inversion__desarrollo', ","' ', ","' ', ","' ', ","'$deportivas__desarrollo__text', ","'$campamento__desarrollo__text', ","'$procesos__desarrollo__text', ","'$gastos__evento__desarrollo__text', ","'$operativa__anual__desarrollo__text', ","'$recursos__desarrollo__text', ","'$anual__inversion__desarrollo__text', ","' ', ","' ', ","' ', ","'$fecha_actual', ","'1', ","'$aniosPeriodos__ingesos'"));
+
+
 			}else{
 
-			$inserta=$objeto->getInsertaNormal('poa_paid_comentarios_observaciones', array("`idComentarios`, ","`idOrganismo`, ","`opcion1`, ","`opcion2`, ","`opcion3`, ","`opcion4`, ","`opcion5`, ","`opcion6`, ","`opcion7`, ","`opcion8`, ","`opcion9`, ","`opcion10`, ","`comentario1`, ","`comentario2`, ","`comentario3`, ","`comentario4`, ","`comentario5`, ","`comentario6`, ","`comentario7`, ","`comentario8`, ","`comentario9`, ","`comentario10`, ","`fecha`, ","`idTipo`, ","`perioIngreso`"),array("'$idOrganismo', ","'$deportivas__desarrollo', ","'$campamento__desarrollo', ","'$procesos__desarrollo', ","'$gastos__evento__desarrollo', ","'$operativa__anual__desarrollo', ","'$recursos__desarrollo', ","'$anual__inversion__desarrollo', ","' ', ","' ', ","' ', ","'$deportivas__desarrollo__text', ","'$campamento__desarrollo__text', ","'$procesos__desarrollo__text', ","'$gastos__evento__desarrollo__text', ","'$operativa__anual__desarrollo__text', ","'$recursos__desarrollo__text', ","'$anual__inversion__desarrollo__text', ","' ', ","' ', ","' ', ","'$fecha_actual', ","'1', ","'$aniosPeriodos__ingesos'"));
-
-
+				$inserta=$objeto->getInsertaNormal('poa_paid_comentarios_observaciones', array("`idComentarios`, ","`idOrganismo`, ","`opcion1`, ","`opcion2`, ","`opcion3`, ","`opcion4`, ","`opcion5`, ","`opcion6`, ","`opcion7`, ","`opcion8`, ","`opcion9`, ","`opcion10`, ","`comentario1`, ","`comentario2`, ","`comentario3`, ","`comentario4`, ","`comentario5`, ","`comentario6`, ","`comentario7`, ","`comentario8`, ","`comentario9`, ","`comentario10`, ","`fecha`, ","`idTipo`, ","`perioIngreso`"),array("'$idOrganismo', ","'$deportivas__desarrollo', ","'$campamento__desarrollo', ","'$procesos__desarrollo', ","'$gastos__evento__desarrollo', ","'$operativa__anual__desarrollo', ","'$recursos__desarrollo', ","'$anual__inversion__desarrollo', ","' ', ","' ', ","' ', ","'$deportivas__desarrollo__text', ","'$campamento__desarrollo__text', ","'$procesos__desarrollo__text', ","'$gastos__evento__desarrollo__text', ","'$operativa__anual__desarrollo__text', ","'$recursos__desarrollo__text', ","'$anual__inversion__desarrollo__text', ","' ', ","' ', ","' ', ","'$fecha_actual', ","'2', ","'$aniosPeriodos__ingesos'"));
+	
+	
 			}
 
 			$mensaje=1;
@@ -2179,7 +2204,7 @@
 
 	 		$observaciones=filter_var($observaciones, FILTER_SANITIZE_MAGIC_QUOTES);
 
-			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='$selectorUsuarios__asignar' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos';";
+			$query="UPDATE poa_paid_envioinicial SET idUsuarioS='$selectorUsuarios__asignar' WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and identificador ='$identificador';";
 			$resultado= $conexionEstablecida->exec($query);
 
 			$inserta=$objeto->getInsertaNormal('poa_paid_reasignacion_seguimiento', array("`idAsignacion`, ","`idUsuario`, ","`observacion`, ","`tipoEntrada`, ","`fecha`, ","`hora`, ","`idOrganismo`, ","`perioIngreso`"),array("'$idUsuarioPrincipal', ","'$observaciones', ","'$etapa', ","'$fecha_actual', ","'$hora_actual', ","'$idOrganismo', ","'$aniosPeriodos__ingesos'"));
@@ -2258,7 +2283,7 @@
 			
 			/*=====  End of Enviador de correos  ======*/
 
-		break;		
+		break;
 
 		case  "seguimiento__control__cambios":
 

@@ -1,7 +1,9 @@
 
 <?php $componentes= new componentes();?>
 
-<?php $componentesPaid= new componentesPaid();?>
+<?php $componentesPaid= new componentesPaid();
+
+$componentesTablas = new componentesTablas();?>
 
 
 <div class="content-wrapper">
@@ -67,6 +69,15 @@
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoSeguros","form__ecnuentro__Seguros","paidEncuentroSeguros__revisor",["Numero","Cod. Item","Nom. Item","Provincia","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Componente","Rubro"]);?>
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoTransporte","form__ecnuentro__Transporte","paidEncuentroTransporte__revisor",["Numero","Cod. Item","Nom. Item","Provincia","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Componente","Rubro"]);?>
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoPasajesAereos","form__ecnuentro__PasajesAereos","paidEncuentroPasajesAereos__revisor",["Numero","Item","Deporte","Pasajes","Nro. Deportistas","Nro. Entrenadores","Total Personal","Nro. Días","Valor Total","Componente","Rubro"]);?>
+
+
+<?=$componentes->modalReenvioPaid__datatablets__inicial2("matrizEjecucionObra","form__ejecucion__obra","paidEjecucionObraInfraestructura__revisor",["VALOR TOTAL","DOCUMENTO","Anexos","Beneficiarios Directos","Beneficiarios Adaptado"]);?>
+<?=$componentes->modalReenvioPaid__datatablets__inicial2("matrizFiscalizacion","form__fiscalizacion","paidFiscalizacionInfraestructura__revisor",["NÚMERO","DOCUMENTO","ANEXOS"]);?>
+
+<?= $componentesTablas->getModalVacioXl("modalDocumentosAnexosInfraestructura", "formContratacionPublica", "tituloModalDocumentosInfraestructura", "divDocumentosInfraestructura", "cerrarBtnContratacionPublica", "inputIdItem"); ?>
+
+
+
 <script>
 
 

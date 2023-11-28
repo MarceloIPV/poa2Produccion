@@ -633,7 +633,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 	<?php if ($seleccionPoaPaid == 2) : ?>
 
-		<?php if ($estadoPAIDTipo[0][valor__comparativo] == 0) : ?>
+		<?php if ($estadoPAIDTipo[0][valor__comparativo] == 0 || $estadoPAIDTipo[1][valor__comparativo] == 0) : ?>
 
 			<li class="nav-item">
 
@@ -770,7 +770,7 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 		<?php endif ?>
 
-		<?php if ($estadoPAIDTipo[0][valor__comparativo] == 1) : ?>
+		<?php if ($estadoPAIDTipo[0][valor__comparativo] == 1 || $estadoPAIDTipo[1][valor__comparativo] == 1) : ?>
 
 			<li class="nav-item">
 

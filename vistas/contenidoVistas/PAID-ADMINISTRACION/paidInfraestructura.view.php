@@ -70,7 +70,7 @@
 
 <?=$componentesPaid->getModalConfiguracion("estadoPropiedad","Estado de la Propiedad","modalidadContent","agregarEstPropiedad","verEstPropiedad","tablaEstadoPropiedad",["Estado Propiedad"],"contenedorModalidadTabla");?>
 
-<?=$componentesPaid->getModalConfiguracion("rubrosEditaModalAc","Items Rubros","itemsRubrosContent","agregarItemsRubros","verItemsRubros","tablaItemsRubros",["Ítem"],"contenedorItemsTabla");?>
+<?=$componentesPaid->getModalConfiguracion2("rubrosEditaModalAc","Items Rubros","itemsRubrosContent","agregarItemsRubros","verItemsRubros","tablaItemsRubros",["Ítem"],"contenedorItemsTabla");?>
 
 <?=$componentesPaid->getModalConfiguracion("rubrosEditaModalComponentes","Rubros","rubrosContentPrincipal","agregarItemsRubrosContentPrincipal","verItemsRubrosContentPrincipal","tablaItemsRubrosContentPrincipal",["Ítem"],"contenedorRubosItemsPrincipalTabla");?>
 

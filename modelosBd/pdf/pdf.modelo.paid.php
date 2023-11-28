@@ -1536,6 +1536,7 @@ if($trimestreEvaluadorDos!="") {
 						
 						Política:
 						<br>
+						<br>
 						6.7 Fomentar el tiempo libre dedicado a actividades físicas que contribuyan a mejorar la salud de la población.
 
 						
@@ -1551,11 +1552,9 @@ if($trimestreEvaluadorDos!="") {
 						
 						Metas:
 						<br>
+						<br>
 						6.7.1. Reducir la prevalencia de actividad física insuficiente en la población de niñas, niños y jóvenes (5-17 años) del 88,21% al 83,21%.
 
-
-						
-						
 						</td>
 					</tr>
 				</table>
@@ -1610,6 +1609,9 @@ if($trimestreEvaluadorDos!="") {
 		
 
 					</tr>
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
 
 					<tr>
 
@@ -1623,6 +1625,10 @@ if($trimestreEvaluadorDos!="") {
 
 					</tr>
 
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
+
 					<tr>
 
 						<th>
@@ -1635,7 +1641,9 @@ if($trimestreEvaluadorDos!="") {
 
 					</tr>
 
-					
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>		
 
 					<tr>
 
@@ -1720,6 +1728,10 @@ if($trimestreEvaluadorDos!="") {
 
 					</tr>
 
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
+
 					<tr>
 
 						<td style = 'background:#e8edff'>
@@ -1747,6 +1759,10 @@ if($trimestreEvaluadorDos!="") {
 		
 
 					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
 
 					<tr>
 
@@ -1780,11 +1796,7 @@ if($trimestreEvaluadorDos!="") {
 
 						<tr>
 
-								<th colspan='1' >
-
-									<center>BENEFICIARIOS </center>
-
-								</th>
+								
 
 								<th colspan='2' style='background-color: #7d818c;'>
 
@@ -1798,14 +1810,15 @@ if($trimestreEvaluadorDos!="") {
 
 								</th>
 
-								<th colspan='7' style='background-color: #8D85AF;'>
+								<th colspan='5' style='background-color: #8D85AF;'>
 
 								<center>ETNIA</center>
 
 								</th>
-								<th colspan='1'>
 
-								<center>TOTAL</center>
+								<th colspan='1' >
+
+									<center>BENEFICIARIOS</center>
 
 								</th>
 
@@ -1813,9 +1826,7 @@ if($trimestreEvaluadorDos!="") {
 
 						<tr>
 
-							<th>
-								<center>DIRECTOS</center>
-							</th>
+							
 
 							<th style='background-color: #7d818c;'>
 								<center>DESDE</center>
@@ -1855,16 +1866,10 @@ if($trimestreEvaluadorDos!="") {
 								<center>AFRO</center>
 							</th>
 
-							<th style='background-color: #8D85AF;'>
-								<center>MULATO</center>
-							</th>
+							<th >
 
-							<th style='background-color: #8D85AF;'>
-								<center>NEGRO</center>
-							</th>
+									<center>DIRECTOS </center>
 
-							<th>
-								<center></center>
 							</th>
 
 						</tr>
@@ -1876,7 +1881,7 @@ if($trimestreEvaluadorDos!="") {
 					
 					for($i = 1; $i <= $beneficiariosDirectos; $i++) {
 
-						$beneficiariosDirectos__ = "beneficiariosDirectos__" . $i;
+						
 						$desdeEdad = "desdeEdad" . $i;
 						$hastaEdad = "hastaEdad" . $i;
 						$masculino = "masculino" . $i;
@@ -1886,15 +1891,14 @@ if($trimestreEvaluadorDos!="") {
 						$indigena = "indigena" . $i;
 						$blanco = "blanco" . $i;
 						$afro = "afro" . $i;
-						$mulato = "mulato" . $i;
-						$negro = "negro" . $i;
+						
 						$total = "total" . $i;
 
 						$documentoCuerpo.="
 
 						<tr>
 
-							<td><center>".$$beneficiariosDirectos__."</center></td>
+							
 							<td><center>".$$desdeEdad."</center></td>
 							<td><center>".$$hastaEdad."</center></td>
 							<td><center>".$$masculino."</center></td>
@@ -1904,8 +1908,6 @@ if($trimestreEvaluadorDos!="") {
 							<td><center>".$$indigena."</center></td>
 							<td><center>".$$blanco."</center></td>
 							<td><center>".$$afro."</center></td>
-							<td><center>".$$mulato."</center></td>
-							<td><center>".$$negro."</center></td>
 							<td><center>".$$total."</center></td>
 						</tr>	
 
@@ -1934,32 +1936,147 @@ if($trimestreEvaluadorDos!="") {
 
 						<tr>
 
-								<th colspan='1' >
+							<th colspan='2' style='background-color: #7d818c;'>
 
-									<center>BENEFICIARIOS </center>
+							<center>RANGO</center>
 
-								</th>
+							</th>
 
-								<th colspan='6' style='background-color: #7d818c;'>
+							<th colspan='2' style='background-color: #85AFA1;'>
 
-								<center>TIPO DISCAPACIDAD</center>
+							<center>SEXO</center>
 
-								</th>
+							</th>
 
-								<th colspan='1'>
+							<th colspan='5' style='background-color: #8D85AF;'>
 
-								<center>TOTAL</center>
+							<center>ETNIA</center>
 
-								</th>
+							</th>
+
+							
 
 						</tr>
 
 
 						<tr>
 
-							<th>
-								<center>DIRECTOS</center>
+							<th style='background-color: #7d818c;'>
+								<center>DESDE</center>
 							</th>
+
+
+							<th style='background-color: #7d818c;'>
+								<center>HASTA</center>
+							</th>
+
+
+							<th style='background-color: #85AFA1;'>
+								<center>MASCULINO</center>
+							</th>
+
+							<th style='background-color: #85AFA1;'>
+								<center>FEMENINO</center>
+							</th>
+
+							<th style='background-color: #8D85AF;'>
+								<center>MESTIZO</center>
+							</th>
+
+							<th style='background-color: #8D85AF;'>
+								<center>MONTUBIO</center>
+							</th>
+
+							<th style='background-color: #8D85AF;'>
+								<center>INDIGENA</center>
+							</th>
+
+							<th style='background-color: #8D85AF;'>
+								<center>BLANCO</center>
+							</th>
+
+							<th style='background-color: #8D85AF;'>
+								<center>AFRO</center>
+							</th>
+
+							
+
+							
+						</tr>
+
+						</thead>
+
+						<tbody>";
+
+						
+						for($k = 1; $k <= $beneficiariosAdaptado; $k++) {
+
+							$desdeEdadAdaptado = "desdeEdadAdaptado" . $k;
+							$hastaEdadAdaptado = "hastaEdadAdaptado" . $k;
+							$masculinoAdaptado = "masculinoAdaptado" . $k;
+							$femeninoAdaptado = "femeninoAdaptado" . $k;
+							$mestizoAdaptado = "mestizoAdaptado" . $k;
+							$montubioAdaptado = "montubioAdaptado" . $k;
+							$indigenaAdaptado = "indigenaAdaptado" . $k;
+							$blancoAdaptado = "blancoAdaptado" . $k;
+							$afroAdaptado = "afroAdaptado" . $k;
+							
+							
+
+							$documentoCuerpo.="
+
+							<tr>
+								<td><center>".$$desdeEdadAdaptado."</center></td>
+								<td><center>".$$hastaEdadAdaptado."</center></td>
+								<td><center>".$$masculinoAdaptado."</center></td>
+								<td><center>".$$femeninoAdaptado."</center></td>
+								<td><center>".$$mestizoAdaptado."</center></td>
+								<td><center>".$$montubioAdaptado."</center></td>
+								<td><center>".$$indigenaAdaptado."</center></td>
+								<td><center>".$$blancoAdaptado."</center></td>
+								<td><center>".$$afroAdaptado."</center></td>
+								
+								
+							</tr>	
+
+							";
+							
+						}
+
+						$documentoCuerpo.="
+						</tbody>
+
+						
+
+					</table>
+
+
+					<table style='margin-left:0!important; width:100%!important; border-collapse: collapse; margin-top:1em!important;' border='1'>
+
+						<thead>
+
+						<tr>
+
+							
+
+							<th colspan='6' style='background-color: #7d818c;'>
+
+							<center>TIPO DISCAPACIDAD</center>
+
+							</th>
+
+							<th colspan='1' >
+
+								<center>BENEFICIARIOS </center>
+
+							</th>
+
+						</tr>
+
+
+						<tr>
+
+							
 
 							<th style='background-color: #7d818c;'>
 								<center>VISUAL</center>
@@ -1988,11 +2105,8 @@ if($trimestreEvaluadorDos!="") {
 								<center>PSIQUICA</center>
 							</th>
 
-
-							
-
 							<th>
-								<center></center>
+								<center>DIRECTOS</center>
 							</th>
 
 						</tr>
@@ -2004,7 +2118,6 @@ if($trimestreEvaluadorDos!="") {
 						
 						for($k = 1; $k <= $beneficiariosAdaptado; $k++) {
 
-							$beneficiariosDirectosAdaptado = "beneficiariosDirectosAdaptado__" . $k;
 							$visual = "visual" . $k;
 							$auditiva = "auditiva" . $k;
 							$multisensorial = "multisensorial" . $k;
@@ -2017,8 +2130,7 @@ if($trimestreEvaluadorDos!="") {
 							$documentoCuerpo.="
 
 							<tr>
-
-								<td><center>".$$beneficiariosDirectosAdaptado."</center></td>
+								
 								<td><center>".$$visual."</center></td>
 								<td><center>".$$auditiva."</center></td>
 								<td><center>".$$multisensorial."</center></td>
@@ -2064,6 +2176,10 @@ if($trimestreEvaluadorDos!="") {
 		
 
 					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
 
 					<tr>
 						<td style='text-align:justify!important;'> 
@@ -2168,6 +2284,10 @@ if($trimestreEvaluadorDos!="") {
 
 					</tr>
 
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
+
 					<tr>
 
 						<th>
@@ -2179,6 +2299,10 @@ if($trimestreEvaluadorDos!="") {
 		
 
 					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
 
 					<tr>
 
@@ -2206,6 +2330,10 @@ if($trimestreEvaluadorDos!="") {
 		
 
 					</tr>
+
+				</table>
+
+				<table style='margin-top:1em!important; width:100%!important;'>
 
 					<tr>
 
@@ -2245,7 +2373,7 @@ if($trimestreEvaluadorDos!="") {
 
 								<th style='width:40%!important;'> 
 
-									<center>3.2.1	Planos con firmas de responsabilidad de profesionales</center>
+									<center>3.2.1	PLANOS CON FIRMAS DE RESPONSABILIDAD DE PROFESIONALES</center>
 
 								</th>
 								<td>
@@ -2263,7 +2391,7 @@ if($trimestreEvaluadorDos!="") {
 						
 								<th style='width:40%!important;'>
 
-									<center>3.2.2	Especificaciones Técnicas</center>
+									<center>3.2.2	ESPECIFICACIONES TÉCNICAS</center>
 
 								</th>
 
@@ -2282,7 +2410,7 @@ if($trimestreEvaluadorDos!="") {
 
 							<th style='width:40%!important;'>
 
-								<center>3.2.3	Presupuesto Referencial (Requisito Indispensable)</center>
+								<center>3.2.3	PRESUPUESTO REFERENCIAL</center>
 
 							</th>
 							<td>
@@ -2297,7 +2425,7 @@ if($trimestreEvaluadorDos!="") {
 
 							<th style='width:40%!important;'>
 
-								<center>3.2.4	Análisis de Precios Unitarios </center>
+								<center>3.2.4	ANÁLISIS DE PRECIOS UNITARIOS </center>
 
 							</th>
 							<td>
@@ -2327,7 +2455,7 @@ if($trimestreEvaluadorDos!="") {
 
 							<th style='width:40%!important;'>
 
-								<center>3.2.6	Cálculos de Volúmenes de Obra (De ser aplicable)</center>
+								<center>3.2.6	CÁLCULOS DE VOLÚMENES DE OBRA</center>
 
 							</th>
 							<td>
@@ -2609,23 +2737,7 @@ if($trimestreEvaluadorDos!="") {
 						</td>
 
 					</tr>
-					<tr>
-
-						<th style='width:40%!important;'>
-
-						<blockquote>
-						•	Presupuesto
-						</blockquote>
-
-
-						</th>
-
-						<td style = 'background:#e8edff'>
-						".$presupuesto."
-						</td>
-
-					</tr>
-
+					
 
 					<tr>
 
@@ -2686,6 +2798,21 @@ if($trimestreEvaluadorDos!="") {
 				<table style='width:100%!important; margin-left:3em!important; border-collapse: collapse;' border='1'>
 
 						<thead>
+
+							<tr>
+
+								<th style='width:40%!important;'>
+
+									<center>PRESUPUESTO</center>
+
+								</th>
+								<td>
+
+									<center>".$presupuestoFiscalizacionInput."</center>
+								
+								</td>
+
+							</tr>
 
 							<tr>
 
@@ -2891,7 +3018,7 @@ if($trimestreEvaluadorDos!="") {
 							<center>
 
 								
-								<div>ELABORADO POR</div>
+								<div>APROBADO POR</div>
 								<br>
 								<div>".$presidente__organizacion__deportivas."</div>
 								<div>Representante Legal ($nombre__organizacion__deportivas) - OD</div>
@@ -2914,6 +3041,3214 @@ if($trimestreEvaluadorDos!="") {
 
 		break;
 
+		case  "paid__informe__alto__tecnico":
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/paid/informes__altos__generados/";
+			$parametro2="paidInformeTecnicos";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+
+			$consultas__paidMaixmos=$objeto->getObtenerInformacionGeneral("SELECT COUNT(idPoaInicial) AS maximoPaids FROM poa_preliminar_envio;");
+
+			$maximos=$consultas__paidMaixmos[0][maximoPaids];
+
+			$asignacionOranismos=$objeto->getObtenerInformacionGeneral("SELECT monto,fecha FROM poa_paid_asignacion_dos WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' ORDER BY idAsignacion DESC LIMIT 1;");
+
+			$organismo__envioFinal=$objeto->getObtenerInformacionGeneral("SELECT fecha FROM poa_paid_envioinicial WHERE idOrganismo='$idOrganismo' AND estado='A' AND perioIngreso='$aniosPeriodos__ingesos' ORDER BY idTramitePaid DESC LIMIT 1;");
+
+			$eventoSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoEvento FROM poa_paid_eventos WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$interdiciplinarioSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoInterdiciplinario FROM poa_paid_interdisciplinario WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$necesidadesGeneralesSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoNecesidadesGenerales FROM poa_paid_necesidades_generales WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$necesidadesIndividualesSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoNecesidadesIndividuales FROM poa_paid_necesidades_individuales WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+
+			$sumare=0;
+
+			$sumare=floatval($eventoSumas[0][montoEvento]) + floatval($interdiciplinarioSumas[0][montoInterdiciplinario]) + floatval($necesidadesGeneralesSumas[0][montoNecesidadesGenerales]) + floatval($necesidadesIndividualesSumas[0][montoNecesidadesIndividuales]);
+
+			$documentoCuerpo="
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								PAID
+
+							</center>
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								SUBSECRETARÍA DE DEPORTE DE ALTO RENDIMIENTO 
+
+							</center>
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								DIRECCIÓN DE DEPORTE CONVENCIONAL PARA EL ALTO RENDIMIENTO 
+
+							</center>
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								INFORME DE VIABILIDAD TÉCNICA DE LA PLANIFICACIÓN ANUAL DE INVERSIÓN DEPORTIVA PAID ORGANIZACIONES DEPORTIVAS  $aniosPeriodos__ingesos
+
+							</center>
+
+						</th>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								".strtoupper($informacionCompleto[0][nombreOrganismo])."
+
+							</center>
+
+						</th>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								Numeración y/o Codificación:
+
+							</center>
+
+						</th>
+
+						<td>
+
+							<center>
+
+								".$maximos."-".$anio."
+
+							</center>
+
+						</td>
+
+
+						<th>
+
+							<center>
+
+								  Fecha de Elaboración:
+
+							</center>
+
+						</th>
+
+						<td>
+
+							<center>
+
+								$fecha_actual
+
+							</center>
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:4em;'>
+
+					<tr>
+
+						<th>
+
+								ANTECEDENTE
+
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							Con fecha 14 de febrero de 2007, se creó el Ministerio del Deporte, mediante Decreto Ejecutivo No. 6, contenido en el Registro Oficial No. 22, en el cual se establece que es obligación del Estado, proteger, estimular y promover la cultura física, el deporte y la recreación, como actividades para la formación integral de las personas, auspiciando la preparación y participación de las y los deportistas en competencias nacionales e internacionales. 
+
+
+						</td>
+
+					</tr>
+				</table>
+				
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							Mediante Decreto Ejecutivo Nro. 3 de 24 de mayo de 2021, el Sr. Guillermo Lasso Mendoza – Presidente Constitucional de la República del Ecuador, decretó: “Art. 1.- La Secretaría del Deporte se denominará Ministerio del Deporte. Esta entidad, con excepción del cambio de denominación, mantendrá la misma estructura legal constante en el Decreto Ejecutivo No. 438 publicado en el Suplemento del Registro Oficial Nro. 278 del 6 julio de 2018 y demás normativas vigentes.”.  
+
+
+						</td>
+					</tr>
+				</table>					
+					
+				<table style='width:100%!important; margin-top:1em;'>					
+					<tr>
+
+							<td style='text-align:justify; margin-top:1em;'>
+
+													
+							Mediante Decreto Ejecutivo No. 24 de 24 de mayo de 2021, el Sr. Guillermo Lasso Presidente de la República, designó como Ministro del Deporte al Lcdo. Sebastián Palacios. 
+
+							</td>
+
+					</tr>
+				</table>	
+
+				<table style='width:100%!important; margin-top:1em;'>	
+					<tr style='height:30em;'>
+
+							<td style='text-align:justify;'>
+
+													
+							Mediante oficio SNP-SPN-2021-1056-OF de 09 de diciembre de 2021, dirigido al Ministerio del Deporte, la Subsecretaría de Planificación Nacional, emitió el dictamen de prioridad para el proyecto “Fortalecimiento del deporte de alto rendimiento del Ecuador” periodo 2022-2025. 
+
+							</td>
+
+					</tr>
+				</table>
+				
+				<table style='width:100%!important; margin-top:1em;'>
+					<tr style='height:30em;'>
+
+							<td style='text-align:justify;'>
+
+													
+							Mediante memorando Nro. MD-DPI-2021-3176-MEM de fecha 13 de diciembre de 2021, el Director de Planificación e Inversión, comunica al Subsecretario del Deporte de Alto Rendimiento el dictamen de prioridad para el proyecto “Fortalecimiento del deporte de alto rendimiento del Ecuador” periodo 2022- 2025, tiene signado el CUP: 91480000.0000.387211 - Ministerio del Deporte. 
+
+							</td>
+
+					</tr>
+				</table>
+					
+
+				<table style='width:100%!important; margin-top:1em;'>
+					<tr>
+
+							<td style='text-align:justify; '>
+
+													
+							Mediante ACUERDO MINISTERIAL Nro. 0041, de 06 de marzo de 2023, se ACUERDA: Artículo 1.- Expídase el “Modelo de asignación presupuestaria de la Planificación Anual de Inversión Deportiva para las organizaciones pertenecientes al Alto Rendimiento correspondiente al ejercicio fiscal 2023”, constante en el “Anexo 1” del presente acuerdo. 
+
+							</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+								<th>
+
+										JUSTIFICACIÓN
+
+
+								</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+								<td style='text-align:justify;'>
+
+								El deporte de alto rendimiento ecuatoriano ha tomado protagonismo en el país y en el mundo. Los resultados alcanzados en el último ciclo olímpico, paralímpico y sordolímpico comprometen a todo el ecosistema deportivo a actuar con eficiencia y responsabilidad, de cara a los siguientes ciclos: París 2024, Los Ángeles 2028 y Tokio 2025 (ciclo sordolímpico).
+
+								</td>
+
+					</tr>
+
+				</table>
+
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Tras una exhaustiva evaluación de los modelos de gestión implementados a nivel nacional e internacional, el Plan de Alto Rendimiento del Ecuador establece un nuevo esquema de gestión por excelencia que pone en el centro del mismo al atleta como un ser humano y no como una máquina de producir medallas; que instaura un modelo desconcentrado, ordenado y eficiente entre el ente rector, es decir, el Ministerio del Deporte, y el resto de actores del ecosistema deportivo del país: Comités Olímpico y Paralímpico Ecuatoriano, federaciones ecuatorianas por deporte, federaciones deportivas provinciales, y las respectivas filiales de las mencionadas organizaciones deportivas; la academia, la empresa privada, agencias de cooperación internacional, organizaciones no gubernamentales, entre otros.
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Por otra parte, es importante recalcar que el 2023 es considerado el año pre Olímpico y Paralímpico donde se dan eventos de clasificación directa y eventos de acumulación de puntos al ranking Olímpico y Paralímpico. Por tal motivo, la asignación de recursos a las organizaciones deportivas inmersas en el proyecto de Alto Rendimiento - FDARE, es de alta importancia ya que contribuirán al cumplimiento de las planificaciones anuales de inversión deportiva y así cumplir los objetivos deportivos propuestos como país. 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						El deporte para personas con discapacidad supone el mayor acontecimiento médico social producido en el siglo XX en materia deportiva, cuyo origen es muy reciente, su evolución va desde la transformación como tratamiento correctivo para personas con discapacidad, hasta su conversión en movimiento de índole deportivo y competitivo a nivel mundial. Las grandes competiciones permiten avances en este sentido, como lo son los Juegos Paralímpicos y Sordolímpicos. 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						En el mundo organizacional público y privado, se han creado organismos deportivos, sin fines de lucro, con el objeto de incentivar una gestión de calidad para el mejoramiento del rendimiento deportivo de deportistas con y sin discapacidad. 
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Esta sinergia entre instituciones se coordina con una adecuada distribución de funciones entre el nivel Central o Ministerio del Deporte, a través de sus Direcciones de Deporte Convencional para el Alto Rendimiento y de Deporte Para Personas con Discapacidad, responsables de la política institucional, rectoría, administración, planificación y ejecución del presupuesto, y las organizaciones deportivas inmersas en el proyecto como ejecutores del presupuesto en la parte logística y encargados de la planificación en la parte técnica. 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Con el Oficio Nro. SNP-SPN-2021-1056-OF de 09 de diciembre de 2021, la Subsecretaría de Planificación Nacional emite dictamen de prioridad de acuerdo al siguiente detalle: 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>Proyecto</span>: 'Fortalecimiento del deporte de alto rendimiento del Ecuador'
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>Período</span>: 2022-2025
+
+						</td>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>CUP</span>: 91480000.0000.387211
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>Monto Total</span>: USD 59.207.787,49 financiados con recursos fiscales de acuerdo a lo indicado por el Ministerio del Deporte en el documento del cronograma valorado del proyecto. de acuerdo al siguiente detalle:
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				
+				<table style=' margin: 2em auto; border-collapse: collapse; border:1px solid black; width:50%;' border='1'>
+
+					<tr>
+
+						<td style='font-weight:bold;'>
+							<center>
+								Año
+							</center>
+						</td>
+
+						<td style='font-weight:bold;'>
+							<center>
+								Total USD 
+							</center>
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2022
+							</center>
+						</td>
+
+						<td>
+							<center>
+								5.500.000,00  
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2023
+							</center>
+						</td>
+
+						<td>
+							<center>
+								17.376.100,00 
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2024
+							</center>
+						</td>
+
+						<td>
+							<center>
+								17.897.383,00  
+							</center>
+						</td>
+						
+					</tr>
+
+
+					<tr>
+
+						<td>
+							<center>
+								2025
+							</center>
+						</td>
+
+						<td>
+							<center>
+								18.434.304,49  
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2025
+							</center>
+						</td>
+
+						<td>
+							<center>
+								18.434.304,49  
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td style='font-weight:bold;'>
+							<center>
+								Total
+							</center>
+						</td>
+
+						<td style='font-weight:bold;'>
+							<center>
+								59.207.787,49 
+							</center>
+						</td>
+
+					</tr>
+
+				</table>
+			
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							El Ministerio del Deporte por medio de la Dirección de Planificación e Inversión notificó el Techo Presupuestario de <span style='font-weight:bold;'>$".number_format($asignacionOranismos[0][monto])." a la Federación ".strtoupper($informacionCompleto[0][nombreOrganismo])."</span> para la Planificación Anual de Inversión Deportiva PAID $anio con fecha ".$asignacionOranismos[0][fecha].", con el siguiente desglose en los rubros previstos del Proyecto de Inversión: 
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:2em; border-collapse: collapse; border:1px solid black; width:100%!important;' border='1'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								N.
+
+							</center>
+
+						</th>
+
+						<th>
+
+							<center>
+
+								Organización deportiva
+
+							</center>
+
+						</th>
+
+						<th>
+
+							<center>
+
+								Eventos
+
+							</center>
+
+						</th>
+
+
+						<th>
+
+							<center>
+
+								Equipo Interdisciplinario 
+
+							</center>
+
+						</th>
+
+
+						<th>
+
+							<center>
+
+								Necesidades generales 
+
+							</center>
+
+						</th>
+
+
+						<th>
+
+							<center>
+
+								Necesidades individuales
+
+							</center>
+
+						</th>
+
+						<th>
+
+							<center>
+
+								Total
+
+							</center>
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								1
+							</center>
+						</td>
+
+
+						<td>
+							<center>
+								".strtoupper($informacionCompleto[0][nombreOrganismo])."
+							</center>
+						</td>
+
+						<td>
+							<center>
+								".$eventoSumas[0][montoEvento]."
+							</center>
+						</td>
+
+						<td>
+							<center>
+								".$interdiciplinarioSumas[0][montoInterdiciplinario]."
+							</center>
+						</td>
+						
+						<td>
+							<center>
+								".$necesidadesGeneralesSumas[0][montoNecesidadesGenerales]."
+							</center>
+						</td>
+
+						<td>
+							<center>
+								".$necesidadesIndividualesSumas[0][montoNecesidadesIndividuales]."
+							</center>
+						</td>						
+
+						<td>
+							<center>
+								".round($sumare,2)."
+							</center>
+						</td>
+
+					</tr>	
+
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							La ".strtoupper($informacionCompleto[0][nombreOrganismo])." realiza la carga de la Planificación Anual de Inversión Deportiva PAID $anio con fecha ".$organismo__envioFinal[0][fecha].", remite a esta Cartera de Estado, la Matriz de programación PAID y las matrices auxiliares de rubros PAID, en cumplimiento a lo establecido en el artículo 
+							27 del Acuerdo Ministerial 456 y sus reformas denominado: “Del mecanismo de ingreso y recepción de las Planificaciones Operativas Anuales”.  
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							En referencia a lo mencionado, <span style='font-weight:bold;'>la Dirección de Deporte de Alto Rendimiento</span>, procede a realizar el siguiente análisis: 
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:2em; border-collapse: collapse; border:1px solid black;' border='1'>
+
+					<thead>
+
+						<tr>
+
+						 	<th>
+						   		<center>
+						   			N-
+						   		</center>
+						 	</th>
+
+						  	<th>
+						   		<center>
+						   			Condición
+						   		</center>
+						  	</th>
+
+
+						  	<th>
+						   		<center>
+						   			Cumple (Si/No/N-A)
+						   		</center>
+						  	</th>
+
+
+						   	<th>
+						   		<center>
+						   			Observaciones para la organización deportiva
+						   		</center>
+						   	</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						 <tr>
+
+						  	<td>
+						   		<center>
+						   			1
+						   		</center>
+						  	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   tiliza recursos para cubrir gastos en eventos de preparación y competencia autorizados en el proyecto “Fortalecimiento del deporte de alto rendimiento del Ecuador” 
+						   	</td>
+
+						   	<td>
+						   		<center>
+									$puestos__alto
+						   		</center>
+						   	</td>
+
+						   <td>
+						   		<center>
+						   			$puestos__alto__text
+						   		</center>
+						   </td>
+
+						</tr>
+
+						<tr>
+
+						   	<td>
+						   		<center>
+						   			2
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   Planifica rubros para la contratación del Equipo Interdisciplinario bajo servicios profesionales, autorizados en la normativa legal vigente. 
+						   	</td>
+
+						   	<td>
+						   		<center>
+						   			$recursos__destinados__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$recursos__destinados__alto__text
+						   		</center>
+						   	</td>
+
+						</tr>
+
+						<tr>
+
+						   	<td>
+						   		<center>
+						   			3
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   Utiliza recursos para cubrir gastos en necesidades, (Generales e individuales); autorizados en el proyecto “Fortalecimiento del deporte de alto rendimiento del Ecuador” 
+						   	</td>
+
+						   	<td>
+						   		<center>
+						   			$campamento__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$campamento__alto__text
+						   		</center>
+						   	</td>
+
+						</tr>
+
+						<tr>
+
+						   	<td>
+						   		<center>
+						   			4
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   La planificación anual de inversión deportiva del organismo deportivo se encuentra enmarcada en lo establecido en la normativa legal vigente. 
+						   	</td>
+
+						   	<td>
+						   		<center>
+									$campamento__evaluaciones__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$campamento__evaluaciones__alto__text
+						   		</center>
+						   	</td>
+
+						 </tr>
+
+						 <tr>
+
+						   	<td>
+						   		<center>
+						   			5
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   El organismo deportivo cumple con la no duplicidad de eventos.
+						   	</td>
+
+						   	<td>
+						   		<center>
+						   			$evaluaciones__campamento__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$evaluaciones__campamento__alto__text
+						   		</center>
+						   	</td>
+
+						 </tr>
+
+						<tr>
+
+						 	<td>
+						   		<center>
+						   			6
+						   		</center>
+						 	</td>
+
+						 	<td style='text-align:justify!important;'>
+							 El organismo deportivo cumple con la concordancia en la planificación de PAID.
+						 	</td>
+
+						 	<td>
+						   		<center>
+									$recursos__gastos__alto
+						   		</center>
+						 	</td>
+
+
+						 	<td>
+						   		<center>
+						   			$recursos__gastos__alto__text
+						   		</center>
+						 	</td>
+
+						</tr>
+
+							
+
+					</tbody>
+
+				</table>		
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th style='text-align:justify;'>
+
+							OBSERVACIONES ADICIONALES
+
+						</th>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							".nl2br($observaciones__recomendaciones__recomiendas)."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th style='text-align:justify;'>
+
+							CONCLUSIONES:  
+
+						</th>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							".nl2br($concluciones__recomendaciones__recomiendas)." 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th style='text-align:justify;'>
+
+							RECOMENDACIONES:  
+
+						</th>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							".nl2br($concluciones__recomendaciones__recomiendas1)." 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+
+				<table style='width:100%; margin-top:2em; border-collapse: collapse; border:1px solid black;' border='1'>
+
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Elaborado por: <div>".$funcionario[0][nombreFuncionario]."</div>
+							<div><span style='font-weight:bold;'>Analista de la Dirección de Deporte Convencional para el Alto Rendimiento.</span> </div>
+						</td>
+						<td>
+							<center>
+								
+							</center>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Revisado por:  <div>".$director[0][nombreDirector]."</div>
+							<div><span style='font-weight:bold;'>Director(a) de Deporte Convencional para el Alto Rendimiento. </span></div>
+						</td>
+						<td>
+							<center>
+									
+							</center>
+						</td>
+					</tr>
+
+
+
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Validado por:  <div>".$subsecretarios[0][nombreSubses]."</div>
+							<div><span style='font-weight:bold;'>Subsecretario de Deporte de Alto Rendimiento.</span> </div>
+						</td>
+						<td>
+							<center>
+									
+							</center>
+						</td>
+					</tr>						
+
+				</table>					
+
+			";
+
+
+		break;
+
+
+		case  "paid__informe__desarrollo__tecnico":
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+		
+			$parametro1="../../documentos/paid/informes__desarrollo__generados/";
+			$parametro2="paidInformeTecnicos";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+		
+			$consultas__paidMaixmos=$objeto->getObtenerInformacionGeneral("SELECT COUNT(idPoaInicial) AS maximoPaids FROM poa_preliminar_envio;");
+		
+			$maximos=$consultas__paidMaixmos[0][maximoPaids];
+		
+			$asignacionOranismos=$objeto->getObtenerInformacionGeneral("SELECT monto,fecha FROM poa_paid_asignacion_dos WHERE idOrganismo='$idOrganismo' ORDER BY idAsignacion DESC LIMIT 1;");
+		
+			$organismo__envioFinal=$objeto->getObtenerInformacionGeneral("SELECT fecha FROM poa_paid_envioinicial WHERE idOrganismo='$idOrganismo' AND estado='A' ORDER BY idTramitePaid DESC LIMIT 1;");
+		
+			$eventoSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoEvento FROM poa_paid_eventos WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$interdiciplinarioSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoInterdiciplinario FROM poa_paid_interdisciplinario WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$necesidadesGeneralesSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoNecesidadesGenerales FROM poa_paid_necesidades_generales WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$necesidadesIndividualesSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoNecesidadesIndividuales FROM poa_paid_necesidades_individuales WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+		
+			$encuentroActivoSumas=$objeto->getObtenerInformacionGeneral("SELECT SUM(valorTotal) as montoEncuentroActivo 
+				FROM (
+					SELECT valorTotal FROM poa_paid_medallas_convencional where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+					UNION ALL
+					SELECT valorTotal FROM poa_paid_matrices_juegos_nacionales where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+					UNION ALL
+					SELECT valorTotal FROM poa_paid_seguros where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+					UNION ALL
+					SELECT valorTotal FROM poa_paid_transporte where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+					UNION ALL
+					SELECT valorTotal FROM poa_paid_bono_deportivo where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+
+					UNION ALL
+					SELECT valorTotal FROM poa_paid_personal_tecnico_convensional where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' and id_rubro='$idRubro' and id_componente='$idComponente'
+
+					UNION ALL
+					SELECT valor_total FROM poa_paid_juegos_nacionales_hosp_alim_hidr where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+
+					UNION ALL
+					SELECT valorTotal FROM poa_paid_pasajes_aereos where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+					UNION ALL
+					SELECT valorTotal FROM poa_paid_uniformes_adaptado where idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' 
+
+				) as CombinedTable ");
+		
+			$documentoCuerpo="
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<th>
+		
+							<center>
+		
+								SUBSECRETARÍA DE DESARROLLO DE LA ACTIVIDAD FÍSICA 
+		
+							</center>
+		
+						</th>
+		
+					</tr>
+		
+					<tr>
+		
+						<th>
+		
+							<center>
+		
+								".strtoupper($funcionario[0][descripcionInfraestructurasF])."
+		
+							</center>
+		
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:1em;'>
+		
+					<tr>
+		
+						<th>
+		
+							<center>
+		
+								INFORME DE TÉCNICO DE APROBACIÓN AL PLAN ANUAL DE INVERSIÓN DEPORTIVA PAID ORGANIZACIONES DEPORTIVAS $anio
+		
+							</center>
+		
+						</th>
+		
+					</tr>
+		
+		
+				</table>
+		
+		
+				<table style='width:100%!important; margin-top:1em;'>
+		
+					<tr>
+		
+						<th>
+		
+							<center>
+		
+								Numeración y/o Codificación:
+		
+							</center>
+		
+						</th>
+		
+						<td>
+		
+							<center>
+		
+								".$maximos."-".$anio."
+		
+							</center>
+		
+						</td>
+		
+		
+						<th>
+		
+							<center>
+		
+								  Fecha de Elaboración:
+		
+							</center>
+		
+						</th>
+		
+						<td>
+		
+							<center>
+		
+								$fecha_actual
+		
+							</center>
+		
+						</td>
+		
+					</tr>
+		
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:4em;'>
+		
+					<tr>
+		
+						<th>
+		
+		
+								DATOS INFORMATIVOS
+		
+		
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							<span style='font-weight:bold!important;'>Proyecto</span>: 'ENCUENTRO ACTIVO DEL DEPORTE PARA EL DESARROLLO 2022-2025'
+		
+						</td>
+		
+					</tr>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							<span style='font-weight:bold!important;'>Período</span>: 2022-2025
+		
+						</td>
+		
+					</tr>
+		
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:4em;'>
+		
+					<tr>
+		
+						<th>
+		
+		
+								ANTECEDENTE
+		
+		
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						El Acuerdo Ministerial 456 denominado “PROCEDIMIENTO QUE REGULA EL CICLO DE PLANIFICACIÓN DE LAS
+						ORGANIZACIONES DEPORTIVAS” determina:
+		 
+						
+		
+						</td>
+		
+					</tr>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						Se entenderá como fomento deportivo todas aquellas actividades que coadyuvan al desarrollo deportivo, en todos los niveles y son parte de este concepto los siguientes elementos:
+						
+		
+						</td>
+		
+					</tr>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						Artículo 5. De la Planificación anual de actividades deportivas: Comprende el conjunto de actividades vinculadas al deporte, actividad física y/o recreación que las organizaciones deportivas ejecutarán dentro del correspondiente ejercicio fiscal, financiadas con recursos públicos, orientadas al cumplimiento de objetivos y metas propias, articuladas al Plan Decenal del Deporte Educación Física y Recreación, a la Planificación Estratégica Institucional del Ministerio del Deporte y al Plan Nacional de Desarrollo.
+		 
+						
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+				<table style='width:100%!important; margin-top:.5em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							<div style='margin-left:3em;'>a. Promoción del deporte, educación física y recreación;</div>
+		
+						</td>
+		
+					</tr>
+		
+		
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							<div style='margin-left:3em;'>b. Construcción, rehabilitación y mantenimiento de infraestructura deportiva; y,</div>
+		
+						</td>
+		
+					</tr>
+		
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							<div style='margin-left:3em;'>c. Necesidades complementarias para su adecuado desarrollo.</div>
+		
+						</td>
+		
+					</tr>
+		
+					
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						La Planificación Anual de Actividades Deportivas estará compuesta por la Planificación Operativa Anual la cual será ejecutada dentro del correspondiente ejercicio fiscal; y la Planificación Anual de Inversión Deportiva la cual será ejecutada en cumplimiento al plazo establecido en el correspondiente instrumento legal a través del cual se regule la transferencia de recursos.		
+		
+						</td>
+		
+					</tr>
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						Artículo 22. De la Planificación Anual de Inversión Deportiva. - Constituye una herramienta que permite estructurar el conjunto de actividades vinculadas a los programas y/o proyectos de inversión que el Ministerio del Deporte cuenta en su Plan Anual, los cuales serán definidos por la organización deportiva conforme los lineamientos generados para el efecto por el Ministerio del Deporte.		
+		
+						</td>
+		
+					</tr>
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						Las actividades que se incluyan en la Planificación Anual de Inversión Deportiva guardarán relación con los componentes establecidos en cada programa y/o proyecto de inversión aprobado por la Secretaría Nacional de Planificación. Su fin es contribuir al cumplimiento de los objetivos y metas propios, los institucionales y los del Plan Nacional de Desarrollo.		
+		
+						</td>
+		
+					</tr>
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						La Planificación Anual de Inversión Deportiva será financiada a través del recurso de gasto no permanente.
+		
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+				<table style='width:100%!important; margin-top:5em;'>
+		
+					<tr>
+		
+						<th>
+		
+								DESARROLLO
+		
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:1em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							Mediante Oficio Nro. SNP-SPN-2021-1254-OF de 28 de diciembre de 2021, el Subsecretario de Planificación Nacional de la Secretaría Nacional de Planificación, emitió dictamen de prioridad para el proyecto 'Encuentro Activo del Deporte Para el Desarrollo 2022-2025', con CUP 91480000.0000.387225 del Ministerio del Deporte, periodo 2022- 2025.	
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+				<table style='width:100%!important; margin-top:1em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							El Proyecto de Inversión “ENCUENTRO ACTIVO DEL DEPORTE PARA EL DESARROLLO 2022-2025”, tiene como objetivo general el fomentar el buen uso del tiempo libre para mejorar la calidad de vida de la población. El Proyecto antes citado, tiene como objetivos secundarios:
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+		
+				<table style='width:100%!important; margin-top:.5em;'>
+				
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						<div style=' margin-left:4em;'>1. Ejecutar encuentros deportivos a nivel nacional que propicien la formación de deportistas para la reserva deportiva del país. </div>
+		
+		
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						<div style='  margin-left:4em;'>2. Impulsar las competiciones deportivas en la población estudiantil del país. </l>
+		
+						
+						</td>
+		
+					</tr>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						<div style='  margin-left:4em;'>3. Fomentar el deporte formativo en territorio para la identificación de talentos</li>
+		
+						
+		
+						</td>
+						
+					</tr>
+		
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+							<div style='  margin-left:4em;'>4. Promover hábitos de vida saludable a través de la actividad física y la recreación. Mediante Memorando Nro. MD-SSAF-2022-0004-MEM de 04 de enero de 2022, la Subsecretaria de Desarrollo de la Actividad Física, designó a Guillermo Alejandro Sáenz Mejía, Director de Deporte Formativo y Educación Física, como Líder del Proyecto 'Encuentro Activo del Deporte Para el Desarrollo 2022-2025'</div>
+		
+		
+		
+						</td>
+		
+					</tr>
+				
+				</table>
+		
+				<table style='width:100%!important; margin-top:1em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							Mediante Acuerdo Ministerial No. 257 de 30 de septiembre de 2022, se calificó como Emblemático el Proyecto de Inversión “ENCUENTRO ACTIVO DEL DEPORTE PARA EL DESARROLLO 2022-2025”, con CUP: 91480000.0000.387225 del Ministerio de Deporte. 
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							En la disposición Transitoria Única del Acuerdo antes citado, menciona: <span style='font-weight:bold;'>“Con la finalidad de garantizar la correcta ejecución del proyecto de Inversión “ENCUENTRO ACTIVO DEL DEPORTE PARA EL DESARROLLO 2022-2025”, el Director/a de Deporte Formativo y Educación Física, en su calidad de Líder del Proyecto continuará ejecutando todas las gestiones técnicas, operativas, administrativas, económicas del referido proyecto hasta la contratación del/la Gerente del Proyecto. Además, los procedimientos de contratación pública, así como todos los instrumentos jurídicos suscritos en el marco del Proyecto de Inversión “ENCUENTRO ACTIVO DEL DEPORTE PARA EL DESARROLLO 2022-2025”, iniciados hasta antes de la entrada en vigencia de este Acuerdo Ministerial, se concluirán aplicando las normas que estuvieron vigentes al momento de su emisión”</span>.
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+				
+		
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							El Ministerio del Deporte por medio de la Dirección de Planificación e Inversión notificó el Techo Presupuestario de ".number_format($asignacionOranismos[0][monto])." a la Federación <span style='font-weight:bold;'>".strtoupper($informacionCompleto[0][nombreOrganismo])."</span> para la Planificación Anual de Inversión Deportiva PAID $anio con fecha ".$asignacionOranismos[0][fecha].", con el siguiente desglose en los rubros previstos del Proyecto de Inversión: 
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='margin-top:2em; border-collapse: collapse; border:1px solid black; width:100%!important;' border='1'>
+		
+					<tr>
+		
+						<th>
+		
+							<center>
+		
+								N.
+		
+							</center>
+		
+						</th>
+		
+						<th>
+		
+							<center>
+		
+								Organización deportiva
+		
+							</center>
+		
+						</th>
+		
+						<th>
+		
+							<center>
+		
+								Juegos nacionales
+		
+							</center>
+		
+						</th>
+		
+						<th>
+		
+							<center>
+		
+								Total
+		
+							</center>
+		
+						</th>
+		
+					</tr>
+		
+					<tr>
+		
+						<td>
+							<center>
+								1
+							</center>
+						</td>
+		
+		
+						<td>
+							<center>
+								".strtoupper($informacionCompleto[0][nombreOrganismo])."
+							</center>
+						</td>
+		
+						<td>
+							<center>
+								".$encuentroActivoSumas[0][montoEncuentroActivo]."
+							</center>
+						</td>
+		
+						<td>
+							<center>
+								".$encuentroActivoSumas[0][montoEncuentroActivo]."
+							</center>
+						</td>
+		
+					</tr>	
+		
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							La Federación ".strtoupper($informacionCompleto[0][nombreOrganismo])." realiza la carga de la Planificación Anual de Inversión Deportiva PAID $anio con fecha ".$organismo__envioFinal[0][fecha]." en cumplimiento a lo establecido en el artículo 15 del Acuerdo Ministerial 456 y sus reformas denominado: “Procedimiento que regula el ciclo de planificación de las organizaciones deportivas”. 
+		
+						</td>
+		
+					</tr>
+		
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							En referencia a lo mencionado, la Dirección <span style='font-weight:bold;'>".strtoupper($funcionario[0][descripcionInfraestructurasF])."</span> procede a realizar el siguiente análisis: 
+		
+						</td>
+		
+					</tr>
+		
+		
+				</table>
+		
+		
+		
+				<table style='margin-top:2em; border-collapse: collapse; border:1px solid black;' border='1'>
+		
+					<thead>
+		
+						<tr>
+		
+							 <th>
+								   <center>
+									   N-
+								   </center>
+							 </th>
+		
+							  <th>
+								   <center>
+									   Condición
+								   </center>
+							  </th>
+		
+		
+							  <th>
+								   <center>
+									   Cumple (Si/No/N-A)
+								   </center>
+							  </th>
+		
+		
+							   <th>
+								   <center>
+									   Observaciones para la organización deportiva
+								   </center>
+							   </th>
+		
+						</tr>
+		
+					</thead>
+		
+					<tbody>
+		
+						 <tr>
+		
+							  <td>
+								   <center>
+									   1
+								   </center>
+							  </td>
+		
+							   <td style='text-align:justify!important;'>
+							   Utiliza recursos para cubrir gastos autorizados en los componentes citados en el proyecto de inversión “Encuentro activo del deporte para el desarrollo 2022-2025”.	
+							   </td>
+		
+							   <td>
+								   <center>
+									$deportivas__desarrollo
+								   </center>
+							   </td>
+		
+						   <td>
+								   <center>
+									   $deportivas__desarrollo__text
+								   </center>
+						   </td>
+		
+						</tr>
+		
+						<tr>
+		
+							   <td>
+								   <center>
+									   2
+								   </center>
+							   </td>
+		
+							   <td style='text-align:justify!important;'>
+							   Utiliza recursos para cubrir gastos en necesidades, (Generales e individuales); autorizados en el proyecto “Encuentro activo del deporte para el desarrollo 2022-2025”.	
+							   </td>
+		
+							   <td>
+								   <center>
+									   $campamento__desarrollo
+								   </center>
+							   </td>
+		
+		
+							   <td>
+								   <center>
+									   $campamento__desarrollo__text
+								   </center>
+							   </td>
+		
+						</tr>
+		
+						<tr>
+		
+							   <td>
+								   <center>
+									   3
+								   </center>
+							   </td>
+		
+							   <td style='text-align:justify!important;'>
+							   La planificación anual de inversión deportiva de la organización deportiva se encuentra enmarcada en lo establecido en la normativa legal vigente.
+							   </td>
+		
+							   <td>
+								   <center>
+									   $procesos__desarrollo
+								   </center>
+							   </td>
+		
+		
+							   <td>
+								   <center>
+									   $procesos__desarrollo__text
+								   </center>
+							   </td>
+		
+						</tr>
+		
+						<tr>
+		
+							   <td>
+								   <center>
+									   4
+								   </center>
+							   </td>
+		
+							   <td style='text-align:justify!important;'>
+							   La organización deportiva cumple con la NO duplicidad de eventos.
+							   </td>
+		
+							   <td>
+								   <center>
+									$gastos__evento__desarrollo
+								   </center>
+							   </td>
+		
+		
+							   <td>
+								   <center>
+									   $gastos__evento__desarrollo__text
+								   </center>
+							   </td>
+		
+						 </tr>
+		
+						 <tr>
+		
+							   <td>
+								   <center>
+									   5
+								   </center>
+							   </td>
+		
+							   <td style='text-align:justify!important;'>
+							   La organización deportiva cumple con la concordancia en la planificación de PAID.
+							   </td>
+		
+							   <td>
+								   <center>
+									   $operativa__anual__desarrollo
+								   </center>
+							   </td>
+		
+		
+							   <td>
+								   <center>
+									   $operativa__anual__desarrollo__text
+								   </center>
+							   </td>
+		
+						 </tr>
+		
+						
+					</tbody>
+		
+				</table>	
+				
+				<table style='width:100%!important; margin-top:5em;'>
+		
+					<tr>
+		
+						<th>
+		
+								Contraparte
+		
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							La ".strtoupper($informacionCompleto[0][nombreOrganismo])." como contraparte a la transferencia realizada por esta Cartera de Estado, facilitará los escenarios deportivos para la ejecución de diferentes disciplinas deportivas. 
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+						La ".strtoupper($informacionCompleto[0][nombreOrganismo])." deberá publicar y promover el nombre del <span style='font-weight:bold!important;'>Ministerio del Deporte</span> en cada una de las actividades previstas en la ejecución de los juegos, además de incorporar y hacer constar el nombre y logotipo de esta institución en los diferentes actos protocolarios.
+					
+		
+		
+						</td>
+		
+					</tr>
+					
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<th>
+		
+						OBLIGACIONES Y RESPONSABILIDADES DE LAS PARTES
+		
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<th>
+		
+						DEL MINISTERIO DEL DEPORTE
+		
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				
+		
+				<table style='width:100%!important; margin-top:.2em;'>
+		
+					<tr $obligacionesMinisterio__checked1>
+		
+						<td >
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Transferir a la " .strtoupper($informacionCompleto[0][nombreOrganismo]). ", la cantidad de USD ".$encuentroActivoSumas[0][montoEncuentroActivo].", para la ejecución del evento denominado “Juegos Nacionales”, una vez que la " .strtoupper($informacionCompleto[0][nombreOrganismo]). ", cumpla con el acuerdo 456, sus reformas y demás normativa legal vigente para este fin.</li>
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr  $obligacionesMinisterio__checked2>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Verificar el cumplimiento del proyecto presentado por la " .strtoupper($informacionCompleto[0][nombreOrganismo]). ", conforme lo establecido en la normativa legal vigente. </li>
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr  $obligacionesMinisterio__checked3>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Conformar el congreso técnico de los juegos deportivos nacionales, mismo que se encargará del desarrollo operativo técnico de los juegos considerando las obligaciones establecidas en la “Carta Fundamental de los Juegos Deportivos Nacionales” o en su defecto, en el instrumento que estuviese vigente a la fecha de ejecución de las actividades.</li>
+		
+						
+						</td>
+		
+					</tr>
+		
+		
+					<tr  $obligacionesMinisterio__checked4>
+		
+						<td style='text-align:justify;'>
+						<li style=' list-style-type: disc; margin-left:4em;'>Realizar el seguimiento y control a la ejecución de los “Juegos Nacionales”, a través de las direcciones competentes.</li>
+		
+						
+						</td>
+		
+					</tr>
+		
+					<tr  $obligacionesMinisterio__checked5>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Velar por el correcto uso del presupuesto asignado y aprobado para la ejecución de “Juegos Nacionales”, acorde a la normativa vigente.</li>
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr  $obligacionesMinisterio__checked6>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Realizar la evaluación del informe técnico, económico, disciplinario, medico presentado por el organismo deportivo en los plazos establecidos, a través de las áreas competentes.</li>
+		
+		
+		
+						</td>
+		
+					</tr>
+
+					<tr $obligacionesMinisterioAdicionalcheck>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>$obligacionesMinisterioAdicional</li>
+		
+		
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<th>
+		
+						DE LA ORGANIZACIÓN DEPORTIVA
+						</th>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:1em;'>
+		
+					<tr $obligacionesOD__checked1>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>La " .strtoupper($informacionCompleto[0][nombreOrganismo]). ", será la responsable de la ejecución de los “Juegos Nacionales”.</li>
+		
+						
+		
+						</td>
+						
+					</tr>
+		
+					<tr $obligacionesOD__checked2>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>La " .strtoupper($informacionCompleto[0][nombreOrganismo]). " deberá ejecutar únicamente los recursos aprobados en el este Informe Técnico.</li>
+		
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr $obligacionesOD__checked3>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Informar al Ministerio del Deporte las novedades técnicas y administrativas de los “Juegos Nacionales”.</li>
+		
+		
+						</td>
+		
+					</tr>
+		
+		
+					<tr $obligacionesOD__checked4>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Llevar un registro de resultado de las competiciones realizadas en los “Juegos Nacionales”.</li>
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr $obligacionesOD__checked5>
+		
+						<td style='text-align:justify;'>
+						
+						<li style=' list-style-type: disc; margin-left:4em;'>La " .strtoupper($informacionCompleto[0][nombreOrganismo]). " una vez finalizada la ejecución de los “Juegos Nacionales”, en un plazo máximo de 30 días deberá presentar al Ministerio del Deporte un informe Técnico, Económico y Disciplinario del evento con los justificativos de gasto correspondientes.</li>
+		
+						
+		
+						</td>
+		
+					</tr>
+		
+					<tr $obligacionesOD__checked6>
+		
+						<td style='text-align:justify;'>
+						<li style=' list-style-type: disc; margin-left:4em;'>El organismo deportivo deberá dar cumplimiento obligatorio a las normas constitucionales y legales vigentes que regulen el correcto uso y administración de recursos públicos, esto sin perjuicio de las directrices adicionales que puedan ser emitidas por el Administrador o las direcciones involucradas en el proceso de transferencia de recursos, esto amparado en el artículo 14, literal p) de la Ley del Deporte y el artículo 9 del Reglamento General Ley del Deporte, Educación Física y Recreación.</li>
+		
+						
+		
+						</td>
+		
+					</tr>
+		
+					<tr $obligacionesOD__checked7>
+		
+						<td style='text-align:justify;'>
+						<li style=' list-style-type: disc; margin-left:4em;'>Informar al Ministerio del Deporte a través de una solicitud escrita, todo tipo de requerimiento que implique cambio técnico, presupuestario y/o administrativo distinto a lo establecido en el informe técnico.</li>
+		
+		
+						</td>
+		
+					</tr>
+		
+					<tr $obligacionesOD__checked8>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>Promover y publicitar los nombres y logos de los “Juegos Nacionales” y del Ministerio del Deporte, en cada una de las actividades planificadas, una vez aprobados por la Dirección de Comunicación Social del Ministerio del Deporte.</li>
+		
+		
+		
+						</td>
+		
+					</tr>
+
+					<tr $obligacionesODAdicionalcheck>
+		
+						<td style='text-align:justify;'>
+		
+						<li style=' list-style-type: disc; margin-left:4em;'>$obligacionesODAdicional</li>
+		
+		
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<th style='text-align:justify;'>
+		
+							OBSERVACIONES ADICIONALES
+		
+						</th>
+		
+					</tr>
+		
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							 ".nl2br($observaciones__recomendaciones__recomiendas)."
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<th style='text-align:justify;'>
+		
+							CONCLUSIONES:  
+		
+						</th>
+		
+					</tr>
+		
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							".nl2br($concluciones__recomendaciones__recomiendas)."
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+				<table style='width:100%!important; margin-top:2em;'>
+		
+					<tr>
+		
+						<th style='text-align:justify;'>
+		
+							RECOMENDACIONES:  
+		
+						</th>
+		
+					</tr>
+		
+		
+					<tr>
+		
+						<td style='text-align:justify;'>
+		
+							".nl2br($concluciones__recomendaciones__recomiendas1)."
+		
+						</td>
+		
+					</tr>
+		
+				</table>
+		
+		
+		
+				<table style='width:100%; margin-top:2em; border-collapse: collapse; border:1px solid black;' border='1'>
+		
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Elaborado por: <div>".$funcionario[0][nombreFuncionario]."</div>
+							<div><span style='font-weight:bold;'>Analista de Deportes</span></div>
+							</td>
+							
+						<td>
+							<center>
+								
+							</center>
+						</td>
+					</tr>
+		
+		
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Revisado por:  <div>".$director[0][nombreDirector]."</div>
+							<div><span style='font-weight:bold;'>Director/a de Deporte Formativo y Educación Física</span></div>
+						</td>
+						<td>
+							<center>
+								
+							</center>
+						</td>
+					</tr>
+		
+		
+		
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Validado por:  <div>".$subsecretarios[0][nombreSubses]."</div>
+							<div><span style='font-weight:bold;'>Subsecretario/a de Desarrollo de la Actividad Física</span></div>
+						</td>
+						<td>
+							<center>
+								
+							</center>
+						</td>
+					</tr>						
+		
+				</table>					
+		
+			";
+		
+		
+		break;
+
+
+		case  "paid__informe__infraestructura__tecnico":
+
+			/*===================================
+			=            Generar pdf            =
+			===================================*/
+
+			$parametro1="../../documentos/paid/informes__altos__generados/";
+			$parametro2="paidInformeTecnicosInfraestructura";	
+			$parametro3=$idOrganismo."__".$fecha_actual;
+			
+			/*=====  End of Generar pdf  ======*/
+
+			$consultas__paidMaixmos=$objeto->getObtenerInformacionGeneral("SELECT COUNT(idPoaInicial) AS maximoPaids FROM poa_preliminar_envio;");
+
+			$maximos=$consultas__paidMaixmos[0][maximoPaids];
+
+			$asignacionOranismos=$objeto->getObtenerInformacionGeneral("SELECT monto,fecha FROM poa_paid_asignacion_dos WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' ORDER BY idAsignacion DESC LIMIT 1;");
+
+			$organismo__envioFinal=$objeto->getObtenerInformacionGeneral("SELECT fecha FROM poa_paid_envioinicial WHERE idOrganismo='$idOrganismo' AND estado='A' AND perioIngreso='$aniosPeriodos__ingesos' ORDER BY idTramitePaid DESC LIMIT 1;");
+
+			$eventoSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoEvento FROM poa_paid_eventos WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$interdiciplinarioSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoInterdiciplinario FROM poa_paid_interdisciplinario WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$necesidadesGeneralesSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoNecesidadesGenerales FROM poa_paid_necesidades_generales WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+			$necesidadesIndividualesSumas=$objeto->getObtenerInformacionGeneral("SELECT ROUND(SUM(valorTotal),2) AS montoNecesidadesIndividuales FROM poa_paid_necesidades_individuales WHERE idOrganismo='$idOrganismo' AND perioIngreso='$aniosPeriodos__ingesos' GROUP BY idOrganismo;");
+
+			$sumare=0;
+
+			$sumare=floatval($eventoSumas[0][montoEvento]) + floatval($interdiciplinarioSumas[0][montoInterdiciplinario]) + floatval($necesidadesGeneralesSumas[0][montoNecesidadesGenerales]) + floatval($necesidadesIndividualesSumas[0][montoNecesidadesIndividuales]);
+
+			$documentoCuerpo="
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								PAID
+
+							</center>
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+							COORDINACIÓN DE ADMINISTRACION E INFRAESTRUCTURA DEPORTIVA
+
+							</center>
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+							DIRECCIÓN DE INFRAESTRUCTURA DEPORTIVA
+
+							</center>
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								INFORME DE VIABILIDAD TÉCNICA DE LA PLANIFICACIÓN ANUAL DE INVERSIÓN DEPORTIVA PAID ORGANIZACIONES DEPORTIVAS  $aniosPeriodos__ingesos
+
+							</center>
+
+						</th>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								".strtoupper($informacionCompleto[0][nombreOrganismo])."
+
+							</center>
+
+						</th>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								Numeración y/o Codificación:
+
+							</center>
+
+						</th>
+
+						<td>
+
+							<center>
+
+								".$maximos."-".$anio."
+
+							</center>
+
+						</td>
+
+
+						<th>
+
+							<center>
+
+								  Fecha de Elaboración:
+
+							</center>
+
+						</th>
+
+						<td>
+
+							<center>
+
+								$fecha_actual
+
+							</center>
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:4em;'>
+
+					<tr>
+
+						<th>
+
+								ANTECEDENTE
+
+
+						</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							Con fecha 14 de febrero de 2007, se creó el Ministerio del Deporte, mediante Decreto Ejecutivo No. 6, contenido en el Registro Oficial No. 22, en el cual se establece que es obligación del Estado, proteger, estimular y promover la cultura física, el deporte y la recreación, como actividades para la formación integral de las personas, auspiciando la preparación y participación de las y los deportistas en competencias nacionales e internacionales. 
+
+
+						</td>
+
+					</tr>
+				</table>
+				
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							Mediante Decreto Ejecutivo Nro. 3 de 24 de mayo de 2021, el Sr. Guillermo Lasso Mendoza – Presidente Constitucional de la República del Ecuador, decretó: “Art. 1.- La Secretaría del Deporte se denominará Ministerio del Deporte. Esta entidad, con excepción del cambio de denominación, mantendrá la misma estructura legal constante en el Decreto Ejecutivo No. 438 publicado en el Suplemento del Registro Oficial Nro. 278 del 6 julio de 2018 y demás normativas vigentes.”.  
+
+
+						</td>
+					</tr>
+				</table>					
+					
+				<table style='width:100%!important; margin-top:1em;'>					
+					<tr>
+
+							<td style='text-align:justify; margin-top:1em;'>
+
+													
+							Mediante Decreto Ejecutivo No. 24 de 24 de mayo de 2021, el Sr. Guillermo Lasso Presidente de la República, designó como Ministro del Deporte al Lcdo. Sebastián Palacios. 
+
+							</td>
+
+					</tr>
+				</table>	
+
+				<table style='width:100%!important; margin-top:1em;'>	
+					<tr style='height:30em;'>
+
+							<td style='text-align:justify;'>
+
+													
+							Mediante oficio SNP-SPN-2021-1056-OF de 09 de diciembre de 2021, dirigido al Ministerio del Deporte, la Subsecretaría de Planificación Nacional, emitió el dictamen de prioridad para el proyecto “Fortalecimiento del deporte de alto rendimiento del Ecuador” periodo 2022-2025. 
+
+							</td>
+
+					</tr>
+				</table>
+				
+				<table style='width:100%!important; margin-top:1em;'>
+					<tr style='height:30em;'>
+
+							<td style='text-align:justify;'>
+
+													
+							Mediante memorando Nro. MD-DPI-2021-3176-MEM de fecha 13 de diciembre de 2021, el Director de Planificación e Inversión, comunica al Subsecretario del Deporte de Alto Rendimiento el dictamen de prioridad para el proyecto “Fortalecimiento del deporte de alto rendimiento del Ecuador” periodo 2022- 2025, tiene signado el CUP: 91480000.0000.387211 - Ministerio del Deporte. 
+
+							</td>
+
+					</tr>
+				</table>
+					
+
+				<table style='width:100%!important; margin-top:1em;'>
+					<tr>
+
+							<td style='text-align:justify; '>
+
+													
+							Mediante ACUERDO MINISTERIAL Nro. 0041, de 06 de marzo de 2023, se ACUERDA: Artículo 1.- Expídase el “Modelo de asignación presupuestaria de la Planificación Anual de Inversión Deportiva para las organizaciones pertenecientes al Alto Rendimiento correspondiente al ejercicio fiscal 2023”, constante en el “Anexo 1” del presente acuerdo. 
+
+							</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+								<th>
+
+										JUSTIFICACIÓN
+
+
+								</th>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+								<td style='text-align:justify;'>
+
+								El deporte de alto rendimiento ecuatoriano ha tomado protagonismo en el país y en el mundo. Los resultados alcanzados en el último ciclo olímpico, paralímpico y sordolímpico comprometen a todo el ecosistema deportivo a actuar con eficiencia y responsabilidad, de cara a los siguientes ciclos: París 2024, Los Ángeles 2028 y Tokio 2025 (ciclo sordolímpico).
+
+								</td>
+
+					</tr>
+
+				</table>
+
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Tras una exhaustiva evaluación de los modelos de gestión implementados a nivel nacional e internacional, el Plan de Alto Rendimiento del Ecuador establece un nuevo esquema de gestión por excelencia que pone en el centro del mismo al atleta como un ser humano y no como una máquina de producir medallas; que instaura un modelo desconcentrado, ordenado y eficiente entre el ente rector, es decir, el Ministerio del Deporte, y el resto de actores del ecosistema deportivo del país: Comités Olímpico y Paralímpico Ecuatoriano, federaciones ecuatorianas por deporte, federaciones deportivas provinciales, y las respectivas filiales de las mencionadas organizaciones deportivas; la academia, la empresa privada, agencias de cooperación internacional, organizaciones no gubernamentales, entre otros.
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Por otra parte, es importante recalcar que el 2023 es considerado el año pre Olímpico y Paralímpico donde se dan eventos de clasificación directa y eventos de acumulación de puntos al ranking Olímpico y Paralímpico. Por tal motivo, la asignación de recursos a las organizaciones deportivas inmersas en el proyecto de Alto Rendimiento - FDARE, es de alta importancia ya que contribuirán al cumplimiento de las planificaciones anuales de inversión deportiva y así cumplir los objetivos deportivos propuestos como país. 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						El deporte para personas con discapacidad supone el mayor acontecimiento médico social producido en el siglo XX en materia deportiva, cuyo origen es muy reciente, su evolución va desde la transformación como tratamiento correctivo para personas con discapacidad, hasta su conversión en movimiento de índole deportivo y competitivo a nivel mundial. Las grandes competiciones permiten avances en este sentido, como lo son los Juegos Paralímpicos y Sordolímpicos. 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						En el mundo organizacional público y privado, se han creado organismos deportivos, sin fines de lucro, con el objeto de incentivar una gestión de calidad para el mejoramiento del rendimiento deportivo de deportistas con y sin discapacidad. 
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Esta sinergia entre instituciones se coordina con una adecuada distribución de funciones entre el nivel Central o Ministerio del Deporte, a través de sus Direcciones de Deporte Convencional para el Alto Rendimiento y de Deporte Para Personas con Discapacidad, responsables de la política institucional, rectoría, administración, planificación y ejecución del presupuesto, y las organizaciones deportivas inmersas en el proyecto como ejecutores del presupuesto en la parte logística y encargados de la planificación en la parte técnica. 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:1em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+						Con el Oficio Nro. SNP-SPN-2021-1056-OF de 09 de diciembre de 2021, la Subsecretaría de Planificación Nacional emite dictamen de prioridad de acuerdo al siguiente detalle: 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>Proyecto</span>: 'Optimización de Infraestructura Deportiva a Nivel Nacional'
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>Período</span>: 2022-2025
+
+						</td>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>CUP</span>: 91480000.0000.387211
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							<span style='font-weight:bold!important;'>Monto Total</span>: USD 59.207.787,49 financiados con recursos fiscales de acuerdo a lo indicado por el Ministerio del Deporte en el documento del cronograma valorado del proyecto. de acuerdo al siguiente detalle:
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				
+				<table style=' margin: 2em auto; border-collapse: collapse; border:1px solid black; width:50%;' border='1'>
+
+					<tr>
+
+						<td style='font-weight:bold;'>
+							<center>
+								Año
+							</center>
+						</td>
+
+						<td style='font-weight:bold;'>
+							<center>
+								Total USD 
+							</center>
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2022
+							</center>
+						</td>
+
+						<td>
+							<center>
+								5.500.000,00  
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2023
+							</center>
+						</td>
+
+						<td>
+							<center>
+								17.376.100,00 
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2024
+							</center>
+						</td>
+
+						<td>
+							<center>
+								17.897.383,00  
+							</center>
+						</td>
+						
+					</tr>
+
+
+					<tr>
+
+						<td>
+							<center>
+								2025
+							</center>
+						</td>
+
+						<td>
+							<center>
+								18.434.304,49  
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								2025
+							</center>
+						</td>
+
+						<td>
+							<center>
+								18.434.304,49  
+							</center>
+						</td>
+						
+					</tr>
+
+					<tr>
+
+						<td style='font-weight:bold;'>
+							<center>
+								Total
+							</center>
+						</td>
+
+						<td style='font-weight:bold;'>
+							<center>
+								59.207.787,49 
+							</center>
+						</td>
+
+					</tr>
+
+				</table>
+			
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							El Ministerio del Deporte por medio de la Dirección de Planificación e Inversión notificó el Techo Presupuestario de <span style='font-weight:bold;'>$".number_format($asignacionOranismos[0][monto])." a la Federación ".strtoupper($informacionCompleto[0][nombreOrganismo])."</span> para la Planificación Anual de Inversión Deportiva PAID $anio con fecha ".$asignacionOranismos[0][fecha].", con el siguiente desglose en los rubros previstos del Proyecto de Inversión: 
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:2em; border-collapse: collapse; border:1px solid black; width:100%!important;' border='1'>
+
+					<tr>
+
+						<th>
+
+							<center>
+
+								N.
+
+							</center>
+
+						</th>
+
+						<th>
+
+							<center>
+
+								Organización Deportiva
+
+							</center>
+
+						</th>
+
+						<th>
+
+							<center>
+
+								Obra
+
+							</center>
+
+						</th>
+
+						<th>
+
+							<center>
+
+								Total
+
+							</center>
+
+						</th>
+
+					</tr>
+
+					<tr>
+
+						<td>
+							<center>
+								1
+							</center>
+						</td>
+
+
+						<td>
+							<center>
+								".strtoupper($informacionCompleto[0][nombreOrganismo])."
+							</center>
+						</td>
+
+						<td>
+							<center>
+								".$eventoSumas[0][montoEvento]."
+							</center>
+						</td>
+
+						<td>
+							<center>
+								".round($sumare,2)."
+							</center>
+						</td>
+
+					</tr>	
+
+
+				</table>
+
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							La ".strtoupper($informacionCompleto[0][nombreOrganismo])." realiza la carga de la Planificación Anual de Inversión Deportiva PAID $anio con fecha ".$organismo__envioFinal[0][fecha].", remite a esta Cartera de Estado, la Matriz de programación PAID y las matrices auxiliares de rubros PAID, en cumplimiento a lo establecido en el artículo 
+							27 del Acuerdo Ministerial 456 y sus reformas denominado: “Del mecanismo de ingreso y recepción de las Planificaciones Operativas Anuales”.  
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							En referencia a lo mencionado, la <span style='font-weight:bold;'> DIRECCIÓN DE INFRAESTRUCTURA DEPORTIVA</span>, procede a realizar el siguiente análisis: 
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+				<table style='margin-top:2em; border-collapse: collapse; border:1px solid black;' border='1'>
+
+					<thead>
+
+						<tr>
+
+						 	<th>
+						   		<center>
+						   			N-
+						   		</center>
+						 	</th>
+
+						  	<th>
+						   		<center>
+						   			Condición
+						   		</center>
+						  	</th>
+
+
+						  	<th>
+						   		<center>
+						   			Cumple (Si/No/N-A)
+						   		</center>
+						  	</th>
+
+
+						   	<th>
+						   		<center>
+						   			Observaciones para la organización deportiva
+						   		</center>
+						   	</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						 <tr>
+
+						  	<td>
+						   		<center>
+						   			1
+						   		</center>
+						  	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   Presenta el Informe de justificación del requerimiento para optimización de infraestructura deportiva 
+							   <br>
+								•	Estudio de mercado
+								<br>
+								•	Presupuesto referencial actualizado
+								<br>
+								•	Análisis de precios unitarios
+								<br>
+								•	Cronograma valorado de ejecución
+								<br>
+								•	Especificaciones técnicas
+								<br>
+								•	Planos y anexos gráficos (debidamente suscritos por un profesional en la rama)
+								<br>
+								•	Registro fotográfico 
+								<br>
+
+						   	</td>
+
+						   	<td>
+						   		<center>
+									$puestos__alto
+						   		</center>
+						   	</td>
+
+						   <td>
+						   		<center>
+						   			$puestos__alto__text
+						   		</center>
+						   </td>
+
+						</tr>
+
+						<tr>
+
+						   	<td>
+						   		<center>
+						   			2
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   Declaración debidamente suscrita por el representante de la Organización Deportiva, entidad ejecutora, de que ha recibido, revisado y validado la documentación técnica para la ejecución del proyecto 
+						   	</td>
+
+						   	<td>
+						   		<center>
+						   			$recursos__destinados__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$recursos__destinados__alto__text
+						   		</center>
+						   	</td>
+
+						</tr>
+
+						<tr>
+
+						   	<td>
+						   		<center>
+						   			3
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   Declaración debidamente suscrita por el representante de la Organización Deportiva administradora y/o propietaria del bien inmueble, en la que expresa su autorización para la realización de la intervención propuesta y su compromiso para la recepción de la misma
+						   	</td>
+
+						   	<td>
+						   		<center>
+						   			$campamento__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$campamento__alto__text
+						   		</center>
+						   	</td>
+
+						</tr>
+
+						<tr>
+
+						   	<td>
+						   		<center>
+						   			4
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   Informe de Justificación del requerimiento de fiscalización para optimización de infraestructura deportiva.
+						   	</td>
+
+						   	<td>
+						   		<center>
+									$campamento__evaluaciones__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$campamento__evaluaciones__alto__text
+						   		</center>
+						   	</td>
+
+						 </tr>
+
+						 <tr>
+
+						   	<td>
+						   		<center>
+						   			5
+						   		</center>
+						   	</td>
+
+						   	<td style='text-align:justify!important;'>
+							   Documentos de la legalidad del predio
+						   	</td>
+
+						   	<td>
+						   		<center>
+						   			$evaluaciones__campamento__alto
+						   		</center>
+						   	</td>
+
+
+						   	<td>
+						   		<center>
+						   			$evaluaciones__campamento__alto__text
+						   		</center>
+						   	</td>
+
+						 </tr>
+
+					</tbody>
+
+				</table>		
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th style='text-align:justify;'>
+
+							OBSERVACIONES ADICIONALES
+
+						</th>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							".nl2br($observaciones__recomendaciones__recomiendas)."
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th style='text-align:justify;'>
+
+							CONCLUSIONES:  
+
+						</th>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							".nl2br($concluciones__recomendaciones__recomiendas)." 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table style='width:100%!important; margin-top:2em;'>
+
+					<tr>
+
+						<th style='text-align:justify;'>
+
+							RECOMENDACIONES:  
+
+						</th>
+
+					</tr>
+
+
+					<tr>
+
+						<td style='text-align:justify;'>
+
+							".nl2br($concluciones__recomendaciones__recomiendas1)." 
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+
+				<table style='width:100%; margin-top:2em; border-collapse: collapse; border:1px solid black;' border='1'>
+
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Elaborado por: <div>".$funcionario[0][nombreFuncionario]."</div>
+							<div><span style='font-weight:bold;'>Analista de la Dirección de Infraestructura Deportiva.</span> </div>
+						</td>
+						<td>
+							<center>
+								
+							</center>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Revisado por:  <div>".$director[0][nombreDirector]."</div>
+							<div><span style='font-weight:bold;'>Director(a) de Infraestructura Deportiva. </span></div>
+						</td>
+						<td>
+							<center>
+									
+							</center>
+						</td>
+					</tr>
+
+
+
+					<tr>
+						<td style='width:50%!important; padding:2em;'>
+							Validado por:  <div>".$subsecretarios[0][nombreSubses]."</div>
+							<div><span style='font-weight:bold;'>Coordinador(a) de Administración e Infraestructura Deportiva.</span> </div>
+						</td>
+						<td>
+							<center>
+									
+							</center>
+						</td>
+					</tr>						
+
+				</table>					
+
+			";
+
+
+		break;
 
 	
 

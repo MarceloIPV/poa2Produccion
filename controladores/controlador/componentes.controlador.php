@@ -3167,7 +3167,7 @@
 
 					        <div class='col col-1'>
 
-					        <span class='button pointer__botones botones__ideales modal__paid__escondidos' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
+					        <span class='button pointer__botones botones__ideales modal__paid__escondidos' data-bs-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
 
 					        </div>
 
@@ -3179,6 +3179,75 @@
 					      	<div style='width:100%; overflow:scroll;'>
 
 								<table class='$parametro3' class='col col-12 cell-border'>
+
+									<thead>
+
+										<tr>";
+
+										foreach ($parametro4 as $value) {
+											
+											$modal.="<th><center>$value</center></th>";
+
+										}
+
+											
+
+								$modal.="		</tr>
+
+									</thead>
+
+								</table>
+
+							 </div>
+
+						  </div>
+
+						</form>
+
+					</div>
+
+				</div>
+
+			";
+
+			return $modal;
+
+		}
+
+		public function modalReenvioPaid__datatablets__inicial2($parametro1,$parametro2,$parametro3,$parametro4){
+
+			$modal="
+
+				<div class='modal fade' id='$parametro1'>
+
+					<div class='modal-dialog' style='max-width:100%!important;'>
+
+						<form id='$parametro2' class='modal-content'>
+
+						  <input type='hidden' class='idOrganismoPaid' id='idOrganismoPaid' name='idOrganismoPaid'/>
+
+					      <div class='modal-header row'>
+
+					        <div class='col col-11 text-center'>
+
+					          <h5 class='modal-title titulo__asignacion__paid'></h5>
+
+					        </div>
+
+					        <div class='col col-1'>
+
+					        <span class='button pointer__botones botones__ideales modal__paid__escondidos' data-bs-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>
+
+					        </div>
+
+					      </div>
+
+
+					      <div class='modal-body row' style='width:100%;'>
+
+					      	<div style='width:100%; overflow:scroll;'>
+
+								<table id='$parametro3' class='col col-12 cell-border'>
 
 									<thead>
 

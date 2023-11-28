@@ -244,7 +244,7 @@
 
 		<script type="text/javascript" src="layout/scripts/js/paid-alto-rendimiento-desarrollo/index.js"></script>
 
-		<script type="text/javascript" src="layout/scripts/js/PAID_REVISOR_JS/index.js?v=1.0.2"></script>
+		<script type="text/javascript" src="layout/scripts/js/PAID_REVISOR_JS/index.js"></script>
 
 		<script type="text/javascript" src="layout/scripts/js/DOCUMENTOS2022/datatablets.js?v=1.0.2"></script>
 

@@ -1978,7 +1978,7 @@ class componentesPaid
 
 				<div class='modal-dialog modal-xl'>
 
-					<form id='$parametro2' class='modal-content' action='modelosBd/pdf/pdf.modelo.php' method='post'>
+					<form id='$parametro2' class='modal-content' action='modelosBd/pdf/pdf.modelo.paid.php' method='post'>
 
 					  <input type='hidden' class='tipoPdf' id='tipoPdf' name='tipoPdf' value='asignacion__paid__presupuestarias'/>
 
@@ -1989,6 +1989,8 @@ class componentesPaid
 					   <input type='hidden' class='idUsuarioEn' id='idUsuarioEn' name='idUsuarioEn'/>
 
 					  <input type='hidden' id='valorComparativo' value='0'>
+
+					  <input type='hidden' id='identificador' value=''>
 
 					  <div class='modal-header row'>
 
@@ -2073,6 +2075,10 @@ class componentesPaid
 							$modal .= "<div class='encuentro__activo__Seguros__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoSeguros"], ["Matriz Seguros"], "idEncuentroActivoSeguros__tablets") . "</div>";
 							$modal .= "<div class='encuentro__activo__Transporte__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoTransporte"], ["Matriz Transporte"], "idEncuentroActivoTransporte__tablets") . "</div>";
 							$modal .= "<div class='encuentro__activo__Pasajes_Aereos__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPasajesAereos"], ["Matriz Pasajes Aereos"], "idEncuentroActivoPasajesAereos__tablets") . "</div>";
+
+							$modal .= "<div class='matrizEjecucionObra'>" . $componentes->getLinksConfiguracion__parametros(["matrizEjecucionObra"], ["Matriz Ejecución de Obras"], "matrizEjecucionObra__tablets") . "</div>";
+							$modal .= "<div class='matrizFiscalizacion'>" . $componentes->getLinksConfiguracion__parametros(["matrizFiscalizacion"], ["Matriz Fiscalizacion"], "matrizFiscalizacion__tablets") . "</div>";
+
 							$modal .= "
 
 						  </div>
@@ -2121,7 +2127,7 @@ class componentesPaid
 
 										   <th>
 											   <center>
-												   Obsservaciones para la organización deportiva
+												   Observaciones para la organización deportiva
 											   </center>
 										   </th>
 
@@ -2348,6 +2354,252 @@ class componentesPaid
 											   <center>
 
 												   <a id='calificar__secciones__alto' class='btn btn-warning' style='color:white!important;'>
+													   CALIFICAR
+												   </a>
+
+											   </center>
+
+										   </th>
+
+									   </tr>
+
+								   </tfoot>
+
+							   </table>
+
+					   </div>
+
+					   <div class='modal-body row  contenedor__boton__generacion__pdf__infraestructura contenedores__pdfs'>
+
+
+							   <table class='oculto__calificaciones__infraestructura'>
+
+								   <thead>
+
+									   <tr>
+
+										   <th style='width:20px!important;'>
+											   <center>
+												   N-
+											   </center>
+										   </th>
+
+										   <th>
+											   <center>
+												   Condición
+											   </center>
+										   </th>
+
+
+										   <th>
+											   <center>
+												   Cumple (Si/No/N-A)
+											   </center>
+										   </th>
+
+
+										   <th>
+											   <center>
+												   Observaciones para la organización deportiva
+											   </center>
+										   </th>
+
+									   </tr>
+
+								   </thead>
+
+								   <tbody>
+
+									   <tr>
+
+										   <td style='width:20px!important;'>
+											   <center>
+												   1
+											   </center>
+										   </td>
+
+										   <td style='text-align:justify!important;'>
+										   Presenta el Informe de justificación del requerimiento para optimización de infraestructura deportiva 
+												•	Estudio de mercado
+												•	Presupuesto referencial actualizado
+												•	Análisis de precios unitarios
+												•	Cronograma valorado de ejecución
+												•	Especificaciones técnicas
+												•	Planos y anexos gráficos (debidamente suscritos por un profesional en la rama)
+												•	Registro fotográfico 
+												
+										   </td>
+
+										   <td>
+											   <center>
+												   <select id='puestos__alto' name='puestos__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__1__alto'>
+
+													   <option value='0'>--Seleccione--</option>
+													   <option value='Si'>Si</option>
+													   <option value='No'>No</option>
+													   <option value='N-A'>N-A</option>
+
+												   </select>
+											   </center>
+										   </td>
+
+
+										   <td>
+											   <center>
+												   <textarea id='puestos__alto__text' name='puestos__alto__text' class='enlace__1__alto ancho__total__textareas'></textarea>
+											   </center>
+										   </td>
+
+									   </tr>
+
+									   <tr>
+
+										   <td>
+											   <center>
+												   2
+											   </center>
+										   </td>
+
+										   <td style='text-align:justify!important;'>
+										   Declaración debidamente suscrita por el representante de la Organización Deportiva, entidad ejecutora, de que ha recibido, revisado y validado la documentación técnica para la ejecución del proyecto.
+										   </td>
+
+										   <td>
+											   <center>
+												   <select id='recursos__destinados__alto' name='recursos__destinados__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__2__alto'>
+
+													   <option value='0'>--Seleccione--</option>
+													   <option value='Si'>Si</option>
+													   <option value='No'>No</option>
+													   <option value='N-A'>N-A</option>
+
+												   </select>
+											   </center>
+										   </td>
+
+
+										   <td>
+											   <center>
+												   <textarea id='recursos__destinados__alto__text' name='recursos__destinados__alto__text' class='enlace__2__alto ancho__total__textareas'></textarea>
+											   </center>
+										   </td>
+
+									   </tr>
+
+									   <tr>
+
+										   <td>
+											   <center>
+												   3
+											   </center>
+										   </td>
+
+										   <td style='text-align:justify!important;'>
+										   Declaración debidamente suscrita por el representante de la Organización Deportiva administradora y/o propietaria del bien inmueble, en la que expresa su autorización para la realización de la intervención propuesta y su compromiso para la recepción de la misma. 
+										   </td>
+
+										   <td>
+											   <center>
+												   <select id='campamento__alto' name='campamento__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__3__alto'>
+
+													   <option value='0'>--Seleccione--</option>
+													   <option value='Si'>Si</option>
+													   <option value='No'>No</option>
+													   <option value='N-A'>N-A</option>
+
+												   </select>
+											   </center>
+										   </td>
+
+
+										   <td>
+											   <center>
+												   <textarea id='campamento__alto__text' name='campamento__alto__text' class='enlace__3__alto ancho__total__textareas'></textarea>
+											   </center>
+										   </td>
+
+									   </tr>
+
+									   <tr>
+
+										   <td>
+											   <center>
+												   4
+											   </center>
+										   </td>
+
+										   <td style='text-align:justify!important;'>
+										   Informe de Justificación del requerimiento de fiscalización para optimización de infraestructura deportiva.
+										   </td>
+
+										   <td>
+											   <center>
+												   <select id='campamento__evaluaciones__alto' name='campamento__evaluaciones__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__4__alto'>
+
+													   <option value='0'>--Seleccione--</option>
+													   <option value='Si'>Si</option>
+													   <option value='No'>No</option>
+													   <option value='N-A'>N-A</option>
+
+												   </select>
+											   </center>
+										   </td>
+
+
+										   <td>
+											   <center>
+												   <textarea id='campamento__evaluaciones__alto__text' name='campamento__evaluaciones__alto__text' class='enlace__4__alto ancho__total__textareas'></textarea>
+											   </center>
+										   </td>
+
+									   </tr>
+
+									   <tr>
+
+										   <td>
+											   <center>
+												   5
+											   </center>
+										   </td>
+
+										   <td style='text-align:justify!important;'>
+										   Documentos de la legalidad del predio.
+										   </td>
+
+										   <td>
+											   <center>
+												   <select id='evaluaciones__campamento__alto' name='evaluaciones__campamento__alto' class='conjunto__selects__desarrollo ancho__total__input__selects enlace__5__alto'>
+
+													   <option value='0'>--Seleccione--</option>
+													   <option value='Si'>Si</option>
+													   <option value='No'>No</option>
+													   <option value='N-A'>N-A</option>
+
+												   </select>
+											   </center>
+										   </td>
+
+
+										   <td>
+											   <center>
+												   <textarea id='evaluaciones__campamento__alto__text' name='evaluaciones__campamento__alto__text' class='enlace__5__alto ancho__total__textareas'></textarea>
+											   </center>
+										   </td>
+
+									   </tr>
+									
+
+								   </tbody>
+
+								   <tfoot>
+
+									   <tr>
+
+										   <th colspan='4'>
+
+											   <center>
+
+												   <a id='calificar__secciones__infra' class='btn btn-warning' style='color:white!important;'>
 													   CALIFICAR
 												   </a>
 
@@ -3041,6 +3293,8 @@ class componentesPaid
 
 					  <input type='hidden' id='valorComparativo' value='0'>
 
+					  <input type='hidden' id='identificador' >
+
 					  <div class='modal-header row'>
 
 						<div class='col col-11 text-center'>
@@ -3068,30 +3322,33 @@ class componentesPaid
 						  <div class='col col-12 oculto__paid__informacion'>
 
 							  ";
+							  $modal .= "<div class='paid__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["matrizPaidModales__revisor"], ["Mátriz PAID"], "idPaidGenera__tablets") . "</div>";
 
-		$modal .= "<div class='paid__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["matrizPaidModales__revisor"], ["Mátriz PAID"], "idPaidGenera__tablets") . "</div>";
-
-		$modal .= "<div class='indicadores__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["indicadoresPaidModales"], ["Indicadores"], "idIndicadoresGenera__tablets") . "</div>";
-
-		$modal .= "<div class='eventos__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["eventosPaidModales"], ["Eventos"], "idVinculacionGenera__tablets") . "</div>";
-
-		$modal .= "<div class='interdisciplinario__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["interdisiplinarioModal"], ["Interdisiplinario"], "idInterdisciplinarioGenera__tablets") . "</div>";
-
-		$modal .= "<div class='individuales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesIndividualesModal"], ["Necesidades Individuales"], "idIndividualesGenera__tablets") . "</div>";
-
-		$modal .= "<div class='generales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesGeneralesModal"], ["Necesidades Generales"], "idVinculacionGenera__generales__tablets") . "</div>";
-
-		$modal .= "<div class='encuentro__activo__Medallas__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMedallas"], ["Matriz Medallas"], "idEncuentroActivoMedallas__tablets") . "</div>";
-		
-		$modal .= "<div class='encuentro__activo__Hospedaje_Alimentacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoHospAli"], ["Matriz Hospedaje Alimentación"], "idEncuentroActivoHospAli__tablets") . "</div>";
-		$modal .= "<div class='encuentro__activo__Matrices_Auxiliares__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMatricesAux"], ["Matrices Auxiliares"], "idEncuentroActivoMatricesAux__tablets") . "</div>";
-		$modal .= "<div class='encuentro__activo__Personal_Tecnico__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPersonalTecnico"], ["Matriz personal Técnico"], "idEncuentroActivoPersonalTecnico__tablets") . "</div>";
-		$modal .= "<div class='encuentro__activo__Bono_Deportivo__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoBonoDeportivo"], ["Matriz Bono Deportivo"], "idEncuentroActivoBonoDeportivo__tablets") . "</div>";
-		$modal .= "<div class='encuentro__activo__Uniformes__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoUniformes"], ["Matriz Uniformes"], "idEncuentroActivoUniformes__tablets") . "</div>";
-		$modal .= "<div class='encuentro__activo__Seguros__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoSeguros"], ["Matriz Seguros"], "idEncuentroActivoSeguros__tablets") . "</div>";
-		$modal .= "<div class='encuentro__activo__Transporte__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoTransporte"], ["Matriz Transporte"], "idEncuentroActivoTransporte__tablets") . "</div>";
-		$modal .= "<div class='encuentro__activo__Pasajes_Aereos__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPasajesAereos"], ["Matriz Pasajes Aereos"], "idEncuentroActivoPasajesAereos__tablets") . "</div>";
-		$modal .= "
+							  $modal .= "<div class='indicadores__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["indicadoresPaidModales"], ["Indicadores"], "idIndicadoresGenera__tablets") . "</div>";
+  
+							  $modal .= "<div class='eventos__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["eventosPaidModales"], ["Eventos"], "idVinculacionGenera__tablets") . "</div>";
+  
+							  $modal .= "<div class='interdisciplinario__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["interdisiplinarioModal"], ["Interdisiplinario"], "idInterdisciplinarioGenera__tablets") . "</div>";
+  
+							  $modal .= "<div class='individuales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesIndividualesModal"], ["Necesidades Individuales"], "idIndividualesGenera__tablets") . "</div>";
+  
+							  $modal .= "<div class='generales__vinculacion__general'>" . $componentes->getLinksConfiguracion__parametros(["necesidadesGeneralesModal"], ["Necesidades Generales"], "idVinculacionGenera__generales__tablets") . "</div>";
+  
+  
+							  $modal .= "<div class='encuentro__activo__Medallas__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMedallas"], ["Matriz Medallas"], "idEncuentroActivoMedallas__tablets") . "</div>";
+  
+							  $modal .= "<div class='encuentro__activo__Hospedaje_Alimentacion__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoHospAli"], ["Matriz Hospedaje Alimentación"], "idEncuentroActivoHospAli__tablets") . "</div>";
+							  $modal .= "<div class='encuentro__activo__Matrices_Auxiliares__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoMatricesAux"], ["Matrices Auxiliares"], "idEncuentroActivoMatricesAux__tablets") . "</div>";
+							  $modal .= "<div class='encuentro__activo__Personal_Tecnico__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPersonalTecnico"], ["Matriz personal Técnico"], "idEncuentroActivoPersonalTecnico__tablets") . "</div>";
+							  $modal .= "<div class='encuentro__activo__Bono_Deportivo__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoBonoDeportivo"], ["Matriz Bono Deportivo"], "idEncuentroActivoBonoDeportivo__tablets") . "</div>";
+							  $modal .= "<div class='encuentro__activo__Uniformes__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoUniformes"], ["Matriz Uniformes"], "idEncuentroActivoUniformes__tablets") . "</div>";
+							  $modal .= "<div class='encuentro__activo__Seguros__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoSeguros"], ["Matriz Seguros"], "idEncuentroActivoSeguros__tablets") . "</div>";
+							  $modal .= "<div class='encuentro__activo__Transporte__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoTransporte"], ["Matriz Transporte"], "idEncuentroActivoTransporte__tablets") . "</div>";
+							  $modal .= "<div class='encuentro__activo__Pasajes_Aereos__general'>" . $componentes->getLinksConfiguracion__parametros(["ecuentroActivoPasajesAereos"], ["Matriz Pasajes Aereos"], "idEncuentroActivoPasajesAereos__tablets") . "</div>";
+  
+							  $modal .= "<div class='matrizEjecucionObra'>" . $componentes->getLinksConfiguracion__parametros(["matrizEjecucionObra"], ["Matriz Ejecución de Obras"], "matrizEjecucionObra__tablets") . "</div>";
+							  $modal .= "<div class='matrizFiscalizacion'>" . $componentes->getLinksConfiguracion__parametros(["matrizFiscalizacion"], ["Matriz Fiscalizacion"], "matrizFiscalizacion__tablets") . "</div>";
+							$modal .= "
 
 						  </div>
 
@@ -4211,6 +4468,105 @@ class componentesPaid
 			</div>
 
 		";
+
+		return $modal;
+	}
+
+	public function getModalConfiguracion2($parametro1, $parametro2, $parametro3, $parametro4, $parametro5, $parametro6, $parametro7, $parametro8)
+	{
+
+		$modal = "
+		
+		<div class='modal fade modal__1' id='$parametro1' aria-hidden='true'  data-backdrop='static' data-keyboard='false' tabindex='-1'>";
+
+		if ($parametro8 == "contenedorItemsAc") {
+			$modal .= "<div class='modal-dialog modal-xl'>";
+		} else {
+			$modal .= "<div class='modal-dialog modal-lg'>";
+		}
+
+
+		$modal .= "	<form class='modal-content formularioConfiguracion'>
+
+					<div class='modal-header row'>
+
+						<div class='col col-11 text-center'>
+
+						  <h5 class='modal-title titulo__modalItems' id='exampleModalLabel'>$parametro2</h5>
+
+						</div>
+
+						<div class='col col-1'>";
+
+		if ($parametro1 == "actividadesEditaModalAc" || $parametro1 == "rubrosEditaModalAc" || $parametro1 == "rubrosEditaModalComponentes") {
+
+
+			$modal .= "<span class='button pointer__botones botones__ideales' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>";
+		} else {
+
+			$modal .= "<span class='button modales__reload pointer__botones botones__ideales' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle'></i></span>";
+		}
+
+
+		$modal .= "
+						</div>
+
+					</div>
+
+					<div class='modal-body row $parametro3'>
+
+						<div class='col col-6 d d-flex justify-content-center'>
+
+							<a class='btn btn-warning pointer__botones' id='$parametro4' name='$parametro4'><i class='fas fa-user-plus'></i>&nbsp;&nbsp;Agregar</a>
+
+							<input type='hidden' class='elemento__escondidoI' name='elemento__escondidoI'>
+
+						</div>
+
+						<div class='col col-6 d d-flex justify-content-center'>
+
+							<a class='btn btn-info pointer__botones refrezcar__tabla__items' id='$parametro5' name='$parametro5'><i class='fas fa-eye'></i>&nbsp;&nbsp;Ver</a>
+
+						</div>
+
+						<div class='$parametro8'>
+
+						<table id='$parametro6' class='col col-12 cell-border mt-4'>
+
+							<thead>
+
+								<tr>";
+
+
+		foreach ($parametro7 as $clave => $valor) {
+
+			$modal .= "<th><center>$valor</center></th>";
+		}
+
+		if ($parametro1 != "actividadesEditaModalAc" &&  $parametro1 != "rubrosEditaModalAc" &&  $parametro1 != "rubrosEditaModalComponentes") {
+			$modal .= "<th>Editar</th>";
+		}
+
+
+
+
+		$modal .= "<th>Eliminar</th>";
+
+		$modal .= "</tr>
+
+							</thead>
+
+						</table>
+
+					  </div>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>";
 
 		return $modal;
 	}

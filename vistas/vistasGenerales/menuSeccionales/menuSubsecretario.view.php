@@ -633,6 +633,125 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 	<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 20) : ?>
 
+		<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("asignacionPoasRelativos", "organismosRegistrados", "poaResolucionFinal", "poasGlobalesRecibidos")); ?>">
+
+			<a href="#" class="nav-link">
+				<p>
+					POA
+					<i class="fas fa-angle-left right"></i>
+					<span class="badge badge-info right"></span>
+				</p>
+			</a>
+
+			<ul class="nav nav-treeview">
+
+				<?php if ($informacionFuncionario[0][fisicamenteEstructura] != 9 && $informacionFuncionario[0][fisicamenteEstructura] != 23) : ?>
+
+					<li class="nav-item">
+
+						<!-- <a href="reporteriaFinal" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaFinal'); ?>">
+
+							<p>Trámites POA</p>
+
+						</a> -->
+
+					</li>
+
+				<?php endif ?>
+
+
+
+
+
+				<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 9) : ?>
+
+					<li class="nav-item">
+
+						<a href="asignacionPoasRelativos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'asignacionPoasRelativos'); ?>">
+
+							<p>Organismos intervenidos</p>
+
+						</a>
+
+					</li>
+
+
+
+					<li class="nav-item">
+
+						<a href="organismosRegistrados" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'organismosRegistrados'); ?>">
+
+							<p>Organismos registrados</p>
+
+						</a>
+
+					</li>
+
+				<?php endif ?>
+
+				<!-- <?php if ($informacionFuncionario[0][fisicamenteEstructura] != "27" && $informacionFuncionario[0][fisicamenteEstructura] != "28" && $informacionFuncionario[0][fisicamenteEstructura] != "29" && $informacionFuncionario[0][fisicamenteEstructura] != "30" &&  $informacionFuncionario[0][fisicamenteEstructura] != "31" && $informacionFuncionario[0][fisicamenteEstructura] != "32" &&  $informacionFuncionario[0][fisicamenteEstructura] != "33") : ?>
+
+
+					<li class="nav-item">
+
+						<a href="poaResolucionFinal" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'poaResolucionFinal'); ?>">
+
+							<p>Poas gestionados DAVID PACA</p>
+
+						</a>
+
+					</li>
+
+				<?php endif ?> -->
+
+				<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 20 || $informacionFuncionario[0][fisicamenteEstructura] == 16) : ?>
+
+					<li class="nav-item">
+
+						<a href="poasGlobalesRecibidos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'poasGlobalesRecibidos'); ?>">
+
+							<p>POA Aprobado Inicial</p>
+
+						</a>
+
+					</li>
+
+				<?php endif ?>
+
+				<?php if ($informacionFuncionario[0][fisicamenteEstructura] != "27" && $informacionFuncionario[0][fisicamenteEstructura] != "28" && $informacionFuncionario[0][fisicamenteEstructura] != "29" && $informacionFuncionario[0][fisicamenteEstructura] != "30" &&  $informacionFuncionario[0][fisicamenteEstructura] != "31" && $informacionFuncionario[0][fisicamenteEstructura] != "32" &&  $informacionFuncionario[0][fisicamenteEstructura] != "33") : ?>
+
+
+					<li class="nav-item">
+
+						<a href="poaResolucionFinal" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'poaResolucionFinal'); ?>">
+
+							<p>POA Modificado a Junio</p>
+
+						</a>
+
+					</li>
+
+				<?php endif ?>
+
+				<!-- <?php if ($informacionFuncionario[0][fisicamenteEstructura] == 20 || $informacionFuncionario[0][fisicamenteEstructura] == 16) : ?>
+
+					<li class="nav-item">
+
+						<a href="poasGlobalesRecibidos" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'poasGlobalesRecibidos'); ?>">
+
+							<p>Poas enviados</p>
+
+						</a>
+
+					</li>
+
+				<?php endif ?> -->
+
+
+			</ul>
+
+		</li>
+		
 		<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("seguimientosrecibidos", "seguimientosSeguimientoR", "seguimientoRecorrido", "reporteAnexosSe", "seguimientoEjecucion", "seguimientoBloqueo", "seguimientoControlAdmin", "seguimientoReporOrganismos", "documentosSustentacion", "remananentesRepors", "bloqueador2","seguimientoAnexos","seguimientoResumenSuspenciones","seguimientoSuspencionReactivacion")); ?>">
 
 			<a href="#" class="nav-link">

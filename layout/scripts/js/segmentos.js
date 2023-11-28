@@ -629,7 +629,15 @@ $(parametro1).click(function(e){
 
 		}else if (parametro3[i]=="inputSoloNumeros") {
 
-			contenedor+="<div class='col col-"+parametro5+" row fila__agregado"+contadorGeneral+"'><input id='agregado"+generador+"' name='agregado"+generador+"' type='number' placeholder='"+parametro4[i]+"' class='solo_numeros_items col-10 ancho__total__input mt-2 obligatorios__campos"+contadorGeneral+"' /></div>";
+			contenedor+="<div class='col col-"+parametro5+" row fila__agregado"+contadorGeneral+"'><input type='number' pattern='[0-9]*' id='agregado"+generador+"'  name='agregado"+generador+"'  placeholder='"+parametro4[i]+"' class='solo_numeros_items col-10 ancho__total__input mt-2 obligatorios__campos"+contadorGeneral+"' /></div>";
+
+			
+
+			$.getScript("layout/scripts/js/PAID_INFRAESTRUCTURA/metodos.js",function(){
+
+				validadorSoloNumeros(".solo_numeros_items");
+		
+			});
 
 		}else if(parametro3[i]=="select"){
 
@@ -1015,7 +1023,7 @@ $(parametro1).click(function(e){
 						for (x of obtenerInformacion) {
 
 
-						 	$(".contenedor__checkeds").append("<div  class='col col-4 d-flex row justify-content-center align-items-center'><input type='checkbox' id='agregado"+generador+"' name='agregado"+generador+"'  attr='"+x.idItem+"' class='col col-2 conjunto__checkeds'/>&nbsp;&nbsp;<span class='col col-8'>"+x.itemPreesupuestario+" - "+x.nombreItem+"</div></div>");
+						 	$(".contenedor__checkeds").append("<div style='margin-top: 1em;'  class='col col-4 d-flex row justify-content-center align-items-center'><input type='checkbox' id='agregado"+generador+"' name='agregado"+generador+"'  attr='"+x.idItem+"' class='col col-2 conjunto__checkeds'/>&nbsp;&nbsp;<span class='col col-8'>"+x.itemPreesupuestario+" - "+x.nombreItem+"</div></div>");
 
 						}
 

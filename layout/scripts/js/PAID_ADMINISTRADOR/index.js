@@ -54,15 +54,17 @@ $(document).ready(function () {
 
     $.getScript("layout/scripts/js/PAID_ADMINISTRADOR/metodos.js",function(){
 
-        segmentosJs($("#agregarTipoIntervencion"),$(".deporteContent"),["input"],["Ingrese Tipo de Infraestructura"],10,"tipoInfraestructura",".contenedorDeporteTabla");
+        segmentosJsPaidInfraestructura($("#agregarTipoIntervencion"),$(".deporteContent"),["input"],["Ingrese Tipo de Infraestructura"],10,"tipoInfraestructura",".contenedorDeporteTabla");
 
-        segmentosJs($("#agregarEstPropiedad"),$(".modalidadContent"),["input"],["Ingrese Estado de Propiedad"],10,"tipoEstadoPropiedad",".contenedorModalidadTabla");
+        segmentosJsPaidInfraestructura($("#agregarEstPropiedad"),$(".modalidadContent"),["input"],["Ingrese Estado de Propiedad"],10,"tipoEstadoPropiedad",".contenedorModalidadTabla");
 
         ocultarVariables($("#verTipoInfraestructura"),$(".conjunto__validas"),$(".contenedorDeporteTabla"));
         ocultarVariables($("#verEstPropiedad"),$(".conjunto__validas"),$(".contenedorModalidadTabla"));
 
         recargarTablaOnBtn($("#btnCerrarTipoInfraestructura"),$("#tablatipoInfraestructura__paid"));
         recargarTablaOnBtn($("#btnCerrarEstadoPropiedad"),$("#tablaEstadoPropiedad"));
+
+        recargarTablaOnBtn($("#verItemsRubros"),$("#tablaItemsRubros"));
 
 
         funcion__habilitar__memo__datable("#asignarPresupuesto__paid tbody",$("#asignarPresupuesto__paid"))

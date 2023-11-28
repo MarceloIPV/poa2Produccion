@@ -5399,7 +5399,7 @@
 
 			$modal = "
 
-			<div  class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true' data-backdrop='static' data-keyboard='false' tabindex='-1'>
+			<div  class='modal fade modal__ItemsGrup' id='$parametro1' aria-hidden='true' data-backdrop='static' data-keyboard='false' >
 
 				<div class='modal-dialog modal-xl'>
 
@@ -8738,6 +8738,8 @@
 								</select>
 
 								<div class='direccion__seguimientos__ocultos'>Dirección de Seguimiento, Planes, Programas y Proyectos</div>
+
+								<div class='ocultosZonalesCoordinadorRecomendar' style='display: none;'>Recomendar Presupuestarios Zonales</div>
 
 							</div>
 
@@ -12399,16 +12401,22 @@
 
 							</div>
 
-							<div class='fila__reasignar col col-6 d d-flex justify-content-center' style='font-weight:bold;'>
+							<div class='fila__reasignar col col-4 d d-flex justify-content-center' style='font-weight:bold;'>
 
-								<a class='btn btn-warning boton__pdfs__tecnicas' id='regresar__areas__tecnicas__seguimientos' target='_blank'>REGRESAR AL ÁREA TÉCNICA</a>
+								<a class='btn btn-warning boton__pdfs__tecnicas' id='regresar__areas__tecnicas__seguimientos2023' target='_blank'>REGRESAR AL ÁREA TÉCNICA</a>
 
 							</div>
 
 
-							<div class='fila__reasignar col col-6 d d-flex justify-content-center' style='font-weight:bold;'>
+							<div class='fila__reasignar col col-4 d d-flex justify-content-center' style='font-weight:bold;'>
 
-								<a class='btn btn-info boton__pdfs__infraestructuras' id='regresar__areas__tecnicas__seguimientos__infraens__2' target='_blank'>REGRESAR AL ÁREA DE INFRAESTRUCTURA</a>
+								<a class='btn btn-info boton__pdfs__infraestructuras' id='regresar__areas__tecnicas__seguimientos__infraens__2023' target='_blank'>REGRESAR AL ÁREA DE INFRAESTRUCTURA</a>
+
+							</div>
+
+							<div class='fila__reasignar col col-4 d d-flex justify-content-center' style='font-weight:bold;'>
+
+								<a class='btn btn-success boton__pdfs__financiero' id='regresar__areas__tecnicas__seguimientos__financiero__2023' target='_blank'>REGRESAR AL ÁREA FINANCIERA</a>
 
 							</div>
 							
@@ -12803,6 +12811,7 @@
 		}	
 
 			
+
 		public function get__modal__plantilla__inicios__seguimientos__fisicicos__f__r__recomendados2023($parametro1,$parametro2,$parametro3){
 
 			$modal="
@@ -12883,6 +12892,8 @@
 
 								<div class='direccion__seguimientos__ocultos'>Dirección de Seguimiento, Planes, Programas y Proyectos</div>
 
+								<div class='ocultosZonalesCoordinadorRecomendar' style='display: none;'>Recomendar Presupuestarios Zonales</div>
+
 							</div>
 
 							<div class='col col-2 mt-2'>
@@ -12936,7 +12947,7 @@
 
 		}	
 
-
+		
 		public function get__modal__plantilla__inicios__seguimientos__seguimientos__d__recomendados__instalaciones__2023($parametro1,$parametro2,$parametro3){
 
 			$modal="
@@ -13020,6 +13031,9 @@
 
 								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar'></select>
 
+								
+								
+
 							</div>
 
 							<div class='fila__regresar__a col col-2 recomendar__ins__ins'>
@@ -13031,6 +13045,47 @@
 							<div class='fila__regresar__a col col-2 recomendar__ins__ins'>
 
 								<a class='btn btn-warning' id='recomienda__coordinai__directores'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Recomendar</a>
+
+							</div>
+
+
+							<div class=' col col-4 recomendar__ins__coordinador' style='font-weight:bold; display: none;'>
+
+								Recomendar a
+
+							</div>
+
+							<div class=' col col-8 recomendar__ins__coordinador' style='display: none;'>
+
+								<select class='ancho__total__input__selects regresar__superior__prin selects__superiores__regresar' id='selects__superiores__regresar1'></select>
+
+								<div class='ocultosZonalesCoordinadorRecomendar' style='display: none;'>Recomendar Presupuestarios Zonales</div>
+
+							</div>
+
+							<div class='col col-4 recomendar__ins__coordinador' style='font-weight:bold!important; display: none;'>
+
+								<div class=' documento__infra__coordinador'>
+								Subir archivo Informe de recomendación Infraestructura
+								</div>
+								<div class=' documento__insta__coordinador'>
+								Subir archivo Informe de recomendación Instalaciones
+								</div>
+								
+							</div>
+
+							<div class=' col col-4 recomendar__ins__coordinador' style='display: none;'>
+								<div class=' documento__infra__coordinador'>
+									<input type='file' accept='application/pdf' id='informe__recomendado__infra' name='informe__recomendado' class='ancho__total__input'/>
+								</div>
+								<div class=' documento__insta__coordinador'>
+									<input type='file' accept='application/pdf' id='informe__recomendado__instalaciones' name='informe__recomendado' class='ancho__total__input'/>
+								</div>
+							</div>
+
+							<div class='col col-4 recomendar__ins__coordinador' style='display: none;'>
+
+								<a class='btn btn-warning' id='recomienda__coordinai__directores__2023'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;Recomendar</a>
 
 							</div>
 
@@ -13056,6 +13111,27 @@
 							<div class='col col-4 mt-2 recomendar__final__ins acciones__recomendaciones__finales'>
 
 								<a class='btn btn-success' id='enviar__orgnaismosDeportivos__infraestructuras'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;ENVIAR</a>
+
+							</div>
+
+
+							<div class='col col-2 eliminados__al__coordinador' style='font-weight:bold; display: none;'>
+
+								Devolver a
+
+							</div>
+
+							<div class='col col-6 eliminados__al__coordinador' style='display: none;'>
+
+								<select class='ancho__total__input__selects selects__superiores superior__sin' id='selects__superiores1'></select>
+
+							</div>
+
+							<div class='col col-4 eliminados__al__coordinador' style='display: none;'>
+
+								<a class='btn btn-danger' id='devolver__altosReComendados__f__r__s__infraestructurasCoor'><i class='fa fa-share' aria-hidden='true'></i>&nbsp;&nbsp;DEVOLVER</a>
+								
+								
 
 							</div>
 
@@ -13102,5 +13178,6 @@
 			return $modal;
 
 		}	
+
 
 	}

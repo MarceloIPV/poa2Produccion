@@ -1367,7 +1367,7 @@ var funcion__guardar__Factura__2023 = function (parametro1, parametro2, parametr
 
 					var paqueteDeDatos = new FormData();
 
-					paqueteDeDatos.append("tipo","consulta_datos_exite_pdf_contratacion_recursos_publicos");
+					paqueteDeDatos.append("tipo","guardar_declaracion_recusos");
 					
 					
 
@@ -1384,106 +1384,36 @@ var funcion__guardar__Factura__2023 = function (parametro1, parametro2, parametr
 					console.log(trimestre);
 					console.log("idOrganismo");
 					console.log(idOrganismo);
-					
-						$.ajax({
 
-							type:"POST",
-							url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-							contentType: false,
-							data:paqueteDeDatos,
-							processData: false,
-							cache: false, 
-							success:function(response){
-								
-								var elementos=JSON.parse(response);		
-								console.log("RESPONSE RECURSOS ");
-								console.log(response);
-								if(response.length > 0){
-									paqueteDeDatos.append("tipo","eliminar_declaracion_recusos");
-									
-									$.ajax({
-										type:"POST",
-										url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-										contentType: false,
-										data:paqueteDeDatos,
-										processData: false,
-										cache: false, 
-										success:function(response){							
-											
-											paqueteDeDatos.append("tipo","guardar_declaracion_recusos");
-											$.ajax({
-												type:"POST",
-												url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-												contentType: false,
-												data:paqueteDeDatos,
-												processData: false,
-												cache: false, 
-												success:function(response){
-													
-													var elementos=JSON.parse(response);							
-													
-													var mensaje=elementos['mensaje'];
-																										
-													if(mensaje==1){
-						
-														alertify.set("notifier","position", "top-center");
-														alertify.notify("Registro realizado correctamente", "success", 5, function(){});
-														
-														$(parametro1).hide();
-														
-													}
-													
-												},
-												error:function(){
-												}
-												
-											});
-										},
-										error:function(){
-										}
-										
-									});		
-
-								
-								}else{
-									paqueteDeDatos.append("tipo","guardar_declaracion_recusos");
-									$.ajax({
-										type:"POST",
-										url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-										contentType: false,
-										data:paqueteDeDatos,
-										processData: false,
-										cache: false, 
-										success:function(response){
-											
-											var elementos=JSON.parse(response);							
-											
-											var mensaje=elementos['mensaje'];
-																									
-											if(mensaje==1){
 				
-												alertify.set("notifier","position", "top-center");
-												alertify.notify("Registro realizado correctamente", "success", 10, function(){});
-												$(parametro1).hide();
-											
-												
-											}
+				$.ajax({
+					type:"POST",
+					url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
+					contentType: false,
+					data:paqueteDeDatos,
+					processData: false,
+					cache: false, 
+					success:function(response){
+						
+						var elementos=JSON.parse(response);							
+						
+						var mensaje=elementos['mensaje'];
+																			
+						if(mensaje==1){
 
-											
-										},
-										error:function(){
-										}
-										
-									});
-								}				
-								
-
-								
-							},
-							error:function(){
-							}
+							alertify.set("notifier","position", "top-center");
+							alertify.notify("Registro realizado correctamente", "success", 5, function(){});
 							
-						});	
+							$(parametro1).hide();
+							
+						}
+						
+					},
+					error:function(){
+					}
+					
+				});
+										
 						$(parametro3).prop("disabled", true);
 						$(parametro1).hide();
 
@@ -1547,7 +1477,7 @@ var funcion__guardar__Factura__2023 = function (parametro1, parametro2, parametr
 					var paqueteDeDatos = new FormData();
 
 					
-					paqueteDeDatos.append("tipo","consulta_datos_exite_pdf_contratacion__publicaa");
+					paqueteDeDatos.append("tipo","guardar_contratacion__publica");
 
 					let idOrganismo=$("#organismoIdPrin").val();				
 					let trimestre=$("#trimestreEvaluador").val();
@@ -1556,33 +1486,9 @@ var funcion__guardar__Factura__2023 = function (parametro1, parametro2, parametr
 					paqueteDeDatos.append("trimestre",trimestre);
 					paqueteDeDatos.append("idOrganismo",idOrganismo);
 
-					$.ajax({
-
-						type:"POST",
-						url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-						contentType: false,
-						data:paqueteDeDatos,
-						processData: false,
-						cache: false, 
-						success:function(response){
-						var elementos=JSON.parse(response);	
-						console.log("RESPONSE33333");
-						console.log(response);
-
-							if(response.length > 0){
-								paqueteDeDatos.append("tipo","eliminar_declaracion_publica");
-								
-								$.ajax({
-									
-									type:"POST",
-									url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-									contentType: false,
-									data:paqueteDeDatos,
-									processData: false,
-									cache: false, 
-									success:function(response){							
 										
-											paqueteDeDatos.append("tipo","guardar_contratacion__publica");
+										
+											
 											$.ajax({
 												type:"POST",
 												url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
@@ -1609,48 +1515,10 @@ var funcion__guardar__Factura__2023 = function (parametro1, parametro2, parametr
 												}
 												
 											});
-										},
-										error:function(){
-										}
-										
-									});
-								}else{
 									
-										paqueteDeDatos.append("tipo","guardar_contratacion__publica");
-										$.ajax({
-
-											type:"POST",
-											url:"modelosBd/POA_SEGUIMIENTO/inserta.md.php",
-											contentType: false,
-											data:paqueteDeDatos,
-											processData: false,
-											cache: false, 
-											success:function(response){
-											
-												var elementos=JSON.parse(response);				
-												var mensaje=elementos['mensaje'];
-												
-												if(mensaje==1){
-
-													alertify.set("notifier","position", "top-center");
-													alertify.notify("Registro realizado correctamente", "success", 5, function(){});
-
-													$(parametro1).hide();	
-												}
-												
-											},
-											error:function(){
-											}
-											
-										});	
-
-								};
-														
-							},
-							error:function(){
-							}
+							
 						
-					});		
+						
 					$(parametro3).prop("disabled", true);
 					$(parametro1).hide();
 

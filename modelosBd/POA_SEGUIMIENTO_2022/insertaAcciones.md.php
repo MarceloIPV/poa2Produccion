@@ -1714,6 +1714,21 @@
 
 				$inserta2=$objeto->getInsertaNormal('poa_seguimiento_recomienda_tecnicos', array("`idRecomendacionFuncionario`, ","`idFuncionario`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`trimestre`, ","`observacionesTecnicas`, ",'`tipo`, ','`fisicamente`, ',"`tipoE`, ","`perioIngreso`, ","`documentoInstalaciones`"),array("'$idDirector__Seguis', ","'$idOrganismo', ","'$fecha_actual', ","'$hora_actual', ","'$periodo', ","'$observacionesReasignaciones', ",'"Reporte enviado", ',"'$fisicamenteE', ","'INFRA', ","'$aniosPeriodos__ingesos', ","'$nombre__archivo'"));
 
+			}else if ($fisicamenteEstructura__recogido==15) {
+			
+				$direccion1=VARIABLE__BACKEND."seguimiento/informesInfraestructuras/";
+
+				$documento=$objeto->getEnviarPdf($_FILES["informe__recomendado"]['type'],$_FILES["informe__recomendado"]['size'],$_FILES["informe__recomendado"]['tmp_name'],$_FILES["informe__recomendado"]['name'],$direccion1,$nombre__archivo);
+
+		 		$query="UPDATE poa_trimestrales SET estadoIR='$selects__superiores__regresar' WHERE idOrganismo='$idOrganismo' AND tipoTrimestre='$periodo' AND perioIngreso='$aniosPeriodos__ingesos';";
+				$resultado= $conexionEstablecida->exec($query);
+
+		 		$director__seguimientos=$objeto->getObtenerInformacionGeneral("SELECT a.id_usuario FROM th_usuario AS a INNER JOIN th_usuario_roles AS b ON a.id_usuario=b.id_usuario WHERE a.id_usuario='$idUsuarioPrincipal' AND a.estadoUsuario='A' ORDER BY a.id_usuario DESC LIMIT 1");
+
+		 		$idDirector__Seguis=$director__seguimientos[0][id_usuario];
+
+		 		$inserta2=$objeto->getInsertaNormal('poa_seguimiento_recomienda_tecnicos', array("`idRecomendacionFuncionario`, ","`idFuncionario`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`trimestre`, ","`observacionesTecnicas`, ",'`tipo`, ','`fisicamente`, ',"`tipoE`, ","`perioIngreso`, ","`documentoInfras`"),array("'$idDirector__Seguis', ","'$idOrganismo', ","'$fecha_actual', ","'$hora_actual', ","'$periodo', ","'$observacionesReasignaciones', ",'"Reporte enviado", ',"'$fisicamenteE', ","'INFRA', ","'$aniosPeriodos__ingesos', ","'$nombre__archivo'"));
+
 			} else {
 	 				
 				$direccion1=VARIABLE__BACKEND."seguimiento/informesInfraestructuras/";

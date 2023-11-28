@@ -1302,7 +1302,7 @@
 			
 			
 			if($tipoAct == "FORMATIVO"){
-				if ($idRol==4 || $idRol==2) {
+				if ( $idRol==2) {
 					 
 					$direccion1=VARIABLE__BACKEND."seguimiento/informe__formativos/";
 			
@@ -1333,7 +1333,7 @@
 			
 				 }
 			}else{
-				if ($idRol==4 || $idRol==2) {
+				if ( $idRol==2) {
 					 
 					$direccion1=VARIABLE__BACKEND."seguimiento/informe__recreativos/";
 			

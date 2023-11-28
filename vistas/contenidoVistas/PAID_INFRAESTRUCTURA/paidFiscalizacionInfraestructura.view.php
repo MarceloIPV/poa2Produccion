@@ -1,6 +1,7 @@
 
 <?php $componentes= new componentes();
 $componentesPaid= new componentesPaid();
+$componentesTablas = new componentesTablas();
 
 session_start();
 
@@ -58,8 +59,9 @@ $objeto= new usuarioAcciones();?>
 
 				<thead>
 					<tr align="center">
-						<th COLSPAN=1><center>Monto</center></th>
+						<th COLSPAN=1><center>Número</center></th>
 						<th COLSPAN=1><center>Documento</center></th>
+						<th COLSPAN=1><center>Anexos</center></th>
 						<th COLSPAN=1><center>Eliminar</center></th>
 						
 					</tr>
@@ -74,6 +76,7 @@ $objeto= new usuarioAcciones();?>
 
 </div>
 
+<?= $componentesTablas->getModalVacioXl("modalDocumentosAnexosInfraestructura", "formContratacionPublica", "tituloModalDocumentosInfraestructura", "divDocumentosInfraestructura", "cerrarBtnContratacionPublica", "inputIdItem"); ?>
 
 
 <!-- Small modal -->
@@ -149,7 +152,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-                                            <div class='col col-8 mt-2'><textarea class="form-control" id="nombreIntervencion" name="nombreIntervencion" style="width:100%;" required></textarea></div>
+                                            <div class='col col-8 mt-2'><textarea class="form-control" id="nombreIntervencion" name="nombreIntervencion" placeholder="detallar el nombre de la intervención que requiere de Fiscalización" style="width:100%;" required></textarea></div>
 
                                            
 
@@ -166,7 +169,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="propiedadEscenario" id="propiedadEscenario" style="width:100%;" required></textarea></div>
+                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="propiedadEscenario" id="propiedadEscenario" placeholder="(Nombre del propietario, en caso de administración como un tercero, detallar el propietario desglosando que lo administra el Organismo respectivo" style="width:100%;" required></textarea></div>
 
                                             <div class='col col-6 text-center textos__titulos'>
 
@@ -174,7 +177,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="tipoGasto" id="tipoGasto" style="width:100%;" required></textarea></div>
+                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="tipoGasto" id="tipoGasto" style="width:100%;" placeholder="(gastos por Fiscalización para optimización de infraestructura deportiva)." required></textarea></div>
 
                                             <div class='col col-6 text-center textos__titulos'>
 
@@ -182,15 +185,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="justificacion" id="justificacion" style="width:100%;" required></textarea></div>
-
-                                            <div class='col col-6 text-center textos__titulos'>
-
-                                                •	Presupuesto
-
-											</div>
-
-                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="presupuesto" id="presupuesto" style="width:100%;" required></textarea></div>
+                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="justificacion" id="justificacion" placeholder="(por qué se requiere la fiscalización, perfil técnico requerido)." style="width:100%;" required></textarea></div>
 
                                             <div class='col col-6 text-center textos__titulos'>
 
@@ -198,7 +193,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="productos" id="productos" style="width:100%;" required></textarea></div>
+                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="productos" id="productos" style="width:100%;" placeholder="(productos esperados de la Fiscalización)." required></textarea></div>
 
 
                                             <div class='col col-6 text-center textos__titulos'>
@@ -207,7 +202,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="numeroBeneficiarios" id="numeroBeneficiarios" style="width:100%;" required></textarea></div>
+                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="numeroBeneficiarios" id="numeroBeneficiarios" placeholder="(productos esperados de la Fiscalización)." style="width:100%;" required></textarea></div>
 										</div>
 
 									</div>
@@ -224,7 +219,23 @@ $objeto= new usuarioAcciones();?>
 
 											<thead>
 
-											
+												<tr>
+
+														<th  >
+
+															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/Anexo1.xls" role="button">Anexo 1</a></center>
+
+														</th>
+
+														<th colspan='2'>
+
+															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/Anexo2.xlsx" role="button">Anexo 2</a></center>
+
+														</th>
+
+														
+
+												</tr>
 
 												<tr>
 
@@ -251,6 +262,29 @@ $objeto= new usuarioAcciones();?>
 											</thead>
 
 											<tbody>
+												<tr>
+                                                    
+													<td style="justify-content:center;">
+														<center>
+															<span style="color:blue">PRESUPUESTO </span>
+														</center>
+														
+													</td>
+													<td style="justify-content:center;">
+														<center>
+															<div class="col col-12 text-center">
+															<input type="file" accept="application/pdf" id="presupuestoFiscalizacionInput" name="presupuestoFiscalizacionInput" class="ancho__total__input text-center form-control" required/>
+															</div>
+														</center>
+													</td>
+													<td style="justify-content:center;">
+														<center>
+															<div class="col col-3 text-center">
+																<nav class="btn-pluss-wrapper otrosHabilitantes'+contado2+'"><div href="#" class="btn-pluss"><ul><li><a style="cursor:pointer;" id="guardarpresupuestoFiscalizacion" name="guardarpresupuestoFiscalizacion" nombre="certificadoNoDisponerTecnicos"  class="editar__ides"><i class="fa fa-floppy-o" aria-hidden="true"></i></a></li></ul></div></nav>
+															</div>
+														</center>
+													</td>
+												</tr>
 												<tr>
                                                     
 													<td style="justify-content:center;">
@@ -511,7 +545,7 @@ $objeto= new usuarioAcciones();?>
 
 	$.getScript("layout/scripts/js/PAID_INFRAESTRUCTURA/datatables.js",function(){
 
-        datatabletsPaidInfraestructuraVacio($("#paidInformeFiscalizacionInfraestructura"),"paidInformeFiscalizacionInfraestructura","s",objetosPaidInfraestructura2023([1,2],["enlace","boton"],[1,"<center><a class='eliminarInformeObraInfra estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></a><center>"],[$("#filesFrontend").val()+"paid/informes__infraestructura/"],[1]),[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
+        datatabletsPaidInfraestructuraVacio($("#paidInformeFiscalizacionInfraestructura"),"paidInformeFiscalizacionInfraestructura","s",objetosPaidInfraestructura2023([1,2,3],["enlace","boton","boton"],[1,"<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='anexosObraInfraFiscalizacion estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-folder'></i></a><center>","<center><a class='eliminarInformeObraInfra estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></a><center>"],[$("#filesFrontend").val()+"paid/informes__infraestructura/"],[1]),[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
 
 		
 	});

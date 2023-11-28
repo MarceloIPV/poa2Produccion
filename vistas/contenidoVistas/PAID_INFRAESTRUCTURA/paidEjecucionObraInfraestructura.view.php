@@ -1,6 +1,8 @@
 
 <?php $componentes= new componentes();
 $componentesPaid= new componentesPaid();
+$componentesTablas = new componentesTablas(); 
+
 
 session_start();
 
@@ -94,6 +96,9 @@ $objeto= new usuarioAcciones();?>
 					<tr align="center">
 						<th COLSPAN=1><center>Monto</center></th>
 						<th COLSPAN=1><center>Documento</center></th>
+						<th COLSPAN=1><center>Anexos</center></th>
+						<th COLSPAN=1><center>Beneficiarios Directos</center></th>
+						<th COLSPAN=1><center>Beneficiarios Adaptado</center></th>
 						<th COLSPAN=1><center>Eliminar</center></th>
 						
 					</tr>
@@ -108,6 +113,7 @@ $objeto= new usuarioAcciones();?>
 
 </div>
 
+<?= $componentesTablas->getModalVacioXl("modalDocumentosAnexosInfraestructura", "formContratacionPublica", "tituloModalDocumentosInfraestructura", "divDocumentosInfraestructura", "cerrarBtnContratacionPublica", "inputIdItem"); ?>
 
 
 <!-- Small modal -->
@@ -178,7 +184,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-                                            <div class='col col-6 mt-2'><textarea class="form-control" id="objetoFinanciamiento" name="objetoFinanciamiento" style="width:100%;" required></textarea></div>
+                                            <div class='col col-6 mt-2'><textarea class="form-control" id="objetoFinanciamiento" name="objetoFinanciamiento" placeholder="El nombre del objeto de financiamiento deberá ser igual al que consta en los estudios y diseños definitivos" style="width:100%;" required></textarea></div>
 
                                             <div class='col col-12 text-left textos__titulos' style='font-weight:bold;'>
 
@@ -331,7 +337,7 @@ $objeto= new usuarioAcciones();?>
 
 													<td>
 														<center>
-														<input type='text' id='valorObra' class='form-control solo__numero cambio__de__numero__f sumar_obra_fiscalizacion'  name='valorObra' required/>
+														<input type='text' id='valorObra' class='form-control solo__numero cambio__de__numero__f sumar_obra_fiscalizacion' value='0'  name='valorObra' required/>
 														</center>
 													</td>
 
@@ -350,7 +356,7 @@ $objeto= new usuarioAcciones();?>
 													
 													<td>
 														<center>
-														<input type='text' id='valorFiscalizacion' class='form-control solo__numero cambio__de__numero__f sumar_obra_fiscalizacion' name='valorFiscalizacion' required />
+														<input type='text' id='valorFiscalizacion' class='form-control solo__numero cambio__de__numero__f sumar_obra_fiscalizacion' value='0' name='valorFiscalizacion' required />
 														</center>
 													</td>
 
@@ -368,7 +374,7 @@ $objeto= new usuarioAcciones();?>
 													
 													<td>
 														<center>
-														<input type='text' id='totalValores' readonly class='form-control solo__numero cambio__de__numero__f' name='totalValores' />
+														<input type='text' id='totalValores' value='0' readonly class='form-control solo__numero cambio__de__numero__f' name='totalValores' />
 														</center>
 													</td>
 
@@ -440,7 +446,7 @@ $objeto= new usuarioAcciones();?>
 
 													<td>
 														<center>
-														<select id="selector__paises"  name="selector__paises" class="form-control ancho__totalText campos__obligatorios selector__paises" required></select>
+														<select id="idSelectpais"  name="selector__paises" class="form-control ancho__totalText campos__obligatorios selector__paises" required></select>
 														</center>
 													</td>
 
@@ -459,7 +465,7 @@ $objeto= new usuarioAcciones();?>
 													
 													<td>
 														<center>
-														<select id="provincia__Datos" name="provincia__Datos" class=" form-control ancho__totalText campos__obligatorios" required></select>
+														<select id="idSelectprovincia" name="provincia__Datos" class=" form-control ancho__totalText campos__obligatorios" required></select>
 														</center>
 													</td>
 
@@ -477,7 +483,9 @@ $objeto= new usuarioAcciones();?>
 													
 													<td>
 														<center>
-														<select id="canton__Datos" name="canton__Datos" class="form-control ancho__totalText campos__obligatorios" required></select>
+														<select id="idSelectCanton" name="canton__Datos" class="form-control ancho__totalText campos__obligatorios" required>
+															<option selected>----Seleccione Opción----</option>
+														</select>
 														</center>
 													</td>
 
@@ -495,7 +503,9 @@ $objeto= new usuarioAcciones();?>
 												
 												<td>
 													<center>
-													<select id="parroquia__Datos" name="parroquia__Datos" class="form-control ancho__totalText campos__obligatorios" required></select>
+													<select id="idSelectParroquia" name="parroquia__Datos" class="form-control ancho__totalText campos__obligatorios" required>
+														<option selected>----Seleccione Opción----</option>
+													</select>
 													</center>
 												</td>
 
@@ -560,7 +570,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="analisisSituacion" id="analisisSituacion" style="width:100%;" required></textarea></div>
+                                            <div class=' col col-6 mt-2'><textarea class="form-control" name="analisisSituacion" id="analisisSituacion" placeholder="Descripción de la realidad existente, problemas o necesidades de su población o grupo objetivo (deportistas, estudiantes, comunidad)." style="width:100%;" required></textarea></div>
 
                                             <div class='col col-12 text-left textos__titulos' style='font-weight:bold;'>
 
@@ -568,7 +578,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-											<div class=' col col-6 mt-2'><textarea class="form-control" name="antecedentes" id="antecedentes" style="width:100%;" required></textarea></div>
+											<div class=' col col-6 mt-2'><textarea class="form-control" name="antecedentes" id="antecedentes" placeholder="Aspectos y circunstancias que motivan la identificación y preparación del objeto de financiamiento. Puede contener información referente a indicadores cualitativos y cuantitativos que apoyen su comprensión. En el caso de aprobación del PAID 2023 se detallará el Acuerdo 0456 mediante el cual el Ministerio del Deporte regula el ciclo de planificación de las Organizaciones Deportivas." style="width:100%;" required></textarea></div>
 
 											<div class='col col-12 text-left textos__titulos' style='font-weight:bold;'>
 
@@ -582,7 +592,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-											<div class=' col col-6 mt-2'><textarea class="form-control" name="justificacion" id="justificacion" style="width:100%;" required></textarea></div>
+											<div class=' col col-6 mt-2'><textarea class="form-control" name="justificacion" id="justificacion" placeholder="Justificativos para la obtención del financiamiento considerando lo siguiente: En qué medida la ejecución del objeto de financiamiento contribuirá a solucionar las necesidades identificadas en el área o zona de acción del objeto de financiamiento." style="width:100%;" required></textarea></div>
 
 											<div class='col col-12 text-left textos__titulos' style='font-weight:bold;'>
 
@@ -598,7 +608,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-											<div class=' col col-6 mt-2'><textarea class="form-control" name="objetivoGeneral" id="objetivoGeneral" style="width:100%;" required></textarea></div>
+											<div class=' col col-6 mt-2'><textarea class="form-control" name="objetivoGeneral" id="objetivoGeneral" placeholder="Es el enunciado de lo que se considera posible alcanzar, respecto al problema o situación negativa. Es importante tener un solo objetivo general para evitar desviaciones o mal entendidos en el desarrollo del objeto de financiamiento, a su vez se debe relacionar con el incremento del capital social." style="width:100%;" required></textarea></div>
 
 											 <div class='col col-12 text-left textos__titulos' style='font-weight:bold;'>
 
@@ -607,7 +617,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-											<div class=' col col-6 mt-2'><textarea name="objetivosEspecificos" id="objetivosEspecificos" style="width:100%;" class="form-control" required></textarea></div>
+											<div class=' col col-6 mt-2'><textarea name="objetivosEspecificos" id="objetivosEspecificos" style="width:100%;" placeholder="Es la desagregación del objetivo general. Corresponde a objetivos más puntuales que contribuyen a lograr el objetivo general del objeto de financiamiento. Estos objetivos deben ser medibles, apropiados, temporales y realistas" class="form-control" required></textarea></div>
 
 
 											 <div class='col col-12 mt-2 text-left textos__titulos' style='font-weight:bold;'>
@@ -616,7 +626,7 @@ $objeto= new usuarioAcciones();?>
 
 											</div>
 
-											<div class=' col col-6 mt-2'><textarea name="metaObjeto" id="metaObjeto" style="width:100%;" class="form-control" required></textarea></div>
+											<div class=' col col-6 mt-2'><textarea name="metaObjeto" id="metaObjeto" style="width:100%;" class="form-control" placeholder="Define el resultado final esperado. Las metas deben ser alcanzables, cuantificables, realistas cronológicamente limitadas y reflejar los compromisos adquiridos" required></textarea></div>
 
 
 											<div class='col col-12 mt-2 text-left textos__titulos' style='font-weight:bold;'>
@@ -657,12 +667,6 @@ $objeto= new usuarioAcciones();?>
 
 												<tr>
 
-														<th colspan='1' >
-
-															<center>BENEFICIARIOS </center>
-
-														</th>
-
 														<th colspan='2' style='background-color: #7d818c;'>
 
 														<center>RANGO</center>
@@ -675,14 +679,14 @@ $objeto= new usuarioAcciones();?>
 
 														</th>
 
-														<th colspan='7' style='background-color: #8D85AF;'>
+														<th colspan='5' style='background-color: #8D85AF;'>
 
 														<center>ETNIA</center>
 
 														</th>
 														<th colspan='1'>
 
-														<center>TOTAL</center>
+														<center>BENEFICIARIOS</center>
 
 														</th>
 
@@ -690,10 +694,6 @@ $objeto= new usuarioAcciones();?>
 
 
 												<tr>
-
-													<th>
-														<center>DIRECTOS</center>
-													</th>
 
 													<th style='background-color: #7d818c;'>
 														<center>DESDE</center>
@@ -733,16 +733,8 @@ $objeto= new usuarioAcciones();?>
 														<center>AFRO</center>
 													</th>
 
-													<th style='background-color: #8D85AF;'>
-														<center>MULATO</center>
-													</th>
-
-													<th style='background-color: #8D85AF;'>
-														<center>NEGRO</center>
-													</th>
-
 													<th>
-														<center></center>
+														<center>DIRECTOS</center>
 													</th>
 
 												</tr>
@@ -775,7 +767,7 @@ $objeto= new usuarioAcciones();?>
 
 												<tr>
 
-													<th colspan='13'>
+													<th colspan='16'>
 
 														<center><a class='btn btn-warning' id='agregar__beneficiariosAdaptado'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;&nbsp;AGREGAR</a></center>
 
@@ -785,9 +777,21 @@ $objeto= new usuarioAcciones();?>
 
 												<tr>
 
-														<th colspan='1' >
+														<th colspan='2' style='background-color: #7d818c;'>
 
-															<center>BENEFICIARIOS </center>
+														<center>RANGO</center>
+
+														</th>
+
+														<th colspan='2' style='background-color: #85AFA1;'>
+
+														<center>SEXO</center>
+
+														</th>
+
+														<th colspan='5' style='background-color: #8D85AF;'>
+
+														<center>ETNIA</center>
 
 														</th>
 
@@ -797,9 +801,9 @@ $objeto= new usuarioAcciones();?>
 
 														</th>
 
-														<th colspan='1'>
+														<th colspan='1' >
 
-														<center>TOTAL</center>
+															<center>BENEFICIARIOS </center>
 
 														</th>
 
@@ -808,9 +812,45 @@ $objeto= new usuarioAcciones();?>
 
 												<tr>
 
-													<th>
-														<center>DIRECTOS</center>
+													<th style='background-color: #7d818c;'>
+														<center>DESDE</center>
 													</th>
+
+
+													<th style='background-color: #7d818c;'>
+														<center>HASTA</center>
+													</th>
+
+
+													<th style='background-color: #85AFA1;'>
+														<center>MASCULINO</center>
+													</th>
+
+													<th style='background-color: #85AFA1;'>
+														<center>FEMENINO</center>
+													</th>
+
+													<th style='background-color: #8D85AF;'>
+														<center>MESTIZO</center>
+													</th>
+
+													<th style='background-color: #8D85AF;'>
+														<center>MONTUBIO</center>
+													</th>
+
+													<th style='background-color: #8D85AF;'>
+														<center>INDIGENA</center>
+													</th>
+
+													<th style='background-color: #8D85AF;'>
+														<center>BLANCO</center>
+													</th>
+
+													<th style='background-color: #8D85AF;'>
+														<center>AFRO</center>
+													</th>
+
+													
 
 													<th style='background-color: #7d818c;'>
 														<center>VISUAL</center>
@@ -839,11 +879,8 @@ $objeto= new usuarioAcciones();?>
 														<center>PSIQUICA</center>
 													</th>
 
-
-													
-
 													<th>
-														<center></center>
+														<center>DIRECTOS</center>
 													</th>
 
 												</tr>
@@ -940,7 +977,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-											<div class=' col col-6 mt-2'><textarea name="situacionLegal" id="situacionLegal" style="width:100%;" class="form-control" required ></textarea></div>
+											<div class=' col col-6 mt-2'><textarea name="situacionLegal" id="situacionLegal" style="width:100%;" placeholder="Aquí detallará la situación legal vigente del predio, por ejemplo: El presente objeto de financiamiento se ejecutará en el gimnasio del Coliseo Santa Catalina de Guambo, cuyo predio se encuentra en propiedad de la Federación Deportiva de Guambo sobre la cual no pesa gravamen alguno." class="form-control" required ></textarea></div>
 
 											 <div class='col col-12 text-left textos__titulos' style='font-weight:bold;'>
 
@@ -949,7 +986,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-											<div class=' col col-6 mt-2'><textarea name="aprobacionMunicipal" id="aprobacionMunicipal" style="width:100%;" class="form-control"></textarea></div>
+											<div class=' col col-6 mt-2'><textarea name="aprobacionMunicipal" id="aprobacionMunicipal" style="width:100%;" placeholder="Deberán ser presentados los planos que correspondan debidamente aprobados y el permiso de construcción otorgado por la autoridad municipal donde se ejecutará el objeto de financiamiento, a fin de cumplir con las regulaciones correspondientes y evitar suspensión de obra por falta de ellos" class="form-control"></textarea></div>
 
 
 											 <div class='col col-12 mt-2 text-left textos__titulos' style='font-weight:bold;'>
@@ -1007,7 +1044,7 @@ $objeto= new usuarioAcciones();?>
 												<tr>
 													<td style="justify-content:center;">
 														<center>
-															<span style="color:blue">3.2.1	Planos con firmas de responsabilidad de profesionales.</span>
+															<span style="color:blue">3.2.1	PLANOS CON FIRMAS DE RESPONSABILIDAD DE PROFESIONALES.</span>
 														</center>
 														
 													</td>
@@ -1030,7 +1067,7 @@ $objeto= new usuarioAcciones();?>
 												<tr>
 													<td style="justify-content:center;">
 														<center>
-															<span style="color:blue">3.2.2	Especificaciones Técnicas</span>
+															<span style="color:blue">3.2.2	ESPECIFICACIONES TÉCNICAS</span>
 														</center>
 														
 													</td>
@@ -1053,7 +1090,7 @@ $objeto= new usuarioAcciones();?>
 												<tr>
 													<td style="justify-content:center;">
 														<center>
-															<span style="color:blue">3.2.3	Presupuesto Referencial</span>
+															<span style="color:blue">3.2.3	PRESUPUESTO REFERENCIAL</span>
 														</center>
 														
 													</td>
@@ -1076,7 +1113,7 @@ $objeto= new usuarioAcciones();?>
 												<tr>
 													<td style="justify-content:center;">
 														<center>
-															<span style="color:blue">3.2.4	Análisis de Precios Unitarios</span>
+															<span style="color:blue">3.2.4	ANÁLISIS DE PRECIOS UNITARIOS</span>
 														</center>
 														
 													</td>
@@ -1122,7 +1159,7 @@ $objeto= new usuarioAcciones();?>
 												<tr>
 													<td style="justify-content:center;">
 														<center>
-															<span style="color:blue">3.2.6 Cálculos de Volúmenes de Obra</span>
+															<span style="color:blue">3.2.6 CÁLCULOS DE VOLÚMENES DE OBRA</span>
 														</center>
 														
 													</td>
@@ -1160,7 +1197,7 @@ $objeto= new usuarioAcciones();?>
 											</div>
 
 
-                                            <div class=' col col-6 mt-2'><textarea id="propuestaImagenCorporativa" name="propuestaImagenCorporativa" style="width:100%;" class="form-control" required></textarea></div>
+                                            <div class=' col col-6 mt-2'><textarea id="propuestaImagenCorporativa" name="propuestaImagenCorporativa" placeholder="En esta sección indicar cómo será difundida la imagen institucional del Ministerio, las dimensiones del logotipo, su ubicación en la obra o instalaciones donde se implantará el objeto de financiamiento, esta propuesta." style="width:100%;" class="form-control" required></textarea></div>
 
                                             <div class='col col-12 text-left textos__titulos' style='font-weight:bold;'>
 
@@ -1226,7 +1263,7 @@ $objeto= new usuarioAcciones();?>
 
 	$.getScript("layout/scripts/js/PAID_INFRAESTRUCTURA/datatables.js",function(){
 
-        datatabletsPaidInfraestructuraVacio($("#paidInformeObraInfraestructura"),"paidInformeObraInfraestructura","s",objetosPaidInfraestructura2023([1,2],["enlace","boton"],[1,"<center><a class='eliminarInformeObraInfra estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></a><center>"],[$("#filesFrontend").val()+"paid/informes__infraestructura/"],[1]),[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
+        datatabletsPaidInfraestructuraVacio($("#paidInformeObraInfraestructura"),"paidInformeObraInfraestructura","s",objetosPaidInfraestructura2023([1,2,3,4,5],["enlace","boton","boton","boton","boton"],[1,"<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='anexosObraInfra estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-folder'></i></a><center>","<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='beneficiariosDirectosObraInfra estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-users'></i></a><center>","<center><a data-bs-toggle='modal' data-bs-target='#modalDocumentosAnexosInfraestructura' class='beneficiariosObraAdaptadoInfra estilo__botonDatatablets btn btn-warning pointer__botones'><i class='fas fa-user-friends'></i></a><center>","<center><a class='eliminarInformeObraInfra estilo__botonDatatablets btn btn-danger pointer__botones'><i class='fas fa-trash'></i></a><center>"],[$("#filesFrontend").val()+"paid/informes__infraestructura/"],[1]),[$("#JuegosNacionalesIDRUBRO").val(),$("#JuegosNacionalesIDCOMPONENTE").val()],"");
 
 		
 	});

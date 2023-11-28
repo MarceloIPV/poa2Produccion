@@ -45,9 +45,9 @@
 <?=$componentesPaid->modalReenvioPaid__recomiendas("modalReenvioPaid__recomiendas","formReenvio__paid__recomiendas");?>
 
 
-<?=$componentes->modalReenvioPaid__datatablets__inicial("matrizPaidModales__revisor","form__paid__general","paidGeneral__revisor",["Programa","Proyecto","Componentes","Rubros","Monto rubro","Ítem","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre","Valor Total"]);?>
+<?=$componentes->modalReenvioPaid__datatablets__inicial("matrizPaidModales__revisor","form__paid__general","paidGeneral__revisor",["Componente","Indicador","Rubro","ID Item Presupuestario","Nombre Item","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre","Valor Total"]);?>
 
-<?=$componentes->modalReenvioPaid__datatablets__inicial("indicadoresPaidModales","form__paid__indicadores","paidIndicadores__revisor",["Programa","Indicadores","Componentes","Beneficiarios","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre","Valor Total"]);?>
+<?=$componentes->modalReenvioPaid__datatablets__inicial("indicadoresPaidModales","form__paid__indicadores","paidIndicadores__revisor",["Indicadores","Primer Trimestre","Segundo Trimestre","Tercer Trimestre","Cuarto Trimestre","Valor Total"]);?>
 
 <?=$componentes->modalReenvioPaid__datatablets__inicial("eventosPaidModales","form__paid__eventosM","paidEventos__revisor",["Numero","Deporte","Modalidad","Evento","Atletas","Entrenadores","Categoria","País","Sede","Tipo Evento","Fecha Inicio","Fecha Fin","N. Entrenadores","N. Atletas","Días","Pax","Alojamiento","Alimentación","Hidratación","Transporte Aereo","Transporte Terrestre","Bono Deportivo","Inscripción","Visa","Fondo Emergencia","Específicos Deporte","Valor Total","Observaciones","Componente","Rubro"]);?>
 
@@ -65,9 +65,14 @@
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoPersonalTecnico","form__ecnuentro__PersonalTecnico","paidEncuentroPersonalTecnico__revisor",["Numero","Item","Deporte","Jueces","Nro. Días Jueces","Comisionados","Nro. Días Comisionados","Personal Apoyo","Nro. Días P. Apoyo","Valor Jueces","Valor Comisionados","Valor P. Apoyo","Valor Total","Componente","Rubro"]);?>
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoBonoDeportivo","form__ecnuentro__BonoDeportivo","paidEncuentroBonoDeportivo__revisor",["Numero","Cod. Item","Nom. Item","Deporte","Nro. Días","Total Personal","Valor Bono","Valor Total","Componente","Rubro"]);?>
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoUniformes","form__ecnuentro__Uniformes","paidEncuentroUniformes__revisor",["Numero","Item","Deporte","Delegación","Personal Apoyo","Valor Unitario","Valor Total","Tipo","Componente","Rubro"]);?>
-<?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoSeguros","form__ecnuentro__Seguros","paidEncuentroSeguros__revisor",["Numero","Cod. Item","Nom. Item","Provincia","Deporte","Cantidad","Nro Cupos","Valor Unitario","Valor Total","Componente","Rubro"]);?>
+<?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoSeguros","form__ecnuentro__Seguros","paidEncuentroSeguros__revisor",["Numero","Cod. Item","Nom. Item","Provincia","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Componente","Rubro"]);?>
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoTransporte","form__ecnuentro__Transporte","paidEncuentroTransporte__revisor",["Numero","Cod. Item","Nom. Item","Provincia","Deporte","Cantidad","Nro. Cupos","Valor Unitario","Valor Total","Componente","Rubro"]);?>
 <?=$componentes->modalReenvioPaid__datatablets__inicial("ecuentroActivoPasajesAereos","form__ecnuentro__PasajesAereos","paidEncuentroPasajesAereos__revisor",["Numero","Item","Deporte","Pasajes","Nro. Deportistas","Nro. Entrenadores","Total Personal","Nro. Días","Valor Total","Componente","Rubro"]);?>
+
+
+<?=$componentes->modalReenvioPaid__datatablets__inicial("matrizEjecucionObra","form__ejecucion__obra","paidEjecucionObraInfraestructura__revisor",["NÚMERO","DOCUMENTO","VALOR TOTAL"]);?>
+<?=$componentes->modalReenvioPaid__datatablets__inicial("matrizFiscalizacion","form__fiscalizacion","paidFiscalizacionInfraestructura__revisor",["NÚMERO","DOCUMENTO","VALOR TOTAL"]);?>
+
 
 <script>
 	    

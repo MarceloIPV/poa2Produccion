@@ -1,4 +1,4 @@
-var funcion__eliminar_tabla_informes_paid_infraestructura=function(tbody,classBtn,tabla,tipo){
+var funcion__eliminar_tabla_informes_paid_infraestructura=function(tbody,classBtn,tabla,tipo,tipoDocumento){
 
     
     $(tbody).on("click","a."+classBtn,function(e){
@@ -17,8 +17,16 @@ var funcion__eliminar_tabla_informes_paid_infraestructura=function(tbody,classBt
             var paqueteDeDatos = new FormData();
 
             paqueteDeDatos.append("tipo", tipo);
-            paqueteDeDatos.append("idtabla", data[2]);
+            paqueteDeDatos.append("tipoDocumento", tipoDocumento);
+           
+            if(tipoDocumento=="Obra"){
+                paqueteDeDatos.append("idtabla", data[5]);
+            }else{
+                paqueteDeDatos.append("idtabla", data[3]);
+            }
             paqueteDeDatos.append("documento", data[1]);
+            paqueteDeDatos.append('idComponente', $("#JuegosNacionalesIDCOMPONENTE").val());
+            paqueteDeDatos.append('idRubro', $("#JuegosNacionalesIDRUBRO").val());
 
             $.ajax({
 
