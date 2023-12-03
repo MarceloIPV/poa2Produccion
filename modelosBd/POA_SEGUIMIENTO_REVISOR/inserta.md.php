@@ -255,16 +255,24 @@
 						$entidad = $getData[5];
 						$entidad1=$getData[6];
 						$entidad2=$getData[7];   
-						$cuentaMonetariaDestino = $getData[13];   
+						$cuentaMonetariaDestino = $getData[15];   
 						 
 						$nombreEntidadBancaria = $getData[27];   
 						$fechaConfirmacion = $getData[26];   
+
+						$monto = $getData[16]; 
+						$monto =str_replace(",", ".", "$monto");
+
 					
+						if (!strstr($fechaConfirmacion, '/')) {
+							$fechaConfirmacion = '1';
+						}
+
 						if(strlen($nit) == 12){
 							$nit = "0".$nit;
 						}
 			
-						$insercion="INSERT INTO `ezonshar_mdepsaddb`.`poa_seguimiento_bancos` ( `nit`, `nomBeneficiario`, `cur`, `entidad`, `cuentaMonetariaDestino`, `nombreEntidadBancaria`, `fechaConfirmacion`) VALUES ( '$nit', '$nomBeneficiario', $cur, CONCAT ( $entidad,'-', IF($entidad1<10, CONCAT ('000', $entidad1),$entidad1), '-',CONCAT ('000', $entidad2 )), '$cuentaMonetariaDestino', '$nombreEntidadBancaria', STR_TO_DATE(REPLACE('$fechaConfirmacion','/',' '), '%d %m %Y')); ";
+						$insercion="INSERT INTO `ezonshar_mdepsaddb`.`poa_seguimiento_bancos` ( `nit`, `nomBeneficiario`, `cur`, `entidad`, `cuentaMonetariaDestino`, `nombreEntidadBancaria`, `fechaConfirmacion`, `monto`) VALUES ( '$nit', '$nomBeneficiario', $cur, CONCAT ( $entidad,'-', IF($entidad1<10, CONCAT ('000', $entidad1),$entidad1), '-',CONCAT ('000', $entidad2 )), '$cuentaMonetariaDestino', '$nombreEntidadBancaria',  IF($fechaConfirmacion = '1', null,STR_TO_DATE(REPLACE('$fechaConfirmacion','/',' '), '%d %m %Y')),$monto); ";
 
 						
 						$resultado1= $conexionEstablecida->exec($insercion);
@@ -1402,6 +1410,19 @@
 	 		
 			
 		break;
+
+
+		case  "insertar__remanentes__administrador":
+
+
+			$nombre__archivo=$idOrganismo."__".$fecha_actual.".pdf";
+
+		   $inserta=$objeto->getInsertaNormal('poa_remanentes_monto_asignacion', array("`idRemanentes`, ","`monto__incrementoRemantes`, ","`archivo__saldoEstados`, ","`monto__autogestion`, ","`idOrganismo`, ","`fecha`, ","`hora`, ","`perioIngreso`"),array("'$monto__incrementoRemantes', ","'$nombre__archivo', ","'$monto__autogestion', ","'$idOrganismo', ","'$fecha_actual', ","'$hora_actual', ","'$aniosPeriodos__ingesos'"));	
+
+		   $mensaje=1;
+		   $jason['mensaje']=$mensaje;
+
+	   break;	
 				
 
   } 

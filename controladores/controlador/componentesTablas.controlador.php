@@ -90,6 +90,102 @@
 
 		}
 
+		public function remanentes__administrador2023($parametro1){
+
+			$componentes= new componentes();
+
+
+			$modal="
+
+			<div class='modal fade modal__ItemsGrup hide' id='$parametro1'  data-backdrop='static' data-keyboard='false' tabindex='-1'>
+
+				<div class='modal-dialog' style='min-width:75%!important;'>
+
+					<form class='modal-content formularioConfiguracion'>
+
+
+						<div class='modal-header row d d-flex align-items-center' style='background:white!important;'>
+
+							<div class='col col-2 text-right'>
+
+								<image src='images/titulo__ministerio__deporte.png'/>
+
+							</div>
+							
+
+							<div class='col col-7 text-center textos__titulos titulos__remanentes row' style='padding-left:18%'>
+
+
+
+							</div>
+
+
+							<div class='col col-2 text-left'>
+
+								<image src='images/titulo__principis__ministerios.png'/>
+
+							</div>
+
+					        <div class='col col-1'>
+
+					          <span class='button pointer__botones modales__reload' data-dismiss='modal' aria-label='Close' aria-label='Close'><i class='fas fa-times-circle' style='font-size:18px!important; color:blue!important;'></i></span>
+
+					        </div>
+
+
+						</div>
+
+						<div class='modal-body row $parametro3'>
+							<center><div class='col col-12' style='font-weight:bold;'>
+								<h6 style='font-weight:bold;'>Monto Asignado al OD. (valor transferido al OD incluido incrementos + remanente descontado en el ejercicio fiscal en ejecución)</h6>
+							</div></center>
+
+							<input type='hidden' class='col col-12' id='organismoIdPrin__realizados' name='organismoIdPrin__realizados'/>
+
+							<div class='col col-6' style='font-weight:bold;'>
+								Transferencias realizadas:
+							</div>
+							<input type='text' class='col col-6 solo__numero__montos cambio__de__numero__f obligatorios__elementos' id='monto__incrementoRemantes' name='monto__incrementoRemantes' value='0'/>
+
+							<div class='col col-6' style='font-weight:bold;'>
+								Remanentes Descontados:
+							</div>
+							<input type='text' class='col col-6 solo__numero__montos cambio__de__numero__f obligatorios__elementos' id='monto__descuentoRemantes' name='monto__descuentoRemantes' value='0'/>
+
+
+							<div class='col col-8' style='font-weight:bold; display:none;'>
+								Saldo Estado de Cuenta al 31 de  Diciembre
+							</div>
+
+							<input type='file' style='display:none;' class='col col-4 obligatorios__elementos' id='archivo__saldoEstados' name='archivo__saldoEstados'/>
+
+							<div class='col col-8' style='font-weight:bold; display:none;'>
+								Monto de autogestión que se registra en el estado de cuenta
+							</div>
+
+							<input type='text' style='display:none;' class='col col-4 solo__numero__montos cambio__de__numero__f obligatorios__elementos' id='monto__autogestion' name='monto__autogestion' value='0'/>
+
+							<div class='col col-12 text-center'>
+
+								<a class='btn btn-primary' id='enviarRemanentes__administrador2023' name='enviarRemanentes__administrador2023'>Enviar</a>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			";
+
+			return $modal;
+
+
+		}
+
 
 		public function get__modal__plantilla__inicios__se__2guimientos__se__2guimientos__d__recomendados__reporterias__recorridos__reportesAnexos__se__2s($parametro1,$parametro2,$parametro3){
 

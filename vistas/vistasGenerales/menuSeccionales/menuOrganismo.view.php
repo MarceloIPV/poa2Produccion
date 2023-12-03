@@ -378,6 +378,59 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 		<?php else: ?>
 
+		<?php if (!empty($informacionSeleccionada__remanentes[0][idRemanentes]) && !empty($informacionObjeto[0][idInversion])) : ?>
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("remanentes", "reportesRemanentes", "resumenRemanente")); ?>">
+
+				<a href="#" class="nav-link">
+					<i class="fa fa-coins"></i>
+					&nbsp;
+					<p>
+						REMANENTE
+						<i class="fas fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+				</a>
+
+				<ul class="nav nav-treeview">
+
+					<?php if (empty($informacionSeleccionada__remanentes__seleccionables[0][idOrganismo])) : ?>
+
+
+						<li class="nav-item">
+
+							<a href="remanentes" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'remanentes'); ?>">
+								<i class="fa fa-clipboard-list"></i>
+								&nbsp;
+								<p>Registro remanentes</p>
+
+							</a>
+
+						</li>
+
+					<?php endif ?>
+
+
+					<li class="nav-item">
+
+
+						<a href="resumenRemanente" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'resumenRemanente'); ?>">
+							<i class="fa fa-list-alt"></i>
+							&nbsp;
+							<p>Resumen remanente</p>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+
+
+			</li>
+
+		<?php endif ?>
+
 
 
 		<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("modificacionesOrganismo", "infraestructuraOrganismo", "modificacionesMontos", "modificacionesSueldosSalarios", "modificacionesInformes", "modificacionesCuadroAvances", "dashboard", "modificacionesDesvinculacion", "modificaciones2022", "modificarInformacion", "crearInformacion", "estadoTramitesModificaciones","reporteriaModi")); ?>">

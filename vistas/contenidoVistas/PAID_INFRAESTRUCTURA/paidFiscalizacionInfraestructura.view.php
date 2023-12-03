@@ -223,13 +223,25 @@ $objeto= new usuarioAcciones();?>
 
 														<th  >
 
-															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/Anexo1.xls" role="button">Anexo 1</a></center>
+															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/Anexo1.xls" role="button">Anexo Informe Justificativo</a></center>
 
 														</th>
 
-														<th colspan='2'>
+														<th >
 
-															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/Anexo2.xlsx" role="button">Anexo 2</a></center>
+															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/Anexo2.xlsx" role="button">Anexo 2 Informe Justificativo</a></center>
+
+														</th>
+
+														<th >
+
+															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/4.Declaracion_de_autorizacion_para_la_realizacion_de_la_intervencion_y_compromiso_de_recepcion_(entidad admisnistradora).docx" role="button">Anexo Declaración Autorización</a></center>
+
+														</th>
+
+														<th >
+
+															<center><a class="btn btn-primary" href="documentos/paid/anexosInfraestructura/3.Declaracion_de_revision_y_validacion_de_etudios_definitivos_(entidad ejecutora).docx" role="button">Anexo Declaración Revisión</a></center>
 
 														</th>
 
@@ -239,7 +251,7 @@ $objeto= new usuarioAcciones();?>
 
 												<tr>
 
-														<th  >
+														<th  colspan="2">
 
 															<center>Documento</center>
 
@@ -264,7 +276,7 @@ $objeto= new usuarioAcciones();?>
 											<tbody>
 												<tr>
                                                     
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">PRESUPUESTO </span>
 														</center>
@@ -287,7 +299,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 												<tr>
                                                     
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">CERTIFICADO DE NO DISPONER TÉCNICOS AFINES </span>
 														</center>
@@ -310,7 +322,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 
 												<tr>
-													<td style="justify-content:center;">
+													<td  colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">DECLARACIÓN DE REVISIÓN Y VALIDACIÓN DE ESTUDIOS DEFINITIVOS</span>
 														</center>
@@ -333,7 +345,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 
 												<tr>
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">DECLARACIÓN DE AUTORIZACIÓN PARA LA REALIZACIÓN DE LA INTERVENCIÓN Y COMPROMISO DE RECEPCIÓN</span>
 														</center>
@@ -356,7 +368,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 
 												<tr>
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">ESTUDIO DE MERCADO</span>
 														</center>
@@ -379,7 +391,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 
 												<tr>
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">COPIA CERTIFICADA DEL PREDIO </span>
 														</center>
@@ -402,7 +414,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 
 												<tr>
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">ACUERDO MINISTERIAL CON EL CUAL SE APROBÓ Y REFORMO EL ESTADO</span>
 														</center>
@@ -425,7 +437,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 
                                                 <tr>
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">REGISTRO DE DIRECTORIO DE LA OD</span>
 														</center>
@@ -448,7 +460,7 @@ $objeto= new usuarioAcciones();?>
 												</tr>
 
                                                 <tr>
-													<td style="justify-content:center;">
+													<td colspan="2" style="justify-content:center;">
 														<center>
 															<span style="color:blue">RESOLUCIONES DE INTERVENCIONES DE OD</span>
 														</center>

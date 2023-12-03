@@ -341,7 +341,7 @@ var guardar_archivos_trasferencias=function(boton, archivo1,nombreArchivo){
 				var mesAnterior = monthsOfYear[currentMonth-1];
 
 				
-				if( parseFloat(currentDayOfMonth) > 24){
+				if( parseFloat(currentDayOfMonth) > 30){
 					alertify.set("notifier","position", "top-center");
 					alertify.notify("La Fecha Máxima De Carga Es El 15 De Cada Mes", "error", 6, function(){});
 				}else{
@@ -1645,3 +1645,109 @@ var seguimiento__insertarEstado_Ajustado_Planificacion_Documentos=function(param
 	
 	/*=====  End of Recomendar recomendados altos  ======*/
 
+
+
+	/*===========================================================
+=            Insertar remanentes administradores            =
+===========================================================*/
+
+var enviar__remanentes__admini2023=function(parametro1,parametro2,parametro3){
+
+	$(parametro1).click(function (e){
+	
+		var validador= validacionRegistro($(".obligatorios__elementos"));
+		validacionRegistroMostrarErrores($(".obligatorios__elementos"));
+	
+		$(parametro1).hide();
+	
+		// if (validador==false) {
+	
+		// 	alertify.set("notifier","position", "top-center");
+		// 	alertify.notify("Todos los campos son obligatorios", "error", 5, function(){});
+	
+		// 	$(parametro1).show();
+	
+		// }else{
+	
+			var confirm= alertify.confirm('¿Está seguro de realizar el registro?','¿Está seguro de realizar el registro?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});   
+	
+			confirm.set({transition:'slide'});    
+	
+			confirm.set('onok', function(){ //callbak al pulsar botón positivo		
+	
+	
+				var paqueteDeDatos = new FormData();
+	
+				paqueteDeDatos.append('tipo','insertar__remanentes__administrador');	
+	
+				let idOrganismo=$("#organismoIdPrin__realizados").val();
+				paqueteDeDatos.append('idOrganismo',idOrganismo);	
+
+				var valor1= parseFloat($("#monto__incrementoRemantes").val() );
+				var valor2 = parseFloat($("#monto__descuentoRemantes").val() );
+
+				
+				var suma = parseFloat(valor1+valor2).toFixed(2);
+				let monto__incrementoRemantes=suma;
+				let monto__autogestion=$("#monto__autogestion").val();
+	
+				paqueteDeDatos.append('archivo', $("#archivo__saldoEstados")[0].files[0]);
+				paqueteDeDatos.append('monto__incrementoRemantes',monto__incrementoRemantes);
+				paqueteDeDatos.append('monto__autogestion',monto__autogestion);
+	
+	
+				$.ajax({
+	
+					type:"POST",
+					url:"modelosBd/POA_SEGUIMIENTO_REVISOR/inserta.md.php",
+					contentType: false,
+					data:paqueteDeDatos,
+					processData: false,
+					cache: false, 
+					success:function(response){
+	
+	
+					var elementos=JSON.parse(response);
+	
+					var mensaje=elementos['mensaje'];
+	
+					if(mensaje==1){
+	
+						alertify.set("notifier","position", "top-center");
+						alertify.notify("Acción realizada satisfactoriamente", "success", 5, function(){});
+	
+						
+	
+					}	
+	
+					},
+					error:function(){
+	
+					}
+					
+				});	
+	
+	
+			});
+	
+			confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+				alertify.set("notifier","position", "top-center");
+				alertify.notify("Acción cancelada", "error", 1, function(){
+	
+					$(parametro1).show();
+					$('.reload__Enviosrealizados').html(' ');
+	
+				}); 
+			}); 
+	
+	
+		// }
+	
+	
+	});
+	
+	}
+	
+	
+	
+	/*=====  End of Insertar remanentes administradores  ======*/

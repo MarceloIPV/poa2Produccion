@@ -205,7 +205,7 @@ var datatabletsSeguimientoRevisorVacio=function(tabla,tipo,nombreDocumento,enlac
         funcion__reporte__seguimientos__anual__revisor2023("#"+tipo+" tbody",table);
 
     }
-    if (reasignacion[0]=="funcion__remanentes__asignados") {
+    if (reasignacion[0]=="funcion__remanentes__asignados2023") {
 
         funcion__remanentes__asignados2023("#"+tipo+" tbody",table);
 
@@ -3876,7 +3876,7 @@ var funcion__reasignar__seguimientos__recorridos__anexos__reportes2023=function(
 
     var funcion__remanentes__asignados2023=function(tbody,table){
         
-        $(tbody).on("click","button.remantes__asignados",function(e){
+        $(tbody).on("click","button.remantes__asignados2023",function(e){
             
         e.preventDefault();
     

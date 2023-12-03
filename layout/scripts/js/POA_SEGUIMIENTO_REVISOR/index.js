@@ -66,6 +66,8 @@ $(document).ready(function () {
          informacion__analistas__reasignar__regresar__alto__recomendar__recomendados2023($("#recomendar__altosRe__recomendados2023"));
          informacion__analistas__reasignar__regresar__formRec__recomendar__recomendados2023($("#recomendar__form__recomendados2023"));	
 
+         enviar__remanentes__admini2023($("#enviarRemanentes__administrador2023"));
+         
     });
 
 

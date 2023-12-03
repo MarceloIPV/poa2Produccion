@@ -15173,8 +15173,8 @@ var checkeds__recorridos__sueldos__salarios2023=function(parametro1,parametro2,p
  
 	$(parametro2).click(function(e){
     console.log ("paraMETRO 8");    
-console.log(parametro8)
-  
+  console.log(parametro8)
+
 		$.getScript("layout/scripts/js/validacionesGenerales.js",function(){
       
 			var condicion = $(parametro2).is(":checked");
@@ -15269,8 +15269,6 @@ console.log(parametro8)
             }
           }); 
         }
- 
-
  
 //**********************************************  DECIMO CUARTO COSTA  ********************************************************* */
 
@@ -15474,6 +15472,7 @@ if(parametro4 =="tercerTrimestre" && parametro8[23] == "no" && parametro8[25]=="
 				funcion__cambio__de__numero($("#despidoIntepestivoEjecutado__3"+parametro8[0]));
 				funcion__cambio__de__numero($("#renunciaVoluntariaEjecutado__3"+parametro8[0]));
 				funcion__cambio__de__numero($("#compesacionDesahucioEjecutado__3"+parametro8[0]));
+        
 
 				$("#guardarSalarios"+parametro8[0]).click(function(e) {
 					let idContador=$(this).attr('idContador');
@@ -15483,11 +15482,14 @@ if(parametro4 =="tercerTrimestre" && parametro8[23] == "no" && parametro8[25]=="
 					funcion__guardado__matricez__sueldos__salarios($("#guardarSalarios"+idContador),$(".obligatorios__2"),[$("#sueldoProgramado__2"+idContador).val(),$("#sueldoEjecutado__2"+idContador).val(),$("#aporteProgramado__2"+idContador).val(),$("#aporteEjecutado__2"+idContador).val(),$("#decimoTercerProgramado__2"+idContador).val(),$("#decimoTercerEjecutado__2"+idContador).val(),$("#decimoCuartoProgramado__2"+idContador).val(),$("#decimoCuartoEjecutado__2"+idContador).val(),$("#fondosReservaProgramado__2"+idContador).val(),$("#fondosReservaEjecutado__2"+idContador).val(),$("#organismoIdPrin").val(),$("#idPrincipal__2"+idContador).val(),rotulos[1],parametro4,$("#compensacionDeshaucioProgramado__2"+idContador).val(),$("#despidoIntepestivoProgramado__2"+idContador).val(),$("#reunciaVoluntariaProgramado__2"+idContador).val(),$("#compesacionDesaucioProgramado"+idContador).val(),$("#compensacionDeshaucioEjecutado__2"+idContador).val(),$("#despidoIntepestivoEjecutado__2"+idContador).val(),$("#renunciaVoluntariaEjecutado__2"+idContador).val(),$("#compesacionDesahucioEjecutado__2"+idContador).val()],$("#planillaIeess__2"+idContador),$("#rolPago__2"+idContador),$("#comprobantePago__2"+idContador),$(".filaIndicadora__2"+idContador),"sueldos__salarios__seguimientos",parametro4,false,false,false,"#"+rotulos[1]+"-tab",$(".filaIndicadora__2"+parametro8[0]));					
          
 					
-          if((parametro4 =="cuartoTrimestre" || parametro4 =="tercerTrimestre" || parametro4 =="segundoTrimestre" || parametro4 =="primerTrimestre") && parametro8[22] == "si"){
+          if((parametro4 =="cuartoTrimestre" || parametro4 =="tercerTrimestre" || parametro4 =="segundoTrimestre" || parametro4 =="primerTrimestre") && parametro8[22] == "no"){
 
-          funcion__guardado__matricez__sueldos__salarios($("#guardarSalarios"+idContador),$(".obligatorios__3"),[$("#sueldoProgramado__3"+idContador).val(),$("#sueldoEjecutado__3"+idContador).val(),$("#aporteProgramado__3"+idContador).val(),$("#aporteEjecutado__3"+idContador).val(),$("#decimoTercerProgramado__3_hidden"+idContador).val(),$("#decimoTercerEjecutado__3"+idContador).val(),$("#decimoCuartoProgramado__3_hidden"+idContador).val(),$("#decimoCuartoEjecutado__3"+idContador).val(),$("#fondosReservaProgramado__3"+idContador).val(),$("#fondosReservaEjecutado__3"+idContador).val(),$("#organismoIdPrin").val(),$("#idPrincipal__3"+idContador).val(),rotulos[2],parametro4,$("#compensacionDeshaucioProgramado__3"+idContador).val(),$("#despidoIntepestivoProgramado__3"+idContador).val(),$("#reunciaVoluntariaProgramado__3"+idContador).val(),$("#compesacionDesaucioProgramado__3"+idContador).val(),$("#compensacionDeshaucioEjecutado__3"+idContador).val(),$("#despidoIntepestivoEjecutado__3"+idContador).val(),$("#renunciaVoluntariaEjecutado__3"+idContador).val(),$("#compesacionDesahucioEjecutado__3"+idContador).val()],$("#planillaIeess__3"+idContador),$("#rolPago__3"+idContador),$("#comprobantePago__3"+idContador),$(".filaIndicadora__3"+idContador),"sueldos__salarios__seguimientos",parametro4,false,false,false,"#"+rotulos[2]+"-tab",$(".filaIndicadora__3"+parametro8[0]));
+          funcion__guardado__matricez__sueldos__salarios($("#guardarSalarios"+idContador),$(".obligatorios__3"),[$("#sueldoProgramado__3"+idContador).val(),$("#sueldoEjecutado__3"+idContador).val(),$("#aporteProgramado__3"+idContador).val(),$("#aporteEjecutado__3"+idContador).val(),$("#decimoTercerProgramado__3_hidden"+idContador).val(),$("#decimoTercerEjecutado__3_hidden"+idContador).val(),$("#decimoCuartoProgramado__3_hidden"+idContador).val(),$("#decimoCuartoEjecutado__3_hidden"+idContador).val(),$("#fondosReservaProgramado__3"+idContador).val(),$("#fondosReservaEjecutado__3"+idContador).val(),$("#organismoIdPrin").val(),$("#idPrincipal__3"+idContador).val(),rotulos[2],parametro4,$("#compensacionDeshaucioProgramado__3"+idContador).val(),$("#despidoIntepestivoProgramado__3"+idContador).val(),$("#reunciaVoluntariaProgramado__3"+idContador).val(),$("#compesacionDesaucioProgramado__3"+idContador).val(),$("#compensacionDeshaucioEjecutado__3"+idContador).val(),$("#despidoIntepestivoEjecutado__3"+idContador).val(),$("#renunciaVoluntariaEjecutado__3"+idContador).val(),$("#compesacionDesahucioEjecutado__3"+idContador).val()],$("#planillaIeess__3"+idContador),$("#rolPago__3"+idContador),$("#comprobantePago__3"+idContador),$(".filaIndicadora__3"+idContador),"sueldos__salarios__seguimientos",parametro4,false,false,false,"#"+rotulos[2]+"-tab",$(".filaIndicadora__3"+parametro8[0]));
+
           }else{
+
             funcion__guardado__matricez__sueldos__salarios($("#guardarSalarios"+idContador),$(".obligatorios__3"),[$("#sueldoProgramado__3"+idContador).val(),$("#sueldoEjecutado__3"+idContador).val(),$("#aporteProgramado__3"+idContador).val(),$("#aporteEjecutado__3"+idContador).val(),$("#decimoTercerProgramado__3"+idContador).val(),$("#decimoTercerEjecutado__3"+idContador).val(),$("#decimoCuartoProgramado__3"+idContador).val(),$("#decimoCuartoEjecutado__3"+idContador).val(),$("#fondosReservaProgramado__3"+idContador).val(),$("#fondosReservaEjecutado__3"+idContador).val(),$("#organismoIdPrin").val(),$("#idPrincipal__3"+idContador).val(),rotulos[2],parametro4,$("#compensacionDeshaucioProgramado__3"+idContador).val(),$("#despidoIntepestivoProgramado__3"+idContador).val(),$("#reunciaVoluntariaProgramado__3"+idContador).val(),$("#compesacionDesaucioProgramado__3"+idContador).val(),$("#compensacionDeshaucioEjecutado__3"+idContador).val(),$("#despidoIntepestivoEjecutado__3"+idContador).val(),$("#renunciaVoluntariaEjecutado__3"+idContador).val(),$("#compesacionDesahucioEjecutado__3"+idContador).val()],$("#planillaIeess__3"+idContador),$("#rolPago__3"+idContador),$("#comprobantePago__3"+idContador),$(".filaIndicadora__3"+idContador),"sueldos__salarios__seguimientos",parametro4,false,false,false,"#"+rotulos[2]+"-tab",$(".filaIndicadora__3"+parametro8[0]));
+            
           }
 					
           funcion__guardado__matricez__sueldos__salarios_totales($("#guardarSalarios"+idContador),[$("#sueldoProgramado1"+parametro8[0]).val(),$("#aporteProgramado1"+parametro8[0]).val(),$("#decimoTercerProgramado1"+parametro8[0]).val(),$("#decimoCuartoProgramado1"+parametro8[0]).val(),$("#fondosReservaProgramado1"+parametro8[0]).val(),$("#compensacionDeshaucioProgramado1"+parametro8[0]).val(),$("#despidoIntepestivoProgramado1"+parametro8[0]).val(),$("#reunciaVoluntariaProgramado1"+parametro8[0]).val(),$("#compesacionDesaucioProgramado1"+parametro8[0]).val(),$("#Observaciones_sueldos"+parametro8[0]).val(),$("#Observaciones_aporteiess"+parametro8[0]).val(),$("#Observaciones_decimoTercero"+parametro8[0]).val(),$("#Observaciones_decimoCuarto"+parametro8[0]).val(),$("#Observaciones_fondosReserva"+parametro8[0]).val(),$("#Observaciones_compensacionDeshaucio"+parametro8[0]).val(),$("#Observaciones_despidoInteespestivo"+parametro8[0]).val(),$("#Observaciones_renunciaVol"+parametro8[0]).val(),$("#Observaciones_compensacionVacaciones"+parametro8[0]).val(),idContador],false,false,false,false,"sueldos__salarios__seguimientos_totales",parametro4,false,false,false,"#"+rotulos[2]+"-tab",$(".filaIndicadora"+parametro8[0]));  
