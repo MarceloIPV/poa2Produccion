@@ -89,4 +89,13 @@ $_SESSION["seleccionPaidPoa"] = null;
 	</div>
 </body>
 
+<script>
+    // Access the PHP session variable in JavaScript
+    var username = <?php echo json_encode($_SESSION['ip_cliente']); ?>;
+
+    // Display the value using alert
+    alert("ip: " + username);
+
+</script>
+
 </html>

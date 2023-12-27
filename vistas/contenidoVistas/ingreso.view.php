@@ -110,7 +110,7 @@
 
 					$ingreso = new ingreso();
 					$ingreso->ingresoCtr();
-
+					
 					?>
 				</form>
 

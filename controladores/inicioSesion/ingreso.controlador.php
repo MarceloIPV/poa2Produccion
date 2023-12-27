@@ -3,6 +3,18 @@
 
 	class ingreso{
 
+		public function capturarIPCliente() {
+		
+			session_start();
+		
+			
+			$clientIP = !empty($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
+		
+			$_SESSION['ip_cliente'] = $clientIP;
+		
+		}
+	
+
 		 public static function ingresoCtr(){
 
 		 	extract($_POST);
@@ -92,6 +104,10 @@
 						$fisicamenteEstructura=$registroFuncionario['fisicamenteEstructura'];
 
 					}
+
+					$selectorIP = new ingreso();
+					
+					$selectorIP->capturarIPCliente();
 
 
 					if($estado=='I'){
@@ -251,6 +267,8 @@
 
 	  } 
 
+	
+	
 }
 
 

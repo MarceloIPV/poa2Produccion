@@ -250,7 +250,7 @@
 
 
 
-	<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("paidRecomendadosPlani", "paidAprobadosPlani", "paidfortalecimiento", "paidAsignacion", "reporteriaAsignacion", "paidencuentroactivo", "paidAsignacionDesarrollo", "reporteriaAsignacionDesarrollo", "negadosPlanificaPaid", "paidRecomendadosPlaniRecomendados", "reporteriaPaidF")); ?>">
+	<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("paidRecomendadosPlani", "paidAprobadosPlani", "paidfortalecimiento", "paidAsignacion", "reporteriaAsignacion", "paidencuentroactivo", "paidAsignacionDesarrollo", "reporteriaAsignacionDesarrollo", "negadosPlanificaPaid", "paidRecomendadosPlaniRecomendados", "reporteriaPaidF","paidInfraestructura","paidAsignacionInfraestructura","reporteriaAsignacionInfraestructura")); ?>">
 
 		<a href="#" class="nav-link">
 			<i class="fa fa-money"></i>
@@ -394,7 +394,7 @@
 
 					<li class="nav-item">
 
-						<a href="paidInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidencuentroactivo'); ?>">
+						<a href="paidInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidInfraestructura'); ?>">
 							<i class="fa fa-tasks"></i>
 							&nbsp;
 							<p>Administración</p>
@@ -406,7 +406,7 @@
 
 					<li class="nav-item">
 
-						<a href="paidAsignacionInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidAsignacionDesarrollo'); ?>">
+						<a href="paidAsignacionInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'paidAsignacionInfraestructura'); ?>">
 							<i class="fa fa-file-alt"></i>
 							&nbsp;
 							<p>Asignación</p>
@@ -418,7 +418,7 @@
 
 					<li class="nav-item">
 
-						<a href="reporteriaAsignacionInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaAsignacionDesarrollo'); ?>">
+						<a href="reporteriaAsignacionInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaAsignacionInfraestructura'); ?>">
 							<i class="fa fa-clipboard"></i>
 							&nbsp;
 							<p>Reportería</p>

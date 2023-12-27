@@ -1430,57 +1430,57 @@ $perfilObservador = $_SESSION["perfilObservador"];
 	<?php if ($informacionFuncionario[0][zonal]==1): ?>
 		
 
-	<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("directorMd", "directorMd2", "modificacionesRevisor", "modificacionesRevisorRecomendados","reporteriaModificacionesA")); ?>">
+		<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("directorMd", "directorMd2", "modificacionesRevisor", "modificacionesRevisorRecomendados","reporteriaModificacionesA")); ?>">
 
-		<a href="#" class="nav-link">
-			<p>
-				Modificaciones
-				<i class="fas fa-angle-left right"></i>
-				<span class="badge badge-info right"></span>
-			</p>
-		</a>
+			<a href="#" class="nav-link">
+				<p>
+					Modificaciones
+					<i class="fas fa-angle-left right"></i>
+					<span class="badge badge-info right"></span>
+				</p>
+			</a>
 
-		<ul class="nav nav-treeview">
-
-			<li class="nav-item">
-
-				<a href="modificacionesRevisor" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'modificacionesRevisor'); ?>">
-
-					<p>Trámites recibidos</p>
-
-				</a>
-
-			</li>
-
-			<?php if ($informacionObjeto[1] != 3) : ?>
+			<ul class="nav nav-treeview">
 
 				<li class="nav-item">
 
-					<a href="modificacionesRevisorRecomendados" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'modificacionesRevisorRecomendados'); ?>">
+					<a href="modificacionesRevisor" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'modificacionesRevisor'); ?>">
 
-						<p>Trámites Recomendados</p>
+						<p>Trámites recibidos</p>
 
 					</a>
 
 				</li>
 
-			<?php endif ?>
+				<?php if ($informacionObjeto[1] != 3) : ?>
 
-			
-		<li class="nav-item">
+					<li class="nav-item">
 
-			<a href="reporteriaModificacionesA" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'reporteriaModificacionesA');?>">
+						<a href="modificacionesRevisorRecomendados" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'modificacionesRevisorRecomendados'); ?>">
 
-				<p>Reportería</p>
+							<p>Trámites Recomendados</p>
 
-			</a>
+						</a>
+
+					</li>
+
+				<?php endif ?>
+
+				
+			<li class="nav-item">
+
+				<a href="reporteriaModificacionesA" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/',$_SERVER['REQUEST_URI'],'reporteriaModificacionesA');?>">
+
+					<p>Reportería</p>
+
+				</a>
+
+			</li>
+
+			</ul>
 
 		</li>
-
-		</ul>
-
-	</li>
-		
+			
 	<?php endif ?>
 
 
@@ -1927,3 +1927,815 @@ $perfilObservador = $_SESSION["perfilObservador"];
 
 	</li>
 <?php } ?>
+
+<!-- 	Menú PAID Por Proyectos Dirección Financiera	-->
+<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 23 && $informacionObjeto[1] == 2) : ?>
+
+
+	<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("paidRecomendadosPlani", "paidAprobadosPlani", "reporteriaTransferenciaRecibidosAltoRen", "reporteriaTransferenciaRechazadoAltoRen", "reporteriaAsignacion", "reporteriaTransferenciaRecibidosDesarrollo", "reporteriaTransferenciaAprobadoDesarrollo", "reporteriaAsignacionDesarrollo","reporteriaTransferenciaRecibidosInfraestructura","reporteriaTransferenciaAprobadoAltoRen","reporteriaTransferenciaRechazadoDesarrollo","reporteriaTransferenciaAprobadoInfraestructura","reporteriaTransferenciaRechazadoInfraestructura","reporteriaTransferenciaPAID")); ?>">
+
+		<a href="#" class="nav-link">
+			<i class="fa fa-money"></i>
+			&nbsp;
+			<p>
+				PAID
+				<i class="fa fa-angle-left right"></i>
+				<span class="badge badge-info right"></span>
+			</p>
+		</a>
+
+		<ul class="nav nav-treeview">
+
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("reporteriaTransferenciaRecibidosAltoRen","reporteriaTransferenciaAprobadoAltoRen", "reporteriaTransferenciaRechazadoAltoRen", "reporteriaAsignacion")); ?>">
+
+				<a href="#" class="nav-link">
+					<i class="fa fa-running"></i>
+					&nbsp;
+					<p>
+						Fortalecimiento del deporte de alto rendimiento del Ecuador
+						<i class="fa fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+
+				</a>
+
+				<ul class="nav nav-treeview">
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaRecibidosAltoRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAltoRen'); ?>">
+							<i class="fa fa-tasks"></i>
+							&nbsp;
+							<p>Recibidos</p>
+
+						</a>
+
+					</li>
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaRechazadoAltoRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoAltoRen'); ?>">
+							<i class="fa fa-file-alt"></i>
+							&nbsp;
+							<p>Rechazados</p>
+
+						</a>
+
+					</li>
+
+					
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaAprobadoAltoRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoAltoRen'); ?>">
+							<i class="fa fa-clipboard"></i>
+							&nbsp;
+							<p>Aprobado Financiero</p>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+			</li>
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("reporteriaTransferenciaRecibidosDesarrollo","reporteriaTransferenciaRechazadoDesarrollo", "reporteriaTransferenciaAprobadoDesarrollo", "reporteriaAsignacionDesarrollo")); ?>">
+
+				<a href="#" class="nav-link">
+					<i class="fa fa-swimmer"></i>
+					&nbsp;
+					<p>
+						Encuentro activo del deporte para el desarrollo
+						<i class="fa fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+
+				</a>
+
+				<ul class="nav nav-treeview">
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaRecibidosDesarrollo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosDesarrollo'); ?>">
+							<i class="fa fa-tasks"></i>
+							&nbsp;
+							<p>Recibidos</p>
+
+						</a>
+
+					</li>
+
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaRechazadoDesarrollo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoDesarrollo'); ?>">
+							<i class="fa fa-file-alt"></i>
+							&nbsp;
+							<p>Rechazados</p>
+
+						</a>
+
+					</li>
+
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaAprobadoDesarrollo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoDesarrollo'); ?>">
+							<i class="fa fa-clipboard"></i>
+							&nbsp;
+							<p>Aprobado Financiero</p>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+			</li>
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("reporteriaTransferenciaRecibidosInfraestructura", "reporteriaTransferenciaAprobadoInfraestructura", "reporteriaAsignacionInfraestructura","reporteriaTransferenciaRechazadoInfraestructura")); ?>">
+
+				<a href="#" class="nav-link">
+					<i class="fa fa-gopuram"></i>
+					&nbsp;
+					<p>
+						Optimización de Infraestructura Deportiva a Nivel Nacional
+						<i class="fa fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+
+				</a>
+
+				<ul class="nav nav-treeview">
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaRecibidosInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosInfraestructura'); ?>">
+							<i class="fa fa-tasks"></i>
+							&nbsp;
+							<p>Recibidos</p>
+
+						</a>
+
+					</li>
+
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+							<i class="fa fa-file-alt"></i>
+							&nbsp;
+							<p>Rechazados</p>
+
+						</a>
+
+					</li>
+
+
+					<li class="nav-item">
+
+						<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+							<i class="fa fa-clipboard"></i>
+							&nbsp;
+							<p>Aprobado Financiero</p>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+			</li>
+
+			<li class="nav-item">
+
+				<a href="reporteriaTransferenciaPAID" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaPAID'); ?>">
+					<i class="fa fa-clipboard"></i>
+					&nbsp;
+					<p>Reportería</p>
+
+				</a>
+
+			</li>
+
+		</ul>
+
+
+
+
+	</li>
+
+
+
+
+<?php endif ?>
+
+
+<?php if ($informacionFuncionario[0][fisicamenteEstructura] == 23 && $informacionObjeto[1] == 3) : ?>
+
+
+	<li class="nav-item <?=$objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("paidRecomendadosPlani", "paidAprobadosPlani", "reporteriaTransferenciaRecibidosAsignacionesAltoRen", "reporteriaAsignacion", "reporteriaTransferenciaRecibidosAsignacionesDesarrollo", "reporteriaTransferenciaAprobadoDesarrollo", "reporteriaAsignacionDesarrollo","reporteriaTransferenciaRecibidosAsignacionesInfraestructura","reporteriaTransferenciaAprobadoAltoRen","reporteriaTransferenciaRechazadoDesarrollo","reporteriaTransferenciaAprobadoInfraestructura","reporteriaTransferenciaRechazadoInfraestructura","reporteriaTransferenciaPAID")); ?>">
+
+		<a href="#" class="nav-link">
+			<i class="fa fa-money"></i>
+			&nbsp;
+			<p>
+				PAID
+				<i class="fa fa-angle-left right"></i>
+				<span class="badge badge-info right"></span>
+			</p>
+		</a>
+
+		<ul class="nav nav-treeview">
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("reporteriaTransferenciaRecibidosAsignacionesAltoRen","reporteriaTransferenciaAprobadoAltoRen", "reporteriaTransferenciaRechazadoAltoRen", "reporteriaAsignacion")); ?>">
+
+				<a href="#" class="nav-link">
+					<i class="fa fa-running"></i>
+					&nbsp;
+					<p>
+						Fortalecimiento del deporte de alto rendimiento del Ecuador
+						<i class="fa fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+
+				</a>
+
+				<ul class="nav nav-treeview">
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								1ra Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesAltoRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesAltoRen'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								2da Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesAltoRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesAltoRen'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								3ra Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesAltoRen" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesAltoRen'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+
+				</ul>
+
+			</li>
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("reporteriaTransferenciaRecibidosAsignacionesDesarrollo","reporteriaTransferenciaRechazadoDesarrollo", "reporteriaTransferenciaAprobadoDesarrollo", "reporteriaAsignacionDesarrollo")); ?>">
+
+				<a href="#" class="nav-link">
+					<i class="fa fa-swimmer"></i>
+					&nbsp;
+					<p>
+						Encuentro activo del deporte para el desarrollo
+						<i class="fa fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+
+				</a>
+
+				<ul class="nav nav-treeview">
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								1ra Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesDesarrollo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesDesarrollo'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								2da Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesDesarrollo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesDesarrollo'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								3ra Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesDesarrollo" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesDesarrollo'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+
+
+				</ul>
+
+			</li>
+
+			<li class="nav-item <?= $objetoInformacion->getUrlDinamicaUna('poa2/', $_SERVER['REQUEST_URI'], array("reporteriaTransferenciaRecibidosAsignacionesInfraestructura", "reporteriaTransferenciaAprobadoInfraestructura", "reporteriaAsignacionInfraestructura","reporteriaTransferenciaRechazadoInfraestructura")); ?>">
+
+				<a href="#" class="nav-link">
+					<i class="fa fa-gopuram"></i>
+					&nbsp;
+					<p>
+						Optimización de Infraestructura Deportiva a Nivel Nacional
+						<i class="fa fa-angle-left right"></i>
+						<span class="badge badge-info right"></span>
+					</p>
+
+				</a>
+
+				
+
+				<ul class="nav nav-treeview">
+
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								1ra Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesInfraestructura'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								2da Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesInfraestructura'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+					<li class="nav-item">
+
+						<a href="#" class="nav-link">
+							<i class="fa fa-money"></i>
+							&nbsp;
+							<p>
+								3ra Asignación
+								<i class="fa fa-angle-left right"></i>
+								<span class="badge badge-info right"></span>
+							</p>
+						</a>
+
+						<ul class="nav nav-treeview">
+
+						
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRecibidosAsignacionesInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRecibidosAsignacionesInfraestructura'); ?>">
+									<i class="fa fa-tasks"></i>
+									&nbsp;
+									<p>Recibidos</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaRechazadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaRechazadoInfraestructura'); ?>">
+									<i class="fa fa-file-alt"></i>
+									&nbsp;
+									<p>Rechazados</p>
+
+								</a>
+
+							</li>
+
+
+							<li class="nav-item">
+
+								<a href="reporteriaTransferenciaAprobadoInfraestructura" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaAprobadoInfraestructura'); ?>">
+									<i class="fa fa-clipboard"></i>
+									&nbsp;
+									<p>Validados</p>
+
+								</a>
+
+							</li>
+
+							
+						
+						</ul>
+					</li>
+
+
+				</ul>
+
+			</li>
+
+			<li class="nav-item">
+
+				<a href="reporteriaTransferenciaPAID" class="nav-link <?= $objetoInformacion->getUrlDinamica('poa2/', $_SERVER['REQUEST_URI'], 'reporteriaTransferenciaPAID'); ?>">
+					<i class="fa fa-clipboard"></i>
+					&nbsp;
+					<p>Reportería</p>
+
+				</a>
+
+			</li>
+
+
+			
+
+			
+
+		</ul>
+
+
+
+
+	</li>
+
+
+
+
+<?php endif ?>
+
+
+

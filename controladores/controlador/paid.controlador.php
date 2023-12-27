@@ -4572,6 +4572,72 @@ class componentesPaid
 	}
 
 
+	public function getModalMatricezObservaTransferenciasPaid($parametro1,$parametro2,$parametro3,$parametro4){
+
+
+		$modal="
+
+		<div class='modal modal__ItemsGrup fade' id='$parametro1' aria-hidden='true'>
+
+			<div class='modal-dialog' style='min-width:70%!important;'>
+
+				<form class='modal-content $parametro2' id='form-modal'>
+
+					<div class='modal-header row'>
+
+						<div class='col text-center'>
+
+						  <h5 class='modal-title titulo__mS mb-0'></h5>
+
+						</div>
+
+						<div class='col col-1' id='btn-cerrar__icon'>
+
+						  <button type='button' class='btn-close cerrar__modalRegistros modales__reload' data-bs-dismiss='modal' aria-label='Close'><i class='far fa-times-circle'></i></button>
+
+						</div>
+
+					</div>
+
+					<div class='modal-body row contenedor__bodyCMatriz'>
+
+						<input type='hidden' id='idOrganismoM' class='idOrganismoM'/>
+						<input type='hidden' id='texto__finan' name='texto__finan' />
+
+
+					</div>
+
+					<div class='modal-footer d d-flex justify-content-center row'>
+
+						<div class='col col-12 d d-flex justify-content-center flex-wrap grupo__especifico_botones'>
+
+							<a class='btn__enviar btn left__margen boton__enlacesOcultos' id='$parametro3' name='$parametro3'>$parametro4</a>
+
+							&nbsp;&nbsp;&nbsp;&nbsp;
+
+							<a type='button' class='btn btn-danger  left__margen modales__reload pointer__botones' data-dismiss='modal' aria-label='Close' aria-label='Close' id='btn-cerrar'>CERRAR</a>
+
+
+						</div>
+
+						<div class='col col-12 reolad__mMa text-center'></div>
+
+					</div>						
+
+				</form>
+
+			</div>
+
+		</div>
+
+		";
+
+		return $modal;
+
+
+	}
+
+
 	
 }
 

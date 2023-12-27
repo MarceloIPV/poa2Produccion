@@ -863,7 +863,7 @@
 	break;	
 
 	/*************************************  REMANENTES Monto asignado POA  ******************************* */
-	case "seguimiento__tablas__remanentes":
+	case "seguimiento__tablas__remanentes2023":
 
 		$zonal=$objeto->getObtenerInformacionGeneral("SELECT a.zonal,b.descripcionZonal FROM th_usuario AS a INNER JOIN th_zonal AS b ON a.zonal=b.id_Zonal WHERE a.id_usuario='$datos[0]';");
 					

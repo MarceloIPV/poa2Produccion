@@ -198,6 +198,8 @@
 				
 				}else if($_GET["ruta"]=="paidEnviados" || $_GET["ruta"]=="paidRecomendados" || $_GET["ruta"]=="reporteriaPaidF"){
 					require_once self::$vista.self::$contenidoVistas."PAID_REVISOR/".$_GET["ruta"].self::$nomenclatura;
+				}else if($_GET["ruta"]=="reporteriaTransferenciaRecibidosAltoRen" || $_GET["ruta"]=="reporteriaTransferenciaRecibidosDesarrollo" || $_GET["ruta"]=="reporteriaTransferenciaRecibidosInfraestructura" || $_GET["ruta"]=="reporteriaTransferenciaAprobadoAltoRen" || $_GET["ruta"]=="reporteriaTransferenciaAprobadoDesarrollo"|| $_GET["ruta"]=="reporteriaTransferenciaAprobadoInfraestructura"|| $_GET["ruta"]=="reporteriaTransferenciaRechazadoAltoRen"|| $_GET["ruta"]=="reporteriaTransferenciaRechazadoDesarrollo"|| $_GET["ruta"]=="reporteriaTransferenciaRechazadoInfraestructura"|| $_GET["ruta"]=="reporteriaTransferenciaPAID" || $_GET["ruta"]=="reporteriaTransferenciaRecibidosAsignacionesAltoRen" || $_GET["ruta"]=="reporteriaTransferenciaRecibidosAsignacionesDesarrollo" || $_GET["ruta"]=="reporteriaTransferenciaRecibidosAsignacionesInfraestructura"){
+					require_once self::$vista.self::$contenidoVistas."PAID_TRANSFERENCIAS/".$_GET["ruta"].self::$nomenclatura;
 				}else{
 					require_once self::$vista.self::$contenidoVistas.$_GET["ruta"].self::$nomenclatura;
 				}
